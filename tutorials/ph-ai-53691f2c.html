@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mise：让所有菜同时上桌的AI备餐规划师 - AI 玩法教程 · AI Frontier</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  details[open] summary { background: #f8fafc; }
+  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+<!-- 顶部导航 -->
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-40">
+  <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2 text-sm">
+      <a href="../index.html" class="text-slate-500 hover:text-slate-900">首页</a>
+      <span class="text-slate-300">/</span>
+      <a href="../playground.html" class="text-slate-500 hover:text-slate-900">玩法实验室</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-slate-900 font-semibold">教程</span>
+    </div>
+    <div class="text-xs text-slate-400">
+      2026-09-19
+    </div>
+  </div>
+</nav>
+
+<!-- Hero 区 -->
+<header class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white">
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <div class="flex items-center gap-2 mb-3 flex-wrap">
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        🔗 工具链
+      </span>
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        ★★★★☆ · 4/5
+      </span>
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        ⏱ 约 30min
+      </span>
+    </div>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">Mise：让所有菜同时上桌的AI备餐规划师</h1>
+    
+  </div>
+</header>
+
+<!-- 主体 -->
+<main class="max-w-4xl mx-auto px-4 py-8">
+
+  <!-- 来源元信息 -->
+  <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
+    
+<div class="flex items-center gap-2 mb-4 flex-wrap">
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    Product Hunt - AI 频道 · B级
+  </span>
+  
+  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
+    技术社区
+  </span>
+  <a href="https://www.producthunt.com/products/robot-recipes" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+    查看原文 →
+  </a>
+</div>
+    
+  </div>
+
+  
+<section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
+  <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
+  <p class="text-base text-slate-800 leading-relaxed">Mise 是一款能帮你把多道菜的烹饪时间线自动对齐的 AI 备餐规划师，让你告别“第一道菜凉了、最后一道菜还没熟”的尴尬。</p>
+</section>
+<aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
+  <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
+  <ul class="space-y-0.5"><li><a href="#prerequisites" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 🧰 准备工具</a></li><li><a href="#steps" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 📝 操作步骤</a></li><li><a href="#expected" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ ✨ 预期效果</a></li><li><a href="#faq" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ ❓ 常见问题</a></li><li><a href="#variants" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 🚀 进阶玩法</a></li></ul>
+</aside>
+<section class="mb-8">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🎯</span> 为什么值得玩
+  </h2>
+  <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
+    很多人做饭时最头疼的不是不会做，而是“同时上桌”这件事。比如做三菜一汤，炖菜要 40 分钟、炒菜要 10 分钟、汤要 20 分钟，如果按顺序做，先做好的菜早就凉了。Mise 的思路是：你只需输入想做的菜谱，它会自动拆解每道菜的步骤、耗时和依赖关系，然后生成一张“倒计时式”的备餐时间表，告诉你几点该切菜、几点该下锅、几点该关火。它适合家庭聚餐、节日大餐、备餐党，以及任何想提升厨房效率的人。
+  </p>
+</section>
+<section id="prerequisites" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🧰</span> 你需要准备
+  </h2>
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Mise（Robot Recipes）  <a href="https://www.producthunt.com/products/robot-recipes" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">核心 AI 备餐规划工具，输入菜谱后自动生成同步上桌的时间线</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">你常用的菜谱来源  <a href="https://www.xiachufang.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">比如下厨房、小红书、YouTube 或自己的笔记，用于提取菜谱步骤</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">ChatGPT / Claude / 豆包  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">可选，用于把非结构化菜谱整理成 Mise 能识别的清晰步骤</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">计时器或手机  <a href="https://www.google.com/search?q=online+timer" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于执行 Mise 生成的时间线，建议用多个计时器</div>
+    </li>
+  </ul>
+</section>
+<section id="steps" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+    <span class="text-3xl">📝</span> 一步步教你做
+  </h2>
+  <div class="space-y-0">
+    <div id="step-1" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        1
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：确定菜单并收集菜谱</h3>
+      <div class="text-base text-slate-700 leading-loose">先决定这顿饭要做哪几道菜，比如“红烧肉 + 清炒时蔬 + 番茄蛋汤 + 米饭”。然后从下厨房、小红书或自己的笔记里，把每道菜的完整步骤复制出来。注意要包含：食材准备、每一步的操作、每步大概耗时、是否需要预热或静置。如果菜谱写得比较乱，可以先丢给 ChatGPT 整理成“步骤 + 耗时”的清单。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>尽量选 3-5 道菜，太多会超出 Mise 的规划能力，也让你手忙脚乱。
+        </div>
+    </div>
+    <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        2
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：把菜谱输入 Mise</h3>
+      <div class="text-base text-slate-700 leading-loose">打开 Mise（Robot Recipes）页面，按照界面提示逐道添加菜谱。通常你需要粘贴菜谱文本，或者手动输入每道菜的步骤和预估时间。Mise 会自动识别哪些步骤可以并行、哪些必须串行。比如“切菜”可以和其他菜的“炖煮”同时进行。输入时尽量把“准备时间”和“烹饪时间”分开写，这样 AI 规划更准。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>如果 Mise 对某道菜识别不准，可以手动调整步骤顺序或时间，再重新生成。
+        </div>
+    </div>
+    <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        3
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：生成同步上桌时间线</h3>
+      <div class="text-base text-slate-700 leading-loose">点击“生成计划”或类似按钮，Mise 会输出一张倒计时时间表。它通常会以“上桌时间”为终点，倒推每一步的开始时间。例如：18:00 上桌，那么 17:20 开始炖红烧肉，17:40 开始煮汤，17:50 开始炒菜。时间表里会明确标注“现在做什么”“下一步做什么”“可以同时做什么”。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>把时间表截图或打印出来贴在厨房墙上，比手机翻来翻去更方便。
+        </div>
+    </div>
+    <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        4
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：按时间线执行并微调</h3>
+      <div class="text-base text-slate-700 leading-loose">按照 Mise 的时间线开始做饭。建议设置多个计时器：一个用于炖菜，一个用于汤，一个用于炒菜。如果某一步实际耗时比预估长，比如切菜慢了 5 分钟，可以手动把后续步骤顺延，或者跳过一些非关键步骤。Mise 的规划是参考，不是死命令。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>提前把食材和调料都切好、量好，能大幅减少执行时的混乱。
+        </div>
+    </div>
+    <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        5
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：复盘并保存模板</h3>
+      <div class="text-base text-slate-700 leading-loose">做完饭后，记录实际用时和 Mise 预估的差异。比如“红烧肉实际炖了 50 分钟，不是 40 分钟”。下次再用 Mise 规划类似菜单时，可以手动修正时间，让规划越来越准。如果这顿饭很成功，可以把整个菜单和时间表保存为模板，下次直接复用。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>把常用菜单（比如“周末三菜一汤”）保存成模板，以后一键生成时间线。
+        </div>
+    </div>
+  </div>
+</section>
+<section class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">✨</span> 完成后你会得到
+  </h2>
+  <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
+    你会得到一张以“上桌时间”为终点的倒计时备餐时间表，所有菜几乎同时完成，热菜热汤一起上桌。厨房里不再有“先做好的菜凉了”的问题，你也能更从容地招待客人或享受家庭晚餐。
+  </div>
+</section>
+<section id="faq" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">❓</span> 常见问题
+  </h2>
+  <div class="space-y-2">
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>Mise 支持中文菜谱吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">目前 Mise 主要面向英文菜谱，但你可以把中文菜谱翻译成英文再输入，或者用 ChatGPT 先整理成英文步骤。中文支持可能会逐步完善。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>如果我没有 Mise 账号，能用吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以先去 Product Hunt 页面查看是否提供免费试用或等待列表。如果暂时不能用，也可以用 ChatGPT 手动模拟：让 AI 帮你倒推时间线。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>Mise 能处理烤箱、空气炸锅、高压锅吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，只要你在菜谱步骤里注明设备名称和耗时，Mise 会尽量把它们纳入时间线。但不同设备的预热时间需要你手动补充。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>为什么我的时间线总是很紧张？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可能是菜谱步骤写得太粗，或者你选了太多需要长时间炖煮的菜。建议把准备步骤拆细，并搭配一些快炒菜来平衡。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>Mise 和普通计时器有什么区别？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">普通计时器只告诉你“什么时候关火”，Mise 告诉你“什么时候开始做每一步”，并且会协调多道菜的并行和串行关系，这是它最大的价值。</div>
+    </details>
+  </div>
+</section>
+<section class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🚀</span> 进阶玩法
+  </h2>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用 ChatGPT 手动模拟 Mise——把菜谱和上桌时间发给 ChatGPT，让它输出倒计时时间表，适合不想注册新工具的人。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：节日大餐模式——提前一天用 Mise 规划 6-8 道菜，把需要长时间腌制的步骤放在前一天晚上，当天只做烹饪和摆盘。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：备餐（Meal Prep）模式——用 Mise 规划一周的备餐，把相同食材的切配集中处理，再分装冷藏，每天只需加热或快炒。</li></ul>
+</section>
+<section class="mb-12">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">💡</span> 一句话总结
+  </h2>
+  <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
+    Mise 的精髓是把“做饭”变成“项目管理”：用 AI 倒推时间线，让所有菜同时上桌，你只需要按表执行。
+  </blockquote>
+</section>
+<section class="mb-12">
+  <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+    <span class="text-3xl">📚</span> 相关教程
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">字节开源超级智能体DeerFlow</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软开源神器：一键把文件转成Markdown</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">LangChain：5分钟搭建你的AI智能体</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
+    </a></div>
+</section>
+
+  <!-- 底部 -->
+  <footer class="text-center text-sm text-slate-400 mt-16 pt-8 border-t border-slate-200">
+    <p>本教程由 AI 玩法实验室 · LLM 自动生成 · 仅供学习参考</p>
+    <p class="mt-2"><a href="../playground.html" class="text-indigo-600 hover:underline">← 返回玩法实验室</a></p>
+  </footer>
+</main>
+
+
+<!-- 悬浮返回按钮 -->
+<a href="../playground.html" id="floatingHome"
+   class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold pl-4 pr-5 py-3 rounded-full shadow-2xl shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-105 transition-all duration-200"
+   style="display:none; opacity:0; transform:translateY(10px);">
+  
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12L12 3l9 9"/>
+        <path d="M5 10v10h14V10"/>
+      </svg>
+  <span class="text-sm">返回首页</span>
+</a>
+
+<script>
+(function() {
+  var btn = document.getElementById('floatingHome');
+  if (!btn) return;
+  var threshold = 300;
+  function check() {
+    if (window.scrollY > threshold) {
+      btn.style.display = 'flex';
+      requestAnimationFrame(function() {
+        btn.style.opacity = '1';
+        btn.style.transform = 'translateY(0)';
+      });
+    } else {
+      btn.style.opacity = '0';
+      btn.style.transform = 'translateY(10px)';
+      setTimeout(function() {
+        if (window.scrollY <= threshold) btn.style.display = 'none';
+      }, 250);
+    }
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+  setTimeout(check, 50);
+})();
+</script>
+
+
+</body>
+</html>

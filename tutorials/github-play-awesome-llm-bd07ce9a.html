@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中文大模型宝藏库：小模型也能私有化部署 - AI 玩法教程 · AI Frontier</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  details[open] summary { background: #f8fafc; }
+  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+<!-- 顶部导航 -->
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-40">
+  <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2 text-sm">
+      <a href="../index.html" class="text-slate-500 hover:text-slate-900">首页</a>
+      <span class="text-slate-300">/</span>
+      <a href="../playground.html" class="text-slate-500 hover:text-slate-900">玩法实验室</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-slate-900 font-semibold">教程</span>
+    </div>
+    <div class="text-xs text-slate-400">
+      2026-09-19
+    </div>
+  </div>
+</nav>
+
+<!-- Hero 区 -->
+<header class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white">
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <div class="flex items-center gap-2 mb-3 flex-wrap">
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        🚀 可立即试用
+      </span>
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        ★★★☆☆ · 3/5
+      </span>
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        ⏱ 约 10min
+      </span>
+    </div>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">中文大模型宝藏库：小模型也能私有化部署</h1>
+    
+  </div>
+</header>
+
+<!-- 主体 -->
+<main class="max-w-4xl mx-auto px-4 py-8">
+
+  <!-- 来源元信息 -->
+  <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
+    
+<div class="flex items-center gap-2 mb-4 flex-wrap">
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    GitHub Awesome LLM · B级
+  </span>
+  
+  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
+    技术社区
+  </span>
+  <a href="https://github.com/AiHubCN/Awesome-Chinese-LLM" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+    查看原文 →
+  </a>
+</div>
+    
+  </div>
+
+  
+<section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
+  <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
+  <p class="text-base text-slate-800 leading-relaxed">想玩转中文大模型又不想烧钱买显卡？这个 GitHub 宝藏库帮你找到能私有化部署的小模型，从底座到微调一站式搞定。</p>
+</section>
+<aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
+  <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
+  <ul class="space-y-0.5"><li><a href="#prerequisites" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 🧰 准备工具</a></li><li><a href="#steps" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 📝 操作步骤</a></li><li><a href="#expected" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ ✨ 预期效果</a></li><li><a href="#faq" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ ❓ 常见问题</a></li><li><a href="#variants" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 🚀 进阶玩法</a></li></ul>
+</aside>
+<section class="mb-8">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🎯</span> 为什么值得玩
+  </h2>
+  <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
+    很多开发者想本地跑大模型，但动辄 70B 参数让消费级显卡望而却步。Awesome-Chinese-LLM 这个项目专门整理了规模小、训练成本低、可私有化部署的中文模型，包括底座模型、垂直领域微调版本、数据集和教程。无论你是想搭建个人知识库、做行业客服机器人，还是研究微调技术，都能在这里找到合适的起点。目前该项目已获得 2.2 万+ star，是中文 LLM 领域最实用的资源合集之一。
+  </p>
+</section>
+<section id="prerequisites" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🧰</span> 你需要准备
+  </h2>
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">GitHub 账号  <a href="https://github.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于访问仓库、star 项目、提交 issue 或 PR</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Git 客户端  <a href="https://git-scm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">克隆仓库到本地，方便离线查阅</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Python 3.8+ 与 pip  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行模型推理和微调脚本的基础环境</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">CUDA 或 CPU 推理环境  <a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">根据模型大小选择，小模型可纯 CPU 运行，推荐至少 16GB 内存</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Hugging Face 账号  <a href="https://huggingface.co" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">下载模型权重和数据集（部分模型需申请权限）</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">文本编辑器或 IDE  <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">如 VS Code，用于查看 README 和修改配置</div>
+    </li>
+  </ul>
+</section>
+<section id="steps" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+    <span class="text-3xl">📝</span> 一步步教你做
+  </h2>
+  <div class="space-y-0">
+    <div id="step-1" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        1
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：克隆仓库并浏览目录结构</h3>
+      <div class="text-base text-slate-700 leading-loose">打开终端，执行 git clone https://github.com/AiHubCN/Awesome-Chinese-LLM.git，然后 cd Awesome-Chinese-LLM。用 VS Code 打开该文件夹，你会看到 README.md 中按类别整理了模型列表，包括底座模型、垂直领域微调、数据集、教程等。先花 10 分钟浏览目录，标记出你感兴趣的 2-3 个模型。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>如果 GitHub 访问慢，可以用 Gitee 镜像或代理加速；建议先 star 仓库方便后续查找。
+        </div>
+    </div>
+    <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        2
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：筛选适合你硬件的小模型</h3>
+      <div class="text-base text-slate-700 leading-loose">在 README 中搜索关键词如“小模型”“私有化”“CPU 可跑”，重点关注参数量在 1B-7B 之间的模型，例如 ChatGLM3-6B、Qwen-1.8B、Baichuan2-7B 等。查看每个模型旁边的说明，确认是否支持量化（如 4-bit 量化后仅需 4GB 显存）。记录下 2-3 个候选模型的名称和 Hugging Face 链接。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>优先选择有 GGUF 或 GPTQ 量化版本的模型，这样在消费级显卡甚至 CPU 上都能流畅运行。
+        </div>
+    </div>
+    <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        3
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：下载模型权重并配置环境</h3>
+      <div class="text-base text-slate-700 leading-loose">以 ChatGLM3-6B 为例，在 Hugging Face 上搜索“THUDM/chatglm3-6b”，用 git lfs 克隆或直接下载。然后创建 Python 虚拟环境：python -m venv venv，激活后安装依赖：pip install torch transformers sentencepiece accelerate。如果使用量化版本，还需安装 bitsandbytes 或 ctransformers。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>下载大文件时建议用 huggingface-cli 或 aria2 多线程，避免中断；国内可用 modelscope 镜像下载。
+        </div>
+    </div>
+    <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        4
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：运行推理脚本测试模型</h3>
+      <div class="text-base text-slate-700 leading-loose">在仓库的教程区找到对应模型的快速开始代码，或直接使用 transformers 写一个简单脚本：加载 tokenizer 和 model，输入“你好，请介绍一下你自己”，设置 max_length=512，调用 model.generate()。观察输出是否通顺、是否符合中文习惯。如果显存不足，加载时加上 load_in_4bit=True 或 load_in_8bit=True。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>首次运行会下载模型，耐心等待；如果报错 CUDA out of memory，尝试减小 batch size 或使用 CPU 模式。
+        </div>
+    </div>
+    <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        5
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：按需微调或接入应用</h3>
+      <div class="text-base text-slate-700 leading-loose">如果预训练模型效果不满足需求，可以在仓库中找到垂直领域微调教程，使用 LoRA 或 P-Tuning 对模型进行轻量微调。准备自己的问答数据集（JSON 格式），运行微调脚本，通常 1-2 小时即可完成。微调后可将模型接入 LangChain、FastAPI 或 Gradio，搭建个人知识库或聊天机器人。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>微调前先用小样本测试，避免过拟合；LoRA 微调只需训练少量参数，8GB 显存足够。
+        </div>
+    </div>
+  </div>
+</section>
+<section class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">✨</span> 完成后你会得到
+  </h2>
+  <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
+    成功在本地或服务器上运行一个中文小模型，能够流畅回答中文问题，并可根据需要微调成专属领域助手。你会在终端或 Web 界面看到模型生成的连贯中文回复，显存占用控制在 4-8GB 以内。
+  </div>
+</section>
+<section id="faq" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">❓</span> 常见问题
+  </h2>
+  <div class="space-y-2">
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>没有独立显卡能玩吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。选择 1B-3B 的小模型并量化到 4-bit，纯 CPU 加 16GB 内存就能跑，只是速度较慢（每秒几个字）。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>哪个模型最适合中文私有化部署？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">推荐 ChatGLM3-6B、Qwen-1.8B 和 Baichuan2-7B，它们中文能力强、社区活跃、量化版本齐全。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>下载模型太慢怎么办？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">使用 Hugging Face 镜像站 hf-mirror.com，或从 ModelScope 下载，也可以用 git lfs 配合代理。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>微调需要多少数据？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">LoRA 微调通常 500-2000 条高质量问答即可见效，数据要覆盖你的目标场景，格式统一为 instruction/input/output。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>商用需要授权吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不同模型协议不同，如 ChatGLM3 需遵守其模型许可，Qwen 部分版本可商用，使用前务必查看 LICENSE 文件。</div>
+    </details>
+  </div>
+</section>
+<section class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🚀</span> 进阶玩法
+  </h2>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用 Ollama 一键拉取小模型（如 qwen:1.8b、chatglm3:6b），无需手动配置环境，适合快速体验。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：结合 LangChain + Chroma 搭建本地知识库问答，将你的 PDF/Word 文档向量化后喂给模型。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用 Gradio 或 Streamlit 为模型套一个 Web UI，分享给团队内部使用，支持多轮对话和历史记录。</li></ul>
+</section>
+<section class="mb-12">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">💡</span> 一句话总结
+  </h2>
+  <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
+    从 Awesome-Chinese-LLM 宝藏库中挑选小模型，按需量化、微调、部署，低成本拥有自己的中文 AI 助手。
+  </blockquote>
+</section>
+<section class="mb-12">
+  <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+    <span class="text-3xl">📚</span> 相关教程
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">字节开源超级智能体DeerFlow</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软开源神器：一键把文件转成Markdown</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">LangChain：5分钟搭建你的AI智能体</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
+    </a></div>
+</section>
+
+  <!-- 底部 -->
+  <footer class="text-center text-sm text-slate-400 mt-16 pt-8 border-t border-slate-200">
+    <p>本教程由 AI 玩法实验室 · LLM 自动生成 · 仅供学习参考</p>
+    <p class="mt-2"><a href="../playground.html" class="text-indigo-600 hover:underline">← 返回玩法实验室</a></p>
+  </footer>
+</main>
+
+
+<!-- 悬浮返回按钮 -->
+<a href="../playground.html" id="floatingHome"
+   class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold pl-4 pr-5 py-3 rounded-full shadow-2xl shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-105 transition-all duration-200"
+   style="display:none; opacity:0; transform:translateY(10px);">
+  
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12L12 3l9 9"/>
+        <path d="M5 10v10h14V10"/>
+      </svg>
+  <span class="text-sm">返回首页</span>
+</a>
+
+<script>
+(function() {
+  var btn = document.getElementById('floatingHome');
+  if (!btn) return;
+  var threshold = 300;
+  function check() {
+    if (window.scrollY > threshold) {
+      btn.style.display = 'flex';
+      requestAnimationFrame(function() {
+        btn.style.opacity = '1';
+        btn.style.transform = 'translateY(0)';
+      });
+    } else {
+      btn.style.opacity = '0';
+      btn.style.transform = 'translateY(10px)';
+      setTimeout(function() {
+        if (window.scrollY <= threshold) btn.style.display = 'none';
+      }, 250);
+    }
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+  setTimeout(check, 50);
+})();
+</script>
+
+
+</body>
+</html>

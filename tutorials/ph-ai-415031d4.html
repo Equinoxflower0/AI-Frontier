@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumiko：录屏自动缩放平移，剪辑零操作 - AI 玩法教程 · AI Frontier</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  details[open] summary { background: #f8fafc; }
+  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+<!-- 顶部导航 -->
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-40">
+  <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2 text-sm">
+      <a href="../index.html" class="text-slate-500 hover:text-slate-900">首页</a>
+      <span class="text-slate-300">/</span>
+      <a href="../playground.html" class="text-slate-500 hover:text-slate-900">玩法实验室</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-slate-900 font-semibold">教程</span>
+    </div>
+    <div class="text-xs text-slate-400">
+      2026-09-19
+    </div>
+  </div>
+</nav>
+
+<!-- Hero 区 -->
+<header class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white">
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <div class="flex items-center gap-2 mb-3 flex-wrap">
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        🔗 工具链
+      </span>
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        ★★★★☆ · 4/5
+      </span>
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        ⏱ 约 30min
+      </span>
+    </div>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">Lumiko：录屏自动缩放平移，剪辑零操作</h1>
+    
+  </div>
+</header>
+
+<!-- 主体 -->
+<main class="max-w-4xl mx-auto px-4 py-8">
+
+  <!-- 来源元信息 -->
+  <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
+    
+<div class="flex items-center gap-2 mb-4 flex-wrap">
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    Product Hunt - AI 频道 · B级
+  </span>
+  
+  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
+    技术社区
+  </span>
+  <a href="https://www.producthunt.com/products/lumiko" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+    查看原文 →
+  </a>
+</div>
+    
+  </div>
+
+  
+<section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
+  <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
+  <p class="text-base text-slate-800 leading-relaxed">Lumiko 是一款能自动为录屏添加缩放和平移效果的 AI 工具，让你无需手动剪辑就能获得专业级的视频动态感。</p>
+</section>
+<aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
+  <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
+  <ul class="space-y-0.5"><li><a href="#prerequisites" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 🧰 准备工具</a></li><li><a href="#steps" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 📝 操作步骤</a></li><li><a href="#expected" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ ✨ 预期效果</a></li><li><a href="#faq" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ ❓ 常见问题</a></li><li><a href="#variants" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 🚀 进阶玩法</a></li></ul>
+</aside>
+<section class="mb-8">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🎯</span> 为什么值得玩
+  </h2>
+  <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
+    在制作教程、产品演示或游戏录屏时，静态画面容易让观众失去焦点。传统剪辑需要手动打关键帧，耗时且不自然。Lumiko 利用 AI 分析录屏中的鼠标点击、输入和界面变化，自动生成平滑的缩放与平移，把枯燥的录屏变成有节奏的视觉引导。它特别适合软件教学、远程协作和内容创作者，能节省 80% 以上的剪辑时间。
+  </p>
+</section>
+<section id="prerequisites" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🧰</span> 你需要准备
+  </h2>
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Lumiko  <a href="https://www.producthunt.com/products/lumiko" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">核心工具，自动为录屏添加缩放平移效果</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">录屏工具（如 OBS Studio、QuickTime、Loom）  <a href="https://obsproject.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于录制原始屏幕视频</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">视频编辑软件（可选，如 DaVinci Resolve、剪映）  <a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于后期微调或导出</div>
+    </li>
+  </ul>
+</section>
+<section id="steps" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+    <span class="text-3xl">📝</span> 一步步教你做
+  </h2>
+  <div class="space-y-0">
+    <div id="step-1" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        1
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：录制高质量原始屏幕视频</h3>
+      <div class="text-base text-slate-700 leading-loose">使用 OBS Studio 或系统自带录屏工具，以 1080p 或更高分辨率录制你的操作过程。确保鼠标点击和键盘输入清晰可见，避免录制过程中切换窗口过于频繁。录制时尽量保持操作节奏平稳，这样 AI 分析会更准确。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>建议关闭无关通知，并调高鼠标指针大小，方便 AI 识别点击位置。
+        </div>
+    </div>
+    <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        2
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：将录屏导入 Lumiko</h3>
+      <div class="text-base text-slate-700 leading-loose">打开 Lumiko 网页应用，点击“Upload”按钮上传你的录屏文件。支持 MP4、MOV 等常见格式，上传后系统会自动开始分析视频中的交互事件。等待进度条完成，通常 1 分钟视频需要 10-20 秒处理时间。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>如果视频较长，可以先裁剪出核心片段再上传，处理更快。
+        </div>
+    </div>
+    <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        3
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：预览并调整自动生成的缩放平移</h3>
+      <div class="text-base text-slate-700 leading-loose">Lumiko 会生成一个带有动态缩放和平移的预览视频。你可以播放查看效果，AI 通常会在鼠标点击、输入框聚焦、菜单展开等位置自动放大。如果某些区域不需要缩放，可以在时间轴上取消勾选对应事件。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>优先保留关键操作点的缩放，避免全片都在运动，否则观众会晕。
+        </div>
+    </div>
+    <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        4
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：微调参数与风格</h3>
+      <div class="text-base text-slate-700 leading-loose">在右侧面板调整“缩放强度”“平移速度”“平滑度”等参数。缩放强度建议 1.5x-2.5x，平移速度选择“中等”或“慢速”更自然。还可以开启“跟随鼠标”模式，让镜头始终追踪光标。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>如果视频用于移动端观看，适当降低缩放强度，避免画面裁剪过多。
+        </div>
+    </div>
+    <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        5
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：导出并分享</h3>
+      <div class="text-base text-slate-700 leading-loose">确认效果后，点击“Export”导出视频。Lumiko 支持导出 MP4 格式，分辨率可选 720p、1080p 或 4K。导出后可直接上传到 YouTube、B站或嵌入到文档中。如果需要进一步剪辑，可以导出为 XML 时间线导入到 DaVinci Resolve。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>导出前先预览一遍完整视频，确保没有遗漏或错误的缩放区域。
+        </div>
+    </div>
+  </div>
+</section>
+<section class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">✨</span> 完成后你会得到
+  </h2>
+  <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
+    你会得到一个带有智能缩放和平移效果的录屏视频，画面会在关键操作处自动放大并平滑移动，看起来像专业剪辑师手动打的关键帧，但全程无需你操作时间轴。
+  </div>
+</section>
+<section id="faq" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">❓</span> 常见问题
+  </h2>
+  <div class="space-y-2">
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>Lumiko 支持哪些录屏格式？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">支持 MP4、MOV、AVI 等主流格式，推荐使用 MP4（H.264 编码）以获得最佳兼容性。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>自动缩放效果不准确怎么办？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以在时间轴上手动删除或添加缩放事件，也可以调整“灵敏度”参数让 AI 更激进或保守。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>Lumiko 是免费的吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Lumiko 提供免费试用版，导出视频可能带有水印或时长限制。付费版解锁无水印、4K 导出和批量处理。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>处理一个 10 分钟的视频需要多久？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常需要 1-3 分钟，具体取决于视频分辨率和服务器负载。建议先裁剪再上传。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>可以只对部分片段应用自动缩放吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。在时间轴上选择需要处理的区间，然后点击“仅对此段应用 AI 缩放”即可。</div>
+    </details>
+  </div>
+</section>
+<section class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🚀</span> 进阶玩法
+  </h2>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：结合 Loom 录制，直接使用 Lumiko 的 API 自动处理，实现“录制-上传-导出”全自动化流水线。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：将 Lumiko 导出的视频导入剪映，添加字幕和背景音乐，制作成完整的教学短视频。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用于游戏录屏，开启“高动态模式”让 AI 根据击杀或爆炸事件自动缩放，增强观赏性。</li></ul>
+</section>
+<section class="mb-12">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">💡</span> 一句话总结
+  </h2>
+  <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
+    Lumiko 把录屏剪辑中最枯燥的缩放平移交给 AI，你只需录制和微调，就能让视频拥有专业级的视觉节奏。
+  </blockquote>
+</section>
+<section class="mb-12">
+  <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+    <span class="text-3xl">📚</span> 相关教程
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">字节开源超级智能体DeerFlow</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软开源神器：一键把文件转成Markdown</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">LangChain：5分钟搭建你的AI智能体</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
+    </a></div>
+</section>
+
+  <!-- 底部 -->
+  <footer class="text-center text-sm text-slate-400 mt-16 pt-8 border-t border-slate-200">
+    <p>本教程由 AI 玩法实验室 · LLM 自动生成 · 仅供学习参考</p>
+    <p class="mt-2"><a href="../playground.html" class="text-indigo-600 hover:underline">← 返回玩法实验室</a></p>
+  </footer>
+</main>
+
+
+<!-- 悬浮返回按钮 -->
+<a href="../playground.html" id="floatingHome"
+   class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold pl-4 pr-5 py-3 rounded-full shadow-2xl shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-105 transition-all duration-200"
+   style="display:none; opacity:0; transform:translateY(10px);">
+  
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12L12 3l9 9"/>
+        <path d="M5 10v10h14V10"/>
+      </svg>
+  <span class="text-sm">返回首页</span>
+</a>
+
+<script>
+(function() {
+  var btn = document.getElementById('floatingHome');
+  if (!btn) return;
+  var threshold = 300;
+  function check() {
+    if (window.scrollY > threshold) {
+      btn.style.display = 'flex';
+      requestAnimationFrame(function() {
+        btn.style.opacity = '1';
+        btn.style.transform = 'translateY(0)';
+      });
+    } else {
+      btn.style.opacity = '0';
+      btn.style.transform = 'translateY(10px)';
+      setTimeout(function() {
+        if (window.scrollY <= threshold) btn.style.display = 'none';
+      }, 250);
+    }
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+  setTimeout(check, 50);
+})();
+</script>
+
+
+</body>
+</html>

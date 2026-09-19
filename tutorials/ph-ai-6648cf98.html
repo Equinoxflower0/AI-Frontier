@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basedash Models：定义一次，像查表一样查询 - AI 玩法教程 · AI Frontier</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  details[open] summary { background: #f8fafc; }
+  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+<!-- 顶部导航 -->
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-40">
+  <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2 text-sm">
+      <a href="../index.html" class="text-slate-500 hover:text-slate-900">首页</a>
+      <span class="text-slate-300">/</span>
+      <a href="../playground.html" class="text-slate-500 hover:text-slate-900">玩法实验室</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-slate-900 font-semibold">教程</span>
+    </div>
+    <div class="text-xs text-slate-400">
+      2026-09-19
+    </div>
+  </div>
+</nav>
+
+<!-- Hero 区 -->
+<header class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white">
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <div class="flex items-center gap-2 mb-3 flex-wrap">
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        🔗 工具链
+      </span>
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        ★★★★☆ · 4/5
+      </span>
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        ⏱ 约 30min
+      </span>
+    </div>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">Basedash Models：定义一次，像查表一样查询</h1>
+    
+  </div>
+</header>
+
+<!-- 主体 -->
+<main class="max-w-4xl mx-auto px-4 py-8">
+
+  <!-- 来源元信息 -->
+  <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
+    
+<div class="flex items-center gap-2 mb-4 flex-wrap">
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    Product Hunt - AI 频道 · B级
+  </span>
+  
+  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
+    技术社区
+  </span>
+  <a href="https://www.producthunt.com/products/basedash" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+    查看原文 →
+  </a>
+</div>
+    
+  </div>
+
+  
+<section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
+  <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
+  <p class="text-base text-slate-800 leading-relaxed">Basedash Models 让你把散落在 SQL、API、CSV 里的数据源，用一段声明式定义变成一张可以像查表一样查询的虚拟表，从此告别重复写 JOIN 和清洗逻辑。</p>
+</section>
+<aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
+  <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
+  <ul class="space-y-0.5"><li><a href="#prerequisites" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 🧰 准备工具</a></li><li><a href="#steps" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 📝 操作步骤</a></li><li><a href="#expected" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ ✨ 预期效果</a></li><li><a href="#faq" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ ❓ 常见问题</a></li><li><a href="#variants" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 🚀 进阶玩法</a></li></ul>
+</aside>
+<section class="mb-8">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🎯</span> 为什么值得玩
+  </h2>
+  <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
+    很多团队的数据分析流程是：从数据库拉原始表 → 在 BI 工具里写复杂 SQL → 每次换维度都要重写。Basedash Models 的思路是「定义一次，查询多次」：你先把业务逻辑（比如「活跃用户」= 过去 7 天登录且完成过订单）用模型定义好，之后无论是产品经理查数、运营拉名单，还是接 API 做自动化，都直接 SELECT * FROM 这个模型即可。它适合数据工程师、分析师和需要频繁取数的运营团队，能显著减少重复沟通和 SQL 复制粘贴。
+  </p>
+</section>
+<section id="prerequisites" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🧰</span> 你需要准备
+  </h2>
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Basedash 账号  <a href="https://www.producthunt.com/products/basedash" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于创建和管理 Models，支持连接多种数据源</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">一个可访问的数据库或数据源  <a href="https://www.basedash.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">如 PostgreSQL、MySQL、BigQuery、Snowflake 或 CSV 文件</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">基础 SQL 知识  <a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">能看懂 SELECT、JOIN、WHERE 即可，不需要会写复杂查询</div>
+    </li>
+  </ul>
+</section>
+<section id="steps" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+    <span class="text-3xl">📝</span> 一步步教你做
+  </h2>
+  <div class="space-y-0">
+    <div id="step-1" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        1
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：连接你的数据源</h3>
+      <div class="text-base text-slate-700 leading-loose">登录 Basedash 后，进入 Settings → Data Sources，选择你的数据库类型（如 PostgreSQL），填入主机、端口、数据库名、用户名和密码。测试连接成功后保存。如果你用的是 CSV，也可以直接上传文件作为数据源。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>建议先用只读账号连接，避免误操作生产数据。
+        </div>
+    </div>
+    <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        2
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：创建一个 Model 并定义业务逻辑</h3>
+      <div class="text-base text-slate-700 leading-loose">点击 Models → New Model，给它起一个业务化的名字，比如 active_users。在定义区里写一段 SQL 或使用可视化选择器：从 users 表 JOIN orders 表，筛选最近 7 天有登录且订单数大于 0 的用户。Basedash 会把这段逻辑保存为模型，而不是每次查询时重写。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>模型命名尽量用业务语言，比如「高价值客户」而不是「users_join_orders_v2」。
+        </div>
+    </div>
+    <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        3
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：像查表一样查询 Model</h3>
+      <div class="text-base text-slate-700 leading-loose">保存模型后，在 Query 编辑器里直接输入 SELECT * FROM active_users WHERE country = 'CN' LIMIT 100。你会发现不需要再写 JOIN 和子查询，模型已经帮你封装好了。也可以在产品界面里用筛选器点选，Basedash 会自动生成查询。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>把常用筛选条件保存为视图，下次一键调用。
+        </div>
+    </div>
+    <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        4
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：分享与协作</h3>
+      <div class="text-base text-slate-700 leading-loose">点击模型右上角的 Share，把链接发给产品经理或运营同事。他们不需要懂 SQL，直接在界面上筛选、排序、导出 CSV。你还可以设置权限，控制谁能看哪些模型。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>给模型加上描述和字段说明，减少「这个字段什么意思」的沟通成本。
+        </div>
+    </div>
+    <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        5
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：接入 API 或自动化流程</h3>
+      <div class="text-base text-slate-700 leading-loose">Basedash 为每个模型生成 REST API 端点。你可以在 Zapier、Make 或自己的后端服务里调用这个 API，把模型数据同步到 Google Sheets、发送 Slack 通知或写入数据仓库。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>API 返回的是 JSON，建议在调用方做一层缓存，避免频繁请求。
+        </div>
+    </div>
+  </div>
+</section>
+<section class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">✨</span> 完成后你会得到
+  </h2>
+  <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
+    你会在 Basedash 里看到一个名为 active_users 的模型，点击即可预览数据；在 Query 编辑器里用 SELECT * FROM active_users 能直接返回结果；分享链接后，非技术同事也能自助筛选和导出。
+  </div>
+</section>
+<section id="faq" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">❓</span> 常见问题
+  </h2>
+  <div class="space-y-2">
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>Basedash Models 和普通 SQL 视图有什么区别？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">普通视图通常只存在于数据库里，而 Basedash Models 是跨数据源的抽象层，可以混合 SQL 表、API 和 CSV，并且自带权限、分享和 API 能力。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>我需要会写复杂 SQL 吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要。基础 SELECT 和 JOIN 就够，Basedash 也提供可视化查询构建器，复杂逻辑可以请数据工程师一次性定义好。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>模型定义后，底层表结构变了怎么办？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">如果底层字段改名或删除，模型会报错。建议在 Basedash 里开启 schema 监控，或者用 dbt 等工具管理上游变更。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>免费版够用吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Basedash 提供免费试用，适合小团队验证。如果模型数量多、需要 API 调用或细粒度权限，建议升级到付费版。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>能连接多个数据源到一个模型吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。Basedash 支持跨源 JOIN，比如把 PostgreSQL 的用户表和 Google Sheets 的订单表关联起来。</div>
+    </details>
+  </div>
+</section>
+<section class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🚀</span> 进阶玩法
+  </h2>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把模型当作内部数据 API——用 Basedash 定义好「每日活跃用户」「月度收入」等模型，前端或移动端直接调用 API 获取数据，省去后端写接口。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用模型做自动化报表——将模型 API 接入 Google Sheets 或 Notion，设置定时刷新，每天自动生成运营日报。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：多团队共享语义层——市场、销售、产品各自定义自己的模型，但都基于同一套底层表，避免口径不一致。</li></ul>
+</section>
+<section class="mb-12">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">💡</span> 一句话总结
+  </h2>
+  <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
+    Basedash Models 的精髓是：把业务逻辑从重复 SQL 中抽出来，定义一次，之后所有人像查表一样查询。
+  </blockquote>
+</section>
+<section class="mb-12">
+  <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+    <span class="text-3xl">📚</span> 相关教程
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">字节开源超级智能体DeerFlow</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软开源神器：一键把文件转成Markdown</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">LangChain：5分钟搭建你的AI智能体</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
+    </a></div>
+</section>
+
+  <!-- 底部 -->
+  <footer class="text-center text-sm text-slate-400 mt-16 pt-8 border-t border-slate-200">
+    <p>本教程由 AI 玩法实验室 · LLM 自动生成 · 仅供学习参考</p>
+    <p class="mt-2"><a href="../playground.html" class="text-indigo-600 hover:underline">← 返回玩法实验室</a></p>
+  </footer>
+</main>
+
+
+<!-- 悬浮返回按钮 -->
+<a href="../playground.html" id="floatingHome"
+   class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold pl-4 pr-5 py-3 rounded-full shadow-2xl shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-105 transition-all duration-200"
+   style="display:none; opacity:0; transform:translateY(10px);">
+  
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12L12 3l9 9"/>
+        <path d="M5 10v10h14V10"/>
+      </svg>
+  <span class="text-sm">返回首页</span>
+</a>
+
+<script>
+(function() {
+  var btn = document.getElementById('floatingHome');
+  if (!btn) return;
+  var threshold = 300;
+  function check() {
+    if (window.scrollY > threshold) {
+      btn.style.display = 'flex';
+      requestAnimationFrame(function() {
+        btn.style.opacity = '1';
+        btn.style.transform = 'translateY(0)';
+      });
+    } else {
+      btn.style.opacity = '0';
+      btn.style.transform = 'translateY(10px)';
+      setTimeout(function() {
+        if (window.scrollY <= threshold) btn.style.display = 'none';
+      }, 250);
+    }
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+  setTimeout(check, 50);
+})();
+</script>
+
+
+</body>
+</html>

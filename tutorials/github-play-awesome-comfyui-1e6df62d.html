@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ComfyUI 神级节点合集，一键解锁 - AI 玩法教程 · AI Frontier</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  details[open] summary { background: #f8fafc; }
+  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+<!-- 顶部导航 -->
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-40">
+  <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2 text-sm">
+      <a href="../index.html" class="text-slate-500 hover:text-slate-900">首页</a>
+      <span class="text-slate-300">/</span>
+      <a href="../playground.html" class="text-slate-500 hover:text-slate-900">玩法实验室</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-slate-900 font-semibold">教程</span>
+    </div>
+    <div class="text-xs text-slate-400">
+      2026-09-19
+    </div>
+  </div>
+</nav>
+
+<!-- Hero 区 -->
+<header class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white">
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <div class="flex items-center gap-2 mb-3 flex-wrap">
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        🧭 工作流
+      </span>
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        ★★★★☆ · 4/5
+      </span>
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        ⏱ 约 30min
+      </span>
+    </div>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">ComfyUI 神级节点合集，一键解锁</h1>
+    
+  </div>
+</header>
+
+<!-- 主体 -->
+<main class="max-w-4xl mx-auto px-4 py-8">
+
+  <!-- 来源元信息 -->
+  <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
+    
+<div class="flex items-center gap-2 mb-4 flex-wrap">
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    GitHub Awesome ComfyUI · B级
+  </span>
+  
+  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
+    技术社区
+  </span>
+  <a href="https://github.com/ComfyUI-Workflow/awesome-comfyui" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+    查看原文 →
+  </a>
+</div>
+    
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">Stable Diffusion</span></div>
+</div>
+  </div>
+
+  
+<section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
+  <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
+  <p class="text-base text-slate-800 leading-relaxed">ComfyUI 的节点生态浩如烟海，但真正好用的自定义节点往往散落在各个仓库里。今天带你用 GitHub 上 739 星的 Awesome ComfyUI 合集，一次性把神级节点装进你的工作流，效率直接翻倍。</p>
+</section>
+<aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
+  <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
+  <ul class="space-y-0.5"><li><a href="#prerequisites" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 🧰 准备工具</a></li><li><a href="#steps" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 📝 操作步骤</a></li><li><a href="#expected" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ ✨ 预期效果</a></li><li><a href="#faq" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ ❓ 常见问题</a></li><li><a href="#variants" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 🚀 进阶玩法</a></li></ul>
+</aside>
+<section class="mb-8">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🎯</span> 为什么值得玩
+  </h2>
+  <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
+    ComfyUI 本身是一个基于节点流的 Stable Diffusion 前端，灵活但原生节点有限。社区开发了大量自定义节点，能实现换脸、高清修复、动态提示词、工作流管理等功能。Awesome ComfyUI 这个仓库由 ComfyUI-Workflow 维护，系统整理了最值得安装的节点包，并附有分类和链接。对于想从“能用”进阶到“好用”的玩家，这份合集就是你的节点超市。
+  </p>
+</section>
+<section id="prerequisites" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🧰</span> 你需要准备
+  </h2>
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">ComfyUI  <a href="https://github.com/comfyanonymous/ComfyUI" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">核心运行环境，建议使用官方便携版或 git 克隆安装</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">ComfyUI Manager  <a href="https://github.com/ltdrdata/ComfyUI-Manager" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">节点管理器，用于一键安装、更新、禁用自定义节点</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于克隆仓库或手动安装节点</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">ComfyUI 运行依赖，部分节点需要特定版本</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Awesome ComfyUI 合集  <a href="https://github.com/ComfyUI-Workflow/awesome-comfyui" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">本教程的核心参考列表，包含节点分类和链接</div>
+    </li>
+  </ul>
+</section>
+<section id="steps" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+    <span class="text-3xl">📝</span> 一步步教你做
+  </h2>
+  <div class="space-y-0">
+    <div id="step-1" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        1
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装 ComfyUI Manager 并打开节点管理面板</h3>
+      <div class="text-base text-slate-700 leading-loose">如果你还没装 ComfyUI Manager，先进入 ComfyUI 的 custom_nodes 目录，执行 git clone https://github.com/ltdrdata/ComfyUI-Manager.git，然后重启 ComfyUI。在界面右侧会多出一个 Manager 按钮，点击后选择 Install Custom Nodes。这个面板就是后续所有节点安装的入口，支持搜索、安装、更新和禁用。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>建议在安装任何节点前先更新 ComfyUI 本体和 Manager，避免版本冲突。
+        </div>
+    </div>
+    <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        2
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：浏览 Awesome ComfyUI 合集，筛选你需要的节点</h3>
+      <div class="text-base text-slate-700 leading-loose">打开 https://github.com/ComfyUI-Workflow/awesome-comfyui，你会看到按功能分类的节点列表，比如“图像处理”“动画”“工作流增强”“模型加载”等。先别急着全装，根据你当前的需求挑 3-5 个最常用的，比如 Impact Pack（人脸修复）、WAS Node Suite（万能工具）、Efficiency Nodes（简化工作流）。记下它们的仓库名或关键词。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>仓库里带 ⭐ 数量越多的节点通常越稳定，优先选 500 星以上的。
+        </div>
+    </div>
+    <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        3
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：通过 Manager 一键安装选中的节点</h3>
+      <div class="text-base text-slate-700 leading-loose">回到 ComfyUI 的 Manager 面板，在搜索框输入你记下的节点关键词，比如“Impact”或“WAS”。找到对应条目后点击 Install，Manager 会自动下载并安装依赖。安装完成后重启 ComfyUI，在节点菜单里就能看到新节点分类。如果 Manager 搜不到，可以手动 git clone 到 custom_nodes 目录，再运行 pip install -r requirements.txt。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>安装时注意看控制台是否有报错，缺依赖是新手最常见的问题。
+        </div>
+    </div>
+    <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        4
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：搭建一个测试工作流验证节点是否生效</h3>
+      <div class="text-base text-slate-700 leading-loose">新建一个工作流，从新安装的节点分类里拖出几个核心节点，比如用 Impact Pack 的 FaceDetailer 做面部修复，或者用 WAS Node Suite 的 Text Loader 加载提示词。连接好输入输出后，加载一张默认的 SD 模型，生成一张 512x512 的图片。如果节点能正常执行且没有红色报错，说明安装成功。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>测试时先用低步数（如 10 步）快速跑通，确认流程无误再调高质量。
+        </div>
+    </div>
+    <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        5
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：保存工作流并整理你的节点库</h3>
+      <div class="text-base text-slate-700 leading-loose">测试通过后，点击 ComfyUI 的 Save 按钮把工作流保存为 JSON 文件，方便以后复用。同时回到 Manager 面板，把不常用的节点禁用（Disable），只保留高频使用的，这样界面更清爽、启动更快。你还可以在 Awesome ComfyUI 仓库里给作者点星，或者提交你发现的好节点。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>定期用 Manager 的 Update All 更新节点，但更新前备份工作流，避免不兼容。
+        </div>
+    </div>
+  </div>
+</section>
+<section class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">✨</span> 完成后你会得到
+  </h2>
+  <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
+    完成以上步骤后，你的 ComfyUI 里会多出几个强大的自定义节点分类，比如 Impact Pack、WAS Node Suite 等。你能在节点菜单里直接调用它们，搭建出带人脸修复、动态提示词、工作流简化等高级功能的工作流，并且生成结果稳定无报错。
+  </div>
+</section>
+<section id="faq" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">❓</span> 常见问题
+  </h2>
+  <div class="space-y-2">
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>安装节点后 ComfyUI 启动报错怎么办？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先看控制台报错信息，常见原因是缺少 Python 依赖或节点与当前 ComfyUI 版本不兼容。可以尝试在 custom_nodes 目录下删除最近安装的节点，或者用 Manager 的 Fix 功能修复。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>Awesome ComfyUI 里的节点都需要安装吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要。这个合集是索引，不是必装清单。建议按需安装，装太多会导致启动变慢、冲突概率增加。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>Manager 搜索不到某个节点怎么办？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可能是节点未收录或名称不同。可以手动 git clone 仓库到 custom_nodes，然后进入目录运行 pip install -r requirements.txt，重启即可。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>节点安装后界面里找不到？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先确认是否重启了 ComfyUI。如果还是找不到，检查节点是否被禁用，或者节点分类名称是否与你预期不同，可以在节点搜索框直接搜节点名。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>如何更新已安装的节点？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在 Manager 面板点击 Update All 可以批量更新，也可以单独更新某个节点。更新后建议重启 ComfyUI，并测试旧工作流是否正常。</div>
+    </details>
+  </div>
+</section>
+<section class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🚀</span> 进阶玩法
+  </h2>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：只安装 Impact Pack + Efficiency Nodes，打造极简高清修复工作流，适合人像摄影后期。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：安装 WAS Node Suite + ComfyUI-Custom-Scripts，实现文本批处理和界面增强，适合批量生成提示词。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合 AnimateDiff 节点和 Awesome ComfyUI 里的动画分类，制作短视频动画工作流。</li></ul>
+</section>
+<section class="mb-12">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">💡</span> 一句话总结
+  </h2>
+  <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
+    用 Awesome ComfyUI 当导航，用 Manager 当抓手，按需安装、测试、整理，你就能把 ComfyUI 从裸机变成神装。
+  </blockquote>
+</section>
+<section class="mb-12">
+  <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+    <span class="text-3xl">📚</span> 相关教程
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <a href="../playground.html#play-zhidx-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">智东西 AI 工具评测 · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-zhidx-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">智东西 AI 工具评测 · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">通信墙不破，AI Agent算力不立！华为超节点“黑科技”详解</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-zhidx-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">智东西 AI 工具评测 · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">Agent办事、花式P图、动嘴玩电脑……实测Wildcat Lake轻薄本玩AI有多爽</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a></div>
+</section>
+
+  <!-- 底部 -->
+  <footer class="text-center text-sm text-slate-400 mt-16 pt-8 border-t border-slate-200">
+    <p>本教程由 AI 玩法实验室 · LLM 自动生成 · 仅供学习参考</p>
+    <p class="mt-2"><a href="../playground.html" class="text-indigo-600 hover:underline">← 返回玩法实验室</a></p>
+  </footer>
+</main>
+
+
+<!-- 悬浮返回按钮 -->
+<a href="../playground.html" id="floatingHome"
+   class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold pl-4 pr-5 py-3 rounded-full shadow-2xl shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-105 transition-all duration-200"
+   style="display:none; opacity:0; transform:translateY(10px);">
+  
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12L12 3l9 9"/>
+        <path d="M5 10v10h14V10"/>
+      </svg>
+  <span class="text-sm">返回首页</span>
+</a>
+
+<script>
+(function() {
+  var btn = document.getElementById('floatingHome');
+  if (!btn) return;
+  var threshold = 300;
+  function check() {
+    if (window.scrollY > threshold) {
+      btn.style.display = 'flex';
+      requestAnimationFrame(function() {
+        btn.style.opacity = '1';
+        btn.style.transform = 'translateY(0)';
+      });
+    } else {
+      btn.style.opacity = '0';
+      btn.style.transform = 'translateY(10px)';
+      setTimeout(function() {
+        if (window.scrollY <= threshold) btn.style.display = 'none';
+      }, 250);
+    }
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+  setTimeout(check, 50);
+})();
+</script>
+
+
+</body>
+</html>

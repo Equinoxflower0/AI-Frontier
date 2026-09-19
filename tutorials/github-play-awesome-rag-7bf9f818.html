@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GraphRAG 资源大全：图检索增强生成一站式指南 - AI 玩法教程 · AI Frontier</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  details[open] summary { background: #f8fafc; }
+  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  html { scroll-behavior: smooth; }
+</style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+<!-- 顶部导航 -->
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-40">
+  <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2 text-sm">
+      <a href="../index.html" class="text-slate-500 hover:text-slate-900">首页</a>
+      <span class="text-slate-300">/</span>
+      <a href="../playground.html" class="text-slate-500 hover:text-slate-900">玩法实验室</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-slate-900 font-semibold">教程</span>
+    </div>
+    <div class="text-xs text-slate-400">
+      2026-09-19
+    </div>
+  </div>
+</nav>
+
+<!-- Hero 区 -->
+<header class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white">
+  <div class="max-w-4xl mx-auto px-4 py-10">
+    <div class="flex items-center gap-2 mb-3 flex-wrap">
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        🔗 工具链
+      </span>
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        ★★★★☆ · 4/5
+      </span>
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
+        ⏱ 约 30min
+      </span>
+    </div>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">GraphRAG 资源大全：图检索增强生成一站式指南</h1>
+    
+  </div>
+</header>
+
+<!-- 主体 -->
+<main class="max-w-4xl mx-auto px-4 py-8">
+
+  <!-- 来源元信息 -->
+  <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
+    
+<div class="flex items-center gap-2 mb-4 flex-wrap">
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    GitHub Awesome RAG · B级
+  </span>
+  
+  <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
+    技术社区
+  </span>
+  <a href="https://github.com/DEEP-PolyU/Awesome-GraphRAG" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+    查看原文 →
+  </a>
+</div>
+    
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">LlamaIndex</span></div>
+</div>
+  </div>
+
+  
+<section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
+  <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
+  <p class="text-base text-slate-800 leading-relaxed">GraphRAG 是传统 RAG 的升级版，它用知识图谱把文档中的实体和关系串起来，让大模型回答复杂问题时能进行多跳推理。本教程带你用 LlamaIndex 和 Awesome-GraphRAG 资源库，从零搭建一个可用的 GraphRAG 问答系统。</p>
+</section>
+<aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
+  <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
+  <ul class="space-y-0.5"><li><a href="#prerequisites" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 🧰 准备工具</a></li><li><a href="#steps" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 📝 操作步骤</a></li><li><a href="#expected" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ ✨ 预期效果</a></li><li><a href="#faq" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ ❓ 常见问题</a></li><li><a href="#variants" class="block py-1.5 text-sm text-slate-700 hover:text-indigo-600 hover:underline">→ 🚀 进阶玩法</a></li></ul>
+</aside>
+<section class="mb-8">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🎯</span> 为什么值得玩
+  </h2>
+  <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
+    普通 RAG 只做向量相似度检索，遇到“A 公司的 CEO 的母校在哪里”这类需要跨文档推理的问题就歇菜了。GraphRAG 先抽取实体和关系构建图谱，再基于图结构检索子图，最后把子图喂给 LLM 生成答案。这个玩法适合处理金融研报、医疗文献、法律合同等实体关系密集的场景。Awesome-GraphRAG 这个 GitHub 仓库汇集了 2655 颗星的精华资源，包括综述、论文、基准测试和开源项目，是你入门和进阶的最佳地图。
+  </p>
+</section>
+<section id="prerequisites" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🧰</span> 你需要准备
+  </h2>
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行环境，建议用 conda 创建独立虚拟环境</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">LlamaIndex  <a href="https://www.llamaindex.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">核心框架，提供 GraphRAG 的索引、检索和查询接口</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Neo4j Desktop  <a href="https://neo4j.com/download/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">图数据库，用来存储和可视化知识图谱（也可用内存图存储替代）</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">OpenAI API Key  <a href="https://platform.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">调用 GPT-4 做实体抽取和答案生成，也可换成本地 Ollama 模型</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Awesome-GraphRAG 仓库  <a href="https://github.com/DEEP-PolyU/Awesome-GraphRAG" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">资源大全，用来查论文、找基准和参考实现</div>
+    </li>
+  </ul>
+</section>
+<section id="steps" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+    <span class="text-3xl">📝</span> 一步步教你做
+  </h2>
+  <div class="space-y-0">
+    <div id="step-1" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        1
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：克隆资源库并安装依赖</h3>
+      <div class="text-base text-slate-700 leading-loose">打开终端，执行 git clone https://github.com/DEEP-PolyU/Awesome-GraphRAG.git 把资源库拉到本地。然后创建虚拟环境：conda create -n graphrag python=3.10 &amp;&amp; conda activate graphrag。接着安装 LlamaIndex 全家桶：pip install llama-index llama-index-graph-stores-neo4j llama-index-llms-openai。最后设置环境变量 export OPENAI_API_KEY='你的key'。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>如果网络慢，可以用清华镜像 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple 加速。
+        </div>
+    </div>
+    <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        2
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：准备文档并构建知识图谱索引</h3>
+      <div class="text-base text-slate-700 leading-loose">在项目目录下新建 data 文件夹，放入 3-5 篇 txt 或 pdf 文档（比如公司年报摘要）。写一个 build_graph.py 脚本：先用 SimpleDirectoryReader 加载文档，再用 KnowledgeGraphIndex.from_documents() 自动抽取实体和关系。关键参数：max_triplets_per_chunk=10 控制每块抽取的三元组数量，include_embeddings=True 让后续检索更准。运行脚本后，LlamaIndex 会调用 LLM 逐块抽取 (头实体, 关系, 尾实体) 并存入图存储。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>第一次跑建议用 2-3 篇短文档，抽取 50 个三元组左右即可，太多会烧 token 且难调试。
+        </div>
+    </div>
+    <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        3
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：把图谱存入 Neo4j 并可视化</h3>
+      <div class="text-base text-slate-700 leading-loose">在脚本里配置 Neo4j 图存储：from llama_index.graph_stores.neo4j import Neo4jGraphStore，填入 uri='bolt://localhost:7687'、username='neo4j'、password='你的密码'。把上一步的 index 持久化到 Neo4j：index.storage_context.persist()。然后打开 Neo4j Browser，执行 MATCH (n)-[r]-&gt;(m) RETURN n,r,m LIMIT 100，你就能看到一张实体关系网络图。检查是否有明显错误的三元组，比如把“苹果”抽成了水果而不是公司。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>如果不想装 Neo4j，可以用 SimpleGraphStore 存在内存里，但重启就没了，适合快速验证。
+        </div>
+    </div>
+    <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        4
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：构建 GraphRAG 查询引擎并提问</h3>
+      <div class="text-base text-slate-700 leading-loose">新建 query_graph.py，加载持久化的索引：from llama_index.core import StorageContext, load_index_from_storage。然后创建查询引擎：query_engine = index.as_query_engine(include_text=True, similarity_top_k=4, response_mode='tree_summarize')。其中 include_text=True 会把原始文本块一起送给 LLM，response_mode 选 tree_summarize 适合多跳推理。现在问一个复杂问题：“A 公司的 CEO 毕业于哪所大学？该大学位于哪个城市？” 观察返回答案是否准确。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>如果答案不准，把 similarity_top_k 调到 6-8，或者换 response_mode='compact' 试试。
+        </div>
+    </div>
+    <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        5
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：对照 Awesome-GraphRAG 优化效果</h3>
+      <div class="text-base text-slate-700 leading-loose">打开 Awesome-GraphRAG 仓库的 README，找到 Benchmarks 和 Open-source Projects 两个板块。用里面的 GraphRAG-Bench 测试你的系统在“多跳推理”和“实体消歧”上的得分。如果得分低，参考仓库里推荐的论文（如 Microsoft GraphRAG、LightRAG）调整抽取 prompt 或改用社区检测算法做层次化摘要。最后把优化后的参数写回脚本，重新构建索引并对比答案质量。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>仓库里有很多现成的 prompt 模板，直接复制到你的 KnowledgeGraphIndex 里替换默认 prompt，效果提升明显。
+        </div>
+    </div>
+  </div>
+</section>
+<section class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">✨</span> 完成后你会得到
+  </h2>
+  <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
+    你得到一个能回答多跳问题的 GraphRAG 问答系统。输入“A 公司的 CEO 毕业于哪所大学？该大学位于哪个城市？”，系统会先在图谱中找到 CEO 实体，沿“毕业于”关系跳到大学实体，再沿“位于”关系跳到城市实体，最后生成完整答案。Neo4j 中能看到清晰的实体关系图，Awesome-GraphRAG 的基准测试显示你的系统在多跳推理任务上比普通 RAG 高出 20-30 个百分点。
+  </div>
+</section>
+<section id="faq" class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">❓</span> 常见问题
+  </h2>
+  <div class="space-y-2">
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>没有 OpenAI API Key 能用吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，用 Ollama 本地跑 Llama 3 或 Qwen2.5，在 LlamaIndex 里把 llm 换成 Ollama 即可，但抽取速度会慢一些。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>图谱抽取太慢或太贵怎么办？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">减少文档数量，调低 max_triplets_per_chunk，或者改用 LightRAG 这类轻量级方案，它只抽取关键实体和关系。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>Neo4j 必须装吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是必须，LlamaIndex 支持 SimpleGraphStore 内存图存储，适合快速验证，但生产环境建议用 Neo4j 持久化。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>如何评估 GraphRAG 的效果？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用 Awesome-GraphRAG 里的 GraphRAG-Bench，或者自己构造 20 个多跳问题，对比普通 RAG 和 GraphRAG 的答案准确率。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>支持中文文档吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">支持，但默认抽取 prompt 是英文的，建议在 KnowledgeGraphIndex 里传入中文 prompt 模板，或者用中文 LLM 如 Qwen。</div>
+    </details>
+  </div>
+</section>
+<section class="mb-10">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">🚀</span> 进阶玩法
+  </h2>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用 LightRAG 替代 LlamaIndex 默认索引，LightRAG 结合了图结构和向量检索，速度更快且 token 消耗更低，适合大规模文档。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：加入社区检测（Leiden 算法）做层次化摘要，先对图谱分社区，再对每个社区生成摘要，最后用摘要回答全局性问题，适合“整个文档集的主要趋势是什么”这类问题。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把 GraphRAG 和 Agent 结合，让 Agent 自主决定何时走图检索、何时走向量检索，用 LlamaIndex 的 RouterQueryEngine 实现混合路由。</li></ul>
+</section>
+<section class="mb-12">
+  <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+    <span class="text-3xl">💡</span> 一句话总结
+  </h2>
+  <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
+    GraphRAG 的精髓是“先建图再检索”，用实体关系网络弥补向量检索的推理短板，而 Awesome-GraphRAG 是你随时查阅的武功秘籍。
+  </blockquote>
+</section>
+<section class="mb-12">
+  <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+    <span class="text-3xl">📚</span> 相关教程
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">字节开源超级智能体DeerFlow</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软开源神器：一键把文件转成Markdown</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">LangChain：5分钟搭建你的AI智能体</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
+    </a></div>
+</section>
+
+  <!-- 底部 -->
+  <footer class="text-center text-sm text-slate-400 mt-16 pt-8 border-t border-slate-200">
+    <p>本教程由 AI 玩法实验室 · LLM 自动生成 · 仅供学习参考</p>
+    <p class="mt-2"><a href="../playground.html" class="text-indigo-600 hover:underline">← 返回玩法实验室</a></p>
+  </footer>
+</main>
+
+
+<!-- 悬浮返回按钮 -->
+<a href="../playground.html" id="floatingHome"
+   class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold pl-4 pr-5 py-3 rounded-full shadow-2xl shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-105 transition-all duration-200"
+   style="display:none; opacity:0; transform:translateY(10px);">
+  
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12L12 3l9 9"/>
+        <path d="M5 10v10h14V10"/>
+      </svg>
+  <span class="text-sm">返回首页</span>
+</a>
+
+<script>
+(function() {
+  var btn = document.getElementById('floatingHome');
+  if (!btn) return;
+  var threshold = 300;
+  function check() {
+    if (window.scrollY > threshold) {
+      btn.style.display = 'flex';
+      requestAnimationFrame(function() {
+        btn.style.opacity = '1';
+        btn.style.transform = 'translateY(0)';
+      });
+    } else {
+      btn.style.opacity = '0';
+      btn.style.transform = 'translateY(10px)';
+      setTimeout(function() {
+        if (window.scrollY <= threshold) btn.style.display = 'none';
+      }, 250);
+    }
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+  setTimeout(check, 50);
+})();
+</script>
+
+
+</body>
+</html>

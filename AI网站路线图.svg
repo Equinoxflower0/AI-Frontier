@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 620" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3b82f6"/><stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#10b981"/><stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="g4" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="880" height="620" fill="url(#bg)"/>
+
+  <text x="440" y="34" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">全球 AI 前沿咨询网站 · 四阶段路线图</text>
+  <text x="440" y="56" text-anchor="middle" font-size="12" fill="#64748b">从 0 基础到持续运营，循序渐进，不走弯路</text>
+
+  <!-- Phase 1 -->
+  <g transform="translate(30,90)">
+    <rect width="195" height="135" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <rect width="195" height="32" rx="10" fill="url(#g1)"/>
+    <rect y="22" width="195" height="10" fill="url(#g1)"/>
+    <text x="97.5" y="21" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">阶段 1 · 战略定位</text>
+    <text x="18" y="62" font-size="14" font-weight="700" fill="#1e293b">内容策略先行</text>
+    <text x="18" y="86" font-size="11" fill="#475569">• 目标用户画像</text>
+    <text x="18" y="105" font-size="11" fill="#475569">• 内容分类体系</text>
+    <text x="18" y="124" font-size="11" fill="#475569">• 信息源清单 (≥30 个)</text>
+  </g>
+
+  <!-- Phase 2 -->
+  <g transform="translate(240,90)">
+    <rect width="195" height="135" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <rect width="195" height="32" rx="10" fill="url(#g2)"/>
+    <rect y="22" width="195" height="10" fill="url(#g2)"/>
+    <text x="97.5" y="21" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">阶段 2 · MVP 上线</text>
+    <text x="18" y="62" font-size="14" font-weight="700" fill="#1e293b">最小可行产品</text>
+    <text x="18" y="86" font-size="11" fill="#475569">• 单页每日 AI 简报</text>
+    <text x="18" y="105" font-size="11" fill="#475569">• 静态站 + 自动化脚本</text>
+    <text x="18" y="124" font-size="11" fill="#475569">• AI 自动摘要 + 翻译</text>
+  </g>
+
+  <!-- Phase 3 -->
+  <g transform="translate(450,90)">
+    <rect width="195" height="135" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <rect width="195" height="32" rx="10" fill="url(#g3)"/>
+    <rect y="22" width="195" height="10" fill="url(#g3)"/>
+    <text x="97.5" y="21" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">阶段 3 · 功能扩展</text>
+    <text x="18" y="62" font-size="14" font-weight="700" fill="#1e293b">栏目与个性化</text>
+    <text x="18" y="86" font-size="11" fill="#475569">• 大模型 / GitHub / Paper</text>
+    <text x="18" y="105" font-size="11" fill="#475569">• 订阅 · 搜索 · 收藏</text>
+    <text x="18" y="124" font-size="11" fill="#475569">• 中英双语 · 移动适配</text>
+  </g>
+
+  <!-- Phase 4 -->
+  <g transform="translate(660,90)">
+    <rect width="195" height="135" rx="10" fill="#ffffff" stroke="#e5e7eb" stroke-width="1"/>
+    <rect width="195" height="32" rx="10" fill="url(#g4)"/>
+    <rect y="22" width="195" height="10" fill="url(#g4)"/>
+    <text x="97.5" y="21" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">阶段 4 · 增长运营</text>
+    <text x="18" y="62" font-size="14" font-weight="700" fill="#1e293b">用户与商业化</text>
+    <text x="18" y="86" font-size="11" fill="#475569">• SEO · 社区 · 推送</text>
+    <text x="18" y="105" font-size="11" fill="#475569">• 数据看板 · A/B 测试</text>
+    <text x="18" y="124" font-size="11" fill="#475569">• 订阅 / 广告 / 付费墙</text>
+  </g>
+
+  <!-- Timeline -->
+  <g transform="translate(0, 240)">
+    <line x1="130" y1="14" x2="750" y2="14" stroke="#94a3b8" stroke-width="2"/>
+    <circle cx="130" cy="14" r="6" fill="#3b82f6"/>
+    <circle cx="338" cy="14" r="6" fill="#10b981"/>
+    <circle cx="548" cy="14" r="6" fill="#f59e0b"/>
+    <circle cx="755" cy="14" r="6" fill="#8b5cf6"/>
+    <text x="130" y="42" text-anchor="middle" font-size="12" font-weight="600" fill="#3b82f6">第 1-2 周</text>
+    <text x="338" y="42" text-anchor="middle" font-size="12" font-weight="600" fill="#10b981">第 3-4 周</text>
+    <text x="548" y="42" text-anchor="middle" font-size="12" font-weight="600" fill="#f59e0b">第 2-3 月</text>
+    <text x="755" y="42" text-anchor="middle" font-size="12" font-weight="600" fill="#8b5cf6">第 4 月 +</text>
+  </g>
+
+  <!-- Options -->
+  <g transform="translate(30, 310)">
+    <rect width="825" height="270" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="20" y="28" font-size="14" font-weight="700" fill="#0f172a">关键决策：你用什么方式"造"出这个网站？</text>
+
+    <!-- Option A -->
+    <g transform="translate(20, 45)">
+      <rect width="255" height="200" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1"/>
+      <text x="15" y="22" font-size="13" font-weight="700" fill="#065f46">A. WorkBuddy 帮你写 ✅推荐</text>
+      <text x="15" y="46" font-size="11" fill="#064e3b">你描述需求，我产出 HTML / 脚本</text>
+      <text x="15" y="62" font-size="11" fill="#064e3b">/ 部署脚本，零代码上线。</text>
+      <text x="15" y="92" font-size="11" fill="#047857">• 周期：1-3 天出 MVP</text>
+      <text x="15" y="112" font-size="11" fill="#047857">• 成本：0（已开通）</text>
+      <text x="15" y="132" font-size="11" fill="#047857">• 难度：★☆☆☆☆</text>
+      <text x="15" y="152" font-size="11" fill="#047857">• 维护：我帮你改</text>
+    </g>
+
+    <!-- Option B -->
+    <g transform="translate(285, 45)">
+      <rect width="255" height="200" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+      <text x="15" y="22" font-size="13" font-weight="700" fill="#1e3a8a">B. Notion + Super.so</text>
+      <text x="15" y="46" font-size="11" fill="#1e40af">用 Notion 写文章，Super.so</text>
+      <text x="15" y="62" font-size="11" fill="#1e40af">一键变网站。灵活但灵活低。</text>
+      <text x="15" y="92" font-size="11" fill="#1d4ed8">• 周期：半天</text>
+      <text x="15" y="112" font-size="11" fill="#1d4ed8">• 成本：$16/月起</text>
+      <text x="15" y="132" font-size="11" fill="#1d4ed8">• 难度：★☆☆☆☆</text>
+      <text x="15" y="152" font-size="11" fill="#1d4ed8">• 维护：手动搬运</text>
+    </g>
+
+    <!-- Option C -->
+    <g transform="translate(550, 45)">
+      <rect width="255" height="200" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+      <text x="15" y="22" font-size="13" font-weight="700" fill="#78350f">C. 自己学代码</text>
+      <text x="15" y="46" font-size="11" fill="#7c2d12">学 Python / Vue / Next.js，</text>
+      <text x="15" y="62" font-size="11" fill="#7c2d12">自己搭全栈。最有掌控感。</text>
+      <text x="15" y="92" font-size="11" fill="#92400e">• 周期：3-12 个月</text>
+      <text x="15" y="112" font-size="11" fill="#92400e">• 成本：时间</text>
+      <text x="15" y="132" font-size="11" fill="#92400e">• 难度：★★★★★</text>
+      <text x="15" y="152" font-size="11" fill="#92400e">• 维护：自己搞定</text>
+    </g>
+  </g>
+
+  <!-- Bottom hint -->
+  <g transform="translate(30, 595)">
+    <text font-size="12" font-weight="600" fill="#0f172a">我的强烈建议：</text>
+    <text x="80" font-size="12" fill="#475569">走 方案 A（WorkBuddy 帮你写），最适合 "0 基础 + 忙 + 想快速验证" 的场景。</text>
+  </g>
+</svg>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 玩法教程 · AI Frontier</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+</style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2 text-sm">
+      <a href="../index.html" class="text-slate-500 hover:text-slate-900">首页</a>
+      <span class="text-slate-300">/</span>
+      <a href="../playground.html" class="text-slate-500 hover:text-slate-900">玩法实验室</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-slate-900 font-semibold">全部教程</span>
+    </div>
+    <input type="text" id="searchInput" placeholder="搜索教程标题或简介..."
+           class="px-3 py-1.5 border border-slate-300 rounded-lg text-sm w-64 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+  </div>
+</nav>
+
+<header class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white">
+  <div class="max-w-6xl mx-auto px-4 py-10 text-center">
+    <div class="text-5xl mb-3">📚</div>
+    <h1 class="text-3xl md:text-4xl font-black mb-3">AI 玩法教程</h1>
+    <p class="text-base text-white/90">每篇都是结构化实战教程 · 像零度博客那样一步步教你</p>
+    <div class="mt-4 text-sm text-white/80">共 20 篇教程</div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 py-10">
+  <div id="cardGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    
+    <a href="github-play-awesome-chatgpt-prompts-42d9cba1.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-indigo-100 text-indigo-700 font-semibold">💬 Prompt 模板</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">GitHub Awesome ChatGPT Prompts</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">ChatGPT中文调教指南：6万星提示词库</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">想让 ChatGPT 真正听懂你的话？这个 6 万星的中文提示词库就是你的调教手册，今天教你如何把它用出花来。</p>
+      <div class="text-xs text-amber-500">★★★★★</div>
+    </a>
+    <a href="github-play-awesome-chatgpt-prompts-a76616d3.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-indigo-100 text-indigo-700 font-semibold">💬 Prompt 模板</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">GitHub Awesome ChatGPT Prompts</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">GPT-4o 神图提示词合集</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">想用 GPT-4o 和 Sora 生成惊艳图片却不知道怎么写提示词？这个 8141 星的 GitHub 合集直接给你现成模板，复制粘贴就能出神图。</p>
+      <div class="text-xs text-amber-500">★★★★★</div>
+    </a>
+    <a href="github-play-awesome-llm-47666e8f.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-emerald-100 text-emerald-700 font-semibold">🚀 可立即试用</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">GitHub Awesome LLM</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">100+ 开源 AI Agent 应用合集，直接跑</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">今天带你玩一个 GitHub 上 13.7 万星的开源宝藏库——100+ 个能直接跑的 AI Agent 应用，从 RAG 问答到多智能体协作，全部免费、开箱即用。</p>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="github-play-awesome-chatgpt-prompts-4f7ee941.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-indigo-100 text-indigo-700 font-semibold">💬 Prompt 模板</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">GitHub Awesome ChatGPT Prompts</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">17万星的ChatGPT提示词宝库</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">今天带你挖一个17万星的GitHub宝藏——Awesome ChatGPT Prompts，让你直接抄作业，把ChatGPT变成你的私人专家团。</p>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="github-play-langchain-5f4b3f36.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-cyan-100 text-cyan-700 font-semibold">🔗 工具链</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-green-50 text-green-700">GitHub LangChain</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">LangChain：5分钟搭建你的AI智能体</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">用 LangChain 在 5 分钟内搭建一个能调用工具、记住上下文、自主决策的 AI 智能体，零基础也能跑通。</p>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
+    </a>
+    <a href="github-play-awesome-ai-agents-a50cd6d9.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-cyan-100 text-cyan-700 font-semibold">🔗 工具链</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">GitHub Awesome AI Agents</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">3万星AI智能体大全，一键找灵感</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">面对几百个AI智能体项目不知道从哪下手？用GitHub上近3万星的Awesome AI Agents清单，5分钟锁定适合你的智能体工具。</p>
+      <div class="text-xs text-amber-500">★★★★★</div>
+    </a>
+    <a href="ph-ai-b7fa2c68.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-cyan-100 text-cyan-700 font-semibold">🔗 工具链</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">Product Hunt - AI 频道</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">粘贴前先脱敏，AI 随便用</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">在把公司文档、客户信息或代码粘贴进 ChatGPT、Claude 等 AI 工具之前，先用脱敏工具把敏感数据替换掉，既能享受 AI 的便利，又不会泄露隐私。</p>
+      <div class="text-xs text-amber-500">★★★★★</div>
+    </a>
+    <a href="github-play-awesome-comfyui-a7df3630.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-purple-100 text-purple-700 font-semibold">🧭 工作流</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">GitHub Awesome ComfyUI</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">2200星ComfyUI工作流合集</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">想快速上手 ComfyUI 却不知道从哪个工作流开始？这个 2200+ Star 的合集直接给你一套可复用的实战模板。</p>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="github-play-langchain-0e983984.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-cyan-100 text-cyan-700 font-semibold">🔗 工具链</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-green-50 text-green-700">GitHub LangChain</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">微软开源神器：一键把文档转Markdown</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">微软开源的 MarkItDown 能一键把 PDF、Word、Excel、PPT 等文档转成干净 Markdown，特别适合喂给大模型做知识库或笔记整理。</p>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="github-play-awesome-llm-ac39db34.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-emerald-100 text-emerald-700 font-semibold">🚀 可立即试用</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">GitHub Awesome LLM</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">Awesome-LLM：大模型资源大全</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">Awesome-LLM 是 GitHub 上最全的大模型资源清单之一，本教程教你如何把它变成自己的“AI 军火库”，快速找到模型、论文、工具和数据集。</p>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="ph-ai-2e2aa751.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-emerald-100 text-emerald-700 font-semibold">🚀 可立即试用</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">Product Hunt - AI 频道</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">Spaces：让团队和AI智能体同处一个工作空间</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">Spaces 是一个让团队和 AI 智能体在同一个共享工作空间里协作的产品，你可以把它理解成「带 AI 同事的 Slack + Notion」。</p>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="github-play-awesome-ai-agents-7ff15e42.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-cyan-100 text-cyan-700 font-semibold">🔗 工具链</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">GitHub Awesome AI Agents</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">OpenCode 插件代理资源大全</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">OpenCode 插件代理资源大全是一个收录了 10200+ stars 的精选列表，帮你快速找到 OpenCode 生态中的插件、主题、代理和项目。</p>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="ph-ai-22b54693.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-cyan-100 text-cyan-700 font-semibold">🔗 工具链</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">Product Hunt - AI 频道</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">Loqua：动动嘴就把事做完</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">Loqua 是一款让你「动动嘴就把事做完」的语音驱动效率工具，把零散想法直接变成可执行任务。</p>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="ph-ai-21a6a592.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-cyan-100 text-cyan-700 font-semibold">🔗 工具链</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">Product Hunt - AI 频道</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">Cline 桌面版：开源模型一键玩</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">Cline 桌面版把开源大模型装进你的电脑，不用写代码就能一键调用本地或云端权重，实现聊天、写代码、自动化任务。</p>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="ph-ai-87c53c0a.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-cyan-100 text-cyan-700 font-semibold">🔗 工具链</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">Product Hunt - AI 频道</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">给Google表单加法律签名</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">给普通的 Google 表单加上具有法律效力的电子签名，让收集信息、签署合同、报名确认等场景一步到位。</p>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="github-play-langchain-a48bb101.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-cyan-100 text-cyan-700 font-semibold">🔗 工具链</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-green-50 text-green-700">GitHub LangChain</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">字节开源超级智能体DeerFlow</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">字节跳动开源的 DeerFlow 是一个能研究、写代码、做创作的超级智能体框架，本教程带你用 LlamaIndex 把它跑起来，打造属于你的长周期 AI 助手。</p>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="ph-ai-987451d4.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-emerald-100 text-emerald-700 font-semibold">🚀 可立即试用</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">Product Hunt - AI 频道</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">四大AI编程助手同台协作工作区</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">想让 Codex、Claude Code、Grok 和 OpenCode 四个 AI 编程助手在同一个工作区里协同干活？Jackalope 就是为此而生的共享工作台，本教程带你从零跑通。</p>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="ph-ai-0d2f04f9.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-cyan-100 text-cyan-700 font-semibold">🔗 工具链</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-yellow-50 text-yellow-700">Product Hunt - AI 频道</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">LiveGrid：多路直播同屏看</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">LiveGrid 是一个多路直播同屏观看工具，让你在一个页面同时盯住多个直播间，再也不用反复切换标签页。</p>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="github-play-autogen-0d150b19.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-cyan-100 text-cyan-700 font-semibold">🔗 工具链</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-green-50 text-green-700">GitHub AutoGen</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">AutoGen：让多个AI智能体组队干活</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">AutoGen 是微软开源的多智能体协作框架，让你像组建团队一样，给多个 AI 分配角色，让它们自动对话、分工、调用工具，最终完成复杂任务。</p>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
+    </a>
+    <a href="github-play-autogen-757dec3f.html" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="flex items-center gap-2 mb-2 flex-wrap">
+        <span class="px-2 py-0.5 rounded text-xs bg-cyan-100 text-cyan-700 font-semibold">🔗 工具链</span>
+        <span class="px-2 py-0.5 rounded text-xs bg-green-50 text-green-700">GitHub AutoGen</span>
+        
+        
+      </div>
+      <h3 class="text-base font-bold text-slate-900 mb-2 line-clamp-2">微软官方18课：从零构建AI智能体</h3>
+      <p class="text-sm text-slate-600 line-clamp-2 mb-2">微软官方出品的《AI Agents for Beginners》18课教程，用 Jupyter Notebook 带你从零动手搭建 AI 智能体，零基础也能跟下来。</p>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
+    </a>
+  </div>
+</main>
+
+<script>
+  document.getElementById('searchInput').addEventListener('input', function(e) {
+    const q = e.target.value.toLowerCase();
+    document.querySelectorAll('#cardGrid > a').forEach(card => {
+      card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+</script>
+
+
+<!-- 悬浮返回按钮 -->
+<a href="../playground.html" id="floatingHome"
+   class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold pl-4 pr-5 py-3 rounded-full shadow-2xl shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-105 transition-all duration-200"
+   style="display:none; opacity:0; transform:translateY(10px);">
+  
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12L12 3l9 9"/>
+        <path d="M5 10v10h14V10"/>
+      </svg>
+  <span class="text-sm">返回首页</span>
+</a>
+
+<script>
+(function() {
+  var btn = document.getElementById('floatingHome');
+  if (!btn) return;
+  var threshold = 300;
+  function check() {
+    if (window.scrollY > threshold) {
+      btn.style.display = 'flex';
+      requestAnimationFrame(function() {
+        btn.style.opacity = '1';
+        btn.style.transform = 'translateY(0)';
+      });
+    } else {
+      btn.style.opacity = '0';
+      btn.style.transform = 'translateY(10px)';
+      setTimeout(function() {
+        if (window.scrollY <= threshold) btn.style.display = 'none';
+      }, 250);
+    }
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+  setTimeout(check, 50);
+})();
+</script>
+
+
+</body>
+</html>

@@ -330,6 +330,9 @@ on:
     - cron: '0 0 * * *'      # UTC 00:00 = 北京时间 08:00
   workflow_dispatch:
 
+permissions:
+  contents: write            # 提交产物并 git push 所需，缺失会导致推送被拒
+
 jobs:
   build:
     runs-on: ubuntu-latest

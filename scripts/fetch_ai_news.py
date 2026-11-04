@@ -99,6 +99,12 @@ def clean_html(text: str, max_len: int = 500) -> str:
 
 
 def parse_pubdate(s: str) -> datetime | None:
+    """解析 RSS/Atom 时间，统一返回 UTC 时区的 aware datetime。
+
+    注意：`%Z` 与 `... GMT` 两种格式解析出来的是 **naive datetime**（无 tzinfo）。
+    对 naive 值直接调用 astimezone() 会按本机时区（东八区）解释，导致时间整体偏移 -8 小时，
+    进而把 16~24 小时内发布的条目误判为超出时间窗而丢弃。因此这里显式补 UTC 时区。
+    """
     if not s:
         return None
     formats = [
@@ -109,9 +115,12 @@ def parse_pubdate(s: str) -> datetime | None:
     s = s.strip()
     for fmt in formats:
         try:
-            return datetime.strptime(s, fmt).astimezone(timezone.utc)
+            dt = datetime.strptime(s, fmt)
         except (ValueError, TypeError):
             continue
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc)
     return None
 
 

@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 站点级微调：保持与原先 Play CDN 默认行为一致 */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}

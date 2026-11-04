@@ -409,7 +409,7 @@ def render_html(items: list) -> str:
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI玩法实验室 · 全球AI前沿咨询</title>
 <meta name="description" content="全球AI可复制的玩法项目 · prompt模板 · 工具工作流 · 立即试用">
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/tailwind.css">
 <style>
   body {{ font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; }}
   .play-card {{ transition: all .2s ease; }}

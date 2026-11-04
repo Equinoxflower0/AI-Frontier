@@ -270,7 +270,7 @@ def render_html(items, date_str, plays=()):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Frontier · 全球 AI 前沿咨询</title>
 <meta name="description" content="每天 5 分钟，掌握全球 AI 前沿动态 + AI 玩法实验室。">
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/tailwind.css">
 <style>
   html {{ scroll-behavior: smooth; }}
   body {{ font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; }}

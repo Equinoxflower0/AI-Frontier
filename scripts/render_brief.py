@@ -169,7 +169,7 @@ def render_html(items: list, date_str: str) -> str:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{date_str} 今日 AI 简报 · AI Frontier</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/tailwind.css">
 <style>
   body {{ font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; }}
   article:hover {{ transform: translateY(-1px); transition: all 0.2s; }}

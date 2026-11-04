@@ -394,7 +394,7 @@ def render_tutorial_page(ckey: str, meta: dict, tut: dict, related: list) -> str
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{_esc(title)} - AI 玩法教程 · AI Frontier</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body {{ font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }}
   details[open] summary {{ background: #f8fafc; }}
@@ -580,7 +580,7 @@ def main():
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 玩法教程 · AI Frontier</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body {{ font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }}
   .line-clamp-2 {{ display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }}

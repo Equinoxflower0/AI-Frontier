@@ -1,0 +1,13 @@
+{
+  "name": "ai-frontier",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build tooling for AI Frontier static site (self-hosted Tailwind CSS)",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i assets/tailwind.input.css -o assets/tailwind.css --minify",
+    "watch:css": "tailwindcss -c tailwind.config.js -i assets/tailwind.input.css -o assets/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

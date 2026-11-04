@@ -4,7 +4,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)]()
-[![Tailwind](https://img.shields.io/badge/Tailwind_CSS-CDN-38BDF8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Tailwind](https://img.shields.io/badge/Tailwind_CSS-3.4-38BDF8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![LLM](https://img.shields.io/badge/LLM-DeepSeek-4D6BFE)](https://www.deepseek.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -48,7 +48,8 @@ AI Frontier 把 **29 个信息源**的更新自动汇总、去重、评分、翻
 ### 环境要求
 
 - **Python 3.10+**（实测 3.13.12）
-- 无需安装任何第三方库
+- 抓取与渲染无需任何第三方 Python 库
+- **Node.js 18+**（仅用于编译 Tailwind CSS；缺失时流水线会跳过第 10 步并告警）
 - 自动更新功能需要 Windows（任务计划程序）
 
 ### 1. 获取项目
@@ -60,7 +61,15 @@ cd ai-frontier
 
 > 也可以直接下载 ZIP 解压。建议放在**纯英文、无空格**的路径下，避免 cmd 与编码问题。
 
-### 2. 配置 API Key
+### 2. 安装构建依赖（首次一次即可）
+
+```bash
+npm install --registry=https://registry.npmmirror.com
+```
+
+只用于编译 Tailwind CSS。跳过也能跑，但页面新增的样式类不会生效。
+
+### 3. 配置 API Key
 
 ```bash
 cp .env.example .env
@@ -82,7 +91,7 @@ Key 从 [platform.deepseek.com](https://platform.deepseek.com/) 获取。
 
 > ⚠️ `.env` 已被 `.gitignore` 排除，**切勿**手动强制提交或上传到 GitHub。
 
-### 3. 运行完整流水线
+### 4. 运行完整流水线
 
 ```bash
 python scripts/run_pipeline.py --mode llm
@@ -130,7 +139,7 @@ GitHub awesome / HF Spaces / Product Hunt / Reddit / 国内 5 源
 
 ---
 
-## 流水线 9 步
+## 流水线 10 步
 
 `run_pipeline.py` 按顺序调度以下步骤，任一步失败即中止：
 
@@ -145,6 +154,7 @@ GitHub awesome / HF Spaces / Product Hunt / Reddit / 国内 5 源
 | 7 | `render_playground.py` | 渲染玩法实验室 HTML |
 | 8 | `generate_tutorials.py` | LLM 生成教程（每日最多 20 篇，带增量缓存） |
 | 9 | `render_tutorials.py` | 渲染教程详情页 + 索引页 |
+| 10 | 编译 Tailwind CSS | 按最终页面实际用到的 class 重新生成 `assets/tailwind.css` |
 
 ### 常用参数
 
@@ -285,7 +295,7 @@ ai-frontier/
 ├── logs/                               # 运行日志（已被 .gitignore 排除）
 │   └── pipeline.log
 └── scripts/
-    ├── run_pipeline.py                 # 一键流水线（9 步）
+    ├── run_pipeline.py                 # 一键流水线（10 步）
     ├── _utf8.py                        # UTF-8 输出保险（防 GBK 崩溃）
     ├── floating_home.py                # 悬浮返回按钮组件
     ├── sources_config.py               # 资讯源 + 可信度分级
@@ -314,12 +324,17 @@ ai-frontier/
 
 ### 方案 A：静态托管（最简单）
 
-把 `index.html`、`daily-brief-*.html`、`playground.html`、`tutorials/` 上传到：
+把 `index.html`、`daily-brief-*.html`、`playground.html`、`tutorials/`、`assets/` 上传到：
 
 - GitHub Pages
 - Vercel
 - Netlify
 - 腾讯云静态网站托管
+
+> **注意 1**：GitHub Pages 在 Free 计划下**只支持公开仓库**，私有仓库需 Pro / Team。
+> **注意 2**：页面样式由 `assets/tailwind.css` 本地提供，不依赖任何境外 CDN；
+> 上传时务必带上 `assets/` 目录，否则页面会没有样式。
+> **注意 3**：所有页面都用相对路径，因此可直接部署在 `https://<user>.github.io/<repo>/` 这类子路径下。
 
 ### 方案 B：GitHub Actions 全自动（推荐）
 
@@ -341,6 +356,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install CSS build deps
+        run: npm ci
       - name: Run pipeline
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
@@ -350,12 +370,14 @@ jobs:
         run: |
           git config user.name "ai-frontier-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add index.html daily-brief-*.html playground.html tutorials/
+          git add index.html daily-brief-*.html playground.html tutorials/ assets/tailwind.css
           git commit -m "auto: update brief $(date +%F)" || exit 0
           git push
 ```
 
 在仓库 Settings → Secrets 中添加 `DEEPSEEK_API_KEY` 即可。
+`npm ci` 这一步不能省：流水线最后一步会用本地 Tailwind 重新编译 `assets/tailwind.css`，
+缺少 Node 依赖时该步骤会跳过并告警，新页面可能缺样式。
 
 ---
 

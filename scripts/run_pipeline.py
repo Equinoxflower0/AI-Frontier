@@ -34,6 +34,41 @@ def run_step(label: str, args: list):
         sys.exit(1)
 
 
+def build_css():
+    """重新编译 Tailwind CSS。
+
+    必须在所有页面渲染之后执行：Tailwind 按页面里实际出现的 class 生成样式，
+    新渲染出来的页面若带来新 class，不重编译就会缺样式。
+    找不到本地构建工具时只告警、不中断——旧 CSS 仍可用，其余产物不受影响。
+    """
+    print()
+    print("=" * 70)
+    print("▶ 步骤 10/10 · 编译 Tailwind CSS")
+    print("=" * 70)
+
+    root = SCRIPT_DIR.parent
+    bin_name = "tailwindcss.cmd" if sys.platform == "win32" else "tailwindcss"
+    local_bin = root / "node_modules" / ".bin" / bin_name
+
+    if not local_bin.exists():
+        print("⚠ 未找到 node_modules/.bin/tailwindcss，跳过 CSS 编译")
+        print("  首次部署请先执行：npm install")
+        print("  现有 assets/tailwind.css 继续可用，但新页面的新增 class 会缺样式")
+        return
+
+    cmd = [
+        str(local_bin), "-c", "tailwind.config.js",
+        "-i", "assets/tailwind.input.css",
+        "-o", "assets/tailwind.css", "--minify",
+    ]
+    r = subprocess.run(cmd, cwd=str(root))
+    if r.returncode != 0:
+        print(f"⚠ CSS 编译失败（exit={r.returncode}），沿用旧 CSS")
+        print("  若本次渲染引入了新 class，页面会缺对应样式")
+    else:
+        print("✅ CSS 已重新编译")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", default="rule", choices=["rule", "llm"],
@@ -49,34 +84,37 @@ def main():
     print(f"   skip_score = {args.skip_score}")
 
     if not args.skip_fetch:
-        run_step("步骤 1/9 · 抓取资讯", ["scripts/fetch_ai_news.py"])
+        run_step("步骤 1/10 · 抓取资讯", ["scripts/fetch_ai_news.py"])
 
     if not args.skip_score:
-        run_step(f"步骤 2/9 · 资讯评分+摘要（{args.mode} 模式）",
+        run_step(f"步骤 2/10 · 资讯评分+摘要（{args.mode} 模式）",
                  ["scripts/score_and_summarize.py", "--mode", args.mode])
 
     if not args.skip_fetch:
-        run_step("步骤 3/9 · 抓取 AI玩法", ["scripts/fetch_ai_play.py"])
+        run_step("步骤 3/10 · 抓取 AI玩法", ["scripts/fetch_ai_play.py"])
 
     if not args.skip_score:
-        run_step(f"步骤 4/9 · 玩法 LLM 翻译+评分（{args.mode} 模式）",
+        run_step(f"步骤 4/10 · 玩法 LLM 翻译+评分（{args.mode} 模式）",
                  ["scripts/score_play.py"])
 
-    run_step("步骤 5/9 · 渲染日报", ["scripts/render_brief.py"])
-    run_step("步骤 6/9 · 渲染首页", ["scripts/render_index.py"])
-    run_step("步骤 7/9 · 渲染玩法实验室", ["scripts/render_playground.py"])
+    run_step("步骤 5/10 · 渲染日报", ["scripts/render_brief.py"])
+    run_step("步骤 6/10 · 渲染首页", ["scripts/render_index.py"])
+    run_step("步骤 7/10 · 渲染玩法实验室", ["scripts/render_playground.py"])
 
     # v5 新增：教程社区（LLM 生成 + 渲染详情页）
     if not args.skip_tutorials:
-        run_step("步骤 8/9 · LLM 生成教程（每日最多 20 篇）",
+        run_step("步骤 8/10 · LLM 生成教程（每日最多 20 篇）",
                  ["scripts/generate_tutorials.py"])
-        run_step("步骤 9/9 · 渲染教程详情页 + 索引页",
+        run_step("步骤 9/10 · 渲染教程详情页 + 索引页",
                  ["scripts/render_tutorials.py"])
     else:
         print()
         print("=" * 70)
         print("⏭ 跳过教程生成（--skip-tutorials）")
         print("=" * 70)
+
+    # 必须在全部渲染之后：按最终页面的 class 生成样式
+    build_css()
 
     print("\n" + "=" * 70)
     print("✅ 流水线完成！首页 + 日报 + 玩法实验室 + 教程 四件套均已更新")

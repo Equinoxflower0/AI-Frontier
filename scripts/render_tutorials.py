@@ -66,6 +66,27 @@ def _esc(s) -> str:
     )
 
 
+def _safe_url(u) -> str:
+    """只放行合法的 http(s) 链接。
+
+    LLM 生成 prerequisites 时，常把说明文字塞进 url 字段（如“无”“根据你使用的
+    群聊工具官网下载”），直接输出会变成死链。此处做白名单校验，非法值一律丢弃。
+    """
+    if not u:
+        return ""
+    s = str(u).strip()
+    if not s or any(c in s for c in " \t\r\n\"'<>"):
+        return ""
+    low = s.lower()
+    if not (low.startswith("http://") or low.startswith("https://")):
+        return ""
+    # 必须有域名部分
+    rest = s.split("://", 1)[1]
+    if not rest or "." not in rest.split("/", 1)[0]:
+        return ""
+    return s
+
+
 def _stars(n: int, max_n: int = 5) -> str:
     n = max(0, min(max_n, int(n or 0)))
     return "★" * n + "☆" * (max_n - n)
@@ -102,8 +123,8 @@ def render_prerequisites(items: list) -> str:
     for p in items:
         name = _esc(p.get("name", ""))
         desc = _esc(p.get("desc", ""))
-        url = _esc(p.get("url", ""))
-        url_html = f' <a href="{url}" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a>' if url else ""
+        url = _safe_url(p.get("url", ""))
+        url_html = f' <a href="{_esc(url)}" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a>' if url else ""
         lis += f'''
     <li class="bg-white border border-slate-200 rounded-lg p-4">
       <div class="font-semibold text-slate-900">{name} {url_html}</div>

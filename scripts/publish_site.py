@@ -130,6 +130,25 @@ def find_forbidden(files):
     return hits
 
 
+def has_unpushed_commits(git):
+    """本地是否领先远端。
+
+    定时任务最容易踩的坑：某天网络抖动，提交成功但推送失败；
+    第二天工作区是干净的，如果不检查这个，就会被判成"无需操作"，
+    导致内容永远上不了线。
+    """
+    rc, out = run_git(git, ["rev-parse", "--verify", "origin/%s" % BRANCH], timeout=30)
+    if rc != 0:
+        return True
+    rc, out = run_git(git, ["rev-list", "--count", "origin/%s..HEAD" % BRANCH], timeout=60)
+    if rc != 0:
+        return True
+    try:
+        return int(out.strip()) > 0
+    except ValueError:
+        return True
+
+
 def main():
     parser = argparse.ArgumentParser(description="提交并推送 AI Frontier 静态站点")
     parser.add_argument("--check", action="store_true", help="只检查是否有改动")
@@ -168,9 +187,15 @@ def main():
     files = staged_files(git)
 
     if not files and not args.force:
-        log("[INFO] 没有检测到任何改动，无需提交")
-        log(" publish_site.py  END (nothing to do)")
-        return 0
+        if has_unpushed_commits(git):
+            log("[INFO] 本次没有新改动，但检测到本地有未推送的提交，继续执行推送")
+            if args.check:
+                log("[CHECK] 存在未推送提交（--check 模式，未做任何写入）")
+                return 0
+        else:
+            log("[INFO] 没有检测到任何改动，本地与远端一致，无需操作")
+            log(" publish_site.py  END (nothing to do)")
+            return 0
 
     if files:
         log("[INFO] 待提交文件 %d 个：" % len(files))

@@ -27,7 +27,7 @@ AI Frontier 把 **29 个信息源**的更新自动汇总、去重、评分、翻
 - **AI 玩法实验室** — 归集可复制的 AI 创新玩法，按玩法类型 / 难度 / 可复制度三维筛选
 - **教程社区** — 每日 LLM 生成结构化教程（背景 → 工具准备 → 分步操作 → 效果 → FAQ → 进阶变体），支持站内搜索，增量缓存不重复烧 token
 - **四套页面自动产出** — 首页 + 每日日报 + 玩法实验室 + 教程站，全部静态 HTML
-- **全自动运行** — Windows 任务计划每天 08:00 自动跑完整流水线
+- **全自动运行** — Windows 任务计划每天 09:00 自动跑完整流水线，并自动提交推送到 GitHub
 - **零依赖** — 纯 Python 标准库（`urllib` / `xml.etree` / `json`），无需 `pip install`
 
 ---
@@ -249,23 +249,28 @@ python scripts/render_brief.py
 
 ---
 
-## 自动化（Windows 每日 08:00）
+## 自动化（Windows 每日 09:00）
 
 | 文件 | 用途 |
 |---|---|
-| `run_daily.bat` | 实际执行脚本，写日志到 `logs\pipeline.log` |
-| `test_daily.bat` | **双击即可测试**，跑完显示 SUCCESS / FAILED |
+| `run_daily.bat` | 实际执行脚本：跑流水线 → 自动提交并推送到 GitHub，日志写 `logs\pipeline.log` 与 `logs\publish.log` |
+| `test_daily.bat` | **双击即可测试**，跑完显示 SUCCESS / PARTIAL / FAILED |
 | `setup_task.bat` | 注册/重建 Windows 定时任务（需**管理员身份运行**） |
+| `scripts/publish_site.py` | 提交 + 推送。可单独运行：`python scripts\publish_site.py` |
 
-任务名 `AI_Frontier_Daily_Brief`，每天 08:00 触发。
+任务名 `AI_Frontier_Daily_Brief`，每天 09:00 触发。
 
 **使用流程：**
 
 1. 右键 `setup_task.bat` → 以管理员身份运行
 2. 双击 `test_daily.bat` 验证链路
-3. 查看日志 `logs\pipeline.log`
+3. 查看日志 `logs\pipeline.log`（内容生成）和 `logs\publish.log`（推送）
 
-> ⚠️ **电脑必须在 08:00 前开机**（锁屏可以，关机不行）。如需 24 小时在线，请改用 GitHub Actions。
+**退出码含义**：`0` 全部成功 · `5` 本地已更新但推送失败（网络问题，稍后重跑 `publish_site.py` 即可）· 其他为流水线自身失败。
+
+**推送采用双通道**：优先 SSH over 443（`ssh.github.com:443`），失败自动退回 HTTPS，每轮最多重试 6 次。国内直连 GitHub 会间歇性被重置，双通道 + 重试能大幅提高无人值守成功率。
+
+> ⚠️ **电脑必须在 09:00 前开机**（锁屏可以，关机不行）。如需 24 小时在线，请改用 GitHub Actions。
 
 详细配置见 [`docs/Windows任务计划配置教程.md`](docs/Windows任务计划配置教程.md)。
 
@@ -342,7 +347,7 @@ ai-frontier/
 name: Daily AI Brief
 on:
   schedule:
-    - cron: '0 0 * * *'      # UTC 00:00 = 北京时间 08:00
+    - cron: '0 1 * * *'      # UTC 01:00 = 北京时间 09:00
   workflow_dispatch:
 
 permissions:
@@ -384,7 +389,13 @@ jobs:
 ## 常见问题
 
 **Q：日报没有自动更新？**
-检查三处：① 电脑 08:00 前是否开机；② `schtasks /Query /TN "AI_Frontier_Daily_Brief"` 任务是否存在；③ `logs\pipeline.log` 末尾是否有 `[ERROR]`。
+检查三处：① 电脑 09:00 前是否开机；② `schtasks /Query /TN "AI_Frontier_Daily_Brief"` 任务是否存在；③ `logs\pipeline.log` 末尾是否有 `[ERROR]`。
+
+**Q：本地有更新但线上网站没变？**
+说明流水线跑完了、推送失败了（退出码 5）。看 `logs\publish.log`，网络恢复后单独运行 `python scripts\publish_site.py` 补推即可，不需要重跑 18 分钟的流水线。
+
+**Q：推送为什么优先走 SSH？**
+国内直连 GitHub 的 HTTPS 会间歇性被 RST。实测同一时刻 HTTPS 连不上、SSH 22/443 却正常，所以脚本优先走 `ssh.github.com:443`，失败才退回 HTTPS。首次使用需把 `~\.ssh\id_ed25519.pub` 加到 GitHub → Settings → SSH and GPG keys。
 
 **Q：没有配置 API Key 会怎样？**
 流水线仍可运行，但降级为**规则模式**：英文资讯不做翻译、玩法与教程走 fallback 占位（仅展示原文链接）。建议至少配置 `DEEPSEEK_API_KEY`。

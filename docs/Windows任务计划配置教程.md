@@ -1,10 +1,10 @@
 # AI Frontier · Windows 任务计划配置教程
 
-> **目标**：让电脑每天早上 8:00 自动跑流水线，生成今日 AI 简报，**你再也不用手动叫**。
+> **目标**：让电脑每天早上 9:00 自动跑流水线，生成今日 AI 简报，**你再也不用手动叫**。
 >
 > **预计耗时**：5 分钟。
 >
-> **前提条件**：电脑在早上 8:00 前已开机（锁屏/睡眠都算，**关机就不行**）。
+> **前提条件**：电脑在早上 9:00 前已开机（锁屏/睡眠都算，**关机就不行**）。
 
 ---
 
@@ -18,7 +18,7 @@ schtasks /Create ^
   /TN "AI_Frontier_Daily_Brief" ^
   /TR "E:\AI-Frontier\run_daily.bat" ^
   /SC DAILY ^
-  /ST 08:00 ^
+  /ST 09:00 ^
   /RL HIGHEST ^
   /F
 echo.
@@ -30,7 +30,7 @@ pause
 **说明**：
 - `/TN` 任务名称（你能在"任务计划程序"里看到这个名字）
 - `/TR` 要执行的程序 = 我们的 `run_daily.bat`
-- `/SC DAILY /ST 08:00` 每天 08:00 跑
+- `/SC DAILY /ST 09:00` 每天 09:00 跑
 - `/RL HIGHEST` 用最高权限（让脚本能正常写文件）
 - `/F` 强制覆盖（如果已存在同名任务）
 
@@ -40,11 +40,11 @@ pause
 文件夹: \
 主机名:  YOUR-PC
 任务名:  AI_Frontier_Daily_Brief
-下次运行时间: 2026/9/12 8:00:00
+下次运行时间: 2026/11/06 9:00:00
 状态:   准备就绪
 ```
 
-**完事了。** 明天 8:00 它会自动跑。
+**完事了。** 明天 9:00 它会自动跑。
 
 ---
 
@@ -66,7 +66,7 @@ pause
 │  创建基本任务               │
 ├─────────────────────────────┤
 │  名称:  AI_Frontier_Daily   │
-│  描述:  每日 08:00 自动    │
+│  描述:  每日 09:00 自动    │
 │         跑 AI 简报流水线   │
 │  [下一步 >]                 │
 └─────────────────────────────┘
@@ -86,14 +86,14 @@ pause
 └─────────────────────────────┘
 ```
 
-### 步骤 4：设时间 08:00
+### 步骤 4：设时间 09:00
 
 ```
 ┌─────────────────────────────┐
 │  每日                      │
 ├─────────────────────────────┤
 │  开始: 2026/9/11           │
-│        08:00:00            │  ← 时间
+│        09:00:00            │  ← 时间
 │  同步时区: ☑              │
 │  [下一步 >]                 │
 └─────────────────────────────┘
@@ -147,17 +147,18 @@ pause
    ============================================================
       AI Frontier - Pipeline Test
    ============================================================
-      This runs the full pipeline (takes about 5-6 minutes).
+      This runs the full pipeline, then pushes to GitHub.
       Log file: logs\pipeline.log
    ============================================================
 
    Press any key to continue . . .
    ```
-4. 按任意键开始跑（**不要关窗口**，等 5-6 分钟）
+4. 按任意键开始跑（**不要关窗口**，等 15-20 分钟）
 5. 跑完会显示 `RESULT: SUCCESS` 或 `RESULT: FAILED`
 
 **检查结果**：
-- 打开 `logs\pipeline.log` —— 末尾应该有 `AI Frontier pipeline END` 和 `Exit code = 0`
+- 打开 `logs\pipeline.log` —— 末尾应该有 `AI Frontier pipeline END`，且 `Pipeline exit code = 0`
+- 打开 `logs\publish.log` —— 末尾应该是 `publish_site.py  END (pushed)`
 - 打开 `daily-brief-YYYY-MM-DD.html` —— 时间戳是刚才
 
 **如果 FAILED**：把 `logs\pipeline.log` 最后 30 行发我，我帮你定位。
@@ -175,7 +176,8 @@ pause
    - `logs\pipeline.log` 末尾多了新的 `END` 标记
 
 **成功标准**：
-- 日志文件最末尾有 `Exit code = 0`
+- `logs\pipeline.log` 末尾 `Pipeline exit code = 0` 且 `Publish exit code = 0`
+- 打开 `https://equinoxflower0.github.io/AI-Frontier/` 能看到今天的日报
 - 今天的日报文件时间戳是几分钟前
 
 ---
@@ -187,13 +189,26 @@ pause
 - 任务状态是"准备就绪"但没运行 → 右键 → "启用"（确认勾了）
 - 时区不对 → 检查 `schtasks /Query /TN "AI_Frontier_Daily_Brief" /V /FO LIST` 的"下一次运行时间"是不是你期望的
 
-### 问题 2：跑了但 Python 报错
+### 问题 2：内容生成了，但线上网站没更新
+
+说明流水线成功、推送到 GitHub 失败（脚本返回 **退出码 5**）。
+
+- 打开 `logs\publish.log` 看最后一次失败原因（通常是 `Connection was reset`）
+- 网络恢复后单独补推，**不用重跑 18 分钟流水线**：
+  ```bat
+  cd /d E:\AI-Frontier
+  python scripts\publish_site.py
+  ```
+- 推送优先走 SSH over 443，需要先把 `C:\Users\<你>\.ssh\id_ed25519.pub` 的内容加到
+  GitHub → Settings → SSH and GPG keys → New SSH key。没加之前会自动退回 HTTPS。
+
+### 问题 3：跑了但 Python 报错
 看 `logs\pipeline_YYYY-MM-DD.log` 文件，搜 "Error" / "Traceback"。
 常见原因：
 - API key 过期 → 重新跑 `python -c "import openai_compatible; ..."` 测一下
 - 网络问题 → 国内用户偶尔连不上 RSS，断点续跑就行
 
-### 问题 3：每天都重复生成，但我想只留最新
+### 问题 4：每天都重复生成，但我想只留最新
 可以在 .bat 末尾加一段：
 ```bat
 forfiles /p "%WORK_DIR%" /m "daily-brief-*.html" /d -30 /c "cmd /c del @path" 2>nul

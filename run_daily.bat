@@ -1,8 +1,9 @@
 @echo off
 REM ============================================================
 REM  AI Frontier - Daily Auto Update Script
-REM  Fetch RSS -> LLM scoring -> Render brief -> Render index
-REM  Called by Windows Task Scheduler
+REM  Step 1: Fetch RSS -> LLM scoring -> Render brief/index/playground/tutorials
+REM  Step 2: Commit and push to GitHub so the live site refreshes
+REM  Called by Windows Task Scheduler (daily at 09:00)
 REM  NOTE: Keep this file ASCII-only to avoid cmd.exe codepage issues.
 REM ============================================================
 
@@ -49,24 +50,41 @@ if not exist "%WORK_DIR%\scripts\run_pipeline.py" (
 REM ---------- RUN PIPELINE ----------
 echo [INFO] Python : %PYTHON%>> "%LOG%"
 echo [INFO] WorkDir: %WORK_DIR%>> "%LOG%"
-echo.>> "%LOG%"
-
+>> "%LOG%" echo.
+>> "%LOG%" echo [STEP 1/2] Running content pipeline ...
 "%PYTHON%" scripts\run_pipeline.py --mode llm >> "%LOG%" 2>&1
 set "RC=%errorlevel%"
 
-REM ---------- WRITE END MARKER ----------
-echo.>> "%LOG%"
-echo ===========================================================>> "%LOG%"
-echo  AI Frontier pipeline END >> "%LOG%"
->> "%LOG%" echo  Exit code = %RC%
-echo ===========================================================>> "%LOG%"
-
 if %RC% neq 0 (
+    >> "%LOG%" echo [FAILED] Pipeline exited with code %RC%
     echo [FAILED] Pipeline exited with code %RC%
     echo Log: %LOG%
     exit /b %RC%
 )
 
-echo [SUCCESS] Pipeline completed.
-echo Log: %LOG%
+REM ---------- PUBLISH TO GITHUB ----------
+REM Commits the regenerated pages and pushes them so GitHub Pages goes live.
+>> "%LOG%" echo.
+>> "%LOG%" echo [STEP 2/2] Committing and pushing to GitHub ...
+"%PYTHON%" scripts\publish_site.py >> "%LOG%" 2>&1
+set "PRC=%errorlevel%"
+
+REM ---------- WRITE END MARKER ----------
+>> "%LOG%" echo.
+>> "%LOG%" echo ===========================================================
+>> "%LOG%" echo  AI Frontier pipeline END
+>> "%LOG%" echo  Pipeline exit code = %RC%
+>> "%LOG%" echo  Publish  exit code = %PRC%
+>> "%LOG%" echo ===========================================================
+
+if %PRC% neq 0 (
+    echo [WARN] Site updated locally, but push to GitHub failed.
+    echo [WARN] Log: %LOG%
+    echo [HINT] Retry later: python scripts\publish_site.py
+    exit /b 5
+)
+
+echo [SUCCESS] Content updated and published to GitHub.
+echo Site: https://equinoxflower0.github.io/AI-Frontier/
+echo Log : %LOG%
 exit /b 0

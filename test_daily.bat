@@ -12,13 +12,15 @@ echo ============================================================
 echo   AI Frontier - Pipeline Test
 echo ============================================================
 echo.
-echo   This runs the full pipeline (takes about 5-6 minutes).
+echo   This runs the full pipeline, then pushes to GitHub.
 echo.
 echo   - It fetches latest AI news via RSS
 echo   - Scores and summarizes them with LLM
-echo   - Regenerates daily brief and homepage
+echo   - Regenerates brief, homepage, playground, tutorials
+echo   - Commits and pushes so the live site updates
 echo.
-echo   Log file: logs\pipeline.log
+echo   Duration: about 15-20 minutes. Keep the PC awake.
+echo   Log file: logs\pipeline.log  (publish part: logs\publish.log)
 echo.
 echo ============================================================
 echo.
@@ -34,7 +36,12 @@ set "RC=%errorlevel%"
 echo.
 echo ============================================================
 if "%RC%"=="0" (
-    echo   RESULT: SUCCESS
+    echo   RESULT: SUCCESS - site updated and pushed
+) else if "%RC%"=="5" (
+    echo   RESULT: PARTIAL - site updated locally, push failed
+    echo   The generated pages are fine; they just did not reach GitHub.
+    echo   Run scripts\publish_site.py again later to retry the push.
+    echo   Details: logs\publish.log
 ) else (
     echo   RESULT: FAILED - exit code %RC%
     echo   Please open logs\pipeline.log to see the error.

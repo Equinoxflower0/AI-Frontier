@@ -36,10 +36,12 @@ LOG_DIR = ROOT / "logs"
 LOG_FILE = LOG_DIR / "publish.log"
 
 BRANCH = "main"
-RETRY_TIMES = 5
-RETRY_WAIT = 15
+RETRY_TIMES = 6
+RETRY_WAIT = 20
 PUSH_TIMEOUT = 180
 CONNECT_TIMEOUT = 20
+SSH_HOST = "ssh.github.com"
+SSH_PORT = 443
 
 GIT_CANDIDATES = (
     r"D:\Git\cmd\git.exe",
@@ -64,6 +66,10 @@ def build_env():
         env.pop(key, None)
     env["GIT_TERMINAL_PROMPT"] = "0"
     env["GCM_INTERACTIVE"] = "never"
+    # SSH 通道也必须非交互：BatchMode 保证没配好密钥时立刻失败而不是卡住等输入
+    env["GIT_SSH_COMMAND"] = (
+        "ssh -o BatchMode=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10"
+    )
     return env
 
 
@@ -147,6 +153,30 @@ def has_unpushed_commits(git):
         return int(out.strip()) > 0
     except ValueError:
         return True
+
+
+def ssh_url_from(https_url):
+    """把 HTTPS 地址换成 SSH-over-443 地址。
+
+    GitHub 的 443 端口 SSH 入口是 ssh.github.com。实测在 HTTPS 被重置的网络里，
+    SSH 22 / 443 仍然可用，所以把它作为首选推送通道，HTTPS 退为备用。
+    """
+    url = (https_url or "").strip().rstrip("/")
+    if not url or url.startswith("git@"):
+        return None
+    for scheme in ("https://", "http://"):
+        if url.startswith(scheme):
+            url = url[len(scheme):]
+            break
+    else:
+        return None
+    if url.endswith(".git"):
+        url = url[:-4]
+    parts = [p for p in url.split("/") if p]
+    if len(parts) < 3:
+        return None
+    owner, repo = parts[-2], parts[-1]
+    return "ssh://git@%s:%d/%s/%s.git" % (SSH_HOST, SSH_PORT, owner, repo)
 
 
 def main():
@@ -234,46 +264,70 @@ def main():
         log(" publish_site.py  END (local only)")
         return 0
 
+    targets = []
+    ssh_url = ssh_url_from(remote_url)
+    if ssh_url:
+        targets.append(("ssh-443", ssh_url))
+    targets.append(("https", "origin"))
+
+    skip_channels = set()
     for attempt in range(1, RETRY_TIMES + 1):
-        log("")
-        log("[PUSH] 第 %d/%d 次尝试推送 %s ..." % (attempt, RETRY_TIMES, BRANCH))
-        rc, out = run_git(
-            git,
-            ["-c", "http.connectTimeout=%d" % CONNECT_TIMEOUT, "push", "origin", BRANCH],
-            timeout=PUSH_TIMEOUT,
-        )
-        if out:
-            for line in out.splitlines()[-8:]:
-                log("        %s" % line)
-
-        if rc == 0:
+        for label, target in targets:
+            if label in skip_channels:
+                continue
             log("")
-            log("[OK] 推送成功，GitHub Pages 将在 1-3 分钟内更新")
-            rc_hash, head = run_git(git, ["rev-parse", "--short", "HEAD"], timeout=30)
-            if rc_hash == 0:
-                log("[INFO] 当前提交：%s" % head)
-            log(" publish_site.py  END (pushed)")
-            return 0
-
-        lowered = out.lower()
-        if "non-fast-forward" in lowered or "rejected" in lowered or "fetch first" in lowered:
-            log("[WARN] 远端有新提交，尝试 pull --rebase 后再推")
-            rc_pull, out_pull = run_git(
-                git, ["-c", "http.connectTimeout=%d" % CONNECT_TIMEOUT, "pull", "--rebase", "--autostash", "origin", BRANCH],
+            log("[PUSH] 第 %d/%d 次 · 通道 %s" % (attempt, RETRY_TIMES, label))
+            rc, out = run_git(
+                git,
+                ["-c", "http.connectTimeout=%d" % CONNECT_TIMEOUT, "push", target, BRANCH],
                 timeout=PUSH_TIMEOUT,
             )
-            if rc_pull != 0:
-                log("[ERROR] pull --rebase 失败：%s" % out_pull)
-                run_git(git, ["rebase", "--abort"], timeout=60)
-                log("[HINT] 已中止 rebase，请手动检查冲突后重跑")
-                return 1
+            if out:
+                for line in out.splitlines()[-6:]:
+                    log("        %s" % line)
 
+            if rc == 0:
+                log("")
+                log("[OK] 推送成功（通道 %s），GitHub Pages 将在 1-3 分钟内更新" % label)
+                if target != "origin":
+                    # 走显式 URL 推送时 git 不会自动更新 origin/main，这里手动对齐
+                    run_git(git, ["update-ref", "refs/remotes/origin/%s" % BRANCH, "HEAD"], timeout=30)
+                rc_hash, head = run_git(git, ["rev-parse", "--short", "HEAD"], timeout=30)
+                if rc_hash == 0:
+                    log("[INFO] 当前提交：%s" % head)
+                log(" publish_site.py  END (pushed)")
+                return 0
+
+            lowered = out.lower()
+
+            if "permission denied" in lowered or "publickey" in lowered:
+                log("[INFO] 该通道未授权（SSH 公钥还没加到 GitHub），后续跳过它")
+                skip_channels.add(label)
+                continue
+
+            if "non-fast-forward" in lowered or "rejected" in lowered or "fetch first" in lowered:
+                log("[WARN] 远端有新提交，尝试 pull --rebase 后再推")
+                rc_pull, out_pull = run_git(
+                    git,
+                    ["-c", "http.connectTimeout=%d" % CONNECT_TIMEOUT, "pull", "--rebase", "--autostash", "origin", BRANCH],
+                    timeout=PUSH_TIMEOUT,
+                )
+                if rc_pull != 0:
+                    log("[ERROR] pull --rebase 失败：%s" % out_pull)
+                    run_git(git, ["rebase", "--abort"], timeout=60)
+                    log("[HINT] 已中止 rebase，请手动检查冲突后重跑")
+                    return 1
+
+        if len(skip_channels) >= len(targets):
+            log("")
+            log("[FAILED] 所有推送通道都不可用")
+            break
         if attempt < RETRY_TIMES:
             log("[RETRY] %d 秒后重试..." % RETRY_WAIT)
             time_sleep(RETRY_WAIT)
 
     log("")
-    log("[FAILED] 连续 %d 次推送失败" % RETRY_TIMES)
+    log("[FAILED] 推送未成功")
     log("[HINT] 本地内容已更新并提交，只是没传上去。")
     log("[HINT] 网络恢复后单独运行：python scripts\\publish_site.py")
     log(" publish_site.py  END (push failed)")

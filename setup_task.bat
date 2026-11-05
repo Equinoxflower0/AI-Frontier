@@ -2,7 +2,7 @@
 REM ============================================================
 REM  AI Frontier - Register Daily Task
 REM  Creates a Windows scheduled task that runs run_daily.bat
-REM  every day at 08:00.
+REM  every day at 09:00 (pipeline + git push).
 REM
 REM  HOW TO USE:
 REM    Right-click this file -> "Run as administrator"
@@ -21,7 +21,8 @@ echo ============================================================
 echo.
 echo   Task name : %TASK_NAME%
 echo   Script    : %BAT_PATH%
-echo   Schedule  : Every day at 08:00
+echo   Schedule  : Every day at 09:00
+echo   Actions   : run pipeline  +  commit and push to GitHub
 echo.
 echo ============================================================
 echo.
@@ -42,7 +43,7 @@ REM --- Remove existing task with same name (ignore errors) ---
 schtasks /Delete /TN "%TASK_NAME%" /F >nul 2>&1
 
 REM --- Create the task ---
-schtasks /Create /TN "%TASK_NAME%" /TR "%BAT_PATH%" /SC DAILY /ST 08:00 /RL HIGHEST /F
+schtasks /Create /TN "%TASK_NAME%" /TR "%BAT_PATH%" /SC DAILY /ST 09:00 /RL HIGHEST /F
 
 if errorlevel 1 (
     echo.
@@ -58,7 +59,15 @@ schtasks /Query /TN "%TASK_NAME%"
 
 echo.
 echo ============================================================
-echo   DONE. The task will run every day at 08:00.
+echo   DONE. The task will run every day at 09:00.
+echo.
+echo   What it does:
+echo     1. Fetch and score latest AI news
+echo     2. Regenerate brief / index / playground / tutorials
+echo     3. Commit and push to GitHub (site goes live in ~2 min)
+echo.
+echo   Exit code 5 means the site was updated locally but the
+echo   push failed (network). Just run publish_site.py later.
 echo.
 echo   To test it now:
 echo     Task Scheduler -^> find "%TASK_NAME%" -^> Right-click -^> Run

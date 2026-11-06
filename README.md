@@ -27,6 +27,7 @@ AI Frontier 把 **29 个信息源**的更新自动汇总、去重、评分、翻
 - **AI 玩法实验室** — 归集可复制的 AI 创新玩法，按玩法类型 / 难度 / 可复制度三维筛选
 - **教程社区** — 每日 LLM 生成结构化教程（背景 → 工具准备 → 分步操作 → 效果 → FAQ → 进阶变体），支持站内搜索，增量缓存不重复烧 token
 - **四套页面自动产出** — 首页 + 每日日报 + 玩法实验室 + 教程站，全部静态 HTML
+- **往期资讯归档** — `archive.html` 按月归档所有历史日报，支持月份筛选与关键词搜索，每日自动重建
 - **全自动运行** — Windows 任务计划每天 09:00 自动跑完整流水线，并自动提交推送到 GitHub
 - **零依赖** — 纯 Python 标准库（`urllib` / `xml.etree` / `json`），无需 `pip install`
 
@@ -39,6 +40,7 @@ AI Frontier 把 **29 个信息源**的更新自动汇总、去重、评分、翻
 | 首页 | `index.html` | 今日必看 TOP 3 + 7 大板块统计卡 + 完整资讯流 + 玩法入口 |
 | 每日日报 | `daily-brief-YYYY-MM-DD.html` | 当日全量资讯，可按板块、可信度双维度筛选 |
 | 玩法实验室 | `playground.html` | 57 条可复制玩法，按类型 / 难度 / 可信度筛选 |
+| 往期归档 | `archive.html` | 全部历史日报按月归档，支持月份筛选与关键词搜索 |
 | 教程站 | `tutorials/index.html` + `tutorials/<id>.html` | 20 篇结构化教程，含站内搜索与相关推荐 |
 
 ---
@@ -49,7 +51,7 @@ AI Frontier 把 **29 个信息源**的更新自动汇总、去重、评分、翻
 
 - **Python 3.10+**（实测 3.13.12）
 - 抓取与渲染无需任何第三方 Python 库
-- **Node.js 18+**（仅用于编译 Tailwind CSS；缺失时流水线会跳过第 10 步并告警）
+- **Node.js 18+**（仅用于编译 Tailwind CSS；缺失时流水线会跳过第 11 步并告警）
 - 自动更新功能需要 Windows（任务计划程序）
 
 ### 1. 获取项目
@@ -139,7 +141,7 @@ GitHub awesome / HF Spaces / Product Hunt / Reddit / 国内 5 源
 
 ---
 
-## 流水线 10 步
+## 流水线 11 步
 
 `run_pipeline.py` 按顺序调度以下步骤，任一步失败即中止：
 
@@ -154,7 +156,8 @@ GitHub awesome / HF Spaces / Product Hunt / Reddit / 国内 5 源
 | 7 | `render_playground.py` | 渲染玩法实验室 HTML |
 | 8 | `generate_tutorials.py` | LLM 生成教程（每日最多 20 篇，带增量缓存） |
 | 9 | `render_tutorials.py` | 渲染教程详情页 + 索引页 |
-| 10 | 编译 Tailwind CSS | 按最终页面实际用到的 class 重新生成 `assets/tailwind.css` |
+| 10 | `render_archive.py` | 扫描历史日报，重建往期归档 `archive.html` |
+| 11 | 编译 Tailwind CSS | 按最终页面实际用到的 class 重新生成 `assets/tailwind.css` |
 
 ### 常用参数
 
@@ -300,7 +303,7 @@ ai-frontier/
 ├── logs/                               # 运行日志（已被 .gitignore 排除）
 │   └── pipeline.log
 └── scripts/
-    ├── run_pipeline.py                 # 一键流水线（10 步）
+    ├── run_pipeline.py                 # 一键流水线（11 步）
     ├── _utf8.py                        # UTF-8 输出保险（防 GBK 崩溃）
     ├── floating_home.py                # 悬浮返回按钮组件
     ├── sources_config.py               # 资讯源 + 可信度分级

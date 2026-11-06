@@ -43,7 +43,7 @@ def build_css():
     """
     print()
     print("=" * 70)
-    print("▶ 步骤 11/11 · 编译 Tailwind CSS")
+    print("▶ 步骤 12/12 · 编译 Tailwind CSS")
     print("=" * 70)
 
     root = SCRIPT_DIR.parent
@@ -84,28 +84,28 @@ def main():
     print(f"   skip_score = {args.skip_score}")
 
     if not args.skip_fetch:
-        run_step("步骤 1/11 · 抓取资讯", ["scripts/fetch_ai_news.py"])
+        run_step("步骤 1/12 · 抓取资讯", ["scripts/fetch_ai_news.py"])
 
     if not args.skip_score:
-        run_step(f"步骤 2/11 · 资讯评分+摘要（{args.mode} 模式）",
+        run_step(f"步骤 2/12 · 资讯评分+摘要（{args.mode} 模式）",
                  ["scripts/score_and_summarize.py", "--mode", args.mode])
 
     if not args.skip_fetch:
-        run_step("步骤 3/11 · 抓取 AI玩法", ["scripts/fetch_ai_play.py"])
+        run_step("步骤 3/12 · 抓取 AI玩法", ["scripts/fetch_ai_play.py"])
 
     if not args.skip_score:
-        run_step(f"步骤 4/11 · 玩法 LLM 翻译+评分（{args.mode} 模式）",
+        run_step(f"步骤 4/12 · 玩法 LLM 翻译+评分（{args.mode} 模式）",
                  ["scripts/score_play.py"])
 
-    run_step("步骤 5/11 · 渲染日报", ["scripts/render_brief.py"])
-    run_step("步骤 6/11 · 渲染首页", ["scripts/render_index.py"])
-    run_step("步骤 7/11 · 渲染玩法实验室", ["scripts/render_playground.py"])
+    run_step("步骤 5/12 · 渲染日报", ["scripts/render_brief.py"])
+    run_step("步骤 6/12 · 渲染首页", ["scripts/render_index.py"])
+    run_step("步骤 7/12 · 渲染玩法实验室", ["scripts/render_playground.py"])
 
     # v5 新增：教程社区（LLM 生成 + 渲染详情页）
     if not args.skip_tutorials:
-        run_step("步骤 8/11 · LLM 生成教程（每日最多 20 篇）",
+        run_step("步骤 8/12 · LLM 生成教程（每日最多 20 篇）",
                  ["scripts/generate_tutorials.py"])
-        run_step("步骤 9/11 · 渲染教程详情页 + 索引页",
+        run_step("步骤 9/12 · 渲染教程详情页 + 索引页",
                  ["scripts/render_tutorials.py"])
     else:
         print()
@@ -114,16 +114,20 @@ def main():
         print("=" * 70)
 
     # 往期归档：扫描根目录所有 daily-brief-*.html，重建 archive.html
-    run_step("步骤 10/11 · 渲染往期资讯归档", ["scripts/render_archive.py"])
+    run_step("步骤 10/12 · 渲染往期资讯归档", ["scripts/render_archive.py"])
+
+    # SEO：sitemap / rss / robots（从本地实际页面与最新一期日报生成）
+    run_step("步骤 11/12 · 生成 sitemap / RSS / robots", ["scripts/generate_seo.py"])
 
     # 必须在全部渲染之后：按最终页面的 class 生成样式
     build_css()
 
     print("\n" + "=" * 70)
-    print("✅ 流水线完成！首页 + 日报 + 玩法实验室 + 教程 + 往期归档 均已更新")
+    print("✅ 流水线完成！首页 + 日报 + 玩法实验室 + 教程 + 往期归档 + SEO 均已更新")
     if not args.skip_tutorials:
         print("   📚 教程页：tutorials/index.html + 详情页")
     print("   📅 往期归档：archive.html")
+    print("   🔎 订阅与收录：rss.xml / sitemap.xml / robots.txt")
     print("=" * 70)
 
 

@@ -35,6 +35,10 @@ from sources_play_config import (
     TIME_ESTIMATE_DEFAULT,
 )
 from sources_config import reliability_of, RELIABILITY_LEVELS
+from content_quality import (
+    strip_html, clean_link, is_paywalled, has_ai_signal,
+    is_obvious_non_ai, dedupe_items,
+)
 
 OUTPUT_FILE = Path(__file__).parent / "data" / "raw_play.json"
 USER_AGENT = "AI-Frontier-Play-Bot/1.0 (+https://ai-frontier.com)"
@@ -84,6 +88,92 @@ def _get(url, timeout=20, retries=4, accept=None):
             time.sleep(1.5 ** attempt)  # 指数退避
     print(f"    all retries failed: {last_err}")
     return None
+
+
+# ============================================================
+# 玩法准入闸门
+# ============================================================
+# 玩法实验室的定位是「能动手试」，不是「AI 新闻第二落点」。
+# 之前凡是描述里出现 AI 的媒体文章都会被打成 tool_chain / tool_workflow，
+# 结果蒸菜、进博会通稿、融资新闻全混进来，还统一挂一句
+# 「可直接按 GitHub 链接运行」——而链接根本不在 GitHub 上。
+
+# 标题里必须出现的「可操作」信号
+PLAY_ACTION_TERMS = [
+    "教程", "指南", "手把手", "保姆", "实操", "实战", "复现", "搭建", "配置",
+    "部署", "工作流", "workflow", "prompt", "提示词", "模板", "插件", "脚本",
+    "一键", "docker", "api", "cli", "sdk", "上手", "玩法", "技巧", "调教",
+    "微调", "开源", "工具", "怎么", "如何", "免费", "本地运行", "调用",
+    "实测", "体验", "试用", "在线", "下载", "安装",
+]
+
+# 命中即判定为「新闻 / 通稿 / 生活内容」，不进玩法实验室
+PLAY_NEWS_TERMS = [
+    "融资", "估值", "ipo", "上市", "收购", "财报", "营收", "净利", "亏损",
+    "销量", "交付量", "发布会", "通稿", "人事", "离职", "跳槽", "加盟",
+    "出任", "裁员", "破产", "暴跌", "暴涨", "涨价", "降价", "股价",
+    "菜谱", "食谱", "蒸菜", "家常", "做法", "好吃",
+    "双11", "双十一", "618", "节假日", "放假", "春运",
+    "进博会", "车展", "新车", "奥运", "世界杯", "楼盘", "房价", "彩票",
+    "医美", "玻尿酸", "减肥", "美白", "护肤", "星座",
+    "派早报", "本周看什么", "新玩意", "app+1",
+]
+
+# 这些链接天然就是「可动手」的
+_ACTIONABLE_HOSTS = ("github.com", "huggingface.co", "colab.research.google.com",
+                     "replicate.com", "modelscope.cn")
+
+
+def _host_of(url: str) -> str:
+    try:
+        from urllib.parse import urlsplit
+        h = urlsplit(url).netloc.lower()
+        return h[4:] if h.startswith("www.") else h
+    except ValueError:
+        return ""
+
+
+def is_actionable_play(item: dict) -> tuple[bool, str]:
+    """判断一条记录是否真的「可以动手玩」。
+
+    返回 (是否准入, 拒绝原因)。规则是硬的，不做模糊判断：
+      1. 付费墙 / 新闻通稿 / 生活内容 → 直接拒
+      2. 没有 AI 信号 → 拒
+      3. 必须在标题里出现可操作信号，或链接本身就是可运行平台
+    """
+    if item.get("_trusted_actionable"):
+        return True, ""
+
+    title = strip_html(item.get("title", ""))
+    desc = strip_html(item.get("description", ""))
+    text = f"{title} {desc}"
+    lower = text.lower()
+
+    if is_paywalled(item.get("link", "")):
+        return False, "付费墙"
+
+    for kw in PLAY_NEWS_TERMS:
+        if kw in lower:
+            return False, f"新闻/生活内容（{kw}）"
+
+    if not has_ai_signal(text):
+        return False, "无 AI 信号"
+
+    if _host_of(item.get("link", "")) in _ACTIONABLE_HOSTS:
+        return True, ""
+
+    if any(kw in title.lower() for kw in PLAY_ACTION_TERMS):
+        return True, ""
+
+    return False, "无明确可操作内容"
+
+
+def _clean_fields(item: dict) -> dict:
+    """统一清洗标题 / 描述 / 链接（去 HTML、去 utm、去 fragment）。"""
+    item["title"] = strip_html(item.get("title", ""), max_len=200)
+    item["description"] = strip_html(item.get("description", ""), max_len=400)
+    item["link"] = clean_link(item.get("link", ""))
+    return item
 
 
 def _enrich(item: dict) -> dict:
@@ -154,6 +244,7 @@ def collect_github():
                 "source_type": cfg["source_type"],
                 "play_type": cfg["play_type"],
                 "is_demo": False,
+                "_trusted_actionable": True,   # GitHub 仓库本身就是可运行项目
                 "_raw": {"stars": r.get("stargazers_count", 0),
                          "language": r.get("language")},
             })
@@ -209,6 +300,7 @@ def collect_hf():
             "source_type": "media",  # HF Spaces 视为权威平台
             "play_type": "runnable_demo",
             "is_demo": True,
+            "_trusted_actionable": True,   # HF Space 打开即可用
             "_raw": {"likes": likes, "sdk": sdk},
         })
         count += 1
@@ -367,8 +459,8 @@ def collect_domestic():
             # 排除关键词命中 → 跳过
             if any(k in text for k in exclude):
                 continue
-            # AI 关键词必须在标题或描述中出现
-            if any(k in text for k in keywords):
+            # AI 关键词必须在标题或描述中出现（用词边界匹配，避免 "ai" 命中 email/air）
+            if has_ai_signal(text) or any(k in text for k in keywords if len(k) > 2):
                 filtered.append(it)
             if len(filtered) >= max_n:
                 break
@@ -390,7 +482,7 @@ def collect_domestic():
                 "source_category": "玩法",
                 "source_lang": cfg.get("lang", "zh"),
                 "source_type": cfg["source_type"],
-                "play_type": cfg.get("play_type", "tool_chain"),
+                "play_type": infer_play_type(it),   # 按内容推断，不再一律 tool_chain
                 "is_domestic": True,  # 国内源标记
             })
         time.sleep(0.3)
@@ -410,16 +502,13 @@ def _normalize_link(link: str) -> str:
 
 
 def dedupe(items: list[dict]) -> list[dict]:
-    """按 link 去重"""
-    seen = set()
-    out = []
+    """链接 + 标题相似度两级去重，保留可复制度更高的那条。"""
     for it in items:
-        k = _normalize_link(it.get("link", ""))
-        if not k or k in seen:
-            continue
-        seen.add(k)
-        out.append(it)
-    return out
+        rl = reliability_of(it.get("source_type", "community"))
+        it["source_weight"] = rl["weight"]
+    return dedupe_items(items, title_key="title", link_key="link",
+                        weight_key="source_weight", threshold=0.80,
+                        guard_numbers=True)
 
 
 def main():
@@ -432,6 +521,24 @@ def main():
     all_items.extend(collect_reddit())       # 3. Reddit
     all_items.extend(collect_producthunt())  # 4. Product Hunt
     all_items.extend(collect_domestic())     # 5. v4 国内玩法源
+
+    # 统一清洗（HTML / 追踪参数 / 付费墙）
+    all_items = [_clean_fields(it) for it in all_items]
+    all_items = [it for it in all_items if it.get("link")]
+
+    # 玩法准入闸门：只留「能上手」的，新闻通稿 / 生活内容 / 无操作物一律拒
+    before = len(all_items)
+    gated, rejects = [], {}
+    for it in all_items:
+        ok, reason = is_actionable_play(it)
+        if ok:
+            gated.append(it)
+        else:
+            rejects[reason] = rejects.get(reason, 0) + 1
+    all_items = gated
+    print(f"\n[闸门] {before} 条 → 准入 {len(all_items)} 条（拒绝 {before - len(all_items)} 条）")
+    for reason, n in sorted(rejects.items(), key=lambda x: -x[1]):
+        print(f"    - {reason}: {n} 条")
 
     # 去重
     all_items = dedupe(all_items)

@@ -1,7 +1,7 @@
 """
 score_and_summarize.py
 ======================
-全球 AI 前沿咨询网站 - LLM 评分 + 摘要 (v2)
+全球 AI 前沿资讯网站 - LLM 评分 + 摘要 (v2)
 
 输入：scripts/data/raw_news.json
 输出：scripts/data/scored_news.json
@@ -33,6 +33,9 @@ import _utf8  # noqa: F401  —— 强制 UTF-8 输出，防止 GBK 控制台崩
 
 # 共享配置：可信度分级
 from sources_config import reliability_of
+
+# 内容质量：清洗 LLM 输出里的 HTML / 链接
+from content_quality import strip_html, clean_link, dedupe_items
 
 INPUT_FILE = Path(__file__).parent / "data" / "raw_news.json"
 OUTPUT_FILE = Path(__file__).parent / "data" / "scored_news.json"
@@ -165,10 +168,11 @@ def rule_score(item: dict) -> dict:
         category = "大模型"
 
     return {
+        "ai_related": True,
         "score": score,
         "summary_zh": summary,
         "title_zh": title if lang == "zh" else f"[EN] {title}",
-        "category": category,
+        "category": _normalize_category(category),
         "need_translate": need_translate,
         "reasons": reasons,
     }
@@ -178,9 +182,7 @@ def rule_score(item: dict) -> dict:
 # LLM 调用（豆包 / OpenAI / DeepSeek 通用）
 # ============================================================
 
-LLM_PROMPT_TEMPLATE = """你是一个 AI 资讯编辑，擅长快速提炼要点。
-
-请基于以下资讯，生成中文摘要并评分。
+LLM_PROMPT_TEMPLATE = """你是一个 AI 行业编辑，只做三件事：判断这条值不值得看、用一句话说清是什么、指出它为什么重要。
 
 【标题】{title}
 【来源】{source}
@@ -190,18 +192,34 @@ LLM_PROMPT_TEMPLATE = """你是一个 AI 资讯编辑，擅长快速提炼要点
 
 请严格按 JSON 格式返回（不要 Markdown 代码块包装，不要其他文字）：
 {{
-  "title_zh": "<中文标题，≤25字>",
-  "summary": "<一句话中文摘要，≤80字>",
-  "why_important": "<为什么重要，≤120字，可选空>",
+  "ai_related": <true|false; 这条新闻的核心是否与 AI / 大模型 / 智能体 / AI 芯片 / AI 应用直接相关>,
+  "title_zh": "<中文标题，≤25字，保留关键主体与数字，不要夸张>",
+  "summary": "<一句话说清发生了什么，≤80字，只陈述事实，不加评价>",
+  "why_important": "<为什么重要，≤120字>",
   "score": <0-10 的重要性评分，保留 1 位小数>,
   "category": "<大模型|开源|论文|产业|工具|观点|综合>"
 }}
 
-评分维度：
-- 时效性：最近 24h 加分
-- 影响力：是否头部厂商/机构/融资/新模型
-- 话题热度：是否行业关注焦点
-- 来源可信度：官方一手/权威媒体应给更高分，自媒体/个人应给较低分（你给的 score 需要已经考虑来源可信度）"""
+【分类口径，必须严格遵守】
+- 大模型：新模型发布、能力升级、模型能力评测
+- 开源：开源项目、开源权重、开发者工具链
+- 论文：论文、技术报告、研究成果
+- 产业：AI 公司的融资/并购/财报/合作/人事变动。**非 AI 公司的商业新闻（消费、医美、地产、汽车销量、图库版权）不属于此类**，应判 ai_related=false
+- 工具：面向用户的 AI 产品与应用
+- 观点：评论、访谈、行业分析
+- 综合：以上都不属于
+
+【why_important 写法，这是全站最值钱的部分】
+不要写"反映了……标志着……意味着……将对……产生影响"这类套话。必须给出具体判断，回答下面至少两点：
+- 谁需要关注（哪类从业者/公司/开发者）
+- 具体改变了什么（成本、能力边界、可用性、竞争格局）
+- 下一步该看什么
+示例（好）："推理成本降到每百万 token 0.5 元后，原先跑不起的长文档客服场景变得可行，做垂直 SaaS 的团队可以直接把上下文从 8K 拉到 128K。"
+示例（差）："这标志着大模型成本进一步下降，将对行业产生深远影响。"
+
+【评分】
+- 时效性、影响力、话题热度、来源可信度综合判断；自媒体/个人来源应给较低分
+- 与 AI 无关的条目：ai_related=false，score 给 0-2 分"""
 
 
 def _build_prompt(item: dict) -> str:
@@ -288,12 +306,16 @@ def llm_score_batch(items: list[dict]) -> list[dict]:
                                           "https://api.deepseek.com", deepseek_model)
             else:
                 r = call_openai_compatible(item, api_key, "https://api.openai.com", "gpt-4o-mini")
+            ai_related = r.get("ai_related", True)
+            if isinstance(ai_related, str):
+                ai_related = ai_related.strip().lower() not in ("false", "0", "no", "否")
             out.append({
+                "ai_related": bool(ai_related),
                 "score": float(r.get("score", 5)),
-                "summary_zh": r.get("summary", item.get("title", "")),
-                "title_zh": r.get("title_zh", item.get("title", "")),
-                "why_important": r.get("why_important", ""),
-                "category": r.get("category", item.get("source_category", "综合")),
+                "summary_zh": strip_html(r.get("summary", ""), max_len=200) or item.get("title", ""),
+                "title_zh": strip_html(r.get("title_zh", ""), max_len=80) or item.get("title", ""),
+                "why_important": strip_html(r.get("why_important", ""), max_len=300),
+                "category": _normalize_category(r.get("category")),
                 "reasons": ["LLM 生成"],
             })
             time.sleep(0.3)
@@ -301,6 +323,60 @@ def llm_score_batch(items: list[dict]) -> list[dict]:
             print(f"    ⚠ LLM 调用失败: {type(e).__name__}: {e}，回退到规则")
             out.append(rule_score(item))
     return out
+
+
+# ============================================================
+# 分类归一化 + 板块配比控制
+# ============================================================
+
+VALID_CATEGORIES = ("大模型", "开源", "论文", "产业", "工具", "观点", "综合")
+
+# 单个板块最多占当日条目的比例（超出部分沉到列表末尾，不删除）
+CATEGORY_CAP_RATIO = {"产业": 0.30, "综合": 0.15}
+
+
+def _normalize_category(raw) -> str:
+    """把 LLM 返回的分类收敛到 7 个合法值。"""
+    if not raw:
+        return "综合"
+    raw = str(raw).strip()
+    if raw in VALID_CATEGORIES:
+        return raw
+    for c in VALID_CATEGORIES:
+        if c in raw:
+            return c
+    aliases = {
+        "模型": "大模型", "开源项目": "开源", "研究": "论文", "学术": "论文",
+        "商业": "产业", "融资": "产业", "产品": "工具", "应用": "工具",
+        "技术": "工具", "社区": "开源",
+        "评论": "观点", "分析": "观点",
+    }
+    return aliases.get(raw, "综合")
+
+
+def balance_categories(items: list[dict], caps: dict = None) -> list[dict]:
+    """控制板块配比：产业板块不超过 30%，超出的沉到末尾。
+
+    列表本身已按分数倒序，这里只做「同分段的位次调整」，
+    避免一天 50% 版面都是融资/股价/人事这类产业新闻。
+    """
+    caps = caps or CATEGORY_CAP_RATIO
+    total = len(items)
+    limits = {c: max(1, int(total * r)) for c, r in caps.items()}
+    used = {}
+    head, overflow = [], []
+    for it in items:
+        cat = it.get("category", "综合")
+        limit = limits.get(cat)
+        if limit is not None and used.get(cat, 0) >= limit:
+            overflow.append(it)
+            continue
+        used[cat] = used.get(cat, 0) + 1
+        head.append(it)
+    if overflow:
+        print(f"  ↳ 板块配比：{len(overflow)} 条超出比例限额，已排到列表末尾 "
+              f"({', '.join(f'{c}≤{int(r*100)}%' for c, r in caps.items())})")
+    return head + overflow
 
 
 # ============================================================
@@ -343,6 +419,26 @@ def main(mode: str = "rule"):
 
     # 按评分倒序
     enriched.sort(key=lambda x: x.get("score", 0), reverse=True)
+
+    # LLM 判定与 AI 无关的条目直接剔除（规则模式无该字段，全部保留）
+    if mode == "llm":
+        before = len(enriched)
+        enriched = [e for e in enriched if e.get("ai_related", True)]
+        if before != len(enriched):
+            print(f"  ↳ AI 相关性判定剔除 {before - len(enriched)} 条")
+
+    # LLM 会重写标题，重复要在打分后再判一次（用重写后的中文标题）。
+    # 之前只按原始标题去重，「智象梅涛提出智能体化全模态世界模型」和
+    # 「智象梅涛提出智能体化世界模型」这种改写后高度相似的会漏掉。
+    before = len(enriched)
+    enriched = dedupe_items(enriched, title_key="title_zh", link_key="link",
+                            weight_key="score", threshold=0.80,
+                            guard_numbers=True)
+    if before != len(enriched):
+        print(f"  ↳ 标题去重删除 {before - len(enriched)} 条重复")
+
+    # 板块配比：产业 ≤30%、综合 ≤15%，超出部分沉到末尾
+    enriched = balance_categories(enriched)
 
     # 输出
     payload = {

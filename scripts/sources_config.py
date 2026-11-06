@@ -106,8 +106,8 @@ GITHUB_CONFIG = {
         {"topic": "generative-ai", "label": "生成式AI", "min_stars": 300},
         {"topic": "machine-learning", "label": "机器学习", "min_stars": 500},
     ],
-    "days_back": 30,
-    "max_per_topic": 5,
+    "days_back": 5,
+    "max_per_topic": 3,
     # v4 新增：失败时降级而非阻塞整体
     "skip_on_failure": True,
 }

@@ -24,10 +24,11 @@ AI Frontier 把 **29 个信息源**的更新自动汇总、去重、评分、翻
 - **来源可信度分级** — 每条资讯标注 S/A/B/C 四级并参与评分加权，一眼区分官方一手与自媒体观点
 - **国内网络友好** — 25 个 RSS 源中含 12 个中文源（量子位、AI 科技评论、极客公园、钛媒体、智东西、爱范儿、InfoQ 中国、少数派、掘金、博客园、SegmentFault、速途网），海外源失败自动降级不阻塞
 - **LLM 中文摘要** — DeepSeek 驱动，英文资讯自动翻译摘要，附带推荐理由
-- **AI 玩法实验室** — 归集可复制的 AI 创新玩法，按玩法类型 / 难度 / 可复制度三维筛选
+- **AI 玩法实验室** — 只收「能上手」的玩法（可运行 Demo / 可复制 Prompt / 可跟做教程），新闻通稿与付费墙不进；按玩法类型 / 难度 / 可信度筛选
 - **教程社区** — 每日 LLM 生成结构化教程（背景 → 工具准备 → 分步操作 → 效果 → FAQ → 进阶变体），支持站内搜索，增量缓存不重复烧 token
 - **四套页面自动产出** — 首页 + 每日日报 + 玩法实验室 + 教程站，全部静态 HTML
 - **往期资讯归档** — `archive.html` 按月归档所有历史日报，支持月份筛选与关键词搜索，每日自动重建
+- **订阅与收录** — 自动生成 `rss.xml`（可订阅）、`sitemap.xml`、`robots.txt`
 - **全自动运行** — Windows 任务计划每天 09:00 自动跑完整流水线，并自动提交推送到 GitHub
 - **零依赖** — 纯 Python 标准库（`urllib` / `xml.etree` / `json`），无需 `pip install`
 
@@ -39,7 +40,7 @@ AI Frontier 把 **29 个信息源**的更新自动汇总、去重、评分、翻
 |---|---|---|
 | 首页 | `index.html` | 今日必看 TOP 3 + 7 大板块统计卡 + 完整资讯流 + 玩法入口 |
 | 每日日报 | `daily-brief-YYYY-MM-DD.html` | 当日全量资讯，可按板块、可信度双维度筛选 |
-| 玩法实验室 | `playground.html` | 57 条可复制玩法，按类型 / 难度 / 可信度筛选 |
+| 玩法实验室 | `playground.html` | 当日准入的可复制玩法，按类型 / 难度 / 可信度筛选 |
 | 往期归档 | `archive.html` | 全部历史日报按月归档，支持月份筛选与关键词搜索 |
 | 教程站 | `tutorials/index.html` + `tutorials/<id>.html` | 20 篇结构化教程，含站内搜索与相关推荐 |
 
@@ -51,7 +52,7 @@ AI Frontier 把 **29 个信息源**的更新自动汇总、去重、评分、翻
 
 - **Python 3.10+**（实测 3.13.12）
 - 抓取与渲染无需任何第三方 Python 库
-- **Node.js 18+**（仅用于编译 Tailwind CSS；缺失时流水线会跳过第 11 步并告警）
+- **Node.js 18+**（仅用于编译 Tailwind CSS；缺失时流水线会跳过第 12 步并告警）
 - 自动更新功能需要 Windows（任务计划程序）
 
 ### 1. 获取项目
@@ -141,7 +142,7 @@ GitHub awesome / HF Spaces / Product Hunt / Reddit / 国内 5 源
 
 ---
 
-## 流水线 11 步
+## 流水线 12 步
 
 `run_pipeline.py` 按顺序调度以下步骤，任一步失败即中止：
 
@@ -157,7 +158,25 @@ GitHub awesome / HF Spaces / Product Hunt / Reddit / 国内 5 源
 | 8 | `generate_tutorials.py` | LLM 生成教程（每日最多 20 篇，带增量缓存） |
 | 9 | `render_tutorials.py` | 渲染教程详情页 + 索引页 |
 | 10 | `render_archive.py` | 扫描历史日报，重建往期归档 `archive.html` |
-| 11 | 编译 Tailwind CSS | 按最终页面实际用到的 class 重新生成 `assets/tailwind.css` |
+| 11 | `generate_seo.py` | 生成 `sitemap.xml` / `rss.xml` / `robots.txt` |
+| 12 | 编译 Tailwind CSS | 按最终页面实际用到的 class 重新生成 `assets/tailwind.css` |
+
+### 内容质量闸门
+
+采集环节不是「抓到什么发什么」，每一层都有硬规则（`scripts/content_quality.py`）：
+
+| 规则 | 作用 |
+|---|---|
+| HTML 清洗 | 去 `<a href>` / `<img src>` 标签、反转义实体、剔除「点击关注」「阅读原文」等导流尾巴 |
+| 链接清洗 | 去 `utm_*` / `spm` / `fbclid` 等追踪参数，统一 https，去掉 fragment |
+| 付费墙拦截 | 少数派 `prime` 等会员文章直接不收，避免读者点进去看不到正文 |
+| AI 相关性 | 泛科技媒体要求标题含 AI 信号；菜谱 / 医美 / 双 11 / 车展 / 娱乐圈等主题词直接剔除 |
+| 两级去重 | 链接（去参数后）+ 标题相似度；带数字保护，避免把 GPT-5 / GPT-6 误判为重复 |
+| 时效窗口 | 资讯 36 小时；GitHub 新项目 5 天（按项目创建时间） |
+| 板块配比 | 产业 ≤30%、综合 ≤15%，超出部分排到列表末尾，不让单一板块占据半屏 |
+| 玩法准入 | 新闻通稿、付费墙、无 AI 信号、标题无可操作内容 → 不进玩法实验室 |
+
+玩法实验室的判定是硬门槛：**链接本身可运行（GitHub / HF Spaces / Colab）**，或**标题出现可操作词**（教程 / 部署 / 提示词 / 一键 / 实测…）。达不到就不收，宁缺毋滥。
 
 ### 常用参数
 
@@ -303,7 +322,7 @@ ai-frontier/
 ├── logs/                               # 运行日志（已被 .gitignore 排除）
 │   └── pipeline.log
 └── scripts/
-    ├── run_pipeline.py                 # 一键流水线（11 步）
+    ├── run_pipeline.py                 # 一键流水线（12 步）
     ├── _utf8.py                        # UTF-8 输出保险（防 GBK 崩溃）
     ├── floating_home.py                # 悬浮返回按钮组件
     ├── sources_config.py               # 资讯源 + 可信度分级

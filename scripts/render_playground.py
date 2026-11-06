@@ -152,7 +152,7 @@ def render_card(item: dict, idx: int, tutorial_url: str = "") -> str:
             'rounded-lg hover:shadow-lg transition text-sm">'
             '\U0001f4d6 查看教程'
             '</a>'
-            f'<a href="{_esc(link)}" target="_blank" rel="noopener" '
+            f'<a href="{_esc(link)}" target="_blank" rel="noopener nofollow" '
             f'class="inline-flex items-center justify-center gap-1 px-3 py-2.5 '
             f'bg-white border border-slate-300 text-slate-700 font-medium rounded-lg '
             f'hover:border-{pt_meta["color"]}-400 hover:text-{pt_meta["color"]}-700 '
@@ -161,7 +161,7 @@ def render_card(item: dict, idx: int, tutorial_url: str = "") -> str:
         )
     else:
         cta_html = (
-            f'<a href="{_esc(link)}" target="_blank" rel="noopener" '
+            f'<a href="{_esc(link)}" target="_blank" rel="noopener nofollow" '
             f'class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 '
             f'bg-gradient-to-r from-{pt_meta["color"]}-500 to-{pt_meta["color"]}-600 '
             f'text-white font-semibold rounded-lg hover:shadow-lg hover:scale-[1.02] '
@@ -248,16 +248,21 @@ def render_filters(items: list) -> str:
     pt_html = ""
     for pt, m in PLAY_TYPE_META.items():
         n = pt_cnt.get(pt, 0)
+        if n == 0:
+            continue          # 空筛选项没有意义，只会让页面显得内容很少
         pt_html += f'''
     <button data-filter-group="type" data-filter-value="{pt}" class="filter-btn filter-type-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-{m['color']}-100 hover:text-{m['color']}-700 text-xs">
       {m['emoji']} {m['label']} <span class="text-slate-400">({n})</span>
     </button>'''
 
+    # 难度：5 = 最容易（复制即用），1 = 最难（需工程基础）
     diff_html = ""
-    for d, label in [(5, "\u2605\U0001f31f 0基础"), (4, "\u2605\U0001f31f 零代码"),
-                     (3, "\u2605\u2605\U0001f31f 需环境"), (2, "\u2605\u2605\u2605 需配置"),
-                     (1, "\u2605\U0001f31f 需工程")]:
+    for d, label in [(5, "\U0001f331 复制即用"), (4, "\U0001f680 打开即试"),
+                     (3, "\U0001f527 需装环境"), (2, "\u2699\ufe0f 需改代码"),
+                     (1, "\U0001f3d7\ufe0f 需工程基础")]:
         n = diff_cnt.get(d, 0)
+        if n == 0:
+            continue
         diff_html += f'''
     <button data-filter-group="diff" data-filter-value="{d}" class="filter-btn filter-diff-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-emerald-100 hover:text-emerald-700 text-xs">
       {label} <span class="text-slate-400">({n})</span>
@@ -268,6 +273,8 @@ def render_filters(items: list) -> str:
     for t in ["S", "A", "B", "C"]:
         tier_label = {"S": "\U0001f7e2 官方", "A": "\U0001f535 权威", "B": "\U0001f7e1 社区", "C": "\u26aa 自媒体"}[t]
         n = tier_cnt.get(t, 0)
+        if n == 0:
+            continue
         tier_html += f'''
     <button data-filter-group="tier" data-filter-value="{t}" class="filter-btn filter-tier-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-{tier_color[t]}-100 hover:text-{tier_color[t]}-700 text-xs">
       {tier_label} <span class="text-slate-400">({n})</span>
@@ -376,6 +383,16 @@ def render_html(items: list) -> str:
     n_official = sum(1 for it in items if it.get("source_tier") == "S")
     avg_diff = sum(it.get("difficulty", 3) for it in items) / total if total > 0 else 3
 
+    # Hero 副标题按真实数据拼，不写死；为 0 的项直接不出现
+    _hero_parts = []
+    if by_type.get("runnable_demo"):
+        _hero_parts.append(f"{by_type['runnable_demo']} 个打开即试")
+    if by_type.get("prompt"):
+        _hero_parts.append(f"{by_type['prompt']} 份可复制 Prompt")
+    if by_type.get("tutorial"):
+        _hero_parts.append(f"{by_type['tutorial']} 篇跟着做的教程")
+    hero_sub = " \u00b7 ".join(_hero_parts) or "只收录能上手的内容"
+
     # 加载教程缓存（v5 教程社区）
     cache = {}
     cache_file = _Path(__file__).parent / "data" / "tutorials_cache.json"
@@ -407,7 +424,7 @@ def render_html(items: list) -> str:
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI玩法实验室 · 全球AI前沿咨询</title>
+<title>AI玩法实验室 · 全球 AI 前沿资讯</title>
 <meta name="description" content="全球AI可复制的玩法项目 · prompt模板 · 工具工作流 · 立即试用">
 <link rel="stylesheet" href="assets/tailwind.css">
 <style>
@@ -445,7 +462,7 @@ def render_html(items: list) -> str:
     <div class="text-xs font-bold tracking-widest uppercase opacity-80 mb-2">PLAYGROUND</div>
     <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">\U0001f3ae AI玩法实验室</h1>
     <p class="text-lg sm:text-xl opacity-90 mb-6 max-w-3xl">
-      5 分钟能上手的 AI 玩法 \u00b7 一键可试 \u00b7 可整段复制
+      {hero_sub}
     </p>
 
     <!-- 数据 -->
@@ -464,7 +481,7 @@ def render_html(items: list) -> str:
       </div>
       <div class="bg-white/10 backdrop-blur border border-white/20 rounded-xl p-4">
         <div class="text-2xl sm:text-3xl font-bold">{avg_diff:.1f}</div>
-        <div class="text-sm opacity-80 mt-1">平均难度\uff08越低越易\uff09</div>
+        <div class="text-sm opacity-80 mt-1">平均难度\uff085=最易\uff09</div>
       </div>
     </div>
   </div>
@@ -495,8 +512,8 @@ def render_html(items: list) -> str:
 <!-- 底部 -->
 <footer class="bg-slate-900 text-slate-400 mt-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center text-sm">
-    <p>\U0001f30d AI Frontier \u00b7 全球AI前沿咨询 \u00b7 玩法实验室</p>
-    <p class="mt-2 text-xs opacity-60">所有玩法均来自 GitHub / HuggingFace / Reddit 等开源社区 \u00b7 点\u300c立即打开\u300d前往查看</p>
+    <p>\U0001f30d AI Frontier \u00b7 全球 AI 前沿资讯 \u00b7 玩法实验室</p>
+    <p class="mt-2 text-xs opacity-60">玩法均经人工规则筛选：新闻通稿、付费墙、无可操作内容不计入 \u00b7 点\u300c立即打开\u300d前往原文</p>
   </div>
 </footer>
 

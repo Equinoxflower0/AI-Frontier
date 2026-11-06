@@ -126,7 +126,7 @@ DOMESTIC_PLAY_SOURCES = [
                          "llama", "qwen", "通义", "豆包", "kimi", "文心", "智谱", "月之暗面",
                          "大模型", "智能体", "agent", "微调", "训练", "推理"],
      # 排除栏目（派早报、App+1 等非玩法内容；iPhone 等科技资讯）
-     "exclude_keywords": ["派早报", "App+1", "本周看什么", "一图流", "新 iPhone", "iPhone ", "Apple",
+     "exclude_keywords": ["派早报", "App+1", "本周看什么", "一图流", "新玩意", "新 iPhone", "iPhone ", "Apple",
                             "AirPods", "iPad", "MacBook", "电影", "新能源", "汽车"],
      "max_results": 6},
     {"id": "zhidx-play",

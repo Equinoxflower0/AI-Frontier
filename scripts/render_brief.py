@@ -1,7 +1,7 @@
 """
 render_brief.py
 ===============
-全球 AI 前沿咨询网站 - 日报渲染器 (v1)
+全球 AI 前沿资讯网站 - 日报渲染器 (v1)
 
 输入：scripts/data/scored_news.json
 输出：daily-brief-YYYY-MM-DD.html（自动按当天日期命名）
@@ -158,7 +158,7 @@ def render_html(items: list, date_str: str) -> str:
             <span class="bg-{meta['color']}-100 text-{meta['color']}-700 text-xs font-semibold px-2 py-1 rounded">第 {i+1} 名 · {cat}</span>
             {score_bar_html(score)}
           </div>
-          <h3 class="text-lg font-bold mb-2 leading-snug"><a href="{link}" target="_blank">{title_zh}</a></h3>
+          <h3 class="text-lg font-bold mb-2 leading-snug"><a href="{link}" target="_blank" rel="noopener nofollow">{title_zh}</a></h3>
           <p class="text-sm text-slate-600">{summary[:120]}…</p>
         </div>
       </article>'''

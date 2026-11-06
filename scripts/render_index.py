@@ -62,7 +62,7 @@ def render_hero_card(item, rank):
     }.get(color, "from-slate-500 to-slate-400")
 
     return f'''
-    <a href="{esc(link)}" target="_blank" rel="noopener"
+    <a href="{esc(link)}" target="_blank" rel="noopener nofollow"
        class="bg-white rounded-xl border border-slate-200 overflow-hidden card-hover block">
       <div class="h-2 bg-gradient-to-r {grad}"></div>
       <div class="p-6">
@@ -116,13 +116,13 @@ def render_feed_item(item):
             <span class="text-xs text-slate-400">{esc(source)}</span>
           </div>
           <h3 class="font-semibold mb-2 leading-snug">
-            <a href="{esc(link)}" target="_blank" rel="noopener" class="text-slate-900 hover:text-blue-600">{esc(title)}</a>
+            <a href="{esc(link)}" target="_blank" rel="noopener nofollow" class="text-slate-900 hover:text-blue-600">{esc(title)}</a>
           </h3>
           <p class="text-sm text-slate-600 mb-3">{esc(summary[:130])}</p>
           <div class="flex items-center gap-3 text-xs text-slate-500">
             <span>📌 重要性 {score:.1f}/10</span>
             <span>·</span>
-            <a href="{esc(link)}" target="_blank" rel="noopener" class="text-blue-600 hover:underline">阅读原文 →</a>
+            <a href="{esc(link)}" target="_blank" rel="noopener nofollow" class="text-blue-600 hover:underline">阅读原文 →</a>
           </div>
         </div>
       </div>
@@ -151,7 +151,7 @@ def render_play_card(it):
         for t in tools[:3]
     )
     body = (
-        '<a href="' + esc(link) + '" target="_blank" rel="noopener" '
+        '<a href="' + esc(link) + '" target="_blank" rel="noopener nofollow" '
         'class="group bg-white rounded-xl border border-slate-200 p-4 hover:border-indigo-300 hover:shadow-lg transition-all block">'
         '<div class="flex items-center gap-2 mb-2 text-[10px]">'
         '<span class="px-1.5 py-0.5 rounded bg-indigo-100 text-indigo-700 font-semibold">' + type_label + '</span>'
@@ -191,7 +191,7 @@ def render_play_section(plays):
       <div>
         <div class="text-sm text-indigo-600 font-semibold mb-1">PLAYGROUND</div>
         <h2 class="text-2xl sm:text-3xl font-bold mb-2">🎮 AI 玩法实验室</h2>
-        <p class="text-slate-600 max-w-2xl text-sm">5 分钟能上手的 AI 玩法 · prompt 模板、工作流、可在线 Demo，看完就能试。</p>
+        <p class="text-slate-600 max-w-2xl text-sm">只收录能上手的：可复制的 Prompt、能跑起来的工作流、打开即用的 Demo。新闻通稿与付费墙文章不进这里。</p>
       </div>
       <a href="playground.html" class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow transition">
         进入玩法实验室 →
@@ -212,7 +212,7 @@ def render_play_section(plays):
       </div>
       <div class="bg-white/80 backdrop-blur border border-indigo-100 rounded-xl p-4">
         <div class="text-2xl font-bold text-indigo-700">{avg_diff:.1f}</div>
-        <div class="text-xs text-slate-500 mt-1">平均难度（越低越易）</div>
+        <div class="text-xs text-slate-500 mt-1">平均难度（5=最易）</div>
       </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">{cards}
@@ -236,8 +236,13 @@ def render_html(items, date_str, plays=()):
     cat_link_paper_open = "论文" if cat_cnt.get("论文", 0) > 0 else "开源" if cat_cnt.get("开源", 0) > 0 else "综合"
 
     nav_cards = ""
+    active_cats = 0
     for cat, meta in CATEGORY_META.items():
         n = cat_cnt.get(cat, 0)
+        if n == 0:
+            # 没有内容的板块不展示：写"0 条今日"只会让人以为站点很空
+            continue
+        active_cats += 1
         color = meta["color"]
         nav_cards += f'''
         <button onclick="applyCategory('{cat}'); document.getElementById('feed').scrollIntoView({{behavior:'smooth'}});" class="group bg-slate-50 hover:bg-{color}-50 border border-slate-200 hover:border-{color}-200 rounded-xl p-5 text-center transition cursor-pointer">
@@ -268,7 +273,7 @@ def render_html(items, date_str, plays=()):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Frontier · 全球 AI 前沿咨询</title>
+<title>AI Frontier · 全球 AI 前沿资讯</title>
 <meta name="description" content="每天 5 分钟，掌握全球 AI 前沿动态 + AI 玩法实验室。">
 <link rel="stylesheet" href="assets/tailwind.css">
 <style>
@@ -294,6 +299,7 @@ def render_html(items, date_str, plays=()):
         <a href="playground.html" class="hover:text-indigo-600">🎮 玩法实验室</a>
         <a href="daily-brief-{date_str}.html" class="hover:text-blue-600">日报</a>
         <a href="archive.html" class="hover:text-blue-600">📅 往期</a>
+        <a href="rss.xml" class="hover:text-blue-600">📡 订阅</a>
         <a href="#categories" class="hover:text-blue-600">板块</a>
         <a href="#feed" class="hover:text-blue-600">资讯流</a>
       </nav>
@@ -357,7 +363,7 @@ def render_html(items, date_str, plays=()):
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="text-center mb-10">
       <div class="text-sm text-blue-600 font-semibold mb-1">CATEGORIES</div>
-      <h2 class="text-2xl sm:text-3xl font-bold">六大板块，一站式跟进</h2>
+      <h2 class="text-2xl sm:text-3xl font-bold">{active_cats} 个板块，一站式跟进</h2>
       <p class="text-slate-500 mt-2 text-sm">点击任意板块 → 自动筛选并滚到资讯流</p>
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">{nav_cards}
@@ -402,8 +408,16 @@ def render_html(items, date_str, plays=()):
 <!-- 底部 -->
 <footer class="bg-slate-900 text-slate-400 mt-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-center text-sm">
-    <p>🌐 AI Frontier · 全球 AI 前沿咨询 · v2.0</p>
-    <p class="mt-2 text-xs opacity-60">每天 08:00 自动更新 · DeepSeek LLM 智能摘要 · 玩法 + 资讯</p>
+    <p>🌐 AI Frontier · 全球 AI 前沿资讯 · v2.0</p>
+    <p class="mt-2 text-xs opacity-60">每天 09:00 自动更新 · DeepSeek LLM 智能摘要 · 玩法 + 资讯</p>
+    <p class="mt-3 text-xs">
+      <a href="rss.xml" class="underline hover:text-white">📡 RSS 订阅</a>
+      <span class="mx-2 opacity-40">·</span>
+      <a href="archive.html" class="underline hover:text-white">📅 往期归档</a>
+      <span class="mx-2 opacity-40">·</span>
+      <a href="sitemap.xml" class="underline hover:text-white">站点地图</a>
+    </p>
+    <p class="mt-3 text-xs opacity-50">每篇摘要与「为什么重要」由编辑规则 + LLM 生成，原文版权归各来源所有，本站只做摘要与链接。</p>
   </div>
 </footer>
 

@@ -1,7 +1,7 @@
 """
 fetch_ai_news.py
 ================
-全球 AI 前沿咨询网站 - 自动化采集脚本 (v3)
+全球 AI 前沿资讯网站 - 自动化采集脚本 (v3)
 
 v3 升级点：
 1. 信息源按「来源可信度」分级（official/media/community/selfmedia）
@@ -31,11 +31,31 @@ import _utf8  # noqa: F401  —— 强制 UTF-8 输出，防止 GBK 控制台崩
 # 共享配置：信息源 + 可信度分级
 from sources_config import RSS_SOURCES, GITHUB_CONFIG, reliability_of
 
+# 内容质量：HTML 清洗 / 链接清洗 / AI 相关性 / 去重
+from content_quality import (
+    strip_html, clean_link, is_paywalled, ai_relevance, dedupe_items,
+)
+
 # 仅保留最近 N 小时
-HOURS_WINDOW = 24
+HOURS_WINDOW = 36
+
+# GitHub 高星项目按"项目创建时间"设计，单独给一个更宽的上限（天）
+GITHUB_MAX_AGE_DAYS = 5
 
 # 单源最多保留条数
 MAX_PER_SOURCE = 15
+
+# 综合/泛科技媒体：标题必须出现 AI 信号，避免"正文顺带提一句 AI"的
+# 消费、医疗、地产类新闻混进 AI 前沿。
+STRICT_TITLE_SOURCES = {
+    "geekpark", "tmtpost", "zhidx", "ifanr", "sspai", "sootoo",
+}
+
+# 技术社区：标题常是纯技术表述（"用 xx 做 yy"），放宽到标题或描述含 AI 信号，
+# 但仍要过 AI 相关性闸门，避免《道德经》这类完全无关的帖子混进来。
+TECH_COMMUNITY_SOURCES = {
+    "juejin", "segmentfault", "cnblogs", "hackernews", "infoq-cn",
+}
 
 # 输出文件
 OUTPUT_FILE = Path(__file__).parent / "data" / "raw_news.json"
@@ -90,12 +110,8 @@ WS_RE = re.compile(r"\s+")
 
 
 def clean_html(text: str, max_len: int = 500) -> str:
-    if not text:
-        return ""
-    text = unescape(text)
-    text = TAG_RE.sub(" ", text)
-    text = WS_RE.sub(" ", text).strip()
-    return text[:max_len]
+    """统一走 content_quality.strip_html（去标签 / 反转义 / 去导流尾巴）。"""
+    return strip_html(text, max_len=max_len)
 
 
 def parse_pubdate(s: str) -> datetime | None:
@@ -147,7 +163,12 @@ def parse_rss(xml_text: str) -> list[dict]:
             pub = (entry.findtext(f"{ns}updated") or entry.findtext(f"{ns}published") or "").strip()
             desc = (entry.findtext(f"{ns}summary") or "").strip()
             if title and link:
-                items.append({"title": title, "link": link, "pubDate": pub, "description": clean_html(desc)})
+                items.append({
+                    "title": clean_html(title, 200),
+                    "link": clean_link(link),
+                    "pubDate": pub,
+                    "description": clean_html(desc),
+                })
         return items
 
     channel = root.find("channel")  # RSS 2.0
@@ -159,7 +180,12 @@ def parse_rss(xml_text: str) -> list[dict]:
         pub = (item.findtext("pubDate") or item.findtext("date") or "").strip()
         desc = (item.findtext("description") or "").strip()
         if title and link:
-            items.append({"title": title, "link": link, "pubDate": pub, "description": clean_html(desc)})
+            items.append({
+                "title": clean_html(title, 200),
+                "link": clean_link(link),
+                "pubDate": pub,
+                "description": clean_html(desc),
+            })
     return items
 
 
@@ -185,14 +211,15 @@ def fetch_github_trending() -> list[dict]:
             repos = data.get("items", [])
             for repo in repos:
                 rel = reliability_of("community")
+                repo_desc = clean_html(repo.get("description", "") or "", 200)
                 items.append({
-                    "title": f"{repo.get('full_name','')} — {repo.get('description','')[:60]}",
-                    "link": repo.get("html_url", ""),
+                    "title": f"{repo.get('full_name','')} — {repo_desc[:60]}",
+                    "link": clean_link(repo.get("html_url", "")),
                     "pubDate": repo.get("created_at", ""),
                     "description": (
                         f"⭐ {repo.get('stargazers_count', 0)} stars · "
                         f"{repo.get('language', 'N/A')} · "
-                        f"{repo.get('description', '')}"
+                        f"{repo_desc}"
                     )[:300],
                     "stars": repo.get("stargazers_count", 0),
                     "source_id": f"github-{topic}",
@@ -239,28 +266,70 @@ def fetch_source(src: dict) -> list[dict]:
 
 
 def filter_recent(items: list[dict], hours: int) -> list[dict]:
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours)
+    now = datetime.now(timezone.utc)
+    cutoff = now - timedelta(hours=hours)
+    gh_cutoff = now - timedelta(days=GITHUB_MAX_AGE_DAYS)
     kept = []
+    dropped_old = 0
     for it in items:
-        # GitHub 高星项目等按自身时间窗设计，跳过 24h 过滤
+        # GitHub 高星项目按"项目创建时间"排序，用更宽的窗口（天），
+        # 但不能无限放宽——之前 30 天窗口把 20 多天前的项目当成今日资讯。
         if it.get("skip_time_filter"):
-            kept.append(it)
+            dt = parse_pubdate(it.get("pubDate", ""))
+            if dt is None or dt >= gh_cutoff:
+                kept.append(it)
+            else:
+                dropped_old += 1
             continue
         dt = parse_pubdate(it.get("pubDate", ""))
         if dt is None or dt >= cutoff:
             kept.append(it)
+        else:
+            dropped_old += 1
+    if dropped_old:
+        print(f"  （时间窗外丢弃 {dropped_old} 条）")
+    return kept
+
+
+def filter_paywall(items: list[dict]) -> list[dict]:
+    """剔除付费墙文章：读者点进去看不到正文，收进来只会掉口碑。"""
+    out = [it for it in items if not is_paywalled(it.get("link", ""))]
+    if len(out) != len(items):
+        print(f"  （付费墙丢弃 {len(items) - len(out)} 条）")
+    return out
+
+
+def filter_ai_relevant(items: list[dict]) -> list[dict]:
+    """AI 相关性闸门：泛科技媒体要求标题含 AI 信号，技术社区放宽到全文。"""
+    kept, dropped = [], []
+    for it in items:
+        if it.get("skip_time_filter"):      # GitHub 项目已按 topic 过滤
+            kept.append(it)
+            continue
+        strict = it.get("source_id") in STRICT_TITLE_SOURCES
+        ok, reason = ai_relevance(it, require_title=strict)
+        if ok:
+            kept.append(it)
+        else:
+            dropped.append((reason, it.get("source_name", ""), it.get("title", "")[:40]))
+    if dropped:
+        print(f"  （非 AI 丢弃 {len(dropped)} 条）")
+        for reason, src, title in dropped[:8]:
+            print(f"      - [{src}] {title} · {reason}")
     return kept
 
 
 def dedupe(items: list[dict]) -> list[dict]:
-    seen = set()
-    out = []
+    """两级去重：链接（去 tracking 参数后）+ 标题相似度。
+
+    同一事件常被 3~4 个源同时报道（文心 5.5 三条、Claude Code 人事三条），
+    只按链接去重完全无效。这里保留可信度权重最高的那条。
+    """
     for it in items:
-        link = it.get("link", "")
-        if link and link not in seen:
-            seen.add(link)
-            out.append(it)
-    return out
+        it["source_weight"] = reliability_of(it.get("source_type", "selfmedia"))["weight"]
+    return dedupe_items(items, title_key="title", link_key="link",
+                        weight_key="source_weight", threshold=0.76,
+                        guard_numbers=True)
 
 
 def cap_per_source(items: list[dict], max_per_source: int) -> list[dict]:
@@ -322,6 +391,14 @@ def main():
 
     all_items = filter_recent(all_items, HOURS_WINDOW)
     print(f"时间过滤后：{len(all_items)}")
+
+    all_items = filter_paywall(all_items)
+    all_items = filter_ai_relevant(all_items)
+    print(f"AI 相关性过滤后：{len(all_items)}")
+
+    # 跨源标题去重（同一事件保留最高可信度源）
+    all_items = dedupe(all_items)
+    print(f"跨源去重后：{len(all_items)}")
 
     all_items = cap_per_source(all_items, MAX_PER_SOURCE)
     print(f"单源上限后：{len(all_items)}")

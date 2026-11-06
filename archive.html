@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>往期资讯归档 · AI Frontier</title>
+<meta name="description" content="AI Frontier 往期日报归档：按月份浏览历史 AI 前沿资讯，共 9 期、930 条。">
+<link rel="stylesheet" href="assets/tailwind.css">
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; }
+  .day-card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -12px rgba(15,23,42,.18); border-color: #cbd5e1; }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+<!-- 顶部导航 -->
+<header class="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="text-2xl">🌐</span>
+        <span class="font-bold text-lg">AI Frontier</span>
+        <span class="text-xs text-slate-400 ml-2 hidden sm:inline">| 全球AI前沿</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="index.html" class="hover:text-blue-600">今日</a>
+        <a href="archive.html" class="text-blue-600 border-b-2 border-blue-500 pb-0.5">📅 往期</a>
+        <a href="playground.html" class="hover:text-indigo-600">🎮 玩法实验室</a>
+        <a href="tutorials/index.html" class="hover:text-indigo-600">📚 全部教程</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="bg-gradient-to-br from-slate-900 via-blue-900 to-blue-700 text-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="text-xs tracking-widest text-blue-300 mb-3">ARCHIVE</div>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-3">📅 往期资讯</h1>
+    <p class="text-blue-100 text-sm mb-7">共 <strong class="text-white">9</strong> 期 · 累计 <strong class="text-white">930</strong> 条 · 覆盖 2026 年 9 月 — 2026 年 11 月</p>
+    <div class="max-w-md">
+      <div class="relative">
+        <svg class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/>
+        </svg>
+        <input id="q" type="text" placeholder="搜索日期或标题关键词…"
+               class="w-full bg-white text-slate-900 placeholder-slate-400 text-sm pl-10 pr-4 py-2.5 rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+
+  <!-- 筛选 -->
+  <div class="flex flex-wrap items-center gap-2 mb-2">
+    <button data-month="all" class="month-btn px-3.5 py-1.5 rounded-full text-sm font-medium bg-blue-600 text-white transition">全部 <span class="opacity-70">9</span></button><button data-month="2026-11" class="month-btn px-3.5 py-1.5 rounded-full text-sm font-medium bg-white text-slate-600 border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition">2026 年 11 月 <span class="opacity-60">2</span></button><button data-month="2026-09" class="month-btn px-3.5 py-1.5 rounded-full text-sm font-medium bg-white text-slate-600 border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition">2026 年 9 月 <span class="opacity-60">7</span></button>
+    <div class="ml-auto text-xs text-slate-400">共 <span id="countHint">9</span> 期</div>
+  </div>
+
+  <!-- 列表 -->
+  <div id="list">
+      <section class="month-block" data-month="2026-11">
+        <div class="flex items-center gap-3 mt-10 mb-4 first:mt-0">
+          <h2 class="text-lg font-bold text-slate-900">2026 年 11 月</h2>
+          <span class="text-xs text-slate-400">2 期</span>
+          <div class="flex-1 h-px bg-slate-200"></div>
+        </div>
+        <div class="space-y-4">
+      <article class="day-card bg-white rounded-xl border border-slate-200 p-5 sm:p-6 transition-all duration-200"
+               data-month="2026-11" data-search="2026-11-06 谷歌meta开源torchtpu，tpu原生支持pytorch 谷歌启动自愿买断计划，ai投入2000亿美元 中期选举后芯片股重挫，纳指暴跌5.52%">
+        <div class="flex gap-4 sm:gap-6">
+          <div class="shrink-0 w-14 sm:w-16 text-center pt-1">
+            <div class="text-2xl sm:text-3xl font-bold text-slate-900 leading-none">06</div>
+            <div class="text-xs text-slate-400 mt-1.5">周五</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-2">
+              <a href="daily-brief-2026-11-06.html" class="font-bold text-slate-900 hover:text-blue-600">11月06日 简报</a>
+              <span class="text-xs font-semibold text-white bg-blue-600 px-2 py-0.5 rounded-full">最新</span>
+              <span class="text-xs text-slate-500">103 条</span>
+              <span class="text-xs text-slate-300">·</span>
+              <span class="text-xs text-slate-500">15 个源</span>
+            </div>
+            <div class="flex items-center gap-1.5 flex-wrap mb-3"><span class="inline-flex items-center gap-1 bg-purple-50 text-purple-700 border border-purple-100 text-xs px-2 py-0.5 rounded-full">💻 开源 <span class="opacity-60">6</span></span><span class="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-100 text-xs px-2 py-0.5 rounded-full">🏢 产业 <span class="opacity-60">48</span></span><span class="inline-flex items-center gap-1 bg-slate-50 text-slate-700 border border-slate-100 text-xs px-2 py-0.5 rounded-full">📰 综合 <span class="opacity-60">7</span></span><span class="inline-flex items-center gap-1 bg-red-50 text-red-700 border border-red-100 text-xs px-2 py-0.5 rounded-full">🤖 大模型 <span class="opacity-60">6</span></span><span class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 border border-blue-100 text-xs px-2 py-0.5 rounded-full">📚 论文 <span class="opacity-60">1</span></span><span class="inline-flex items-center gap-1 bg-yellow-50 text-yellow-700 border border-yellow-100 text-xs px-2 py-0.5 rounded-full">🛠️ 工具 <span class="opacity-60">19</span></span><span class="inline-flex items-center gap-1 bg-pink-50 text-pink-700 border border-pink-100 text-xs px-2 py-0.5 rounded-full">💡 观点 <span class="opacity-60">16</span></span></div>
+            <ul class="space-y-1.5"><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">1</span><a href="daily-brief-2026-11-06.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">谷歌Meta开源TorchTPU，TPU原生支持PyTorch</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">2</span><a href="daily-brief-2026-11-06.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">谷歌启动自愿买断计划，AI投入2000亿美元</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">3</span><a href="daily-brief-2026-11-06.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">中期选举后芯片股重挫，纳指暴跌5.52%</a></li></ul>
+          </div>
+          <div class="hidden sm:flex items-center">
+            <a href="daily-brief-2026-11-06.html"
+               class="whitespace-nowrap text-sm font-medium text-blue-600 hover:text-blue-700 border border-blue-200 hover:border-blue-300 rounded-lg px-3 py-2 transition">
+              阅读 →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card bg-white rounded-xl border border-slate-200 p-5 sm:p-6 transition-all duration-200"
+               data-month="2026-11" data-search="2026-11-04 腾讯hy4正式版发布：首增视觉能力，价格看齐deepseek kling估值180亿美元超快手市值 国行苹果ai开测，siri接入千问">
+        <div class="flex gap-4 sm:gap-6">
+          <div class="shrink-0 w-14 sm:w-16 text-center pt-1">
+            <div class="text-2xl sm:text-3xl font-bold text-slate-900 leading-none">04</div>
+            <div class="text-xs text-slate-400 mt-1.5">周三</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-2">
+              <a href="daily-brief-2026-11-04.html" class="font-bold text-slate-900 hover:text-blue-600">11月04日 简报</a>
+              
+              <span class="text-xs text-slate-500">103 条</span>
+              <span class="text-xs text-slate-300">·</span>
+              <span class="text-xs text-slate-500">15 个源</span>
+            </div>
+            <div class="flex items-center gap-1.5 flex-wrap mb-3"><span class="inline-flex items-center gap-1 bg-red-50 text-red-700 border border-red-100 text-xs px-2 py-0.5 rounded-full">🤖 大模型 <span class="opacity-60">3</span></span><span class="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-100 text-xs px-2 py-0.5 rounded-full">🏢 产业 <span class="opacity-60">55</span></span><span class="inline-flex items-center gap-1 bg-yellow-50 text-yellow-700 border border-yellow-100 text-xs px-2 py-0.5 rounded-full">🛠️ 工具 <span class="opacity-60">19</span></span><span class="inline-flex items-center gap-1 bg-purple-50 text-purple-700 border border-purple-100 text-xs px-2 py-0.5 rounded-full">💻 开源 <span class="opacity-60">3</span></span><span class="inline-flex items-center gap-1 bg-pink-50 text-pink-700 border border-pink-100 text-xs px-2 py-0.5 rounded-full">💡 观点 <span class="opacity-60">21</span></span><span class="inline-flex items-center gap-1 bg-slate-50 text-slate-700 border border-slate-100 text-xs px-2 py-0.5 rounded-full">📰 综合 <span class="opacity-60">2</span></span></div>
+            <ul class="space-y-1.5"><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">1</span><a href="daily-brief-2026-11-04.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">腾讯Hy4正式版发布：首增视觉能力，价格看齐DeepSeek</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">2</span><a href="daily-brief-2026-11-04.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">Kling估值180亿美元超快手市值</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">3</span><a href="daily-brief-2026-11-04.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">国行苹果AI开测，Siri接入千问</a></li></ul>
+          </div>
+          <div class="hidden sm:flex items-center">
+            <a href="daily-brief-2026-11-04.html"
+               class="whitespace-nowrap text-sm font-medium text-blue-600 hover:text-blue-700 border border-blue-200 hover:border-blue-300 rounded-lg px-3 py-2 transition">
+              阅读 →
+            </a>
+          </div>
+        </div>
+      </article></div>
+      </section>
+      <section class="month-block" data-month="2026-09">
+        <div class="flex items-center gap-3 mt-10 mb-4 first:mt-0">
+          <h2 class="text-lg font-bold text-slate-900">2026 年 9 月</h2>
+          <span class="text-xs text-slate-400">7 期</span>
+          <div class="flex-1 h-px bg-slate-200"></div>
+        </div>
+        <div class="space-y-4">
+      <article class="day-card bg-white rounded-xl border border-slate-200 p-5 sm:p-6 transition-all duration-200"
+               data-month="2026-09" data-search="2026-09-23 高通发布2nm双旗舰芯片，为智能体ai重造架构 openai发布gpt-6 sol与luna，api价格腰斩 openai发布gpt-6 sol与luna，api降价50%">
+        <div class="flex gap-4 sm:gap-6">
+          <div class="shrink-0 w-14 sm:w-16 text-center pt-1">
+            <div class="text-2xl sm:text-3xl font-bold text-slate-900 leading-none">23</div>
+            <div class="text-xs text-slate-400 mt-1.5">周三</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-2">
+              <a href="daily-brief-2026-09-23.html" class="font-bold text-slate-900 hover:text-blue-600">9月23日 简报</a>
+              
+              <span class="text-xs text-slate-500">163 条</span>
+              <span class="text-xs text-slate-300">·</span>
+              <span class="text-xs text-slate-500">20 个源</span>
+            </div>
+            <div class="flex items-center gap-1.5 flex-wrap mb-3"><span class="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-100 text-xs px-2 py-0.5 rounded-full">🏢 产业 <span class="opacity-60">59</span></span><span class="inline-flex items-center gap-1 bg-red-50 text-red-700 border border-red-100 text-xs px-2 py-0.5 rounded-full">🤖 大模型 <span class="opacity-60">11</span></span><span class="inline-flex items-center gap-1 bg-pink-50 text-pink-700 border border-pink-100 text-xs px-2 py-0.5 rounded-full">💡 观点 <span class="opacity-60">15</span></span><span class="inline-flex items-center gap-1 bg-purple-50 text-purple-700 border border-purple-100 text-xs px-2 py-0.5 rounded-full">💻 开源 <span class="opacity-60">5</span></span><span class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 border border-blue-100 text-xs px-2 py-0.5 rounded-full">📚 论文 <span class="opacity-60">31</span></span><span class="inline-flex items-center gap-1 bg-yellow-50 text-yellow-700 border border-yellow-100 text-xs px-2 py-0.5 rounded-full">🛠️ 工具 <span class="opacity-60">38</span></span><span class="inline-flex items-center gap-1 bg-slate-50 text-slate-700 border border-slate-100 text-xs px-2 py-0.5 rounded-full">📰 综合 <span class="opacity-60">4</span></span></div>
+            <ul class="space-y-1.5"><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">1</span><a href="daily-brief-2026-09-23.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">高通发布2nm双旗舰芯片，为智能体AI重造架构</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">2</span><a href="daily-brief-2026-09-23.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">OpenAI发布GPT-6 Sol与Luna，API价格腰斩</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">3</span><a href="daily-brief-2026-09-23.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">OpenAI发布GPT-6 Sol与Luna，API降价50%</a></li></ul>
+          </div>
+          <div class="hidden sm:flex items-center">
+            <a href="daily-brief-2026-09-23.html"
+               class="whitespace-nowrap text-sm font-medium text-blue-600 hover:text-blue-700 border border-blue-200 hover:border-blue-300 rounded-lg px-3 py-2 transition">
+              阅读 →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card bg-white rounded-xl border border-slate-200 p-5 sm:p-6 transition-all duration-200"
+               data-month="2026-09" data-search="2026-09-19 陶哲轩宣布启动开放数学模型计划 华为昇腾跨生态拐点，提出agentic计算五大变化 华为灵衢互联破解ai agent算力瓶颈">
+        <div class="flex gap-4 sm:gap-6">
+          <div class="shrink-0 w-14 sm:w-16 text-center pt-1">
+            <div class="text-2xl sm:text-3xl font-bold text-slate-900 leading-none">19</div>
+            <div class="text-xs text-slate-400 mt-1.5">周六</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-2">
+              <a href="daily-brief-2026-09-19.html" class="font-bold text-slate-900 hover:text-blue-600">9月19日 简报</a>
+              
+              <span class="text-xs text-slate-500">85 条</span>
+              <span class="text-xs text-slate-300">·</span>
+              <span class="text-xs text-slate-500">16 个源</span>
+            </div>
+            <div class="flex items-center gap-1.5 flex-wrap mb-3"><span class="inline-flex items-center gap-1 bg-purple-50 text-purple-700 border border-purple-100 text-xs px-2 py-0.5 rounded-full">💻 开源 <span class="opacity-60">3</span></span><span class="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-100 text-xs px-2 py-0.5 rounded-full">🏢 产业 <span class="opacity-60">25</span></span><span class="inline-flex items-center gap-1 bg-red-50 text-red-700 border border-red-100 text-xs px-2 py-0.5 rounded-full">🤖 大模型 <span class="opacity-60">3</span></span><span class="inline-flex items-center gap-1 bg-slate-50 text-slate-700 border border-slate-100 text-xs px-2 py-0.5 rounded-full">📰 综合 <span class="opacity-60">7</span></span><span class="inline-flex items-center gap-1 bg-pink-50 text-pink-700 border border-pink-100 text-xs px-2 py-0.5 rounded-full">💡 观点 <span class="opacity-60">16</span></span><span class="inline-flex items-center gap-1 bg-yellow-50 text-yellow-700 border border-yellow-100 text-xs px-2 py-0.5 rounded-full">🛠️ 工具 <span class="opacity-60">29</span></span><span class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 border border-blue-100 text-xs px-2 py-0.5 rounded-full">📚 论文 <span class="opacity-60">1</span></span><span class="inline-flex items-center gap-1 bg-slate-50 text-slate-700 border border-slate-100 text-xs px-2 py-0.5 rounded-full">📰 综合 <span class="opacity-60">1</span></span></div>
+            <ul class="space-y-1.5"><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">1</span><a href="daily-brief-2026-09-19.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">陶哲轩宣布启动开放数学模型计划</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">2</span><a href="daily-brief-2026-09-19.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">华为昇腾跨生态拐点，提出Agentic计算五大变化</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">3</span><a href="daily-brief-2026-09-19.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">华为灵衢互联破解AI Agent算力瓶颈</a></li></ul>
+          </div>
+          <div class="hidden sm:flex items-center">
+            <a href="daily-brief-2026-09-19.html"
+               class="whitespace-nowrap text-sm font-medium text-blue-600 hover:text-blue-700 border border-blue-200 hover:border-blue-300 rounded-lg px-3 py-2 transition">
+              阅读 →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card bg-white rounded-xl border border-slate-200 p-5 sm:p-6 transition-all duration-200"
+               data-month="2026-09" data-search="2026-09-18 perplexity 采用 gpt-6 astra 实现端到端系统 25位菲尔兹奖得主联名抨击ai毁掉数学 edge ai早报：meta重资产转型与ai审计法落地">
+        <div class="flex gap-4 sm:gap-6">
+          <div class="shrink-0 w-14 sm:w-16 text-center pt-1">
+            <div class="text-2xl sm:text-3xl font-bold text-slate-900 leading-none">18</div>
+            <div class="text-xs text-slate-400 mt-1.5">周五</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-2">
+              <a href="daily-brief-2026-09-18.html" class="font-bold text-slate-900 hover:text-blue-600">9月18日 简报</a>
+              
+              <span class="text-xs text-slate-500">148 条</span>
+              <span class="text-xs text-slate-300">·</span>
+              <span class="text-xs text-slate-500">18 个源</span>
+            </div>
+            <div class="flex items-center gap-1.5 flex-wrap mb-3"><span class="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-100 text-xs px-2 py-0.5 rounded-full">🏢 产业 <span class="opacity-60">43</span></span><span class="inline-flex items-center gap-1 bg-pink-50 text-pink-700 border border-pink-100 text-xs px-2 py-0.5 rounded-full">💡 观点 <span class="opacity-60">26</span></span><span class="inline-flex items-center gap-1 bg-slate-50 text-slate-700 border border-slate-100 text-xs px-2 py-0.5 rounded-full">📰 综合 <span class="opacity-60">6</span></span><span class="inline-flex items-center gap-1 bg-red-50 text-red-700 border border-red-100 text-xs px-2 py-0.5 rounded-full">🤖 大模型 <span class="opacity-60">4</span></span><span class="inline-flex items-center gap-1 bg-yellow-50 text-yellow-700 border border-yellow-100 text-xs px-2 py-0.5 rounded-full">🛠️ 工具 <span class="opacity-60">36</span></span><span class="inline-flex items-center gap-1 bg-purple-50 text-purple-700 border border-purple-100 text-xs px-2 py-0.5 rounded-full">💻 开源 <span class="opacity-60">3</span></span><span class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 border border-blue-100 text-xs px-2 py-0.5 rounded-full">📚 论文 <span class="opacity-60">30</span></span></div>
+            <ul class="space-y-1.5"><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">1</span><a href="daily-brief-2026-09-18.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">Perplexity 采用 GPT-6 Astra 实现端到端系统</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">2</span><a href="daily-brief-2026-09-18.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">25位菲尔兹奖得主联名抨击AI毁掉数学</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">3</span><a href="daily-brief-2026-09-18.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">Edge AI早报：Meta重资产转型与AI审计法落地</a></li></ul>
+          </div>
+          <div class="hidden sm:flex items-center">
+            <a href="daily-brief-2026-09-18.html"
+               class="whitespace-nowrap text-sm font-medium text-blue-600 hover:text-blue-700 border border-blue-200 hover:border-blue-300 rounded-lg px-3 py-2 transition">
+              阅读 →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card bg-white rounded-xl border border-slate-200 p-5 sm:p-6 transition-all duration-200"
+               data-month="2026-09" data-search="2026-09-12 perplexity 采用 gpt-6 astra 实现端到端系统 25位菲尔兹奖得主联名抨击ai毁掉数学 edge ai早报：meta重资产转型与ai审计法落地">
+        <div class="flex gap-4 sm:gap-6">
+          <div class="shrink-0 w-14 sm:w-16 text-center pt-1">
+            <div class="text-2xl sm:text-3xl font-bold text-slate-900 leading-none">12</div>
+            <div class="text-xs text-slate-400 mt-1.5">周六</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-2">
+              <a href="daily-brief-2026-09-12.html" class="font-bold text-slate-900 hover:text-blue-600">9月12日 简报</a>
+              
+              <span class="text-xs text-slate-500">148 条</span>
+              <span class="text-xs text-slate-300">·</span>
+              <span class="text-xs text-slate-500">18 个源</span>
+            </div>
+            <div class="flex items-center gap-1.5 flex-wrap mb-3"><span class="inline-flex items-center gap-1 bg-green-50 text-green-700 border border-green-100 text-xs px-2 py-0.5 rounded-full">🏢 产业 <span class="opacity-60">43</span></span><span class="inline-flex items-center gap-1 bg-pink-50 text-pink-700 border border-pink-100 text-xs px-2 py-0.5 rounded-full">💡 观点 <span class="opacity-60">26</span></span><span class="inline-flex items-center gap-1 bg-slate-50 text-slate-700 border border-slate-100 text-xs px-2 py-0.5 rounded-full">📰 综合 <span class="opacity-60">6</span></span><span class="inline-flex items-center gap-1 bg-red-50 text-red-700 border border-red-100 text-xs px-2 py-0.5 rounded-full">🤖 大模型 <span class="opacity-60">4</span></span><span class="inline-flex items-center gap-1 bg-yellow-50 text-yellow-700 border border-yellow-100 text-xs px-2 py-0.5 rounded-full">🛠️ 工具 <span class="opacity-60">36</span></span><span class="inline-flex items-center gap-1 bg-purple-50 text-purple-700 border border-purple-100 text-xs px-2 py-0.5 rounded-full">💻 开源 <span class="opacity-60">3</span></span><span class="inline-flex items-center gap-1 bg-blue-50 text-blue-700 border border-blue-100 text-xs px-2 py-0.5 rounded-full">📚 论文 <span class="opacity-60">30</span></span></div>
+            <ul class="space-y-1.5"><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">1</span><a href="daily-brief-2026-09-12.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">Perplexity 采用 GPT-6 Astra 实现端到端系统</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">2</span><a href="daily-brief-2026-09-12.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">25位菲尔兹奖得主联名抨击AI毁掉数学</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">3</span><a href="daily-brief-2026-09-12.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">Edge AI早报：Meta重资产转型与AI审计法落地</a></li></ul>
+          </div>
+          <div class="hidden sm:flex items-center">
+            <a href="daily-brief-2026-09-12.html"
+               class="whitespace-nowrap text-sm font-medium text-blue-600 hover:text-blue-700 border border-blue-200 hover:border-blue-300 rounded-lg px-3 py-2 transition">
+              阅读 →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card bg-white rounded-xl border border-slate-200 p-5 sm:p-6 transition-all duration-200"
+               data-month="2026-09" data-search="2026-09-11 deepseek v4.1 flash架构解读：显存杀手 openai推出金融版chatgpt openai全双工语音模型gpt-live-1上线api deepseek v4.1 flash架构解读：显存杀手 openai全双工语音模型gpt-live-1上线api">
+        <div class="flex gap-4 sm:gap-6">
+          <div class="shrink-0 w-14 sm:w-16 text-center pt-1">
+            <div class="text-2xl sm:text-3xl font-bold text-slate-900 leading-none">11</div>
+            <div class="text-xs text-slate-400 mt-1.5">周五</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-2">
+              <a href="daily-brief-2026-09-11.html" class="font-bold text-slate-900 hover:text-blue-600">9月11日 简报</a>
+              
+              <span class="text-xs text-slate-500">83 条</span>
+              <span class="text-xs text-slate-300">·</span>
+              <span class="text-xs text-slate-500">10 个源</span>
+            </div>
+            <div class="flex items-center gap-1.5 flex-wrap mb-3"></div>
+            <ul class="space-y-1.5"><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">1</span><a href="daily-brief-2026-09-11.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">DeepSeek V4.1 Flash架构解读：显存杀手</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">2</span><a href="daily-brief-2026-09-11.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">OpenAI推出金融版ChatGPT</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">3</span><a href="daily-brief-2026-09-11.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">OpenAI全双工语音模型GPT-Live-1上线API</a></li></ul>
+          </div>
+          <div class="hidden sm:flex items-center">
+            <a href="daily-brief-2026-09-11.html"
+               class="whitespace-nowrap text-sm font-medium text-blue-600 hover:text-blue-700 border border-blue-200 hover:border-blue-300 rounded-lg px-3 py-2 transition">
+              阅读 →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card bg-white rounded-xl border border-slate-200 p-5 sm:p-6 transition-all duration-200"
+               data-month="2026-09" data-search="2026-09-10 openai发布gpt-6 astra，面向企业智能 苹果首款折叠屏发布，15999元起 谷歌与nasa jpl发布全球甲烷羽流ai模型 openai发布gpt-6 astra，面向企业智能 实测星火x2.5：手搓粒子月亮，拆完61页财报">
+        <div class="flex gap-4 sm:gap-6">
+          <div class="shrink-0 w-14 sm:w-16 text-center pt-1">
+            <div class="text-2xl sm:text-3xl font-bold text-slate-900 leading-none">10</div>
+            <div class="text-xs text-slate-400 mt-1.5">周四</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-2">
+              <a href="daily-brief-2026-09-10.html" class="font-bold text-slate-900 hover:text-blue-600">9月10日 简报</a>
+              
+              <span class="text-xs text-slate-500">52 条</span>
+              <span class="text-xs text-slate-300">·</span>
+              <span class="text-xs text-slate-500">8 个源</span>
+            </div>
+            <div class="flex items-center gap-1.5 flex-wrap mb-3"></div>
+            <ul class="space-y-1.5"><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">1</span><a href="daily-brief-2026-09-10.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">OpenAI发布GPT-6 Astra，面向企业智能</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">2</span><a href="daily-brief-2026-09-10.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">苹果首款折叠屏发布，15999元起</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">3</span><a href="daily-brief-2026-09-10.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">谷歌与NASA JPL发布全球甲烷羽流AI模型</a></li></ul>
+          </div>
+          <div class="hidden sm:flex items-center">
+            <a href="daily-brief-2026-09-10.html"
+               class="whitespace-nowrap text-sm font-medium text-blue-600 hover:text-blue-700 border border-blue-200 hover:border-blue-300 rounded-lg px-3 py-2 transition">
+              阅读 →
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="day-card bg-white rounded-xl border border-slate-200 p-5 sm:p-6 transition-all duration-200"
+               data-month="2026-09" data-search="2026-09-09 alphagenome atlas预测全人类90亿dna变异影响 alphagenome atlas：人类基因组全变异图谱 美三大机构警告中国ai企业蒸馏美前沿模型 alphagenome atlas预测全人类90亿dna变异影响 美三大机构警告中国ai企业蒸馏美前沿模型">
+        <div class="flex gap-4 sm:gap-6">
+          <div class="shrink-0 w-14 sm:w-16 text-center pt-1">
+            <div class="text-2xl sm:text-3xl font-bold text-slate-900 leading-none">09</div>
+            <div class="text-xs text-slate-400 mt-1.5">周三</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-2">
+              <a href="daily-brief-2026-09-09.html" class="font-bold text-slate-900 hover:text-blue-600">9月09日 简报</a>
+              
+              <span class="text-xs text-slate-500">45 条</span>
+              <span class="text-xs text-slate-300">·</span>
+              <span class="text-xs text-slate-500">9 个源</span>
+            </div>
+            <div class="flex items-center gap-1.5 flex-wrap mb-3"></div>
+            <ul class="space-y-1.5"><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">1</span><a href="daily-brief-2026-09-09.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">AlphaGenome Atlas预测全人类90亿DNA变异影响</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">2</span><a href="daily-brief-2026-09-09.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">AlphaGenome Atlas：人类基因组全变异图谱</a></li><li class="flex gap-2 items-start"><span class="text-xs font-bold text-slate-400 mt-0.5 shrink-0">3</span><a href="daily-brief-2026-09-09.html" class="text-sm text-slate-600 hover:text-blue-600 leading-snug">美三大机构警告中国AI企业蒸馏美前沿模型</a></li></ul>
+          </div>
+          <div class="hidden sm:flex items-center">
+            <a href="daily-brief-2026-09-09.html"
+               class="whitespace-nowrap text-sm font-medium text-blue-600 hover:text-blue-700 border border-blue-200 hover:border-blue-300 rounded-lg px-3 py-2 transition">
+              阅读 →
+            </a>
+          </div>
+        </div>
+      </article></div>
+      </section>
+  </div>
+
+  <!-- 空状态 -->
+  <div id="empty" class="hidden text-center py-20">
+    <div class="text-4xl mb-3">🔍</div>
+    <p class="text-slate-600 font-medium">没有找到匹配的日报</p>
+    <p class="text-sm text-slate-400 mt-1">换个关键词，或点「全部」查看所有往期</p>
+  </div>
+
+</main>
+
+<footer class="border-t border-slate-200 bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-8 text-center text-xs text-slate-400">
+    AI Frontier · 往期资讯归档 · 数据来自公开 RSS 源，每日自动更新
+  </div>
+</footer>
+
+
+<!-- 悬浮返回按钮 -->
+<a href="index.html" id="floatingHome"
+   class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold pl-4 pr-5 py-3 rounded-full shadow-2xl shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-105 transition-all duration-200"
+   style="display:none; opacity:0; transform:translateY(10px);">
+  
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12L12 3l9 9"/>
+        <path d="M5 10v10h14V10"/>
+      </svg>
+  <span class="text-sm">返回首页</span>
+</a>
+
+<script>
+(function() {
+  var btn = document.getElementById('floatingHome');
+  if (!btn) return;
+  var threshold = 300;
+  function check() {
+    if (window.scrollY > threshold) {
+      btn.style.display = 'flex';
+      requestAnimationFrame(function() {
+        btn.style.opacity = '1';
+        btn.style.transform = 'translateY(0)';
+      });
+    } else {
+      btn.style.opacity = '0';
+      btn.style.transform = 'translateY(10px)';
+      setTimeout(function() {
+        if (window.scrollY <= threshold) btn.style.display = 'none';
+      }, 250);
+    }
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+  setTimeout(check, 50);
+})();
+</script>
+
+
+<script>
+(function () {
+  var input = document.getElementById('q');
+  var buttons = Array.prototype.slice.call(document.querySelectorAll('.month-btn'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.day-card'));
+  var blocks = Array.prototype.slice.call(document.querySelectorAll('.month-block'));
+  var empty = document.getElementById('empty');
+  var hint = document.getElementById('countHint');
+  var month = 'all';
+
+  function apply() {
+    var kw = (input.value || '').trim().toLowerCase();
+    var shown = 0;
+
+    cards.forEach(function (card) {
+      var okMonth = (month === 'all') || (card.getAttribute('data-month') === month);
+      var okKw = !kw || (card.getAttribute('data-search') || '').indexOf(kw) !== -1;
+      var visible = okMonth && okKw;
+      card.style.display = visible ? '' : 'none';
+      if (visible) shown++;
+    });
+
+    blocks.forEach(function (block) {
+      var any = block.querySelectorAll('.day-card:not([style*="display: none"])').length;
+      block.style.display = any ? '' : 'none';
+    });
+
+    empty.classList.toggle('hidden', shown !== 0);
+    hint.textContent = shown;
+  }
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      month = btn.getAttribute('data-month');
+      buttons.forEach(function (b) {
+        var active = b === btn;
+        b.className = 'month-btn px-3.5 py-1.5 rounded-full text-sm font-medium transition ' +
+          (active
+            ? 'bg-blue-600 text-white'
+            : 'bg-white text-slate-600 border border-slate-200 hover:border-blue-300 hover:text-blue-600');
+      });
+      apply();
+    });
+  });
+
+  input.addEventListener('input', apply);
+  apply();
+})();
+</script>
+</body>
+</html>

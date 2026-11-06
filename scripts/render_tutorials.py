@@ -412,6 +412,8 @@ def render_tutorial_page(ckey: str, meta: dict, tut: dict, related: list) -> str
       <span class="text-slate-300">/</span>
       <a href="../playground.html" class="text-slate-500 hover:text-slate-900">玩法实验室</a>
       <span class="text-slate-300">/</span>
+      <a href="../archive.html" class="text-slate-500 hover:text-slate-900">往期资讯</a>
+      <span class="text-slate-300">/</span>
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
@@ -594,6 +596,8 @@ def main():
       <a href="../index.html" class="text-slate-500 hover:text-slate-900">首页</a>
       <span class="text-slate-300">/</span>
       <a href="../playground.html" class="text-slate-500 hover:text-slate-900">玩法实验室</a>
+      <span class="text-slate-300">/</span>
+      <a href="../archive.html" class="text-slate-500 hover:text-slate-900">往期资讯</a>
       <span class="text-slate-300">/</span>
       <span class="text-slate-900 font-semibold">全部教程</span>
     </div>

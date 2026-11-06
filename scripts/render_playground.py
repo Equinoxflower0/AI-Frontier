@@ -432,6 +432,7 @@ def render_html(items: list) -> str:
         <a href="index.html" class="text-slate-600 hover:text-slate-900">资讯</a>
         <a href="playground.html" class="text-slate-900 border-b-2 border-indigo-500">玩法实验室</a>
         <a href="tutorials/index.html" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">全部教程</a>
+        <a href="archive.html" class="text-slate-600 hover:text-slate-900">📅 往期资讯</a>
         <a href="daily-brief-{today}.html" class="text-slate-600 hover:text-slate-900">日报</a>
       </div>
     </div>

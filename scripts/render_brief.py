@@ -183,7 +183,10 @@ def render_html(items: list, date_str: str) -> str:
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
       <span class="text-sm">返回首页</span>
     </a>
-    <div class="text-sm text-slate-500">{date_str} · 周{datetime.strptime(date_str, "%Y-%m-%d").weekday()+1 if False else "—"}</div>
+    <div class="flex items-center gap-4">
+      <a href="archive.html" class="text-sm text-slate-600 hover:text-blue-600">📅 往期资讯</a>
+      <div class="text-sm text-slate-500">{date_str} · 周{datetime.strptime(date_str, "%Y-%m-%d").weekday()+1 if False else "—"}</div>
+    </div>
   </div>
 </header>
 

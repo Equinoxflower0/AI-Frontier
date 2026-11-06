@@ -293,6 +293,7 @@ def render_html(items, date_str, plays=()):
         <a href="#top" class="hover:text-blue-600">今日</a>
         <a href="playground.html" class="hover:text-indigo-600">🎮 玩法实验室</a>
         <a href="daily-brief-{date_str}.html" class="hover:text-blue-600">日报</a>
+        <a href="archive.html" class="hover:text-blue-600">📅 往期</a>
         <a href="#categories" class="hover:text-blue-600">板块</a>
         <a href="#feed" class="hover:text-blue-600">资讯流</a>
       </nav>
@@ -314,6 +315,7 @@ def render_html(items, date_str, plays=()):
         <div class="flex flex-wrap gap-3">
           <a href="#feed" class="bg-white text-blue-900 font-semibold px-6 py-3 rounded-lg hover:bg-blue-50 transition">浏览资讯 →</a>
           <a href="playground.html" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-lg transition">🎮 进入玩法实验室</a>
+          <a href="archive.html" class="bg-white/10 backdrop-blur border border-white/30 text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/20 transition">📅 往期资讯</a>
         </div>
       </div>
       <div class="grid grid-cols-2 gap-4">

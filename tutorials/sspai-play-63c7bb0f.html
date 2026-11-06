@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anthropic深夜放大招：Claude Opus 5.5上线，任务成本大降40% - AI 玩法教程 · AI Frontier</title>
+<title>新玩意 255｜少数派的编辑们最近买了啥？ - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -25,7 +25,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-04
+      2026-11-06
     </div>
   </div>
 </nav>
@@ -35,7 +35,7 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🧭 工作流
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★☆☆ · 3/5
@@ -44,7 +44,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">Anthropic深夜放大招：Claude Opus 5.5上线，任务成本大降40%</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">新玩意 255｜少数派的编辑们最近买了啥？</h1>
     
   </div>
 </header>
@@ -57,27 +57,23 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    智东西 AI 工具评测 · A级
+    少数派 AI 工具 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     权威媒体
   </span>
-  <a href="https://zhidx.com/p/596610.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://sspai.com/post/118541" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
-<div class="mb-4">
-  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
-  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">Claude</span></div>
-</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">Claude Opus 5.5 上线后，任务成本直降 40%，这意味着你可以用更低的预算跑更复杂的 AI 工作流。本教程教你如何用 Claude 搭建一套「低成本高产出」的自动化任务链。</p>
+  <p class="text-base text-slate-800 leading-relaxed">这是一套把「少数派编辑部新玩意」栏目变成可复用 AI 工具链的实战教程，帮你从零搭建一个自动追踪编辑推荐、生成选购建议的轻量工作流。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -88,7 +84,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    Anthropic 深夜发布 Claude Opus 5.5，官方宣称在保持顶级推理能力的同时，将任务成本大幅降低 40%。对于经常用 Claude 处理长文档、代码生成、多步推理的用户来说，这不仅是省钱，更是让「批量跑工作流」变得可行。过去因为 token 成本高而不敢做的自动化任务，现在可以放心跑起来。本教程基于智东西的评测报道，结合实战经验，帮你把 Opus 5.5 的低成本优势转化为可落地的工作流。
+    少数派《新玩意》栏目每期由编辑分享最近在用的新奇产品，内容真实但分散在长文中，手动整理费时费力。本玩法用工具链把「抓取文章 → 提取产品信息 → 生成结构化推荐 → 输出选购清单」串起来，适合想高效跟进行业动态、做产品调研或内容二次创作的人。难度中等，需要基本的信息抓取和 AI 提示词编排能力。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -98,24 +94,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Claude 账号  <a href="https://claude.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于访问 Claude Opus 5.5 模型，建议开通 Pro 或 Team 计划以获取更高额度和优先访问</div>
+      <div class="font-semibold text-slate-900">少数派官网  <a href="https://sspai.com/post/118541" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">获取《新玩意》栏目原文，作为信息源</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Claude API Key  <a href="https://console.anthropic.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">如果你要跑自动化脚本或工具链，需要从 Anthropic Console 获取 API Key</div>
+      <div class="font-semibold text-slate-900">ChatGPT / Claude / Kimi  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">任选一个支持长文本的 AI 助手，用于信息提取和推荐生成</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于编写调用 Claude API 的自动化脚本，推荐用 venv 管理环境</div>
+      <div class="font-semibold text-slate-900">飞书多维表格 / Notion  <a href="https://www.feishu.cn/product/base" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">存储结构化产品清单，方便筛选和分享</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Anthropic Python SDK  <a href="https://github.com/anthropics/anthropic-sdk-python" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">官方 SDK，安装命令：pip install anthropic</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">智东西评测原文  <a href="https://zhidx.com/p/596610.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">了解 Opus 5.5 的成本变化和实测表现，作为工作流设计参考</div>
+      <div class="font-semibold text-slate-900">浏览器阅读模式或稍后读工具（如 Instapaper）  <a href="https://www.instapaper.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">净化文章页面，方便复制全文给 AI</div>
     </li>
   </ul>
 </section>
@@ -128,55 +120,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：确认模型版本与成本结构</h3>
-      <div class="text-base text-slate-700 leading-loose">登录 Claude 网页版或 Anthropic Console，在模型选择器中确认是否已出现 Claude Opus 5.5。然后在 Console 的 Billing 页面查看 Opus 5.5 的输入/输出 token 单价，和 Opus 4 做对比，算出你常用任务的单次成本。建议记录下「每 1000 token 成本」和「单次任务平均 token 消耗」两个数字，后面优化工作流时要用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：抓取并净化原文</h3>
+      <div class="text-base text-slate-700 leading-loose">打开少数派《新玩意》文章链接，使用浏览器阅读模式或 Instapaper 去掉广告和侧栏，只保留正文。将净化后的全文复制到剪贴板，确保包含每位编辑的推荐产品名称、使用场景和评价。如果文章较长，可分段复制，但不要遗漏产品段落。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果网页版还没看到 Opus 5.5，可以先用 API 调用确认模型名，通常为 claude-opus-5.5 或类似命名。
+          💡 <span class="font-semibold">小贴士：</span>优先复制「编辑自述」部分，那里通常包含最真实的使用体验和优缺点。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：设计低成本任务链</h3>
-      <div class="text-base text-slate-700 leading-loose">把你要完成的任务拆成「输入预处理 → 核心推理 → 输出格式化」三段。核心推理用 Opus 5.5，预处理和格式化可以用更便宜的 Claude Haiku 或本地脚本完成。例如处理 100 篇文档时，先用 Haiku 做摘要和去重，再把精华内容交给 Opus 5.5 做深度分析。这样能充分利用 Opus 5.5 的推理能力，同时把总成本压到最低。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用提示词模板提取产品信息</h3>
+      <div class="text-base text-slate-700 leading-loose">把全文粘贴给 AI，并附上以下提示词：「请从以下文章中提取所有被推荐的产品，按 JSON 数组输出，每个产品包含：产品名、推荐编辑、品类、核心卖点（1 句话）、适用人群、原文链接锚点。不要遗漏任何产品。」检查 AI 输出是否完整，如有遗漏可补充「还有第 X 段提到的 Y 产品」。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不要把所有步骤都塞给 Opus 5.5，分工越细，成本越低。
+          💡 <span class="font-semibold">小贴士：</span>要求 AI 输出 JSON 而不是纯文本，方便后续导入表格；如果 AI 截断，可分段处理再合并。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编写可复用的 Prompt 模板</h3>
-      <div class="text-base text-slate-700 leading-loose">为你的核心任务写一个结构化 Prompt，包含角色、任务、输入格式、输出格式和约束条件。例如：「你是资深技术分析师。请阅读以下文档，输出 JSON 格式的摘要，包含 title、key_points、risk_level 三个字段。」把 Prompt 保存为模板文件，每次只替换输入内容。这样既能保证输出稳定，又方便批量跑。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：生成结构化选购建议</h3>
+      <div class="text-base text-slate-700 leading-loose">将上一步的 JSON 结果再次喂给 AI，使用提示词：「基于这些产品信息，按品类分组，为每个品类写一段 100 字以内的选购建议，说明适合谁、不适合谁，并给出优先级排序（高/中/低）。」把 AI 返回的内容整理成表格，列包括：品类、产品名、推荐编辑、选购建议、优先级。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在 Prompt 里明确要求「只输出 JSON，不要额外解释」，可以省掉大量输出 token。
+          💡 <span class="font-semibold">小贴士：</span>让 AI 标注「优先级」时要求它引用原文中的评价强度，避免凭空编造。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用 Python 脚本批量调用 API</h3>
-      <div class="text-base text-slate-700 leading-loose">安装 anthropic SDK 后，写一个循环脚本：读取输入文件列表，对每个文件调用 Claude API，把结果写入输出目录。关键参数：model 设为 Opus 5.5，max_tokens 根据任务设合理上限，temperature 设为 0.2 保证稳定。建议加上重试机制和日志记录，方便排查失败任务。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：导入表格并建立追踪视图</h3>
+      <div class="text-base text-slate-700 leading-loose">把整理好的表格导入飞书多维表格或 Notion，字段设置为：产品名、品类、推荐编辑、核心卖点、适用人群、优先级、原文链接。创建一个「按品类分组」的视图和一个「高优先级」筛选视图，方便快速浏览。之后每期新文章都按同样流程追加数据。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先用 3-5 个样本测试脚本，确认输出格式和成本符合预期，再跑全量。
+          💡 <span class="font-semibold">小贴士：</span>在表格中加一列「我的状态」（未看/已种草/已购买），方便个人跟进。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：监控成本并迭代优化</h3>
-      <div class="text-base text-slate-700 leading-loose">跑完一批任务后，在 Console 查看实际消耗的 token 和费用。对比第 1 步算出的预估成本，找出偏差最大的环节。常见优化点：缩短 Prompt、减少输出长度、把简单任务降级到 Haiku、缓存重复输入。每次优化后重新跑小样本验证效果，逐步把成本压到最低。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：生成一期摘要卡片</h3>
+      <div class="text-base text-slate-700 leading-loose">让 AI 基于表格数据生成一段 200 字以内的「本期新玩意速览」，格式为：「本期共推荐 X 款产品，其中高优先级 Y 款，最值得关注的是 A（理由）和 B（理由）。」把这段文字复制到社交媒体或笔记中，作为内容二次创作的素材。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>Anthropic Console 有 usage 报表，可以按天/按模型查看消耗，善用它。
+          💡 <span class="font-semibold">小贴士：</span>要求 AI 用口语化、有态度的语气写摘要，更接近少数派编辑的风格。
         </div>
     </div>
   </div>
@@ -186,7 +178,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你得到一套可复用的 Claude Opus 5.5 低成本工作流：能批量处理文档/代码/分析任务，单次任务成本比用 Opus 4 时降低约 40%，且输出格式稳定、可自动化。你还会有一份成本监控表，清楚知道每个环节花了多少钱。
+    你得到一份结构化的产品清单表格，包含每期《新玩意》的所有推荐产品、选购建议和优先级，并附带一段可直接发布的速览摘要。后续每期只需重复第 1-4 步，即可持续积累个人产品数据库。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -196,38 +188,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Claude Opus 5.5 和 Opus 4 有什么区别？</span>
+        <span>文章太长，AI 一次读不完怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">主要区别是成本大幅降低约 40%，推理能力保持顶级水平。具体评测可参考智东西原文：https://zhidx.com/p/596610.html</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">按编辑段落分段处理，每段单独提取 JSON，最后合并去重；或使用支持长上下文的模型（如 Kimi、Claude 长上下文版）。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>我没有 API Key，能用网页版跑工作流吗？</span>
+        <span>AI 提取的产品信息不准确怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但网页版不适合批量自动化。建议用 API 跑脚本，网页版适合手动调试 Prompt 和验证输出质量。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在提示词中要求 AI 只基于原文内容输出，并附上原文引用片段；对关键产品手动核对原文。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Opus 5.5 支持多长的上下文？</span>
+        <span>没有飞书或 Notion 可以用什么替代？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常支持 200K token 左右，具体以 Anthropic 官方文档为准。处理超长文档时建议分段，避免单次请求过大。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用 Excel、Google Sheets 或 Obsidian 表格均可，核心是保留结构化字段和筛选能力。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何进一步降低成本？</span>
+        <span>这个玩法能自动化吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">三个方向：1) 把预处理和格式化任务交给 Haiku；2) 压缩 Prompt 和输出；3) 对重复输入使用缓存。组合使用可再降 20%-30%。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，用 RSS 订阅少数派栏目 + n8n/Make 自动抓取新文章，再调用 AI API 提取信息写入表格，但需要一定技术基础。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>批量跑任务时 API 限流怎么办？</span>
+        <span>适合用来做什么？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在脚本里加指数退避重试，并控制并发数（建议 3-5 个并发）。如果额度不够，可以申请提升 rate limit。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合个人选购参考、产品调研、内容选题库、行业趋势观察，也可作为 AI 信息提取的练手项目。</div>
     </details>
   </div>
 </section>
@@ -235,14 +227,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把工作流封装成 Claude Project，上传常用文档和 Prompt 模板，团队成员直接复用，适合团队协作场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：结合 n8n 或 Zapier，把 Claude API 接入自动化平台，实现「收到邮件 → 自动分析 → 写入表格」的零代码工作流。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用 Claude Opus 5.5 做代码审查工作流：GitHub Action 触发 → 提取 diff → Opus 5.5 审查 → 自动评论，成本比人工低且响应更快。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把信息源换成「少数派 Matrix」或「即刻」上的产品推荐帖，用同样的提示词模板提取并对比不同社区的口碑差异。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：增加一步「价格追踪」，让 AI 根据产品名生成电商搜索链接，手动填入当前价格，形成带价格的选购清单。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把输出改为「播客脚本」，让 AI 基于表格数据写一段 3 分钟的产品闲聊脚本，用于音频内容创作。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 Opus 5.5 的低成本优势，把「贵得不敢跑」的 AI 工作流变成日常自动化，核心是分工、模板化和持续监控成本。
+    用「净化原文 → AI 提取 → 结构化表格 → 摘要输出」的工具链，把零散的产品推荐变成可检索、可对比、可复用的个人知识库。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,19 +242,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">ComfyUI 神级节点合集</div>
+    <a href="../playground.html#play-github-play-awesome-ai-agents" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome AI Agents · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">3万星AI自主智能体大全</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="../playground.html#play-ph-ai" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">Product Hunt - AI 频道 · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">给AI智能体配台真iPhone和Mac</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">ComfyUI 精选工作流合集，开箱即用</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软开源神器：一键把文件转Markdown</div>
+    <a href="../playground.html#play-ph-ai" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">Product Hunt - AI 频道 · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">SnapTiles：浏览器里玩转3D磁力片</div>
       <div class="text-xs text-amber-500">★★★★☆</div>
     </a></div>
 </section>

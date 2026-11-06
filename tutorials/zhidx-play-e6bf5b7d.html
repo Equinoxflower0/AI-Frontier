@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TensorSharp 支持 Jev 模式了：一次去噪，直接读出决策 - 张善友 - AI 玩法教程 · AI Frontier</title>
+<title>刚刚，Claude Code产品一姐加入OpenAI！ - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -25,7 +25,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-04
+      2026-11-06
     </div>
   </div>
 </nav>
@@ -35,16 +35,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        📖 教程指引
+        🧭 工作流
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 1h
+        ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">TensorSharp 支持 Jev 模式了：一次去噪，直接读出决策 - 张善友</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">刚刚，Claude Code产品一姐加入OpenAI！</h1>
     
   </div>
 </header>
@@ -56,24 +56,28 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    博客园 AI 教程 · B级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+    智东西 AI 工具评测 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    技术社区
+    权威媒体
   </span>
-  <a href="https://www.cnblogs.com/shanyou/p/23096117" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://zhidx.com/p/607599.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">ChatGPT</span><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">Claude</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">TensorSharp 的 Jev 模式让你不再依赖模型生成 JSON 文本，而是直接从 logits 里读取决策结果，一次去噪就能拿到答案。</p>
+  <p class="text-base text-slate-800 leading-relaxed">这是一套用 ChatGPT 和 Claude 搭建「AI 新闻解读 + 工具选型」自动化工作流的实战教程，帮你快速把一条 AI 行业新闻变成可落地的工具决策。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -84,7 +88,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    过去我们让模型输出结构化结果，通常靠提示词要求它写 JSON，再解析文本。但这种方式容易受格式错误、幻觉影响。Jev 模式把决策问题还原成有边界的概率读取——模型只负责给出候选 token 的概率分布，我们直接从 logits 里选答案。vLLM 率先支持这种思路，TensorSharp 则在 .NET 生态里走通了这条路。如果你正在用 C# 做本地推理，现在一条 HTTP 请求或一个 JevAsync 调用就能完成。
+    智东西报道了 Claude Code 产品负责人加入 OpenAI 的消息，这类人事变动往往预示产品路线和工具生态的变化。对开发者和 AI 工具用户来说，光看新闻不够，更需要快速判断「这对我的工具链意味着什么」。本玩法把新闻抓取、多模型交叉解读、工具选型建议串成一条可复用的工作流，适合关注 AI 编程工具、需要做技术选型的团队和个人。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -94,20 +98,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">TensorSharp  <a href="https://github.com/zhangshanyou/TensorSharp" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">支持 Jev 模式的 .NET 推理库，用于加载模型并读取 logits</div>
+      <div class="font-semibold text-slate-900">ChatGPT  <a href="https://chatgpt.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于新闻摘要、结构化解读和方案生成</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">.NET 6/7/8 SDK  <a href="https://dotnet.microsoft.com/download" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行 C# 项目的基础环境</div>
+      <div class="font-semibold text-slate-900">Claude  <a href="https://claude.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于交叉验证解读、代码与工作流建议</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一个本地或远程推理服务（如 vLLM）  <a href="https://docs.vllm.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">提供兼容 OpenAI API 的 HTTP 端点，用于发送请求</div>
+      <div class="font-semibold text-slate-900">浏览器 / 阅读工具  <a href="https://zhidx.com/p/607599.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">打开并阅读原始报道</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Visual Studio 2022 或 VS Code + C# 插件  <a href="https://visualstudio.microsoft.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">编写和调试代码</div>
+      <div class="font-semibold text-slate-900">笔记工具（Notion / 飞书文档）  <a href="https://www.notion.so" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">沉淀每次解读结论，形成工具选型档案</div>
     </li>
   </ul>
 </section>
@@ -120,55 +124,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：创建 .NET 控制台项目并安装 TensorSharp</h3>
-      <div class="text-base text-slate-700 leading-loose">打开终端，执行 dotnet new console -n JevDemo，进入目录后运行 dotnet add package TensorSharp。如果你用的是本地推理服务，还需要添加 Microsoft.Extensions.Http 包以便发送 HTTP 请求。确保项目能正常还原依赖。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：抓取并清洗新闻原文</h3>
+      <div class="text-base text-slate-700 leading-loose">打开智东西报道链接 https://zhidx.com/p/607599.html，复制正文（去掉图片和广告）。把正文粘贴给 ChatGPT，使用提示词：「请把以下新闻压缩成 5 条事实要点，每条不超过 30 字，保留人名、公司、时间、产品名。」得到干净的事实清单，作为后续解读的输入。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议使用 .NET 8，因为 TensorSharp 对最新版有更好的异步支持。
+          💡 <span class="font-semibold">小贴士：</span>如果原文较长，先让模型只提取「谁、去哪、做什么、影响什么」四要素，避免信息过载。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：准备推理服务并确认 Jev 模式可用</h3>
-      <div class="text-base text-slate-700 leading-loose">启动 vLLM 服务，例如 python -m vllm.entrypoints.openai.api_server --model Qwen/Qwen2.5-7B-Instruct --enable-logprobs。注意要开启 logprobs 支持，否则无法读取 logits。然后用 curl 测试 /v1/completions 接口，确认返回中包含 logprobs 字段。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 ChatGPT 做结构化解读</h3>
+      <div class="text-base text-slate-700 leading-loose">把第1步的事实清单发给 ChatGPT，要求它按「事件本质 / 对 Claude Code 的影响 / 对 OpenAI 的影响 / 对普通用户的信号」四个维度各写 2-3 句。再让它输出一个「值得关注的 3 个后续观察点」列表。这样你就得到一份可读性强的解读卡片。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果使用 TensorSharp 自带的本地推理，直接调用 JevAsync 即可，无需额外启动服务。
+          💡 <span class="font-semibold">小贴士：</span>要求模型标注哪些是事实、哪些是推测，避免把观点当结论。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编写 Jev 请求，指定候选 token 和边界</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Program.cs 中，构造一个请求对象，包含 prompt、候选答案列表（如 [&quot;是&quot;, &quot;否&quot;]）以及要读取的 top_logprobs 数量。调用 TensorSharp 的 JevAsync 方法，传入模型名称和请求参数。代码示例：var result = await client.JevAsync(model, prompt, new[] { &quot;是&quot;, &quot;否&quot; });</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用 Claude 做交叉验证与反方视角</h3>
+      <div class="text-base text-slate-700 leading-loose">把同一份事实清单粘贴给 Claude，提示词：「请从反方角度分析这条人事变动可能被过度解读的地方，并给出 3 个需要谨慎的判断。」对比 ChatGPT 和 Claude 的输出，把两者分歧点记录下来，这些分歧往往是最有价值的思考点。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>候选 token 尽量用单个 token 表示，避免分词差异导致概率读取错误。
+          💡 <span class="font-semibold">小贴士：</span>两个模型结论一致时可信度更高；分歧大时，回到原文核对事实。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：从返回的 logits 中直接读取决策</h3>
-      <div class="text-base text-slate-700 leading-loose">JevAsync 返回一个字典，键是候选 token，值是对应的概率或 logit 值。你只需要取概率最高的那个作为决策。例如：var decision = result.OrderByDescending(x =&gt; x.Value).First().Key; 这样就完成了一次去噪读取，不需要解析任何 JSON 文本。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：生成工具选型建议</h3>
+      <div class="text-base text-slate-700 leading-loose">把两份解读合并后发给 ChatGPT，提示词：「基于以上信息，为我生成一份 AI 编程工具选型建议表，列：工具名、适用场景、风险点、建议动作（继续用/观望/迁移）。候选工具包括 Claude Code、ChatGPT、Cursor、GitHub Copilot。」得到表格后，用 Claude 复核一遍逻辑是否自洽。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>可以设置一个阈值，当最高概率低于 0.6 时视为不确定，触发回退逻辑。
+          💡 <span class="font-semibold">小贴士：</span>让模型明确写出「不建议现在做什么」，比只写「建议做什么」更有决策价值。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：集成到实际业务并验证效果</h3>
-      <div class="text-base text-slate-700 leading-loose">把上述逻辑封装成一个服务类，注入到你的 ASP.NET Core 控制器或后台任务中。用几个测试用例验证：比如情感分类、意图识别、是否回答。对比传统 JSON 提示词方式，观察准确率和延迟变化。通常 Jev 模式能减少 30% 以上的输出 token 并消除格式错误。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：沉淀为可复用模板</h3>
+      <div class="text-base text-slate-700 leading-loose">把第1-4步的提示词整理成一个固定模板，存入 Notion 或飞书文档，命名为「AI 新闻解读工作流」。下次遇到类似新闻，只需替换原文链接和事实清单，10 分钟内即可产出解读和选型建议。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>记录每次决策的概率分布，方便后续做阈值调优和监控。
+          💡 <span class="font-semibold">小贴士：</span>在模板里保留一个「历史结论」区块，方便回看当初判断是否准确。
         </div>
     </div>
   </div>
@@ -178,7 +182,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    程序运行后，控制台输出类似「决策：是，概率：0.92」的结果。没有 JSON 解析步骤，也没有格式异常。在业务系统中，你可以直接拿到布尔值或枚举值，响应速度更快，且不会因为模型多写了一个逗号而崩溃。
+    你会在 15-20 分钟内得到：一份 5 条事实要点、一份四维度解读卡片、一份反方风险清单、一张工具选型建议表，以及一个可复用的提示词模板。整个过程不依赖人工逐字阅读长文，结论有交叉验证支撑。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -188,38 +192,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Jev 模式和普通 logprobs 有什么区别？</span>
+        <span>没有 Claude 账号，只用 ChatGPT 可以吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">普通 logprobs 只是返回 token 概率，Jev 模式进一步把决策问题建模成有边界的概率读取，并封装了候选 token 的映射和选择逻辑，开箱即用。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但会失去交叉验证环节。建议至少用两个不同模型，或同一模型换不同提示词做二次复核。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>必须用 vLLM 吗？TensorSharp 能独立运行吗？</span>
+        <span>新闻里的信息不确定，模型会不会编造？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不必须。TensorSharp 本身支持本地推理，也可以连接任何兼容 OpenAI API 且支持 logprobs 的服务，vLLM 只是其中一种常见选择。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">会。所以第1步必须先提取事实清单，并在提示词中要求模型区分事实与推测，关键结论回到原文核对。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>候选 token 如果被分词成多个 token 怎么办？</span>
+        <span>这套工作流适合哪些新闻？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">尽量选择单 token 的候选词。如果无法避免，可以取第一个 token 的概率作为近似，或者使用 TensorSharp 提供的 token 对齐工具。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合人事变动、产品发布、融资并购等 AI 行业动态，尤其适合需要做工具选型判断的读者。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Jev 模式支持多分类吗？</span>
+        <span>每次都要手动复制粘贴，能自动化吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">支持。候选列表可以包含多个选项，JevAsync 会返回每个选项的概率，你取最大值即可。注意候选数量不要超过 top_logprobs 的限制。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>性能比 JSON 提示词快多少？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常快 20%-50%，因为不需要生成完整的 JSON 文本，只读取几个 token 的 logits。具体取决于模型和候选数量。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以进阶用浏览器插件或 API 做抓取，但初期建议手动跑通流程，确认提示词稳定后再自动化。</div>
     </details>
   </div>
 </section>
@@ -227,14 +224,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用 Jev 模式做多标签分类——候选列表设为所有标签，取概率超过阈值的多个标签作为输出。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：结合缓存机制——对相同 prompt 的 logits 结果进行缓存，避免重复推理，适合高频决策场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：在 Jev 基础上加温度采样——不直接取 argmax，而是按概率分布采样，用于需要多样性的决策任务。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把「新闻解读」换成「论文速读」——用同样的双模型交叉验证流程，快速判断一篇 AI 论文是否值得深读。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：把「工具选型」换成「竞品对比」——针对同一赛道 3-5 个产品，让模型生成对比表和迁移成本评估。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把输出接入周报——每周固定跑一次，把解读卡片汇总成团队 AI 工具动态周报。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    Jev 模式的精髓是把「让模型写答案」变成「从概率里读答案」，一次去噪，直接拿到决策，又快又稳。
+    用「事实提取 → 双模型交叉解读 → 选型建议 → 模板沉淀」四段式工作流，把一条 AI 新闻变成可执行的工具决策。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -242,20 +239,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-juejin-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">掘金 AI 实战教程 · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">Codex 本地自定义 Agent 与模型配置实战：TOML、AGENTS.md 和优先级</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome LLM · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">100+开源AI智能体应用合集</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
     </a>
-    <a href="../playground.html#play-juejin-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">掘金 AI 实战教程 · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">ai agent--- 后端概念补充：Docker Compose、ElasticSearch、IK、BM25等</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">17万星开源提示词库，一键自部署</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-juejin-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">掘金 AI 实战教程 · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">给Codex配上Jev，直接起飞。</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 5/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">ChatGPT中文调教指南：让AI听你的话</div>
+      <div class="text-xs text-amber-500">★★★★★</div>
     </a></div>
 </section>
 

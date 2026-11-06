@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>刚刚，高通2nm双旗舰来了，为智能体AI重造架构，手机能跑300亿参数大模型 - AI 玩法教程 · AI Frontier</title>
+<title>智象创始人梅涛演讲：提出构建智能体化的全模态世界模型 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -25,7 +25,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-04
+      2026-11-06
     </div>
   </div>
 </nav>
@@ -44,7 +44,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">刚刚，高通2nm双旗舰来了，为智能体AI重造架构，手机能跑300亿参数大模型</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">智象创始人梅涛演讲：提出构建智能体化的全模态世界模型</h1>
     
   </div>
 </header>
@@ -63,7 +63,7 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     权威媒体
   </span>
-  <a href="https://zhidx.com/p/596608.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://zhidx.com/p/607782.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -73,7 +73,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">高通刚刚发布的2nm双旗舰芯片（第五代骁龙8至尊版与骁龙8 Gen 5）把智能体AI直接塞进了手机，本地就能跑300亿参数大模型。这篇教程教你如何用这套新架构，在手机上搭建一个可离线运行的AI智能体工作流。</p>
+  <p class="text-base text-slate-800 leading-relaxed">智象创始人梅涛提出的「智能体化的全模态世界模型」听起来很学术，但你可以把它拆解成一套可动手的工作流：用多模态模型+智能体编排，让AI自动理解视频、生成脚本、驱动数字人播报。本教程带你从零搭一个最小可用的全模态内容生产流水线。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -84,7 +84,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    过去手机跑大模型基本靠云端，延迟高、隐私差、断网就废。高通这次为智能体AI重造了架构，NPU算力大幅提升，支持本地运行300亿参数模型，意味着你可以把AI助手真正装进口袋。适合需要隐私保护、离线办公、现场作业、旅行无网等场景。参考智东西报道：https://zhidx.com/p/596608.html
+    梅涛在演讲中指出，下一代AI将从单一模态走向全模态世界模型，并具备智能体化能力——能感知、规划、执行。对普通创作者来说，这意味着你可以用一套工具链，让AI自动完成「看视频→写文案→生成语音→合成数字人视频」的全流程。本玩法适合自媒体运营、企业宣传、知识付费等场景，能把你从重复剪辑中解放出来，专注创意。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -94,24 +94,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">搭载第五代骁龙8至尊版或骁龙8 Gen 5的安卓手机  <a href="https://www.qualcomm.com/products/snapdragon" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">必须支持高通AI Engine与Hexagon NPU，否则无法本地跑大模型</div>
+      <div class="font-semibold text-slate-900">智象API（或替代多模态模型）  <a href="https://zhidx.com/p/607782.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于视频理解与内容生成，可申请智象开放平台API；若暂未开放，可用阿里云通义千问VL或GPT-4o替代</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">高通AI Hub  <a href="https://aihub.qualcomm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">下载已优化好的300亿参数以内大模型（如Llama、Qwen、Gemma等）</div>
+      <div class="font-semibold text-slate-900">Dify / Coze </div>
+      <div class="text-sm text-slate-600 mt-1">智能体编排平台，用于串联多模态理解、文案生成、语音合成等节点</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Genie SDK / ONNX Runtime Mobile  <a href="https://github.com/microsoft/onnxruntime" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">在手机上加载并运行本地大模型的推理框架</div>
+      <div class="font-semibold text-slate-900">剪映专业版  <a href="https://www.capcut.cn" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">视频剪辑与数字人播报合成，内置AI文案和文本朗读功能</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Termux 或 Android Studio  <a href="https://termux.dev" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于部署和调试本地AI工作流</div>
+      <div class="font-semibold text-slate-900">腾讯智影 / HeyGen </div>
+      <div class="text-sm text-slate-600 mt-1">数字人视频生成，输入文案即可输出播报视频</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Hugging Face 账号  <a href="https://huggingface.co" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">获取模型权重与量化版本</div>
+      <div class="font-semibold text-slate-900">飞书文档 / Notion  <a href="https://www.feishu.cn" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">记录工作流配置和提示词模板，方便复用</div>
     </li>
   </ul>
 </section>
@@ -124,55 +124,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：确认手机芯片与NPU支持</h3>
-      <div class="text-base text-slate-700 leading-loose">打开手机设置→关于手机，确认处理器为第五代骁龙8至尊版或骁龙8 Gen 5。然后安装高通AI Hub App，运行内置的NPU检测工具，确保Hexagon NPU可用且驱动版本最新。如果检测失败，先升级系统到最新版。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：拆解「全模态世界模型」为可执行任务链</h3>
+      <div class="text-base text-slate-700 leading-loose">先别被术语吓到。把梅涛的构想翻译成你能操作的四步：①视频理解（输入一段参考视频，让AI提取画面、语音、字幕信息）；②脚本生成（基于理解结果写新文案）；③语音合成（把文案转成音频）；④数字人视频合成（用音频驱动数字人播报）。在飞书文档里建一个表格，四列分别对应这四个任务，每列写清楚输入和输出格式。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>部分厂商会锁NPU权限，优先选小米、三星、一加等开放AI Engine的机型。
+          💡 <span class="font-semibold">小贴士：</span>建议先用一个3分钟以内的短视频做测试，降低调试成本。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：从高通AI Hub下载300亿参数模型</h3>
-      <div class="text-base text-slate-700 leading-loose">在高通AI Hub中搜索“Llama 3.1 30B”或“Qwen 2.5 32B”的量化版本（推荐INT4或INT8）。点击下载到手机本地存储，注意预留至少20GB空间。下载完成后在AI Hub中做一次基准测试，确认推理速度可接受。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：在Dify中搭建多模态理解节点</h3>
+      <div class="text-base text-slate-700 leading-loose">登录Dify，新建一个「工作流」应用。添加第一个节点「HTTP请求」，调用智象或通义千问VL的多模态接口，传入视频URL或上传视频文件，提示词写：「请提取这段视频的画面描述、口播文案、关键帧时间戳，以JSON格式返回」。再添加一个「代码执行」节点，解析返回的JSON，把画面描述和口播文案分别存为变量。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>300亿参数INT4约占用15-18GB，建议用UFS 4.0机型，否则加载会很慢。
+          💡 <span class="font-semibold">小贴士：</span>如果API不支持直接传视频，先用剪映把视频导出为音频+关键帧截图，再分别传给语音识别和图像理解模型。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用Genie SDK加载模型并创建智能体</h3>
-      <div class="text-base text-slate-700 leading-loose">在Termux中安装Genie SDK的Python包，写一个简单脚本：加载本地模型路径，设置上下文长度4096，温度0.7。然后定义一个系统提示词，例如“你是一个离线私人助理，只使用本地知识回答”。运行脚本，看到模型成功输出第一句话即表示加载成功。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：配置脚本生成与语音合成节点</h3>
+      <div class="text-base text-slate-700 leading-loose">在Dify工作流中，接一个「LLM」节点，模型选GPT-4o或DeepSeek，提示词模板：「你是一个短视频编剧。根据以下参考视频的画面描述和口播文案，写一段60秒的新口播脚本，要求口语化、有钩子、结尾有行动号召。参考内容：{{画面描述}} {{口播文案}}」。输出变量命名为script。再接一个「HTTP请求」节点，调用火山引擎或Azure的TTS接口，把script转成mp3音频，保存到云存储。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>首次加载可能耗时1-2分钟，耐心等待；如果OOM，换更小的量化版本。
+          💡 <span class="font-semibold">小贴士：</span>TTS音色选「亲切女声」或「沉稳男声」，语速调至1.1倍，更适合短视频节奏。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：接入工具链实现智能体工作流</h3>
-      <div class="text-base text-slate-700 leading-loose">在脚本中注册三个本地工具：日历读取、文件搜索、短信草稿。用ReAct或Function Calling格式让模型决定何时调用。例如用户说“帮我找上周的合同并起草回复”，模型先调用文件搜索，再生成回复草稿。所有操作都在手机本地完成，不联网。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用数字人工具合成最终视频</h3>
+      <div class="text-base text-slate-700 leading-loose">打开腾讯智影或HeyGen，选择「数字人播报」模板，上传第3步生成的mp3音频，挑选一个与内容调性匹配的数字人形象（如知识类选职业装形象）。在背景设置中上传一张与主题相关的图片或纯色背景，点击生成。等待2-5分钟，下载1080p视频。最后用剪映加字幕、BGM和转场，导出成片。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>工具描述要写清楚输入输出格式，否则模型容易乱调。
+          💡 <span class="font-semibold">小贴士：</span>数字人播报时口型对音频的匹配度取决于TTS音质，建议用16kHz以上采样率的音频。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：封装成一键启动的快捷方式</h3>
-      <div class="text-base text-slate-700 leading-loose">用Tasker或MacroDroid创建一个桌面快捷方式，点击后自动启动Termux脚本并进入对话界面。也可以做成悬浮球，随时呼出智能体。测试断网状态下能否正常问答和调用工具。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：把工作流固化为可复用模板</h3>
+      <div class="text-base text-slate-700 leading-loose">回到Dify，把整个工作流保存为「模板」，并导出DSL文件备份。在飞书文档中记录每次运行的输入输出示例和调参记录（如提示词版本、TTS音色、数字人形象）。下次只需替换参考视频链接，一键运行即可产出新视频。如果API有配额限制，可在Dify中设置「人工审核」节点，在脚本生成后暂停，人工确认后再继续合成。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把常用提示词做成预设按钮，减少每次输入。
+          💡 <span class="font-semibold">小贴士：</span>每周复盘一次生成视频的完播率，反向优化提示词中的「钩子」写法。
         </div>
     </div>
   </div>
@@ -182,7 +182,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    手机在完全离线状态下，能本地运行300亿参数大模型，并作为智能体调用日历、文件、短信等工具完成复杂任务。响应速度约每秒5-15个token，隐私数据不出设备。
+    你会在Dify中看到一个可一键运行的工作流，输入任意参考视频链接后，自动输出一段60秒口播脚本、mp3音频和数字人播报视频。最终视频在剪映中完成包装后，可直接发布到抖音/视频号，单条制作时间从2小时压缩到15分钟以内。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -192,38 +192,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>我的手机不是骁龙8 Gen 5，能玩吗？</span>
+        <span>智象的API没有公开申请渠道怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以但体验差很多。建议至少骁龙8 Gen 3以上，且NPU驱动支持AI Hub。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以用阿里云通义千问VL或GPT-4o的多模态能力替代视频理解环节，工作流结构完全一致，只需替换HTTP请求的URL和鉴权方式。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>300亿参数模型手机会不会烫？</span>
+        <span>数字人视频看起来很假，怎么优化？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">持续推理会发热，建议加散热背夹，或限制单次对话长度。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">优先选真人形象库中光线自然、微表情丰富的模板；背景用实拍图而非纯色；音频加一点环境底噪，口型匹配度会更高。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>需要root吗？</span>
+        <span>整个流程需要写代码吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要。高通AI Hub和Genie SDK都在用户空间运行。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Dify和Coze都是低代码平台，拖拽节点即可。只有解析JSON的「代码执行」节点需要写3-5行Python，教程中会提供模板，复制粘贴即可。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>能跑多模态吗？</span>
+        <span>生成一条视频大概花多少钱？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">目前主要支持文本，部分机型可跑视觉模型，但300亿参数多模态还很难。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">按API计费：多模态理解约0.1-0.3元/次，LLM脚本约0.05元，TTS约0.1元/百字，数字人视频约1-3元/分钟。单条60秒视频总成本约2-5元。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>和云端GPT比效果如何？</span>
+        <span>可以批量生成吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">300亿参数接近GPT-3.5水平，胜在隐私和离线，复杂推理仍不如云端大模型。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。在Dify中把输入改为「批量视频链接列表」，配合循环节点即可。但建议每批不超过10条，避免API限流。</div>
     </details>
   </div>
 </section>
@@ -231,14 +231,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把智能体做成离线客服机器人，预装产品手册，现场无网也能查。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：结合手机摄像头，用本地视觉模型做工业质检，数据不出厂。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用多台骁龙手机组成分布式推理集群，跑更大的模型。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：图文转视频——把公众号文章链接作为输入，用多模态模型提取关键段落，直接生成口播脚本和数字人视频，适合知识类博主日更。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：直播切片二创——输入一段直播录屏，用视频理解模型识别高光片段（如金句、冲突点），自动截取并生成带数字人解说的二创视频。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：多语言出海——在脚本生成节点后加一个翻译节点，把中文脚本翻成英文/日文，再用对应语言的TTS和数字人形象合成，一套工作流产出多语言版本。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用高通2nm双旗舰的本地AI能力，把300亿参数大模型变成随身智能体，离线也能干活。
+    把「全模态世界模型」拆成视频理解→脚本生成→语音合成→数字人合成四段流水线，用Dify串起来，你就能用智能体化工作流批量生产口播视频。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -246,20 +246,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">ComfyUI 神级节点合集</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">ComfyUI 精选工作流合集，开箱即用</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome LLM · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">100+开源AI智能体应用合集</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
     </a>
     <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软开源神器：一键把文件转Markdown</div>
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">17万星开源提示词库，一键自部署</div>
       <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 5/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">ChatGPT中文调教指南：让AI听你的话</div>
+      <div class="text-xs text-amber-500">★★★★★</div>
     </a></div>
 </section>
 

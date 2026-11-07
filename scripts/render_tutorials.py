@@ -485,9 +485,13 @@ def main():
 
     # 创建 tutorials 目录
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    # 清空旧文件（避免残留过期）
+    # 只清理"不在本次缓存里"的过期页面。
+    # 旧写法是整目录 unlink 后重建（每天 60+ 次删除），会触发批量删除安全拦截；
+    # 增量清理后正常情况只有 0~2 个文件需要删。
+    valid_names = {f"{k}.html" for k in cache} | {"index.html"}
     for f in OUTPUT_DIR.glob("*.html"):
-        f.unlink()
+        if f.name not in valid_names:
+            f.unlink()
 
     print(f"📚 渲染教程详情页")
     print(f"   缓存条目：{len(cache)}")

@@ -34,7 +34,14 @@ from sources_config import RSS_SOURCES, GITHUB_CONFIG, reliability_of
 # 内容质量：HTML 清洗 / 链接清洗 / AI 相关性 / 去重
 from content_quality import (
     strip_html, clean_link, is_paywalled, ai_relevance, dedupe_items,
+    brief_published_links, filter_already_published,
 )
+
+# 站点根目录（daily-brief-*.html 所在处），用于跨期去重
+SITE_ROOT = Path(__file__).resolve().parent.parent
+
+# 跨期去重回溯天数：最近 N 期日报里出现过的链接不再收录
+CROSS_DAY_LOOKBACK = 3
 
 # 仅保留最近 N 小时
 HOURS_WINDOW = 36
@@ -399,6 +406,12 @@ def main():
     # 跨源标题去重（同一事件保留最高可信度源）
     all_items = dedupe(all_items)
     print(f"跨源去重后：{len(all_items)}")
+
+    # 跨期去重：近 N 期日报已发过的链接不再收录（36h 窗口天然与上一期重叠）
+    published = brief_published_links(SITE_ROOT, days=CROSS_DAY_LOOKBACK)
+    if published:
+        all_items, dropped_old = filter_already_published(all_items, published)
+        print(f"跨期去重后：{len(all_items)}（剔除前 {CROSS_DAY_LOOKBACK} 期已发布 {len(dropped_old)} 条）")
 
     all_items = cap_per_source(all_items, MAX_PER_SOURCE)
     print(f"单源上限后：{len(all_items)}")

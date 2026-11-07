@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>城市漫步指南｜威海初秋，看海玩沙 - AI 玩法教程 · AI Frontier</title>
+<title>用Awesome清单搭建AI Agent工程化工具链 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -21,12 +21,13 @@
       <a href="../index.html" class="text-slate-500 hover:text-slate-900">首页</a>
       <span class="text-slate-300">/</span>
       <a href="../playground.html" class="text-slate-500 hover:text-slate-900">玩法实验室</a>
+      <span class="text-slate-300">/</span>
       <a href="../archive.html" class="text-slate-500 hover:text-slate-900">往期资讯</a>
       <span class="text-slate-300">/</span>
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-06
+      2026-11-07
     </div>
   </div>
 </nav>
@@ -39,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">城市漫步指南｜威海初秋，看海玩沙</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Awesome清单搭建AI Agent工程化工具链</h1>
     
   </div>
 </header>
@@ -57,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    少数派 AI 工具 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    GitHub Awesome AI Agents · B级
   </span>
-  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
+  
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://sspai.com/post/114557" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://github.com/ai-boost/awesome-harness-engineering" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -74,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">用 AI 把「威海初秋看海玩沙」变成一份可执行的度假攻略，从行程规划到美食打卡，一次搞定。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用 GitHub 上 5000+ Star 的 Awesome AI Agents 清单，快速搭建一套可落地的 AI Agent 工程化工具链，从提示词到可观测性一步到位。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -85,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    9 月刚开渔，暑假人潮退去，威海迎来一年中最舒服的初秋。这座胶东半岛尖端的小城，既有刘公岛、甲午战争纪念地的历史厚重，也有环海路、国际海水浴场的现代休闲。但很多人第一次去威海，容易只打卡一两个景点就匆匆离开，错过真正好玩的沙滩、海鲜和慢节奏。这个玩法用 AI 工具链帮你把「城市漫步」拆成可落地的日程、清单和备选方案，适合 3-5 天的自由行度假。
+    很多开发者做 AI Agent 时东拼西凑工具，缺乏系统性的工程化视角。Awesome AI Agents 清单系统整理了 harness engineering 相关的工具、模式、评估、记忆、MCP、权限、可观测性和编排方案。本教程带你按清单搭建一条最小可用的工具链，适合想从 Demo 走向生产级 Agent 的开发者。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -95,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ChatGPT / Claude / Kimi  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用来生成行程框架、美食清单和文案，推荐 GPT-4o 或 Claude 3.5 Sonnet</div>
+      <div class="font-semibold text-slate-900">Git 与 GitHub 账号  <a href="https://github.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">克隆清单仓库、提交自己的配置</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">高德地图 / 百度地图  <a href="https://www.amap.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">标记景点、查公交和打车时间，验证 AI 给出的路线是否合理</div>
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行清单中多数 Python 工具与示例</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">小红书 / 大众点评  <a href="https://www.xiaohongshu.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">交叉验证海鲜餐厅、沙滩实时评价和拍照机位</div>
+      <div class="font-semibold text-slate-900">VS Code  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编辑配置、浏览清单、调试 Agent</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Notion / 飞书文档  <a href="https://www.notion.so" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">把 AI 输出的行程、清单、预算整理成可勾选的旅行看板</div>
+      <div class="font-semibold text-slate-900">Docker Desktop  <a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">隔离运行 MCP 服务与可观测性组件</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">天气 App（彩云天气 / 墨迹天气）  <a href="https://www.caiyunapp.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">威海海边天气多变，出发前和每天早晨确认风力、潮汐和降雨</div>
+      <div class="font-semibold text-slate-900">Awesome AI Agents 清单  <a href="https://github.com/ai-boost/awesome-harness-engineering" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">本教程的核心参考资料</div>
     </li>
   </ul>
 </section>
@@ -125,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：让 AI 生成威海初秋 3 天 2 晚行程骨架</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 ChatGPT 或 Kimi，输入提示词：「你是威海本地旅行规划师。请为 9 月初秋设计一份 3 天 2 晚威海自由行行程，要求：1）避开暑假人流，突出看海、玩沙、吃海鲜；2）每天 2-3 个主景点，留出散步和发呆时间；3）包含刘公岛、环海路、国际海水浴场、那香海中的至少 3 个；4）给出每天大致时间轴和交通方式。」把输出复制到 Notion，先不要改，作为初稿。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：克隆清单并建立工具链地图</h3>
+      <div class="text-base text-slate-700 leading-loose">执行 git clone https://github.com/ai-boost/awesome-harness-engineering 并打开 README。按清单分类（tools、patterns、evals、memory、MCP、permissions、observability、orchestration）在本地新建 toolchain.md，每类先各选 1 个候选工具，标注官网和许可证。不要贪多，先保证每类有且仅有一个主选。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果 AI 把行程排得太满，直接回复「请把每天景点减到 2 个，增加海边自由活动 2 小时」让它重排。
+          💡 <span class="font-semibold">小贴士：</span>用 VS Code 的 Markdown 预览边看清单边填表，避免遗漏分类。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用地图工具验证路线和通勤时间</h3>
-      <div class="text-base text-slate-700 leading-loose">把 AI 给出的每个景点输入高德地图，查看彼此之间的驾车/公交时间。威海市区到那香海约 40 分钟车程，刘公岛需要坐船，环海路适合骑行或自驾。把不合理的一天拆成两天，或者把同一区域的景点合并。把验证后的时间轴写回 Notion，标注「已核实」。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：搭建提示词与编排层</h3>
+      <div class="text-base text-slate-700 leading-loose">从清单的 patterns 和 orchestration 分类中选一个编排框架（如 LangGraph 或 CrewAI），按官方 quickstart 跑通一个两节点 Agent。把系统提示词抽成独立 prompt 模板文件，用变量占位符管理。在本地跑通一次「输入→规划→执行→输出」的最小闭环。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>威海公交末班车较早，晚上从海水浴场回市区建议直接打车，AI 不会自动提醒这一点。
+          💡 <span class="font-semibold">小贴士：</span>提示词模板用 Jinja2 或 f-string 均可，关键是版本化，建议放进 Git。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：让 AI 生成海鲜美食清单和点菜话术</h3>
-      <div class="text-base text-slate-700 leading-loose">继续对 AI 说：「请列出威海初秋必吃的 8 种海鲜和 5 家本地人常去的餐厅类型，并给出点菜话术，比如怎么问是否新鲜、怎么避免被宰。」AI 会输出如鲅鱼饺子、海肠捞饭、清蒸梭子蟹、辣炒蛤蜊等。然后去大众点评搜这些店名，看最新评价和人均价格，把确认的店加入 Notion 清单。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：接入记忆与 MCP 工具</h3>
+      <div class="text-base text-slate-700 leading-loose">从 memory 分类选一个向量记忆方案（如 Chroma 或 Qdrant），按文档启动本地实例。再从 MCP 分类选一个官方 MCP Server，用 Docker 跑起来并在编排框架中注册。让 Agent 能调用一个外部工具并把结果写入记忆，验证读写链路。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>9 月刚开渔，梭子蟹和皮皮虾最肥，但价格波动大，点菜前先问「今天什么最肥」比看菜单更靠谱。
+          💡 <span class="font-semibold">小贴士：</span>MCP Server 先用官方示例，跑通后再换自定义工具，降低排错成本。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：生成玩沙看海装备清单和拍照机位</h3>
-      <div class="text-base text-slate-700 leading-loose">对 AI 输入：「请为威海初秋海边玩沙生成一份装备清单，包括防晒、防风、沙滩鞋、挖沙工具、换洗衣物等，并推荐 3 个拍照机位和最佳拍摄时间。」AI 会给出如环海路猫头山、那香海钻石沙滩、国际海水浴场日落等。把清单做成 Notion 勾选框，出发前逐项打勾。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：加上评估与权限护栏</h3>
+      <div class="text-base text-slate-700 leading-loose">从 evals 分类选一个评估框架（如 Ragas 或 DeepEval），为第2步的 Agent 写 3 条测试用例并跑分。再从 permissions 分类选一个权限方案，为工具调用加上白名单和人工确认开关。确保越权调用会被拦截并记录日志。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>初秋威海海边风大，防晒霜要选防水的，帽子最好带防风绳，否则很容易被吹走。
+          💡 <span class="font-semibold">小贴士：</span>评估用例先覆盖正常路径和一条越权路径，后续再扩充边界用例。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：让 AI 做一份预算表和备用方案</h3>
-      <div class="text-base text-slate-700 leading-loose">最后对 AI 说：「请按 2 人 3 天 2 晚，生成威海旅行预算表，分交通、住宿、餐饮、门票、购物五类，并给出如果下雨或大风天的 2 个备用室内方案。」AI 会输出如刘公岛室内展馆、威海市博物馆、海鲜市场室内逛吃等。把预算表和备用方案一起放进 Notion，出发前截图存手机。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：接入可观测性并固化工具链</h3>
+      <div class="text-base text-slate-700 leading-loose">从 observability 分类选一个方案（如 Langfuse 或 Phoenix），用 Docker 启动并在 Agent 中接入 tracing。跑一次完整任务，在面板中查看调用链、耗时和 token 消耗。最后把 toolchain.md 补全为可复现的安装脚本和配置清单，提交到自己的仓库。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>备用方案里至少有一个是「室内吃海鲜」，威海下雨天在海边吃蒸汽海鲜锅体验反而更好。
+          💡 <span class="font-semibold">小贴士：</span>把 Docker Compose 和 .env.example 一起提交，别人 clone 后一条命令即可复现。
         </div>
     </div>
   </div>
@@ -183,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你得到一份包含 3 天时间轴、已验证交通、海鲜餐厅清单、装备勾选表、预算表和雨天备用方案的 Notion 旅行看板，直接照着走即可，不用再临时查攻略。
+    你拥有一个可复现的 AI Agent 工程化工具链仓库：包含编排框架、提示词模板、记忆与 MCP 工具、评估用例、权限护栏和可观测性面板。运行一条命令即可启动全套服务，并在面板中看到完整的 Agent 调用链和评估分数。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -193,38 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>AI 给的餐厅和景点信息过时怎么办？</span>
+        <span>清单里工具太多，如何选择？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">AI 只负责生成框架和关键词，具体店名和营业状态必须用大众点评、小红书或高德地图交叉验证，以最新评价为准。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">按分类每类只选一个主选，优先选 Star 多、文档全、有 Docker 镜像的，跑通后再替换。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>威海初秋还能下海游泳吗？</span>
+        <span>没有 GPU 能跑吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">9 月水温约 22-24°C，中午可以下水，但早晚偏凉，更适合玩沙、踩水和拍照，游泳建议选中午且注意风浪。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。记忆和可观测性组件用 CPU 即可，LLM 可调用云端 API，本地只跑编排和工具层。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>刘公岛需要提前订票吗？</span>
+        <span>MCP 和普通工具调用有什么区别？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">需要，旺季和周末建议提前 1-2 天在官方公众号或携程订船票+门票，初秋非周末现场买通常也可以。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">MCP 是标准化协议，工具可跨 Agent 复用；普通调用是框架内私有实现，迁移成本更高。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>那香海和市区海水浴场选哪个？</span>
+        <span>评估框架必须现在就加吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">市区国际海水浴场交通方便、配套成熟；那香海沙质更细、人少但距离远，适合自驾或打车前往，二选一即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议尽早加，哪怕只有 3 条用例，也能防止后续改动导致回归。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>不会开车去威海方便吗？</span>
+        <span>这套工具链能直接上生产吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">市区公交和打车足够覆盖主要景点，但环海路和那香海建议包车或打车，公交班次少，提前用高德查好时间。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">作为起点可以，但生产还需补充密钥管理、限流、审计和灰度发布等环节。</div>
     </details>
   </div>
 </section>
@@ -232,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把目的地换成青岛、大连、秦皇岛等北方海滨城市，提示词只改城市名和开渔时间，其余步骤完全复用。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：把 3 天 2 晚改成 5 天 4 晚深度慢游，让 AI 加入「每天只去一个主景点+一个菜市场+一次海边散步」的慢节奏模板。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：亲子版，让 AI 把玩沙工具、儿童防晒、赶海潮汐表和安全提醒单独列成一页，并推荐适合带娃的沙滩和餐厅。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：只搭最小可观测链路——跳过记忆和评估，专注编排+权限+Langfuse，适合快速验证想法。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：以 MCP 为中心——先搭 3 个 MCP Server，再用编排框架串联，适合工具型 Agent。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：评估驱动开发——先写 10 条评估用例，再倒推选工具和提示词，适合对质量要求高的场景。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 AI 搭骨架、地图验路线、点评查真实评价，把威海初秋的海边度假从「想去」变成「照着走」的可执行攻略。
+    以 Awesome 清单为地图，每类选一个工具跑通闭环，再用评估和可观测性固化，就能把 Agent 从 Demo 变成工程。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -247,20 +248,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-ai-agents" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome AI Agents · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">3万星AI自主智能体大全</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
-    </a>
-    <a href="../playground.html#play-ph-ai" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">Product Hunt - AI 频道 · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">给AI智能体配台真iPhone和Mac</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-ph-ai" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">Product Hunt - AI 频道 · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">SnapTiles：浏览器里玩转3D磁力片</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可编排的 AI Agent 工作流</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

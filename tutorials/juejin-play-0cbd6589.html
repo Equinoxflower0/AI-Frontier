@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化 - AI 玩法教程 · AI Frontier</title>
+<title>用 Agent as a Service 把 AI Agent 变成可调用服务 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -21,12 +21,13 @@
       <a href="../index.html" class="text-slate-500 hover:text-slate-900">首页</a>
       <span class="text-slate-300">/</span>
       <a href="../playground.html" class="text-slate-500 hover:text-slate-900">玩法实验室</a>
+      <span class="text-slate-300">/</span>
       <a href="../archive.html" class="text-slate-500 hover:text-slate-900">往期资讯</a>
       <span class="text-slate-300">/</span>
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-06
+      2026-11-07
     </div>
   </div>
 </nav>
@@ -36,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🧭 工作流
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">华为昇腾跨过生态拐点，提出Agentic计算五大变化，云与鸿蒙为Agent进化</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 Agent as a Service 把 AI Agent 变成可调用服务</h1>
     
   </div>
 </header>
@@ -57,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    智东西 AI 工具评测 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    掘金 AI 实战教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://zhidx.com/p/595439.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7704982591657525258" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -74,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">本教程将带你从零搭建一个基于华为昇腾Agentic计算理念的AI工作流，用云与鸿蒙生态实现任务自动分解与执行。</p>
+  <p class="text-base text-slate-800 leading-relaxed">把 AI Agent 封装成可调用的服务，让工单系统、CI 流水线等外部系统能随时触发智能排查。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -85,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    在华为全联接大会2026上，华为昇腾宣布跨过生态拐点，并提出Agentic计算的五大变化，强调云与鸿蒙将成为Agent进化的关键底座。这意味着普通开发者也能借助昇腾算力、ModelArts和鸿蒙分布式能力，构建能自主规划、调用工具、跨设备协同的AI Agent。本教程将这一趋势落地为可操作的工作流，适合想尝鲜Agentic AI但不知从何下手的开发者。
+    传统 AI Agent 往往需要人工在聊天窗口里手动提问，效率低且难以集成到自动化流程中。Agent as a Service（AaaS）的思路是把 Agent 变成一个 HTTP 接口或消息队列消费者，当有 Bug 工单提交、代码合并请求等事件发生时，系统自动调用 Agent 执行排查、复现、生成报告等任务。这种玩法适合研发团队、运维团队以及任何希望将 AI 能力嵌入现有工作流的场景，能显著缩短问题响应时间并减少重复劳动。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -95,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">华为云账号  <a href="https://www.huaweicloud.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于开通ModelArts、昇腾算力及Agent开发环境</div>
+      <div class="font-semibold text-slate-900">FastAPI  <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于快速搭建 HTTP 服务，暴露 Agent 调用接口</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ModelArts Studio  <a href="https://www.huaweicloud.com/product/modelarts.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">华为云一站式AI开发平台，支持昇腾NPU训练与推理</div>
+      <div class="font-semibold text-slate-900">LangChain  <a href="https://www.langchain.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">构建 Agent 逻辑，管理工具调用与提示词模板</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">DevEco Studio  <a href="https://developer.harmonyos.com/cn/develop/deveco-studio" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">鸿蒙应用开发IDE，用于构建跨设备Agent前端</div>
+      <div class="font-semibold text-slate-900">OpenAI API  <a href="https://platform.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">提供大模型能力，也可替换为其他兼容 API</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">CANN Kit  <a href="https://www.hiascend.com/software/cann" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">昇腾异构计算架构，提供算子与图引擎能力</div>
+      <div class="font-semibold text-slate-900">Docker  <a href="https://www.docker.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">容器化部署 Agent 服务，方便环境隔离与扩展</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">MindSpore  <a href="https://www.mindspore.cn/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">华为全场景AI框架，用于Agent模型微调与部署</div>
+      <div class="font-semibold text-slate-900">Postman 或 curl  <a href="https://www.postman.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">测试 HTTP 接口调用</div>
     </li>
   </ul>
 </section>
@@ -125,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：开通昇腾云算力与ModelArts环境</h3>
-      <div class="text-base text-slate-700 leading-loose">登录华为云，进入ModelArts控制台，选择“昇腾算力”规格创建Notebook实例。在实例中安装MindSpore和CANN Kit，并验证NPU可用性（执行npu-smi info）。接着在ModelArts中创建Agent开发项目，选择“Agentic计算”模板，系统会自动生成任务规划、工具调用、记忆管理的基础代码框架。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：定义 Agent 的输入输出契约</h3>
+      <div class="text-base text-slate-700 leading-loose">先明确 Agent 服务接收什么参数、返回什么结果。例如输入包含工单标题、描述、复现步骤、代码仓库地址；输出包含排查结论、复现结果、失败测试日志、建议修复方案。用 Pydantic 模型定义请求和响应体，保证接口清晰且可校验。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果只是体验，可选择按需计费的小规格NPU，避免长期占用成本。
+          💡 <span class="font-semibold">小贴士：</span>输入字段尽量精简，避免传递大文件，可用 URL 引用外部资源。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：定义Agent的任务分解与工具链</h3>
-      <div class="text-base text-slate-700 leading-loose">在生成的框架中，打开agent_config.yaml，定义Agent可调用的工具，例如“天气查询API”“日程写入”“鸿蒙设备控制”。然后编写prompt模板，让Agent根据用户目标自动拆解为子任务。参考昇腾提出的五大变化，重点配置“动态规划”和“跨设备协同”两个模块。保存后运行python agent_init.py进行本地测试。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 LangChain 构建 Agent 逻辑</h3>
+      <div class="text-base text-slate-700 leading-loose">创建一个 LangChain Agent，配备必要的工具：代码检索工具（读取仓库文件）、测试执行工具（运行指定测试命令）、日志查询工具（拉取 CI 日志）。编写提示词模板，要求 Agent 按“复现→定位→分析→建议”的流程输出结构化结果。将 Agent 封装成一个函数，接收请求对象并返回响应对象。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>工具描述要尽量具体，包括输入参数和返回格式，否则Agent容易调用失败。
+          💡 <span class="font-semibold">小贴士：</span>为每个工具设置超时和错误处理，避免单个工具失败导致整个 Agent 卡死。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：接入鸿蒙分布式能力实现跨端执行</h3>
-      <div class="text-base text-slate-700 leading-loose">打开DevEco Studio，创建一个鸿蒙应用项目，在build.gradle中引入分布式任务调度SDK。编写一个Service Ability，用于接收Agent下发的子任务（如“在手机上弹出提醒”）。通过华为云IoT或分布式软总线，将ModelArts中的Agent与鸿蒙设备绑定。在Agent代码中调用鸿蒙的startAbility接口，实现任务跨设备流转。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用 FastAPI 暴露 HTTP 接口</h3>
+      <div class="text-base text-slate-700 leading-loose">创建 FastAPI 应用，定义一个 POST 端点（如 /agent/investigate），接收第1步定义的请求体，调用第2步的 Agent 函数，返回响应体。添加健康检查端点 /health 和异步任务支持（如使用 BackgroundTasks），因为 Agent 执行可能耗时较长。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>调试时先用鸿蒙模拟器，确保设备发现和权限配置正确后再上真机。
+          💡 <span class="font-semibold">小贴士：</span>对于长任务，建议先返回任务 ID，再提供查询结果的端点，避免 HTTP 超时。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：配置记忆与反馈闭环</h3>
-      <div class="text-base text-slate-700 leading-loose">在ModelArts中启用向量数据库（如GaussDB(for Redis)）作为Agent长期记忆，存储历史任务和用户偏好。在Agent主循环中加入“执行-评估-修正”逻辑：每次工具调用后，用一个小型奖励模型判断结果是否达标，不达标则重新规划。将反馈数据写回记忆库，供后续任务参考。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：容器化并部署服务</h3>
+      <div class="text-base text-slate-700 leading-loose">编写 Dockerfile，将 FastAPI 应用和依赖打包成镜像。使用 docker-compose 或直接 docker run 启动服务，映射端口。配置环境变量（如 OpenAI API Key）通过 .env 文件或密钥管理服务注入，不要硬编码在代码中。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>奖励模型可以用规则引擎先跑通，再逐步替换为微调后的小模型。
+          💡 <span class="font-semibold">小贴士：</span>在 Dockerfile 中使用多阶段构建减小镜像体积，并设置非 root 用户运行。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：部署与一键试用</h3>
-      <div class="text-base text-slate-700 leading-loose">在ModelArts中将Agent打包为在线服务，选择“昇腾推理”规格，开启API网关。复制服务地址和API Key，填入鸿蒙应用的配置文件中。运行鸿蒙应用，输入一个复合任务，例如“明天上午10点提醒我开会，并提前查好天气”。观察Agent是否自动分解任务、调用天气API、写入日程并推送到手机。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：集成到工单系统并测试</h3>
+      <div class="text-base text-slate-700 leading-loose">在工单系统（如 Jira、GitHub Issues）中配置 Webhook，当新工单创建时自动向 Agent 服务发送 POST 请求。用 Postman 或 curl 模拟请求，验证 Agent 能正确返回排查结果。观察日志，确保异常情况有友好错误提示。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>首次部署建议开启日志追踪，方便定位是规划错误还是工具调用超时。
+          💡 <span class="font-semibold">小贴士：</span>先用少量真实工单做灰度测试，确认 Agent 输出质量后再全量启用。
         </div>
     </div>
   </div>
@@ -183,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    完成以上步骤后，你将拥有一个可跨云与鸿蒙设备运行的Agentic AI工作流：在鸿蒙应用输入自然语言任务，Agent自动分解为子任务，调用昇腾云上的模型和工具链，最终在手机或平板上执行提醒、查询等操作，并记录反馈持续优化。
+    工单提交后几分钟内，工单页面自动出现 Agent 生成的排查报告，包含复现步骤、失败测试输出和修复建议。服务日志显示每次调用耗时和状态，接口可用性达到 99% 以上。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -193,38 +194,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有昇腾硬件，能用GPU代替吗？</span>
+        <span>Agent 执行时间太长导致 HTTP 超时怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，ModelArts也支持GPU规格，但部分CANN优化特性无法体验，建议至少用昇腾推理小规格。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">改为异步模式：接口立即返回任务 ID，Agent 在后台执行，客户端轮询结果端点。或者使用消息队列（如 RabbitMQ）解耦。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>鸿蒙设备必须是最新版本吗？</span>
+        <span>如何保证 Agent 输出的稳定性？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议HarmonyOS 4.0及以上，分布式能力更完整；旧版本可能缺少部分API。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在提示词中明确输出格式（如 JSON Schema），并设置温度参数为较低值（如 0.2）。对关键任务可增加后处理校验步骤。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Agent调用工具总是失败怎么办？</span>
+        <span>没有 OpenAI API 可以用其他模型吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查工具描述是否包含完整的参数schema，并在prompt中明确要求输出JSON格式的调用请求。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，LangChain 支持多种模型后端，如 Anthropic、通义千问、本地部署的 Ollama 等，只需替换 LLM 初始化部分。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个工作流能商用吗？</span>
+        <span>Agent 需要访问内部代码仓库，如何安全授权？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但需遵守华为云和鸿蒙的开发者协议，并注意API调用配额和计费。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何让Agent支持更多工具？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在agent_config.yaml中按相同格式添加工具定义，并确保后端服务可访问即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">使用最小权限的访问令牌（如只读 token），并通过环境变量注入。避免在提示词中暴露敏感信息，必要时对工具调用做审计日志。</div>
     </details>
   </div>
 </section>
@@ -232,14 +226,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将鸿蒙端替换为Web前端，通过华为云API网关直接调用Agent，适合快速演示。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用MindSpore微调一个专属任务规划小模型，替换默认的prompt规划，提升复杂任务准确率。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合华为云IoT，让Agent控制真实智能家居设备，实现“一句话场景联动”。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将 Agent 服务接入 CI 流水线，当测试失败时自动触发 Agent 分析失败原因并评论到 PR 中。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 Serverless 函数（如 AWS Lambda）部署 Agent，按调用次数计费，适合低频场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：为 Agent 增加多轮对话能力，通过会话 ID 保持上下文，支持人工追问和澄清。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    抓住昇腾生态拐点，用云+鸿蒙把Agentic计算从概念变成可跑通的跨端工作流。
+    把 Agent 封装成标准 HTTP 服务，用事件驱动的方式嵌入现有工作流，让 AI 能力像水电一样随取随用。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -247,20 +241,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome LLM · 难度 2/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">100+开源AI智能体应用合集</div>
-      <div class="text-xs text-amber-500">★★☆☆☆</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">17万星开源提示词库，一键自部署</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 5/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">ChatGPT中文调教指南：让AI听你的话</div>
-      <div class="text-xs text-amber-500">★★★★★</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可编排的 AI Agent 工作流</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

@@ -364,3 +364,69 @@ def dedupe_items(items, title_key="title_zh", fallback_key="title",
                 seen_links[link] = dup_index
 
     return kept
+
+
+# ============================================================
+# 跨期去重：同一条新闻不在连续几天的日报里重复出现
+# ============================================================
+# 为什么需要：抓取窗口是 36 小时，而日报每天出一期，窗口天然和上一期重叠
+# 24 小时。实测未做跨期去重时，新一期 47 条里有 22 条（47%）是上一期已经
+# 发过的内容，读者感受就是"今天没更新"。
+
+def _match_key(url) -> str:
+    """把链接归一成可比较的形式：去协议/www、去末尾斜杠、小写。"""
+    if not isinstance(url, str):
+        return ""
+    u = url.strip().lower()
+    u = re.sub(r"^https?://(www\.)?", "", u)
+    return u.rstrip("/")
+
+
+def brief_published_links(root, days: int = 3, today=None) -> set:
+    """读取最近 `days` 期日报（不含今天），提取其中出现过的外部文章链接。
+
+    root 为站点根目录（daily-brief-*.html 所在目录）。
+    返回归一化后的链接集合，供 filter_already_published 使用。
+    """
+    from datetime import date as _date
+    from pathlib import Path as _P
+
+    root = _P(root)
+    today = today or _date.today()
+
+    issues = []
+    for p in root.glob("daily-brief-*.html"):
+        m = re.search(r"daily-brief-(\d{4})-(\d{2})-(\d{2})\.html$", p.name)
+        if not m:
+            continue
+        try:
+            d = _date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+        except ValueError:
+            continue
+        if d < today:                       # 今天的正在重建，不算历史
+            issues.append((d, p))
+
+    issues.sort(key=lambda x: x[0])
+    links = set()
+    for _, path in issues[-days:]:
+        try:
+            html_text = path.read_text(encoding="utf-8", errors="ignore")
+        except OSError:
+            continue
+        for href in re.findall(r'href="(https?://[^"]+)"', html_text):
+            if "equinoxflower0.github.io" in href:
+                continue
+            links.add(_match_key(href))
+    return links
+
+
+def filter_already_published(items, published_links, link_key: str = "link"):
+    """剔除链接命中 published_links 的条目，返回 (保留, 剔除)。"""
+    kept, dropped = [], []
+    for it in items:
+        key = _match_key(it.get(link_key, ""))
+        if key and key in published_links:
+            dropped.append(it)
+        else:
+            kept.append(it)
+    return kept, dropped

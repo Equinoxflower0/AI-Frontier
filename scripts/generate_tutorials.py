@@ -29,6 +29,7 @@ sys.path.insert(0, str(_Path(__file__).parent))
 import _utf8  # noqa: F401
 
 from tutorials_schema import TUTORIAL_PROMPT_ZH, TUTORIAL_FIELDS
+from content_quality import safe_filename
 
 # ============================================================
 # 路径 & 配置
@@ -162,9 +163,13 @@ def cache_signature(item: dict) -> str:
 
 
 def cache_key(item: dict) -> str:
-    """缓存 key：source_id + 标题 hash 前 8 位（解决同源多篇 key 冲突）"""
+    """缓存 key：source_id + 标题 hash 前 8 位（解决同源多篇 key 冲突）
+
+    source_id 必须做文件名安全化：HF Space 的 id 形如 "mfakename/Z-Image-Turbo"，
+    带斜杠，直接当 key 会把 "/" 带进教程页文件名，Linux 上直接 FileNotFoundError。
+    """
     title_hash = hashlib.md5(item.get("title", "").encode("utf-8")).hexdigest()[:8]
-    return f"{item.get('source_id', 'unknown')}-{title_hash}"
+    return f"{safe_filename(item.get('source_id', 'unknown'))}-{title_hash}"
 
 
 # ============================================================

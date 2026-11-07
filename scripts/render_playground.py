@@ -21,6 +21,7 @@ sys.path.insert(0, str(_Path(__file__).parent))
 import _utf8  # noqa: F401
 
 from floating_home import render_floating_home
+from content_quality import safe_filename
 
 INPUT_FILE = _Path(__file__).parent / "data" / "scored_play.json"
 OUTPUT_FILE = _Path(__file__).parent.parent / "playground.html"
@@ -406,12 +407,12 @@ def render_html(items: list) -> str:
     import hashlib
     def _cache_key(item):
         title_hash = hashlib.md5(item.get("title", "").encode("utf-8")).hexdigest()[:8]
-        return f"{item.get('source_id', 'unknown')}-{title_hash}"
+        return f"{safe_filename(item.get('source_id', 'unknown'))}-{title_hash}"
 
     def _render_with_tutorial(item, idx):
         ckey = _cache_key(item)
         tut = cache.get(ckey, {}).get("tutorial", {})
-        tutorial_url = f"tutorials/{ckey}.html" if tut and not tut.get("_fallback") else ""
+        tutorial_url = f"tutorials/{safe_filename(ckey)}.html" if tut and not tut.get("_fallback") else ""
         return render_card(item, idx, tutorial_url)
 
     cards = "\n".join(_render_with_tutorial(it, i) for i, it in enumerate(items, 1))

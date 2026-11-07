@@ -430,3 +430,17 @@ def filter_already_published(items, published_links, link_key: str = "link"):
         else:
             kept.append(it)
     return kept, dropped
+
+
+def safe_filename(name, max_len: int = 120) -> str:
+    """把任意字符串变成安全文件名：只保留字母数字与 ._-,其余折叠为 -。
+
+    用于把 source_id / cache_key 转成文件名。HF Space 的 id 形如
+    "mfakename/Z-Image-Turbo"，带斜杠，直接当文件名会创建子目录/报错。
+    对已安全的字符串是无操作（保证历史 key 不变）。
+    """
+    if not isinstance(name, str):
+        name = str(name or "")
+    s = re.sub(r"[^A-Za-z0-9._-]+", "-", name)
+    s = s.strip("-.")
+    return (s or "item")[:max_len]

@@ -35,6 +35,7 @@ import _utf8  # noqa: F401
 
 from floating_home import render_floating_home
 from tutorials_schema import TUTORIAL_HTML_STRUCTURE
+from content_quality import safe_filename
 
 CACHE_FILE = _Path(__file__).parent / "data" / "tutorials_cache.json"
 SCORED_FILE = _Path(__file__).parent / "data" / "scored_play.json"
@@ -533,7 +534,7 @@ def main():
 
         # 渲染
         html = render_tutorial_page(ckey, meta, tut, related)
-        out_path = OUTPUT_DIR / f"{ckey}.html"
+        out_path = OUTPUT_DIR / f"{safe_filename(ckey)}.html"
         with open(out_path, "w", encoding="utf-8") as f:
             f.write(html)
         generated += 1
@@ -549,7 +550,7 @@ def main():
         if not meta:
             continue
         tutorial_items.append({
-            "ckey": ckey,
+            "ckey": safe_filename(ckey),
             "title": meta.get("title_zh") or meta.get("title_en", ""),
             "play_type": meta.get("play_type", "tool_chain"),
             "source_name": meta.get("source_name", ""),

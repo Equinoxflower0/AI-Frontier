@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>8月音乐精选：有限的生命里，要听得再任性一点！ - AI 玩法教程 · AI Frontier</title>
+<title>用提示词工作流去除AI写作腔调 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-07
+      2026-11-08
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">8月音乐精选：有限的生命里，要听得再任性一点！</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用提示词工作流去除AI写作腔调</h1>
     
   </div>
 </header>
@@ -58,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    少数派 AI 工具 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://sspai.com/post/114555" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/deep-sky/p/23590338" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">把「听歌」这件事从算法推荐里解放出来，用一套可复用的 AI 工具链，把少数派 FM3.14 这类人工精选歌单变成你自己的私人电台。</p>
+  <p class="text-base text-slate-800 leading-relaxed">AI 写作又快又“假”？这套提示词工作流帮你把 AI 味一点点洗掉，让文章读起来像人写的。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    少数派在 2026 年重启了音乐推荐栏目 FM3.14，邀请资深音乐从业者和爱好者推荐华语独立与流行音乐，并由飞傲冠名。这类人工精选歌单质量很高，但歌单本身是静态的，无法根据你的口味、场景和心情动态调整。本教程教你用一套轻量 AI 工具链，把「读推荐文 → 提取歌单 → 生成个性化推荐 → 自动建歌单」串成工作流，让每一次听歌都像有一位懂你的编辑在为你选曲。适合通勤、写稿、深夜独处等需要「对味」音乐的场景。
+    AI 写作门槛低，但生成的文章常带“AI 腔”：套话多、结构僵、情感假。博客园这篇教程把写作比作做菜，AI 是快但缺火候的大厨。本玩法用一套可复用的提示词工作流，分阶段约束 AI 的输出，从提纲到成稿逐步去味。适合公众号、博客、报告等需要“人味”的写作场景。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,16 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">少数派 FM3.14 原文  <a href="https://sspai.com/post/114555" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">获取人工精选的华语独立/流行音乐推荐清单</div>
+      <div class="font-semibold text-slate-900">ChatGPT / Claude / 文心一言 / 通义千问  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">任选一个支持多轮对话的大模型，用于执行提示词工作流</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ChatGPT / Claude / Kimi  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于提取歌单、分析风格、生成个性化推荐提示词</div>
+      <div class="font-semibold text-slate-900">Notion 或飞书文档  <a href="https://www.notion.so" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">存放提示词模板和生成稿，方便迭代对比</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">网易云音乐 / QQ 音乐 / Spotify  <a href="https://music.163.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于搜索歌曲、创建歌单、试听验证推荐结果</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">浏览器阅读模式或 Notion Web Clipper  <a href="https://www.notion.so/product/web-clipper" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">把原文干净地保存下来，方便喂给 AI</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">飞傲音乐 App 或任意本地播放器  <a href="https://www.fiio.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">如果你有本地曲库，可用来做离线歌单管理</div>
+      <div class="font-semibold text-slate-900">原始参考教程  <a href="https://www.cnblogs.com/deep-sky/p/23590338" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">博客园原文，含提示词思路和示例</div>
     </li>
   </ul>
 </section>
@@ -126,55 +118,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：把原文变成干净的「歌单原料」</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 https://sspai.com/post/114555 ，用浏览器阅读模式或 Notion Web Clipper 把正文保存为纯文本。重点保留每首歌的歌名、歌手、推荐语和风格标签，删掉广告、导航和无关段落。如果原文是图片形式，可以用 OCR 工具（如白描、iOS 实况文本）转成文字。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：拆解 AI 腔的典型特征</h3>
+      <div class="text-base text-slate-700 leading-loose">先让 AI 自己列出“AI 写作腔”的常见毛病，比如过度使用“首先/其次/最后”、堆砌形容词、每段结构雷同、缺乏具体细节。把这份清单存到 Notion，作为后续提示词的“负面约束”。再找 2-3 篇你喜欢的真人文章，提炼它们的语气和节奏作为正面参考。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不要直接复制整页 HTML，噪声太多会让 AI 提取时漏歌或串行。
+          💡 <span class="font-semibold">小贴士：</span>让 AI 用“请以编辑视角列出 AI 文章最常见的 10 个破绽”开头，效果更聚焦。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用提示词让 AI 结构化提取歌单</h3>
-      <div class="text-base text-slate-700 leading-loose">把上一步的纯文本粘贴给 ChatGPT/Claude/Kimi，使用提示词：「请从以下音乐推荐文中提取所有歌曲，输出为表格，字段包括：歌名、歌手、推荐语摘要、风格标签（如独立/流行/民谣/电子）、适合场景（通勤/深夜/写稿/运动）。不要遗漏任何一首，不确定的字段填『未知』。」得到一张结构化歌单表。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：写第一版“去味”系统提示词</h3>
+      <div class="text-base text-slate-700 leading-loose">在对话开头设置系统提示词，明确角色、目标和禁令。例如：“你是资深专栏作者，写作时避免套话、避免排比堆砌、每段不超过 4 句、必须加入 1 个具体案例或数据、语气像和朋友聊天。”把第 1 步的负面清单逐条转成“不要……”的约束。保存为模板，后续每次写作复用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果 AI 漏歌，追加一句「请逐段扫描，确保每段推荐语都对应至少一首歌」。
+          💡 <span class="font-semibold">小贴士：</span>约束不要超过 8 条，太多 AI 会顾此失彼；优先保留“具体细节”和“句式变化”两条。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：注入你的个人口味画像</h3>
-      <div class="text-base text-slate-700 leading-loose">在同一对话中继续输入：「以下是我的听歌偏好：常听歌手/风格/讨厌的元素/当前心情/使用场景。请基于上面的歌单，为我生成一份 15 首歌的个性化歌单，要求：70% 来自原文推荐，30% 是风格相近的延伸推荐，并说明每首歌为什么适合我。」把 AI 输出的歌单复制到备忘录。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：分阶段生成，先提纲后成文</h3>
+      <div class="text-base text-slate-700 leading-loose">不要一次性让 AI 写全文。先让它输出 3 个不同角度的提纲，你选一个并手动改两处；再让它按提纲逐段写，每段写完你给一句反馈（如“太正式，口语化一点”）。分阶段能显著降低 AI 腔，因为每轮都有你的干预。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>口味画像越具体越好，比如「不喜欢太吵的鼓点，喜欢女声和钢琴」比「喜欢安静的歌」有效得多。
+          💡 <span class="font-semibold">小贴士：</span>每段生成后回一句“用更短的句子重写这段”，去味效果立竿见影。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：在音乐平台自动建歌单并试听</h3>
-      <div class="text-base text-slate-700 leading-loose">打开网易云音乐/QQ 音乐/Spotify，新建一个歌单，命名为「FM3.14 我的任性精选」。按 AI 输出的歌单逐首搜索并添加，遇到找不到的版本就选同名翻唱或现场版。添加完后按顺序试听前 3 首，如果某首明显不对味，直接删除并在 AI 对话里说「第 X 首不合适，换一首同风格的」。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用“人类改写”提示词做二次清洗</h3>
+      <div class="text-base text-slate-700 leading-loose">全文生成后，追加一条改写提示词：“请以人类编辑身份重写以下文章：删掉所有‘首先/其次/总之’，把被动句改主动句，每段开头不要用相同句式，加入 1 处个人化比喻，保留原意。”对比改写前后的差异，把有效的指令补进你的模板。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>网易云和 QQ 音乐都支持从文本批量导入歌单，搜索「歌单导入工具」可找到第三方小工具，能省一半时间。
+          💡 <span class="font-semibold">小贴士：</span>改写后自己朗读一遍，拗口的地方就是残留的 AI 腔，手动改掉。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：让 AI 生成「场景切换版」歌单</h3>
-      <div class="text-base text-slate-700 leading-loose">把最终歌单表再次喂给 AI，输入：「请把这份歌单拆成 3 个场景版本：通勤提神版、深夜放松版、写稿专注版。每个版本 8-10 首，保持原歌单风格但调整节奏和情绪曲线。」然后按同样方式在音乐平台建 3 个子歌单，或用一个歌单加不同标签管理。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：建立个人提示词工作流库</h3>
+      <div class="text-base text-slate-700 leading-loose">把系统提示词、提纲提示词、逐段反馈话术、改写提示词按顺序存成一个工作流文档。下次写作直接按顺序复制粘贴，形成固定流水线。每写完一篇，记录哪条约束最有效，持续迭代模板。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>场景版歌单建议按「情绪曲线」排序：开头轻、中间有起伏、结尾回落，听感会好很多。
+          💡 <span class="font-semibold">小贴士：</span>用 Notion 的模板按钮或飞书快捷指令，一键插入整套提示词，省去重复复制。
         </div>
     </div>
   </div>
@@ -184,7 +176,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你得到一份结构化的原始歌单表、一份 15 首的个性化歌单、以及 3 个场景子歌单（通勤/深夜/写稿）。在网易云或 QQ 音乐里可以直接播放，每首歌都有 AI 给出的推荐理由，不再是算法随机推给你的口水歌。
+    生成的文章套话明显减少，段落长短错落，有具体案例和个人化表达，朗读时不再有“机器念稿”的感觉；你还会拥有一套可复用的提示词工作流模板。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +186,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>原文里的歌在音乐平台搜不到怎么办？</span>
+        <span>这套方法对所有大模型都有效吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">优先搜「歌名+歌手」，如果还是没有，可以选同歌手的其他作品替代，或在 AI 对话里说「第 X 首找不到，推荐一首同风格替代」。独立音乐人作品有时只在 Bandcamp 或 SoundCloud 上架。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">核心思路通用，但不同模型对约束的服从度不同。建议先在 ChatGPT 或 Claude 上调好模板，再迁移到其他模型时微调约束条数。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>AI 提取歌单时漏歌或串行怎么办？</span>
+        <span>去 AI 腔后文章会不会变得不专业？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">把原文按段落切分，每段单独喂给 AI 提取，最后合并。或者用提示词「请逐段输出，每段以『段落N：』开头，确保不遗漏」。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不会。去味针对的是套话和僵化结构，专业术语和数据应保留。可以在提示词中明确“保留所有专业名词和数据”。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 ChatGPT 会员，用免费版可以吗？</span>
+        <span>每次都要手动复制提示词太麻烦怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。Kimi、通义千问、DeepSeek 的免费版都能完成提取和推荐任务。如果原文很长，分两次粘贴即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">把整套提示词存成文档模板，或用支持自定义指令的客户端（如 ChatGPT 的自定义指令、Claude 的 Project）固化系统提示词。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这样建歌单会不会侵犯版权？</span>
+        <span>改写后字数变少很多正常吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">个人试听和自建歌单属于正常使用。不要公开传播完整歌单文件或用于商业用途，尊重音乐人和少数派的原创内容。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>飞傲设备在这个流程里有什么用？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">飞傲音乐 App 支持本地曲库管理和高解析播放。如果你有本地无损文件，可以把 AI 歌单导出为 M3U 播放列表，在飞傲播放器上离线听，音质更好。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">正常，AI 腔常伴随冗余表达。若字数不够，让 AI 补充具体案例或数据，而不是恢复套话。</div>
     </details>
   </div>
 </section>
@@ -233,14 +218,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把「少数派 FM3.14」换成任何你喜欢的音乐推荐文/播客/视频，用同一套提示词提取歌单，批量生成个人精选。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：加入「情绪日记」维度——每天用一句话记录心情，让 AI 根据心情从你的历史歌单里挑 10 首，生成「今日情绪电台」。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：反向操作——先让 AI 分析你网易云/Spotify 的近 30 天听歌记录，生成你的「音乐口味画像」，再拿这个画像去筛选 FM3.14 歌单，精准度更高。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把工作流做成“角色扮演链”——先让 AI 扮演挑剔编辑挑毛病，再扮演作者重写，最后扮演读者给反馈，三轮去味。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：针对特定文体（如小红书、技术博客）各建一套负面约束清单，按文体切换提示词模板。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用 API 把“提纲→逐段生成→改写”串成自动化脚本，批量处理多篇文章。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 AI 把人工精选歌单变成可编辑、可个性化、可场景切换的私人电台，让每一次听歌都任性一点。
+    去 AI 腔的精髓不是一次生成，而是用分阶段提示词把 AI 的快和人的判断交替起来，让每一轮都留下人味。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,18 +235,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可编排的 AI Agent 工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
     </a></div>
 </section>
 

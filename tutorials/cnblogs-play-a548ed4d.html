@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doneit 3.2：Siri AI 加持的任务助手 - AI 玩法教程 · AI Frontier</title>
+<title>用DeepSeek Harness写代码生成视频 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-07
+      2026-11-08
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🔗 工具链
+        💬 Prompt 模板
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 30min
+        ⏱ 约 5min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">Doneit 3.2：Siri AI 加持的任务助手</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用DeepSeek Harness写代码生成视频</h1>
     
   </div>
 </header>
@@ -59,23 +59,27 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+    博客园 AI 教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.producthunt.com/products/doneit" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/znlgis/p/23589724" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">Doneit 3.2 把 Siri AI 接入了任务管理，让你用一句自然语言就能创建、查询和完成任务。这篇教程带你从零搭起这套语音任务助手工作流。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用 DeepSeek 写代码来生成视频，不是让 AI 直接生成像素，而是让 AI 帮你写程序化渲染的代码，每一帧都由代码精确控制。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多人每天在多个 App 之间切换来记录待办，效率很低。Doneit 3.2 在 Product Hunt 发布后，最大的亮点是支持 Siri AI——你可以直接对 iPhone 说“帮我加一个明天下午三点给客户回电话的任务”，系统会自动解析时间、优先级和任务内容。它适合经常用语音、通勤中需要快速记录、或者想让 AI 自动整理任务清单的人。相比手动输入，这套玩法能把任务录入时间从 30 秒压缩到 5 秒以内。
+    很多人把“代码生成视频”误解为“让模型生成视频”，结果用扩散模型每次输出都不一样，中间过程难以控制。程序化渲染则相反：画面里每个像素都由代码计算得出，同一帧号永远得到同一张图。代价是需要自己写构图、渐变、排版和缓动，收益是改了就一定变，没变就说明没改对。这个玩法适合需要精确控制画面、可复现、可批量生成的场景，比如数据可视化动画、教学演示、Logo 动效等。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +100,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Doneit 3.2  <a href="https://www.producthunt.com/products/doneit" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">核心任务管理 App，支持 Siri AI 和自然语言解析</div>
+      <div class="font-semibold text-slate-900">DeepSeek  <a href="https://www.deepseek.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于生成程序化渲染的代码（Python + 绘图库）</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">iPhone / iPad（iOS 16 以上）  <a href="https://www.apple.com/ios/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行 Siri 和 Doneit 的硬件设备</div>
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行生成的代码，建议安装最新稳定版</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Siri 已开启并登录 iCloud  <a href="https://support.apple.com/zh-cn/guide/siri/welcome/ios" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">确保 Siri 可以调用第三方 App 的快捷指令</div>
+      <div class="font-semibold text-slate-900">Pillow (PIL)  <a href="https://pypi.org/project/Pillow/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">图像绘制库，用于逐帧生成图片</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Doneit 账号  <a href="https://www.producthunt.com/products/doneit" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于同步任务和启用 AI 解析功能</div>
+      <div class="font-semibold text-slate-900">imageio 或 OpenCV  <a href="https://pypi.org/project/imageio/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">将图片序列合成为视频文件</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">FFmpeg  <a href="https://ffmpeg.org/download.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">视频编码与格式转换（imageio 可自动调用）</div>
     </li>
   </ul>
 </section>
@@ -122,55 +130,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装并登录 Doneit 3.2</h3>
-      <div class="text-base text-slate-700 leading-loose">在 App Store 搜索 Doneit 并安装，打开后注册或登录账号。进入设置页，确认版本号为 3.2 或更高，并开启“Siri AI 支持”开关。如果找不到该开关，先更新 App 到最新版。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：明确视频参数与画面需求</h3>
+      <div class="text-base text-slate-700 leading-loose">在向 DeepSeek 提问前，先确定视频的分辨率（如 1920x1080）、帧率（如 30fps）、时长（如 5 秒）、总帧数（150 帧），以及画面内容（如渐变背景、文字动画、几何图形运动）。把这些参数写清楚，模型才能生成可直接运行的代码。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议用 Apple ID 登录，这样 Siri 调用时不需要额外授权。
+          💡 <span class="font-semibold">小贴士：</span>建议先用小分辨率（如 640x360）和低帧率（如 15fps）测试，确认逻辑正确后再放大。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：在 Siri 中添加快捷指令</h3>
-      <div class="text-base text-slate-700 leading-loose">打开“快捷指令”App，进入“自动化”或“快捷指令”标签，搜索 Doneit。你会看到 Doneit 提供的预设动作，如“添加任务”“查询今日任务”“完成任务”。把“添加任务”添加到 Siri 唤醒词，例如“嘿 Siri，用 Doneit 加任务”。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：向 DeepSeek 描述程序化渲染任务</h3>
+      <div class="text-base text-slate-700 leading-loose">用自然语言告诉 DeepSeek：“请用 Python 的 Pillow 库写一个程序化渲染脚本，生成 150 帧 640x360 的图片，每帧根据帧号计算背景渐变色和一个小球的运动位置，最后用 imageio 合成 mp4 视频。” 要求代码包含完整注释和依赖安装说明。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果搜索不到 Doneit，先在 Doneit 设置里点一次“同步到快捷指令”。
+          💡 <span class="font-semibold">小贴士：</span>强调“同一帧号必须得到同一张图”，避免模型引入随机数或时间依赖。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用自然语言测试任务创建</h3>
-      <div class="text-base text-slate-700 leading-loose">对 Siri 说：“用 Doneit 加任务，明天下午三点给客户回电话，高优先级。”Siri 会调用 Doneit 并显示解析结果。检查时间、标题和优先级是否正确，确认后任务会出现在 Doneit 的收件箱或今日列表中。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：安装依赖并运行生成的代码</h3>
+      <div class="text-base text-slate-700 leading-loose">在终端执行 pip install pillow imageio imageio-ffmpeg 安装依赖。将 DeepSeek 生成的代码保存为 render.py，然后运行 python render.py。程序会逐帧生成 PNG 图片并合成视频。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>说话时尽量包含“时间 + 动作 + 对象”，AI 解析准确率最高。
+          💡 <span class="font-semibold">小贴士：</span>如果 imageio 报 FFmpeg 错误，可手动安装 FFmpeg 并加入系统 PATH，或改用 opencv-python 的 VideoWriter。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：设置每日任务回顾自动化</h3>
-      <div class="text-base text-slate-700 leading-loose">在快捷指令 App 中创建个人自动化，选择“特定时间”为每天 8:00，添加 Doneit 的“查询今日任务”动作，并开启“朗读文本”。这样每天早上 Siri 会自动播报你今天的任务清单。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：检查输出并调整画面细节</h3>
+      <div class="text-base text-slate-700 leading-loose">打开生成的 output.mp4，检查动画是否流畅、颜色是否符合预期。如果发现问题，回到 DeepSeek 对话中描述具体现象（如“小球运动太快”“渐变方向反了”），让模型修改对应代码段，然后重新运行。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把朗读速度调慢一点，通勤时听得更清楚。
+          💡 <span class="font-semibold">小贴士：</span>每次只改一个变量（如速度、颜色、缓动函数），方便定位问题。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用 Siri 完成任务并同步</h3>
-      <div class="text-base text-slate-700 leading-loose">当任务完成后，对 Siri 说：“用 Doneit 完成给客户回电话。”Doneit 会标记该任务为已完成，并同步到所有登录设备。你可以在 Doneit 的“已完成”列表中确认记录。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：导出最终视频并归档代码</h3>
+      <div class="text-base text-slate-700 leading-loose">确认效果后，将分辨率、帧率、时长调整为最终需求，重新运行生成高清视频。把代码、依赖清单（requirements.txt）和输出视频一起归档，方便后续复现或修改。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果任务名有歧义，Siri 会列出多个匹配项，选择序号即可。
+          💡 <span class="font-semibold">小贴士：</span>在代码开头用注释记录参数和版本，避免以后忘记。
         </div>
     </div>
   </div>
@@ -180,7 +188,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    完成后，你可以用 Siri 语音快速添加、查询和完成任务，Doneit 会自动解析时间与优先级，并在每天固定时间播报今日任务。所有任务在 iPhone、iPad 和 Doneit 账号间实时同步。
+    运行脚本后，当前目录下会生成 output.mp4 视频文件，播放时能看到由代码精确控制的动画（如渐变背景上小球匀速运动），同一帧号重新渲染结果完全一致。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +198,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Doneit 3.2 支持中文 Siri 吗？</span>
+        <span>DeepSeek 生成的代码报错怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">支持。只要系统语言和 Siri 语言设置为中文，Doneit 就能解析中文任务描述。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">把完整报错信息复制给 DeepSeek，让它修复。常见问题包括缺少依赖、API 用法过时、路径错误等。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 Apple Watch 可以用吗？</span>
+        <span>为什么不用扩散模型直接生成视频？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。核心功能在 iPhone 和 iPad 上都能用，Apple Watch 只是更方便的语音入口。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">扩散模型每次输出不同，难以精确控制中间帧；程序化渲染可复现、可逐帧调整，适合需要确定性的场景。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Siri 解析时间不准怎么办？</span>
+        <span>生成视频很慢怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">尽量用明确时间词，如“明天下午三点”而不是“晚点”。也可以在 Doneit 设置里开启“解析后确认”模式。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">降低分辨率或帧率测试逻辑，最终渲染时再提高参数；也可用多进程并行渲染帧。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>任务会同步到其他平台吗？</span>
+        <span>可以用其他编程语言吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Doneit 主要面向 Apple 生态，但登录账号后可在同一账号下的多台 Apple 设备间同步。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>免费版够用吗？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">基础任务管理和 Siri 快捷指令免费可用，AI 高级解析和自动化播报可能需要订阅。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，DeepSeek 也能生成 JavaScript（Canvas）、Processing、GLSL 等代码，思路相同。</div>
     </details>
   </div>
 </section>
@@ -229,14 +230,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把 Doneit 接入“专注模式”，当开启工作专注时自动只显示高优先级任务。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用快捷指令把 Doneit 任务同步到日历，实现任务和时间块的双向管理。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合 ChatGPT 或 Claude 先生成任务拆解，再通过 Siri 批量导入 Doneit。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用 JavaScript + Canvas 在浏览器中实时渲染并录制视频（MediaRecorder API）</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 Python + Manim 生成数学动画视频，适合教学演示</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用 GLSL 着色器写片段着色器，通过 FFmpeg 逐帧渲染出高质量视频</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 Siri AI 做入口、Doneit 做任务中枢，把“说一句话”变成可执行、可回顾的自动化任务流。
+    让 AI 写程序化渲染代码，用确定性计算代替随机生成，实现精确可控、可复现的视频制作。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -244,20 +245,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 prompts.chat 社区提示词库找现成 Prompt</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用GPT-4o图像提示词库生成AI图片</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可编排的 AI Agent 工作流</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-juejin-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">掘金 AI 实战教程 · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Anthropic上下文工程法优化Agent提示词</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a></div>
 </section>
 

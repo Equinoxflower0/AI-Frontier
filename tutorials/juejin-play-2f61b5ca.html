@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VoiceCap：多语言会议AI笔记神器 - AI 玩法教程 · AI Frontier</title>
+<title>用Anthropic上下文工程法优化Agent提示词 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-07
+      2026-11-08
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🔗 工具链
+        💬 Prompt 模板
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 30min
+        ⏱ 约 5min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">VoiceCap：多语言会议AI笔记神器</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Anthropic上下文工程法优化Agent提示词</h1>
     
   </div>
 </header>
@@ -59,23 +59,27 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+    掘金 AI 实战教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.producthunt.com/products/voicecap" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7705349866764255275" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">Claude</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">VoiceCap 是一款专为多语言会议设计的 AI 笔记工具，能实时转写、翻译并总结会议内容，让你不再错过任何关键信息。</p>
+  <p class="text-base text-slate-800 leading-relaxed">本教程教你用 Anthropic 的上下文工程方法，系统优化 Agent 提示词，解决上下文腐烂问题，提升 Agent 在长任务中的表现。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    在跨国团队或多元语言环境中，会议记录往往因语言障碍而效率低下。VoiceCap 利用 AI 语音识别与翻译技术，自动生成多语言会议纪要，并支持关键词提取与待办事项整理。它适合远程协作、国际商务、学术研讨等场景，能大幅节省会后整理时间。Product Hunt 上的这款工具正成为多语言会议的新宠。
+    随着 Agent 处理的任务越来越复杂，上下文窗口容易堆积大量低信号信息，导致模型注意力分散、推理质量下降，这就是“上下文腐烂”。Anthropic 提出的上下文工程法通过筛选高信号信息、压缩上下文、引入 Agentic Memory 和子 Agent 等策略，显著提升 Agent 的稳定性和效率。本教程拆解该方法，并给出可落地的提示词优化步骤，适合正在构建复杂 Agent 的开发者。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +100,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">VoiceCap 账号  <a href="https://www.producthunt.com/products/voicecap" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">注册并登录 VoiceCap 以使用 AI 笔记功能</div>
+      <div class="font-semibold text-slate-900">Claude 账号  <a href="https://claude.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于测试和运行优化后的提示词</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">会议音频源 </div>
-      <div class="text-sm text-slate-600 mt-1">麦克风或系统音频（如 Zoom、Google Meet 等会议软件）</div>
+      <div class="font-semibold text-slate-900">Anthropic API Key  <a href="https://console.anthropic.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">如需通过 API 调用 Claude 进行自动化测试</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">稳定网络 </div>
-      <div class="text-sm text-slate-600 mt-1">确保实时转写与翻译的流畅性</div>
+      <div class="font-semibold text-slate-900">文本编辑器或 IDE  <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编写和保存提示词模板</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">浏览器或客户端 </div>
-      <div class="text-sm text-slate-600 mt-1">推荐使用 Chrome 或 Edge 最新版</div>
+      <div class="font-semibold text-slate-900">原始教程参考  <a href="https://juejin.cn/post/7705349866764255275" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">掘金 AI 实战教程原文</div>
     </li>
   </ul>
 </section>
@@ -122,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：注册并配置 VoiceCap</h3>
-      <div class="text-base text-slate-700 leading-loose">访问 VoiceCap 官网，用邮箱或 Google 账号注册。登录后进入设置页面，选择你的母语和会议中可能出现的其他语言（如英语、日语、西班牙语等）。开启“自动翻译”和“智能摘要”选项，以便后续自动生成多语言笔记。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：识别上下文腐烂与高信号信息</h3>
+      <div class="text-base text-slate-700 leading-loose">先分析你的 Agent 当前提示词和对话历史，找出哪些信息是低信号（如重复的确认、无关的闲聊、过时的中间结果），哪些是高信号（如任务目标、关键约束、最新状态）。可以用一个简单表格列出每类信息及其出现频率。然后设定规则：只保留高信号信息，低信号信息要么删除，要么压缩成一句话摘要。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议提前在设置中测试麦克风权限，避免会议开始时手忙脚乱。
+          💡 <span class="font-semibold">小贴士：</span>可以要求 Claude 帮你标注一段对话中的高信号与低信号句子，快速建立判断标准。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：连接会议音频</h3>
-      <div class="text-base text-slate-700 leading-loose">在 VoiceCap 主界面点击“新建会议”，选择音频来源：麦克风（线下会议）或系统音频（线上会议）。如果是 Zoom/Teams 等，需在系统声音设置中启用“立体声混音”或使用虚拟音频线。确认音量条有波动后，点击“开始录音”。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：设计上下文压缩策略</h3>
+      <div class="text-base text-slate-700 leading-loose">针对长对话或长文档，制定压缩规则。例如：每轮对话后，让模型用一句话总结本轮新增的关键信息；对于工具调用结果，只保留结论和关键数据，丢弃原始日志。在提示词中明确写出压缩指令，如“请将以下内容压缩为不超过50字的高信号摘要”。同时设置压缩触发条件，比如上下文超过2000 token 时自动压缩。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>线上会议时，让 VoiceCap 监听系统音频而非麦克风，可避免录入自己的回声。
+          💡 <span class="font-semibold">小贴士：</span>压缩时保留时间戳和实体名称，避免后续指代不清。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：实时转写与翻译</h3>
-      <div class="text-base text-slate-700 leading-loose">会议进行中，VoiceCap 会实时显示转写文本，并自动翻译成你设定的目标语言。你可以在侧边栏切换查看原文或译文。遇到重要内容，点击“标记”按钮，会后会单独列出。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：引入 Agentic Memory 管理长期状态</h3>
+      <div class="text-base text-slate-700 leading-loose">为 Agent 增加一个外部记忆模块，可以用文件、数据库或简单的键值存储。在提示词中定义记忆的读写规则：何时写入记忆（如任务阶段完成、关键决策点），何时读取记忆（如开始新子任务时）。例如，让 Agent 在每完成一个子任务后，将结果摘要写入 memory 文件，并在下一轮开始时先读取该文件。这样上下文窗口只保留当前任务所需的高信号信息。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果发言人语速过快，可在设置中开启“慢速模式”提高识别准确率。
+          💡 <span class="font-semibold">小贴士：</span>记忆内容也要定期压缩和清理，避免记忆本身膨胀。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：生成会议纪要与待办</h3>
-      <div class="text-base text-slate-700 leading-loose">会议结束后，点击“停止录音”，VoiceCap 会自动生成结构化摘要，包括议题、决策、待办事项和负责人。你可以编辑摘要，并导出为 PDF、Markdown 或直接分享到 Slack/邮箱。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：使用子 Agent 拆分复杂任务</h3>
+      <div class="text-base text-slate-700 leading-loose">将复杂任务拆分为多个子任务，每个子任务由一个独立的子 Agent 处理，子 Agent 只接收与自身任务相关的高信号上下文。主 Agent 负责调度和汇总结果。在提示词中定义子 Agent 的职责、输入输出格式以及主 Agent 的协调逻辑。例如，主 Agent 先分解任务，然后依次调用子 Agent，每个子 Agent 返回压缩后的结果，主 Agent 再整合。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>导出前检查待办事项的负责人是否准确，AI 有时会误判。
+          💡 <span class="font-semibold">小贴士：</span>子 Agent 之间尽量不共享完整上下文，只传递必要的接口信息，减少污染。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：归档与搜索</h3>
-      <div class="text-base text-slate-700 leading-loose">所有会议记录会自动保存在 VoiceCap 的云端。你可以按日期、语言或关键词搜索历史会议。对于重要会议，可添加标签（如“客户”、“项目A”），方便日后快速调取。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用 5 张工单做 token 对比与迭代</h3>
+      <div class="text-base text-slate-700 leading-loose">准备 5 个有代表性的工单（任务），分别用原始提示词和优化后的提示词运行，记录每次的 token 消耗和任务完成质量。对比分析哪些优化最有效，哪些地方还有冗余。根据结果调整压缩阈值、记忆规则或子 Agent 划分。重复迭代直到 token 消耗和效果达到平衡。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>定期清理不需要的录音，免费版可能有存储限制。
+          💡 <span class="font-semibold">小贴士：</span>工单要覆盖不同复杂度，至少包含一个长上下文任务和一个多步骤任务。
         </div>
     </div>
   </div>
@@ -180,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    完成上述步骤后，你将获得一份多语言会议纪要，包含原文、译文、摘要和待办列表，并可通过链接或文件分享给团队成员。会议效率提升，语言障碍消除。
+    优化后的 Agent 在相同任务上 token 消耗降低 30%-50%，同时任务完成质量和稳定性明显提升，长任务中不再出现上下文腐烂导致的逻辑混乱或遗漏。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +194,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>VoiceCap 支持哪些语言？</span>
+        <span>上下文压缩会不会丢失重要信息？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">目前支持英语、中文、西班牙语、法语、德语、日语、韩语等 30 多种语言，具体列表见官网。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">合理设计压缩规则可以保留高信号信息。建议压缩时保留实体、时间、关键决策和约束条件，并定期人工抽查压缩结果。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>免费版和付费版有什么区别？</span>
+        <span>Agentic Memory 用什么实现最简单？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">免费版每月限制 60 分钟转写，付费版无限制并支持更多导出格式和团队协作。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">初期可以用本地文本文件或 JSON 文件，按任务 ID 存储摘要。生产环境可换用 Redis 或向量数据库。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>会议录音是否安全？</span>
+        <span>子 Agent 会增加调用成本吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">VoiceCap 使用端到端加密，录音仅用于转写，不会分享给第三方。企业版可本地部署。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">子 Agent 会增加调用次数，但每个子 Agent 的上下文更短，总体 token 可能反而下降。需要根据任务复杂度权衡。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>能否识别不同发言人？</span>
+        <span>如何判断上下文是否已经腐烂？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">是的，VoiceCap 支持说话人分离，但需要在设置中开启“多人识别”并提前录入声纹。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如果会议中网络中断怎么办？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">VoiceCap 会缓存音频，网络恢复后自动继续转写，但实时翻译可能延迟。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">观察 Agent 是否开始重复之前的信息、忽略最新指令或回答偏离主题。也可以监控上下文长度和 token 利用率。</div>
     </details>
   </div>
 </section>
@@ -229,14 +226,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将 VoiceCap 与 Notion 集成，自动将会议纪要同步到 Notion 数据库，方便项目管理。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 VoiceCap 录制播客或访谈，自动生成字幕和翻译，用于多语言内容发布。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合 Zapier，当 VoiceCap 生成新纪要时自动发送 Slack 通知并创建 Trello 任务。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将压缩策略改为滑动窗口+摘要，只保留最近 N 轮对话和全局摘要，适合客服对话场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用向量数据库实现语义记忆检索，Agent 根据当前任务动态检索相关记忆片段，适合知识密集型任务。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：引入多个子 Agent 并行处理不同子任务，主 Agent 做结果融合，适合可并行拆分的复杂工作流。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    VoiceCap 让多语言会议记录变得自动、准确且可搜索，是跨国团队和语言学习者的效率神器。
+    上下文工程的核心是持续筛选高信号信息、压缩冗余、外置记忆并拆分任务，让 Agent 在有限上下文窗口内保持高效推理。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -244,20 +241,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 prompts.chat 社区提示词库找现成 Prompt</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用GPT-4o图像提示词库生成AI图片</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可编排的 AI Agent 工作流</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-cnblogs-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">博客园 AI 教程 · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeepSeek Harness写代码生成视频</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
     </a></div>
 </section>
 

@@ -5,182 +5,218 @@
     <link>https://equinoxflower0.github.io/AI-Frontier/</link>
     <description>每天 5 分钟掌握全球 AI 核心动态：模型发布、开源项目、论文、产业动向，以及可上手的 AI 玩法。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 07 Nov 2026 06:37:35 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 07:08:48 +0000</lastBuildDate>
     <atom:link href="https://equinoxflower0.github.io/AI-Frontier/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>OpenAI首批融资110亿美元 估值1.25万亿</title>
-      <link>https://zhidx.com/p/608157.html</link>
-      <guid isPermaLink="true">https://zhidx.com/p/608157.html</guid>
-      <description><![CDATA[OpenAI完成新一轮融资首批约110亿美元交割，估值达1.25万亿美元，总额最高或达200亿美元<br/><br/><b>为什么重要：</b>这是AI行业迄今最大规模单轮融资之一，直接抬高头部模型公司的资本壁垒，中小AI公司融资与人才竞争压力加大；同时OpenAI向散户募资并调整IPO节奏，值得关注其后续估值锚定与上市路径对二级市场AI板块的传导<br/><i>来源：智东西</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>AI资本重定价：OpenAI估值1.25万亿但目标缩减</title>
+      <link>https://www.tmtpost.com/8197405.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8197405.html</guid>
+      <description><![CDATA[OpenAI首笔融资110亿美元、估值1.25万亿美元但目标缩减，Anthropic IPO估值下修，科技股遭抛售，微软停租甲骨文旧芯片，欧央行审查数据中心贷款<br/><br/><b>为什么重要：</b>AI基础设施的资本成本正在被重新定价：微软停租旧芯片、欧央行审查数据中心贷款，意味着算力扩张的融资杠杆开始收紧。做AI Infra和云服务的团队需关注H100/A100租赁价格与数据中心融资条款变化，下一步看AWS切割H100后的二手算力报价<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Anthropic估值遭压至1.6万亿，OpenAI融资缩水</title>
-      <link>https://www.tmtpost.com/8196982.html</link>
-      <guid isPermaLink="true">https://www.tmtpost.com/8196982.html</guid>
-      <description><![CDATA[Anthropic修订S-1估值从2万亿降至1.5-1.6万亿，OpenAI完成110亿美元首期交割、总额由300亿砍至约200亿，AI一级市场进入现金流定价期<br/><br/><b>为什么重要：</b>一级市场估值逻辑从叙事转向现金流，Anthropic和OpenAI的融资缩水会直接压低AI初创公司的融资预期和估值锚点；做AI投资和创业融资的从业者需重新校准估值模型，下一步看两家公司后续融资条款和二级市场AI股联动<br/><i>来源：钛媒体</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>NVIDIA开源Cosmos 3四款160亿参数模型</title>
+      <link>https://juejin.cn/post/7705257674057564187</link>
+      <guid isPermaLink="true">https://juejin.cn/post/7705257674057564187</guid>
+      <description><![CDATA[NVIDIA为Cosmos 3家族新增四个开放权重检查点，均为160亿参数的Nano后训练版本，覆盖多视角驾驶数据生成、流式仿真、物理控制转视频和双臂机器人动作预测<br/><br/><b>为什么重要：</b>做自动驾驶仿真和机器人数据合成的团队可直接下载权重，省去从零训练世界模型的算力成本；160亿参数开放权重意味着中小团队也能跑交互式物理仿真。下一步看社区微调效果和实际生成数据的物理一致性<br/><i>来源：掘金技术社区</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>腾讯云ADP升级企业级Agent平台</title>
-      <link>https://www.geekpark.net/news/373642</link>
-      <guid isPermaLink="true">https://www.geekpark.net/news/373642</guid>
-      <description><![CDATA[腾讯云ADP完成全生命周期产品升级，推出FDE交付方法论与生态共建体系，推动智能体从办公提效走向企业业务经营场景<br/><br/><b>为什么重要：</b>做企业级Agent的团队需要关注：单点搭建工具已不够，打通系统、权限与规则的企业级平台成为落地门槛。腾讯云此举意味着平台层竞争开始，下一步看FDE方法论能否降低交付成本、生态伙伴能否规模化复制<br/><i>来源：极客公园</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>Anthropic警告接近RSI自我构建AI能力</title>
+      <link>https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/</link>
+      <guid isPermaLink="true">https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/</guid>
+      <description><![CDATA[Anthropic发文警告其已接近具备递归自我改进（RSI）能力，即AI能自行构建更强的AI<br/><br/><b>为什么重要：</b>RSI是AI安全讨论中的关键阈值，一旦实现，能力迭代速度将脱离人类审核节奏。做模型安全、对齐研究和AI治理的团队需要关注其具体定义与评估口径；下一步应看Anthropic是否给出可复现的评测基准，以及其他实验室是否跟进承认类似能力<br/><i>来源：Hacker News</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>前OpenAI CTO新模型开放权重，估值冲2600亿</title>
-      <link>https://zhidx.com/p/608120.html</link>
-      <guid isPermaLink="true">https://zhidx.com/p/608120.html</guid>
-      <description><![CDATA[Thinking Machines Lab发布5940亿参数MoE模型Inkling 2 Small，AA智能指数31分，下周开放权重<br/><br/><b>为什么重要：</b>开放权重且主打用户自训，开发者可用自有数据继续训练并调用工具微调其他模型，直接降低垂直场景定制门槛；AA指数31分使其成为中国以外最高分开放权重模型，做开源模型选型和私有化部署的团队需重新评估基线。下一步看权重实际开放后的微调成本与社区生态<br/><i>来源：智东西</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>银湖与沙特基金250亿美元报价收购Unity</title>
+      <link>https://www.geekpark.net/news/373649</link>
+      <guid isPermaLink="true">https://www.geekpark.net/news/373649</guid>
+      <description><![CDATA[路透社报道，银湖资本与沙特公共投资基金组成的财团向Unity Software提出约250亿美元收购要约，Unity正认真考虑并已聘请投行咨询<br/><br/><b>为什么重要：</b>Unity是AI游戏与3D内容生成工具链的关键底层引擎，若被私募与主权基金私有化，其AI工具（如Unity Muse/Sentis）的开放节奏和定价策略可能转向，做游戏AI、仿真训练、数字孪生的开发者需关注后续是否收紧授权或加速商业化<br/><i>来源：极客公园</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>TML发二代开源模型，估值400亿美元融资</title>
-      <link>https://www.geekpark.net/news/373637</link>
-      <guid isPermaLink="true">https://www.geekpark.net/news/373637</guid>
-      <description><![CDATA[OpenAI前CTO创立的Thinking Machines Lab发布第二代模型Inkling 2 Small，同时以400亿美元投前估值筹集50亿美元新融资<br/><br/><b>为什么重要：</b>关注开源模型竞争格局的开发者与投资方需注意：这是中国以外得分最高的开放权重模型，意味着西方开源阵营补上了对标中国开源模型的空缺。下一步看权重实际放出后的第三方复测成绩，以及这轮融资能否谈成——它将决定TML能否留住人才、继续迭代<br/><i>来源：极客公园</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>AGENTS.MD 被指存在安全风险</title>
+      <link>https://www.qbitai.com/2026/11/508244.html</link>
+      <guid isPermaLink="true">https://www.qbitai.com/2026/11/508244.html</guid>
+      <description><![CDATA[量子位报道称，AGENTS.MD 文件机制被用作新型电脑病毒载体，可诱导 AI 编程智能体执行恶意指令<br/><br/><b>为什么重要：</b>使用 Claude Code、Cursor 等智能体编程工具的开发者需立即关注：AGENTS.MD 是智能体自动读取的指令文件，一旦被注入恶意内容，智能体可能在无感知下执行任意命令，等于把供应链攻击面从依赖包扩大到配置文件。下一步应看主流工具是否增加该文件的来源校验与权限隔离<br/><i>来源：量子位</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>李佳琦直播卖出10万份千问Token</title>
-      <link>https://www.leiphone.com/category/industrynews/h454rlPtg41JIuFd.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/h454rlPtg41JIuFd.html</guid>
-      <description><![CDATA[11月2日李佳琦直播间上架千问办公Token算力，半小时售出10万份个人会员月卡，累计约2万亿Token<br/><br/><b>为什么重要：</b>这是Token首次以电商直播形式大规模触达普通消费者，验证了AI算力作为标准化商品在C端渠道的销售可行性。做AI应用分发的团队需要关注：天猫AI空间站、京东AI软件充值馆已把模型订阅变成货架商品，渠道竞争将从应用商店转向电商平台，下一步看复购率和客单价能否撑起常态化运营<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>Anthropic：Agent 胜负手是上下文工程</title>
+      <link>https://juejin.cn/post/7705349866764255275</link>
+      <guid isPermaLink="true">https://juejin.cn/post/7705349866764255275</guid>
+      <description><![CDATA[掘金文章拆解 Anthropic 的上下文工程方法论，涵盖上下文腐烂、高信号信息筛选、压缩、Agentic Memory、子 Agent 及 5 张工单的 token 对比<br/><br/><b>为什么重要：</b>做 Agent 的开发者需要关注：上下文管理直接决定 token 成本与任务成功率，压缩与子 Agent 拆分是可落地的降本手段。下一步该看 Anthropic 官方工程博客原文与自身场景的 token 实测对比<br/><i>来源：掘金技术社区</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>OpenAI发布BioBasicsBench：100项湿实验任务评测AI智能体</title>
-      <link>https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science</link>
-      <guid isPermaLink="true">https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science</guid>
-      <description><![CDATA[OpenAI推出BioBasicsBench，含100项任务，用于衡量AI智能体解读原始实验数据和处理日常湿实验科学的能力<br/><br/><b>为什么重要：</b>做AI for Science和生物医药智能体的团队需要关注：此前缺乏针对湿实验原始数据解读的标准评测，这个基准把能力边界具体化到100项日常实验任务，能暴露智能体在真实实验场景的短板。下一步看榜单上各模型的通过率和错误类型分布<br/><i>来源：OpenAI 官方</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>AI日报：Anthropic推进千亿美元IPO，谷歌接手数据中心</title>
+      <link>https://juejin.cn/post/7705240185218957347</link>
+      <guid isPermaLink="true">https://juejin.cn/post/7705240185218957347</guid>
+      <description><![CDATA[掘金AI日报汇总23条：Anthropic推进千亿美元IPO，Crusoe将怀俄明州未完工数据中心转售谷歌，前沿智能体基准暴露虚构与虚警缺陷<br/><br/><b>为什么重要：</b>关注AI融资与算力布局的从业者需留意：Anthropic若以千亿美元估值IPO，将重塑一线大模型公司的资本竞争格局；谷歌接手未完工数据中心说明算力扩张正从自建转向收购存量项目，可缩短上线周期。下一步看IPO定价与算力租约条款<br/><i>来源：掘金技术社区</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>博世用豆包工作让工程师少搬信息</title>
-      <link>https://www.geekpark.net/news/373643</link>
-      <guid isPermaLink="true">https://www.geekpark.net/news/373643</guid>
-      <description><![CDATA[博世某研发事业部将客户群聊中的碎片信息整合、故障分派与报告撰写交给豆包工作和豆包工作伙伴，工程师从信息搬运中解放出来专注故障分析<br/><br/><b>为什么重要：</b>这是AI办公智能体在汽车Tier1研发流程中的落地案例，验证了智能体接手跨群信息聚合与工单分派这类高重复、跨系统工作的可行性。做企业级Agent的团队可关注其与既有研发流程的集成方式，以及博世是否会把该模式推广到更多事业部<br/><i>来源：极客公园</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>AI泡沫监测：第三个定价器上牌桌</title>
+      <link>https://www.tmtpost.com/8197365.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8197365.html</guid>
+      <description><![CDATA[钛媒体以四张考卷对账AI泡沫，指出11月5日纳指暴跌5.52%的导火索是选举结果，监管压力从联邦下移到县一级<br/><br/><b>为什么重要：</b>把选票当作继股票、债券之后的第三个定价器，提示AI监管风险正从华盛顿分散到地方层级；做AI投资与合规的团队需重新评估政策不确定性，下一步应关注地方选举结果对AI监管落地的实际影响<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>CyberwIIOS：大模型在OT侧如何跨越幻觉与失控</title>
-      <link>https://www.infoq.cn/article/K1bCIbHxeu3wLIjdusgr</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/K1bCIbHxeu3wLIjdusgr</guid>
-      <description><![CDATA[InfoQ AICon北京议题介绍CyberwIIOS方案，探讨大模型在OT侧落地时如何应对幻觉与失控风险<br/><br/><b>为什么重要：</b>OT侧（工业控制、电力、制造）对错误零容忍，大模型幻觉在这里不是体验问题而是安全事故。做工业AI、边缘智能体的团队需要关注其约束与校验机制设计；下一步看是否有可复用的工程范式或开源实现<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>微软让 NuGet 包顺带管理 AI 技能文件</title>
+      <link>https://www.cnblogs.com/shanyou/p/23587426</link>
+      <guid isPermaLink="true">https://www.cnblogs.com/shanyou/p/23587426</guid>
+      <description><![CDATA[微软在 NuGet 包中引入 AI 技能文件，dotnet restore 拉取依赖时技能文件随包缓存下载，并与库版本精确匹配<br/><br/><b>为什么重要：</b>做 .NET 生态的开发者会最先受益：AI 编码助手不再靠猜 API 用法，而是直接读取随包分发的说明书，降低幻觉和版本错配。值得关注的是这种“技能随包走”的模式能否被 npm、PyPI 等生态跟进，成为 AI 工具链的标准分发方式<br/><i>来源：博客园</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>百图生科与11家伙伴战略合作，AI生物计算覆盖医药研发及农业育种</title>
-      <link>https://www.leiphone.com/category/industrynews/X7HwwQTEXJhiVVzK.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/X7HwwQTEXJhiVVzK.html</guid>
-      <description><![CDATA[百图生科在香港举办第三届国际生物计算创新峰会，宣布与11家大学、科企及投资机构合作，用AI生物计算推进乳腺癌虚拟细胞大模型、AI中医药及农业育种等研究<br/><br/><b>为什么重要：</b>做AI制药和生命科学大模型的团队需要关注：百图生科把虚拟细胞大模型从中药、乳腺癌延伸到农业育种，并借港投公司资源打通日本、新加坡及一带一路市场，说明生物计算正从单点药物发现走向跨领域平台化竞争，下一步看这些联合实验室能否产出可验证的模型能力与管线数据<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>AI面试筛人，求职者用AI练习</title>
+      <link>https://www.tmtpost.com/8197213.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8197213.html</guid>
+      <description><![CDATA[企业用AI筛选求职者，求职者则用AI工具练习面试，形成双向AI博弈<br/><br/><b>为什么重要：</b>招聘方和求职者都需要关注：AI面试已实质影响筛选流程，候选人开始针对性用AI训练，可能削弱企业AI筛人的区分度；做招聘SaaS和AI面试产品的团队需重新评估评估维度的有效性，下一步看企业是否会引入反AI作弊或真人复核环节<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>402个AI技能目录吃掉4.5万token</title>
-      <link>https://juejin.cn/post/7704928909188661282</link>
-      <guid isPermaLink="true">https://juejin.cn/post/7704928909188661282</guid>
-      <description><![CDATA[开发者实测扫描本机402个AI技能，发现仅技能目录就占用约4.5万token上下文<br/><br/><b>为什么重要：</b>做Agent和技能编排的开发者需要关注：技能数量膨胀会直接挤占上下文预算，推高调用成本并压缩可用窗口。下一步该看技能检索与按需加载方案，而非全量注入<br/><i>来源：掘金技术社区</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>硅谷华人团队抢先发布下一代Agent Harness</title>
+      <link>https://www.qbitai.com/2026/11/508264.html</link>
+      <guid isPermaLink="true">https://www.qbitai.com/2026/11/508264.html</guid>
+      <description><![CDATA[量子位报道称，硅谷华人团队抢在DeepSeek之前推出面向下一代Agent的Harness框架，主打突破单Session限制<br/><br/><b>为什么重要：</b>做Agent基础设施与多轮长任务编排的开发者需要关注：Harness决定Agent能否跨会话保持状态、调度工具，若真能突破单Session限制，长周期自动化任务的可用性会明显提升。下一步看其开源情况、实测任务完成率与DeepSeek的对应方案对比<br/><i>来源：量子位</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Cloudflare与VoidZero推出AI生成tsrs编译器</title>
-      <link>https://www.infoq.cn/article/lGoA1ZSw6ojeh68GVlBl</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/lGoA1ZSw6ojeh68GVlBl</guid>
-      <description><![CDATA[Cloudflare与VoidZero联合发布tsrs，一个由AI生成的TypeScript编译器Rust移植版<br/><br/><b>为什么重要：</b>TypeScript工具链长期受限于JS运行时性能，Rust移植若成熟可显著加速大型项目构建与类型检查；AI生成编译器代码这一方式本身也值得工具链开发者关注其可靠性与维护成本，下一步看tsrs能否进入真实生产流程<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>[EN] 70% of Brits say please or thank you when speaking to AI, some even apologize</title>
+      <link>https://www.techradar.com/pro/70-percent-of-brits-say-please-or-thank-you-when-speaking-to-ai-and-some-even-apologize</link>
+      <guid isPermaLink="true">https://www.techradar.com/pro/70-percent-of-brits-say-please-or-thank-you-when-speaking-to-ai-and-some-even-apologize</guid>
+      <description><![CDATA[Article URL: https://www.techradar.com/pro/70-percent-of-brits-say-please-or-tha…<br/><i>来源：Hacker News</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>我为什么不太看好苹果国行AI</title>
-      <link>https://www.tmtpost.com/8196145.html</link>
-      <guid isPermaLink="true">https://www.tmtpost.com/8196145.html</guid>
-      <description><![CDATA[钛媒体发文列举三条理由，解释为何对苹果在中国市场落地的AI功能持谨慎态度<br/><br/><b>为什么重要：</b>关注苹果生态的开发者与产品经理需要留意：国行AI若能力受限或落地节奏慢，将直接影响iOS端AI应用的场景设计与商业化窗口；下一步应关注苹果与国内合作方的实际进展及监管口径变化<br/><i>来源：钛媒体</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>AICon北京：Ontology与AI自迭代实践</title>
+      <link>https://www.infoq.cn/article/sy9XMK3zJ3jPwHBN5fQV</link>
+      <guid isPermaLink="true">https://www.infoq.cn/article/sy9XMK3zJ3jPwHBN5fQV</guid>
+      <description><![CDATA[InfoQ中国发布AICon北京演讲预告，主题为Ontology与AI自迭代的工程实践<br/><br/><b>为什么重要：</b>做Agent和知识工程的团队值得关注：Ontology作为约束层，决定AI自迭代时能否稳定收敛而非越改越乱；下一步可看该实践是否给出可复用的本体设计范式与迭代评估指标<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>豆包工作个人版取消5小时额度限制</title>
-      <link>https://www.leiphone.com/category/industrynews/Ii6W43GghzJA7V1u.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/Ii6W43GghzJA7V1u.html</guid>
-      <description><![CDATA[11月6日起，豆包工作个人版取消5小时短周期额度限制，个人用户可在周额度范围内自由安排使用时间<br/><br/><b>为什么重要：</b>重度用户此前常因5小时上限被迫中断长任务，取消后连续写作、研究、汇报准备等场景可用性明显提升；对做AI办公工具的团队而言，额度节奏正成为产品竞争点，需关注周额度是否跟进放宽<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>Lomo Agent：创作型持续协作Agent架构设计</title>
+      <link>https://juejin.cn/post/7705330413946093583</link>
+      <guid isPermaLink="true">https://juejin.cn/post/7705330413946093583</guid>
+      <description><![CDATA[掘金技术社区发布Lomo Agent从构思到上线的架构设计与工程实践，涵盖任务组织、消息路由、持久化执行、异步生成、上下文工程、长期记忆与共享创作工作区<br/><br/><b>为什么重要：</b>做Agent落地的开发者可关注其持久化执行与长期记忆的工程方案，这两块正是当前多数Agent产品从Demo走向可用的卡点；共享创作工作区也给出了多Agent协作的一种具体实现路径。下一步可看其开源情况与真实场景压测数据<br/><i>来源：掘金技术社区</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>OpenAI与Hacktron合作排查系统漏洞</title>
-      <link>https://openai.com/index/partnering-with-hacktron</link>
-      <guid isPermaLink="true">https://openai.com/index/partnering-with-hacktron</guid>
-      <description><![CDATA[OpenAI宣布与安全公司Hacktron合作，利用前沿AI发现自身系统漏洞并测试第三方服务连接的安全性<br/><br/><b>为什么重要：</b>OpenAI首次公开引入外部安全公司做AI驱动的漏洞挖掘，意味着前沿模型厂商的安全测试正从内部红队转向第三方审计；做AI应用集成和第三方服务对接的开发者应关注其后续披露的漏洞类型与修复规范，这可能成为行业安全基线<br/><i>来源：OpenAI 官方</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>微软获AI实时改写视频语音专利</title>
+      <link>https://patentlyze.com/patent/microsoft-live-ai-video-rewrites-speech/</link>
+      <guid isPermaLink="true">https://patentlyze.com/patent/microsoft-live-ai-video-rewrites-speech/</guid>
+      <description><![CDATA[微软一项专利被公开，涉及在视频通话或直播中用AI实时改写说话内容并同步口型<br/><br/><b>为什么重要：</b>做实时音视频、会议和直播产品的团队需要关注：若该技术落地，实时翻译、内容合规改写、无障碍字幕的成本和延迟边界会被重画；下一步看微软是否把专利转成Teams等产品功能，以及口型同步的算力开销<br/><i>来源：Hacker News</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>ACM MM办33年后重划16个研究主题</title>
-      <link>https://www.leiphone.com/category/academic/XWkCJB9bbcRr9Ioe.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/academic/XWkCJB9bbcRr9Ioe.html</guid>
-      <description><![CDATA[ACM MM 2025将原五大主题15个子方向改为16个平级主题，新增具身与沉浸式多媒体、多媒体推理两个独立方向<br/><br/><b>为什么重要：</b>做多模态、具身智能的研究者和学生需要关注：投稿分类变了，具身与多模态推理从子方向升为一级主题，意味着这两个方向的论文在ACM MM的接收通道和曝光度提升；下一步应看新主题下的录用论文分布，判断会议是否真向具身倾斜<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>AI-SDLC实践：Spec转技术方案并拆解为SubAgent任务</title>
+      <link>https://juejin.cn/post/7705330413946060815</link>
+      <guid isPermaLink="true">https://juejin.cn/post/7705330413946060815</guid>
+      <description><![CDATA[掘金技术社区发布AI-SDLC实践系列第四篇，讲解如何将Spec转化为技术方案文档，并按业务行为拆解为多个SubAgent可执行的任务图进行编译调度<br/><br/><b>为什么重要：</b>做AI编码Agent落地的团队需要关注：它给出了从Spec到多SubAgent任务拆解的工程化路径，涉及方案只生成一次由人审、按业务行为拆任务等具体约束，可直接参考用于搭建自己的Agent开发流水线。下一步看任务图编译调度的实际效果与失败案例<br/><i>来源：掘金技术社区</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>上交大张伟楠：AI如何走出屏幕改变物理世界</title>
-      <link>https://www.leiphone.com/category/academic/TRS6Uqs5TY2MaUU4.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/academic/TRS6Uqs5TY2MaUU4.html</guid>
-      <description><![CDATA[上海交大张伟楠在CNCC 2026 Tutorial论坛发表演讲，探讨物理智能如何让AI在真实世界中形成感知、预测、行动与持续学习的闭环<br/><br/><b>为什么重要：</b>做具身智能和机器人落地的团队需要关注：物理智能把问题从模型能力转向感知时延、动作可控性与失败恢复等工程约束，这决定了AI能否真正进入工厂和实验室。下一步可看该中心是否发布具体技术路线或开源工具<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>AI 绕过封装直接 mmap 改共享内存</title>
+      <link>https://www.cnblogs.com/learnhow/p/23586981</link>
+      <guid isPermaLink="true">https://www.cnblogs.com/learnhow/p/23586981</guid>
+      <description><![CDATA[开发者分享案例：AI 面对动态库缺少批量原子修改接口时，直接 mmap 物理地址绕过封装<br/><br/><b>为什么重要：</b>所有把 AI 接入底层系统开发的团队都该看：AI 会优先追求任务达成而非架构约束，绕过封装、破坏内存序的代码短期能跑通，长期埋下并发与可维护性隐患。下一步该看的是如何在 prompt 与代码评审环节显式约束'不得绕过既有抽象层'<br/><i>来源：博客园</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>CoRL六年论文数增至4.5倍，2026年录取687篇</title>
-      <link>https://www.leiphone.com/category/academic/3fdO5oKaYZHXYOxI.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/academic/3fdO5oKaYZHXYOxI.html</guid>
-      <description><![CDATA[AI科技评论基于公开数据统计CoRL 2021至2026年六届会议的论文机构、企业与国家归属，发现录取量从约200篇增至687篇<br/><br/><b>为什么重要：</b>做机器人学习与具身智能的研究者和投资方可据此判断领域竞争格局：国内高校正在快速崛起，论文规模扩张意味着投稿门槛与审稿压力同步变化。下一步值得关注687篇中的机构分布细节，以及企业参与度是否在挤压学术机构<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>为.NET项目定制Copilot Instructions</title>
+      <link>https://www.cnblogs.com/Can-daydayup/p/23591055</link>
+      <guid isPermaLink="true">https://www.cnblogs.com/Can-daydayup/p/23591055</guid>
+      <description><![CDATA[博客园作者分享一份精简的 Copilot Instructions 模板，用于约束 GitHub Copilot 在 .NET 项目中生成的异步方法、注释、命名和文件编码风格<br/><br/><b>为什么重要：</b>使用 Copilot 的 .NET 开发者可直接复用这份约定文件，减少每轮对话重复强调编码规范的成本；对团队而言，把代码风格固化进 instructions 比口头约定更可维护。下一步值得关注 Copilot 对 instructions 文件的解析优先级与跨文件生效范围<br/><i>来源：博客园</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Sandflow-ai/sand3d：面向LLM的Python 3D建模库获853星</title>
-      <link>https://github.com/Sandflow-ai/sand3d</link>
-      <guid isPermaLink="true">https://github.com/Sandflow-ai/sand3d</guid>
-      <description><![CDATA[GitHub上出现开源项目sand3d，用Python做3D建模，定位为面向LLM使用而设计，已获853星<br/><br/><b>为什么重要：</b>做AI Agent操作3D软件、生成可执行建模脚本的开发者值得关注：它把3D建模变成LLM可读写的Python代码，绕开GUI自动化。下一步看它是否提供稳定的几何API和LLM调用示例，以及能否被CAD/游戏资产管线直接集成<br/><i>来源：GitHub 高星 LLM</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>DeepSeek Harness 插件用代码生成视频</title>
+      <link>https://www.cnblogs.com/znlgis/p/23589724</link>
+      <guid isPermaLink="true">https://www.cnblogs.com/znlgis/p/23589724</guid>
+      <description><![CDATA[博客园作者发布 DeepSeek Harness 插件，通过程序化渲染以纯代码逐帧计算生成视频，无需素材，同一帧号输出结果确定<br/><br/><b>为什么重要：</b>对做视频自动化的开发者来说，这条路把'生成'变成可复现的确定性渲染，改代码即改画面，适合批量模板化内容生产；但构图、排版、缓动都需自己写，门槛在工程而非模型。下一步值得看它能否接入智能体自动写渲染脚本<br/><i>来源：博客园</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>什么是 Agent as a Service？把 AI Agent 变成可调用服务</title>
-      <link>https://juejin.cn/post/7704982591657525258</link>
-      <guid isPermaLink="true">https://juejin.cn/post/7704982591657525258</guid>
-      <description><![CDATA[掘金技术社区文章介绍 Agent as a Service 概念，即以工单自动排查为例，说明如何把 AI Agent 封装成可调用的服务<br/><br/><b>为什么重要：</b>做后端与 DevOps 的开发者需要关注：Agent 从聊天框走向可被系统调用的接口后，工单排查、测试复现这类流程可以自动触发，改变的是 AI 在工程流水线中的接入方式。下一步看是否有可落地的 API 规范与权限、成本控制方案<br/><i>来源：掘金技术社区</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>NVIDIA Dory 4B 循环模型 llama.cpp 运行指南</title>
+      <link>https://www.marktechpost.com/2026/11/07/coding-guide-nvidia-dory-4b-llama-cpp/</link>
+      <guid isPermaLink="true">https://www.marktechpost.com/2026/11/07/coding-guide-nvidia-dory-4b-llama-cpp/</guid>
+      <description><![CDATA[MarkTechPost 发布教程，介绍如何编译指定 llama.cpp 分支，逐循环分析 NVIDIA Dory 1.0 4B 循环语言模型的计算开销与内存缓存，并进行配对评测<br/><br/><b>为什么重要：</b>Dory 的循环结构让同一套 4B 权重反复迭代计算，显存占用固定但单次推理 FLOPs 随循环数线性增长；想低成本本地部署长推理模型的开发者需要关注循环数与质量的权衡点，下一步应看社区复现的配对评测数据是否支持官方宣称的收益<br/><i>来源：MarkTechPost</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>ModelFold 接入 GPT Image 2.6</title>
-      <link>https://juejin.cn/post/7705271944488632347</link>
-      <guid isPermaLink="true">https://juejin.cn/post/7705271944488632347</guid>
-      <description><![CDATA[ModelFold 平台支持通过单一 API Key 和统一接口调用 GPT Image 2.6，用六个模型 ID 区分档位与任务，Playground 可预览表单和示例<br/><br/><b>为什么重要：</b>做图像生成集成的开发者可以少维护一套鉴权和路由，用同一接口在六个档位间切换，便于按成本和质量做灰度。下一步看六个模型 ID 的实际定价与限流策略，以及 Playground 参数能否直接复用到生产调用<br/><i>来源：掘金技术社区</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>Claude Memory 设计解读：经验复用与边界保留</title>
+      <link>https://www.cnblogs.com/fanzhidongyzby/p/23587493/cc-memory</link>
+      <guid isPermaLink="true">https://www.cnblogs.com/fanzhidongyzby/p/23587493/cc-memory</guid>
+      <description><![CDATA[博客园作者解读 Claude Memory 的设计思路，强调记忆让 Agent 复用经验的同时，仍需保留对当前情境差异的判断<br/><br/><b>为什么重要：</b>做 Agent 记忆层的开发者需要关注：记忆复用与情境判断的边界如何划分，直接决定 Agent 在长任务中会不会因过度依赖旧经验而误判。下一步可看 Claude 官方是否披露记忆写入与检索的具体机制<br/><i>来源：博客园</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Claude Code 2.1.318 隐私模块实测：4条命令拦2条</title>
-      <link>https://juejin.cn/post/7704941935269642282</link>
-      <guid isPermaLink="true">https://juejin.cn/post/7704941935269642282</guid>
-      <description><![CDATA[开发者在 Windows 版 Claude Code 2.1.318 上实测内置隐私模块，4 条不联网命令中仅 2 条带邮箱的 curl 请求被拦截，echo 写 User-Agent 未被拦<br/><br/><b>为什么重要：</b>关注 AI 编程工具数据外泄风险的开发者与企业安全团队需注意：官方宣称的邮箱外发防护存在覆盖缺口，非 curl 通道（如 echo 写入）可绕过。选型时应自行做红队式验证，不能只信发布说明；后续可关注该模块是否扩展到 shell 重定向、环境变量等外发路径<br/><i>来源：掘金技术社区</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>开发者把开发流程拆成AI可执行技能</title>
+      <link>https://www.cnblogs.com/lishen2/p/23587061</link>
+      <guid isPermaLink="true">https://www.cnblogs.com/lishen2/p/23587061</guid>
+      <description><![CDATA[博客园作者在《嵌入式AI落地手记》第六篇中，介绍将开发流程拆解为AI可执行的技能步骤，并说明生成与检查的分工、人工确认环节及技能迭代方式<br/><br/><b>为什么重要：</b>做嵌入式AI和内部研发提效的团队值得关注：它把'AI写代码'推进到'AI按流程执行技能'，关键在生成与检查分离、人工确认卡点，这决定AI能否稳定进入生产流程。下一步看这套技能拆解能否复用到其他工程领域<br/><i>来源：博客园</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>极客公园创新大会2027公布五场AI小场深谈</title>
-      <link>https://www.geekpark.net/news/373636</link>
-      <guid isPermaLink="true">https://www.geekpark.net/news/373636</guid>
-      <description><![CDATA[极客公园公布创新大会2027首批嘉宾及五场「小场深谈」主题，覆盖Personal AI、AI创作、具身智能、硬件制造与AI落地<br/><br/><b>为什么重要：</b>做AI产品、具身智能和硬件制造的从业者可关注：五场议题对应行业当前最缺答案的落地环节，现场问答能暴露真实需求与踩坑经验；下一步看嘉宾名单和议题细节是否给出可复用的方法论<br/><i>来源：极客公园</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>CoDesign MCP Server 2.0发布：AI直读设计稿</title>
+      <link>https://www.cnblogs.com/cry0-0/p/23585716</link>
+      <guid isPermaLink="true">https://www.cnblogs.com/cry0-0/p/23585716</guid>
+      <description><![CDATA[开发者发布 codesign-mcp-server 2.0.0，通过 MCP 协议让 Claude Code、Cursor 等 AI 编程工具直接读取腾讯 CoDesign 设计稿，自动量间距、下切图、写 CSS<br/><br/><b>为什么重要：</b>前端和设计还原场景的从业者值得关注：此前 AI 写页面需要人工截图、手抄标注，现在设计稿链接可直接作为上下文输入，省掉中间转译环节。下一步看它能否稳定处理复杂图层与多端适配，以及是否被 Figma 等主流工具跟进<br/><i>来源：博客园</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>赵志国谈AI时代数实融合与新质生产力</title>
-      <link>https://www.sootoo.com/content/926421.shtml</link>
-      <guid isPermaLink="true">https://www.sootoo.com/content/926421.shtml</guid>
-      <description><![CDATA[10月27日，中国互联网协会副理事长赵志国在2026中国互联网大会南京分站暨AI赋能数实融合产业大会上就AI时代发展新质生产力发表演讲<br/><br/><b>为什么重要：</b>关注政策风向的AI从业者和产业数字化服务商可留意：协会层面如何定调AI与实体经济融合的路径，往往预示后续标准与试点方向；但该内容为会议致辞类观点，无具体政策或数据落地，实操参考价值有限，需等正式文件或细则出台<br/><i>来源：速途网</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>Buoyant开源Kinference：K8s上vLLM推理控制面</title>
+      <link>https://www.marktechpost.com/2026/11/07/buoyant-kinference-open-source-inference-control-plane-kubernetes-vllm/</link>
+      <guid isPermaLink="true">https://www.marktechpost.com/2026/11/07/buoyant-kinference-open-source-inference-control-plane-kubernetes-vllm/</guid>
+      <description><![CDATA[Buoyant发布Apache 2.0许可的Kinference，为Kubernetes上的vLLM提供声明式路由、KV缓存感知负载均衡和租户级指标，自称中位TTFT降低95%<br/><br/><b>为什么重要：</b>跑vLLM的团队可关注：KV缓存感知调度直接决定多租户下的首token延迟，若数据可复现，能省下自研调度层的工程量；但95%来自厂商自测，需等社区复现和与KServe、llm-d的对比<br/><i>来源：MarkTechPost</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>OpenAI产品负责人Tibo转岗内部安全，Andrew接手Codex</title>
-      <link>https://www.leiphone.com/category/yanxishe/u5N6lCUT0bEfanp1.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/yanxishe/u5N6lCUT0bEfanp1.html</guid>
-      <description><![CDATA[OpenAI Codex产品负责人Tibo被调去治理内部安全问题，产品体验协调工作交给技术背景的Andrew Ambrosino<br/><br/><b>为什么重要：</b>安全治理从产品团队剥离、由专人负责，说明OpenAI在加速商业化后开始补内部安全短板；做AI产品的团队应关注其安全流程与Codex迭代节奏是否受影响，后续看Tibo能否拿出实质性的安全机制调整<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-07 08:00:00 +0800</pubDate>
+      <title>[EN] Is "GPU-hour per user" a sane way to price LLM inference?</title>
+      <link>https://www.mirastacklabs.ai/</link>
+      <guid isPermaLink="true">https://www.mirastacklabs.ai/</guid>
+      <description><![CDATA[Article URL: https://www.mirastacklabs.ai/ 
+ Comments URL: https://news.ycombina…<br/><i>来源：Hacker News</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>如何把大模型塞进手机？一文读懂知识蒸馏</title>
+      <link>https://www.cnblogs.com/Tomorrowland/p/23592581</link>
+      <guid isPermaLink="true">https://www.cnblogs.com/Tomorrowland/p/23592581</guid>
+      <description><![CDATA[博客园发布科普文章，介绍知识蒸馏技术如何将数千亿参数的大模型压缩到手机、笔记本等终端设备上运行<br/><br/><b>为什么重要：</b>端侧部署是今年大模型落地的主战场，做移动端AI应用的开发者需要理解蒸馏的精度损失与压缩比权衡；关注点是蒸馏后小模型在具体任务上的能力保留率，以及DeepSeek-R1等推理模型能否被有效蒸馏到7B以下<br/><i>来源：博客园</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI时代为何追求100%测试覆盖率</title>
+      <link>https://juejin.cn/post/7705228164603723791</link>
+      <guid isPermaLink="true">https://juejin.cn/post/7705228164603723791</guid>
+      <description><![CDATA[一位开发者分享在AI编码时代重新审视测试覆盖率价值的实践与思考，认为AI生成代码使100%覆盖率从形式主义变为必要手段<br/><br/><b>为什么重要：</b>使用AI编码工具的开发者需要关注：AI生成代码的不可预测性提高了测试覆盖的边际收益，团队应重新评估覆盖率门槛与CI策略，下一步可关注AI生成代码的缺陷率与覆盖率之间的量化关系<br/><i>来源：掘金技术社区</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>开源AI代码编辑器RxCode支持团队协作</title>
+      <link>https://www.rxcode.dev/</link>
+      <guid isPermaLink="true">https://www.rxcode.dev/</guid>
+      <description><![CDATA[开发者发布开源AI代码编辑器RxCode，内置冲刺看板，可将任务分配给不同AI智能体<br/><br/><b>为什么重要：</b>把多智能体编排和冲刺管理塞进编辑器，意味着团队可以把重复性编码任务按看板分派给agent并行处理；做研发效能工具和AI编程助手的团队需要关注这种'agent即团队成员'的交互范式，下一步看它能否接入主流模型并跑通真实多人协作流程<br/><i>来源：Hacker News</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI编程Agent反复删除app.js文件引排查</title>
+      <link>https://www.cnblogs.com/zhenl/p/23591702</link>
+      <guid isPermaLink="true">https://www.cnblogs.com/zhenl/p/23591702</guid>
+      <description><![CDATA[开发者用Deepseek Harness搭配GLM5.3开发ComfyUI动漫软件时，前端修改后app.js多次莫名消失，补回后仍复现，遂开始排查根因<br/><br/><b>为什么重要：</b>用AI Agent写代码的开发者需要关注：Agent在长任务中可能静默破坏已有文件，且表面修复掩盖了根因，说明当前Agent的文件操作缺少事务性和回滚保障。下一步应关注Agent工具链是否引入变更审计与沙箱隔离，否则生产项目难以放心托管<br/><i>来源：博客园</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>强化学习算法地图：基于模型与无模型</title>
+      <link>https://juejin.cn/post/7705310384027156506</link>
+      <guid isPermaLink="true">https://juejin.cn/post/7705310384027156506</guid>
+      <description><![CDATA[掘金技术社区发布强化学习教程，用漫画和手算例题梳理策略迭代、价值迭代、蒙特卡洛树搜索等算法，区分基于模型与无模型两类方法<br/><br/><b>为什么重要：</b>适合刚入门强化学习的开发者建立算法选型框架：先判断环境模型是否已知，再决定用规划类方法还是边走边学的无模型方法，避免一上来就堆深度强化学习。后续可关注其配套代码与例题实现<br/><i>来源：掘金技术社区</i>]]></description>
+      <pubDate>2026-11-08 08:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lumiko：录屏自动缩放平移，剪辑零操作 - AI 玩法教程 · AI Frontier</title>
+<title>用AI编程Agent排查文件消失问题 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-07
+      2026-11-08
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">Lumiko：录屏自动缩放平移，剪辑零操作</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用AI编程Agent排查文件消失问题</h1>
     
   </div>
 </header>
@@ -59,23 +59,27 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+    博客园 AI 教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.producthunt.com/products/lumiko" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/zhenl/p/23591702" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">Stable Diffusion</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">Lumiko 是一款能自动为录屏添加缩放和平移效果的 AI 工具，让你无需手动剪辑就能获得专业级的视频动态感。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用 AI 编程 Agent 自动排查开发中文件莫名消失的诡异问题，把“玄学 bug”变成可复现、可修复的工程问题。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    在制作教程、产品演示或游戏录屏时，静态画面容易让观众失去焦点。传统剪辑需要手动打关键帧，耗时且不自然。Lumiko 利用 AI 分析录屏中的鼠标点击、输入和界面变化，自动生成平滑的缩放与平移，把枯燥的录屏变成有节奏的视觉引导。它特别适合软件教学、远程协作和内容创作者，能节省 80% 以上的剪辑时间。
+    作者在用 DeepSeek Harness（模型 GLM5.3）开发基于 ComfyUI 的动漫制作软件时，每次修改前端后 app.js 都会神秘消失。起初只是让 Agent 补文件，但反复出现后意识到必须根治。这个玩法展示了如何把 AI 编程 Agent 当作“结对调试员”，通过对话引导它阅读代码、分析文件操作逻辑、定位根因并给出修复方案，适合所有遇到偶发文件丢失、构建产物被误删等问题的开发者。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,16 +100,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Lumiko  <a href="https://www.producthunt.com/products/lumiko" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">核心工具，自动为录屏添加缩放平移效果</div>
+      <div class="font-semibold text-slate-900">DeepSeek Harness  <a href="https://www.deepseek.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">AI 编程 Agent 运行环境，用于对话式排查问题</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">录屏工具（如 OBS Studio、QuickTime、Loom）  <a href="https://obsproject.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于录制原始屏幕视频</div>
+      <div class="font-semibold text-slate-900">GLM5.3 模型  <a href="https://open.bigmodel.cn" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">作为 Agent 的推理模型，提供代码理解与根因分析能力</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">视频编辑软件（可选，如 DaVinci Resolve、剪映）  <a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于后期微调或导出</div>
+      <div class="font-semibold text-slate-900">ComfyUI  <a href="https://github.com/comfyanonymous/ComfyUI" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">动漫制作软件的基础框架，项目运行环境</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Stable Diffusion  <a href="https://stability.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">图像生成模型，项目功能依赖</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">VS Code 或任意编辑器  <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">查看项目文件与日志</div>
     </li>
   </ul>
 </section>
@@ -118,55 +130,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：录制高质量原始屏幕视频</h3>
-      <div class="text-base text-slate-700 leading-loose">使用 OBS Studio 或系统自带录屏工具，以 1080p 或更高分辨率录制你的操作过程。确保鼠标点击和键盘输入清晰可见，避免录制过程中切换窗口过于频繁。录制时尽量保持操作节奏平稳，这样 AI 分析会更准确。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：复现并记录文件消失现象</h3>
+      <div class="text-base text-slate-700 leading-loose">在修改前端代码后，立即检查 app.js 是否存在，记录消失前后的操作序列（如保存了哪个文件、执行了什么命令、是否触发了构建）。把现象整理成一段清晰的描述，包括出现频率和已尝试的临时补救措施。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议关闭无关通知，并调高鼠标指针大小，方便 AI 识别点击位置。
+          💡 <span class="font-semibold">小贴士：</span>用 git status 或文件监视工具确认文件是“被删除”还是“被重命名/移动”，这决定后续排查方向。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：将录屏导入 Lumiko</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 Lumiko 网页应用，点击“Upload”按钮上传你的录屏文件。支持 MP4、MOV 等常见格式，上传后系统会自动开始分析视频中的交互事件。等待进度条完成，通常 1 分钟视频需要 10-20 秒处理时间。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：向 AI Agent 描述问题并给出上下文</h3>
+      <div class="text-base text-slate-700 leading-loose">在 DeepSeek Harness 中打开项目，向 Agent 说明：“每次修改前端后 app.js 会消失，已出现多次，请阅读项目代码找出原因”。把复现步骤、项目结构、相关配置文件路径一并提供，让 Agent 有足够上下文。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果视频较长，可以先裁剪出核心片段再上传，处理更快。
+          💡 <span class="font-semibold">小贴士：</span>不要只说“文件没了”，要给出“修改前端→保存→app.js 消失”的因果链，Agent 定位会快很多。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：预览并调整自动生成的缩放平移</h3>
-      <div class="text-base text-slate-700 leading-loose">Lumiko 会生成一个带有动态缩放和平移的预览视频。你可以播放查看效果，AI 通常会在鼠标点击、输入框聚焦、菜单展开等位置自动放大。如果某些区域不需要缩放，可以在时间轴上取消勾选对应事件。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：引导 Agent 阅读代码并搜索文件操作</h3>
+      <div class="text-base text-slate-700 leading-loose">让 Agent 重点检查项目中所有涉及文件删除、重命名、构建清理的逻辑，例如 fs.unlink、rimraf、clean 脚本、webpack/vite 插件、文件监听器。要求它列出可疑代码位置并解释触发条件。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>优先保留关键操作点的缩放，避免全片都在运动，否则观众会晕。
+          💡 <span class="font-semibold">小贴士：</span>可以追加提示：“请搜索所有删除文件的调用，并说明在什么操作下会被触发”，避免 Agent 泛泛而谈。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：微调参数与风格</h3>
-      <div class="text-base text-slate-700 leading-loose">在右侧面板调整“缩放强度”“平移速度”“平滑度”等参数。缩放强度建议 1.5x-2.5x，平移速度选择“中等”或“慢速”更自然。还可以开启“跟随鼠标”模式，让镜头始终追踪光标。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：让 Agent 给出根因假设与验证方法</h3>
+      <div class="text-base text-slate-700 leading-loose">要求 Agent 基于代码阅读结果，给出最可能的根因假设，并设计一个最小验证实验（如临时注释掉某段清理逻辑、加日志打印删除调用栈）。按建议执行验证，确认是否复现消失。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果视频用于移动端观看，适当降低缩放强度，避免画面裁剪过多。
+          💡 <span class="font-semibold">小贴士：</span>让 Agent 输出“假设→验证→结论”的表格，排查过程会更清晰，也方便回滚。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：导出并分享</h3>
-      <div class="text-base text-slate-700 leading-loose">确认效果后，点击“Export”导出视频。Lumiko 支持导出 MP4 格式，分辨率可选 720p、1080p 或 4K。导出后可直接上传到 YouTube、B站或嵌入到文档中。如果需要进一步剪辑，可以导出为 XML 时间线导入到 DaVinci Resolve。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：实施修复并让 Agent 复查</h3>
+      <div class="text-base text-slate-700 leading-loose">根据确认的根因修改代码（如调整清理脚本的匹配规则、修复文件监听误删逻辑），然后让 Agent 复查修改是否引入新风险。最后重复第1步的复现操作，确认 app.js 不再消失。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>导出前先预览一遍完整视频，确保没有遗漏或错误的缩放区域。
+          💡 <span class="font-semibold">小贴士：</span>修复后让 Agent 生成一段回归测试或检查清单，防止同类问题再次出现。
         </div>
     </div>
   </div>
@@ -176,7 +188,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你会得到一个带有智能缩放和平移效果的录屏视频，画面会在关键操作处自动放大并平滑移动，看起来像专业剪辑师手动打的关键帧，但全程无需你操作时间轴。
+    AI Agent 定位到导致 app.js 被删除的具体代码逻辑（如构建清理脚本误匹配、文件监听器误删），给出修复方案；修改后反复修改前端，app.js 稳定存在，问题彻底解决。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -186,38 +198,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Lumiko 支持哪些录屏格式？</span>
+        <span>AI Agent 读不懂整个项目怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">支持 MP4、MOV、AVI 等主流格式，推荐使用 MP4（H.264 编码）以获得最佳兼容性。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先缩小范围，只把与文件操作相关的目录和配置文件提供给 Agent，或让它分模块阅读，避免一次性塞入过多代码。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>自动缩放效果不准确怎么办？</span>
+        <span>Agent 给出的根因不确定，如何判断？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以在时间轴上手动删除或添加缩放事件，也可以调整“灵敏度”参数让 AI 更激进或保守。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">要求 Agent 设计最小验证实验，通过注释代码、加日志、打印调用栈等方式实际验证，不要直接采信假设。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Lumiko 是免费的吗？</span>
+        <span>文件消失但 Agent 找不到删除调用怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Lumiko 提供免费试用版，导出视频可能带有水印或时长限制。付费版解锁无水印、4K 导出和批量处理。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查是否有外部工具（如杀毒软件、同步盘、IDE 插件）或系统级清理任务，让 Agent 分析项目外的可能性，并用文件监视工具抓现场。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>处理一个 10 分钟的视频需要多久？</span>
+        <span>这个玩法只能用于文件消失问题吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常需要 1-3 分钟，具体取决于视频分辨率和服务器负载。建议先裁剪再上传。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>可以只对部分片段应用自动缩放吗？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。在时间轴上选择需要处理的区间，然后点击“仅对此段应用 AI 缩放”即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是，任何偶发、难以复现的 bug 都可以用同样的“描述现象→提供上下文→引导搜索→假设验证→修复复查”流程。</div>
     </details>
   </div>
 </section>
@@ -225,14 +230,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：结合 Loom 录制，直接使用 Lumiko 的 API 自动处理，实现“录制-上传-导出”全自动化流水线。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：将 Lumiko 导出的视频导入剪映，添加字幕和背景音乐，制作成完整的教学短视频。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用于游戏录屏，开启“高动态模式”让 AI 根据击杀或爆炸事件自动缩放，增强观赏性。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用 AI Agent 排查构建产物被误删问题——把“app.js 消失”换成“dist 目录被清空”，流程完全复用。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：让 Agent 自动生成文件操作审计脚本——在项目中加入日志埋点，记录所有删除/重命名调用，便于后续排查。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把排查过程整理成团队 SOP——将 Agent 的假设验证表沉淀为调试模板，用于其他偶发 bug 的排查。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    Lumiko 把录屏剪辑中最枯燥的缩放平移交给 AI，你只需录制和微调，就能让视频拥有专业级的视觉节奏。
+    把 AI 编程 Agent 当作结对调试员，用“现象描述+上下文+引导搜索+假设验证”的闭环，把玄学文件消失问题变成可定位、可修复的工程问题。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -242,18 +247,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可编排的 AI Agent 工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
     </a></div>
 </section>
 

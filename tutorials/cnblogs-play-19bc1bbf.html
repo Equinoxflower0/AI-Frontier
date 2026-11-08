@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ruby UTCP：MCP 的安全替代方案 - AI 玩法教程 · AI Frontier</title>
+<title>用知识蒸馏把大模型压缩进手机 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-07
+      2026-11-08
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★☆☆☆ · 2/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">Ruby UTCP：MCP 的安全替代方案</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用知识蒸馏把大模型压缩进手机</h1>
     
   </div>
 </header>
@@ -59,23 +59,27 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+    博客园 AI 教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.producthunt.com/products/utcp" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/Tomorrowland/p/23592581" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">Ruby UTCP 是一个比 MCP 更安全、更易扩展的工具调用协议，本教程带你从零跑通一个 UTCP 工具链，让 AI 安全地调用本地或远程函数。</p>
+  <p class="text-base text-slate-800 leading-relaxed">知识蒸馏就像让一位“学霸老教授”把毕生功力浓缩成一本“随身笔记”，塞进你的手机里。本文手把手教你用 DeepSeek 模型完成一次完整的蒸馏实验，让大模型在本地也能跑起来。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    MCP（Model Context Protocol）虽然流行，但存在权限过大、缺乏细粒度审计等安全隐患。UTCP（Universal Tool Calling Protocol）由 Ruby 社区推出，主打“安全替代 MCP”，通过声明式工具定义和沙箱执行，让 AI 只能调用你明确授权的函数。它适合需要让 AI 操作数据库、文件系统或内部 API，但又不想开放全盘权限的开发者。本教程基于 Product Hunt 上的 Ruby UTCP 项目，带你完成一次最小可用的工具调用。
+    顶级大模型（如 DeepSeek-R1）能力强大但参数动辄千亿，显存和算力要求极高，无法直接部署在手机或笔记本上。知识蒸馏通过让一个小模型（学生）模仿大模型（教师）的输出分布，把“学霸大脑”压缩成轻量级版本。这个玩法适合想在自己的设备上离线运行 AI、学习模型压缩技术、或为特定任务定制小模型的开发者。掌握后，你可以把任意大模型的能力迁移到手机端，实现隐私安全、低延迟的本地推理。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +100,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Ruby 3.2+  <a href="https://www.ruby-lang.org/zh_cn/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行 UTCP 服务端和客户端的基础环境</div>
+      <div class="font-semibold text-slate-900">DeepSeek 开放平台  <a href="https://platform.deepseek.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">获取教师模型的 API 密钥，用于生成蒸馏数据</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Bundler  <a href="https://bundler.io/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">管理 Ruby 依赖</div>
+      <div class="font-semibold text-slate-900">Hugging Face Transformers  <a href="https://huggingface.co/docs/transformers" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">加载学生模型和训练脚本的核心库</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">UTCP Ruby Gem  <a href="https://rubygems.org/gems/utcp" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">核心协议实现，提供工具注册与调用接口</div>
+      <div class="font-semibold text-slate-900">Google Colab 或本地 GPU 环境  <a href="https://colab.research.google.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">提供训练所需的算力（建议至少 16GB 显存）</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">任意 LLM API（如 OpenAI、Claude 或本地 Ollama）  <a href="https://platform.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于生成工具调用请求，也可用 curl 手动模拟</div>
+      <div class="font-semibold text-slate-900">PyTorch  <a href="https://pytorch.org" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">深度学习框架，用于实现蒸馏损失和训练循环</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Product Hunt 参考页  <a href="https://www.producthunt.com/products/utcp" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">查看项目背景和讨论</div>
+      <div class="font-semibold text-slate-900">学生模型（如 Qwen2.5-0.5B）  <a href="https://huggingface.co/Qwen/Qwen2.5-0.5B" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">轻量级模型，作为蒸馏的目标载体</div>
     </li>
   </ul>
 </section>
@@ -126,55 +130,44 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：初始化 Ruby 项目并安装 UTCP</h3>
-      <div class="text-base text-slate-700 leading-loose">在终端执行 `mkdir utcp-demo &amp;&amp; cd utcp-demo &amp;&amp; bundle init`，然后编辑 Gemfile 加入 `gem 'utcp'`，运行 `bundle install`。接着创建 `server.rb` 和 `client.rb` 两个文件。确保 Ruby 版本不低于 3.2，否则部分语法会报错。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：准备教师模型 API 并生成蒸馏数据集</h3>
+      <div class="text-base text-slate-700 leading-loose">注册 DeepSeek 开放平台并获取 API Key。准备一批任务相关的提示词（如数学题、代码片段、日常问答），用脚本批量调用 DeepSeek-R1 的 API，获取每个提示词对应的完整输出（包括推理过程和最终答案）。将结果保存为 JSONL 格式，每行包含 prompt 和 response 字段。建议至少生成 5000 条样本，覆盖目标场景的多样性。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果 gem 安装慢，可以换国内源：`bundle config mirror.https://rubygems.org https://gems.ruby-china.com`。
+          💡 <span class="font-semibold">小贴士：</span>调用 API 时设置 temperature=0.7 增加输出多样性，同时记录 token 用量以控制成本。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 UTCP 声明一个安全工具（只读文件）</h3>
-      <div class="text-base text-slate-700 leading-loose">在 `server.rb` 中引入 UTCP，定义一个名为 `read_safe_file` 的工具，限制只能读取 `/tmp/utcp-demo/` 目录下的文件。使用 `UTCP::Tool.define` 指定参数 schema（如 `path` 字符串），并在执行块中校验路径前缀。这样即使 AI 请求 `/etc/passwd` 也会被拒绝。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：加载学生模型并配置蒸馏训练环境</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Colab 或本地环境中安装 transformers、datasets、accelerate 等库。使用 AutoModelForCausalLM 加载轻量学生模型（如 Qwen2.5-0.5B），并加载对应的 tokenizer。将第1步生成的数据集划分为训练集和验证集（9:1），并用 tokenizer 对 prompt 和 response 进行编码，设置最大长度（如 512）。配置 TrainingArguments，指定学习率（如 5e-5）、批次大小和训练轮数（3-5 轮）。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>工具描述里写清楚“仅允许读取 /tmp/utcp-demo/ 下的文件”，LLM 会更少乱试。
+          💡 <span class="font-semibold">小贴士：</span>学生模型参数量建议在 0.5B 以下，否则手机端推理仍然吃力；训练时开启 gradient_checkpointing 节省显存。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：启动 UTCP 服务端并注册工具</h3>
-      <div class="text-base text-slate-700 leading-loose">在 `server.rb` 末尾调用 `UTCP::Server.start(port: 4567)`，并注册刚才的工具。运行 `ruby server.rb`，看到 `UTCP server listening on 4567` 即成功。服务端会自动生成一个工具清单 JSON，可通过 `curl http://localhost:4567/tools` 查看。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：实现知识蒸馏损失并开始训练</h3>
+      <div class="text-base text-slate-700 leading-loose">定义蒸馏损失函数：除了标准的交叉熵损失（学生输出与真实标签），加入 KL 散度损失，让学生模型的输出分布逼近教师模型的输出分布。教师模型的输出概率可以通过对第1步保存的 response 进行前向计算得到（或直接使用 API 返回的 logprobs）。将两种损失加权求和（如 0.3*CE + 0.7*KL），用 Trainer 或自定义训练循环进行训练。训练过程中监控验证集损失，防止过拟合。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>生产环境建议加上 `--auth-token` 参数，UTCP 支持简单 Bearer Token 验证。
+          💡 <span class="font-semibold">小贴士：</span>如果 API 不返回 logprobs，可以用温度缩放（temperature=2）后的 softmax 输出作为软标签，效果接近。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：编写客户端，让 LLM 生成工具调用</h3>
-      <div class="text-base text-slate-700 leading-loose">在 `client.rb` 中先获取工具清单，然后把清单和用户问题（例如“读取 /tmp/utcp-demo/hello.txt 的内容”）一起发给 LLM。LLM 会返回一个 JSON 格式的工具调用请求，例如 `{&quot;tool&quot;:&quot;read_safe_file&quot;,&quot;args&quot;:{&quot;path&quot;:&quot;/tmp/utcp-demo/hello.txt&quot;}}`。客户端解析后通过 UTCP 的 `call_tool` 方法发送到服务端。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：评估蒸馏后模型并导出为手机可用格式</h3>
+      <div class="text-base text-slate-700 leading-loose">在验证集上对比学生模型与教师模型的输出质量（如准确率、BLEU 分数或人工评分）。若效果达标，使用 optimum 或 llama.cpp 将模型转换为 ONNX 或 GGUF 格式，并量化到 4-bit（如 Q4_K_M），大幅减小模型体积。最后将量化后的模型文件拷贝到手机，用 MLC LLM 或 llama.cpp 的移动端示例加载运行，测试推理速度和内存占用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果不想接真实 LLM，可以手动构造这个 JSON 来测试，效果一样。
-        </div>
-    </div>
-    <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
-      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
-        5
-      </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：执行调用并验证安全拦截</h3>
-      <div class="text-base text-slate-700 leading-loose">服务端收到请求后，UTCP 会先校验参数 schema，再执行工具块。对于合法路径，返回文件内容；对于非法路径（如 `/etc/passwd`），返回 `Permission denied` 错误。客户端把结果回传给 LLM 或直接打印。你可以在 `server.rb` 里加日志，观察每次调用的参数和结果。</div>
-      
-        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>用 `tail -f` 看服务端日志，能清楚看到哪些请求被拦截，方便调试。
+          💡 <span class="font-semibold">小贴士：</span>量化后精度会有轻微下降，建议在转换前后各跑一次评估，确保下降在可接受范围内（如 &lt;5%）。
         </div>
     </div>
   </div>
@@ -184,7 +177,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你得到一个可运行的 UTCP 工具链：LLM 能安全地请求读取指定目录下的文件，非法路径被自动拒绝。终端会显示工具调用日志和返回内容，证明 UTCP 的权限控制生效。
+    你得到一个体积仅几百 MB 的量化学生模型，能在手机或笔记本上离线运行，针对你选择的场景（如数学解题、代码补全）输出质量接近 DeepSeek-R1 的 70%-85%，推理延迟低于 2 秒。同时你掌握了完整的蒸馏流程，可复用到其他模型和任务。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +187,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>UTCP 和 MCP 到底有什么区别？</span>
+        <span>没有 GPU 能做知识蒸馏吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">MCP 通常把整个工具集暴露给 AI，权限较粗；UTCP 强调每个工具独立声明、沙箱执行和细粒度路径/参数校验，更适合安全敏感场景。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但训练会非常慢。建议使用 Google Colab 免费 GPU 或租用云 GPU（如 AutoDL），成本约几元/小时。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>必须用 Ruby 吗？</span>
+        <span>蒸馏需要多少数据？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">目前官方实现是 Ruby，但协议本身是语言无关的，社区已有 Python/Node 的试验性客户端。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">至少 3000-5000 条高质量样本。数据越贴近目标场景，蒸馏效果越好；也可用公开指令数据集（如 Alpaca）替代。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 LLM API 能玩吗？</span>
+        <span>学生模型选多大合适？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，手动构造工具调用 JSON 发给 UTCP 服务端即可，教程第4步的 tip 有说明。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">手机端建议 0.5B 以下（如 Qwen2.5-0.5B、TinyLlama-1.1B 量化后也可）。若只做特定任务，甚至可以用 0.1B 级别模型。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>UTCP 支持流式输出吗？</span>
+        <span>蒸馏后的模型能完全替代教师模型吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">当前版本主要支持请求-响应模式，流式工具调用在路线图中，可关注 Product Hunt 页面更新。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能。蒸馏是能力迁移，学生模型在通用能力上会弱于教师，但在特定任务上可以接近。适合对成本和隐私敏感的场景。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何添加更多工具？</span>
+        <span>API 调用成本高吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在 server.rb 里继续用 `UTCP::Tool.define` 定义新工具并注册，客户端会自动从 `/tools` 获取最新清单。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">DeepSeek API 价格较低，生成 5000 条样本（每条约 500 token）成本约几元到十几元，远低于自己训练大模型。</div>
     </details>
   </div>
 </section>
@@ -233,14 +226,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把工具换成“查询 SQLite 数据库”，限制只能执行 SELECT 语句，防止 AI 删表。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 UTCP 包装一个内部 HTTP API，让 AI 只能调用白名单内的端点，并自动记录审计日志。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合 Ollama 本地模型，完全离线运行 UTCP 工具链，适合隐私要求高的环境。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用本地大模型替代 API——在电脑上运行 DeepSeek-R1 蒸馏版（如 7B）作为教师，完全离线生成数据，适合隐私要求极高的场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：多教师蒸馏——同时用 DeepSeek-R1 和另一个模型（如 Qwen）作为教师，让学生模型学习两者的融合输出，提升鲁棒性。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：任务特化蒸馏——只针对单一任务（如 SQL 生成）构造提示词，蒸馏出极小的专家模型（&lt;100MB），可嵌入浏览器插件或手机 App。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    UTCP 用声明式工具和沙箱执行，让 AI 调用工具时既灵活又安全，是 MCP 的轻量级安全替代方案。
+    知识蒸馏的精髓是“用大模型教小模型”，你只需要一批提示词、一个 API 和一个轻量学生模型，就能把学霸大脑装进口袋。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,18 +243,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可编排的 AI Agent 工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
     </a></div>
 </section>
 

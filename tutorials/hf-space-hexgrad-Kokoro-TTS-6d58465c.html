@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Basedash Models：定义一次，像查表一样查询 - AI 玩法教程 · AI Frontier</title>
+<title>用Kokoro TTS在线生成语音 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-07
+      2026-11-08
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🔗 工具链
+        🚀 可立即试用
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 30min
+        ⏱ 约 10min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">Basedash Models：定义一次，像查表一样查询</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Kokoro TTS在线生成语音</h1>
     
   </div>
 </header>
@@ -58,24 +58,28 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+    HuggingFace Spaces · A级
   </span>
   
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    技术社区
+    权威媒体
   </span>
-  <a href="https://www.producthunt.com/products/basedash" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://huggingface.co/spaces/hexgrad/Kokoro-TTS" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">HF</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">Basedash Models 让你把散落在 SQL、API、CSV 里的数据源，用一段声明式定义变成一张可以像查表一样查询的虚拟表，从此告别重复写 JOIN 和清洗逻辑。</p>
+  <p class="text-base text-slate-800 leading-relaxed">Kokoro TTS 是一个轻量级、高质量的文本转语音模型，现在你可以在 HuggingFace Spaces 上直接在线试用，无需本地部署，打开网页就能生成自然语音。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多团队的数据分析流程是：从数据库拉原始表 → 在 BI 工具里写复杂 SQL → 每次换维度都要重写。Basedash Models 的思路是「定义一次，查询多次」：你先把业务逻辑（比如「活跃用户」= 过去 7 天登录且完成过订单）用模型定义好，之后无论是产品经理查数、运营拉名单，还是接 API 做自动化，都直接 SELECT * FROM 这个模型即可。它适合数据工程师、分析师和需要频繁取数的运营团队，能显著减少重复沟通和 SQL 复制粘贴。
+    Kokoro TTS 由 hexgrad 团队开发，是一个参数量仅 8200 万的 TTS 模型，但语音质量却能与更大模型媲美。它支持多种音色和语言，生成速度快，非常适合用于视频配音、有声书制作、播客生成等场景。HuggingFace Spaces 提供了免费的在线 Demo，让你零门槛体验。本教程将带你从零开始，快速上手这个工具，并分享一些实用技巧和进阶玩法。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,16 +100,16 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Basedash 账号  <a href="https://www.producthunt.com/products/basedash" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于创建和管理 Models，支持连接多种数据源</div>
+      <div class="font-semibold text-slate-900">HuggingFace 账号  <a href="https://huggingface.co/join" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于访问 Spaces 和保存生成结果（可选，但建议注册）</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一个可访问的数据库或数据源  <a href="https://www.basedash.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">如 PostgreSQL、MySQL、BigQuery、Snowflake 或 CSV 文件</div>
+      <div class="font-semibold text-slate-900">现代浏览器  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Chrome、Edge、Firefox 等，确保支持 Web Audio API</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">基础 SQL 知识  <a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">能看懂 SELECT、JOIN、WHERE 即可，不需要会写复杂查询</div>
+      <div class="font-semibold text-slate-900">文本素材  <a href="https://example.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">准备一段你想转换成语音的文字，建议先短后长</div>
     </li>
   </ul>
 </section>
@@ -118,55 +122,44 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：连接你的数据源</h3>
-      <div class="text-base text-slate-700 leading-loose">登录 Basedash 后，进入 Settings → Data Sources，选择你的数据库类型（如 PostgreSQL），填入主机、端口、数据库名、用户名和密码。测试连接成功后保存。如果你用的是 CSV，也可以直接上传文件作为数据源。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：打开 Kokoro TTS 在线 Demo</h3>
+      <div class="text-base text-slate-700 leading-loose">在浏览器中访问 https://huggingface.co/spaces/hexgrad/Kokoro-TTS。页面加载后，你会看到一个 Gradio 界面，包含文本输入框、音色选择下拉菜单和生成按钮。如果页面显示“Sleeping”或加载缓慢，可以点击“Restart this Space”唤醒实例。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议先用只读账号连接，避免误操作生产数据。
+          💡 <span class="font-semibold">小贴士：</span>HF Spaces 免费实例有时会休眠，唤醒需要几十秒，耐心等待即可。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：创建一个 Model 并定义业务逻辑</h3>
-      <div class="text-base text-slate-700 leading-loose">点击 Models → New Model，给它起一个业务化的名字，比如 active_users。在定义区里写一段 SQL 或使用可视化选择器：从 users 表 JOIN orders 表，筛选最近 7 天有登录且订单数大于 0 的用户。Basedash 会把这段逻辑保存为模型，而不是每次查询时重写。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：输入文本并选择音色</h3>
+      <div class="text-base text-slate-700 leading-loose">在文本框中输入你想转换的文字，支持英文和部分其他语言（具体看模型支持列表）。然后从“Voice”下拉菜单中选择一个音色，例如“af_heart”（女声）或“am_adam”（男声）。你还可以调整语速（Speed）参数，默认 1.0，数值越大语速越快。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>模型命名尽量用业务语言，比如「高价值客户」而不是「users_join_orders_v2」。
+          💡 <span class="font-semibold">小贴士：</span>初次使用建议先用短句测试，比如“Hello, this is a test.”，快速熟悉流程。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：像查表一样查询 Model</h3>
-      <div class="text-base text-slate-700 leading-loose">保存模型后，在 Query 编辑器里直接输入 SELECT * FROM active_users WHERE country = 'CN' LIMIT 100。你会发现不需要再写 JOIN 和子查询，模型已经帮你封装好了。也可以在产品界面里用筛选器点选，Basedash 会自动生成查询。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：生成并试听语音</h3>
+      <div class="text-base text-slate-700 leading-loose">点击“Generate”按钮，等待几秒钟，页面下方会出现音频播放器。点击播放按钮试听效果。如果满意，可以点击播放器右侧的下载按钮保存为 WAV 文件。如果不满意，调整音色或语速后重新生成。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把常用筛选条件保存为视图，下次一键调用。
+          💡 <span class="font-semibold">小贴士：</span>生成时间与文本长度有关，长文本可能需要等待更久，建议分段生成。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：分享与协作</h3>
-      <div class="text-base text-slate-700 leading-loose">点击模型右上角的 Share，把链接发给产品经理或运营同事。他们不需要懂 SQL，直接在界面上筛选、排序、导出 CSV。你还可以设置权限，控制谁能看哪些模型。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：批量生成与拼接（可选）</h3>
+      <div class="text-base text-slate-700 leading-loose">如果需要生成大段语音，可以将文本分成多个段落，分别生成并下载。然后使用音频编辑软件（如 Audacity）或在线工具（如 Audio Joiner）将多个 WAV 文件拼接成一个完整音频。注意保持音色和语速一致。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>给模型加上描述和字段说明，减少「这个字段什么意思」的沟通成本。
-        </div>
-    </div>
-    <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
-      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
-        5
-      </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：接入 API 或自动化流程</h3>
-      <div class="text-base text-slate-700 leading-loose">Basedash 为每个模型生成 REST API 端点。你可以在 Zapier、Make 或自己的后端服务里调用这个 API，把模型数据同步到 Google Sheets、发送 Slack 通知或写入数据仓库。</div>
-      
-        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>API 返回的是 JSON，建议在调用方做一层缓存，避免频繁请求。
+          💡 <span class="font-semibold">小贴士：</span>分段时尽量在自然停顿处切分，避免拼接后听起来突兀。
         </div>
     </div>
   </div>
@@ -176,7 +169,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你会在 Basedash 里看到一个名为 active_users 的模型，点击即可预览数据；在 Query 编辑器里用 SELECT * FROM active_users 能直接返回结果；分享链接后，非技术同事也能自助筛选和导出。
+    完成上述步骤后，你将获得一个或多个 WAV 音频文件，内容为你输入的文本，音色自然、发音清晰。你可以直接播放或导入到视频编辑软件中使用。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -186,38 +179,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Basedash Models 和普通 SQL 视图有什么区别？</span>
+        <span>Kokoro TTS 支持中文吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">普通视图通常只存在于数据库里，而 Basedash Models 是跨数据源的抽象层，可以混合 SQL 表、API 和 CSV，并且自带权限、分享和 API 能力。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">目前 Kokoro TTS 主要支持英语，部分音色可能支持其他语言，但中文支持有限。建议查看模型文档确认最新支持的语言列表。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>我需要会写复杂 SQL 吗？</span>
+        <span>生成的音频可以商用吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要。基础 SELECT 和 JOIN 就够，Basedash 也提供可视化查询构建器，复杂逻辑可以请数据工程师一次性定义好。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Kokoro TTS 模型采用 Apache 2.0 许可证，生成的音频一般可商用，但建议查看模型页面的具体许可说明，并遵守 HuggingFace 的使用条款。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>模型定义后，底层表结构变了怎么办？</span>
+        <span>为什么生成按钮点击后没反应？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">如果底层字段改名或删除，模型会报错。建议在 Basedash 里开启 schema 监控，或者用 dbt 等工具管理上游变更。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可能是 Space 实例正在休眠或排队，尝试刷新页面或点击“Restart this Space”。也有可能是文本过长导致超时，尝试缩短文本。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>免费版够用吗？</span>
+        <span>如何获得更自然的情感表达？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Basedash 提供免费试用，适合小团队验证。如果模型数量多、需要 API 调用或细粒度权限，建议升级到付费版。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Kokoro TTS 目前情感控制有限，但你可以通过调整语速、选择不同音色，以及在文本中加入标点符号（如逗号、句号）来模拟停顿和语气。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>能连接多个数据源到一个模型吗？</span>
+        <span>可以离线使用 Kokoro TTS 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。Basedash 支持跨源 JOIN，比如把 PostgreSQL 的用户表和 Google Sheets 的订单表关联起来。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，模型权重在 HuggingFace 上公开，你可以下载并本地部署，但需要一定的编程和環境配置经验。在线 Demo 是最快捷的方式。</div>
     </details>
   </div>
 </section>
@@ -225,14 +218,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把模型当作内部数据 API——用 Basedash 定义好「每日活跃用户」「月度收入」等模型，前端或移动端直接调用 API 获取数据，省去后端写接口。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用模型做自动化报表——将模型 API 接入 Google Sheets 或 Notion，设置定时刷新，每天自动生成运营日报。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：多团队共享语义层——市场、销售、产品各自定义自己的模型，但都基于同一套底层表，避免口径不一致。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：使用 Python 脚本调用 Kokoro TTS 模型，实现批量文本转语音，适合自动化工作流。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：将生成的语音与视频编辑软件（如剪映、Premiere）结合，为短视频自动配音。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：尝试其他 HF Spaces 上的 TTS 模型（如 Bark、Coqui TTS），对比不同模型的音质和风格。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    Basedash Models 的精髓是：把业务逻辑从重复 SQL 中抽出来，定义一次，之后所有人像查表一样查询。
+    Kokoro TTS 在线 Demo 让你零代码快速生成高质量语音，通过简单几步即可为你的项目添加自然配音。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -240,19 +233,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-hf-space-mrfakename/Z-Image-Turbo" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">HuggingFace Spaces · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Z Image Turbo在线快速生成图片</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-hf-space-selfit-camera/Omni-Image-Editor" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">HuggingFace Spaces · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 Omni Image Editor 在线修图改图</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可编排的 AI Agent 工作流</div>
+    <a href="../playground.html#play-github-play-awesome-llm" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome LLM · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用100+开源AI Agent与RAG应用快速搭建原型</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

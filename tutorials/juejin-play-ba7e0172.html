@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>粘贴前先脱敏，AI 随便用 - AI 玩法教程 · AI Frontier</title>
+<title>用Tauri 2和Rust做Windows提醒笔记启动器 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-08
+      2026-11-09
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★★ · 5/5
+        ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">粘贴前先脱敏，AI 随便用</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Tauri 2和Rust做Windows提醒笔记启动器</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+    掘金 AI 实战教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.producthunt.com/products/tim-pg" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7705782451822690355" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">在把公司文档、客户信息或代码粘贴进 ChatGPT、Claude 等 AI 工具之前，先用脱敏工具把敏感数据替换掉，既能享受 AI 的便利，又不会泄露隐私。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用 Tauri 2 + Rust 打造一个 Windows 桌面小工具，一句话设提醒、随手记笔记、顺手启动程序，免费开源还轻量。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    越来越多的人在日常工作中使用 AI 助手处理邮件、合同、代码和数据分析，但直接粘贴原文往往包含手机号、邮箱、身份证号、API Key、客户名单等敏感信息。一旦这些数据进入第三方 AI 服务，就可能被用于训练、被员工查看或遭遇泄露。Product Hunt 上推出的 Tim 等工具，正是为了解决「用 AI 之前先脱敏」这个痛点。掌握这套流程后，你可以放心地把任何文本交给 AI 处理，而不必担心合规和安全问题。
+    日常工作中，我们经常需要快速记下灵感、设置一个临时提醒，或者打开某个常用软件。但打开笔记应用、设置闹钟、找到程序图标这些操作太繁琐。这个玩法教你用 Tauri 2 和 Rust 构建一个极简的 Windows 启动器，把提醒、笔记和程序启动三合一，常驻托盘，随叫随到。它适合喜欢折腾桌面效率工具的开发者，也适合想学习 Tauri 跨端开发的新手。整个项目代码量不大，难度适中，跟着教程走就能跑起来。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,16 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Tim  <a href="https://www.producthunt.com/products/tim-pg" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">浏览器扩展或网页工具，自动识别并替换文本中的敏感信息</div>
+      <div class="font-semibold text-slate-900">Rust 工具链  <a href="https://www.rust-lang.org/tools/install" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编译 Rust 代码，需安装 rustup 并配置 MSVC 工具链</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ChatGPT / Claude / Gemini  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">任意你常用的 AI 对话工具，用于接收脱敏后的文本</div>
+      <div class="font-semibold text-slate-900">Node.js (&gt;=18)  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行前端构建工具和包管理器</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">文本编辑器（可选）  <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">如 VS Code、Notepad++，用于手动检查和替换</div>
+      <div class="font-semibold text-slate-900">Tauri CLI  <a href="https://tauri.app/start/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">创建和构建 Tauri 项目，通过 cargo install tauri-cli 或 npm 安装</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Visual Studio Build Tools  <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Windows 上编译 Rust 所需的 C++ 构建工具</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">WebView2 Runtime  <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Windows 10/11 通常已内置，用于渲染 Tauri 前端界面</div>
     </li>
   </ul>
 </section>
@@ -118,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装并启用脱敏工具</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 Tim 的 Product Hunt 页面，根据提示安装浏览器扩展或注册网页版账号。安装后固定在浏览器工具栏，确保在任意网页上都能一键调用。如果你使用公司电脑，请先确认 IT 政策允许安装此类扩展。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：初始化 Tauri 2 项目</h3>
+      <div class="text-base text-slate-700 leading-loose">打开终端，运行 `npm create tauri-app@latest`，按提示输入项目名（如 reminder-launcher），选择前端框架（推荐 Vanilla 或 React），包管理器选 npm。进入项目目录后执行 `npm install` 安装依赖。最后运行 `npm run tauri dev` 确认默认窗口能正常启动。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>优先选择本地处理、不上传原文的脱敏工具，避免二次泄露。
+          💡 <span class="font-semibold">小贴士：</span>如果遇到 Rust 编译错误，检查是否安装了 MSVC 构建工具，并确保 rustup 默认工具链为 stable-x86_64-pc-windows-msvc。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：粘贴原文并自动识别敏感信息</h3>
-      <div class="text-base text-slate-700 leading-loose">把需要交给 AI 的文本复制到 Tim 的输入框中，工具会自动扫描手机号、邮箱、身份证号、银行卡号、API Key、IP 地址等常见敏感字段。检查识别结果，确认没有漏掉你关心的自定义关键词（如内部项目代号）。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：设计主界面与交互逻辑</h3>
+      <div class="text-base text-slate-700 leading-loose">在 src 目录下编辑前端页面，添加一个输入框用于输入指令，一个按钮用于提交。指令格式约定为：`提醒 10:30 开会`、`笔记 买牛奶`、`启动 notepad`。用 JavaScript 监听按钮点击，将输入内容通过 Tauri 的 invoke 函数发送到 Rust 后端。同时可以加一个简单的历史记录列表，展示最近的操作。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果工具支持自定义正则，把公司内部术语也加进去，脱敏更彻底。
+          💡 <span class="font-semibold">小贴士：</span>输入框支持回车提交，体验更顺手；用 localStorage 暂存历史记录，刷新不丢失。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：一键替换为占位符</h3>
-      <div class="text-base text-slate-700 leading-loose">点击「Anonymize」或「脱敏」按钮，工具会把敏感信息替换成 [PHONE_1]、[EMAIL_2]、[API_KEY_3] 这类占位符，并生成一份映射表。复制脱敏后的文本，此时原文中已不含真实敏感数据。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：Rust 后端实现三大功能</h3>
+      <div class="text-base text-slate-700 leading-loose">在 src-tauri/src/main.rs 中定义三个 Tauri command：`set_reminder` 解析时间并启动一个异步任务，到点后调用系统通知；`save_note` 将笔记内容追加写入本地文件（如 notes.txt）；`launch_app` 使用 std::process::Command 启动指定程序（如 notepad.exe）。每个 command 返回 Result 给前端反馈。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>映射表要保存在本地或密码管理器中，不要和脱敏文本一起发给 AI。
+          💡 <span class="font-semibold">小贴士：</span>提醒功能可以用 tokio 的 sleep 实现，注意在 Tauri 的异步运行时中 spawn 任务；启动程序时对参数做简单校验，避免命令注入。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：把脱敏文本粘贴给 AI 处理</h3>
-      <div class="text-base text-slate-700 leading-loose">将脱敏后的文本粘贴到 ChatGPT、Claude 等 AI 工具中，正常提问、总结、翻译或写代码。AI 看到的是占位符，不会接触到真实隐私。如果 AI 需要理解上下文，可以在提示词里说明「[PHONE_1] 代表一个手机号」。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：配置系统托盘与全局快捷键</h3>
+      <div class="text-base text-slate-700 leading-loose">在 tauri.conf.json 中启用托盘图标，并在 Rust 端使用 Tauri 的 TrayIconBuilder 创建托盘菜单，包含“显示主窗口”和“退出”。同时注册全局快捷键（如 Ctrl+Shift+Space）唤起窗口，方便随时输入指令。需要引入 tauri-plugin-global-shortcut 插件并在配置中启用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不要在同一对话里既发脱敏文本又发映射表，否则脱敏就白做了。
+          💡 <span class="font-semibold">小贴士：</span>托盘图标建议用 .ico 格式，尺寸 32x32；全局快捷键不要与系统常用快捷键冲突。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：拿回结果后还原真实数据</h3>
-      <div class="text-base text-slate-700 leading-loose">AI 返回结果后，把结果复制回 Tim 或手动对照映射表，将占位符替换回真实信息。检查一遍替换是否完整，尤其是多个相同占位符的情况。最终得到一份既经过 AI 处理、又保留真实数据的成品。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：打包为 Windows 安装包</h3>
+      <div class="text-base text-slate-700 leading-loose">运行 `npm run tauri build`，Tauri 会自动编译 Rust 并打包前端资源，生成 .msi 和 .exe 安装包，位于 src-tauri/target/release/bundle/ 目录下。安装后即可在开始菜单找到应用，双击运行。如需开机自启，可在安装包配置中勾选或手动将快捷方式放入启动文件夹。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果结果要发给外部，先确认还原后的内容是否还需要进一步脱敏。
+          💡 <span class="font-semibold">小贴士：</span>首次构建时间较长，耐心等待；若想减小体积，可在 tauri.conf.json 中开启压缩和移除未使用功能。
         </div>
     </div>
   </div>
@@ -176,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你可以在不泄露手机号、邮箱、身份证号、API Key 等敏感信息的前提下，正常使用 ChatGPT、Claude 等 AI 工具处理文档、代码和邮件。AI 返回的结果经过占位符还原后，仍然是一份完整可用的真实数据。
+    运行应用后，系统托盘出现图标，按下 Ctrl+Shift+Space 弹出输入框。输入“提醒 14:00 喝水”后，到点会收到 Windows 通知；输入“笔记 明天交报告”后，笔记被保存到本地文件；输入“启动 calc”后，计算器程序被打开。所有操作都有即时反馈，历史记录清晰可见。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -186,38 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>脱敏后 AI 还能理解上下文吗？</span>
+        <span>没有 Rust 基础能跟着做吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。占位符保留了数据的位置和类型，AI 通常能根据上下文推断出「这里是一个手机号」或「这里是一个人名」，不影响总结、翻译、写代码等任务。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。教程提供的代码片段直接复制即可运行，重点理解 Tauri 的 command 机制和前端调用方式，Rust 语法只需看懂大致逻辑。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Tim 会上传我的原文吗？</span>
+        <span>提醒功能在应用关闭后还能生效吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议查看其隐私政策。优先选择本地处理、不上传原文的工具；如果必须上传，确保传输加密且服务商承诺不存储。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">默认不能，因为提醒任务运行在应用进程内。如需离线提醒，可将提醒时间写入系统计划任务，或让应用常驻托盘不退出。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>手动脱敏和工具脱敏哪个更好？</span>
+        <span>启动程序时如何传递参数？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">手动适合少量、高敏感文本；工具适合批量、重复性任务。两者可以结合：先用工具自动识别，再人工检查一遍。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在 launch_app 命令中接收一个参数列表，用 Command::new(program).args(args) 传入即可，注意对参数做转义处理。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>脱敏后忘记映射表怎么办？</span>
+        <span>打包后的应用体积多大？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">如果映射表丢失，占位符就无法还原成真实数据。建议把映射表保存在密码管理器或加密笔记中，并定期备份。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Tauri 应用通常只有几 MB 到十几 MB，远小于 Electron。具体取决于前端资源和 Rust 编译优化选项。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>所有 AI 工具都需要脱敏吗？</span>
+        <span>能否在 macOS 或 Linux 上使用？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">只要是把数据传输到第三方服务器的 AI 工具，都建议脱敏。本地部署的模型风险较低，但仍需遵守公司合规要求。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Tauri 本身跨平台，但本教程的托盘和快捷键实现针对 Windows 优化，其他平台需调整部分 API 和打包配置。</div>
     </details>
   </div>
 </section>
@@ -225,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用本地脚本 + 正则表达式批量脱敏，适合开发者处理日志、代码和配置文件，完全离线不依赖第三方工具。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：在团队内建立「脱敏后再用 AI」的 SOP，配合共享的占位符规范（如 [CLIENT_NAME_1]），让多人协作时也能安全使用 AI。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合密码管理器（如 1Password、Bitwarden）保存映射表，把脱敏和还原流程自动化，减少手动操作出错。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：增加语音输入——集成 Windows 语音识别 API，说出指令自动转文字并执行，彻底解放双手。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：支持自定义脚本——允许用户配置快捷指令映射到任意 shell 命令或脚本，打造个人专属启动器。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：云同步笔记——将笔记文件替换为调用云端 API（如 WebDAV 或 Notion），实现多设备同步。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    先脱敏、再喂给 AI，最后还原——三步就能在享受 AI 效率的同时守住隐私底线。
+    用 Tauri 2 把提醒、笔记和程序启动浓缩进一个常驻托盘的小工具，代码少、体积小、体验顺，是桌面效率提升的绝佳练手项目。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -242,18 +250,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
       <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
-      <div class="text-xs text-amber-500">★★☆☆☆</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>给Google表单加法律签名 - AI 玩法教程 · AI Frontier</title>
+<title>用cuda_doctor命令定位GPU不可用断点 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-08
+      2026-11-09
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">给Google表单加法律签名</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用cuda_doctor命令定位GPU不可用断点</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+    博客园 AI 教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.producthunt.com/products/formesign" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/dawudexiaowu/p/23598740" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">给普通的 Google 表单加上具有法律效力的电子签名，让收集信息、签署合同、报名确认等场景一步到位。</p>
+  <p class="text-base text-slate-800 leading-relaxed">GPU 用不上别急着重装驱动，用 cuda_doctor 命令按框架层→环境变量层→驱动层的顺序定位断点，一条命令就能找到问题在哪一层。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多团队用 Google 表单收集报名、申请或合同确认，但表单本身没有签名功能，导致后续还要打印、手签、扫描，效率极低。Formesign 是一款专门为 Google 表单设计的插件，可以在表单中嵌入符合 eIDAS、ESIGN、UETA 等法律标准的电子签名字段，签署后的文档自动归档并带有审计追踪。这个玩法适合需要快速收集法律效力签名的场景，比如活动免责协议、租赁申请、自由职业合同、家长同意书等。
+    很多开发者遇到 PyTorch 或 TensorFlow 检测不到 GPU 时，第一反应是重装驱动，结果折腾半天发现是装了 CPU 版轮子。更隐蔽的是 CUDA_VISIBLE_DEVICES 被设成 -1，程序零报错但 GPU 凭空消失。这个玩法把 GPU 不可用问题按概率排序分三层排查，用一条 cuda_doctor 命令快速定断点，避免盲目重装驱动浪费时间。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Google 账号  <a href="https://accounts.google.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于创建和编辑 Google 表单</div>
+      <div class="font-semibold text-slate-900">Python 3.8+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行环境和 cuda_doctor 脚本</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Formesign  <a href="https://www.producthunt.com/products/formesign" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">为 Google 表单添加法律签名的插件</div>
+      <div class="font-semibold text-slate-900">PyTorch 或 TensorFlow  <a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于验证框架层 GPU 是否可用</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Google 表单  <a href="https://forms.google.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">创建表单的主体工具</div>
+      <div class="font-semibold text-slate-900">NVIDIA 驱动与 CUDA Toolkit  <a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">驱动层排查需要 nvidia-smi 和 nvcc</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Google 云端硬盘  <a href="https://drive.google.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">存储签署后的 PDF 和审计记录</div>
+      <div class="font-semibold text-slate-900">cuda_doctor 脚本  <a href="https://www.cnblogs.com/dawudexiaowu/p/23598740" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">一键检测三层断点的工具脚本，可从原文获取或自行编写</div>
     </li>
   </ul>
 </section>
@@ -122,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装 Formesign 插件</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 Google 表单，点击右上角的「更多」图标（三个点），选择「获取插件」。在搜索框中输入「Formesign」，找到后点击「安装」并授权访问你的 Google 账号。安装完成后，表单右侧会出现 Formesign 侧边栏。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：准备 cuda_doctor 检测脚本</h3>
+      <div class="text-base text-slate-700 leading-loose">新建一个 cuda_doctor.py 文件，写入检测逻辑：先打印 torch.__version__ 和 torch.version.cuda 判断是否 CPU 轮子；再读取 os.environ.get('CUDA_VISIBLE_DEVICES') 检查是否被设为 -1；最后调用 subprocess 执行 nvidia-smi 和 nvcc --version 验证驱动层。保存后在终端运行 python cuda_doctor.py。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果搜索不到，可以直接访问 Formesign 的 Product Hunt 页面，通过官网链接跳转到 Google Workspace 市场安装。
+          💡 <span class="font-semibold">小贴士：</span>如果不想自己写，可直接参考原文博客中的脚本片段，复制后按需修改。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：在表单中添加签名字段</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Formesign 侧边栏中点击「Add Signature Field」，选择要插入签名的位置（通常在表单末尾）。你可以自定义签名字段的标签，比如「本人签名」「家长/监护人签名」。同时可以设置是否必填、签名框大小和提示文字。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：检查框架层是否装了 CPU 轮子</h3>
+      <div class="text-base text-slate-700 leading-loose">运行脚本后看第一段输出：如果 torch.version.cuda 为 None 或空，说明装的是 CPU 版 PyTorch。此时执行 pip list | grep torch 确认版本，然后卸载重装对应 CUDA 版本的轮子，例如 pip install torch --index-url https://download.pytorch.org/whl/cu118。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议把签名字段放在所有必填信息之后，避免用户填到一半就要签名，体验更顺畅。
+          💡 <span class="font-semibold">小贴士：</span>这是最常见的原因，占 GPU 不可用问题的一半以上，优先排查。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：配置法律条款与同意选项</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Formesign 侧边栏中启用「Legal Consent」选项，输入你的法律条款全文或上传 PDF 链接。用户签名前必须勾选「我已阅读并同意上述条款」，否则无法提交。你还可以开启「时间戳」和「IP 记录」，作为签署证据。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：检查 CUDA_VISIBLE_DEVICES 环境变量</h3>
+      <div class="text-base text-slate-700 leading-loose">看脚本第二段输出：如果 CUDA_VISIBLE_DEVICES 被设为 -1，GPU 会被隐藏且零报错。在终端执行 echo $CUDA_VISIBLE_DEVICES 确认，若为 -1 则用 export CUDA_VISIBLE_DEVICES=0 临时恢复，或检查 .bashrc、.zshrc、Dockerfile 中是否写死了 -1。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>法律条款建议用简洁明了的语言，并注明适用法律和争议解决方式，必要时请律师审核。
+          💡 <span class="font-semibold">小贴士：</span>这个坑最隐蔽，因为程序不会报错，只是 torch.cuda.is_available() 返回 False。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：设置签署后自动归档</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Formesign 设置中开启「Auto-Archive」，选择将签署后的表单响应自动保存为 PDF 并上传到指定的 Google 云端硬盘文件夹。你还可以设置自动发送副本到签署人邮箱和你的邮箱。这样每次签署都会生成一份带签名、时间戳和审计追踪的 PDF。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：检查驱动层 nvidia-smi 与 nvcc</h3>
+      <div class="text-base text-slate-700 leading-loose">看脚本第三段输出：如果 nvidia-smi 报错或找不到命令，说明驱动没装好或 GPU 未挂载。先运行 nvidia-smi 看是否能列出 GPU，再运行 nvcc --version 确认 CUDA Toolkit 版本。若 nvidia-smi 正常但 nvcc 缺失，安装对应 CUDA Toolkit 即可。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议为每个表单单独建一个文件夹，命名规则如「表单名_日期_签署人」，方便后续检索。
+          💡 <span class="font-semibold">小贴士：</span>驱动层放最后排查，因为重装驱动成本最高，前面两层能解决大部分问题。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：测试并发布表单</h3>
-      <div class="text-base text-slate-700 leading-loose">点击 Google 表单的「发送」按钮，复制链接在无痕窗口中打开，完整填写并签名提交。检查邮箱和云端硬盘是否收到 PDF，签名是否清晰，时间戳和 IP 是否正确。确认无误后，正式发布表单链接给用户填写。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：验证修复结果</h3>
+      <div class="text-base text-slate-700 leading-loose">按断点修复后，重新运行 python cuda_doctor.py，确认三层全部通过。再执行 python -c &quot;import torch; print(torch.cuda.is_available(), torch.cuda.device_count())&quot; 应输出 True 和大于 0 的数字。最后跑一个小张量到 GPU 上验证实际可用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>测试时用真实邮箱和真实签名，确保整个流程符合法律要求。如果涉及敏感信息，建议开启 Google 表单的「限制为组织内用户」或添加验证码。
+          💡 <span class="font-semibold">小贴士：</span>验证时用 torch.randn(1).cuda() 做一次真实运算，比只看 is_available() 更可靠。
         </div>
     </div>
   </div>
@@ -180,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    用户填写 Google 表单时，在末尾看到签名字段和法律条款勾选框。提交后，系统自动生成一份带有电子签名、时间戳、IP 地址和审计追踪的 PDF，并保存到你的 Google 云端硬盘，同时发送副本给相关方。整个流程无需打印、扫描或手动整理。
+    cuda_doctor 输出显示框架层 CUDA 版本正常、CUDA_VISIBLE_DEVICES 未设为 -1、nvidia-smi 和 nvcc 均可执行，torch.cuda.is_available() 返回 True，GPU 可正常用于训练和推理。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +190,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Formesign 的电子签名有法律效力吗？</span>
+        <span>cuda_doctor 命令是官方工具吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Formesign 符合 eIDAS、ESIGN、UETA 等主流电子签名法规，但法律效力取决于具体司法管辖区和签署场景。建议在正式使用前咨询法律专业人士。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是，它是社区脚本或自定义检测脚本，核心是把三层排查逻辑串起来，可自行编写或从原文获取。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>免费版和付费版有什么区别？</span>
+        <span>torch.version.cuda 有值但 is_available() 仍为 False 怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Formesign 通常提供免费试用，但高级功能如自动归档、自定义法律条款、批量发送等可能需要付费。具体请查看官网定价。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">重点查 CUDA_VISIBLE_DEVICES 是否被设为 -1，以及驱动版本是否低于框架要求的 CUDA 版本。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>签署后的 PDF 可以修改吗？</span>
+        <span>nvidia-smi 正常但 nvcc 找不到怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">PDF 本身可以编辑，但 Formesign 会生成审计追踪和哈希值，任何修改都会破坏原始签名验证。建议将归档文件夹设为只读。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">说明驱动装了但 CUDA Toolkit 没装或没加进 PATH，安装对应版本 Toolkit 并配置环境变量即可。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>用户没有 Google 账号可以签名吗？</span>
+        <span>Docker 容器里 GPU 不可用怎么排查？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。只要你能分享 Google 表单链接，任何用户都可以打开并签名，无需登录 Google 账号。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先确认启动时加了 --gpus all，再在容器内跑 cuda_doctor，重点看 CUDA_VISIBLE_DEVICES 和设备挂载情况。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如果用户拒绝签名怎么办？</span>
+        <span>重装驱动能解决所有问题吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">你可以在表单中设置签名为必填，这样用户不签名就无法提交。如果用户拒绝，可以引导他们联系你获取其他签署方式。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能，驱动层只是第三层，框架层 CPU 轮子和环境变量 -1 更常见，盲目重装驱动往往白费功夫。</div>
     </details>
   </div>
 </section>
@@ -229,14 +229,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：结合 Google 表单的「文件上传」功能，让用户先上传身份证或营业执照，再签名，适用于 KYC 场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 Zapier 或 Make 将 Formesign 签署后的 PDF 自动同步到 Dropbox、Notion 或 Slack，实现跨工具工作流。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：将 Formesign 用于内部审批流程，比如员工入职合同、保密协议，设置多级签名（员工签完自动转发给 HR 签）。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把 cuda_doctor 封装成 CI 检查步骤，在训练任务启动前自动跑一遍，提前拦截 GPU 不可用问题。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：扩展 cuda_doctor 增加显存占用和 GPU 型号检测，输出更完整的健康报告。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：将三层排查逻辑写成 shell 脚本，在无 Python 环境的服务器上也能一键定位断点。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 Formesign 给 Google 表单加上法律签名，把收集信息和签署合同合并成一步，省去打印扫描的麻烦，适合所有需要快速获取法律效力签名的场景。
+    GPU 不可用先别重装驱动，用 cuda_doctor 按框架层→环境变量层→驱动层的概率顺序排查，一条命令定断点，省时省力。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -246,18 +246,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
       <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
-      <div class="text-xs text-amber-500">★★☆☆☆</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

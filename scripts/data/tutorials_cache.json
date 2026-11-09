@@ -414,115 +414,211 @@
       "playability_score": 8.5
     }
   },
-  "github-play-awesome-llm-47666e8f": {
-    "_sig": "Shubhamsaboo/awesome-llm-apps: 100+ AI Agents, Agent Skills and RAG Apps - Free |https://github.com/Shubhamsaboo/awesome-llm-apps",
+  "hf-space-selfit-camera-Omni-Image-Editor-c92f82c4": {
+    "_sig": "Selfit Camera/Omni Image Editor|https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor",
     "tutorial": {
-      "intro": "今天带你玩一个 GitHub 上 13.7 万星的开源宝藏库——100+ 个能直接跑的 AI Agent 应用，从 RAG 问答到多智能体协作，全部免费、开箱即用。",
-      "background": "很多同学想学 AI Agent 但卡在“不知道做什么”和“环境配不起来”上。awesome-llm-apps 这个仓库把 100 多个可运行的应用按场景分好类，每个都配了 README 和依赖文件，你只需要克隆、装依赖、填 API Key 就能跑。它覆盖了 RAG、工具调用、多智能体、代码解释器等主流玩法，非常适合用来快速体验不同 Agent 架构，或者直接拿某个项目改造成自己的产品原型。",
+      "intro": "用 Omni Image Editor 在线修图改图，无需安装任何软件，打开网页就能用 AI 快速编辑图片。",
+      "background": "Omni Image Editor 是 HuggingFace Spaces 上的一个 Gradio 应用，集成了多种图像编辑能力，支持文本指令修图、局部重绘、风格迁移等。它适合设计师快速出稿、自媒体人制作配图、普通用户修复老照片等场景。该 Space 已有近 3000 点赞，说明其效果和易用性得到了社区认可。你只需要一个浏览器和一张图片，就能体验 AI 修图的乐趣。",
       "prerequisites": [
         {
-          "name": "Git",
-          "desc": "克隆仓库用",
-          "url": "https://git-scm.com/"
+          "name": "HuggingFace 账号",
+          "desc": "用于访问 Space 和保存历史记录（部分功能需登录）",
+          "url": "https://huggingface.co/join"
         },
         {
-          "name": "Python 3.10+",
-          "desc": "运行绝大多数示例",
-          "url": "https://www.python.org/downloads/"
+          "name": "Omni Image Editor Space",
+          "desc": "在线修图工具本体，直接打开即可使用",
+          "url": "https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor"
         },
         {
-          "name": "OpenAI API Key（或兼容接口）",
-          "desc": "驱动 LLM 调用，也可用 DeepSeek、通义千问等兼容 OpenAI 协议的 Key",
-          "url": "https://platform.openai.com/api-keys"
+          "name": "待编辑的图片",
+          "desc": "建议准备 1-2 张清晰图片，格式为 JPG/PNG，大小不超过 5MB",
+          "url": ""
         },
         {
-          "name": "LlamaIndex",
-          "desc": "仓库中大量 RAG 示例的核心框架",
-          "url": "https://www.llamaindex.ai/"
-        },
-        {
-          "name": "Streamlit（可选）",
-          "desc": "很多示例带 Web UI，需要它来启动",
-          "url": "https://streamlit.io/"
+          "name": "现代浏览器",
+          "desc": "Chrome/Edge/Firefox 最新版，确保 WebGL 和摄像头权限正常",
+          "url": ""
         }
       ],
       "steps": [
         {
-          "title": "第1步：克隆仓库并浏览目录结构",
-          "content": "打开终端执行 git clone https://github.com/Shubhamsaboo/awesome-llm-apps.git，然后 cd 进去用 ls 查看分类目录。仓库通常按 starter_ai_agents、rag_tutorials、advanced_ai_agents 等文件夹组织，每个子目录里都有独立的 README.md 说明该应用的功能和运行方式。先花 5 分钟扫一遍目录名，挑一个你最感兴趣的场景。",
-          "tip": "如果 GitHub 克隆慢，可以用 ghproxy 或 Gitee 镜像加速；也可以直接点仓库页面右上角 Code → Download ZIP。"
+          "title": "第1步：打开 Space 并上传图片",
+          "content": "在浏览器中访问 https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor ，等待页面加载完成。找到图片上传区域（通常标有“Upload Image”或拖拽框），点击上传你的图片，或直接将图片拖入框内。上传后页面会显示图片预览，确认图片方向正确。",
+          "tip": "如果图片较大，可先压缩到 2000px 以内，上传和生成速度会更快。"
         },
         {
-          "title": "第2步：选定一个示例并创建虚拟环境",
-          "content": "假设你选了 starter_ai_agents 里的某个 RAG 应用，先 cd 进该子目录。用 python -m venv venv 创建虚拟环境，然后 source venv/bin/activate（Windows 用 venv\\Scripts\\activate）激活。接着执行 pip install -r requirements.txt 安装依赖，如果目录里没有 requirements.txt，就按 README 里列出的包手动 pip install。",
-          "tip": "强烈建议每个示例单独建虚拟环境，避免不同项目依赖冲突；用 conda 也可以，命令换成 conda create -n agent python=3.10。"
+          "title": "第2步：选择编辑模式并输入指令",
+          "content": "在界面中找到“Prompt”或“Instruction”输入框，用英文或中文描述你想要的修改，例如“把背景换成海滩”“给人物戴上墨镜”“修复老照片划痕”。部分模式需要额外设置，如局部重绘需用画笔涂抹区域，风格迁移需选择风格参考图。根据界面提示调整参数（如强度、步数），初学者保持默认即可。",
+          "tip": "指令越具体效果越好，比如“把天空变成日落时的橙红色”比“改天空”更明确。"
         },
         {
-          "title": "第3步：配置 API Key 和环境变量",
-          "content": "在示例目录下创建 .env 文件，写入 OPENAI_API_KEY=sk-你的真实Key。如果示例用的是 LlamaIndex，通常还会读取 OPENAI_API_KEY 或 OPENAI_API_BASE。若你用的是国内兼容接口（如 DeepSeek），把 OPENAI_API_BASE 设为对应地址即可。保存后确认 .env 和代码在同一目录，或者代码里用 load_dotenv() 能定位到。",
-          "tip": "不要把 .env 提交到 Git；仓库一般有 .gitignore 帮你忽略，但自己再检查一遍更稳。"
+          "title": "第3步：点击生成并预览结果",
+          "content": "点击“Generate”或“Run”按钮，等待几秒到几十秒（取决于队列长度和图片大小）。生成完成后，右侧会显示编辑后的图片，可与原图对比。如果效果不满意，可微调指令或参数后重新生成，每次生成都会保留历史记录。",
+          "tip": "遇到排队时不要频繁刷新，可先复制 Space 链接到新标签页重新打开以加入新队列。"
         },
         {
-          "title": "第4步：运行应用并观察输出",
-          "content": "根据 README 的启动命令执行，常见有两种：python app.py 直接跑脚本，或 streamlit run app.py 启动 Web 界面。如果是 Streamlit，浏览器会自动打开 localhost:8501，你在输入框里提问就能看到 Agent 的回复和中间步骤。如果是纯脚本，终端会打印检索到的文档片段和最终答案。第一次跑建议用示例里自带的测试问题，确认链路通了再换自己的数据。",
-          "tip": "如果报 ModuleNotFoundError，多半是虚拟环境没激活或漏装包；如果报 401，检查 API Key 是否复制完整、余额是否充足。"
-        },
-        {
-          "title": "第5步：替换成你自己的数据或提示词",
-          "content": "RAG 类示例通常有一个 data 文件夹或代码里写死的文档路径，把你的 PDF、TXT、Markdown 丢进去，改一下路径就能用。Agent 类示例则在代码顶部有 system_prompt 或 agent 定义，改掉角色描述和工具列表，就能变成你的专属助手。改完重新运行，对比输出变化，体会不同提示词对 Agent 行为的影响。",
-          "tip": "改提示词时一次只改一个变量，方便定位效果差异；可以先把 temperature 调低到 0.2 让输出更稳定。"
+          "title": "第4步：下载或继续编辑",
+          "content": "满意后点击图片下方的下载按钮保存到本地。如需继续修改，可将生成结果作为新输入再次上传，或直接在原图上叠加新指令。部分版本支持“Send to Inpainting”等按钮，可无缝衔接局部重绘。",
+          "tip": "保存时建议用 PNG 格式避免二次压缩损失，尤其适合需要后续印刷的场景。"
         }
       ],
-      "expected_result": "你会在本地成功跑起来至少一个 AI Agent 应用：终端或浏览器里能看到它基于你提供的文档回答问题，或者调用工具完成多步任务。同时你手里有了一个可修改的代码基座，换数据、换提示词、换模型都能快速实验。",
+      "expected_result": "上传的图片经过 AI 编辑后，背景、人物细节或风格发生符合指令的变化，画面自然无明显瑕疵。你可以在结果区看到对比图，并成功下载编辑后的图片文件。",
       "faq": [
         {
-          "q": "我没有 OpenAI API Key，能用别的模型吗？",
-          "a": "可以。仓库里很多示例支持通过 OPENAI_API_BASE 指向兼容 OpenAI 协议的接口，比如 DeepSeek、通义千问、Moonshot 等，把 Key 和 Base URL 换成对应值即可。"
+          "q": "需要付费吗？",
+          "a": "完全免费，HuggingFace Spaces 上的这个应用目前没有收费计划，但排队时间可能较长。"
         },
         {
-          "q": "跑示例时提示缺少某个包怎么办？",
-          "a": "先确认虚拟环境已激活，然后 pip install 缺失的包名。如果 requirements.txt 里版本冲突，可以尝试 pip install --upgrade 或按 README 建议的 Python 版本重建环境。"
+          "q": "支持中文指令吗？",
+          "a": "部分模型支持中文，但英文指令通常更准确，建议用简单英文或中英混合描述。"
         },
         {
-          "q": "Streamlit 启动后浏览器打不开 localhost:8501？",
-          "a": "检查终端是否真的输出 URL，有时端口被占用会换成 8502。也可以手动访问 http://localhost:8501，或加 --server.port 指定其他端口。"
+          "q": "图片上传失败怎么办？",
+          "a": "检查图片格式是否为 JPG/PNG，大小是否超过 5MB，或尝试更换浏览器/关闭广告拦截插件。"
         },
         {
-          "q": "这些示例能直接商用吗？",
-          "a": "仓库本身是开源合集，但每个子项目可能各有 License，商用前请查看对应目录的 LICENSE 文件，并注意模型 API 的使用条款。"
+          "q": "生成结果不理想如何调整？",
+          "a": "细化指令、增加关键词、调整“强度”参数，或改用局部重绘模式只修改特定区域。"
         },
         {
-          "q": "哪个示例最适合新手入门？",
-          "a": "建议从 starter_ai_agents 里的单 Agent + 工具调用示例开始，代码量少、依赖简单，跑通后再挑战多智能体和 RAG 进阶项目。"
+          "q": "可以商用吗？",
+          "a": "需遵守 HuggingFace 社区准则和模型许可证，建议生成后自行检查版权风险，避免直接商用受版权保护的素材。"
         }
       ],
       "variants": [
-        "变体1：把 RAG 示例的数据源从本地文件换成网页爬取，用 LlamaIndex 的 SimpleWebPageReader 实时抓取新闻做问答。",
-        "变体2：把单 Agent 示例改造成多智能体协作，用 CrewAI 或 AutoGen 让一个 Agent 负责检索、一个负责总结、一个负责审核。",
-        "变体3：给 Agent 加上长期记忆，接入向量数据库（如 Chroma、Qdrant），让它在多轮对话中记住用户偏好和历史结论。"
+        "变体1：老照片修复——上传模糊或划痕老照片，指令写“修复划痕并增强面部细节”，配合“Upscale”选项提升分辨率。",
+        "变体2：电商产品图换背景——上传产品图，用局部重绘涂抹背景区域，指令写“纯白背景，带柔和阴影”，快速生成白底图。",
+        "变体3：风格迁移——上传风景照，选择“Style Transfer”模式并上传一幅名画作为风格参考，生成艺术化效果。"
       ],
-      "summary": "克隆仓库、选一个示例、配好 Key、跑起来再改数据——四步就能把 100+ 开源 AI Agent 变成你自己的实验场。"
+      "summary": "Omni Image Editor 把专业修图能力搬进浏览器，用自然语言指令就能完成改图，关键是描述具体、多试几次。"
     },
-    "generated_at": "2026-09-12T03:38:49.774320+00:00",
+    "generated_at": "2026-11-08T07:07:35.787098+00:00",
     "play_meta": {
-      "title_zh": "100+ 开源 AI Agent 应用合集，直接跑",
-      "title_en": "Shubhamsaboo/awesome-llm-apps: 100+ AI Agents, Agent Skills and RAG Apps - Free a",
-      "source_id": "github-play-awesome-llm",
-      "source_name": "GitHub Awesome LLM",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
+      "title_zh": "用 Omni Image Editor 在线修图改图",
+      "title_en": "Selfit Camera/Omni Image Editor",
+      "source_id": "hf-space-selfit-camera/Omni-Image-Editor",
+      "source_name": "HuggingFace Spaces",
+      "source_label": "权威媒体",
+      "source_tier": "A",
+      "source_color": "blue",
+      "source_emoji": "🔵",
       "play_type": "runnable_demo",
-      "difficulty": 3,
+      "difficulty": 4,
       "time_estimate": "10min",
       "tools": [
-        "LlamaIndex"
+        "HF"
       ],
-      "link": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "link": "https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor",
       "is_domestic": false,
       "tags": [],
-      "playability_score": 9.2
+      "playability_score": 8.2
+    }
+  },
+  "ifanr-play-9fe3d3e5": {
+    "_sig": "微信 AI 录音笔体验：手机都能装的办公神器，免费！|https://www.ifanr.com/1688410",
+    "tutorial": {
+      "intro": "微信里藏着一个「AI录音笔」功能，能自动把语音转成文字并生成会议纪要，全程免费。今天手把手教你把它用起来，开会摸鱼两不误。",
+      "background": "很多人不知道，微信自带的「录音转文字」功能其实已经接入了AI能力，不仅能实时转写，还能自动分段、提炼重点。对于经常开会、听讲座、做访谈的人来说，这相当于白嫖了一个专业录音笔+速记员。相比市面上动辄几十上百元的转写服务，微信这个功能完全免费，而且就在聊天窗口里，随用随开。爱范儿这篇报道详细拆解了操作路径，我把它整理成可复现的教程。",
+      "prerequisites": [
+        {
+          "name": "微信（最新版）",
+          "desc": "核心工具，需更新到最新版本以支持AI转写功能",
+          "url": "https://weixin.qq.com"
+        },
+        {
+          "name": "手机系统录音权限",
+          "desc": "确保微信有麦克风权限，否则无法录音",
+          "url": "手机设置-应用管理-微信-权限"
+        },
+        {
+          "name": "安静环境或外接麦克风",
+          "desc": "提升转写准确率，会议场景建议用领夹麦或手机靠近声源",
+          "url": "可选，京东/淘宝搜索「领夹麦克风」"
+        },
+        {
+          "name": "参考原文",
+          "desc": "爱范儿原始玩法报道，含截图和细节",
+          "url": "https://www.ifanr.com/1688410"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：打开微信「收藏」里的录音入口",
+          "content": "进入微信，点击底部「我」-「收藏」，点击右上角「+」新建笔记。在笔记编辑界面底部工具栏找到「录音」按钮（麦克风图标），点击开始录音。这个入口比聊天窗口的语音消息更适合长录音，因为收藏笔记支持长时间录制且不会中断。",
+          "tip": "如果找不到录音按钮，先把微信更新到最新版；部分安卓机型需在笔记编辑页滑动工具栏才能看到。"
+        },
+        {
+          "title": "第2步：录制会议或语音内容",
+          "content": "点击录音后，微信会开始实时录制。把手机放在会议桌中间或靠近发言人，尽量避开空调、风扇等噪音源。录制过程中可以随时暂停，但不要退出笔记界面，否则可能中断。建议单次录制不超过60分钟，太长可分多段录。",
+          "tip": "开会前先录10秒测试回放，确认音量正常；用耳机麦克风比手机自带麦克风效果更好。"
+        },
+        {
+          "title": "第3步：停止录音并触发AI转写",
+          "content": "录制完成后点击停止按钮，录音文件会保存在笔记里。点击录音条右侧的「转文字」按钮（部分版本显示为「转写」），微信会自动调用AI引擎把语音转成文字。转写过程需要联网，时长取决于录音长度，一般1分钟录音几秒内完成。",
+          "tip": "转写时保持微信在前台，锁屏可能导致中断；如果按钮灰色，检查网络或微信版本。"
+        },
+        {
+          "title": "第4步：编辑转写文本并生成纪要",
+          "content": "转写完成后，文字会直接插入笔记中。你可以手动修正错别字、删除语气词，然后利用微信笔记的「待办」「分割线」等功能整理成结构化纪要。更高效的做法是：把转写文本复制到AI对话工具（如Kimi、文心一言）里，用提示词「请把以下会议记录整理成纪要，分点列出结论和待办」一键生成。",
+          "tip": "转写文本里说话人不会自动区分，多人会议建议手动标注「张三：」「李四：」再交给AI总结。"
+        },
+        {
+          "title": "第5步：保存与分享纪要",
+          "content": "整理好的笔记可以直接点击右上角「…」-「发送给朋友」或「分享到朋友圈」，也可以导出为图片保存。如果是团队会议，把纪要发到工作群，附上原始录音笔记链接，方便回溯。整个流程从录音到出纪要，熟练后5分钟内搞定。",
+          "tip": "重要会议建议同时保留原始录音和转写文本，避免AI转写误差导致信息丢失。"
+        }
+      ],
+      "expected_result": "你会在微信收藏里得到一份带录音和转写文字的笔记，文字可编辑、可分享。配合AI总结后，一份结构清晰的会议纪要就诞生了，全程零成本。",
+      "faq": [
+        {
+          "q": "微信录音转文字收费吗？",
+          "a": "完全免费，这是微信收藏笔记的内置功能，不消耗任何费用，但转写需要联网。"
+        },
+        {
+          "q": "转写准确率怎么样？",
+          "a": "普通话标准、环境安静时准确率很高；方言、口音重或噪音大时会出错，建议录完后人工校对关键信息。"
+        },
+        {
+          "q": "能转写多长的录音？",
+          "a": "收藏笔记录音时长上限较长，但建议单段不超过60分钟，太长可分多段录制再分别转写。"
+        },
+        {
+          "q": "转写文字能区分说话人吗？",
+          "a": "目前微信转写不自动区分说话人，多人会议需要手动标注或借助第三方AI工具处理。"
+        },
+        {
+          "q": "录音文件会丢失吗？",
+          "a": "保存在微信收藏笔记里，只要不删除笔记且微信数据在，就不会丢失；建议重要内容额外备份到电脑。"
+        }
+      ],
+      "variants": [
+        "变体1：用「飞书妙记」替代——飞书自带AI转写和说话人区分，适合正式会议，免费额度够用，导出纪要更专业。",
+        "变体2：微信转写+ChatGPT/Kimi总结——把转写文本粘贴给AI，用提示词「提炼3个关键结论、5个待办事项、1个风险点」，秒变高级纪要。",
+        "变体3：录音笔硬件+微信转写——用专业录音笔录制后，通过微信文件传输助手把音频发到手机，再用收藏笔记的「导入音频」转写，音质更好。"
+      ],
+      "summary": "微信收藏里的录音转文字就是免费AI录音笔，录完转写再丢给AI总结，开会摸鱼两不误。"
+    },
+    "generated_at": "2026-11-09T07:56:22.276567+00:00",
+    "play_meta": {
+      "title_zh": "微信装AI录音笔，免费转写会议纪要",
+      "title_en": "微信 AI 录音笔体验：手机都能装的办公神器，免费！",
+      "source_id": "ifanr-play",
+      "source_name": "爱范儿 AI 应用",
+      "source_label": "权威媒体",
+      "source_tier": "A",
+      "source_color": "blue",
+      "source_emoji": "🔵",
+      "play_type": "tool_chain",
+      "difficulty": 4,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://www.ifanr.com/1688410",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 8.5
     }
   },
   "github-play-langchain-0e983984": {
@@ -634,209 +730,6 @@
       "is_domestic": false,
       "tags": [],
       "playability_score": 8.5
-    }
-  },
-  "hf-space-selfit-camera-Omni-Image-Editor-c92f82c4": {
-    "_sig": "Selfit Camera/Omni Image Editor|https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor",
-    "tutorial": {
-      "intro": "用 Omni Image Editor 在线修图改图，无需安装任何软件，打开网页就能用 AI 快速编辑图片。",
-      "background": "Omni Image Editor 是 HuggingFace Spaces 上的一个 Gradio 应用，集成了多种图像编辑能力，支持文本指令修图、局部重绘、风格迁移等。它适合设计师快速出稿、自媒体人制作配图、普通用户修复老照片等场景。该 Space 已有近 3000 点赞，说明其效果和易用性得到了社区认可。你只需要一个浏览器和一张图片，就能体验 AI 修图的乐趣。",
-      "prerequisites": [
-        {
-          "name": "HuggingFace 账号",
-          "desc": "用于访问 Space 和保存历史记录（部分功能需登录）",
-          "url": "https://huggingface.co/join"
-        },
-        {
-          "name": "Omni Image Editor Space",
-          "desc": "在线修图工具本体，直接打开即可使用",
-          "url": "https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor"
-        },
-        {
-          "name": "待编辑的图片",
-          "desc": "建议准备 1-2 张清晰图片，格式为 JPG/PNG，大小不超过 5MB",
-          "url": ""
-        },
-        {
-          "name": "现代浏览器",
-          "desc": "Chrome/Edge/Firefox 最新版，确保 WebGL 和摄像头权限正常",
-          "url": ""
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：打开 Space 并上传图片",
-          "content": "在浏览器中访问 https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor ，等待页面加载完成。找到图片上传区域（通常标有“Upload Image”或拖拽框），点击上传你的图片，或直接将图片拖入框内。上传后页面会显示图片预览，确认图片方向正确。",
-          "tip": "如果图片较大，可先压缩到 2000px 以内，上传和生成速度会更快。"
-        },
-        {
-          "title": "第2步：选择编辑模式并输入指令",
-          "content": "在界面中找到“Prompt”或“Instruction”输入框，用英文或中文描述你想要的修改，例如“把背景换成海滩”“给人物戴上墨镜”“修复老照片划痕”。部分模式需要额外设置，如局部重绘需用画笔涂抹区域，风格迁移需选择风格参考图。根据界面提示调整参数（如强度、步数），初学者保持默认即可。",
-          "tip": "指令越具体效果越好，比如“把天空变成日落时的橙红色”比“改天空”更明确。"
-        },
-        {
-          "title": "第3步：点击生成并预览结果",
-          "content": "点击“Generate”或“Run”按钮，等待几秒到几十秒（取决于队列长度和图片大小）。生成完成后，右侧会显示编辑后的图片，可与原图对比。如果效果不满意，可微调指令或参数后重新生成，每次生成都会保留历史记录。",
-          "tip": "遇到排队时不要频繁刷新，可先复制 Space 链接到新标签页重新打开以加入新队列。"
-        },
-        {
-          "title": "第4步：下载或继续编辑",
-          "content": "满意后点击图片下方的下载按钮保存到本地。如需继续修改，可将生成结果作为新输入再次上传，或直接在原图上叠加新指令。部分版本支持“Send to Inpainting”等按钮，可无缝衔接局部重绘。",
-          "tip": "保存时建议用 PNG 格式避免二次压缩损失，尤其适合需要后续印刷的场景。"
-        }
-      ],
-      "expected_result": "上传的图片经过 AI 编辑后，背景、人物细节或风格发生符合指令的变化，画面自然无明显瑕疵。你可以在结果区看到对比图，并成功下载编辑后的图片文件。",
-      "faq": [
-        {
-          "q": "需要付费吗？",
-          "a": "完全免费，HuggingFace Spaces 上的这个应用目前没有收费计划，但排队时间可能较长。"
-        },
-        {
-          "q": "支持中文指令吗？",
-          "a": "部分模型支持中文，但英文指令通常更准确，建议用简单英文或中英混合描述。"
-        },
-        {
-          "q": "图片上传失败怎么办？",
-          "a": "检查图片格式是否为 JPG/PNG，大小是否超过 5MB，或尝试更换浏览器/关闭广告拦截插件。"
-        },
-        {
-          "q": "生成结果不理想如何调整？",
-          "a": "细化指令、增加关键词、调整“强度”参数，或改用局部重绘模式只修改特定区域。"
-        },
-        {
-          "q": "可以商用吗？",
-          "a": "需遵守 HuggingFace 社区准则和模型许可证，建议生成后自行检查版权风险，避免直接商用受版权保护的素材。"
-        }
-      ],
-      "variants": [
-        "变体1：老照片修复——上传模糊或划痕老照片，指令写“修复划痕并增强面部细节”，配合“Upscale”选项提升分辨率。",
-        "变体2：电商产品图换背景——上传产品图，用局部重绘涂抹背景区域，指令写“纯白背景，带柔和阴影”，快速生成白底图。",
-        "变体3：风格迁移——上传风景照，选择“Style Transfer”模式并上传一幅名画作为风格参考，生成艺术化效果。"
-      ],
-      "summary": "Omni Image Editor 把专业修图能力搬进浏览器，用自然语言指令就能完成改图，关键是描述具体、多试几次。"
-    },
-    "generated_at": "2026-11-08T07:07:35.787098+00:00",
-    "play_meta": {
-      "title_zh": "用 Omni Image Editor 在线修图改图",
-      "title_en": "Selfit Camera/Omni Image Editor",
-      "source_id": "hf-space-selfit-camera/Omni-Image-Editor",
-      "source_name": "HuggingFace Spaces",
-      "source_label": "权威媒体",
-      "source_tier": "A",
-      "source_color": "blue",
-      "source_emoji": "🔵",
-      "play_type": "runnable_demo",
-      "difficulty": 4,
-      "time_estimate": "10min",
-      "tools": [
-        "HF"
-      ],
-      "link": "https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.2
-    }
-  },
-  "juejin-play-2f61b5ca": {
-    "_sig": "别再死磕提示词了:Anthropic 说,AI Agent 真正的胜负手是“上下文工程”|https://juejin.cn/post/7705349866764255275",
-    "tutorial": {
-      "intro": "本教程教你用 Anthropic 的上下文工程方法，系统优化 Agent 提示词，解决上下文腐烂问题，提升 Agent 在长任务中的表现。",
-      "background": "随着 Agent 处理的任务越来越复杂，上下文窗口容易堆积大量低信号信息，导致模型注意力分散、推理质量下降，这就是“上下文腐烂”。Anthropic 提出的上下文工程法通过筛选高信号信息、压缩上下文、引入 Agentic Memory 和子 Agent 等策略，显著提升 Agent 的稳定性和效率。本教程拆解该方法，并给出可落地的提示词优化步骤，适合正在构建复杂 Agent 的开发者。",
-      "prerequisites": [
-        {
-          "name": "Claude 账号",
-          "desc": "用于测试和运行优化后的提示词",
-          "url": "https://claude.ai"
-        },
-        {
-          "name": "Anthropic API Key",
-          "desc": "如需通过 API 调用 Claude 进行自动化测试",
-          "url": "https://console.anthropic.com"
-        },
-        {
-          "name": "文本编辑器或 IDE",
-          "desc": "编写和保存提示词模板",
-          "url": "https://code.visualstudio.com"
-        },
-        {
-          "name": "原始教程参考",
-          "desc": "掘金 AI 实战教程原文",
-          "url": "https://juejin.cn/post/7705349866764255275"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：识别上下文腐烂与高信号信息",
-          "content": "先分析你的 Agent 当前提示词和对话历史，找出哪些信息是低信号（如重复的确认、无关的闲聊、过时的中间结果），哪些是高信号（如任务目标、关键约束、最新状态）。可以用一个简单表格列出每类信息及其出现频率。然后设定规则：只保留高信号信息，低信号信息要么删除，要么压缩成一句话摘要。",
-          "tip": "可以要求 Claude 帮你标注一段对话中的高信号与低信号句子，快速建立判断标准。"
-        },
-        {
-          "title": "第2步：设计上下文压缩策略",
-          "content": "针对长对话或长文档，制定压缩规则。例如：每轮对话后，让模型用一句话总结本轮新增的关键信息；对于工具调用结果，只保留结论和关键数据，丢弃原始日志。在提示词中明确写出压缩指令，如“请将以下内容压缩为不超过50字的高信号摘要”。同时设置压缩触发条件，比如上下文超过2000 token 时自动压缩。",
-          "tip": "压缩时保留时间戳和实体名称，避免后续指代不清。"
-        },
-        {
-          "title": "第3步：引入 Agentic Memory 管理长期状态",
-          "content": "为 Agent 增加一个外部记忆模块，可以用文件、数据库或简单的键值存储。在提示词中定义记忆的读写规则：何时写入记忆（如任务阶段完成、关键决策点），何时读取记忆（如开始新子任务时）。例如，让 Agent 在每完成一个子任务后，将结果摘要写入 memory 文件，并在下一轮开始时先读取该文件。这样上下文窗口只保留当前任务所需的高信号信息。",
-          "tip": "记忆内容也要定期压缩和清理，避免记忆本身膨胀。"
-        },
-        {
-          "title": "第4步：使用子 Agent 拆分复杂任务",
-          "content": "将复杂任务拆分为多个子任务，每个子任务由一个独立的子 Agent 处理，子 Agent 只接收与自身任务相关的高信号上下文。主 Agent 负责调度和汇总结果。在提示词中定义子 Agent 的职责、输入输出格式以及主 Agent 的协调逻辑。例如，主 Agent 先分解任务，然后依次调用子 Agent，每个子 Agent 返回压缩后的结果，主 Agent 再整合。",
-          "tip": "子 Agent 之间尽量不共享完整上下文，只传递必要的接口信息，减少污染。"
-        },
-        {
-          "title": "第5步：用 5 张工单做 token 对比与迭代",
-          "content": "准备 5 个有代表性的工单（任务），分别用原始提示词和优化后的提示词运行，记录每次的 token 消耗和任务完成质量。对比分析哪些优化最有效，哪些地方还有冗余。根据结果调整压缩阈值、记忆规则或子 Agent 划分。重复迭代直到 token 消耗和效果达到平衡。",
-          "tip": "工单要覆盖不同复杂度，至少包含一个长上下文任务和一个多步骤任务。"
-        }
-      ],
-      "expected_result": "优化后的 Agent 在相同任务上 token 消耗降低 30%-50%，同时任务完成质量和稳定性明显提升，长任务中不再出现上下文腐烂导致的逻辑混乱或遗漏。",
-      "faq": [
-        {
-          "q": "上下文压缩会不会丢失重要信息？",
-          "a": "合理设计压缩规则可以保留高信号信息。建议压缩时保留实体、时间、关键决策和约束条件，并定期人工抽查压缩结果。"
-        },
-        {
-          "q": "Agentic Memory 用什么实现最简单？",
-          "a": "初期可以用本地文本文件或 JSON 文件，按任务 ID 存储摘要。生产环境可换用 Redis 或向量数据库。"
-        },
-        {
-          "q": "子 Agent 会增加调用成本吗？",
-          "a": "子 Agent 会增加调用次数，但每个子 Agent 的上下文更短，总体 token 可能反而下降。需要根据任务复杂度权衡。"
-        },
-        {
-          "q": "如何判断上下文是否已经腐烂？",
-          "a": "观察 Agent 是否开始重复之前的信息、忽略最新指令或回答偏离主题。也可以监控上下文长度和 token 利用率。"
-        }
-      ],
-      "variants": [
-        "变体1：将压缩策略改为滑动窗口+摘要，只保留最近 N 轮对话和全局摘要，适合客服对话场景。",
-        "变体2：用向量数据库实现语义记忆检索，Agent 根据当前任务动态检索相关记忆片段，适合知识密集型任务。",
-        "变体3：引入多个子 Agent 并行处理不同子任务，主 Agent 做结果融合，适合可并行拆分的复杂工作流。"
-      ],
-      "summary": "上下文工程的核心是持续筛选高信号信息、压缩冗余、外置记忆并拆分任务，让 Agent 在有限上下文窗口内保持高效推理。"
-    },
-    "generated_at": "2026-11-08T07:07:45.870690+00:00",
-    "play_meta": {
-      "title_zh": "用Anthropic上下文工程法优化Agent提示词",
-      "title_en": "别再死磕提示词了:Anthropic 说,AI Agent 真正的胜负手是“上下文工程”",
-      "source_id": "juejin-play",
-      "source_name": "掘金 AI 实战教程",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "prompt",
-      "difficulty": 4,
-      "time_estimate": "5min",
-      "tools": [
-        "Claude"
-      ],
-      "link": "https://juejin.cn/post/7705349866764255275",
-      "is_domestic": true,
-      "tags": [],
-      "playability_score": 7.5
     }
   },
   "github-play-awesome-comfyui-a7df3630": {
@@ -1071,6 +964,219 @@
       "playability_score": 8.5
     }
   },
+  "cnblogs-play-875e47c8": {
+    "_sig": "解密prompt系列73. 爆改对话框：揭秘 Intelligent UI 的动态界面魔法 - 风雨中的小七|https://www.cnblogs.com/gogoSandy/p/23555610",
+    "tutorial": {
+      "intro": "让 ChatGPT 不再只吐文字，而是直接在对话框里“手写”出可交互的 UI 界面，把数据变成看得见、点得动的窗口。",
+      "background": "传统 AI 对话只能输出文字，用户需要脑补表格、图表和按钮。OpenAI 的 Intelligent UI 与 MCP Apps 让聊天框可以“开窗”，实现界面展示与双向交互。lustereczko-mcp 进一步让 AI 现场生成 UI 代码并渲染，把提示词变成界面。这个玩法适合需要快速可视化数据、做轻量交互原型、或想让 AI 回答更直观的场景。",
+      "prerequisites": [
+        {
+          "name": "ChatGPT",
+          "desc": "主力对话工具，需支持自定义 GPT 或代码解释器（Plus/Pro 账号）",
+          "url": "https://chat.openai.com"
+        },
+        {
+          "name": "lustereczko-mcp",
+          "desc": "让 AI 现场手写 UI 的 MCP 服务，需按项目文档部署",
+          "url": "https://github.com/lustereczko/lustereczko-mcp"
+        },
+        {
+          "name": "Node.js 18+",
+          "desc": "运行 MCP 服务与本地渲染环境",
+          "url": "https://nodejs.org"
+        },
+        {
+          "name": "MCP 客户端（如 Claude Desktop 或支持 MCP 的 ChatGPT 插件）",
+          "desc": "连接 MCP 服务，让 AI 能调用 UI 生成能力",
+          "url": "https://modelcontextprotocol.io"
+        },
+        {
+          "name": "浏览器（Chrome/Edge）",
+          "desc": "预览 AI 生成的 UI 界面",
+          "url": "https://www.google.com/chrome"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：部署 lustereczko-mcp 服务",
+          "content": "克隆 lustereczko-mcp 仓库，进入目录后运行 npm install 安装依赖。根据 README 配置环境变量（如端口、API Key），然后执行 npm start 启动服务。确认终端输出监听地址（通常是 http://localhost:3000）。",
+          "tip": "如果端口被占用，可在 .env 中修改 PORT 变量，避免与本地其他服务冲突。"
+        },
+        {
+          "title": "第2步：在 ChatGPT 中接入 MCP 客户端",
+          "content": "打开支持 MCP 的 ChatGPT 客户端（或 Claude Desktop），在设置中找到 MCP Servers 配置项。添加一个服务器，名称填 lustereczko，命令指向本地服务地址或启动脚本。保存后重启客户端，确认连接状态为绿色。",
+          "tip": "不同客户端配置格式略有差异，优先参考 lustereczko-mcp 官方 README 的示例配置。"
+        },
+        {
+          "title": "第3步：编写 Prompt 让 AI 生成 UI",
+          "content": "在对话框输入提示词，例如：“请用 lustereczko 生成一个销售数据看板，包含柱状图、筛选下拉框和刷新按钮，数据用示例数据。” AI 会调用 MCP 工具，返回一段 UI 描述或代码。保持对话，让 AI 根据你的反馈调整布局和交互。",
+          "tip": "提示词里明确“用 lustereczko 生成 UI”，并给出组件清单和交互要求，成功率更高。"
+        },
+        {
+          "title": "第4步：在聊天框内预览与交互",
+          "content": "AI 生成 UI 后，聊天框会嵌入一个可交互窗口（或返回预览链接）。点击按钮、切换筛选条件，观察数据是否联动更新。如果界面没有自动渲染，复制 AI 返回的 HTML/JS 代码到本地文件，用浏览器打开预览。",
+          "tip": "首次渲染失败时，检查 MCP 服务日志是否有报错，常见原因是缺少依赖或端口未开放。"
+        },
+        {
+          "title": "第5步：迭代优化 UI 与交互逻辑",
+          "content": "根据预览效果继续对话，例如“把柱状图换成折线图”“增加日期范围选择器”“按钮点击后弹出提示”。AI 会重新生成或增量修改 UI。每次修改后刷新预览，确认交互符合预期。",
+          "tip": "把满意的版本让 AI 保存为代码片段，方便后续复用或嵌入其他页面。"
+        }
+      ],
+      "expected_result": "ChatGPT 对话框内出现一个可交互的 UI 窗口（如销售看板），包含图表、筛选器和按钮，点击操作能实时更新数据，无需离开聊天界面。",
+      "faq": [
+        {
+          "q": "没有 Plus 账号能用吗？",
+          "a": "基础对话可以，但 MCP 接入和自定义 GPT 通常需要 Plus/Pro 或支持 MCP 的客户端，建议先确认账号权限。"
+        },
+        {
+          "q": "lustereczko-mcp 启动报错怎么办？",
+          "a": "检查 Node.js 版本是否 18+，依赖是否安装完整，端口是否被占用；查看终端日志定位具体错误。"
+        },
+        {
+          "q": "生成的 UI 能导出吗？",
+          "a": "可以，让 AI 把最终 UI 以 HTML/CSS/JS 代码块输出，复制保存为 .html 文件即可在浏览器独立运行。"
+        },
+        {
+          "q": "为什么 AI 不调用 MCP 工具？",
+          "a": "提示词中未明确要求使用 lustereczko，或 MCP 客户端未正确连接；在提示词里写明“请调用 lustereczko 生成 UI”并检查连接状态。"
+        },
+        {
+          "q": "支持哪些图表类型？",
+          "a": "取决于 AI 生成的库（如 Chart.js、ECharts），在提示词中指定图表库和类型即可，例如“用 ECharts 画折线图”。"
+        }
+      ],
+      "variants": [
+        "变体1：让 AI 生成一个可交互的表单页面，包含输入校验和提交按钮，用于快速收集用户反馈。",
+        "变体2：让 AI 根据 CSV 数据现场生成带筛选和排序的表格 UI，实现“对话式数据分析”。",
+        "变体3：让 AI 生成一个迷你游戏界面（如猜数字），在聊天框内直接玩，测试双向交互能力。"
+      ],
+      "summary": "用 Prompt 驱动 MCP 让 AI 在聊天框里现场手写 UI，把文字对话升级为看得见、点得动的交互界面。"
+    },
+    "generated_at": "2026-11-09T07:56:34.049419+00:00",
+    "play_meta": {
+      "title_zh": "用Prompt让AI在对话框里手写UI",
+      "title_en": "解密prompt系列73. 爆改对话框：揭秘 Intelligent UI 的动态界面魔法 - 风雨中的小七",
+      "source_id": "cnblogs-play",
+      "source_name": "博客园 AI 教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "prompt",
+      "difficulty": 3,
+      "time_estimate": "5min",
+      "tools": [
+        "ChatGPT"
+      ],
+      "link": "https://www.cnblogs.com/gogoSandy/p/23555610",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
+  "juejin-play-eadad517": {
+    "_sig": "AI 编程工作流的设计：从人工判断到 AI裁判|https://juejin.cn/post/7705974459690156073",
+    "tutorial": {
+      "intro": "用 AI 扮演「裁判」角色，在编程工作流的每个关键节点设置 Gate 检查，确保想清楚再写代码，大幅减少返工。",
+      "background": "很多开发者写代码时习惯直接上手，结果方案没想透、边界没理清，写到一半才发现方向错了。掘金这篇实战教程提出用 AI 裁判重构工作流：把开发拆成背景、方案、实现、审查、验证五个阶段，每个阶段结束让 AI 按预设标准判定是否通过，不通过就退回上一阶段。这套结构适合 dev-workflow，也能迁移到 bugfix 等场景，尤其适合独立开发者或小团队在没有 Code Review 的情况下保证质量。",
+      "prerequisites": [
+        {
+          "name": "ChatGPT / Claude / DeepSeek",
+          "desc": "作为 AI 裁判，负责按标准判定每个 Gate 是否通过",
+          "url": "https://chat.openai.com"
+        },
+        {
+          "name": "Cursor 或 VS Code + Copilot",
+          "desc": "在编辑器内直接调用 AI 裁判，减少切换成本",
+          "url": "https://cursor.com"
+        },
+        {
+          "name": "Notion / Obsidian / 飞书文档",
+          "desc": "记录每个阶段的产出和裁判结论，形成可追溯的工作流日志",
+          "url": "https://www.notion.so"
+        },
+        {
+          "name": "Git",
+          "desc": "用分支或 commit 标记每个 Gate 的通过点，方便回滚",
+          "url": "https://git-scm.com"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：定义五阶段工作流与 Gate 标准",
+          "content": "在文档中写下五个阶段：背景（为什么做）、方案（怎么做）、实现（写代码）、审查（代码质量）、验证（测试通过）。为每个阶段写一条明确的 Gate 通过标准，例如「背景阶段必须包含用户场景和验收条件」「方案阶段必须列出至少两个备选方案及取舍理由」。把这些标准整理成一段 prompt 模板，后续每次让 AI 裁判按此判定。",
+          "tip": "Gate 标准要可量化，避免「方案合理」这种模糊表述，改成「方案包含数据流图和异常处理说明」。"
+        },
+        {
+          "title": "第2步：让 AI 裁判执行背景 Gate",
+          "content": "把需求描述和背景文档发给 AI，附上第1步的 Gate 标准，要求它输出「通过/不通过 + 缺失项清单」。如果不通过，按缺失项补充背景文档，再次提交裁判，直到通过。通过后把结论记录到工作流日志，并打一个 Git tag 如 gate-1-pass。",
+          "tip": "可以让 AI 裁判同时扮演「挑剔的产品经理」，主动追问边界场景，逼你把背景想全。"
+        },
+        {
+          "title": "第3步：方案 Gate 与实现 Gate 串联",
+          "content": "背景通过后，让 AI 生成或你手写技术方案，提交给 AI 裁判按方案 Gate 标准判定。方案通过后再进入编码，编码完成后把 diff 或关键代码片段发给裁判，按实现 Gate 标准检查是否覆盖方案中的每个点。两个 Gate 都通过才允许进入审查阶段。",
+          "tip": "实现 Gate 可以要求 AI 对照方案逐条打勾，输出「方案点 → 代码位置」的映射表，漏掉的一目了然。"
+        },
+        {
+          "title": "第4步：审查 Gate 与验证 Gate 收尾",
+          "content": "审查阶段让 AI 裁判按代码规范、安全、性能三个维度打分，低于阈值则退回实现阶段。验证阶段把测试用例和运行结果发给裁判，确认验收条件全部满足。全部通过后合并代码，并在日志中记录五个 Gate 的通过时间与裁判结论。",
+          "tip": "审查 Gate 可以固定用同一段 prompt，保证每次评判标准一致，避免 AI 随机发挥。"
+        },
+        {
+          "title": "第5步：沉淀为可复用的 prompt 模板库",
+          "content": "把五个 Gate 的 prompt 分别保存为模板文件，变量部分用占位符（如 {{需求描述}}、{{代码diff}}）。下次新任务直接套模板，只需替换变量。可以进一步把模板接入 Cursor 的 Rules 或自定义指令，实现一键调用。",
+          "tip": "模板库按项目类型分目录，dev-workflow 和 bugfix-workflow 各一套，复用率更高。"
+        }
+      ],
+      "expected_result": "每个开发任务都有五个 Gate 的通过记录，代码返工率明显下降；AI 裁判输出的缺失项清单成为改进依据；prompt 模板库可复用于后续任务，形成个人或团队的标准化工作流。",
+      "faq": [
+        {
+          "q": "AI 裁判会不会太宽松，什么都给通过？",
+          "a": "把 Gate 标准写成可量化的检查项，并要求 AI 输出「逐项打勾 + 缺失项」，宽松问题会大幅缓解；也可以让 AI 先扮演反方挑刺再判定。"
+        },
+        {
+          "q": "每个 Gate 都调用 AI 会不会很慢？",
+          "a": "背景和方案 Gate 可以合并成一次对话完成；实现和审查 Gate 可以批量提交 diff。实际多花的时间远小于返工成本。"
+        },
+        {
+          "q": "没有测试用例怎么做验证 Gate？",
+          "a": "让 AI 裁判根据背景阶段的验收条件生成测试用例草稿，人工确认后执行，再把结果交给裁判判定。"
+        },
+        {
+          "q": "这套流程适合多大的任务？",
+          "a": "适合半天到三天规模的功能开发或 bugfix；太小的改动可以只保留方案和审查两个 Gate。"
+        }
+      ],
+      "variants": [
+        "变体1：bugfix-workflow——把五阶段改为「复现→根因→修复→回归」，Gate 标准侧重复现步骤完整性和回归用例覆盖。",
+        "变体2：双裁判模式——用两个不同模型（如 GPT 和 Claude）分别判定同一 Gate，结论不一致时人工介入，降低单模型偏差。",
+        "变体3：CI 集成——把审查 Gate 的 prompt 封装成脚本，在 Git pre-push hook 中自动运行，不通过则阻止推送。"
+      ],
+      "summary": "用 AI 裁判在五个关键节点设 Gate，把「想清楚再写代码」变成可执行、可追溯的标准化工作流。"
+    },
+    "generated_at": "2026-11-09T07:56:46.795620+00:00",
+    "play_meta": {
+      "title_zh": "用AI裁判重构编程工作流",
+      "title_en": "AI 编程工作流的设计：从人工判断到 AI裁判",
+      "source_id": "juejin-play",
+      "source_name": "掘金 AI 实战教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_workflow",
+      "difficulty": 3,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://juejin.cn/post/7705974459690156073",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
   "github-play-awesome-ai-agents-a50cd6d9": {
     "_sig": "e2b-dev/awesome-ai-agents: A list of AI autonomous agents|https://github.com/e2b-dev/awesome-ai-agents",
     "tutorial": {
@@ -1172,112 +1278,6 @@
         "未标注"
       ],
       "link": "https://github.com/e2b-dev/awesome-ai-agents",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.5
-    }
-  },
-  "github-play-awesome-llm-ac39db34": {
-    "_sig": "Hannibal046/Awesome-LLM: Awesome-LLM: a curated list of Large Language Mode|https://github.com/Hannibal046/Awesome-LLM",
-    "tutorial": {
-      "intro": "Awesome-LLM 是 GitHub 上最全的大模型资源清单之一，本教程教你如何把它变成自己的“AI 军火库”，快速找到模型、论文、工具和数据集。",
-      "background": "Awesome-LLM 由 Hannibal046 维护，目前已获得 27000+ stars，收录了从基础模型、微调工具、推理框架到评测基准、课程和行业应用的全链路资源。对于 AI 开发者、产品经理或研究者来说，它就像一张不断更新的“大模型地图”，能帮你省去大量搜索和筛选时间。但清单内容极多，直接浏览容易迷失，因此需要一套高效的“检索+筛选+落地”方法。本教程将带你从零开始，把这份清单变成可执行的调研与选型工作流。",
-      "prerequisites": [
-        {
-          "name": "GitHub 账号",
-          "desc": "用于 Star、Fork 或提交 PR，方便追踪更新",
-          "url": "https://github.com/join"
-        },
-        {
-          "name": "浏览器（Chrome/Edge）",
-          "desc": "访问 GitHub 页面，推荐安装 GitHub 增强插件如 Octotree 或 Refined GitHub",
-          "url": "https://www.google.com/chrome/"
-        },
-        {
-          "name": "Notion 或飞书文档",
-          "desc": "用于摘录和整理你关注的资源，建立个人知识库",
-          "url": "https://www.notion.so/"
-        },
-        {
-          "name": "Awesome-LLM 仓库地址",
-          "desc": "本教程的核心资源清单",
-          "url": "https://github.com/Hannibal046/Awesome-LLM"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：克隆或收藏仓库，建立本地索引",
-          "content": "打开 https://github.com/Hannibal046/Awesome-LLM ，点击右上角 Star 收藏。如果习惯本地查阅，可以用 git clone https://github.com/Hannibal046/Awesome-LLM.git 把整个仓库拉到本地。README.md 就是主清单，建议用 VS Code 或 Typora 打开，方便全文搜索。",
-          "tip": "Star 后可以在 GitHub 个人主页的 Stars 列表快速找到，同时关注 Releases 或 Watch 仓库，获取更新通知。"
-        },
-        {
-          "title": "第2步：用目录锚点快速定位目标分类",
-          "content": "README 开头有 Table of Contents，包含 Large Language Model、LLM Training、LLM Inference、LLM Evaluation、LLM Applications 等大类。先根据你的需求点击对应锚点跳转，比如想找开源模型就点“Large Language Model”，想找部署工具就点“LLM Inference”。每个分类下都有简短说明和链接，避免盲目滚动。",
-          "tip": "在 GitHub 页面按 T 键可以快速调出文件搜索框，输入关键词如“Llama”或“RAG”直接过滤。"
-        },
-        {
-          "title": "第3步：按“模型-工具-数据-评测”四层筛选资源",
-          "content": "建议用四层框架来筛选：第一层看基础模型（如 Llama、Qwen、DeepSeek），第二层看微调与推理工具（如 vLLM、SGLang、LLaMA-Factory），第三层看数据集与评测（如 MMLU、OpenCompass），第四层看应用与课程。每层挑 2-3 个最活跃的项目，记录到 Notion 表格中，字段包括名称、链接、Star 数、最近更新、适用场景。",
-          "tip": "优先选择最近 3 个月有 commit 的项目，Star 数高但长期不更新的项目可能已过时。"
-        },
-        {
-          "title": "第4步：验证资源可用性，做最小化测试",
-          "content": "对筛选出的工具或模型，不要只看介绍。打开其 GitHub 仓库，查看 README 的 Quick Start，尝试在本地或 Colab 跑一个最小 demo。例如对 vLLM，可以按官方命令安装并加载一个小模型；对 LLaMA-Factory，可以跑一次 LoRA 微调示例。验证通过后再纳入你的技术选型清单。",
-          "tip": "如果本地环境受限，优先用 Google Colab 或 Kaggle Notebook 做快速验证，避免环境配置卡住。"
-        },
-        {
-          "title": "第5步：建立个人 Awesome-LLM 子清单并持续更新",
-          "content": "在 Notion 或飞书里建一个“我的 Awesome-LLM”页面，按你的项目需求分类，比如“文本生成”“多模态”“Agent”“部署”。每周花 10 分钟浏览原仓库的 Recent Updates 或 Commits，把新出现的优质资源补充进去。也可以 Fork 原仓库，在本地维护自己的分支，添加注释和评分。",
-          "tip": "给每个资源打上“已测试/待测试/不适用”标签，避免重复调研。"
-        }
-      ],
-      "expected_result": "你将拥有一个按需筛选、经过验证的个人大模型资源库，能快速定位到适合自己项目的模型、工具和数据集，并且保持与社区同步更新。",
-      "faq": [
-        {
-          "q": "Awesome-LLM 和普通 GitHub 搜索有什么区别？",
-          "a": "它由社区人工筛选和分类，覆盖全链路且持续更新，比通用搜索更精准、更省时间，尤其适合快速建立全局认知。"
-        },
-        {
-          "q": "清单里的项目太多，如何避免选择困难？",
-          "a": "先明确你的场景（如推理加速、微调、评测），再按“模型-工具-数据-评测”四层各选 2-3 个，用最小 demo 验证后再深入。"
-        },
-        {
-          "q": "需要编程基础吗？",
-          "a": "浏览和筛选不需要，但验证工具和模型时需要基本的 Python 和命令行操作。如果只想了解趋势，可以只看模型和论文部分。"
-        },
-        {
-          "q": "如何知道某个资源是否还活跃？",
-          "a": "看 GitHub 仓库的最近 commit 时间、issue 回复速度和 release 频率。一般最近 1-3 个月有更新的项目更可靠。"
-        },
-        {
-          "q": "可以贡献自己的项目到 Awesome-LLM 吗？",
-          "a": "可以。按照仓库的 Contributing 指南提交 PR，通常需要项目与 LLM 相关、有一定质量且持续维护。"
-        }
-      ],
-      "variants": [
-        "变体1：用 Awesome-LLM 做技术选型报告——按分类整理成对比表格，加入 Star 趋势、License、社区活跃度，输出给团队决策。",
-        "变体2：结合 AI 助手自动摘要——把 README 分段喂给 ChatGPT/Claude，让它帮你总结每个分类的核心项目和适用场景，生成速查手册。",
-        "变体3：构建垂直领域子清单——只关注多模态或 Agent 方向，从 Awesome-LLM 中抽取相关条目，再补充其他 Awesome 列表，形成领域专属资源库。"
-      ],
-      "summary": "把 Awesome-LLM 当作动态地图，用“分类定位→四层筛选→最小验证→个人清单”的流程，就能把海量资源变成真正可用的 AI 工具箱。"
-    },
-    "generated_at": "2026-09-12T03:39:50.104844+00:00",
-    "play_meta": {
-      "title_zh": "Awesome-LLM：大模型资源大全",
-      "title_en": "Hannibal046/Awesome-LLM: Awesome-LLM: a curated list of Large Language Mode",
-      "source_id": "github-play-awesome-llm",
-      "source_name": "GitHub Awesome LLM",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "runnable_demo",
-      "difficulty": 4,
-      "time_estimate": "10min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://github.com/Hannibal046/Awesome-LLM",
       "is_domestic": false,
       "tags": [],
       "playability_score": 8.5
@@ -1505,122 +1505,6 @@
       "playability_score": 7.5
     }
   },
-  "github-play-awesome-llm-bd07ce9a": {
-    "_sig": "AiHubCN/Awesome-Chinese-LLM: 整理开源的中文大语言模型，以规模较小、可私有化部署、训练成本较低的模型为主，包括底座模型，垂直领域微|https://github.com/AiHubCN/Awesome-Chinese-LLM",
-    "tutorial": {
-      "intro": "想玩转中文大模型又不想烧钱买显卡？这个 GitHub 宝藏库帮你找到能私有化部署的小模型，从底座到微调一站式搞定。",
-      "background": "很多开发者想本地跑大模型，但动辄 70B 参数让消费级显卡望而却步。Awesome-Chinese-LLM 这个项目专门整理了规模小、训练成本低、可私有化部署的中文模型，包括底座模型、垂直领域微调版本、数据集和教程。无论你是想搭建个人知识库、做行业客服机器人，还是研究微调技术，都能在这里找到合适的起点。目前该项目已获得 2.2 万+ star，是中文 LLM 领域最实用的资源合集之一。",
-      "prerequisites": [
-        {
-          "name": "GitHub 账号",
-          "desc": "用于访问仓库、star 项目、提交 issue 或 PR",
-          "url": "https://github.com"
-        },
-        {
-          "name": "Git 客户端",
-          "desc": "克隆仓库到本地，方便离线查阅",
-          "url": "https://git-scm.com"
-        },
-        {
-          "name": "Python 3.8+ 与 pip",
-          "desc": "运行模型推理和微调脚本的基础环境",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "CUDA 或 CPU 推理环境",
-          "desc": "根据模型大小选择，小模型可纯 CPU 运行，推荐至少 16GB 内存",
-          "url": "https://developer.nvidia.com/cuda-downloads"
-        },
-        {
-          "name": "Hugging Face 账号",
-          "desc": "下载模型权重和数据集（部分模型需申请权限）",
-          "url": "https://huggingface.co"
-        },
-        {
-          "name": "文本编辑器或 IDE",
-          "desc": "如 VS Code，用于查看 README 和修改配置",
-          "url": "https://code.visualstudio.com"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：克隆仓库并浏览目录结构",
-          "content": "打开终端，执行 git clone https://github.com/AiHubCN/Awesome-Chinese-LLM.git，然后 cd Awesome-Chinese-LLM。用 VS Code 打开该文件夹，你会看到 README.md 中按类别整理了模型列表，包括底座模型、垂直领域微调、数据集、教程等。先花 10 分钟浏览目录，标记出你感兴趣的 2-3 个模型。",
-          "tip": "如果 GitHub 访问慢，可以用 Gitee 镜像或代理加速；建议先 star 仓库方便后续查找。"
-        },
-        {
-          "title": "第2步：筛选适合你硬件的小模型",
-          "content": "在 README 中搜索关键词如“小模型”“私有化”“CPU 可跑”，重点关注参数量在 1B-7B 之间的模型，例如 ChatGLM3-6B、Qwen-1.8B、Baichuan2-7B 等。查看每个模型旁边的说明，确认是否支持量化（如 4-bit 量化后仅需 4GB 显存）。记录下 2-3 个候选模型的名称和 Hugging Face 链接。",
-          "tip": "优先选择有 GGUF 或 GPTQ 量化版本的模型，这样在消费级显卡甚至 CPU 上都能流畅运行。"
-        },
-        {
-          "title": "第3步：下载模型权重并配置环境",
-          "content": "以 ChatGLM3-6B 为例，在 Hugging Face 上搜索“THUDM/chatglm3-6b”，用 git lfs 克隆或直接下载。然后创建 Python 虚拟环境：python -m venv venv，激活后安装依赖：pip install torch transformers sentencepiece accelerate。如果使用量化版本，还需安装 bitsandbytes 或 ctransformers。",
-          "tip": "下载大文件时建议用 huggingface-cli 或 aria2 多线程，避免中断；国内可用 modelscope 镜像下载。"
-        },
-        {
-          "title": "第4步：运行推理脚本测试模型",
-          "content": "在仓库的教程区找到对应模型的快速开始代码，或直接使用 transformers 写一个简单脚本：加载 tokenizer 和 model，输入“你好，请介绍一下你自己”，设置 max_length=512，调用 model.generate()。观察输出是否通顺、是否符合中文习惯。如果显存不足，加载时加上 load_in_4bit=True 或 load_in_8bit=True。",
-          "tip": "首次运行会下载模型，耐心等待；如果报错 CUDA out of memory，尝试减小 batch size 或使用 CPU 模式。"
-        },
-        {
-          "title": "第5步：按需微调或接入应用",
-          "content": "如果预训练模型效果不满足需求，可以在仓库中找到垂直领域微调教程，使用 LoRA 或 P-Tuning 对模型进行轻量微调。准备自己的问答数据集（JSON 格式），运行微调脚本，通常 1-2 小时即可完成。微调后可将模型接入 LangChain、FastAPI 或 Gradio，搭建个人知识库或聊天机器人。",
-          "tip": "微调前先用小样本测试，避免过拟合；LoRA 微调只需训练少量参数，8GB 显存足够。"
-        }
-      ],
-      "expected_result": "成功在本地或服务器上运行一个中文小模型，能够流畅回答中文问题，并可根据需要微调成专属领域助手。你会在终端或 Web 界面看到模型生成的连贯中文回复，显存占用控制在 4-8GB 以内。",
-      "faq": [
-        {
-          "q": "没有独立显卡能玩吗？",
-          "a": "可以。选择 1B-3B 的小模型并量化到 4-bit，纯 CPU 加 16GB 内存就能跑，只是速度较慢（每秒几个字）。"
-        },
-        {
-          "q": "哪个模型最适合中文私有化部署？",
-          "a": "推荐 ChatGLM3-6B、Qwen-1.8B 和 Baichuan2-7B，它们中文能力强、社区活跃、量化版本齐全。"
-        },
-        {
-          "q": "下载模型太慢怎么办？",
-          "a": "使用 Hugging Face 镜像站 hf-mirror.com，或从 ModelScope 下载，也可以用 git lfs 配合代理。"
-        },
-        {
-          "q": "微调需要多少数据？",
-          "a": "LoRA 微调通常 500-2000 条高质量问答即可见效，数据要覆盖你的目标场景，格式统一为 instruction/input/output。"
-        },
-        {
-          "q": "商用需要授权吗？",
-          "a": "不同模型协议不同，如 ChatGLM3 需遵守其模型许可，Qwen 部分版本可商用，使用前务必查看 LICENSE 文件。"
-        }
-      ],
-      "variants": [
-        "变体1：用 Ollama 一键拉取小模型（如 qwen:1.8b、chatglm3:6b），无需手动配置环境，适合快速体验。",
-        "变体2：结合 LangChain + Chroma 搭建本地知识库问答，将你的 PDF/Word 文档向量化后喂给模型。",
-        "变体3：用 Gradio 或 Streamlit 为模型套一个 Web UI，分享给团队内部使用，支持多轮对话和历史记录。"
-      ],
-      "summary": "从 Awesome-Chinese-LLM 宝藏库中挑选小模型，按需量化、微调、部署，低成本拥有自己的中文 AI 助手。"
-    },
-    "generated_at": "2026-09-19T09:20:05.959378+00:00",
-    "play_meta": {
-      "title_zh": "中文大模型宝藏库：小模型也能私有化部署",
-      "title_en": "AiHubCN/Awesome-Chinese-LLM: 整理开源的中文大语言模型，以规模较小、可私有化部署、训练成本较低的模型为主，包括底座模型，垂直领域微",
-      "source_id": "github-play-awesome-llm",
-      "source_name": "GitHub Awesome LLM",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "runnable_demo",
-      "difficulty": 3,
-      "time_estimate": "10min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://github.com/AiHubCN/Awesome-Chinese-LLM",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.5
-    }
-  },
   "hf-space-open-llm-leaderboard-open_llm_leaderboard-899416ad": {
     "_sig": "Open Llm Leaderboard/Open_Llm_Leaderboard|https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard",
     "tutorial": {
@@ -1722,87 +1606,101 @@
       "playability_score": 7.5
     }
   },
-  "cnblogs-play-b06c0504": {
-    "_sig": "如何写出不那么具有ai味的文章？ - DeepSky丶|https://www.cnblogs.com/deep-sky/p/23590338",
+  "github-play-awesome-rag-7bf9f818": {
+    "_sig": "DEEP-PolyU/Awesome-GraphRAG: Awesome-GraphRAG: A curated list of resources (sur|https://github.com/DEEP-PolyU/Awesome-GraphRAG",
     "tutorial": {
-      "intro": "AI 写作又快又“假”？这套提示词工作流帮你把 AI 味一点点洗掉，让文章读起来像人写的。",
-      "background": "AI 写作门槛低，但生成的文章常带“AI 腔”：套话多、结构僵、情感假。博客园这篇教程把写作比作做菜，AI 是快但缺火候的大厨。本玩法用一套可复用的提示词工作流，分阶段约束 AI 的输出，从提纲到成稿逐步去味。适合公众号、博客、报告等需要“人味”的写作场景。",
+      "intro": "GraphRAG 是传统 RAG 的升级版，它用知识图谱把文档中的实体和关系串起来，让大模型回答复杂问题时能进行多跳推理。本教程带你用 LlamaIndex 和 Awesome-GraphRAG 资源库，从零搭建一个可用的 GraphRAG 问答系统。",
+      "background": "普通 RAG 只做向量相似度检索，遇到“A 公司的 CEO 的母校在哪里”这类需要跨文档推理的问题就歇菜了。GraphRAG 先抽取实体和关系构建图谱，再基于图结构检索子图，最后把子图喂给 LLM 生成答案。这个玩法适合处理金融研报、医疗文献、法律合同等实体关系密集的场景。Awesome-GraphRAG 这个 GitHub 仓库汇集了 2655 颗星的精华资源，包括综述、论文、基准测试和开源项目，是你入门和进阶的最佳地图。",
       "prerequisites": [
         {
-          "name": "ChatGPT / Claude / 文心一言 / 通义千问",
-          "desc": "任选一个支持多轮对话的大模型，用于执行提示词工作流",
-          "url": "https://chat.openai.com"
+          "name": "Python 3.10+",
+          "desc": "运行环境，建议用 conda 创建独立虚拟环境",
+          "url": "https://www.python.org/downloads/"
         },
         {
-          "name": "Notion 或飞书文档",
-          "desc": "存放提示词模板和生成稿，方便迭代对比",
-          "url": "https://www.notion.so"
+          "name": "LlamaIndex",
+          "desc": "核心框架，提供 GraphRAG 的索引、检索和查询接口",
+          "url": "https://www.llamaindex.ai/"
         },
         {
-          "name": "原始参考教程",
-          "desc": "博客园原文，含提示词思路和示例",
-          "url": "https://www.cnblogs.com/deep-sky/p/23590338"
+          "name": "Neo4j Desktop",
+          "desc": "图数据库，用来存储和可视化知识图谱（也可用内存图存储替代）",
+          "url": "https://neo4j.com/download/"
+        },
+        {
+          "name": "OpenAI API Key",
+          "desc": "调用 GPT-4 做实体抽取和答案生成，也可换成本地 Ollama 模型",
+          "url": "https://platform.openai.com/"
+        },
+        {
+          "name": "Awesome-GraphRAG 仓库",
+          "desc": "资源大全，用来查论文、找基准和参考实现",
+          "url": "https://github.com/DEEP-PolyU/Awesome-GraphRAG"
         }
       ],
       "steps": [
         {
-          "title": "第1步：拆解 AI 腔的典型特征",
-          "content": "先让 AI 自己列出“AI 写作腔”的常见毛病，比如过度使用“首先/其次/最后”、堆砌形容词、每段结构雷同、缺乏具体细节。把这份清单存到 Notion，作为后续提示词的“负面约束”。再找 2-3 篇你喜欢的真人文章，提炼它们的语气和节奏作为正面参考。",
-          "tip": "让 AI 用“请以编辑视角列出 AI 文章最常见的 10 个破绽”开头，效果更聚焦。"
+          "title": "第1步：克隆资源库并安装依赖",
+          "content": "打开终端，执行 git clone https://github.com/DEEP-PolyU/Awesome-GraphRAG.git 把资源库拉到本地。然后创建虚拟环境：conda create -n graphrag python=3.10 && conda activate graphrag。接着安装 LlamaIndex 全家桶：pip install llama-index llama-index-graph-stores-neo4j llama-index-llms-openai。最后设置环境变量 export OPENAI_API_KEY='你的key'。",
+          "tip": "如果网络慢，可以用清华镜像 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple 加速。"
         },
         {
-          "title": "第2步：写第一版“去味”系统提示词",
-          "content": "在对话开头设置系统提示词，明确角色、目标和禁令。例如：“你是资深专栏作者，写作时避免套话、避免排比堆砌、每段不超过 4 句、必须加入 1 个具体案例或数据、语气像和朋友聊天。”把第 1 步的负面清单逐条转成“不要……”的约束。保存为模板，后续每次写作复用。",
-          "tip": "约束不要超过 8 条，太多 AI 会顾此失彼；优先保留“具体细节”和“句式变化”两条。"
+          "title": "第2步：准备文档并构建知识图谱索引",
+          "content": "在项目目录下新建 data 文件夹，放入 3-5 篇 txt 或 pdf 文档（比如公司年报摘要）。写一个 build_graph.py 脚本：先用 SimpleDirectoryReader 加载文档，再用 KnowledgeGraphIndex.from_documents() 自动抽取实体和关系。关键参数：max_triplets_per_chunk=10 控制每块抽取的三元组数量，include_embeddings=True 让后续检索更准。运行脚本后，LlamaIndex 会调用 LLM 逐块抽取 (头实体, 关系, 尾实体) 并存入图存储。",
+          "tip": "第一次跑建议用 2-3 篇短文档，抽取 50 个三元组左右即可，太多会烧 token 且难调试。"
         },
         {
-          "title": "第3步：分阶段生成，先提纲后成文",
-          "content": "不要一次性让 AI 写全文。先让它输出 3 个不同角度的提纲，你选一个并手动改两处；再让它按提纲逐段写，每段写完你给一句反馈（如“太正式，口语化一点”）。分阶段能显著降低 AI 腔，因为每轮都有你的干预。",
-          "tip": "每段生成后回一句“用更短的句子重写这段”，去味效果立竿见影。"
+          "title": "第3步：把图谱存入 Neo4j 并可视化",
+          "content": "在脚本里配置 Neo4j 图存储：from llama_index.graph_stores.neo4j import Neo4jGraphStore，填入 uri='bolt://localhost:7687'、username='neo4j'、password='你的密码'。把上一步的 index 持久化到 Neo4j：index.storage_context.persist()。然后打开 Neo4j Browser，执行 MATCH (n)-[r]->(m) RETURN n,r,m LIMIT 100，你就能看到一张实体关系网络图。检查是否有明显错误的三元组，比如把“苹果”抽成了水果而不是公司。",
+          "tip": "如果不想装 Neo4j，可以用 SimpleGraphStore 存在内存里，但重启就没了，适合快速验证。"
         },
         {
-          "title": "第4步：用“人类改写”提示词做二次清洗",
-          "content": "全文生成后，追加一条改写提示词：“请以人类编辑身份重写以下文章：删掉所有‘首先/其次/总之’，把被动句改主动句，每段开头不要用相同句式，加入 1 处个人化比喻，保留原意。”对比改写前后的差异，把有效的指令补进你的模板。",
-          "tip": "改写后自己朗读一遍，拗口的地方就是残留的 AI 腔，手动改掉。"
+          "title": "第4步：构建 GraphRAG 查询引擎并提问",
+          "content": "新建 query_graph.py，加载持久化的索引：from llama_index.core import StorageContext, load_index_from_storage。然后创建查询引擎：query_engine = index.as_query_engine(include_text=True, similarity_top_k=4, response_mode='tree_summarize')。其中 include_text=True 会把原始文本块一起送给 LLM，response_mode 选 tree_summarize 适合多跳推理。现在问一个复杂问题：“A 公司的 CEO 毕业于哪所大学？该大学位于哪个城市？” 观察返回答案是否准确。",
+          "tip": "如果答案不准，把 similarity_top_k 调到 6-8，或者换 response_mode='compact' 试试。"
         },
         {
-          "title": "第5步：建立个人提示词工作流库",
-          "content": "把系统提示词、提纲提示词、逐段反馈话术、改写提示词按顺序存成一个工作流文档。下次写作直接按顺序复制粘贴，形成固定流水线。每写完一篇，记录哪条约束最有效，持续迭代模板。",
-          "tip": "用 Notion 的模板按钮或飞书快捷指令，一键插入整套提示词，省去重复复制。"
+          "title": "第5步：对照 Awesome-GraphRAG 优化效果",
+          "content": "打开 Awesome-GraphRAG 仓库的 README，找到 Benchmarks 和 Open-source Projects 两个板块。用里面的 GraphRAG-Bench 测试你的系统在“多跳推理”和“实体消歧”上的得分。如果得分低，参考仓库里推荐的论文（如 Microsoft GraphRAG、LightRAG）调整抽取 prompt 或改用社区检测算法做层次化摘要。最后把优化后的参数写回脚本，重新构建索引并对比答案质量。",
+          "tip": "仓库里有很多现成的 prompt 模板，直接复制到你的 KnowledgeGraphIndex 里替换默认 prompt，效果提升明显。"
         }
       ],
-      "expected_result": "生成的文章套话明显减少，段落长短错落，有具体案例和个人化表达，朗读时不再有“机器念稿”的感觉；你还会拥有一套可复用的提示词工作流模板。",
+      "expected_result": "你得到一个能回答多跳问题的 GraphRAG 问答系统。输入“A 公司的 CEO 毕业于哪所大学？该大学位于哪个城市？”，系统会先在图谱中找到 CEO 实体，沿“毕业于”关系跳到大学实体，再沿“位于”关系跳到城市实体，最后生成完整答案。Neo4j 中能看到清晰的实体关系图，Awesome-GraphRAG 的基准测试显示你的系统在多跳推理任务上比普通 RAG 高出 20-30 个百分点。",
       "faq": [
         {
-          "q": "这套方法对所有大模型都有效吗？",
-          "a": "核心思路通用，但不同模型对约束的服从度不同。建议先在 ChatGPT 或 Claude 上调好模板，再迁移到其他模型时微调约束条数。"
+          "q": "没有 OpenAI API Key 能用吗？",
+          "a": "可以，用 Ollama 本地跑 Llama 3 或 Qwen2.5，在 LlamaIndex 里把 llm 换成 Ollama 即可，但抽取速度会慢一些。"
         },
         {
-          "q": "去 AI 腔后文章会不会变得不专业？",
-          "a": "不会。去味针对的是套话和僵化结构，专业术语和数据应保留。可以在提示词中明确“保留所有专业名词和数据”。"
+          "q": "图谱抽取太慢或太贵怎么办？",
+          "a": "减少文档数量，调低 max_triplets_per_chunk，或者改用 LightRAG 这类轻量级方案，它只抽取关键实体和关系。"
         },
         {
-          "q": "每次都要手动复制提示词太麻烦怎么办？",
-          "a": "把整套提示词存成文档模板，或用支持自定义指令的客户端（如 ChatGPT 的自定义指令、Claude 的 Project）固化系统提示词。"
+          "q": "Neo4j 必须装吗？",
+          "a": "不是必须，LlamaIndex 支持 SimpleGraphStore 内存图存储，适合快速验证，但生产环境建议用 Neo4j 持久化。"
         },
         {
-          "q": "改写后字数变少很多正常吗？",
-          "a": "正常，AI 腔常伴随冗余表达。若字数不够，让 AI 补充具体案例或数据，而不是恢复套话。"
+          "q": "如何评估 GraphRAG 的效果？",
+          "a": "用 Awesome-GraphRAG 里的 GraphRAG-Bench，或者自己构造 20 个多跳问题，对比普通 RAG 和 GraphRAG 的答案准确率。"
+        },
+        {
+          "q": "支持中文文档吗？",
+          "a": "支持，但默认抽取 prompt 是英文的，建议在 KnowledgeGraphIndex 里传入中文 prompt 模板，或者用中文 LLM 如 Qwen。"
         }
       ],
       "variants": [
-        "变体1：把工作流做成“角色扮演链”——先让 AI 扮演挑剔编辑挑毛病，再扮演作者重写，最后扮演读者给反馈，三轮去味。",
-        "变体2：针对特定文体（如小红书、技术博客）各建一套负面约束清单，按文体切换提示词模板。",
-        "变体3：用 API 把“提纲→逐段生成→改写”串成自动化脚本，批量处理多篇文章。"
+        "变体1：用 LightRAG 替代 LlamaIndex 默认索引，LightRAG 结合了图结构和向量检索，速度更快且 token 消耗更低，适合大规模文档。",
+        "变体2：加入社区检测（Leiden 算法）做层次化摘要，先对图谱分社区，再对每个社区生成摘要，最后用摘要回答全局性问题，适合“整个文档集的主要趋势是什么”这类问题。",
+        "变体3：把 GraphRAG 和 Agent 结合，让 Agent 自主决定何时走图检索、何时走向量检索，用 LlamaIndex 的 RouterQueryEngine 实现混合路由。"
       ],
-      "summary": "去 AI 腔的精髓不是一次生成，而是用分阶段提示词把 AI 的快和人的判断交替起来，让每一轮都留下人味。"
+      "summary": "GraphRAG 的精髓是“先建图再检索”，用实体关系网络弥补向量检索的推理短板，而 Awesome-GraphRAG 是你随时查阅的武功秘籍。"
     },
-    "generated_at": "2026-11-08T07:08:07.012107+00:00",
+    "generated_at": "2026-09-19T09:20:39.112269+00:00",
     "play_meta": {
-      "title_zh": "用提示词工作流去除AI写作腔调",
-      "title_en": "如何写出不那么具有ai味的文章？ - DeepSky丶",
-      "source_id": "cnblogs-play",
-      "source_name": "博客园 AI 教程",
+      "title_zh": "GraphRAG 资源大全：图检索增强生成一站式指南",
+      "title_en": "DEEP-PolyU/Awesome-GraphRAG: Awesome-GraphRAG: A curated list of resources (sur",
+      "source_id": "github-play-awesome-rag",
+      "source_name": "GitHub Awesome RAG",
       "source_label": "技术社区",
       "source_tier": "B",
       "source_color": "yellow",
@@ -1811,12 +1709,123 @@
       "difficulty": 4,
       "time_estimate": "30min",
       "tools": [
-        "未标注"
+        "LlamaIndex"
       ],
-      "link": "https://www.cnblogs.com/deep-sky/p/23590338",
-      "is_domestic": true,
+      "link": "https://github.com/DEEP-PolyU/Awesome-GraphRAG",
+      "is_domestic": false,
       "tags": [],
       "playability_score": 7.5
+    }
+  },
+  "github-play-awesome-llm-47666e8f": {
+    "_sig": "Shubhamsaboo/awesome-llm-apps: 100+ AI Agents, Agent Skills and RAG Apps - Free |https://github.com/Shubhamsaboo/awesome-llm-apps",
+    "tutorial": {
+      "intro": "今天带你玩一个 GitHub 上 13.7 万星的开源宝藏库——100+ 个能直接跑的 AI Agent 应用，从 RAG 问答到多智能体协作，全部免费、开箱即用。",
+      "background": "很多同学想学 AI Agent 但卡在“不知道做什么”和“环境配不起来”上。awesome-llm-apps 这个仓库把 100 多个可运行的应用按场景分好类，每个都配了 README 和依赖文件，你只需要克隆、装依赖、填 API Key 就能跑。它覆盖了 RAG、工具调用、多智能体、代码解释器等主流玩法，非常适合用来快速体验不同 Agent 架构，或者直接拿某个项目改造成自己的产品原型。",
+      "prerequisites": [
+        {
+          "name": "Git",
+          "desc": "克隆仓库用",
+          "url": "https://git-scm.com/"
+        },
+        {
+          "name": "Python 3.10+",
+          "desc": "运行绝大多数示例",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "OpenAI API Key（或兼容接口）",
+          "desc": "驱动 LLM 调用，也可用 DeepSeek、通义千问等兼容 OpenAI 协议的 Key",
+          "url": "https://platform.openai.com/api-keys"
+        },
+        {
+          "name": "LlamaIndex",
+          "desc": "仓库中大量 RAG 示例的核心框架",
+          "url": "https://www.llamaindex.ai/"
+        },
+        {
+          "name": "Streamlit（可选）",
+          "desc": "很多示例带 Web UI，需要它来启动",
+          "url": "https://streamlit.io/"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：克隆仓库并浏览目录结构",
+          "content": "打开终端执行 git clone https://github.com/Shubhamsaboo/awesome-llm-apps.git，然后 cd 进去用 ls 查看分类目录。仓库通常按 starter_ai_agents、rag_tutorials、advanced_ai_agents 等文件夹组织，每个子目录里都有独立的 README.md 说明该应用的功能和运行方式。先花 5 分钟扫一遍目录名，挑一个你最感兴趣的场景。",
+          "tip": "如果 GitHub 克隆慢，可以用 ghproxy 或 Gitee 镜像加速；也可以直接点仓库页面右上角 Code → Download ZIP。"
+        },
+        {
+          "title": "第2步：选定一个示例并创建虚拟环境",
+          "content": "假设你选了 starter_ai_agents 里的某个 RAG 应用，先 cd 进该子目录。用 python -m venv venv 创建虚拟环境，然后 source venv/bin/activate（Windows 用 venv\\Scripts\\activate）激活。接着执行 pip install -r requirements.txt 安装依赖，如果目录里没有 requirements.txt，就按 README 里列出的包手动 pip install。",
+          "tip": "强烈建议每个示例单独建虚拟环境，避免不同项目依赖冲突；用 conda 也可以，命令换成 conda create -n agent python=3.10。"
+        },
+        {
+          "title": "第3步：配置 API Key 和环境变量",
+          "content": "在示例目录下创建 .env 文件，写入 OPENAI_API_KEY=sk-你的真实Key。如果示例用的是 LlamaIndex，通常还会读取 OPENAI_API_KEY 或 OPENAI_API_BASE。若你用的是国内兼容接口（如 DeepSeek），把 OPENAI_API_BASE 设为对应地址即可。保存后确认 .env 和代码在同一目录，或者代码里用 load_dotenv() 能定位到。",
+          "tip": "不要把 .env 提交到 Git；仓库一般有 .gitignore 帮你忽略，但自己再检查一遍更稳。"
+        },
+        {
+          "title": "第4步：运行应用并观察输出",
+          "content": "根据 README 的启动命令执行，常见有两种：python app.py 直接跑脚本，或 streamlit run app.py 启动 Web 界面。如果是 Streamlit，浏览器会自动打开 localhost:8501，你在输入框里提问就能看到 Agent 的回复和中间步骤。如果是纯脚本，终端会打印检索到的文档片段和最终答案。第一次跑建议用示例里自带的测试问题，确认链路通了再换自己的数据。",
+          "tip": "如果报 ModuleNotFoundError，多半是虚拟环境没激活或漏装包；如果报 401，检查 API Key 是否复制完整、余额是否充足。"
+        },
+        {
+          "title": "第5步：替换成你自己的数据或提示词",
+          "content": "RAG 类示例通常有一个 data 文件夹或代码里写死的文档路径，把你的 PDF、TXT、Markdown 丢进去，改一下路径就能用。Agent 类示例则在代码顶部有 system_prompt 或 agent 定义，改掉角色描述和工具列表，就能变成你的专属助手。改完重新运行，对比输出变化，体会不同提示词对 Agent 行为的影响。",
+          "tip": "改提示词时一次只改一个变量，方便定位效果差异；可以先把 temperature 调低到 0.2 让输出更稳定。"
+        }
+      ],
+      "expected_result": "你会在本地成功跑起来至少一个 AI Agent 应用：终端或浏览器里能看到它基于你提供的文档回答问题，或者调用工具完成多步任务。同时你手里有了一个可修改的代码基座，换数据、换提示词、换模型都能快速实验。",
+      "faq": [
+        {
+          "q": "我没有 OpenAI API Key，能用别的模型吗？",
+          "a": "可以。仓库里很多示例支持通过 OPENAI_API_BASE 指向兼容 OpenAI 协议的接口，比如 DeepSeek、通义千问、Moonshot 等，把 Key 和 Base URL 换成对应值即可。"
+        },
+        {
+          "q": "跑示例时提示缺少某个包怎么办？",
+          "a": "先确认虚拟环境已激活，然后 pip install 缺失的包名。如果 requirements.txt 里版本冲突，可以尝试 pip install --upgrade 或按 README 建议的 Python 版本重建环境。"
+        },
+        {
+          "q": "Streamlit 启动后浏览器打不开 localhost:8501？",
+          "a": "检查终端是否真的输出 URL，有时端口被占用会换成 8502。也可以手动访问 http://localhost:8501，或加 --server.port 指定其他端口。"
+        },
+        {
+          "q": "这些示例能直接商用吗？",
+          "a": "仓库本身是开源合集，但每个子项目可能各有 License，商用前请查看对应目录的 LICENSE 文件，并注意模型 API 的使用条款。"
+        },
+        {
+          "q": "哪个示例最适合新手入门？",
+          "a": "建议从 starter_ai_agents 里的单 Agent + 工具调用示例开始，代码量少、依赖简单，跑通后再挑战多智能体和 RAG 进阶项目。"
+        }
+      ],
+      "variants": [
+        "变体1：把 RAG 示例的数据源从本地文件换成网页爬取，用 LlamaIndex 的 SimpleWebPageReader 实时抓取新闻做问答。",
+        "变体2：把单 Agent 示例改造成多智能体协作，用 CrewAI 或 AutoGen 让一个 Agent 负责检索、一个负责总结、一个负责审核。",
+        "变体3：给 Agent 加上长期记忆，接入向量数据库（如 Chroma、Qdrant），让它在多轮对话中记住用户偏好和历史结论。"
+      ],
+      "summary": "克隆仓库、选一个示例、配好 Key、跑起来再改数据——四步就能把 100+ 开源 AI Agent 变成你自己的实验场。"
+    },
+    "generated_at": "2026-09-12T03:38:49.774320+00:00",
+    "play_meta": {
+      "title_zh": "100+ 开源 AI Agent 应用合集，直接跑",
+      "title_en": "Shubhamsaboo/awesome-llm-apps: 100+ AI Agents, Agent Skills and RAG Apps - Free a",
+      "source_id": "github-play-awesome-llm",
+      "source_name": "GitHub Awesome LLM",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "runnable_demo",
+      "difficulty": 3,
+      "time_estimate": "10min",
+      "tools": [
+        "LlamaIndex"
+      ],
+      "link": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 9.2
     }
   },
   "github-play-autogen-757dec3f": {
@@ -2046,117 +2055,6 @@
       "playability_score": 9.2
     }
   },
-  "github-play-awesome-rag-579b4646": {
-    "_sig": "lizhe2004/Awesome-LLM-RAG-Application: the resources about the application based|https://github.com/lizhe2004/Awesome-LLM-RAG-Application",
-    "tutorial": {
-      "intro": "Awesome-LLM-RAG 是一个汇集了基于 RAG 模式的 LLM 应用资源的 GitHub 仓库，本教程将带你用 LlamaIndex 快速搭建一个可用的 RAG 问答系统。",
-      "background": "随着大语言模型（LLM）的普及，如何让模型回答基于私有数据的问题成为刚需。RAG（检索增强生成）通过先检索相关文档再生成答案，有效缓解了模型幻觉和知识过时问题。Awesome-LLM-RAG 仓库整理了 1658+ 星标的 RAG 应用资源，涵盖框架、工具、论文和案例。本教程以 LlamaIndex 为核心，带你从零构建一个本地文档问答机器人，适合开发者、产品经理和 AI 爱好者快速上手。",
-      "prerequisites": [
-        {
-          "name": "Python 3.9+",
-          "desc": "运行环境，建议使用 3.10 或 3.11",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "LlamaIndex",
-          "desc": "核心 RAG 框架，用于索引和查询文档",
-          "url": "https://www.llamaindex.ai/"
-        },
-        {
-          "name": "OpenAI API Key",
-          "desc": "用于调用 GPT 模型生成答案（也可替换为本地模型）",
-          "url": "https://platform.openai.com/api-keys"
-        },
-        {
-          "name": "Awesome-LLM-RAG 仓库",
-          "desc": "参考资源大全，获取更多工具和案例",
-          "url": "https://github.com/lizhe2004/Awesome-LLM-RAG-Application"
-        },
-        {
-          "name": "Jupyter Notebook 或 VS Code",
-          "desc": "编写和调试代码",
-          "url": "https://code.visualstudio.com/"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：安装依赖并配置环境",
-          "content": "打开终端，创建虚拟环境并安装 LlamaIndex 和 OpenAI 库：pip install llama-index openai。然后设置 OpenAI API Key 环境变量：export OPENAI_API_KEY='你的密钥'（Windows 用 set）。如果使用本地模型，可安装 llama-index-llms-ollama 并运行 Ollama 服务。",
-          "tip": "建议用 conda 或 venv 隔离环境，避免版本冲突。API Key 不要硬编码在代码里。"
-        },
-        {
-          "title": "第2步：准备你的私有文档",
-          "content": "在项目目录下新建 data 文件夹，放入你要问答的文档，支持 txt、pdf、md、docx 等格式。例如放入公司产品手册.pdf 或个人笔记.md。LlamaIndex 会自动读取并解析。",
-          "tip": "文档越干净，检索效果越好。可以先手动删除无关页眉页脚。"
-        },
-        {
-          "title": "第3步：编写索引构建脚本",
-          "content": "新建 build_index.py，写入以下代码：from llama_index.core import VectorStoreIndex, SimpleDirectoryReader; documents = SimpleDirectoryReader('data').load_data(); index = VectorStoreIndex.from_documents(documents); index.storage_context.persist('./storage')。运行后会在 storage 文件夹生成向量索引。",
-          "tip": "首次运行会调用 OpenAI 嵌入模型，产生少量费用。可改用本地嵌入模型如 BAAI/bge-small-zh。"
-        },
-        {
-          "title": "第4步：实现问答查询",
-          "content": "新建 query.py，加载已保存的索引：from llama_index.core import StorageContext, load_index_from_storage; storage_context = StorageContext.from_defaults(persist_dir='./storage'); index = load_index_from_storage(storage_context); query_engine = index.as_query_engine(); response = query_engine.query('你的问题'); print(response)。运行即可得到基于文档的答案。",
-          "tip": "可以调整 similarity_top_k 参数控制检索文档数量，默认 2，增大可提高召回但可能引入噪声。"
-        },
-        {
-          "title": "第5步：优化与调试",
-          "content": "如果答案不准确，尝试：1）调整 chunk_size（默认 1024）和 chunk_overlap；2）更换嵌入模型；3）使用 SentenceSplitter 自定义分块；4）在 query_engine 中设置 response_mode='compact' 或 'refine'。也可以加入 rerank 模块提升排序质量。",
-          "tip": "用 index.as_query_engine(similarity_top_k=5, response_mode='compact') 快速测试不同参数组合。"
-        }
-      ],
-      "expected_result": "运行 query.py 后，输入“产品保修期是多久？”等问题，系统会从你放入的文档中检索相关段落，并生成准确、有依据的回答。控制台会打印答案，并可扩展为 Web 服务或聊天机器人。",
-      "faq": [
-        {
-          "q": "没有 OpenAI API Key 怎么办？",
-          "a": "可以使用本地模型，如 Ollama 运行 Llama 3 或 Qwen，然后安装 llama-index-llms-ollama 并设置 llm=Ollama(model='llama3')。嵌入模型也可用 HuggingFace 本地模型。"
-        },
-        {
-          "q": "支持中文文档吗？",
-          "a": "支持，但建议使用中文嵌入模型（如 BAAI/bge-large-zh）和中文 LLM（如 Qwen、ChatGLM），否则检索效果可能下降。"
-        },
-        {
-          "q": "索引构建很慢或报错？",
-          "a": "检查文档是否过大，可分批处理；确认网络能访问 OpenAI；若用本地模型，确保显存足够。也可先用小样本测试。"
-        },
-        {
-          "q": "如何让答案只基于文档，不编造？",
-          "a": "在 query_engine 中设置 response_mode='compact' 并添加系统提示词，如“仅根据以下上下文回答，不知道就说不知道”。"
-        },
-        {
-          "q": "Awesome-LLM-RAG 仓库怎么用？",
-          "a": "该仓库是资源大全，可从中找到更多 RAG 工具、论文和案例。建议先浏览 README 的分类，再按需深入。"
-        }
-      ],
-      "variants": [
-        "变体1：用 Streamlit 搭建 Web 界面，让非技术用户也能上传文档并提问。",
-        "变体2：结合 LangChain 和 LlamaIndex，构建多模态 RAG（支持图片和表格）。",
-        "变体3：使用本地向量数据库（如 Chroma、Qdrant）替代默认存储，支持大规模文档和增量更新。"
-      ],
-      "summary": "用 LlamaIndex 快速构建 RAG 问答系统，核心是“文档索引 + 检索 + 生成”，再根据效果调参优化。"
-    },
-    "generated_at": "2026-09-19T09:20:21.269557+00:00",
-    "play_meta": {
-      "title_zh": "Awesome-LLM-RAG：RAG应用资源大全",
-      "title_en": "lizhe2004/Awesome-LLM-RAG-Application: the resources about the application based on LLM w",
-      "source_id": "github-play-awesome-rag",
-      "source_name": "GitHub Awesome RAG",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 5,
-      "time_estimate": "30min",
-      "tools": [
-        "LlamaIndex"
-      ],
-      "link": "https://github.com/lizhe2004/Awesome-LLM-RAG-Application",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 7.5
-    }
-  },
   "github-play-autogen-0d150b19": {
     "_sig": "microsoft/autogen: A programming framework for agentic AI|https://github.com/microsoft/autogen",
     "tutorial": {
@@ -2379,115 +2277,549 @@
       "playability_score": 8.5
     }
   },
-  "github-play-awesome-rag-7bf9f818": {
-    "_sig": "DEEP-PolyU/Awesome-GraphRAG: Awesome-GraphRAG: A curated list of resources (sur|https://github.com/DEEP-PolyU/Awesome-GraphRAG",
+  "juejin-play-e98623e5": {
+    "_sig": "Qwen-Drive 到底是什么：4B 级 VLM 如何成为驾驶策略底座|https://juejin.cn/post/7705938834806538282",
     "tutorial": {
-      "intro": "GraphRAG 是传统 RAG 的升级版，它用知识图谱把文档中的实体和关系串起来，让大模型回答复杂问题时能进行多跳推理。本教程带你用 LlamaIndex 和 Awesome-GraphRAG 资源库，从零搭建一个可用的 GraphRAG 问答系统。",
-      "background": "普通 RAG 只做向量相似度检索，遇到“A 公司的 CEO 的母校在哪里”这类需要跨文档推理的问题就歇菜了。GraphRAG 先抽取实体和关系构建图谱，再基于图结构检索子图，最后把子图喂给 LLM 生成答案。这个玩法适合处理金融研报、医疗文献、法律合同等实体关系密集的场景。Awesome-GraphRAG 这个 GitHub 仓库汇集了 2655 颗星的精华资源，包括综述、论文、基准测试和开源项目，是你入门和进阶的最佳地图。",
+      "intro": "本教程教你用 Qwen-Drive 一次生成 6 条未来驾驶轨迹候选，快速评估不同驾驶策略的可行性。",
+      "background": "Qwen-Drive 是基于 4B 视觉语言模型的驾驶规划系统，核心能力是生成多条未来轨迹候选（默认 6 条），而非单一最优路径。输出为自车坐标系下的 (x, y, heading) 序列，适合做轨迹筛选、风险对比和规划算法验证。相比传统单轨迹输出，多候选能覆盖更多驾驶意图，便于下游模块做安全校验和舒适度打分。",
       "prerequisites": [
         {
-          "name": "Python 3.10+",
-          "desc": "运行环境，建议用 conda 创建独立虚拟环境",
+          "name": "Qwen-Drive 模型",
+          "desc": "驾驶规划系统，生成多条轨迹候选",
+          "url": "https://juejin.cn/post/7705938834806538282"
+        },
+        {
+          "name": "Python 3.8+",
+          "desc": "运行推理脚本和数据处理",
           "url": "https://www.python.org/downloads/"
         },
         {
-          "name": "LlamaIndex",
-          "desc": "核心框架，提供 GraphRAG 的索引、检索和查询接口",
-          "url": "https://www.llamaindex.ai/"
+          "name": "PyTorch",
+          "desc": "加载 4B 视觉语言模型",
+          "url": "https://pytorch.org/get-started/locally/"
         },
         {
-          "name": "Neo4j Desktop",
-          "desc": "图数据库，用来存储和可视化知识图谱（也可用内存图存储替代）",
-          "url": "https://neo4j.com/download/"
+          "name": "NumPy",
+          "desc": "处理 (x, y, heading) 轨迹数组",
+          "url": "https://numpy.org/install/"
         },
         {
-          "name": "OpenAI API Key",
-          "desc": "调用 GPT-4 做实体抽取和答案生成，也可换成本地 Ollama 模型",
-          "url": "https://platform.openai.com/"
-        },
-        {
-          "name": "Awesome-GraphRAG 仓库",
-          "desc": "资源大全，用来查论文、找基准和参考实现",
-          "url": "https://github.com/DEEP-PolyU/Awesome-GraphRAG"
+          "name": "Matplotlib",
+          "desc": "可视化 6 条轨迹候选",
+          "url": "https://matplotlib.org/stable/users/installing/index.html"
         }
       ],
       "steps": [
         {
-          "title": "第1步：克隆资源库并安装依赖",
-          "content": "打开终端，执行 git clone https://github.com/DEEP-PolyU/Awesome-GraphRAG.git 把资源库拉到本地。然后创建虚拟环境：conda create -n graphrag python=3.10 && conda activate graphrag。接着安装 LlamaIndex 全家桶：pip install llama-index llama-index-graph-stores-neo4j llama-index-llms-openai。最后设置环境变量 export OPENAI_API_KEY='你的key'。",
-          "tip": "如果网络慢，可以用清华镜像 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple 加速。"
+          "title": "第1步：准备环境与模型",
+          "content": "创建 Python 虚拟环境并安装 PyTorch、NumPy、Matplotlib。从官方仓库或 Hugging Face 下载 Qwen-Drive 4B 模型权重，确认显存至少 8GB。将模型路径写入配置文件，避免硬编码。",
+          "tip": "先用小分辨率图像测试加载，确认模型能正常推理再跑完整流程。"
         },
         {
-          "title": "第2步：准备文档并构建知识图谱索引",
-          "content": "在项目目录下新建 data 文件夹，放入 3-5 篇 txt 或 pdf 文档（比如公司年报摘要）。写一个 build_graph.py 脚本：先用 SimpleDirectoryReader 加载文档，再用 KnowledgeGraphIndex.from_documents() 自动抽取实体和关系。关键参数：max_triplets_per_chunk=10 控制每块抽取的三元组数量，include_embeddings=True 让后续检索更准。运行脚本后，LlamaIndex 会调用 LLM 逐块抽取 (头实体, 关系, 尾实体) 并存入图存储。",
-          "tip": "第一次跑建议用 2-3 篇短文档，抽取 50 个三元组左右即可，太多会烧 token 且难调试。"
+          "title": "第2步：构造输入数据",
+          "content": "准备自车当前状态（速度、加速度、航向角）和前视/环视图像。按 Qwen-Drive 要求组织成视觉语言模型输入格式，图像需归一化到模型指定尺寸。将自车坐标系原点设在车辆后轴中心，确保后续轨迹坐标一致。",
+          "tip": "图像时间戳要和自车状态对齐，否则轨迹会偏移。"
         },
         {
-          "title": "第3步：把图谱存入 Neo4j 并可视化",
-          "content": "在脚本里配置 Neo4j 图存储：from llama_index.graph_stores.neo4j import Neo4jGraphStore，填入 uri='bolt://localhost:7687'、username='neo4j'、password='你的密码'。把上一步的 index 持久化到 Neo4j：index.storage_context.persist()。然后打开 Neo4j Browser，执行 MATCH (n)-[r]->(m) RETURN n,r,m LIMIT 100，你就能看到一张实体关系网络图。检查是否有明显错误的三元组，比如把“苹果”抽成了水果而不是公司。",
-          "tip": "如果不想装 Neo4j，可以用 SimpleGraphStore 存在内存里，但重启就没了，适合快速验证。"
+          "title": "第3步：调用模型生成 6 条轨迹",
+          "content": "加载 Qwen-Drive 并设置 num_trajectories=6，输入构造好的数据。模型输出 6 组 (x, y, heading) 序列，每组对应一条候选轨迹。将输出解析为 NumPy 数组，形状为 (6, T, 3)，T 为时间步数。",
+          "tip": "首次运行打印输出形状，确认是 6 条而不是 1 条。"
         },
         {
-          "title": "第4步：构建 GraphRAG 查询引擎并提问",
-          "content": "新建 query_graph.py，加载持久化的索引：from llama_index.core import StorageContext, load_index_from_storage。然后创建查询引擎：query_engine = index.as_query_engine(include_text=True, similarity_top_k=4, response_mode='tree_summarize')。其中 include_text=True 会把原始文本块一起送给 LLM，response_mode 选 tree_summarize 适合多跳推理。现在问一个复杂问题：“A 公司的 CEO 毕业于哪所大学？该大学位于哪个城市？” 观察返回答案是否准确。",
-          "tip": "如果答案不准，把 similarity_top_k 调到 6-8，或者换 response_mode='compact' 试试。"
+          "title": "第4步：可视化与对比",
+          "content": "用 Matplotlib 在自车坐标系下画出 6 条轨迹，不同颜色区分。叠加自车当前位置和朝向箭头，检查轨迹是否合理。对比各轨迹的终点横向偏移和航向变化，初步判断激进/保守策略。",
+          "tip": "把 6 条轨迹画在同一张图上，更容易看出分歧点。"
         },
         {
-          "title": "第5步：对照 Awesome-GraphRAG 优化效果",
-          "content": "打开 Awesome-GraphRAG 仓库的 README，找到 Benchmarks 和 Open-source Projects 两个板块。用里面的 GraphRAG-Bench 测试你的系统在“多跳推理”和“实体消歧”上的得分。如果得分低，参考仓库里推荐的论文（如 Microsoft GraphRAG、LightRAG）调整抽取 prompt 或改用社区检测算法做层次化摘要。最后把优化后的参数写回脚本，重新构建索引并对比答案质量。",
-          "tip": "仓库里有很多现成的 prompt 模板，直接复制到你的 KnowledgeGraphIndex 里替换默认 prompt，效果提升明显。"
+          "title": "第5步：筛选与下游对接",
+          "content": "根据安全距离、舒适度（加速度/曲率）和通行效率给 6 条轨迹打分。选出 top-2 送入下游控制模块或做碰撞检测。保存筛选结果和原始 6 条轨迹，便于回溯分析。",
+          "tip": "不要只看最优轨迹，保留 2-3 条备选能提升系统鲁棒性。"
         }
       ],
-      "expected_result": "你得到一个能回答多跳问题的 GraphRAG 问答系统。输入“A 公司的 CEO 毕业于哪所大学？该大学位于哪个城市？”，系统会先在图谱中找到 CEO 实体，沿“毕业于”关系跳到大学实体，再沿“位于”关系跳到城市实体，最后生成完整答案。Neo4j 中能看到清晰的实体关系图，Awesome-GraphRAG 的基准测试显示你的系统在多跳推理任务上比普通 RAG 高出 20-30 个百分点。",
+      "expected_result": "运行脚本后得到 6 条自车坐标系下的 (x, y, heading) 轨迹序列，可视化图中 6 条彩色轨迹从自车位置发散，可清晰对比不同驾驶意图，并能输出筛选后的候选轨迹列表。",
       "faq": [
         {
-          "q": "没有 OpenAI API Key 能用吗？",
-          "a": "可以，用 Ollama 本地跑 Llama 3 或 Qwen2.5，在 LlamaIndex 里把 llm 换成 Ollama 即可，但抽取速度会慢一些。"
+          "q": "为什么输出是 6 条而不是 1 条？",
+          "a": "Qwen-Drive 设计为多候选规划，6 条覆盖不同驾驶策略，下游可做安全校验和打分筛选。"
         },
         {
-          "q": "图谱抽取太慢或太贵怎么办？",
-          "a": "减少文档数量，调低 max_triplets_per_chunk，或者改用 LightRAG 这类轻量级方案，它只抽取关键实体和关系。"
+          "q": "轨迹坐标原点在哪里？",
+          "a": "在自车坐标系下，通常以车辆后轴中心为原点，x 向前、y 向左，heading 为航向角。"
         },
         {
-          "q": "Neo4j 必须装吗？",
-          "a": "不是必须，LlamaIndex 支持 SimpleGraphStore 内存图存储，适合快速验证，但生产环境建议用 Neo4j 持久化。"
+          "q": "显存不够怎么办？",
+          "a": "可降低输入图像分辨率或使用半精度推理，4B 模型建议至少 8GB 显存。"
         },
         {
-          "q": "如何评估 GraphRAG 的效果？",
-          "a": "用 Awesome-GraphRAG 里的 GraphRAG-Bench，或者自己构造 20 个多跳问题，对比普通 RAG 和 GraphRAG 的答案准确率。"
+          "q": "6 条轨迹时间步长是多少？",
+          "a": "取决于模型配置，常见为未来 3-5 秒、每 0.5 秒一个点，具体以模型文档为准。"
         },
         {
-          "q": "支持中文文档吗？",
-          "a": "支持，但默认抽取 prompt 是英文的，建议在 KnowledgeGraphIndex 里传入中文 prompt 模板，或者用中文 LLM 如 Qwen。"
+          "q": "可以只要 3 条吗？",
+          "a": "可以，通过 num_trajectories 参数调整，但默认 6 条能提供更多对比信息。"
         }
       ],
       "variants": [
-        "变体1：用 LightRAG 替代 LlamaIndex 默认索引，LightRAG 结合了图结构和向量检索，速度更快且 token 消耗更低，适合大规模文档。",
-        "变体2：加入社区检测（Leiden 算法）做层次化摘要，先对图谱分社区，再对每个社区生成摘要，最后用摘要回答全局性问题，适合“整个文档集的主要趋势是什么”这类问题。",
-        "变体3：把 GraphRAG 和 Agent 结合，让 Agent 自主决定何时走图检索、何时走向量检索，用 LlamaIndex 的 RouterQueryEngine 实现混合路由。"
+        "变体1：只生成 3 条轨迹，降低计算量，适合实时性要求高的场景。",
+        "变体2：对 6 条轨迹做聚类，合并相似轨迹，突出真正不同的驾驶意图。",
+        "变体3：把 6 条轨迹输入碰撞检测模块，自动剔除高风险候选后再排序。"
       ],
-      "summary": "GraphRAG 的精髓是“先建图再检索”，用实体关系网络弥补向量检索的推理短板，而 Awesome-GraphRAG 是你随时查阅的武功秘籍。"
+      "summary": "用 Qwen-Drive 一次生成 6 条轨迹候选，再通过可视化和打分筛选，把多候选规划变成可落地的驾驶决策流程。"
     },
-    "generated_at": "2026-09-19T09:20:39.112269+00:00",
+    "generated_at": "2026-11-09T07:56:56.810461+00:00",
     "play_meta": {
-      "title_zh": "GraphRAG 资源大全：图检索增强生成一站式指南",
-      "title_en": "DEEP-PolyU/Awesome-GraphRAG: Awesome-GraphRAG: A curated list of resources (sur",
-      "source_id": "github-play-awesome-rag",
-      "source_name": "GitHub Awesome RAG",
+      "title_zh": "用Qwen-Drive生成6条驾驶轨迹候选",
+      "title_en": "Qwen-Drive 到底是什么：4B 级 VLM 如何成为驾驶策略底座",
+      "source_id": "juejin-play",
+      "source_name": "掘金 AI 实战教程",
       "source_label": "技术社区",
       "source_tier": "B",
       "source_color": "yellow",
       "source_emoji": "🟡",
       "play_type": "tool_chain",
-      "difficulty": 4,
+      "difficulty": 3,
       "time_estimate": "30min",
       "tools": [
-        "LlamaIndex"
+        "未标注"
       ],
-      "link": "https://github.com/DEEP-PolyU/Awesome-GraphRAG",
-      "is_domestic": false,
+      "link": "https://juejin.cn/post/7705938834806538282",
+      "is_domestic": true,
       "tags": [],
       "playability_score": 7.5
+    }
+  },
+  "cnblogs-play-1c8cd5ed": {
+    "_sig": "手把手教你：torch.cuda.is_available() 一直是 False？一条命令定位断点｜AI工程师踩坑实录·第2篇 - 大雾的小屋|https://www.cnblogs.com/dawudexiaowu/p/23598740",
+    "tutorial": {
+      "intro": "GPU 用不上别急着重装驱动，用 cuda_doctor 命令按框架层→环境变量层→驱动层的顺序定位断点，一条命令就能找到问题在哪一层。",
+      "background": "很多开发者遇到 PyTorch 或 TensorFlow 检测不到 GPU 时，第一反应是重装驱动，结果折腾半天发现是装了 CPU 版轮子。更隐蔽的是 CUDA_VISIBLE_DEVICES 被设成 -1，程序零报错但 GPU 凭空消失。这个玩法把 GPU 不可用问题按概率排序分三层排查，用一条 cuda_doctor 命令快速定断点，避免盲目重装驱动浪费时间。",
+      "prerequisites": [
+        {
+          "name": "Python 3.8+",
+          "desc": "运行环境和 cuda_doctor 脚本",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "PyTorch 或 TensorFlow",
+          "desc": "用于验证框架层 GPU 是否可用",
+          "url": "https://pytorch.org/get-started/locally/"
+        },
+        {
+          "name": "NVIDIA 驱动与 CUDA Toolkit",
+          "desc": "驱动层排查需要 nvidia-smi 和 nvcc",
+          "url": "https://developer.nvidia.com/cuda-downloads"
+        },
+        {
+          "name": "cuda_doctor 脚本",
+          "desc": "一键检测三层断点的工具脚本，可从原文获取或自行编写",
+          "url": "https://www.cnblogs.com/dawudexiaowu/p/23598740"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：准备 cuda_doctor 检测脚本",
+          "content": "新建一个 cuda_doctor.py 文件，写入检测逻辑：先打印 torch.__version__ 和 torch.version.cuda 判断是否 CPU 轮子；再读取 os.environ.get('CUDA_VISIBLE_DEVICES') 检查是否被设为 -1；最后调用 subprocess 执行 nvidia-smi 和 nvcc --version 验证驱动层。保存后在终端运行 python cuda_doctor.py。",
+          "tip": "如果不想自己写，可直接参考原文博客中的脚本片段，复制后按需修改。"
+        },
+        {
+          "title": "第2步：检查框架层是否装了 CPU 轮子",
+          "content": "运行脚本后看第一段输出：如果 torch.version.cuda 为 None 或空，说明装的是 CPU 版 PyTorch。此时执行 pip list | grep torch 确认版本，然后卸载重装对应 CUDA 版本的轮子，例如 pip install torch --index-url https://download.pytorch.org/whl/cu118。",
+          "tip": "这是最常见的原因，占 GPU 不可用问题的一半以上，优先排查。"
+        },
+        {
+          "title": "第3步：检查 CUDA_VISIBLE_DEVICES 环境变量",
+          "content": "看脚本第二段输出：如果 CUDA_VISIBLE_DEVICES 被设为 -1，GPU 会被隐藏且零报错。在终端执行 echo $CUDA_VISIBLE_DEVICES 确认，若为 -1 则用 export CUDA_VISIBLE_DEVICES=0 临时恢复，或检查 .bashrc、.zshrc、Dockerfile 中是否写死了 -1。",
+          "tip": "这个坑最隐蔽，因为程序不会报错，只是 torch.cuda.is_available() 返回 False。"
+        },
+        {
+          "title": "第4步：检查驱动层 nvidia-smi 与 nvcc",
+          "content": "看脚本第三段输出：如果 nvidia-smi 报错或找不到命令，说明驱动没装好或 GPU 未挂载。先运行 nvidia-smi 看是否能列出 GPU，再运行 nvcc --version 确认 CUDA Toolkit 版本。若 nvidia-smi 正常但 nvcc 缺失，安装对应 CUDA Toolkit 即可。",
+          "tip": "驱动层放最后排查，因为重装驱动成本最高，前面两层能解决大部分问题。"
+        },
+        {
+          "title": "第5步：验证修复结果",
+          "content": "按断点修复后，重新运行 python cuda_doctor.py，确认三层全部通过。再执行 python -c \"import torch; print(torch.cuda.is_available(), torch.cuda.device_count())\" 应输出 True 和大于 0 的数字。最后跑一个小张量到 GPU 上验证实际可用。",
+          "tip": "验证时用 torch.randn(1).cuda() 做一次真实运算，比只看 is_available() 更可靠。"
+        }
+      ],
+      "expected_result": "cuda_doctor 输出显示框架层 CUDA 版本正常、CUDA_VISIBLE_DEVICES 未设为 -1、nvidia-smi 和 nvcc 均可执行，torch.cuda.is_available() 返回 True，GPU 可正常用于训练和推理。",
+      "faq": [
+        {
+          "q": "cuda_doctor 命令是官方工具吗？",
+          "a": "不是，它是社区脚本或自定义检测脚本，核心是把三层排查逻辑串起来，可自行编写或从原文获取。"
+        },
+        {
+          "q": "torch.version.cuda 有值但 is_available() 仍为 False 怎么办？",
+          "a": "重点查 CUDA_VISIBLE_DEVICES 是否被设为 -1，以及驱动版本是否低于框架要求的 CUDA 版本。"
+        },
+        {
+          "q": "nvidia-smi 正常但 nvcc 找不到怎么办？",
+          "a": "说明驱动装了但 CUDA Toolkit 没装或没加进 PATH，安装对应版本 Toolkit 并配置环境变量即可。"
+        },
+        {
+          "q": "Docker 容器里 GPU 不可用怎么排查？",
+          "a": "先确认启动时加了 --gpus all，再在容器内跑 cuda_doctor，重点看 CUDA_VISIBLE_DEVICES 和设备挂载情况。"
+        },
+        {
+          "q": "重装驱动能解决所有问题吗？",
+          "a": "不能，驱动层只是第三层，框架层 CPU 轮子和环境变量 -1 更常见，盲目重装驱动往往白费功夫。"
+        }
+      ],
+      "variants": [
+        "变体1：把 cuda_doctor 封装成 CI 检查步骤，在训练任务启动前自动跑一遍，提前拦截 GPU 不可用问题。",
+        "变体2：扩展 cuda_doctor 增加显存占用和 GPU 型号检测，输出更完整的健康报告。",
+        "变体3：将三层排查逻辑写成 shell 脚本，在无 Python 环境的服务器上也能一键定位断点。"
+      ],
+      "summary": "GPU 不可用先别重装驱动，用 cuda_doctor 按框架层→环境变量层→驱动层的概率顺序排查，一条命令定断点，省时省力。"
+    },
+    "generated_at": "2026-11-09T07:57:07.726947+00:00",
+    "play_meta": {
+      "title_zh": "用cuda_doctor命令定位GPU不可用断点",
+      "title_en": "手把手教你：torch.cuda.is_available() 一直是 False？一条命令定位断点｜AI工程师踩坑实录·第2篇 - 大雾的小屋",
+      "source_id": "cnblogs-play",
+      "source_name": "博客园 AI 教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
+      "difficulty": 3,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://www.cnblogs.com/dawudexiaowu/p/23598740",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
+  "cnblogs-play-ea7bc3e4": {
+    "_sig": "LangGraph 体系实战（上）：建图、状态管理、控制流与持久化 - 不吃紫菜|https://www.cnblogs.com/buchizicai/p/23594631",
+    "tutorial": {
+      "intro": "LangGraph 把 LangChain 的线性链升级成一张可控、可恢复的工作流图，让你像搭积木一样编排 AI 的思考与工具调用。",
+      "background": "很多 AI 应用卡在「一条链跑到底」：中间出错只能重来，分支逻辑写死在代码里，多步工具调用难以追踪。LangGraph 用「状态 + 节点 + 边」的图结构解决这些问题——状态用 TypedDict/Pydantic 定义，Reducer 负责合并并发写入，条件边控制分支与循环，Checkpointer 让流程可断点恢复。它适合需要多步推理、工具调用、人工审核或失败重试的复杂 Agent 场景。",
+      "prerequisites": [
+        {
+          "name": "Python 3.10+",
+          "desc": "运行环境，LangGraph 依赖较新的 Python 特性",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "LangGraph",
+          "desc": "核心图编排库，提供 StateGraph、节点、边、Checkpointer",
+          "url": "https://langchain-ai.github.io/langgraph/"
+        },
+        {
+          "name": "LangChain",
+          "desc": "提供模型封装、工具定义与提示词模板",
+          "url": "https://python.langchain.com/"
+        },
+        {
+          "name": "OpenAI API Key（或兼容模型）",
+          "desc": "驱动节点中的 LLM 调用，也可换成本地 Ollama",
+          "url": "https://platform.openai.com/api-keys"
+        },
+        {
+          "name": "VS Code + Jupyter 插件",
+          "desc": "边写边跑，方便调试图结构",
+          "url": "https://code.visualstudio.com/"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：安装依赖并定义状态结构",
+          "content": "先 pip install langgraph langchain langchain-openai。然后用 TypedDict 定义图的状态，例如 messages 列表和 next_step 字符串；如果需要对并发写入做合并，给字段加上 Annotated[list, add_messages] 这样的 Reducer。简单场景用 TypedDict 即可，需要校验和默认值时改用 Pydantic BaseModel。",
+          "tip": "状态字段宁少勿多，只放节点间真正需要传递的数据，避免图变成全局变量垃圾场。"
+        },
+        {
+          "title": "第2步：编写节点函数并注册到 StateGraph",
+          "content": "每个节点就是一个普通函数，入参是 state，返回要更新的字段字典。用 StateGraph(State) 创建图，add_node(\"llm\", llm_node) 逐个注册节点。节点内可以调用模型、执行工具或做纯逻辑判断。最后用 set_entry_point 指定入口节点。",
+          "tip": "节点函数保持单一职责，一个节点只做一件事，调试时更容易定位问题。"
+        },
+        {
+          "title": "第3步：用条件边控制分支与循环",
+          "content": "用 add_conditional_edges 挂上路由函数，根据 state 里的字段返回下一个节点名。例如判断是否需要调用工具：需要则走向 tools 节点，不需要则走向 END。循环终止条件也在这里判断，比如工具调用次数超过 3 次就强制结束，防止死循环。",
+          "tip": "路由函数只做判断不做副作用，返回字符串即可，方便单元测试。"
+        },
+        {
+          "title": "第4步：加入 Checkpointer 实现可恢复",
+          "content": "编译图时传入 checkpointer=MemorySaver()（生产环境换 SqliteSaver 或 PostgresSaver），并在 invoke 时带上 config={\"configurable\": {\"thread_id\": \"user-1\"}}。这样每一步状态都会落盘，中断后可以用同一 thread_id 从上次断点继续跑。",
+          "tip": "thread_id 按用户或会话维度生成，恢复时传同一个值才能接上历史状态。"
+        },
+        {
+          "title": "第5步：运行、可视化并调试",
+          "content": "调用 graph.invoke({\"messages\": [(\"user\", \"帮我查天气并决定穿什么\")]}) 跑通全流程。用 graph.get_graph().draw_mermaid_png() 导出流程图检查分支是否符合预期。观察每步输出，确认 Fan-in 汇聚和循环终止都按设计执行。",
+          "tip": "先跑最小用例再逐步加分支，图越复杂越要小步验证。"
+        }
+      ],
+      "expected_result": "你得到一张可运行的 LangGraph 工作流图：能根据输入自动分支、调用工具、循环重试并在达到条件时终止；中断后用同一 thread_id 可恢复执行；导出的 Mermaid 流程图清晰展示节点与边的关系。",
+      "faq": [
+        {
+          "q": "TypedDict 和 Pydantic 状态到底怎么选？",
+          "a": "需要运行时校验、默认值或复杂嵌套时用 Pydantic；追求轻量和简单结构时用 TypedDict。两者都支持 Annotated Reducer。"
+        },
+        {
+          "q": "多个节点同时写同一个字段会怎样？",
+          "a": "没有 Reducer 会报错冲突；给字段加 Annotated[list, add_messages] 或自定义合并函数即可安全合并并发写入。"
+        },
+        {
+          "q": "循环停不下来怎么办？",
+          "a": "在条件边里加计数器字段，路由函数判断超过阈值就返回 END；同时给 LLM 调用设置超时。"
+        },
+        {
+          "q": "MemorySaver 重启后状态还在吗？",
+          "a": "不在，MemorySaver 只存内存。生产环境换 SqliteSaver 或 PostgresSaver 持久化。"
+        },
+        {
+          "q": "能接入本地模型吗？",
+          "a": "可以，把 ChatOpenAI 换成 ChatOllama 或任何 LangChain 兼容的模型封装即可，图结构不变。"
+        }
+      ],
+      "variants": [
+        "变体1：人工审核节点——在工具调用前插入 interrupt，等待人工确认后再继续，适合高风险操作。",
+        "变体2：多 Agent 协作图——把每个 Agent 做成子图，用父图编排路由，实现研究员+写作员+审核员的分工。",
+        "变体3：RAG 检索工作流——检索节点与生成节点组成循环，根据答案置信度决定是否重新检索。"
+      ],
+      "summary": "LangGraph 的精髓是把 AI 流程从「一条链」变成「一张有状态、可分支、可恢复的图」，让复杂 Agent 变得可控可调试。"
+    },
+    "generated_at": "2026-11-09T07:57:19.869862+00:00",
+    "play_meta": {
+      "title_zh": "用 LangGraph 搭建可控可恢复的 AI 工作流图",
+      "title_en": "LangGraph 体系实战（上）：建图、状态管理、控制流与持久化 - 不吃紫菜",
+      "source_id": "cnblogs-play",
+      "source_name": "博客园 AI 教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
+      "difficulty": 3,
+      "time_estimate": "30min",
+      "tools": [
+        "LangChain"
+      ],
+      "link": "https://www.cnblogs.com/buchizicai/p/23594631",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
+  "juejin-play-ba7e0172": {
+    "_sig": "一个人 + AI，用 Tauri 2 和 Rust 写了个开源的 Windows 效率工具：提醒 + 笔记 + 启动器|https://juejin.cn/post/7705782451822690355",
+    "tutorial": {
+      "intro": "用 Tauri 2 + Rust 打造一个 Windows 桌面小工具，一句话设提醒、随手记笔记、顺手启动程序，免费开源还轻量。",
+      "background": "日常工作中，我们经常需要快速记下灵感、设置一个临时提醒，或者打开某个常用软件。但打开笔记应用、设置闹钟、找到程序图标这些操作太繁琐。这个玩法教你用 Tauri 2 和 Rust 构建一个极简的 Windows 启动器，把提醒、笔记和程序启动三合一，常驻托盘，随叫随到。它适合喜欢折腾桌面效率工具的开发者，也适合想学习 Tauri 跨端开发的新手。整个项目代码量不大，难度适中，跟着教程走就能跑起来。",
+      "prerequisites": [
+        {
+          "name": "Rust 工具链",
+          "desc": "编译 Rust 代码，需安装 rustup 并配置 MSVC 工具链",
+          "url": "https://www.rust-lang.org/tools/install"
+        },
+        {
+          "name": "Node.js (>=18)",
+          "desc": "运行前端构建工具和包管理器",
+          "url": "https://nodejs.org/"
+        },
+        {
+          "name": "Tauri CLI",
+          "desc": "创建和构建 Tauri 项目，通过 cargo install tauri-cli 或 npm 安装",
+          "url": "https://tauri.app/start/"
+        },
+        {
+          "name": "Visual Studio Build Tools",
+          "desc": "Windows 上编译 Rust 所需的 C++ 构建工具",
+          "url": "https://visualstudio.microsoft.com/visual-cpp-build-tools/"
+        },
+        {
+          "name": "WebView2 Runtime",
+          "desc": "Windows 10/11 通常已内置，用于渲染 Tauri 前端界面",
+          "url": "https://developer.microsoft.com/microsoft-edge/webview2/"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：初始化 Tauri 2 项目",
+          "content": "打开终端，运行 `npm create tauri-app@latest`，按提示输入项目名（如 reminder-launcher），选择前端框架（推荐 Vanilla 或 React），包管理器选 npm。进入项目目录后执行 `npm install` 安装依赖。最后运行 `npm run tauri dev` 确认默认窗口能正常启动。",
+          "tip": "如果遇到 Rust 编译错误，检查是否安装了 MSVC 构建工具，并确保 rustup 默认工具链为 stable-x86_64-pc-windows-msvc。"
+        },
+        {
+          "title": "第2步：设计主界面与交互逻辑",
+          "content": "在 src 目录下编辑前端页面，添加一个输入框用于输入指令，一个按钮用于提交。指令格式约定为：`提醒 10:30 开会`、`笔记 买牛奶`、`启动 notepad`。用 JavaScript 监听按钮点击，将输入内容通过 Tauri 的 invoke 函数发送到 Rust 后端。同时可以加一个简单的历史记录列表，展示最近的操作。",
+          "tip": "输入框支持回车提交，体验更顺手；用 localStorage 暂存历史记录，刷新不丢失。"
+        },
+        {
+          "title": "第3步：Rust 后端实现三大功能",
+          "content": "在 src-tauri/src/main.rs 中定义三个 Tauri command：`set_reminder` 解析时间并启动一个异步任务，到点后调用系统通知；`save_note` 将笔记内容追加写入本地文件（如 notes.txt）；`launch_app` 使用 std::process::Command 启动指定程序（如 notepad.exe）。每个 command 返回 Result 给前端反馈。",
+          "tip": "提醒功能可以用 tokio 的 sleep 实现，注意在 Tauri 的异步运行时中 spawn 任务；启动程序时对参数做简单校验，避免命令注入。"
+        },
+        {
+          "title": "第4步：配置系统托盘与全局快捷键",
+          "content": "在 tauri.conf.json 中启用托盘图标，并在 Rust 端使用 Tauri 的 TrayIconBuilder 创建托盘菜单，包含“显示主窗口”和“退出”。同时注册全局快捷键（如 Ctrl+Shift+Space）唤起窗口，方便随时输入指令。需要引入 tauri-plugin-global-shortcut 插件并在配置中启用。",
+          "tip": "托盘图标建议用 .ico 格式，尺寸 32x32；全局快捷键不要与系统常用快捷键冲突。"
+        },
+        {
+          "title": "第5步：打包为 Windows 安装包",
+          "content": "运行 `npm run tauri build`，Tauri 会自动编译 Rust 并打包前端资源，生成 .msi 和 .exe 安装包，位于 src-tauri/target/release/bundle/ 目录下。安装后即可在开始菜单找到应用，双击运行。如需开机自启，可在安装包配置中勾选或手动将快捷方式放入启动文件夹。",
+          "tip": "首次构建时间较长，耐心等待；若想减小体积，可在 tauri.conf.json 中开启压缩和移除未使用功能。"
+        }
+      ],
+      "expected_result": "运行应用后，系统托盘出现图标，按下 Ctrl+Shift+Space 弹出输入框。输入“提醒 14:00 喝水”后，到点会收到 Windows 通知；输入“笔记 明天交报告”后，笔记被保存到本地文件；输入“启动 calc”后，计算器程序被打开。所有操作都有即时反馈，历史记录清晰可见。",
+      "faq": [
+        {
+          "q": "没有 Rust 基础能跟着做吗？",
+          "a": "可以。教程提供的代码片段直接复制即可运行，重点理解 Tauri 的 command 机制和前端调用方式，Rust 语法只需看懂大致逻辑。"
+        },
+        {
+          "q": "提醒功能在应用关闭后还能生效吗？",
+          "a": "默认不能，因为提醒任务运行在应用进程内。如需离线提醒，可将提醒时间写入系统计划任务，或让应用常驻托盘不退出。"
+        },
+        {
+          "q": "启动程序时如何传递参数？",
+          "a": "在 launch_app 命令中接收一个参数列表，用 Command::new(program).args(args) 传入即可，注意对参数做转义处理。"
+        },
+        {
+          "q": "打包后的应用体积多大？",
+          "a": "Tauri 应用通常只有几 MB 到十几 MB，远小于 Electron。具体取决于前端资源和 Rust 编译优化选项。"
+        },
+        {
+          "q": "能否在 macOS 或 Linux 上使用？",
+          "a": "Tauri 本身跨平台，但本教程的托盘和快捷键实现针对 Windows 优化，其他平台需调整部分 API 和打包配置。"
+        }
+      ],
+      "variants": [
+        "变体1：增加语音输入——集成 Windows 语音识别 API，说出指令自动转文字并执行，彻底解放双手。",
+        "变体2：支持自定义脚本——允许用户配置快捷指令映射到任意 shell 命令或脚本，打造个人专属启动器。",
+        "变体3：云同步笔记——将笔记文件替换为调用云端 API（如 WebDAV 或 Notion），实现多设备同步。"
+      ],
+      "summary": "用 Tauri 2 把提醒、笔记和程序启动浓缩进一个常驻托盘的小工具，代码少、体积小、体验顺，是桌面效率提升的绝佳练手项目。"
+    },
+    "generated_at": "2026-11-09T07:57:33.511749+00:00",
+    "play_meta": {
+      "title_zh": "用Tauri 2和Rust做Windows提醒笔记启动器",
+      "title_en": "一个人 + AI，用 Tauri 2 和 Rust 写了个开源的 Windows 效率工具：提醒 + 笔记 + 启动器",
+      "source_id": "juejin-play",
+      "source_name": "掘金 AI 实战教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
+      "difficulty": 2,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://juejin.cn/post/7705782451822690355",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
+  "github-play-awesome-llm-ac39db34": {
+    "_sig": "Hannibal046/Awesome-LLM: Awesome-LLM: a curated list of Large Language Mode|https://github.com/Hannibal046/Awesome-LLM",
+    "tutorial": {
+      "intro": "Awesome-LLM 是 GitHub 上最全的大模型资源清单之一，本教程教你如何把它变成自己的“AI 军火库”，快速找到模型、论文、工具和数据集。",
+      "background": "Awesome-LLM 由 Hannibal046 维护，目前已获得 27000+ stars，收录了从基础模型、微调工具、推理框架到评测基准、课程和行业应用的全链路资源。对于 AI 开发者、产品经理或研究者来说，它就像一张不断更新的“大模型地图”，能帮你省去大量搜索和筛选时间。但清单内容极多，直接浏览容易迷失，因此需要一套高效的“检索+筛选+落地”方法。本教程将带你从零开始，把这份清单变成可执行的调研与选型工作流。",
+      "prerequisites": [
+        {
+          "name": "GitHub 账号",
+          "desc": "用于 Star、Fork 或提交 PR，方便追踪更新",
+          "url": "https://github.com/join"
+        },
+        {
+          "name": "浏览器（Chrome/Edge）",
+          "desc": "访问 GitHub 页面，推荐安装 GitHub 增强插件如 Octotree 或 Refined GitHub",
+          "url": "https://www.google.com/chrome/"
+        },
+        {
+          "name": "Notion 或飞书文档",
+          "desc": "用于摘录和整理你关注的资源，建立个人知识库",
+          "url": "https://www.notion.so/"
+        },
+        {
+          "name": "Awesome-LLM 仓库地址",
+          "desc": "本教程的核心资源清单",
+          "url": "https://github.com/Hannibal046/Awesome-LLM"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：克隆或收藏仓库，建立本地索引",
+          "content": "打开 https://github.com/Hannibal046/Awesome-LLM ，点击右上角 Star 收藏。如果习惯本地查阅，可以用 git clone https://github.com/Hannibal046/Awesome-LLM.git 把整个仓库拉到本地。README.md 就是主清单，建议用 VS Code 或 Typora 打开，方便全文搜索。",
+          "tip": "Star 后可以在 GitHub 个人主页的 Stars 列表快速找到，同时关注 Releases 或 Watch 仓库，获取更新通知。"
+        },
+        {
+          "title": "第2步：用目录锚点快速定位目标分类",
+          "content": "README 开头有 Table of Contents，包含 Large Language Model、LLM Training、LLM Inference、LLM Evaluation、LLM Applications 等大类。先根据你的需求点击对应锚点跳转，比如想找开源模型就点“Large Language Model”，想找部署工具就点“LLM Inference”。每个分类下都有简短说明和链接，避免盲目滚动。",
+          "tip": "在 GitHub 页面按 T 键可以快速调出文件搜索框，输入关键词如“Llama”或“RAG”直接过滤。"
+        },
+        {
+          "title": "第3步：按“模型-工具-数据-评测”四层筛选资源",
+          "content": "建议用四层框架来筛选：第一层看基础模型（如 Llama、Qwen、DeepSeek），第二层看微调与推理工具（如 vLLM、SGLang、LLaMA-Factory），第三层看数据集与评测（如 MMLU、OpenCompass），第四层看应用与课程。每层挑 2-3 个最活跃的项目，记录到 Notion 表格中，字段包括名称、链接、Star 数、最近更新、适用场景。",
+          "tip": "优先选择最近 3 个月有 commit 的项目，Star 数高但长期不更新的项目可能已过时。"
+        },
+        {
+          "title": "第4步：验证资源可用性，做最小化测试",
+          "content": "对筛选出的工具或模型，不要只看介绍。打开其 GitHub 仓库，查看 README 的 Quick Start，尝试在本地或 Colab 跑一个最小 demo。例如对 vLLM，可以按官方命令安装并加载一个小模型；对 LLaMA-Factory，可以跑一次 LoRA 微调示例。验证通过后再纳入你的技术选型清单。",
+          "tip": "如果本地环境受限，优先用 Google Colab 或 Kaggle Notebook 做快速验证，避免环境配置卡住。"
+        },
+        {
+          "title": "第5步：建立个人 Awesome-LLM 子清单并持续更新",
+          "content": "在 Notion 或飞书里建一个“我的 Awesome-LLM”页面，按你的项目需求分类，比如“文本生成”“多模态”“Agent”“部署”。每周花 10 分钟浏览原仓库的 Recent Updates 或 Commits，把新出现的优质资源补充进去。也可以 Fork 原仓库，在本地维护自己的分支，添加注释和评分。",
+          "tip": "给每个资源打上“已测试/待测试/不适用”标签，避免重复调研。"
+        }
+      ],
+      "expected_result": "你将拥有一个按需筛选、经过验证的个人大模型资源库，能快速定位到适合自己项目的模型、工具和数据集，并且保持与社区同步更新。",
+      "faq": [
+        {
+          "q": "Awesome-LLM 和普通 GitHub 搜索有什么区别？",
+          "a": "它由社区人工筛选和分类，覆盖全链路且持续更新，比通用搜索更精准、更省时间，尤其适合快速建立全局认知。"
+        },
+        {
+          "q": "清单里的项目太多，如何避免选择困难？",
+          "a": "先明确你的场景（如推理加速、微调、评测），再按“模型-工具-数据-评测”四层各选 2-3 个，用最小 demo 验证后再深入。"
+        },
+        {
+          "q": "需要编程基础吗？",
+          "a": "浏览和筛选不需要，但验证工具和模型时需要基本的 Python 和命令行操作。如果只想了解趋势，可以只看模型和论文部分。"
+        },
+        {
+          "q": "如何知道某个资源是否还活跃？",
+          "a": "看 GitHub 仓库的最近 commit 时间、issue 回复速度和 release 频率。一般最近 1-3 个月有更新的项目更可靠。"
+        },
+        {
+          "q": "可以贡献自己的项目到 Awesome-LLM 吗？",
+          "a": "可以。按照仓库的 Contributing 指南提交 PR，通常需要项目与 LLM 相关、有一定质量且持续维护。"
+        }
+      ],
+      "variants": [
+        "变体1：用 Awesome-LLM 做技术选型报告——按分类整理成对比表格，加入 Star 趋势、License、社区活跃度，输出给团队决策。",
+        "变体2：结合 AI 助手自动摘要——把 README 分段喂给 ChatGPT/Claude，让它帮你总结每个分类的核心项目和适用场景，生成速查手册。",
+        "变体3：构建垂直领域子清单——只关注多模态或 Agent 方向，从 Awesome-LLM 中抽取相关条目，再补充其他 Awesome 列表，形成领域专属资源库。"
+      ],
+      "summary": "把 Awesome-LLM 当作动态地图，用“分类定位→四层筛选→最小验证→个人清单”的流程，就能把海量资源变成真正可用的 AI 工具箱。"
+    },
+    "generated_at": "2026-09-12T03:39:50.104844+00:00",
+    "play_meta": {
+      "title_zh": "Awesome-LLM：大模型资源大全",
+      "title_en": "Hannibal046/Awesome-LLM: Awesome-LLM: a curated list of Large Language Mode",
+      "source_id": "github-play-awesome-llm",
+      "source_name": "GitHub Awesome LLM",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "runnable_demo",
+      "difficulty": 4,
+      "time_estimate": "10min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://github.com/Hannibal046/Awesome-LLM",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 8.5
     }
   },
   "github-play-awesome-rag-aecf866a": {
@@ -2599,6 +2931,543 @@
       "is_domestic": false,
       "tags": [],
       "playability_score": 6.5
+    }
+  },
+  "github-play-awesome-llm-bd07ce9a": {
+    "_sig": "AiHubCN/Awesome-Chinese-LLM: 整理开源的中文大语言模型，以规模较小、可私有化部署、训练成本较低的模型为主，包括底座模型，垂直领域微|https://github.com/AiHubCN/Awesome-Chinese-LLM",
+    "tutorial": {
+      "intro": "想玩转中文大模型又不想烧钱买显卡？这个 GitHub 宝藏库帮你找到能私有化部署的小模型，从底座到微调一站式搞定。",
+      "background": "很多开发者想本地跑大模型，但动辄 70B 参数让消费级显卡望而却步。Awesome-Chinese-LLM 这个项目专门整理了规模小、训练成本低、可私有化部署的中文模型，包括底座模型、垂直领域微调版本、数据集和教程。无论你是想搭建个人知识库、做行业客服机器人，还是研究微调技术，都能在这里找到合适的起点。目前该项目已获得 2.2 万+ star，是中文 LLM 领域最实用的资源合集之一。",
+      "prerequisites": [
+        {
+          "name": "GitHub 账号",
+          "desc": "用于访问仓库、star 项目、提交 issue 或 PR",
+          "url": "https://github.com"
+        },
+        {
+          "name": "Git 客户端",
+          "desc": "克隆仓库到本地，方便离线查阅",
+          "url": "https://git-scm.com"
+        },
+        {
+          "name": "Python 3.8+ 与 pip",
+          "desc": "运行模型推理和微调脚本的基础环境",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "CUDA 或 CPU 推理环境",
+          "desc": "根据模型大小选择，小模型可纯 CPU 运行，推荐至少 16GB 内存",
+          "url": "https://developer.nvidia.com/cuda-downloads"
+        },
+        {
+          "name": "Hugging Face 账号",
+          "desc": "下载模型权重和数据集（部分模型需申请权限）",
+          "url": "https://huggingface.co"
+        },
+        {
+          "name": "文本编辑器或 IDE",
+          "desc": "如 VS Code，用于查看 README 和修改配置",
+          "url": "https://code.visualstudio.com"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：克隆仓库并浏览目录结构",
+          "content": "打开终端，执行 git clone https://github.com/AiHubCN/Awesome-Chinese-LLM.git，然后 cd Awesome-Chinese-LLM。用 VS Code 打开该文件夹，你会看到 README.md 中按类别整理了模型列表，包括底座模型、垂直领域微调、数据集、教程等。先花 10 分钟浏览目录，标记出你感兴趣的 2-3 个模型。",
+          "tip": "如果 GitHub 访问慢，可以用 Gitee 镜像或代理加速；建议先 star 仓库方便后续查找。"
+        },
+        {
+          "title": "第2步：筛选适合你硬件的小模型",
+          "content": "在 README 中搜索关键词如“小模型”“私有化”“CPU 可跑”，重点关注参数量在 1B-7B 之间的模型，例如 ChatGLM3-6B、Qwen-1.8B、Baichuan2-7B 等。查看每个模型旁边的说明，确认是否支持量化（如 4-bit 量化后仅需 4GB 显存）。记录下 2-3 个候选模型的名称和 Hugging Face 链接。",
+          "tip": "优先选择有 GGUF 或 GPTQ 量化版本的模型，这样在消费级显卡甚至 CPU 上都能流畅运行。"
+        },
+        {
+          "title": "第3步：下载模型权重并配置环境",
+          "content": "以 ChatGLM3-6B 为例，在 Hugging Face 上搜索“THUDM/chatglm3-6b”，用 git lfs 克隆或直接下载。然后创建 Python 虚拟环境：python -m venv venv，激活后安装依赖：pip install torch transformers sentencepiece accelerate。如果使用量化版本，还需安装 bitsandbytes 或 ctransformers。",
+          "tip": "下载大文件时建议用 huggingface-cli 或 aria2 多线程，避免中断；国内可用 modelscope 镜像下载。"
+        },
+        {
+          "title": "第4步：运行推理脚本测试模型",
+          "content": "在仓库的教程区找到对应模型的快速开始代码，或直接使用 transformers 写一个简单脚本：加载 tokenizer 和 model，输入“你好，请介绍一下你自己”，设置 max_length=512，调用 model.generate()。观察输出是否通顺、是否符合中文习惯。如果显存不足，加载时加上 load_in_4bit=True 或 load_in_8bit=True。",
+          "tip": "首次运行会下载模型，耐心等待；如果报错 CUDA out of memory，尝试减小 batch size 或使用 CPU 模式。"
+        },
+        {
+          "title": "第5步：按需微调或接入应用",
+          "content": "如果预训练模型效果不满足需求，可以在仓库中找到垂直领域微调教程，使用 LoRA 或 P-Tuning 对模型进行轻量微调。准备自己的问答数据集（JSON 格式），运行微调脚本，通常 1-2 小时即可完成。微调后可将模型接入 LangChain、FastAPI 或 Gradio，搭建个人知识库或聊天机器人。",
+          "tip": "微调前先用小样本测试，避免过拟合；LoRA 微调只需训练少量参数，8GB 显存足够。"
+        }
+      ],
+      "expected_result": "成功在本地或服务器上运行一个中文小模型，能够流畅回答中文问题，并可根据需要微调成专属领域助手。你会在终端或 Web 界面看到模型生成的连贯中文回复，显存占用控制在 4-8GB 以内。",
+      "faq": [
+        {
+          "q": "没有独立显卡能玩吗？",
+          "a": "可以。选择 1B-3B 的小模型并量化到 4-bit，纯 CPU 加 16GB 内存就能跑，只是速度较慢（每秒几个字）。"
+        },
+        {
+          "q": "哪个模型最适合中文私有化部署？",
+          "a": "推荐 ChatGLM3-6B、Qwen-1.8B 和 Baichuan2-7B，它们中文能力强、社区活跃、量化版本齐全。"
+        },
+        {
+          "q": "下载模型太慢怎么办？",
+          "a": "使用 Hugging Face 镜像站 hf-mirror.com，或从 ModelScope 下载，也可以用 git lfs 配合代理。"
+        },
+        {
+          "q": "微调需要多少数据？",
+          "a": "LoRA 微调通常 500-2000 条高质量问答即可见效，数据要覆盖你的目标场景，格式统一为 instruction/input/output。"
+        },
+        {
+          "q": "商用需要授权吗？",
+          "a": "不同模型协议不同，如 ChatGLM3 需遵守其模型许可，Qwen 部分版本可商用，使用前务必查看 LICENSE 文件。"
+        }
+      ],
+      "variants": [
+        "变体1：用 Ollama 一键拉取小模型（如 qwen:1.8b、chatglm3:6b），无需手动配置环境，适合快速体验。",
+        "变体2：结合 LangChain + Chroma 搭建本地知识库问答，将你的 PDF/Word 文档向量化后喂给模型。",
+        "变体3：用 Gradio 或 Streamlit 为模型套一个 Web UI，分享给团队内部使用，支持多轮对话和历史记录。"
+      ],
+      "summary": "从 Awesome-Chinese-LLM 宝藏库中挑选小模型，按需量化、微调、部署，低成本拥有自己的中文 AI 助手。"
+    },
+    "generated_at": "2026-09-19T09:20:05.959378+00:00",
+    "play_meta": {
+      "title_zh": "中文大模型宝藏库：小模型也能私有化部署",
+      "title_en": "AiHubCN/Awesome-Chinese-LLM: 整理开源的中文大语言模型，以规模较小、可私有化部署、训练成本较低的模型为主，包括底座模型，垂直领域微",
+      "source_id": "github-play-awesome-llm",
+      "source_name": "GitHub Awesome LLM",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "runnable_demo",
+      "difficulty": 3,
+      "time_estimate": "10min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://github.com/AiHubCN/Awesome-Chinese-LLM",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 8.5
+    }
+  },
+  "github-play-awesome-rag-579b4646": {
+    "_sig": "lizhe2004/Awesome-LLM-RAG-Application: the resources about the application based|https://github.com/lizhe2004/Awesome-LLM-RAG-Application",
+    "tutorial": {
+      "intro": "Awesome-LLM-RAG 是一个汇集了基于 RAG 模式的 LLM 应用资源的 GitHub 仓库，本教程将带你用 LlamaIndex 快速搭建一个可用的 RAG 问答系统。",
+      "background": "随着大语言模型（LLM）的普及，如何让模型回答基于私有数据的问题成为刚需。RAG（检索增强生成）通过先检索相关文档再生成答案，有效缓解了模型幻觉和知识过时问题。Awesome-LLM-RAG 仓库整理了 1658+ 星标的 RAG 应用资源，涵盖框架、工具、论文和案例。本教程以 LlamaIndex 为核心，带你从零构建一个本地文档问答机器人，适合开发者、产品经理和 AI 爱好者快速上手。",
+      "prerequisites": [
+        {
+          "name": "Python 3.9+",
+          "desc": "运行环境，建议使用 3.10 或 3.11",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "LlamaIndex",
+          "desc": "核心 RAG 框架，用于索引和查询文档",
+          "url": "https://www.llamaindex.ai/"
+        },
+        {
+          "name": "OpenAI API Key",
+          "desc": "用于调用 GPT 模型生成答案（也可替换为本地模型）",
+          "url": "https://platform.openai.com/api-keys"
+        },
+        {
+          "name": "Awesome-LLM-RAG 仓库",
+          "desc": "参考资源大全，获取更多工具和案例",
+          "url": "https://github.com/lizhe2004/Awesome-LLM-RAG-Application"
+        },
+        {
+          "name": "Jupyter Notebook 或 VS Code",
+          "desc": "编写和调试代码",
+          "url": "https://code.visualstudio.com/"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：安装依赖并配置环境",
+          "content": "打开终端，创建虚拟环境并安装 LlamaIndex 和 OpenAI 库：pip install llama-index openai。然后设置 OpenAI API Key 环境变量：export OPENAI_API_KEY='你的密钥'（Windows 用 set）。如果使用本地模型，可安装 llama-index-llms-ollama 并运行 Ollama 服务。",
+          "tip": "建议用 conda 或 venv 隔离环境，避免版本冲突。API Key 不要硬编码在代码里。"
+        },
+        {
+          "title": "第2步：准备你的私有文档",
+          "content": "在项目目录下新建 data 文件夹，放入你要问答的文档，支持 txt、pdf、md、docx 等格式。例如放入公司产品手册.pdf 或个人笔记.md。LlamaIndex 会自动读取并解析。",
+          "tip": "文档越干净，检索效果越好。可以先手动删除无关页眉页脚。"
+        },
+        {
+          "title": "第3步：编写索引构建脚本",
+          "content": "新建 build_index.py，写入以下代码：from llama_index.core import VectorStoreIndex, SimpleDirectoryReader; documents = SimpleDirectoryReader('data').load_data(); index = VectorStoreIndex.from_documents(documents); index.storage_context.persist('./storage')。运行后会在 storage 文件夹生成向量索引。",
+          "tip": "首次运行会调用 OpenAI 嵌入模型，产生少量费用。可改用本地嵌入模型如 BAAI/bge-small-zh。"
+        },
+        {
+          "title": "第4步：实现问答查询",
+          "content": "新建 query.py，加载已保存的索引：from llama_index.core import StorageContext, load_index_from_storage; storage_context = StorageContext.from_defaults(persist_dir='./storage'); index = load_index_from_storage(storage_context); query_engine = index.as_query_engine(); response = query_engine.query('你的问题'); print(response)。运行即可得到基于文档的答案。",
+          "tip": "可以调整 similarity_top_k 参数控制检索文档数量，默认 2，增大可提高召回但可能引入噪声。"
+        },
+        {
+          "title": "第5步：优化与调试",
+          "content": "如果答案不准确，尝试：1）调整 chunk_size（默认 1024）和 chunk_overlap；2）更换嵌入模型；3）使用 SentenceSplitter 自定义分块；4）在 query_engine 中设置 response_mode='compact' 或 'refine'。也可以加入 rerank 模块提升排序质量。",
+          "tip": "用 index.as_query_engine(similarity_top_k=5, response_mode='compact') 快速测试不同参数组合。"
+        }
+      ],
+      "expected_result": "运行 query.py 后，输入“产品保修期是多久？”等问题，系统会从你放入的文档中检索相关段落，并生成准确、有依据的回答。控制台会打印答案，并可扩展为 Web 服务或聊天机器人。",
+      "faq": [
+        {
+          "q": "没有 OpenAI API Key 怎么办？",
+          "a": "可以使用本地模型，如 Ollama 运行 Llama 3 或 Qwen，然后安装 llama-index-llms-ollama 并设置 llm=Ollama(model='llama3')。嵌入模型也可用 HuggingFace 本地模型。"
+        },
+        {
+          "q": "支持中文文档吗？",
+          "a": "支持，但建议使用中文嵌入模型（如 BAAI/bge-large-zh）和中文 LLM（如 Qwen、ChatGLM），否则检索效果可能下降。"
+        },
+        {
+          "q": "索引构建很慢或报错？",
+          "a": "检查文档是否过大，可分批处理；确认网络能访问 OpenAI；若用本地模型，确保显存足够。也可先用小样本测试。"
+        },
+        {
+          "q": "如何让答案只基于文档，不编造？",
+          "a": "在 query_engine 中设置 response_mode='compact' 并添加系统提示词，如“仅根据以下上下文回答，不知道就说不知道”。"
+        },
+        {
+          "q": "Awesome-LLM-RAG 仓库怎么用？",
+          "a": "该仓库是资源大全，可从中找到更多 RAG 工具、论文和案例。建议先浏览 README 的分类，再按需深入。"
+        }
+      ],
+      "variants": [
+        "变体1：用 Streamlit 搭建 Web 界面，让非技术用户也能上传文档并提问。",
+        "变体2：结合 LangChain 和 LlamaIndex，构建多模态 RAG（支持图片和表格）。",
+        "变体3：使用本地向量数据库（如 Chroma、Qdrant）替代默认存储，支持大规模文档和增量更新。"
+      ],
+      "summary": "用 LlamaIndex 快速构建 RAG 问答系统，核心是“文档索引 + 检索 + 生成”，再根据效果调参优化。"
+    },
+    "generated_at": "2026-09-19T09:20:21.269557+00:00",
+    "play_meta": {
+      "title_zh": "Awesome-LLM-RAG：RAG应用资源大全",
+      "title_en": "lizhe2004/Awesome-LLM-RAG-Application: the resources about the application based on LLM w",
+      "source_id": "github-play-awesome-rag",
+      "source_name": "GitHub Awesome RAG",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
+      "difficulty": 5,
+      "time_estimate": "30min",
+      "tools": [
+        "LlamaIndex"
+      ],
+      "link": "https://github.com/lizhe2004/Awesome-LLM-RAG-Application",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
+  "cnblogs-play-d9bcb72f": {
+    "_sig": "单模型Agent配置的工程化笔记 —— 四档思考、权限顺序与静态校验 - 我才是银古|https://www.cnblogs.com/znlgis/p/23603140",
+    "tutorial": {
+      "intro": "只用 DeepSeek 一个模型，通过四档思考配置（默认档到 #max）来工程化 Agent，让不同 Agent 的差异全部由思考深度表达。",
+      "background": "很多团队在搭建多 Agent 系统时，习惯为每个 Agent 配不同模型，导致成本高、维护乱。这篇玩法来自博客园 AI 教程，核心思路是：只保留 deepseek/deepseek-flash 一个模型，把 Agent 之间的差异全部交给 thinking tier 表达。11 月的改动把思考档从三档扩到四档，并重排了 Agent 档位，同时强调“Agent 级权限不得放宽全局默认”。这套方案适合想用单模型低成本构建多角色 Agent 的开发者。",
+      "prerequisites": [
+        {
+          "name": "DeepSeek 开放平台账号",
+          "desc": "获取 API Key，用于调用 deepseek-flash 模型",
+          "url": "https://platform.deepseek.com"
+        },
+        {
+          "name": "DeepSeek API 文档",
+          "desc": "查阅 thinking tier / reasoning 相关参数说明",
+          "url": "https://api-docs.deepseek.com"
+        },
+        {
+          "name": "Python 3.10+",
+          "desc": "编写 Agent 调度与配置代码",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "OpenAI Python SDK",
+          "desc": "兼容 DeepSeek API 的客户端调用",
+          "url": "https://pypi.org/project/openai/"
+        },
+        {
+          "name": "博客园原文",
+          "desc": "参考完整配置细节与 11 月改动说明",
+          "url": "https://www.cnblogs.com/znlgis/p/23603140"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：统一模型入口，锁定 deepseek-flash",
+          "content": "在项目配置中只保留一个模型标识 deepseek/deepseek-flash，删除其他模型分支。所有 Agent 的模型字段都指向这个常量，避免后续误配。用环境变量 DEEPSEEK_API_KEY 注入密钥，base_url 指向 https://api.deepseek.com。这样后续所有差异都只能通过思考档位表达，从架构上杜绝“换模型解决一切”的惯性。",
+          "tip": "把模型名写成常量 MODEL = \"deepseek/deepseek-flash\"，全局引用，改一处即可。"
+        },
+        {
+          "title": "第2步：定义四档思考配置（默认档到 #max）",
+          "content": "在代码中定义四档 thinking tier：default（默认档，低延迟）、high（高思考）、ultra（超高思考）、#max（最大思考，用于最复杂任务）。每档对应不同的 reasoning 参数或提示词前缀，例如 #max 档会在系统提示中追加“请进行多步深度推理并给出验证”。把四档封装成枚举或字典，方便 Agent 引用。注意档位越高，token 消耗和延迟越大，需要按任务复杂度分配。",
+          "tip": "先用 default 档跑通全流程，再逐档调高，避免一上来就 #max 导致成本失控。"
+        },
+        {
+          "title": "第3步：重排 Agent 档位映射",
+          "content": "为每个 Agent 角色指定一个思考档位：简单路由 Agent 用 default，分析类 Agent 用 high，规划类用 ultra，核心决策或复杂推理用 #max。把映射写成配置表（如 YAML 或 Python dict），Agent 初始化时读取。11 月改动强调重排档位，建议按“任务复杂度 × 错误代价”两个维度重新评估，而不是沿用旧三档的惯性分配。",
+          "tip": "给每个 Agent 加一行注释说明为什么选这个档，方便后续复盘调整。"
+        },
+        {
+          "title": "第4步：落实权限约束——Agent 级不得放宽全局默认",
+          "content": "在配置加载层加一条校验规则：Agent 级配置只能收紧权限，不能放宽全局默认。例如全局默认禁止文件写入，某个 Agent 不能通过配置开启写入。实现方式是在合并配置时做单向覆盖检查，发现 Agent 试图放宽就抛错或降级。这条规则能防止高思考档 Agent 因“更聪明”而被误授过高权限。",
+          "tip": "把校验写成单元测试，每次改配置自动跑，防止回归。"
+        },
+        {
+          "title": "第5步：跑通一个最小 Agent 链并观测档位差异",
+          "content": "构造一个两段式 Agent 链：第一个 Agent 用 default 档做意图分类，第二个 Agent 用 #max 档做复杂回答。用同一组输入分别跑四档，记录延迟、token 消耗和回答质量。观察 default 到 #max 的边际收益，判断哪些 Agent 值得升档。把观测结果回写到档位映射表，形成“配置—观测—调优”的闭环。",
+          "tip": "用简单脚本打印每档的 latency 和 completion_tokens，比凭感觉调档靠谱得多。"
+        }
+      ],
+      "expected_result": "项目里只有一个模型 deepseek/deepseek-flash，所有 Agent 通过四档 thinking tier 区分行为；配置校验能阻止 Agent 级权限放宽；跑最小链时能看到 default 到 #max 的延迟与质量梯度，并据此完成档位调优。",
+      "faq": [
+        {
+          "q": "四档思考具体怎么在 API 里表达？",
+          "a": "DeepSeek 的 reasoning 相关参数或提示词前缀均可表达档位，具体字段以官方文档为准；核心是把档位封装成统一配置，而不是散落在各 Agent 代码里。"
+        },
+        {
+          "q": "为什么不让每个 Agent 用不同模型？",
+          "a": "多模型会带来成本、版本、维护三重碎片化。单模型加思考档位能把差异收敛到一个维度，调优和回滚都更简单。"
+        },
+        {
+          "q": "#max 档会不会太贵？",
+          "a": "会。所以只给错误代价最高的核心决策 Agent 用 #max，其余按复杂度降档，并用观测数据验证边际收益。"
+        },
+        {
+          "q": "权限不得放宽全局默认，具体怎么校验？",
+          "a": "在配置合并时做单向覆盖检查：Agent 配置只能把权限从宽改窄，反向修改直接报错或降级。"
+        },
+        {
+          "q": "这套方案适合什么规模的团队？",
+          "a": "适合已有多个 Agent 角色、开始感到模型配置混乱的中小团队；单人小项目也可用，但收益在角色变多后更明显。"
+        }
+      ],
+      "variants": [
+        "变体1：把四档映射成提示词模板库，每档对应一段系统提示前缀，不改 API 参数也能实现档位差异。",
+        "变体2：加一个自动选档器，用小模型或规则先判断任务复杂度，再动态分配 default/high/ultra/#max。",
+        "变体3：把档位配置外置为 YAML，配合 CI 做权限单向校验和档位回归测试，形成工程化流水线。"
+      ],
+      "summary": "单模型是底座，四档思考是旋钮，权限单向约束是保险丝——三者合起来才是可工程化的 Agent 配置。"
+    },
+    "generated_at": "2026-11-09T07:57:46.879447+00:00",
+    "play_meta": {
+      "title_zh": "用单模型四档思考配置工程化Agent",
+      "title_en": "单模型Agent配置的工程化笔记 —— 四档思考、权限顺序与静态校验 - 我才是银古",
+      "source_id": "cnblogs-play",
+      "source_name": "博客园 AI 教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
+      "difficulty": 3,
+      "time_estimate": "30min",
+      "tools": [
+        "DeepSeek"
+      ],
+      "link": "https://www.cnblogs.com/znlgis/p/23603140",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 6.5
+    }
+  },
+  "juejin-play-2f61b5ca": {
+    "_sig": "别再死磕提示词了:Anthropic 说,AI Agent 真正的胜负手是“上下文工程”|https://juejin.cn/post/7705349866764255275",
+    "tutorial": {
+      "intro": "本教程教你用 Anthropic 的上下文工程方法，系统优化 Agent 提示词，解决上下文腐烂问题，提升 Agent 在长任务中的表现。",
+      "background": "随着 Agent 处理的任务越来越复杂，上下文窗口容易堆积大量低信号信息，导致模型注意力分散、推理质量下降，这就是“上下文腐烂”。Anthropic 提出的上下文工程法通过筛选高信号信息、压缩上下文、引入 Agentic Memory 和子 Agent 等策略，显著提升 Agent 的稳定性和效率。本教程拆解该方法，并给出可落地的提示词优化步骤，适合正在构建复杂 Agent 的开发者。",
+      "prerequisites": [
+        {
+          "name": "Claude 账号",
+          "desc": "用于测试和运行优化后的提示词",
+          "url": "https://claude.ai"
+        },
+        {
+          "name": "Anthropic API Key",
+          "desc": "如需通过 API 调用 Claude 进行自动化测试",
+          "url": "https://console.anthropic.com"
+        },
+        {
+          "name": "文本编辑器或 IDE",
+          "desc": "编写和保存提示词模板",
+          "url": "https://code.visualstudio.com"
+        },
+        {
+          "name": "原始教程参考",
+          "desc": "掘金 AI 实战教程原文",
+          "url": "https://juejin.cn/post/7705349866764255275"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：识别上下文腐烂与高信号信息",
+          "content": "先分析你的 Agent 当前提示词和对话历史，找出哪些信息是低信号（如重复的确认、无关的闲聊、过时的中间结果），哪些是高信号（如任务目标、关键约束、最新状态）。可以用一个简单表格列出每类信息及其出现频率。然后设定规则：只保留高信号信息，低信号信息要么删除，要么压缩成一句话摘要。",
+          "tip": "可以要求 Claude 帮你标注一段对话中的高信号与低信号句子，快速建立判断标准。"
+        },
+        {
+          "title": "第2步：设计上下文压缩策略",
+          "content": "针对长对话或长文档，制定压缩规则。例如：每轮对话后，让模型用一句话总结本轮新增的关键信息；对于工具调用结果，只保留结论和关键数据，丢弃原始日志。在提示词中明确写出压缩指令，如“请将以下内容压缩为不超过50字的高信号摘要”。同时设置压缩触发条件，比如上下文超过2000 token 时自动压缩。",
+          "tip": "压缩时保留时间戳和实体名称，避免后续指代不清。"
+        },
+        {
+          "title": "第3步：引入 Agentic Memory 管理长期状态",
+          "content": "为 Agent 增加一个外部记忆模块，可以用文件、数据库或简单的键值存储。在提示词中定义记忆的读写规则：何时写入记忆（如任务阶段完成、关键决策点），何时读取记忆（如开始新子任务时）。例如，让 Agent 在每完成一个子任务后，将结果摘要写入 memory 文件，并在下一轮开始时先读取该文件。这样上下文窗口只保留当前任务所需的高信号信息。",
+          "tip": "记忆内容也要定期压缩和清理，避免记忆本身膨胀。"
+        },
+        {
+          "title": "第4步：使用子 Agent 拆分复杂任务",
+          "content": "将复杂任务拆分为多个子任务，每个子任务由一个独立的子 Agent 处理，子 Agent 只接收与自身任务相关的高信号上下文。主 Agent 负责调度和汇总结果。在提示词中定义子 Agent 的职责、输入输出格式以及主 Agent 的协调逻辑。例如，主 Agent 先分解任务，然后依次调用子 Agent，每个子 Agent 返回压缩后的结果，主 Agent 再整合。",
+          "tip": "子 Agent 之间尽量不共享完整上下文，只传递必要的接口信息，减少污染。"
+        },
+        {
+          "title": "第5步：用 5 张工单做 token 对比与迭代",
+          "content": "准备 5 个有代表性的工单（任务），分别用原始提示词和优化后的提示词运行，记录每次的 token 消耗和任务完成质量。对比分析哪些优化最有效，哪些地方还有冗余。根据结果调整压缩阈值、记忆规则或子 Agent 划分。重复迭代直到 token 消耗和效果达到平衡。",
+          "tip": "工单要覆盖不同复杂度，至少包含一个长上下文任务和一个多步骤任务。"
+        }
+      ],
+      "expected_result": "优化后的 Agent 在相同任务上 token 消耗降低 30%-50%，同时任务完成质量和稳定性明显提升，长任务中不再出现上下文腐烂导致的逻辑混乱或遗漏。",
+      "faq": [
+        {
+          "q": "上下文压缩会不会丢失重要信息？",
+          "a": "合理设计压缩规则可以保留高信号信息。建议压缩时保留实体、时间、关键决策和约束条件，并定期人工抽查压缩结果。"
+        },
+        {
+          "q": "Agentic Memory 用什么实现最简单？",
+          "a": "初期可以用本地文本文件或 JSON 文件，按任务 ID 存储摘要。生产环境可换用 Redis 或向量数据库。"
+        },
+        {
+          "q": "子 Agent 会增加调用成本吗？",
+          "a": "子 Agent 会增加调用次数，但每个子 Agent 的上下文更短，总体 token 可能反而下降。需要根据任务复杂度权衡。"
+        },
+        {
+          "q": "如何判断上下文是否已经腐烂？",
+          "a": "观察 Agent 是否开始重复之前的信息、忽略最新指令或回答偏离主题。也可以监控上下文长度和 token 利用率。"
+        }
+      ],
+      "variants": [
+        "变体1：将压缩策略改为滑动窗口+摘要，只保留最近 N 轮对话和全局摘要，适合客服对话场景。",
+        "变体2：用向量数据库实现语义记忆检索，Agent 根据当前任务动态检索相关记忆片段，适合知识密集型任务。",
+        "变体3：引入多个子 Agent 并行处理不同子任务，主 Agent 做结果融合，适合可并行拆分的复杂工作流。"
+      ],
+      "summary": "上下文工程的核心是持续筛选高信号信息、压缩冗余、外置记忆并拆分任务，让 Agent 在有限上下文窗口内保持高效推理。"
+    },
+    "generated_at": "2026-11-08T07:07:45.870690+00:00",
+    "play_meta": {
+      "title_zh": "用Anthropic上下文工程法优化Agent提示词",
+      "title_en": "别再死磕提示词了:Anthropic 说,AI Agent 真正的胜负手是“上下文工程”",
+      "source_id": "juejin-play",
+      "source_name": "掘金 AI 实战教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "prompt",
+      "difficulty": 4,
+      "time_estimate": "5min",
+      "tools": [
+        "Claude"
+      ],
+      "link": "https://juejin.cn/post/7705349866764255275",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
+  "cnblogs-play-b06c0504": {
+    "_sig": "如何写出不那么具有ai味的文章？ - DeepSky丶|https://www.cnblogs.com/deep-sky/p/23590338",
+    "tutorial": {
+      "intro": "AI 写作又快又“假”？这套提示词工作流帮你把 AI 味一点点洗掉，让文章读起来像人写的。",
+      "background": "AI 写作门槛低，但生成的文章常带“AI 腔”：套话多、结构僵、情感假。博客园这篇教程把写作比作做菜，AI 是快但缺火候的大厨。本玩法用一套可复用的提示词工作流，分阶段约束 AI 的输出，从提纲到成稿逐步去味。适合公众号、博客、报告等需要“人味”的写作场景。",
+      "prerequisites": [
+        {
+          "name": "ChatGPT / Claude / 文心一言 / 通义千问",
+          "desc": "任选一个支持多轮对话的大模型，用于执行提示词工作流",
+          "url": "https://chat.openai.com"
+        },
+        {
+          "name": "Notion 或飞书文档",
+          "desc": "存放提示词模板和生成稿，方便迭代对比",
+          "url": "https://www.notion.so"
+        },
+        {
+          "name": "原始参考教程",
+          "desc": "博客园原文，含提示词思路和示例",
+          "url": "https://www.cnblogs.com/deep-sky/p/23590338"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：拆解 AI 腔的典型特征",
+          "content": "先让 AI 自己列出“AI 写作腔”的常见毛病，比如过度使用“首先/其次/最后”、堆砌形容词、每段结构雷同、缺乏具体细节。把这份清单存到 Notion，作为后续提示词的“负面约束”。再找 2-3 篇你喜欢的真人文章，提炼它们的语气和节奏作为正面参考。",
+          "tip": "让 AI 用“请以编辑视角列出 AI 文章最常见的 10 个破绽”开头，效果更聚焦。"
+        },
+        {
+          "title": "第2步：写第一版“去味”系统提示词",
+          "content": "在对话开头设置系统提示词，明确角色、目标和禁令。例如：“你是资深专栏作者，写作时避免套话、避免排比堆砌、每段不超过 4 句、必须加入 1 个具体案例或数据、语气像和朋友聊天。”把第 1 步的负面清单逐条转成“不要……”的约束。保存为模板，后续每次写作复用。",
+          "tip": "约束不要超过 8 条，太多 AI 会顾此失彼；优先保留“具体细节”和“句式变化”两条。"
+        },
+        {
+          "title": "第3步：分阶段生成，先提纲后成文",
+          "content": "不要一次性让 AI 写全文。先让它输出 3 个不同角度的提纲，你选一个并手动改两处；再让它按提纲逐段写，每段写完你给一句反馈（如“太正式，口语化一点”）。分阶段能显著降低 AI 腔，因为每轮都有你的干预。",
+          "tip": "每段生成后回一句“用更短的句子重写这段”，去味效果立竿见影。"
+        },
+        {
+          "title": "第4步：用“人类改写”提示词做二次清洗",
+          "content": "全文生成后，追加一条改写提示词：“请以人类编辑身份重写以下文章：删掉所有‘首先/其次/总之’，把被动句改主动句，每段开头不要用相同句式，加入 1 处个人化比喻，保留原意。”对比改写前后的差异，把有效的指令补进你的模板。",
+          "tip": "改写后自己朗读一遍，拗口的地方就是残留的 AI 腔，手动改掉。"
+        },
+        {
+          "title": "第5步：建立个人提示词工作流库",
+          "content": "把系统提示词、提纲提示词、逐段反馈话术、改写提示词按顺序存成一个工作流文档。下次写作直接按顺序复制粘贴，形成固定流水线。每写完一篇，记录哪条约束最有效，持续迭代模板。",
+          "tip": "用 Notion 的模板按钮或飞书快捷指令，一键插入整套提示词，省去重复复制。"
+        }
+      ],
+      "expected_result": "生成的文章套话明显减少，段落长短错落，有具体案例和个人化表达，朗读时不再有“机器念稿”的感觉；你还会拥有一套可复用的提示词工作流模板。",
+      "faq": [
+        {
+          "q": "这套方法对所有大模型都有效吗？",
+          "a": "核心思路通用，但不同模型对约束的服从度不同。建议先在 ChatGPT 或 Claude 上调好模板，再迁移到其他模型时微调约束条数。"
+        },
+        {
+          "q": "去 AI 腔后文章会不会变得不专业？",
+          "a": "不会。去味针对的是套话和僵化结构，专业术语和数据应保留。可以在提示词中明确“保留所有专业名词和数据”。"
+        },
+        {
+          "q": "每次都要手动复制提示词太麻烦怎么办？",
+          "a": "把整套提示词存成文档模板，或用支持自定义指令的客户端（如 ChatGPT 的自定义指令、Claude 的 Project）固化系统提示词。"
+        },
+        {
+          "q": "改写后字数变少很多正常吗？",
+          "a": "正常，AI 腔常伴随冗余表达。若字数不够，让 AI 补充具体案例或数据，而不是恢复套话。"
+        }
+      ],
+      "variants": [
+        "变体1：把工作流做成“角色扮演链”——先让 AI 扮演挑剔编辑挑毛病，再扮演作者重写，最后扮演读者给反馈，三轮去味。",
+        "变体2：针对特定文体（如小红书、技术博客）各建一套负面约束清单，按文体切换提示词模板。",
+        "变体3：用 API 把“提纲→逐段生成→改写”串成自动化脚本，批量处理多篇文章。"
+      ],
+      "summary": "去 AI 腔的精髓不是一次生成，而是用分阶段提示词把 AI 的快和人的判断交替起来，让每一轮都留下人味。"
+    },
+    "generated_at": "2026-11-08T07:08:07.012107+00:00",
+    "play_meta": {
+      "title_zh": "用提示词工作流去除AI写作腔调",
+      "title_en": "如何写出不那么具有ai味的文章？ - DeepSky丶",
+      "source_id": "cnblogs-play",
+      "source_name": "博客园 AI 教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
+      "difficulty": 4,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://www.cnblogs.com/deep-sky/p/23590338",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 7.5
     }
   },
   "cnblogs-play-19bc1bbf": {
@@ -5603,871 +6472,6 @@
       "is_domestic": true,
       "tags": [],
       "playability_score": 6.0
-    }
-  },
-  "zhidx-play-e6bf5b7d": {
-    "_sig": "刚刚，Claude Code产品一姐加入OpenAI！|https://zhidx.com/p/607599.html",
-    "tutorial": {
-      "intro": "这是一套用 ChatGPT 和 Claude 搭建「AI 新闻解读 + 工具选型」自动化工作流的实战教程，帮你快速把一条 AI 行业新闻变成可落地的工具决策。",
-      "background": "智东西报道了 Claude Code 产品负责人加入 OpenAI 的消息，这类人事变动往往预示产品路线和工具生态的变化。对开发者和 AI 工具用户来说，光看新闻不够，更需要快速判断「这对我的工具链意味着什么」。本玩法把新闻抓取、多模型交叉解读、工具选型建议串成一条可复用的工作流，适合关注 AI 编程工具、需要做技术选型的团队和个人。",
-      "prerequisites": [
-        {
-          "name": "ChatGPT",
-          "desc": "用于新闻摘要、结构化解读和方案生成",
-          "url": "https://chatgpt.com"
-        },
-        {
-          "name": "Claude",
-          "desc": "用于交叉验证解读、代码与工作流建议",
-          "url": "https://claude.ai"
-        },
-        {
-          "name": "浏览器 / 阅读工具",
-          "desc": "打开并阅读原始报道",
-          "url": "https://zhidx.com/p/607599.html"
-        },
-        {
-          "name": "笔记工具（Notion / 飞书文档）",
-          "desc": "沉淀每次解读结论，形成工具选型档案",
-          "url": "https://www.notion.so"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：抓取并清洗新闻原文",
-          "content": "打开智东西报道链接 https://zhidx.com/p/607599.html，复制正文（去掉图片和广告）。把正文粘贴给 ChatGPT，使用提示词：「请把以下新闻压缩成 5 条事实要点，每条不超过 30 字，保留人名、公司、时间、产品名。」得到干净的事实清单，作为后续解读的输入。",
-          "tip": "如果原文较长，先让模型只提取「谁、去哪、做什么、影响什么」四要素，避免信息过载。"
-        },
-        {
-          "title": "第2步：用 ChatGPT 做结构化解读",
-          "content": "把第1步的事实清单发给 ChatGPT，要求它按「事件本质 / 对 Claude Code 的影响 / 对 OpenAI 的影响 / 对普通用户的信号」四个维度各写 2-3 句。再让它输出一个「值得关注的 3 个后续观察点」列表。这样你就得到一份可读性强的解读卡片。",
-          "tip": "要求模型标注哪些是事实、哪些是推测，避免把观点当结论。"
-        },
-        {
-          "title": "第3步：用 Claude 做交叉验证与反方视角",
-          "content": "把同一份事实清单粘贴给 Claude，提示词：「请从反方角度分析这条人事变动可能被过度解读的地方，并给出 3 个需要谨慎的判断。」对比 ChatGPT 和 Claude 的输出，把两者分歧点记录下来，这些分歧往往是最有价值的思考点。",
-          "tip": "两个模型结论一致时可信度更高；分歧大时，回到原文核对事实。"
-        },
-        {
-          "title": "第4步：生成工具选型建议",
-          "content": "把两份解读合并后发给 ChatGPT，提示词：「基于以上信息，为我生成一份 AI 编程工具选型建议表，列：工具名、适用场景、风险点、建议动作（继续用/观望/迁移）。候选工具包括 Claude Code、ChatGPT、Cursor、GitHub Copilot。」得到表格后，用 Claude 复核一遍逻辑是否自洽。",
-          "tip": "让模型明确写出「不建议现在做什么」，比只写「建议做什么」更有决策价值。"
-        },
-        {
-          "title": "第5步：沉淀为可复用模板",
-          "content": "把第1-4步的提示词整理成一个固定模板，存入 Notion 或飞书文档，命名为「AI 新闻解读工作流」。下次遇到类似新闻，只需替换原文链接和事实清单，10 分钟内即可产出解读和选型建议。",
-          "tip": "在模板里保留一个「历史结论」区块，方便回看当初判断是否准确。"
-        }
-      ],
-      "expected_result": "你会在 15-20 分钟内得到：一份 5 条事实要点、一份四维度解读卡片、一份反方风险清单、一张工具选型建议表，以及一个可复用的提示词模板。整个过程不依赖人工逐字阅读长文，结论有交叉验证支撑。",
-      "faq": [
-        {
-          "q": "没有 Claude 账号，只用 ChatGPT 可以吗？",
-          "a": "可以，但会失去交叉验证环节。建议至少用两个不同模型，或同一模型换不同提示词做二次复核。"
-        },
-        {
-          "q": "新闻里的信息不确定，模型会不会编造？",
-          "a": "会。所以第1步必须先提取事实清单，并在提示词中要求模型区分事实与推测，关键结论回到原文核对。"
-        },
-        {
-          "q": "这套工作流适合哪些新闻？",
-          "a": "适合人事变动、产品发布、融资并购等 AI 行业动态，尤其适合需要做工具选型判断的读者。"
-        },
-        {
-          "q": "每次都要手动复制粘贴，能自动化吗？",
-          "a": "可以进阶用浏览器插件或 API 做抓取，但初期建议手动跑通流程，确认提示词稳定后再自动化。"
-        }
-      ],
-      "variants": [
-        "变体1：把「新闻解读」换成「论文速读」——用同样的双模型交叉验证流程，快速判断一篇 AI 论文是否值得深读。",
-        "变体2：把「工具选型」换成「竞品对比」——针对同一赛道 3-5 个产品，让模型生成对比表和迁移成本评估。",
-        "变体3：把输出接入周报——每周固定跑一次，把解读卡片汇总成团队 AI 工具动态周报。"
-      ],
-      "summary": "用「事实提取 → 双模型交叉解读 → 选型建议 → 模板沉淀」四段式工作流，把一条 AI 新闻变成可执行的工具决策。"
-    },
-    "generated_at": "2026-11-06T04:14:58.789647+00:00",
-    "play_meta": {
-      "title_zh": "刚刚，Claude Code产品一姐加入OpenAI！",
-      "title_en": "刚刚，Claude Code产品一姐加入OpenAI！",
-      "source_id": "zhidx-play",
-      "source_name": "智东西 AI 工具评测",
-      "source_label": "权威媒体",
-      "source_tier": "A",
-      "source_color": "blue",
-      "source_emoji": "🔵",
-      "play_type": "tool_workflow",
-      "difficulty": 3,
-      "time_estimate": "30min",
-      "tools": [
-        "ChatGPT",
-        "Claude"
-      ],
-      "link": "https://zhidx.com/p/607599.html",
-      "is_domestic": true,
-      "tags": [],
-      "playability_score": 6.0
-    }
-  },
-  "ph-ai-b7fa2c68": {
-    "_sig": "TIM PG|https://www.producthunt.com/products/tim-pg",
-    "tutorial": {
-      "intro": "在把公司文档、客户信息或代码粘贴进 ChatGPT、Claude 等 AI 工具之前，先用脱敏工具把敏感数据替换掉，既能享受 AI 的便利，又不会泄露隐私。",
-      "background": "越来越多的人在日常工作中使用 AI 助手处理邮件、合同、代码和数据分析，但直接粘贴原文往往包含手机号、邮箱、身份证号、API Key、客户名单等敏感信息。一旦这些数据进入第三方 AI 服务，就可能被用于训练、被员工查看或遭遇泄露。Product Hunt 上推出的 Tim 等工具，正是为了解决「用 AI 之前先脱敏」这个痛点。掌握这套流程后，你可以放心地把任何文本交给 AI 处理，而不必担心合规和安全问题。",
-      "prerequisites": [
-        {
-          "name": "Tim",
-          "desc": "浏览器扩展或网页工具，自动识别并替换文本中的敏感信息",
-          "url": "https://www.producthunt.com/products/tim-pg"
-        },
-        {
-          "name": "ChatGPT / Claude / Gemini",
-          "desc": "任意你常用的 AI 对话工具，用于接收脱敏后的文本",
-          "url": "https://chat.openai.com"
-        },
-        {
-          "name": "文本编辑器（可选）",
-          "desc": "如 VS Code、Notepad++，用于手动检查和替换",
-          "url": "https://code.visualstudio.com"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：安装并启用脱敏工具",
-          "content": "打开 Tim 的 Product Hunt 页面，根据提示安装浏览器扩展或注册网页版账号。安装后固定在浏览器工具栏，确保在任意网页上都能一键调用。如果你使用公司电脑，请先确认 IT 政策允许安装此类扩展。",
-          "tip": "优先选择本地处理、不上传原文的脱敏工具，避免二次泄露。"
-        },
-        {
-          "title": "第2步：粘贴原文并自动识别敏感信息",
-          "content": "把需要交给 AI 的文本复制到 Tim 的输入框中，工具会自动扫描手机号、邮箱、身份证号、银行卡号、API Key、IP 地址等常见敏感字段。检查识别结果，确认没有漏掉你关心的自定义关键词（如内部项目代号）。",
-          "tip": "如果工具支持自定义正则，把公司内部术语也加进去，脱敏更彻底。"
-        },
-        {
-          "title": "第3步：一键替换为占位符",
-          "content": "点击「Anonymize」或「脱敏」按钮，工具会把敏感信息替换成 [PHONE_1]、[EMAIL_2]、[API_KEY_3] 这类占位符，并生成一份映射表。复制脱敏后的文本，此时原文中已不含真实敏感数据。",
-          "tip": "映射表要保存在本地或密码管理器中，不要和脱敏文本一起发给 AI。"
-        },
-        {
-          "title": "第4步：把脱敏文本粘贴给 AI 处理",
-          "content": "将脱敏后的文本粘贴到 ChatGPT、Claude 等 AI 工具中，正常提问、总结、翻译或写代码。AI 看到的是占位符，不会接触到真实隐私。如果 AI 需要理解上下文，可以在提示词里说明「[PHONE_1] 代表一个手机号」。",
-          "tip": "不要在同一对话里既发脱敏文本又发映射表，否则脱敏就白做了。"
-        },
-        {
-          "title": "第5步：拿回结果后还原真实数据",
-          "content": "AI 返回结果后，把结果复制回 Tim 或手动对照映射表，将占位符替换回真实信息。检查一遍替换是否完整，尤其是多个相同占位符的情况。最终得到一份既经过 AI 处理、又保留真实数据的成品。",
-          "tip": "如果结果要发给外部，先确认还原后的内容是否还需要进一步脱敏。"
-        }
-      ],
-      "expected_result": "你可以在不泄露手机号、邮箱、身份证号、API Key 等敏感信息的前提下，正常使用 ChatGPT、Claude 等 AI 工具处理文档、代码和邮件。AI 返回的结果经过占位符还原后，仍然是一份完整可用的真实数据。",
-      "faq": [
-        {
-          "q": "脱敏后 AI 还能理解上下文吗？",
-          "a": "可以。占位符保留了数据的位置和类型，AI 通常能根据上下文推断出「这里是一个手机号」或「这里是一个人名」，不影响总结、翻译、写代码等任务。"
-        },
-        {
-          "q": "Tim 会上传我的原文吗？",
-          "a": "建议查看其隐私政策。优先选择本地处理、不上传原文的工具；如果必须上传，确保传输加密且服务商承诺不存储。"
-        },
-        {
-          "q": "手动脱敏和工具脱敏哪个更好？",
-          "a": "手动适合少量、高敏感文本；工具适合批量、重复性任务。两者可以结合：先用工具自动识别，再人工检查一遍。"
-        },
-        {
-          "q": "脱敏后忘记映射表怎么办？",
-          "a": "如果映射表丢失，占位符就无法还原成真实数据。建议把映射表保存在密码管理器或加密笔记中，并定期备份。"
-        },
-        {
-          "q": "所有 AI 工具都需要脱敏吗？",
-          "a": "只要是把数据传输到第三方服务器的 AI 工具，都建议脱敏。本地部署的模型风险较低，但仍需遵守公司合规要求。"
-        }
-      ],
-      "variants": [
-        "变体1：用本地脚本 + 正则表达式批量脱敏，适合开发者处理日志、代码和配置文件，完全离线不依赖第三方工具。",
-        "变体2：在团队内建立「脱敏后再用 AI」的 SOP，配合共享的占位符规范（如 [CLIENT_NAME_1]），让多人协作时也能安全使用 AI。",
-        "变体3：结合密码管理器（如 1Password、Bitwarden）保存映射表，把脱敏和还原流程自动化，减少手动操作出错。"
-      ],
-      "summary": "先脱敏、再喂给 AI，最后还原——三步就能在享受 AI 效率的同时守住隐私底线。"
-    },
-    "generated_at": "2026-09-12T03:39:23.128062+00:00",
-    "play_meta": {
-      "title_zh": "粘贴前先脱敏，AI 随便用",
-      "title_en": "TIM PG",
-      "source_id": "ph-ai",
-      "source_name": "Product Hunt - AI 频道",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 5,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://www.producthunt.com/products/tim-pg",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.5
-    }
-  },
-  "ph-ai-2e2aa751": {
-    "_sig": "Spaces|https://www.producthunt.com/products/spaces-21",
-    "tutorial": {
-      "intro": "Spaces 是一个让团队和 AI 智能体在同一个共享工作空间里协作的产品，你可以把它理解成「带 AI 同事的 Slack + Notion」。",
-      "background": "过去我们用 AI 的方式是「一个人对着一个聊天框」，AI 是私人的、一次性的。但真实工作中，任务往往需要多人协作，也需要 AI 持续参与。Spaces 把 AI 智能体变成团队里的「虚拟成员」，它们和人类成员一样出现在同一个空间里，能看到上下文、能接任务、能产出内容。这个玩法适合小团队做项目协作、内容生产、客户支持等场景，也适合个人用来搭建自己的「AI 工作台」。难度中等偏上，因为需要配置智能体和权限。",
-      "prerequisites": [
-        {
-          "name": "Spaces",
-          "desc": "核心协作空间，创建团队空间并邀请 AI 智能体加入",
-          "url": "https://www.producthunt.com/products/spaces-21"
-        },
-        {
-          "name": "Hugging Face",
-          "desc": "用于接入开源模型或托管智能体能力（原始资料标注工具为 HF）",
-          "url": "https://huggingface.co"
-        },
-        {
-          "name": "一个常用浏览器",
-          "desc": "Chrome / Edge / Safari 均可，用于访问 Web 端",
-          "url": "https://www.google.com/chrome/"
-        },
-        {
-          "name": "团队协作账号",
-          "desc": "Google Workspace 或邮箱，用于邀请成员",
-          "url": "https://workspace.google.com"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：创建你的第一个 Space",
-          "content": "打开 Spaces 官网并注册登录，点击「New Space」创建一个工作空间。给空间起一个具体名字，比如「内容营销组」或「产品迭代周会」，不要用「测试空间」这种模糊名字，因为后续 AI 智能体需要根据空间名理解上下文。创建后先不要急着拉人，先完成基础设置。",
-          "tip": "空间名越具体，AI 智能体后续理解任务越准确。"
-        },
-        {
-          "title": "第2步：邀请人类成员并分配角色",
-          "content": "在 Space 设置里点击「Invite」，输入队友邮箱，并给每个人分配角色（Admin / Member / Viewer）。建议至少留一个 Admin 给自己，其他人先给 Member。邀请后让队友先登录一次，确保大家看到的是同一个空间。",
-          "tip": "先拉 1-2 个核心队友测试，跑通后再扩大邀请范围。"
-        },
-        {
-          "title": "第3步：添加 AI 智能体并接入 HF 模型",
-          "content": "在 Space 里点击「Add Agent」，选择从 Hugging Face 接入模型或使用预设智能体模板。给智能体起一个像同事一样的名字，比如「小文-文案助手」或「阿查-资料检索」。在配置里填写 HF 的 API Token（在 Hugging Face 设置里生成），并选择模型（如 Mistral、Llama 系列）。保存后智能体会出现在成员列表里。",
-          "tip": "HF Token 建议用 read 权限即可，不要给 write 权限，安全第一。"
-        },
-        {
-          "title": "第4步：给智能体设定职责和触发方式",
-          "content": "点击智能体头像进入配置页，在「Instructions」里写清楚它的职责，例如「你负责根据讨论内容生成周报草稿，每次被 @ 时响应」。在「Triggers」里设置触发条件：被 @ 时触发、每天定时触发、或当空间里出现关键词时触发。保存后，智能体就会按规则自动参与。",
-          "tip": "指令里加上「如果信息不足，先提问再执行」，能减少胡编乱造。"
-        },
-        {
-          "title": "第5步：在真实任务中跑通一次协作闭环",
-          "content": "在 Space 里发一条真实任务，比如「@小文-文案助手 根据今天的讨论写一篇 300 字的产品更新说明」。观察智能体是否在空间里回复、人类成员是否能接着修改。让一个队友在智能体输出上直接评论或编辑，验证「人 + AI 同处一个空间」的协作体验。",
-          "tip": "第一次跑通后，把这次的任务模板保存下来，下次直接复用。"
-        },
-        {
-          "title": "第6步：固化工作流并沉淀为团队模板",
-          "content": "把跑通的流程整理成 Space 里的「Playbook」：什么任务 @ 哪个智能体、输出格式是什么、谁来审核。可以把这个 Space 复制成模板，供其他项目复用。后续新项目直接基于模板创建，减少重复配置。",
-          "tip": "每周花 10 分钟回顾一次智能体的输出质量，及时调整指令。"
-        }
-      ],
-      "expected_result": "完成后，你会拥有一个人类成员和 AI 智能体共存的共享空间：队友能看到彼此的消息，AI 智能体能在被 @ 或定时触发时自动产出内容，所有讨论、产出、修改都留在同一个上下文里，不再需要在聊天工具和 AI 对话框之间来回切换。",
-      "faq": [
-        {
-          "q": "Spaces 和直接用 ChatGPT 团队版有什么区别？",
-          "a": "ChatGPT 团队版仍是「人问 AI 答」的对话模式，而 Spaces 把 AI 当成空间里的一个成员，它能持续看到团队上下文、被 @ 触发、按规则自动参与，更接近「AI 同事」而不是「AI 工具」。"
-        },
-        {
-          "q": "一定要用 Hugging Face 吗？",
-          "a": "原始资料标注工具为 HF，说明官方推荐或支持 HF 接入。如果你已有 OpenAI、Anthropic 等 API，也可以先看 Spaces 是否支持自定义模型端点，再决定是否必须用 HF。"
-        },
-        {
-          "q": "AI 智能体会不会看到不该看的内容？",
-          "a": "可以在 Space 权限里限制智能体可见的频道或文档范围。建议把敏感信息放在单独的 Private Space，不要拉智能体进去。"
-        },
-        {
-          "q": "小团队只有 2-3 人值得用吗？",
-          "a": "值得。人越少，越需要 AI 补位。2-3 人团队可以用 Spaces 把「写文案、查资料、整理会议纪要」这类重复工作交给智能体，人类专注决策。"
-        },
-        {
-          "q": "智能体输出质量不稳定怎么办？",
-          "a": "先检查指令是否足够具体，再检查是否给了足够的上下文。可以在指令里要求「先复述任务再执行」，并设置人工审核环节，不要直接让智能体对外发布。"
-        }
-      ],
-      "variants": [
-        "变体1：把 Spaces 当成「AI 内容工厂」——拉 3 个智能体分别负责选题、初稿、润色，人类只做终审，适合自媒体小团队。",
-        "变体2：把 Spaces 当成「AI 客服中台」——一个智能体负责首轮回复，人类成员负责升级处理，所有对话留在同一空间便于复盘。",
-        "变体3：把 Spaces 当成「个人 AI 工作台」——只有你和一个智能体，但用 Space 的频道和文档功能把任务、产出、复盘结构化，替代零散的聊天记录。"
-      ],
-      "summary": "Spaces 的精髓是把 AI 从「对话框」变成「同事」，让团队和智能体在同一个上下文里持续协作，而不是每次重新开始。"
-    },
-    "generated_at": "2026-09-12T03:40:00.789781+00:00",
-    "play_meta": {
-      "title_zh": "Spaces：让团队和AI智能体同处一个工作空间",
-      "title_en": "Spaces",
-      "source_id": "ph-ai",
-      "source_name": "Product Hunt - AI 频道",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "runnable_demo",
-      "difficulty": 4,
-      "time_estimate": "10min",
-      "tools": [
-        "HF"
-      ],
-      "link": "https://www.producthunt.com/products/spaces-21",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.5
-    }
-  },
-  "ph-ai-22b54693": {
-    "_sig": "Loqua|https://www.producthunt.com/products/loqua",
-    "tutorial": {
-      "intro": "Loqua 是一款让你「动动嘴就把事做完」的语音驱动效率工具，把零散想法直接变成可执行任务。",
-      "background": "很多人每天脑子里闪过无数待办、灵感、会议纪要，但打开 App 手动输入太慢，最后不了了之。Loqua 的核心理念是「自然说话，从想法到完成」，它通过语音识别 + AI 理解，把你说的话自动转成结构化任务、笔记或提醒。适合经常开会、做内容、跑项目的知识工作者，也适合想减少打字、用嘴管理日程的懒人效率党。难度 4/5，意味着需要一点配置和习惯适应，但一旦跑通，每天能省下大量整理时间。",
-      "prerequisites": [
-        {
-          "name": "Loqua",
-          "desc": "核心语音任务工具，负责录音、转写和 AI 结构化",
-          "url": "https://www.producthunt.com/products/loqua"
-        },
-        {
-          "name": "麦克风/耳机",
-          "desc": "保证语音输入清晰，减少转写错误",
-          "url": ""
-        },
-        {
-          "name": "待办/笔记工具（可选）",
-          "desc": "如 Todoist、Notion、Apple 提醒事项，用于接收 Loqua 输出的任务",
-          "url": "https://todoist.com"
-        },
-        {
-          "name": "Zapier 或 Make（可选）",
-          "desc": "如果 Loqua 不直接支持你的工具，用自动化平台桥接",
-          "url": "https://zapier.com"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：注册并熟悉 Loqua 的语音入口",
-          "content": "打开 Loqua 官网或 Product Hunt 页面，注册账号并进入主界面。找到麦克风按钮或快捷键（通常是按住说话或点击开始录音）。先随便说一句「明天下午三点提醒我给客户发报价」，观察它如何转写并生成任务。熟悉录音、暂停、确认三个基本动作。",
-          "tip": "第一次使用时，在安静环境里用正常语速说话，不要刻意放慢，Loqua 对自然语言理解更好。"
-        },
-        {
-          "title": "第2步：建立你的「一句话任务」模板",
-          "content": "Loqua 的强项是把口语变成结构化数据。你可以固定几种说法：任务类「提醒我……」「安排……」，笔记类「记录一下……」，灵感类「想法：……」。在 Loqua 里测试这些句式，看它分别生成什么字段（标题、时间、标签、优先级）。把最顺手的 2-3 种句式记下来，形成肌肉记忆。",
-          "tip": "如果 Loqua 支持自定义指令，可以设置「当我说『紧急』时自动标为高优先级」。"
-        },
-        {
-          "title": "第3步：连接你的待办或笔记工具",
-          "content": "进入 Loqua 的设置或集成页面，查看是否支持直接连接 Todoist、Notion、Google Tasks 等。如果支持，授权后选择默认项目或列表。如果不支持，用 Zapier/Make 创建一个触发：Loqua 新任务 → 创建对应待办。测试一条语音，确认任务出现在目标工具里。",
-          "tip": "先只连一个工具，跑通后再加第二个，避免混乱。"
-        },
-        {
-          "title": "第4步：设计每日语音复盘流程",
-          "content": "每天固定两个时间点用 Loqua：早上花 2 分钟口述今日三件最重要的事，晚上花 3 分钟口述完成情况、未完成原因和明日调整。Loqua 会自动生成任务和笔记，你只需在目标工具里确认。坚持三天，你会得到一份可搜索的语音日志。",
-          "tip": "晚上复盘时直接说「今天完成了……明天要……」，Loqua 能自动拆分已完成和待办。"
-        },
-        {
-          "title": "第5步：用语音批量处理会议和灵感",
-          "content": "开会时打开 Loqua 录音，会后说一句「整理刚才的会议，提取行动项」。如果 Loqua 支持长录音转写，它会生成摘要和任务列表。平时走路、洗澡后想到什么，立刻用手机 Loqua 录一句，周末统一回顾，把零散想法变成项目。",
-          "tip": "长录音前先测试 1 分钟片段，确认转写准确率和处理时间。"
-        }
-      ],
-      "expected_result": "你说话后 5-10 秒内，Loqua 生成结构化任务或笔记，并自动同步到你的待办工具。每天不再手动打字整理，语音输入成为主要入口，待办清单和灵感库自动增长。",
-      "faq": [
-        {
-          "q": "Loqua 支持中文吗？",
-          "a": "根据 Product Hunt 页面未明确标注，建议注册后先用中文测试一句，如果识别差再切换英文。多数语音 AI 对英文支持更好。"
-        },
-        {
-          "q": "免费版够用吗？",
-          "a": "Product Hunt 产品通常有免费额度或试用期。先免费用一周，确认每天语音量是否够，再决定是否升级。"
-        },
-        {
-          "q": "录音隐私安全吗？",
-          "a": "查看 Loqua 隐私政策，确认录音是否加密、是否用于训练。敏感内容建议不要录，或使用本地转写工具配合。"
-        },
-        {
-          "q": "能直接同步到微信/钉钉吗？",
-          "a": "通常不直接支持。可以用 Zapier 或 Make 桥接，或者让 Loqua 发邮件，再用邮件规则转发到 IM。"
-        },
-        {
-          "q": "识别不准怎么办？",
-          "a": "用外接麦克风、减少环境噪音、说话时不要吞字。如果某个词总错，可以在 Loqua 里添加自定义词汇或替换规则。"
-        }
-      ],
-      "variants": [
-        "变体1：语音日记 + AI 周报——每天用 Loqua 口述日记，周末让 AI 汇总成周报，自动发到邮箱或 Notion。",
-        "变体2：语音驱动 CRM——销售场景下，见完客户立刻口述「客户 A，意向高，下周跟进报价」，Loqua 自动创建 CRM 任务和提醒。",
-        "变体3：语音灵感捕捉 + 自动分类——设置关键词规则，比如说到「视频」自动归到内容项目，说到「bug」自动归到开发待办。"
-      ],
-      "summary": "Loqua 的精髓是把「说」变成「做」——用自然语言口述，让 AI 自动整理成任务和笔记，你只需要动嘴，剩下的交给工具链。"
-    },
-    "generated_at": "2026-09-12T03:40:18.647258+00:00",
-    "play_meta": {
-      "title_zh": "Loqua：动动嘴就把事做完",
-      "title_en": "Loqua",
-      "source_id": "ph-ai",
-      "source_name": "Product Hunt - AI 频道",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 4,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://www.producthunt.com/products/loqua",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.5
-    }
-  },
-  "ph-ai-21a6a592": {
-    "_sig": "Cline Desktop App|https://www.producthunt.com/products/cline-4",
-    "tutorial": {
-      "intro": "Cline 桌面版把开源大模型装进你的电脑，不用写代码就能一键调用本地或云端权重，实现聊天、写代码、自动化任务。",
-      "background": "Cline 原本是 VS Code 里的开源 AI 编程助手，最近推出了独立桌面版，专门为开放权重模型（如 Llama、Mistral、Qwen）设计。它把模型下载、API 配置、对话界面和工具调用打包成一个 App，让非程序员也能玩转开源模型。适合想低成本、高隐私地使用 AI 做开发辅助、内容生成或自动化流程的人。Product Hunt 上它被列为 AI 频道热门工具，核心卖点就是“开源模型一键玩”。",
-      "prerequisites": [
-        {
-          "name": "Cline 桌面版",
-          "desc": "主程序，用于加载模型、对话和执行工具链",
-          "url": "https://www.producthunt.com/products/cline-4"
-        },
-        {
-          "name": "Ollama（可选）",
-          "desc": "本地运行开源模型的运行时，Cline 可直连",
-          "url": "https://ollama.com"
-        },
-        {
-          "name": "LM Studio（可选）",
-          "desc": "图形化本地模型管理，适合不想用命令行的用户",
-          "url": "https://lmstudio.ai"
-        },
-        {
-          "name": "一个开源模型权重",
-          "desc": "如 Llama 3.1 8B、Qwen2.5 7B、Mistral 7B，按显存选择",
-          "url": "https://huggingface.co/models"
-        },
-        {
-          "name": "API Key（可选）",
-          "desc": "若用 OpenRouter、Together AI 等云端推理，需注册获取",
-          "url": "https://openrouter.ai"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：安装 Cline 桌面版并选择模型来源",
-          "content": "从 Product Hunt 页面找到 Cline 桌面版下载链接，安装后打开。首次启动会让你选择模型来源：本地（Ollama/LM Studio）或云端 API（OpenRouter、Together 等）。如果你电脑有 8GB 以上显存，优先选本地；否则选云端免费额度。",
-          "tip": "Windows 用户若被 SmartScreen 拦截，点“更多信息→仍要运行”即可。"
-        },
-        {
-          "title": "第2步：配置本地模型或填入 API Key",
-          "content": "若选本地，先确保 Ollama 已运行（终端输入 ollama serve），然后在 Cline 里填 http://localhost:11434 并拉取模型如 ollama pull qwen2.5:7b。若选云端，把 OpenRouter 的 API Key 粘贴进去，模型名填 meta-llama/llama-3.1-8b-instruct 等。",
-          "tip": "本地模型第一次加载会慢，耐心等 1-2 分钟；显存不够就换 3B 小模型。"
-        },
-        {
-          "title": "第3步：创建第一个对话并测试工具调用",
-          "content": "在 Cline 主界面新建对话，输入“帮我写一个 Python 脚本，读取当前目录所有 CSV 并合并”。Cline 会先规划步骤，然后询问是否允许执行终端命令和写文件。点“允许”后它会自动生成代码、运行并返回结果。",
-          "tip": "第一次执行工具时建议逐条批准，确认安全后再开自动批准。"
-        },
-        {
-          "title": "第4步：保存为可复用的工作流模板",
-          "content": "在对话右上角点“保存为工作流”，命名如“CSV合并”。下次遇到类似任务，直接选这个模板，Cline 会复用之前的提示词和工具权限。你还可以在设置里把常用模型设为默认，减少切换。",
-          "tip": "工作流支持导出 JSON，可以分享给同事或备份到 Git。"
-        },
-        {
-          "title": "第5步：接入外部工具链（可选）",
-          "content": "Cline 支持 MCP（Model Context Protocol）协议，可以连接浏览器、数据库、GitHub 等。在设置→MCP Servers 里添加社区服务器，比如 filesystem 或 puppeteer。添加后，你就能让 AI 直接操作浏览器截图或查询数据库。",
-          "tip": "MCP 服务器有安全风险，只添加可信来源，并限制文件访问目录。"
-        }
-      ],
-      "expected_result": "Cline 桌面版成功运行，你能用自然语言指挥开源模型完成写代码、跑脚本、整理文件等任务，所有对话和工具调用都在本地或你指定的 API 上完成，无需额外付费给闭源服务。",
-      "faq": [
-        {
-          "q": "Cline 桌面版和 VS Code 插件版有什么区别？",
-          "a": "桌面版是独立 App，不需要装 VS Code，界面更简洁，适合非程序员；插件版功能更全，适合开发者深度集成。"
-        },
-        {
-          "q": "本地模型跑不动怎么办？",
-          "a": "换更小参数（3B/7B 量化版），或改用云端 API（OpenRouter 有免费模型），也可以降低上下文长度。"
-        },
-        {
-          "q": "Cline 会偷偷上传我的代码吗？",
-          "a": "如果选本地模型，所有数据不出电脑；如果选云端 API，代码会发给对应服务商，建议看隐私政策。"
-        },
-        {
-          "q": "支持中文对话吗？",
-          "a": "支持，只要模型本身中文能力OK（如 Qwen、Llama 3.1），Cline 界面也支持中文输入。"
-        },
-        {
-          "q": "工具调用失败提示权限错误？",
-          "a": "检查系统是否允许 Cline 访问终端和文件，macOS 在“隐私与安全性”里给完全磁盘访问权限。"
-        }
-      ],
-      "variants": [
-        "变体1：用 Cline + Ollama 搭建全离线代码助手，断网也能写代码、查文档。",
-        "变体2：用 Cline + OpenRouter 免费模型做自动化爬虫，让 AI 写脚本并直接运行。",
-        "变体3：用 Cline + MCP 连接 GitHub，实现“一句话提 PR”：AI 改代码、跑测试、提交合并请求。"
-      ],
-      "summary": "Cline 桌面版把开源模型变成你的私人 AI 员工，配置一次就能反复用自然语言驱动工具链干活。"
-    },
-    "generated_at": "2026-09-12T03:40:26.866457+00:00",
-    "play_meta": {
-      "title_zh": "Cline 桌面版：开源模型一键玩",
-      "title_en": "Cline Desktop App",
-      "source_id": "ph-ai",
-      "source_name": "Product Hunt - AI 频道",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 4,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://www.producthunt.com/products/cline-4",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.5
-    }
-  },
-  "ph-ai-87c53c0a": {
-    "_sig": "Formesign|https://www.producthunt.com/products/formesign",
-    "tutorial": {
-      "intro": "给普通的 Google 表单加上具有法律效力的电子签名，让收集信息、签署合同、报名确认等场景一步到位。",
-      "background": "很多团队用 Google 表单收集报名、申请或合同确认，但表单本身没有签名功能，导致后续还要打印、手签、扫描，效率极低。Formesign 是一款专门为 Google 表单设计的插件，可以在表单中嵌入符合 eIDAS、ESIGN、UETA 等法律标准的电子签名字段，签署后的文档自动归档并带有审计追踪。这个玩法适合需要快速收集法律效力签名的场景，比如活动免责协议、租赁申请、自由职业合同、家长同意书等。",
-      "prerequisites": [
-        {
-          "name": "Google 账号",
-          "desc": "用于创建和编辑 Google 表单",
-          "url": "https://accounts.google.com"
-        },
-        {
-          "name": "Formesign",
-          "desc": "为 Google 表单添加法律签名的插件",
-          "url": "https://www.producthunt.com/products/formesign"
-        },
-        {
-          "name": "Google 表单",
-          "desc": "创建表单的主体工具",
-          "url": "https://forms.google.com"
-        },
-        {
-          "name": "Google 云端硬盘",
-          "desc": "存储签署后的 PDF 和审计记录",
-          "url": "https://drive.google.com"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：安装 Formesign 插件",
-          "content": "打开 Google 表单，点击右上角的「更多」图标（三个点），选择「获取插件」。在搜索框中输入「Formesign」，找到后点击「安装」并授权访问你的 Google 账号。安装完成后，表单右侧会出现 Formesign 侧边栏。",
-          "tip": "如果搜索不到，可以直接访问 Formesign 的 Product Hunt 页面，通过官网链接跳转到 Google Workspace 市场安装。"
-        },
-        {
-          "title": "第2步：在表单中添加签名字段",
-          "content": "在 Formesign 侧边栏中点击「Add Signature Field」，选择要插入签名的位置（通常在表单末尾）。你可以自定义签名字段的标签，比如「本人签名」「家长/监护人签名」。同时可以设置是否必填、签名框大小和提示文字。",
-          "tip": "建议把签名字段放在所有必填信息之后，避免用户填到一半就要签名，体验更顺畅。"
-        },
-        {
-          "title": "第3步：配置法律条款与同意选项",
-          "content": "在 Formesign 侧边栏中启用「Legal Consent」选项，输入你的法律条款全文或上传 PDF 链接。用户签名前必须勾选「我已阅读并同意上述条款」，否则无法提交。你还可以开启「时间戳」和「IP 记录」，作为签署证据。",
-          "tip": "法律条款建议用简洁明了的语言，并注明适用法律和争议解决方式，必要时请律师审核。"
-        },
-        {
-          "title": "第4步：设置签署后自动归档",
-          "content": "在 Formesign 设置中开启「Auto-Archive」，选择将签署后的表单响应自动保存为 PDF 并上传到指定的 Google 云端硬盘文件夹。你还可以设置自动发送副本到签署人邮箱和你的邮箱。这样每次签署都会生成一份带签名、时间戳和审计追踪的 PDF。",
-          "tip": "建议为每个表单单独建一个文件夹，命名规则如「表单名_日期_签署人」，方便后续检索。"
-        },
-        {
-          "title": "第5步：测试并发布表单",
-          "content": "点击 Google 表单的「发送」按钮，复制链接在无痕窗口中打开，完整填写并签名提交。检查邮箱和云端硬盘是否收到 PDF，签名是否清晰，时间戳和 IP 是否正确。确认无误后，正式发布表单链接给用户填写。",
-          "tip": "测试时用真实邮箱和真实签名，确保整个流程符合法律要求。如果涉及敏感信息，建议开启 Google 表单的「限制为组织内用户」或添加验证码。"
-        }
-      ],
-      "expected_result": "用户填写 Google 表单时，在末尾看到签名字段和法律条款勾选框。提交后，系统自动生成一份带有电子签名、时间戳、IP 地址和审计追踪的 PDF，并保存到你的 Google 云端硬盘，同时发送副本给相关方。整个流程无需打印、扫描或手动整理。",
-      "faq": [
-        {
-          "q": "Formesign 的电子签名有法律效力吗？",
-          "a": "Formesign 符合 eIDAS、ESIGN、UETA 等主流电子签名法规，但法律效力取决于具体司法管辖区和签署场景。建议在正式使用前咨询法律专业人士。"
-        },
-        {
-          "q": "免费版和付费版有什么区别？",
-          "a": "Formesign 通常提供免费试用，但高级功能如自动归档、自定义法律条款、批量发送等可能需要付费。具体请查看官网定价。"
-        },
-        {
-          "q": "签署后的 PDF 可以修改吗？",
-          "a": "PDF 本身可以编辑，但 Formesign 会生成审计追踪和哈希值，任何修改都会破坏原始签名验证。建议将归档文件夹设为只读。"
-        },
-        {
-          "q": "用户没有 Google 账号可以签名吗？",
-          "a": "可以。只要你能分享 Google 表单链接，任何用户都可以打开并签名，无需登录 Google 账号。"
-        },
-        {
-          "q": "如果用户拒绝签名怎么办？",
-          "a": "你可以在表单中设置签名为必填，这样用户不签名就无法提交。如果用户拒绝，可以引导他们联系你获取其他签署方式。"
-        }
-      ],
-      "variants": [
-        "变体1：结合 Google 表单的「文件上传」功能，让用户先上传身份证或营业执照，再签名，适用于 KYC 场景。",
-        "变体2：用 Zapier 或 Make 将 Formesign 签署后的 PDF 自动同步到 Dropbox、Notion 或 Slack，实现跨工具工作流。",
-        "变体3：将 Formesign 用于内部审批流程，比如员工入职合同、保密协议，设置多级签名（员工签完自动转发给 HR 签）。"
-      ],
-      "summary": "用 Formesign 给 Google 表单加上法律签名，把收集信息和签署合同合并成一步，省去打印扫描的麻烦，适合所有需要快速获取法律效力签名的场景。"
-    },
-    "generated_at": "2026-09-12T03:40:35.406895+00:00",
-    "play_meta": {
-      "title_zh": "给Google表单加法律签名",
-      "title_en": "Formesign",
-      "source_id": "ph-ai",
-      "source_name": "Product Hunt - AI 频道",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 4,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://www.producthunt.com/products/formesign",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.5
-    }
-  },
-  "ph-ai-987451d4": {
-    "_sig": "Jackalope|https://www.producthunt.com/products/jackalope",
-    "tutorial": {
-      "intro": "想让 Codex、Claude Code、Grok 和 OpenCode 四个 AI 编程助手在同一个工作区里协同干活？Jackalope 就是为此而生的共享工作台，本教程带你从零跑通。",
-      "background": "随着 AI 编程助手越来越多，开发者往往要在多个工具之间来回切换，上下文和代码片段难以共享。Jackalope 在 Product Hunt 上发布后，提出了一种「多 AI 同台协作」的思路：把 Codex、Claude Code、Grok、OpenCode 放进同一个共享工作区，让它们各自发挥所长、互相补位。这个玩法适合需要多模型交叉验证、或想对比不同 AI 编码风格的开发者，也能用于教学演示和团队内部效率实验。",
-      "prerequisites": [
-        {
-          "name": "Jackalope",
-          "desc": "多 AI 编程助手共享工作区，本玩法核心平台",
-          "url": "https://www.producthunt.com/products/jackalope"
-        },
-        {
-          "name": "Claude / Claude Code",
-          "desc": "作为主力编程助手之一接入工作区",
-          "url": "https://claude.ai"
-        },
-        {
-          "name": "OpenAI Codex 或兼容 API",
-          "desc": "提供 Codex 能力的接口或账号",
-          "url": "https://openai.com"
-        },
-        {
-          "name": "Grok（xAI）",
-          "desc": "接入 Grok 作为另一个协作助手",
-          "url": "https://x.ai"
-        },
-        {
-          "name": "OpenCode",
-          "desc": "开源编程助手，可本地或远程接入",
-          "url": "https://opencode.ai"
-        },
-        {
-          "name": "Node.js 18+ 与 Git",
-          "desc": "本地运行环境和代码版本管理",
-          "url": "https://nodejs.org"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：注册并创建共享工作区",
-          "content": "打开 Jackalope 的 Product Hunt 页面，点击访问产品官网并注册账号。登录后选择「新建工作区」，为工作区起一个项目名（例如 multi-ai-demo），并选择空白模板。创建完成后你会看到一个类似 IDE 的界面，左侧是文件树，右侧是 AI 对话与协作面板。",
-          "tip": "建议先用空白模板跑通流程，不要一上来就导入大型仓库，避免首次配置出错。"
-        },
-        {
-          "title": "第2步：接入四个 AI 编程助手",
-          "content": "在工作区设置里找到「AI Assistants」或「Integrations」入口，依次添加 Claude、Codex、Grok 和 OpenCode。每个助手需要填入对应的 API Key 或授权登录，Claude 和 Codex 通常用官方 Key，Grok 用 xAI 的 Key，OpenCode 可选择本地 CLI 或云端模式。全部添加后，工作区顶部会出现四个助手的头像或标签，表示已就绪。",
-          "tip": "API Key 建议放在环境变量或工作区密钥管理中，不要直接写进代码文件。"
-        },
-        {
-          "title": "第3步：导入或新建一个示例项目",
-          "content": "点击「Import Repo」导入一个 Git 仓库，或者直接在工作区里新建一个 index.js 和 README.md。为了让四个助手都有活干，建议选一个中等复杂度的任务，比如「实现一个带缓存的天气查询 CLI」。把需求写进 README 或任务卡片，作为共享上下文。",
-          "tip": "任务描述越具体，四个助手的输出越容易对比和合并，避免它们各说各话。"
-        },
-        {
-          "title": "第4步：分配角色并让四个助手同台协作",
-          "content": "在协作面板中给每个助手分配角色：Claude 负责整体架构和代码审查，Codex 负责生成核心函数，Grok 负责边界情况和测试用例，OpenCode 负责重构和补全文档。然后在同一个对话线程里 @ 四个助手，让它们基于同一份文件树和任务描述分别输出方案。你可以实时看到每个助手的建议，并选择采纳或合并。",
-          "tip": "先让一个助手出初稿，再让其他三个做 review，比让四个同时从零写更高效。"
-        },
-        {
-          "title": "第5步：合并结果并运行验证",
-          "content": "把四个助手的输出汇总到工作区文件里，利用内置的 diff 视图对比不同版本。确认无误后，在终端面板运行 node index.js 或对应测试命令，验证功能是否正常。如果报错，可以把错误日志直接贴回协作线程，让四个助手一起排查。",
-          "tip": "保留每个助手的原始输出分支，方便回滚和对比，不要直接覆盖主文件。"
-        },
-        {
-          "title": "第6步：导出工作区并沉淀协作记录",
-          "content": "验证通过后，点击「Export」把最终代码和协作记录导出为 ZIP 或推送到 Git 仓库。Jackalope 通常会保留对话历史，你可以把这次多 AI 协作的过程整理成团队文档，作为后续项目的参考模板。",
-          "tip": "导出前检查一下 API Key 是否被误写入文件，避免泄露。"
-        }
-      ],
-      "expected_result": "完成以上步骤后，你会得到一个可运行的示例项目，代码由 Claude、Codex、Grok 和 OpenCode 四个助手在同一工作区内协作产出，并附带完整的对话与 diff 记录。你能直观看到不同 AI 在架构、实现、测试和文档上的风格差异，也能把这种多助手工作流复用到真实项目中。",
-      "faq": [
-        {
-          "q": "Jackalope 是免费的吗？",
-          "a": "Product Hunt 页面通常提供免费试用或开源版本，具体以官网定价为准；四个 AI 助手的 API 费用需各自承担。"
-        },
-        {
-          "q": "必须四个助手都接入吗？",
-          "a": "不是，可以只接两个或三个，但四个同台才能体现「多 AI 协作」的对比价值。"
-        },
-        {
-          "q": "API Key 安全吗？",
-          "a": "建议使用工作区密钥管理或环境变量，不要硬编码；导出前务必检查。"
-        },
-        {
-          "q": "支持本地模型吗？",
-          "a": "OpenCode 支持本地或远程模式，其他助手以官方 API 为主，具体看 Jackalope 的集成文档。"
-        },
-        {
-          "q": "四个助手会不会互相冲突？",
-          "a": "会，所以要先分配角色、再让它们基于同一上下文输出，最后人工合并，而不是让它们自动改同一文件。"
-        }
-      ],
-      "variants": [
-        "变体1：只用 Claude + Codex 做「生成 + 审查」双人组，适合快速原型开发。",
-        "变体2：把 Grok 换成另一个开源模型（如 Llama 或 DeepSeek），做多模型交叉验证。",
-        "变体3：把工作区接入 CI，让四个助手在 PR 里自动评论，形成「AI 代码评审团」。"
-      ],
-      "summary": "Jackalope 的精髓不是让 AI 替你写代码，而是让多个 AI 在同一工作区里互相补位、交叉验证，你只做最终的决策和合并。"
-    },
-    "generated_at": "2026-09-12T03:40:52.788408+00:00",
-    "play_meta": {
-      "title_zh": "四大AI编程助手同台协作工作区",
-      "title_en": "Jackalope",
-      "source_id": "ph-ai",
-      "source_name": "Product Hunt - AI 频道",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "runnable_demo",
-      "difficulty": 4,
-      "time_estimate": "10min",
-      "tools": [
-        "Claude"
-      ],
-      "link": "https://www.producthunt.com/products/jackalope",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.2
-    }
-  },
-  "ph-ai-0d2f04f9": {
-    "_sig": "LiveGrid|https://www.producthunt.com/products/livegrid-4",
-    "tutorial": {
-      "intro": "LiveGrid 是一个多路直播同屏观看工具，让你在一个页面同时盯住多个直播间，再也不用反复切换标签页。",
-      "background": "在电商大促、电竞赛事、多平台发布会等场景下，用户往往需要同时关注多个直播源，但频繁切换窗口不仅效率低，还容易错过关键信息。LiveGrid 通过网格化布局将多个直播流聚合到同一屏幕，配合静音、缩放、布局调整等功能，实现“一屏尽览”。它尤其适合运营人员、赛事观众、内容创作者和需要实时监控多路视频流的开发者。",
-      "prerequisites": [
-        {
-          "name": "LiveGrid",
-          "desc": "多路直播同屏观看工具，支持添加多个直播链接并以网格形式展示",
-          "url": "https://www.producthunt.com/products/livegrid-4"
-        },
-        {
-          "name": "现代浏览器",
-          "desc": "推荐 Chrome、Edge 或 Firefox 最新版，确保多路视频流播放流畅",
-          "url": "https://www.google.com/chrome/"
-        },
-        {
-          "name": "稳定的网络",
-          "desc": "同时播放多路直播对带宽要求较高，建议 20Mbps 以上",
-          "url": ""
-        },
-        {
-          "name": "直播源链接",
-          "desc": "准备 2-6 个你想同时观看的直播页面 URL（如 Twitch、YouTube Live、B站等）",
-          "url": ""
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：打开 LiveGrid 并熟悉界面",
-          "content": "访问 LiveGrid 产品页（https://www.producthunt.com/products/livegrid-4），点击“Visit website”进入实际工具页面。你会看到一个空白网格区域和添加直播源的输入框。先不要急着添加，观察一下顶部或侧边是否有布局切换、静音全部、全屏等按钮，这些是后续高频操作。",
-          "tip": "如果页面加载慢，可以尝试关闭广告拦截插件，部分直播流会被误拦。"
-        },
-        {
-          "title": "第2步：添加多个直播源",
-          "content": "在输入框中粘贴第一个直播链接，点击“Add”或按回车，该直播会出现在网格中。重复此操作，依次添加 2-6 个直播源。建议先添加 2 个测试播放是否正常，再逐步增加。注意：部分平台（如 YouTube）需要复制的是直播间完整 URL，而不是频道主页。",
-          "tip": "优先添加支持 HTTPS 的直播源，避免混合内容导致无法播放。"
-        },
-        {
-          "title": "第3步：调整布局与音频",
-          "content": "根据直播数量选择网格布局：2 路用左右分屏，4 路用 2x2，6 路用 3x2。点击每个窗口的喇叭图标可单独静音/取消静音，通常只保留一个主直播的声音。如果某个直播画面比例不对，可以双击窗口或点击缩放按钮让其自适应。",
-          "tip": "把最重要的直播放在左上角，符合人眼浏览习惯；其余静音作为监控画面。"
-        },
-        {
-          "title": "第4步：保存配置并日常使用",
-          "content": "调整好布局和音源后，如果 LiveGrid 支持保存布局或生成分享链接，建议保存为书签或复制当前页面 URL。下次打开时可直接恢复同一组直播。对于每天固定时间观看的直播，可以将其加入浏览器书签栏，一键直达。",
-          "tip": "如果工具不支持保存，可以用浏览器“固定标签页”功能，避免误关。"
-        },
-        {
-          "title": "第5步：优化性能与体验",
-          "content": "同时播放多路直播会占用较多 CPU 和内存。如果出现卡顿，可以降低非主直播的画质（部分平台支持），或关闭不重要的直播只保留音频。另外，将浏览器硬件加速开启，并关闭其他占用资源的标签页。",
-          "tip": "使用双屏时，可以把 LiveGrid 放在副屏全屏，主屏继续处理其他工作。"
-        }
-      ],
-      "expected_result": "打开 LiveGrid 后，你能在一个页面内同时看到 2-6 个直播画面，每个画面独立播放，可单独控制音量和布局。切换直播不再需要反复切标签，关键信息一目了然。",
-      "faq": [
-        {
-          "q": "LiveGrid 支持哪些直播平台？",
-          "a": "理论上支持任何提供网页嵌入或直接视频流的平台，如 Twitch、YouTube Live、Bilibili、抖音网页版等。但部分平台有防盗链限制，可能需要调整链接格式。"
-        },
-        {
-          "q": "同时播放多个直播会卡顿怎么办？",
-          "a": "先降低非主直播的画质或将其静音，减少解码压力；关闭浏览器其他标签页；确保网络带宽充足；如果仍然卡顿，减少同屏直播数量到 2-3 个。"
-        },
-        {
-          "q": "LiveGrid 是免费的吗？",
-          "a": "根据 Product Hunt 页面信息，LiveGrid 通常提供免费基础功能，高级功能（如更多网格数量、保存布局）可能需要付费。具体以官网为准。"
-        },
-        {
-          "q": "手机端能用吗？",
-          "a": "LiveGrid 主要面向桌面浏览器设计，手机端屏幕较小，多路同屏体验有限。建议在平板或电脑上使用。"
-        },
-        {
-          "q": "如何添加需要登录才能观看的直播？",
-          "a": "如果直播平台要求登录，你需要先在浏览器中登录该平台，然后再将直播链接添加到 LiveGrid。部分工具可能无法共享登录态，此时建议使用支持嵌入的公开直播源。"
-        }
-      ],
-      "variants": [
-        "变体1：电商大促多直播间监控——同时打开淘宝、抖音、快手等平台的头部主播直播间，静音非主直播间，实时对比话术、价格和库存，适合运营人员。",
-        "变体2：电竞赛事多视角观战——将主舞台、选手第一视角、解说视角等同时放在一个屏幕，不错过任何精彩操作，适合硬核观众。",
-        "变体3：多平台发布会同步观看——苹果、谷歌、微软等发布会同时进行时，一屏对比各家新品和价格，适合科技媒体和极客用户。"
-      ],
-      "summary": "LiveGrid 把多个直播流塞进一个网格，让你用一块屏幕掌控所有动态，效率翻倍。"
-    },
-    "generated_at": "2026-09-12T03:41:02.438003+00:00",
-    "play_meta": {
-      "title_zh": "LiveGrid：多路直播同屏看",
-      "title_en": "LiveGrid",
-      "source_id": "ph-ai",
-      "source_name": "Product Hunt - AI 频道",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 4,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://www.producthunt.com/products/livegrid-4",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.2
     }
   }
 }

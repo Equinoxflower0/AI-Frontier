@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LiveGrid：多路直播同屏看 - AI 玩法教程 · AI Frontier</title>
+<title>用AI裁判重构编程工作流 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-08
+      2026-11-09
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🔗 工具链
+        🧭 工作流
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">LiveGrid：多路直播同屏看</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用AI裁判重构编程工作流</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+    掘金 AI 实战教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.producthunt.com/products/livegrid-4" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7705974459690156073" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">LiveGrid 是一个多路直播同屏观看工具，让你在一个页面同时盯住多个直播间，再也不用反复切换标签页。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用 AI 扮演「裁判」角色，在编程工作流的每个关键节点设置 Gate 检查，确保想清楚再写代码，大幅减少返工。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    在电商大促、电竞赛事、多平台发布会等场景下，用户往往需要同时关注多个直播源，但频繁切换窗口不仅效率低，还容易错过关键信息。LiveGrid 通过网格化布局将多个直播流聚合到同一屏幕，配合静音、缩放、布局调整等功能，实现“一屏尽览”。它尤其适合运营人员、赛事观众、内容创作者和需要实时监控多路视频流的开发者。
+    很多开发者写代码时习惯直接上手，结果方案没想透、边界没理清，写到一半才发现方向错了。掘金这篇实战教程提出用 AI 裁判重构工作流：把开发拆成背景、方案、实现、审查、验证五个阶段，每个阶段结束让 AI 按预设标准判定是否通过，不通过就退回上一阶段。这套结构适合 dev-workflow，也能迁移到 bugfix 等场景，尤其适合独立开发者或小团队在没有 Code Review 的情况下保证质量。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">LiveGrid  <a href="https://www.producthunt.com/products/livegrid-4" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">多路直播同屏观看工具，支持添加多个直播链接并以网格形式展示</div>
+      <div class="font-semibold text-slate-900">ChatGPT / Claude / DeepSeek  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">作为 AI 裁判，负责按标准判定每个 Gate 是否通过</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">现代浏览器  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">推荐 Chrome、Edge 或 Firefox 最新版，确保多路视频流播放流畅</div>
+      <div class="font-semibold text-slate-900">Cursor 或 VS Code + Copilot  <a href="https://cursor.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">在编辑器内直接调用 AI 裁判，减少切换成本</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">稳定的网络 </div>
-      <div class="text-sm text-slate-600 mt-1">同时播放多路直播对带宽要求较高，建议 20Mbps 以上</div>
+      <div class="font-semibold text-slate-900">Notion / Obsidian / 飞书文档  <a href="https://www.notion.so" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">记录每个阶段的产出和裁判结论，形成可追溯的工作流日志</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">直播源链接 </div>
-      <div class="text-sm text-slate-600 mt-1">准备 2-6 个你想同时观看的直播页面 URL（如 Twitch、YouTube Live、B站等）</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用分支或 commit 标记每个 Gate 的通过点，方便回滚</div>
     </li>
   </ul>
 </section>
@@ -122,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：打开 LiveGrid 并熟悉界面</h3>
-      <div class="text-base text-slate-700 leading-loose">访问 LiveGrid 产品页（https://www.producthunt.com/products/livegrid-4），点击“Visit website”进入实际工具页面。你会看到一个空白网格区域和添加直播源的输入框。先不要急着添加，观察一下顶部或侧边是否有布局切换、静音全部、全屏等按钮，这些是后续高频操作。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：定义五阶段工作流与 Gate 标准</h3>
+      <div class="text-base text-slate-700 leading-loose">在文档中写下五个阶段：背景（为什么做）、方案（怎么做）、实现（写代码）、审查（代码质量）、验证（测试通过）。为每个阶段写一条明确的 Gate 通过标准，例如「背景阶段必须包含用户场景和验收条件」「方案阶段必须列出至少两个备选方案及取舍理由」。把这些标准整理成一段 prompt 模板，后续每次让 AI 裁判按此判定。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果页面加载慢，可以尝试关闭广告拦截插件，部分直播流会被误拦。
+          💡 <span class="font-semibold">小贴士：</span>Gate 标准要可量化，避免「方案合理」这种模糊表述，改成「方案包含数据流图和异常处理说明」。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：添加多个直播源</h3>
-      <div class="text-base text-slate-700 leading-loose">在输入框中粘贴第一个直播链接，点击“Add”或按回车，该直播会出现在网格中。重复此操作，依次添加 2-6 个直播源。建议先添加 2 个测试播放是否正常，再逐步增加。注意：部分平台（如 YouTube）需要复制的是直播间完整 URL，而不是频道主页。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：让 AI 裁判执行背景 Gate</h3>
+      <div class="text-base text-slate-700 leading-loose">把需求描述和背景文档发给 AI，附上第1步的 Gate 标准，要求它输出「通过/不通过 + 缺失项清单」。如果不通过，按缺失项补充背景文档，再次提交裁判，直到通过。通过后把结论记录到工作流日志，并打一个 Git tag 如 gate-1-pass。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>优先添加支持 HTTPS 的直播源，避免混合内容导致无法播放。
+          💡 <span class="font-semibold">小贴士：</span>可以让 AI 裁判同时扮演「挑剔的产品经理」，主动追问边界场景，逼你把背景想全。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：调整布局与音频</h3>
-      <div class="text-base text-slate-700 leading-loose">根据直播数量选择网格布局：2 路用左右分屏，4 路用 2x2，6 路用 3x2。点击每个窗口的喇叭图标可单独静音/取消静音，通常只保留一个主直播的声音。如果某个直播画面比例不对，可以双击窗口或点击缩放按钮让其自适应。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：方案 Gate 与实现 Gate 串联</h3>
+      <div class="text-base text-slate-700 leading-loose">背景通过后，让 AI 生成或你手写技术方案，提交给 AI 裁判按方案 Gate 标准判定。方案通过后再进入编码，编码完成后把 diff 或关键代码片段发给裁判，按实现 Gate 标准检查是否覆盖方案中的每个点。两个 Gate 都通过才允许进入审查阶段。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把最重要的直播放在左上角，符合人眼浏览习惯；其余静音作为监控画面。
+          💡 <span class="font-semibold">小贴士：</span>实现 Gate 可以要求 AI 对照方案逐条打勾，输出「方案点 → 代码位置」的映射表，漏掉的一目了然。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：保存配置并日常使用</h3>
-      <div class="text-base text-slate-700 leading-loose">调整好布局和音源后，如果 LiveGrid 支持保存布局或生成分享链接，建议保存为书签或复制当前页面 URL。下次打开时可直接恢复同一组直播。对于每天固定时间观看的直播，可以将其加入浏览器书签栏，一键直达。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：审查 Gate 与验证 Gate 收尾</h3>
+      <div class="text-base text-slate-700 leading-loose">审查阶段让 AI 裁判按代码规范、安全、性能三个维度打分，低于阈值则退回实现阶段。验证阶段把测试用例和运行结果发给裁判，确认验收条件全部满足。全部通过后合并代码，并在日志中记录五个 Gate 的通过时间与裁判结论。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果工具不支持保存，可以用浏览器“固定标签页”功能，避免误关。
+          💡 <span class="font-semibold">小贴士：</span>审查 Gate 可以固定用同一段 prompt，保证每次评判标准一致，避免 AI 随机发挥。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：优化性能与体验</h3>
-      <div class="text-base text-slate-700 leading-loose">同时播放多路直播会占用较多 CPU 和内存。如果出现卡顿，可以降低非主直播的画质（部分平台支持），或关闭不重要的直播只保留音频。另外，将浏览器硬件加速开启，并关闭其他占用资源的标签页。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：沉淀为可复用的 prompt 模板库</h3>
+      <div class="text-base text-slate-700 leading-loose">把五个 Gate 的 prompt 分别保存为模板文件，变量部分用占位符（如 {{需求描述}}、{{代码diff}}）。下次新任务直接套模板，只需替换变量。可以进一步把模板接入 Cursor 的 Rules 或自定义指令，实现一键调用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>使用双屏时，可以把 LiveGrid 放在副屏全屏，主屏继续处理其他工作。
+          💡 <span class="font-semibold">小贴士：</span>模板库按项目类型分目录，dev-workflow 和 bugfix-workflow 各一套，复用率更高。
         </div>
     </div>
   </div>
@@ -180,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    打开 LiveGrid 后，你能在一个页面内同时看到 2-6 个直播画面，每个画面独立播放，可单独控制音量和布局。切换直播不再需要反复切标签，关键信息一目了然。
+    每个开发任务都有五个 Gate 的通过记录，代码返工率明显下降；AI 裁判输出的缺失项清单成为改进依据；prompt 模板库可复用于后续任务，形成个人或团队的标准化工作流。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +190,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>LiveGrid 支持哪些直播平台？</span>
+        <span>AI 裁判会不会太宽松，什么都给通过？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">理论上支持任何提供网页嵌入或直接视频流的平台，如 Twitch、YouTube Live、Bilibili、抖音网页版等。但部分平台有防盗链限制，可能需要调整链接格式。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">把 Gate 标准写成可量化的检查项，并要求 AI 输出「逐项打勾 + 缺失项」，宽松问题会大幅缓解；也可以让 AI 先扮演反方挑刺再判定。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>同时播放多个直播会卡顿怎么办？</span>
+        <span>每个 Gate 都调用 AI 会不会很慢？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先降低非主直播的画质或将其静音，减少解码压力；关闭浏览器其他标签页；确保网络带宽充足；如果仍然卡顿，减少同屏直播数量到 2-3 个。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">背景和方案 Gate 可以合并成一次对话完成；实现和审查 Gate 可以批量提交 diff。实际多花的时间远小于返工成本。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>LiveGrid 是免费的吗？</span>
+        <span>没有测试用例怎么做验证 Gate？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">根据 Product Hunt 页面信息，LiveGrid 通常提供免费基础功能，高级功能（如更多网格数量、保存布局）可能需要付费。具体以官网为准。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">让 AI 裁判根据背景阶段的验收条件生成测试用例草稿，人工确认后执行，再把结果交给裁判判定。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>手机端能用吗？</span>
+        <span>这套流程适合多大的任务？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">LiveGrid 主要面向桌面浏览器设计，手机端屏幕较小，多路同屏体验有限。建议在平板或电脑上使用。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何添加需要登录才能观看的直播？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">如果直播平台要求登录，你需要先在浏览器中登录该平台，然后再将直播链接添加到 LiveGrid。部分工具可能无法共享登录态，此时建议使用支持嵌入的公开直播源。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合半天到三天规模的功能开发或 bugfix；太小的改动可以只保留方案和审查两个 Gate。</div>
     </details>
   </div>
 </section>
@@ -229,14 +222,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：电商大促多直播间监控——同时打开淘宝、抖音、快手等平台的头部主播直播间，静音非主直播间，实时对比话术、价格和库存，适合运营人员。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：电竞赛事多视角观战——将主舞台、选手第一视角、解说视角等同时放在一个屏幕，不错过任何精彩操作，适合硬核观众。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：多平台发布会同步观看——苹果、谷歌、微软等发布会同时进行时，一屏对比各家新品和价格，适合科技媒体和极客用户。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：bugfix-workflow——把五阶段改为「复现→根因→修复→回归」，Gate 标准侧重复现步骤完整性和回归用例覆盖。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：双裁判模式——用两个不同模型（如 GPT 和 Claude）分别判定同一 Gate，结论不一致时人工介入，降低单模型偏差。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：CI 集成——把审查 Gate 的 prompt 封装成脚本，在 Git pre-push hook 中自动运行，不通过则阻止推送。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    LiveGrid 把多个直播流塞进一个网格，让你用一块屏幕掌控所有动态，效率翻倍。
+    用 AI 裁判在五个关键节点设 Gate，把「想清楚再写代码」变成可执行、可追溯的标准化工作流。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -244,20 +237,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Yolain工作流在ComfyUI中快速生成AI图像</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Awesome ComfyUI节点库扩展工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
-      <div class="text-xs text-amber-500">★★☆☆☆</div>
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

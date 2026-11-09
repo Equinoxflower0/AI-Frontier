@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cline 桌面版：开源模型一键玩 - AI 玩法教程 · AI Frontier</title>
+<title>微信装AI录音笔，免费转写会议纪要 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-08
+      2026-11-09
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">Cline 桌面版：开源模型一键玩</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">微信装AI录音笔，免费转写会议纪要</h1>
     
   </div>
 </header>
@@ -58,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+    爱范儿 AI 应用 · A级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    技术社区
+    权威媒体
   </span>
-  <a href="https://www.producthunt.com/products/cline-4" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.ifanr.com/1688410" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">Cline 桌面版把开源大模型装进你的电脑，不用写代码就能一键调用本地或云端权重，实现聊天、写代码、自动化任务。</p>
+  <p class="text-base text-slate-800 leading-relaxed">微信里藏着一个「AI录音笔」功能，能自动把语音转成文字并生成会议纪要，全程免费。今天手把手教你把它用起来，开会摸鱼两不误。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    Cline 原本是 VS Code 里的开源 AI 编程助手，最近推出了独立桌面版，专门为开放权重模型（如 Llama、Mistral、Qwen）设计。它把模型下载、API 配置、对话界面和工具调用打包成一个 App，让非程序员也能玩转开源模型。适合想低成本、高隐私地使用 AI 做开发辅助、内容生成或自动化流程的人。Product Hunt 上它被列为 AI 频道热门工具，核心卖点就是“开源模型一键玩”。
+    很多人不知道，微信自带的「录音转文字」功能其实已经接入了AI能力，不仅能实时转写，还能自动分段、提炼重点。对于经常开会、听讲座、做访谈的人来说，这相当于白嫖了一个专业录音笔+速记员。相比市面上动辄几十上百元的转写服务，微信这个功能完全免费，而且就在聊天窗口里，随用随开。爱范儿这篇报道详细拆解了操作路径，我把它整理成可复现的教程。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Cline 桌面版  <a href="https://www.producthunt.com/products/cline-4" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">主程序，用于加载模型、对话和执行工具链</div>
+      <div class="font-semibold text-slate-900">微信（最新版）  <a href="https://weixin.qq.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">核心工具，需更新到最新版本以支持AI转写功能</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Ollama（可选）  <a href="https://ollama.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">本地运行开源模型的运行时，Cline 可直连</div>
+      <div class="font-semibold text-slate-900">手机系统录音权限 </div>
+      <div class="text-sm text-slate-600 mt-1">确保微信有麦克风权限，否则无法录音</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">LM Studio（可选）  <a href="https://lmstudio.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">图形化本地模型管理，适合不想用命令行的用户</div>
+      <div class="font-semibold text-slate-900">安静环境或外接麦克风 </div>
+      <div class="text-sm text-slate-600 mt-1">提升转写准确率，会议场景建议用领夹麦或手机靠近声源</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一个开源模型权重  <a href="https://huggingface.co/models" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">如 Llama 3.1 8B、Qwen2.5 7B、Mistral 7B，按显存选择</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">API Key（可选）  <a href="https://openrouter.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">若用 OpenRouter、Together AI 等云端推理，需注册获取</div>
+      <div class="font-semibold text-slate-900">参考原文  <a href="https://www.ifanr.com/1688410" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">爱范儿原始玩法报道，含截图和细节</div>
     </li>
   </ul>
 </section>
@@ -126,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装 Cline 桌面版并选择模型来源</h3>
-      <div class="text-base text-slate-700 leading-loose">从 Product Hunt 页面找到 Cline 桌面版下载链接，安装后打开。首次启动会让你选择模型来源：本地（Ollama/LM Studio）或云端 API（OpenRouter、Together 等）。如果你电脑有 8GB 以上显存，优先选本地；否则选云端免费额度。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：打开微信「收藏」里的录音入口</h3>
+      <div class="text-base text-slate-700 leading-loose">进入微信，点击底部「我」-「收藏」，点击右上角「+」新建笔记。在笔记编辑界面底部工具栏找到「录音」按钮（麦克风图标），点击开始录音。这个入口比聊天窗口的语音消息更适合长录音，因为收藏笔记支持长时间录制且不会中断。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>Windows 用户若被 SmartScreen 拦截，点“更多信息→仍要运行”即可。
+          💡 <span class="font-semibold">小贴士：</span>如果找不到录音按钮，先把微信更新到最新版；部分安卓机型需在笔记编辑页滑动工具栏才能看到。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：配置本地模型或填入 API Key</h3>
-      <div class="text-base text-slate-700 leading-loose">若选本地，先确保 Ollama 已运行（终端输入 ollama serve），然后在 Cline 里填 http://localhost:11434 并拉取模型如 ollama pull qwen2.5:7b。若选云端，把 OpenRouter 的 API Key 粘贴进去，模型名填 meta-llama/llama-3.1-8b-instruct 等。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：录制会议或语音内容</h3>
+      <div class="text-base text-slate-700 leading-loose">点击录音后，微信会开始实时录制。把手机放在会议桌中间或靠近发言人，尽量避开空调、风扇等噪音源。录制过程中可以随时暂停，但不要退出笔记界面，否则可能中断。建议单次录制不超过60分钟，太长可分多段录。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>本地模型第一次加载会慢，耐心等 1-2 分钟；显存不够就换 3B 小模型。
+          💡 <span class="font-semibold">小贴士：</span>开会前先录10秒测试回放，确认音量正常；用耳机麦克风比手机自带麦克风效果更好。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：创建第一个对话并测试工具调用</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Cline 主界面新建对话，输入“帮我写一个 Python 脚本，读取当前目录所有 CSV 并合并”。Cline 会先规划步骤，然后询问是否允许执行终端命令和写文件。点“允许”后它会自动生成代码、运行并返回结果。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：停止录音并触发AI转写</h3>
+      <div class="text-base text-slate-700 leading-loose">录制完成后点击停止按钮，录音文件会保存在笔记里。点击录音条右侧的「转文字」按钮（部分版本显示为「转写」），微信会自动调用AI引擎把语音转成文字。转写过程需要联网，时长取决于录音长度，一般1分钟录音几秒内完成。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>第一次执行工具时建议逐条批准，确认安全后再开自动批准。
+          💡 <span class="font-semibold">小贴士：</span>转写时保持微信在前台，锁屏可能导致中断；如果按钮灰色，检查网络或微信版本。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：保存为可复用的工作流模板</h3>
-      <div class="text-base text-slate-700 leading-loose">在对话右上角点“保存为工作流”，命名如“CSV合并”。下次遇到类似任务，直接选这个模板，Cline 会复用之前的提示词和工具权限。你还可以在设置里把常用模型设为默认，减少切换。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：编辑转写文本并生成纪要</h3>
+      <div class="text-base text-slate-700 leading-loose">转写完成后，文字会直接插入笔记中。你可以手动修正错别字、删除语气词，然后利用微信笔记的「待办」「分割线」等功能整理成结构化纪要。更高效的做法是：把转写文本复制到AI对话工具（如Kimi、文心一言）里，用提示词「请把以下会议记录整理成纪要，分点列出结论和待办」一键生成。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>工作流支持导出 JSON，可以分享给同事或备份到 Git。
+          💡 <span class="font-semibold">小贴士：</span>转写文本里说话人不会自动区分，多人会议建议手动标注「张三：」「李四：」再交给AI总结。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：接入外部工具链（可选）</h3>
-      <div class="text-base text-slate-700 leading-loose">Cline 支持 MCP（Model Context Protocol）协议，可以连接浏览器、数据库、GitHub 等。在设置→MCP Servers 里添加社区服务器，比如 filesystem 或 puppeteer。添加后，你就能让 AI 直接操作浏览器截图或查询数据库。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：保存与分享纪要</h3>
+      <div class="text-base text-slate-700 leading-loose">整理好的笔记可以直接点击右上角「…」-「发送给朋友」或「分享到朋友圈」，也可以导出为图片保存。如果是团队会议，把纪要发到工作群，附上原始录音笔记链接，方便回溯。整个流程从录音到出纪要，熟练后5分钟内搞定。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>MCP 服务器有安全风险，只添加可信来源，并限制文件访问目录。
+          💡 <span class="font-semibold">小贴士：</span>重要会议建议同时保留原始录音和转写文本，避免AI转写误差导致信息丢失。
         </div>
     </div>
   </div>
@@ -184,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    Cline 桌面版成功运行，你能用自然语言指挥开源模型完成写代码、跑脚本、整理文件等任务，所有对话和工具调用都在本地或你指定的 API 上完成，无需额外付费给闭源服务。
+    你会在微信收藏里得到一份带录音和转写文字的笔记，文字可编辑、可分享。配合AI总结后，一份结构清晰的会议纪要就诞生了，全程零成本。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +190,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Cline 桌面版和 VS Code 插件版有什么区别？</span>
+        <span>微信录音转文字收费吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">桌面版是独立 App，不需要装 VS Code，界面更简洁，适合非程序员；插件版功能更全，适合开发者深度集成。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">完全免费，这是微信收藏笔记的内置功能，不消耗任何费用，但转写需要联网。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>本地模型跑不动怎么办？</span>
+        <span>转写准确率怎么样？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">换更小参数（3B/7B 量化版），或改用云端 API（OpenRouter 有免费模型），也可以降低上下文长度。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">普通话标准、环境安静时准确率很高；方言、口音重或噪音大时会出错，建议录完后人工校对关键信息。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Cline 会偷偷上传我的代码吗？</span>
+        <span>能转写多长的录音？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">如果选本地模型，所有数据不出电脑；如果选云端 API，代码会发给对应服务商，建议看隐私政策。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">收藏笔记录音时长上限较长，但建议单段不超过60分钟，太长可分多段录制再分别转写。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>支持中文对话吗？</span>
+        <span>转写文字能区分说话人吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">支持，只要模型本身中文能力OK（如 Qwen、Llama 3.1），Cline 界面也支持中文输入。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">目前微信转写不自动区分说话人，多人会议需要手动标注或借助第三方AI工具处理。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>工具调用失败提示权限错误？</span>
+        <span>录音文件会丢失吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查系统是否允许 Cline 访问终端和文件，macOS 在“隐私与安全性”里给完全磁盘访问权限。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">保存在微信收藏笔记里，只要不删除笔记且微信数据在，就不会丢失；建议重要内容额外备份到电脑。</div>
     </details>
   </div>
 </section>
@@ -233,14 +229,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用 Cline + Ollama 搭建全离线代码助手，断网也能写代码、查文档。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 Cline + OpenRouter 免费模型做自动化爬虫，让 AI 写脚本并直接运行。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用 Cline + MCP 连接 GitHub，实现“一句话提 PR”：AI 改代码、跑测试、提交合并请求。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用「飞书妙记」替代——飞书自带AI转写和说话人区分，适合正式会议，免费额度够用，导出纪要更专业。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：微信转写+ChatGPT/Kimi总结——把转写文本粘贴给AI，用提示词「提炼3个关键结论、5个待办事项、1个风险点」，秒变高级纪要。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：录音笔硬件+微信转写——用专业录音笔录制后，通过微信文件传输助手把音频发到手机，再用收藏笔记的「导入音频」转写，音质更好。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    Cline 桌面版把开源模型变成你的私人 AI 员工，配置一次就能反复用自然语言驱动工具链干活。
+    微信收藏里的录音转文字就是免费AI录音笔，录完转写再丢给AI总结，开会摸鱼两不误。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,18 +246,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
       <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
-      <div class="text-xs text-amber-500">★★☆☆☆</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

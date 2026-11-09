@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loqua：动动嘴就把事做完 - AI 玩法教程 · AI Frontier</title>
+<title>用Qwen-Drive生成6条驾驶轨迹候选 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-08
+      2026-11-09
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">Loqua：动动嘴就把事做完</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Qwen-Drive生成6条驾驶轨迹候选</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+    掘金 AI 实战教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.producthunt.com/products/loqua" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7705938834806538282" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">Loqua 是一款让你「动动嘴就把事做完」的语音驱动效率工具，把零散想法直接变成可执行任务。</p>
+  <p class="text-base text-slate-800 leading-relaxed">本教程教你用 Qwen-Drive 一次生成 6 条未来驾驶轨迹候选，快速评估不同驾驶策略的可行性。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多人每天脑子里闪过无数待办、灵感、会议纪要，但打开 App 手动输入太慢，最后不了了之。Loqua 的核心理念是「自然说话，从想法到完成」，它通过语音识别 + AI 理解，把你说的话自动转成结构化任务、笔记或提醒。适合经常开会、做内容、跑项目的知识工作者，也适合想减少打字、用嘴管理日程的懒人效率党。难度 4/5，意味着需要一点配置和习惯适应，但一旦跑通，每天能省下大量整理时间。
+    Qwen-Drive 是基于 4B 视觉语言模型的驾驶规划系统，核心能力是生成多条未来轨迹候选（默认 6 条），而非单一最优路径。输出为自车坐标系下的 (x, y, heading) 序列，适合做轨迹筛选、风险对比和规划算法验证。相比传统单轨迹输出，多候选能覆盖更多驾驶意图，便于下游模块做安全校验和舒适度打分。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Loqua  <a href="https://www.producthunt.com/products/loqua" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">核心语音任务工具，负责录音、转写和 AI 结构化</div>
+      <div class="font-semibold text-slate-900">Qwen-Drive 模型  <a href="https://juejin.cn/post/7705938834806538282" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">驾驶规划系统，生成多条轨迹候选</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">麦克风/耳机 </div>
-      <div class="text-sm text-slate-600 mt-1">保证语音输入清晰，减少转写错误</div>
+      <div class="font-semibold text-slate-900">Python 3.8+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行推理脚本和数据处理</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">待办/笔记工具（可选）  <a href="https://todoist.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">如 Todoist、Notion、Apple 提醒事项，用于接收 Loqua 输出的任务</div>
+      <div class="font-semibold text-slate-900">PyTorch  <a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">加载 4B 视觉语言模型</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Zapier 或 Make（可选）  <a href="https://zapier.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">如果 Loqua 不直接支持你的工具，用自动化平台桥接</div>
+      <div class="font-semibold text-slate-900">NumPy  <a href="https://numpy.org/install/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">处理 (x, y, heading) 轨迹数组</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Matplotlib  <a href="https://matplotlib.org/stable/users/installing/index.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">可视化 6 条轨迹候选</div>
     </li>
   </ul>
 </section>
@@ -122,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：注册并熟悉 Loqua 的语音入口</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 Loqua 官网或 Product Hunt 页面，注册账号并进入主界面。找到麦克风按钮或快捷键（通常是按住说话或点击开始录音）。先随便说一句「明天下午三点提醒我给客户发报价」，观察它如何转写并生成任务。熟悉录音、暂停、确认三个基本动作。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：准备环境与模型</h3>
+      <div class="text-base text-slate-700 leading-loose">创建 Python 虚拟环境并安装 PyTorch、NumPy、Matplotlib。从官方仓库或 Hugging Face 下载 Qwen-Drive 4B 模型权重，确认显存至少 8GB。将模型路径写入配置文件，避免硬编码。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>第一次使用时，在安静环境里用正常语速说话，不要刻意放慢，Loqua 对自然语言理解更好。
+          💡 <span class="font-semibold">小贴士：</span>先用小分辨率图像测试加载，确认模型能正常推理再跑完整流程。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：建立你的「一句话任务」模板</h3>
-      <div class="text-base text-slate-700 leading-loose">Loqua 的强项是把口语变成结构化数据。你可以固定几种说法：任务类「提醒我……」「安排……」，笔记类「记录一下……」，灵感类「想法：……」。在 Loqua 里测试这些句式，看它分别生成什么字段（标题、时间、标签、优先级）。把最顺手的 2-3 种句式记下来，形成肌肉记忆。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：构造输入数据</h3>
+      <div class="text-base text-slate-700 leading-loose">准备自车当前状态（速度、加速度、航向角）和前视/环视图像。按 Qwen-Drive 要求组织成视觉语言模型输入格式，图像需归一化到模型指定尺寸。将自车坐标系原点设在车辆后轴中心，确保后续轨迹坐标一致。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果 Loqua 支持自定义指令，可以设置「当我说『紧急』时自动标为高优先级」。
+          💡 <span class="font-semibold">小贴士：</span>图像时间戳要和自车状态对齐，否则轨迹会偏移。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：连接你的待办或笔记工具</h3>
-      <div class="text-base text-slate-700 leading-loose">进入 Loqua 的设置或集成页面，查看是否支持直接连接 Todoist、Notion、Google Tasks 等。如果支持，授权后选择默认项目或列表。如果不支持，用 Zapier/Make 创建一个触发：Loqua 新任务 → 创建对应待办。测试一条语音，确认任务出现在目标工具里。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：调用模型生成 6 条轨迹</h3>
+      <div class="text-base text-slate-700 leading-loose">加载 Qwen-Drive 并设置 num_trajectories=6，输入构造好的数据。模型输出 6 组 (x, y, heading) 序列，每组对应一条候选轨迹。将输出解析为 NumPy 数组，形状为 (6, T, 3)，T 为时间步数。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先只连一个工具，跑通后再加第二个，避免混乱。
+          💡 <span class="font-semibold">小贴士：</span>首次运行打印输出形状，确认是 6 条而不是 1 条。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：设计每日语音复盘流程</h3>
-      <div class="text-base text-slate-700 leading-loose">每天固定两个时间点用 Loqua：早上花 2 分钟口述今日三件最重要的事，晚上花 3 分钟口述完成情况、未完成原因和明日调整。Loqua 会自动生成任务和笔记，你只需在目标工具里确认。坚持三天，你会得到一份可搜索的语音日志。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：可视化与对比</h3>
+      <div class="text-base text-slate-700 leading-loose">用 Matplotlib 在自车坐标系下画出 6 条轨迹，不同颜色区分。叠加自车当前位置和朝向箭头，检查轨迹是否合理。对比各轨迹的终点横向偏移和航向变化，初步判断激进/保守策略。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>晚上复盘时直接说「今天完成了……明天要……」，Loqua 能自动拆分已完成和待办。
+          💡 <span class="font-semibold">小贴士：</span>把 6 条轨迹画在同一张图上，更容易看出分歧点。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用语音批量处理会议和灵感</h3>
-      <div class="text-base text-slate-700 leading-loose">开会时打开 Loqua 录音，会后说一句「整理刚才的会议，提取行动项」。如果 Loqua 支持长录音转写，它会生成摘要和任务列表。平时走路、洗澡后想到什么，立刻用手机 Loqua 录一句，周末统一回顾，把零散想法变成项目。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：筛选与下游对接</h3>
+      <div class="text-base text-slate-700 leading-loose">根据安全距离、舒适度（加速度/曲率）和通行效率给 6 条轨迹打分。选出 top-2 送入下游控制模块或做碰撞检测。保存筛选结果和原始 6 条轨迹，便于回溯分析。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>长录音前先测试 1 分钟片段，确认转写准确率和处理时间。
+          💡 <span class="font-semibold">小贴士：</span>不要只看最优轨迹，保留 2-3 条备选能提升系统鲁棒性。
         </div>
     </div>
   </div>
@@ -180,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你说话后 5-10 秒内，Loqua 生成结构化任务或笔记，并自动同步到你的待办工具。每天不再手动打字整理，语音输入成为主要入口，待办清单和灵感库自动增长。
+    运行脚本后得到 6 条自车坐标系下的 (x, y, heading) 轨迹序列，可视化图中 6 条彩色轨迹从自车位置发散，可清晰对比不同驾驶意图，并能输出筛选后的候选轨迹列表。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Loqua 支持中文吗？</span>
+        <span>为什么输出是 6 条而不是 1 条？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">根据 Product Hunt 页面未明确标注，建议注册后先用中文测试一句，如果识别差再切换英文。多数语音 AI 对英文支持更好。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Qwen-Drive 设计为多候选规划，6 条覆盖不同驾驶策略，下游可做安全校验和打分筛选。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>免费版够用吗？</span>
+        <span>轨迹坐标原点在哪里？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Product Hunt 产品通常有免费额度或试用期。先免费用一周，确认每天语音量是否够，再决定是否升级。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在自车坐标系下，通常以车辆后轴中心为原点，x 向前、y 向左，heading 为航向角。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>录音隐私安全吗？</span>
+        <span>显存不够怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">查看 Loqua 隐私政策，确认录音是否加密、是否用于训练。敏感内容建议不要录，或使用本地转写工具配合。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可降低输入图像分辨率或使用半精度推理，4B 模型建议至少 8GB 显存。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>能直接同步到微信/钉钉吗？</span>
+        <span>6 条轨迹时间步长是多少？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常不直接支持。可以用 Zapier 或 Make 桥接，或者让 Loqua 发邮件，再用邮件规则转发到 IM。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">取决于模型配置，常见为未来 3-5 秒、每 0.5 秒一个点，具体以模型文档为准。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>识别不准怎么办？</span>
+        <span>可以只要 3 条吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用外接麦克风、减少环境噪音、说话时不要吞字。如果某个词总错，可以在 Loqua 里添加自定义词汇或替换规则。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，通过 num_trajectories 参数调整，但默认 6 条能提供更多对比信息。</div>
     </details>
   </div>
 </section>
@@ -229,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：语音日记 + AI 周报——每天用 Loqua 口述日记，周末让 AI 汇总成周报，自动发到邮箱或 Notion。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：语音驱动 CRM——销售场景下，见完客户立刻口述「客户 A，意向高，下周跟进报价」，Loqua 自动创建 CRM 任务和提醒。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：语音灵感捕捉 + 自动分类——设置关键词规则，比如说到「视频」自动归到内容项目，说到「bug」自动归到开发待办。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：只生成 3 条轨迹，降低计算量，适合实时性要求高的场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：对 6 条轨迹做聚类，合并相似轨迹，突出真正不同的驾驶意图。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把 6 条轨迹输入碰撞检测模块，自动剔除高风险候选后再排序。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    Loqua 的精髓是把「说」变成「做」——用自然语言口述，让 AI 自动整理成任务和笔记，你只需要动嘴，剩下的交给工具链。
+    用 Qwen-Drive 一次生成 6 条轨迹候选，再通过可视化和打分筛选，把多候选规划变成可落地的驾驶决策流程。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -246,18 +250,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
       <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
-      <div class="text-xs text-amber-500">★★☆☆☆</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

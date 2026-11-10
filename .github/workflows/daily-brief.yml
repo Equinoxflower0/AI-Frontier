@@ -1,12 +1,15 @@
 name: Daily Brief
 
-# 每天北京时间 09:00 自动运行（UTC 01:00）。
-# GitHub 的定时任务可能有几分钟到半小时的延迟，属正常现象。
+# 每天北京时间 09:23 自动运行（UTC 01:23）。
+# 故意不用整点：GitHub 官方文档说整点（尤其 0 分）是调度拥堵高峰，
+# 实测 11-08/11-09 两天的整点任务被拖后了 6 小时左右才执行。
+# 用 23 分错峰，可显著降低延迟概率。
+# GitHub 的定时任务仍可能有几十分钟延迟，属正常现象。
 # 也可在 Actions 页面手动触发（workflow_dispatch）。
 
 on:
   schedule:
-    - cron: "0 1 * * *"   # UTC 01:00 = Beijing 09:00
+    - cron: "23 1 * * *"   # UTC 01:23 = Beijing 09:23
   workflow_dispatch:
 
 permissions:

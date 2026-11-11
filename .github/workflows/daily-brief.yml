@@ -1,15 +1,19 @@
 name: Daily Brief
 
-# 每天北京时间 09:23 自动运行（UTC 01:23）。
-# 故意不用整点：GitHub 官方文档说整点（尤其 0 分）是调度拥堵高峰，
-# 实测 11-08/11-09 两天的整点任务被拖后了 6 小时左右才执行。
-# 用 23 分错峰，可显著降低延迟概率。
-# GitHub 的定时任务仍可能有几十分钟延迟，属正常现象。
+# 每天北京时间 09:23 自动运行（UTC 01:23），并在 12:17、15:43 各留一次补跑机会。
+# 为什么排三次：GitHub 的 schedule 是「尽力而为」的，实测会被拖后数小时，
+# 甚至整天不触发（2026-11-10、11-11 都整日无记录）。
+# 后续两次是兜底：任务里有「当天日报已存在就跳过」的判断，
+# 所以正常日子里后两次只花几秒钟就退出，不消耗 LLM 费用。
+#
+# 另外故意不用整点：GitHub 官方文档说整点（尤其 0 分）是调度拥堵高峰。
 # 也可在 Actions 页面手动触发（workflow_dispatch）。
 
 on:
   schedule:
     - cron: "23 1 * * *"   # UTC 01:23 = Beijing 09:23
+    - cron: "17 4 * * *"   # UTC 04:17 = Beijing 12:17（补跑）
+    - cron: "43 7 * * *"   # UTC 07:43 = Beijing 15:43（补跑）
   workflow_dispatch:
 
 permissions:
@@ -27,25 +31,43 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 幂等闸门：今天已经出过日报就直接跳过，避免补跑时段重复消耗 token
+      - name: Check today's issue
+        id: guard
+        run: |
+          TODAY=$(TZ=Asia/Shanghai date +%F)
+          if [ -f "daily-brief-${TODAY}.html" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "[SKIP] 今天的日报 ${TODAY} 已存在，本次跳过"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "[RUN] 准备生成 ${TODAY} 的日报"
+          fi
+
       - name: Set up Python
+        if: steps.guard.outputs.skip != 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
       - name: Set up Node
+        if: steps.guard.outputs.skip != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
       - name: Install Tailwind CSS
+        if: steps.guard.outputs.skip != 'true'
         run: npm install --no-fund --no-audit
 
       - name: Configure git identity
+        if: steps.guard.outputs.skip != 'true'
         run: |
           git config user.name "Xiafancai"
           git config user.email "noreply@example.com"
 
       - name: Run pipeline (fetch -> score -> render -> seo)
+        if: steps.guard.outputs.skip != 'true'
         env:
           TZ: Asia/Shanghai
           PYTHONUTF8: "1"
@@ -60,6 +82,7 @@ jobs:
           fi
 
       - name: Publish (commit + push)
+        if: steps.guard.outputs.skip != 'true'
         env:
           TZ: Asia/Shanghai
         run: python scripts/publish_site.py

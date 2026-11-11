@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>前华为盘古负责人王云鹤，创业做RSI，掏出1250亿参数智能体大模型 - AI 玩法教程 · AI Frontier</title>
+<title>用Promptfoo/DeepEval/LangSmith搭Agent评测链 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-09
+      2026-11-11
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🧭 工作流
+        💬 Prompt 模板
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 30min
+        ⏱ 约 5min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">前华为盘古负责人王云鹤，创业做RSI，掏出1250亿参数智能体大模型</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Promptfoo/DeepEval/LangSmith搭Agent评测链</h1>
     
   </div>
 </header>
@@ -58,24 +58,28 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    智东西 AI 工具评测 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://zhidx.com/p/607781.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/jinjiangongzuoshi/p/23623797" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">LlamaIndex</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">今天教你用基元律动（TokenRhythm）刚发布的1250亿参数智能体大模型，搭一套能自动拆解任务、调用工具、闭环执行的AI工作流。</p>
+  <p class="text-base text-slate-800 leading-relaxed">这篇教程教你用 Promptfoo、DeepEval 和 LangSmith 串起一条完整的 Agent 评测链，把零散的测评集、指标和评分器变成可批量执行、可追踪的自动化报告。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    前华为盘古大模型负责人王云鹤创业成立的基元律动，近日发布了RSI（Recursive Self-Improvement）智能体大模型，参数规模达1250亿。与普通聊天模型不同，它主打「智能体工作流」——能自主规划步骤、调用外部工具、根据反馈迭代修正。这套玩法适合需要自动化处理多步骤任务的场景，比如竞品调研、报告生成、数据清洗、多平台内容分发等。你不需要写代码，只要把任务拆成清晰的指令链，就能让模型像实习生一样替你跑完整个流程。
+    很多团队已经攒好了测评集、指标和评分器，但这些资产还停留在文档和脑子里，无法批量跑起来。要交给老板一份可信的评测报告，中间缺的正是执行链路：题怎么批量发、结果怎么逐条判、分数怎么汇总。本玩法以 LlamaIndex 构建的 RAG Agent 为被测对象，用 Promptfoo 做批量 Prompt 评测，DeepEval 做指标计算，LangSmith 做全链路追踪，三者拼成一条可复用的评测流水线。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +100,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">基元律动 TokenRhythm 平台账号  <a href="https://zhidx.com/p/607781.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">注册并获取智能体模型的API访问权限或网页端试用入口</div>
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行评测脚本的基础环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">任意支持HTTP请求的工具  <a href="https://www.postman.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">如Postman、Apifox，或Python的requests库，用于调用模型API</div>
+      <div class="font-semibold text-slate-900">LlamaIndex  <a href="https://www.llamaindex.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">构建被测 RAG Agent 的框架</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一个待自动化的真实任务 </div>
-      <div class="text-sm text-slate-600 mt-1">例如「收集3家竞品的最新定价并生成对比表格」，越具体越好</div>
+      <div class="font-semibold text-slate-900">Promptfoo  <a href="https://www.promptfoo.dev/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">批量 Prompt 评测与对比工具</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">文本编辑器或Notion  <a href="https://www.notion.so" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用来编写和保存你的提示词工作流模板</div>
+      <div class="font-semibold text-slate-900">DeepEval  <a href="https://github.com/confident-ai/deepeval" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">LLM 评测指标库（忠实度、相关性等）</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">LangSmith  <a href="https://smith.langchain.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Agent 执行链路追踪与评测平台</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">OpenAI API Key 或兼容模型  <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">驱动 Agent 和评分器的模型凭证</div>
     </li>
   </ul>
 </section>
@@ -122,55 +134,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：把任务拆成「智能体可执行」的指令链</h3>
-      <div class="text-base text-slate-700 leading-loose">不要直接丢给模型一句「帮我做竞品分析」。先自己把任务拆成3-5个原子步骤，例如：①搜索A公司官网定价页；②提取价格字段；③对B、C公司重复；④生成对比表格。每个步骤写成一句明确的动作指令，并标注输入和输出格式。把这条指令链保存为你的工作流模板。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：准备测评集与 Agent 入口</h3>
+      <div class="text-base text-slate-700 leading-loose">把测评集整理成 JSONL 格式，每行包含 question 和 ground_truth 两个字段。同时用 LlamaIndex 把 RAG Agent 封装成一个可调用的函数，输入问题返回答案和检索到的上下文。确保这个函数不依赖交互式环境，能被脚本批量调用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>每个步骤只做一件事，输出格式用「返回JSON，字段为company、price、plan」这种硬约束，模型执行会稳很多。
+          💡 <span class="font-semibold">小贴士：</span>测评集先放 20-50 条即可跑通链路，后续再扩充；Agent 函数记得返回 context，DeepEval 算忠实度时要用。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：在TokenRhythm平台创建智能体并挂载工具</h3>
-      <div class="text-base text-slate-700 leading-loose">登录基元律动平台，新建一个智能体（Agent），在系统提示词里粘贴第1步的指令链。然后为智能体挂载所需工具：网页搜索、网页抓取、代码执行器（用于解析HTML或跑正则）。如果平台支持函数调用，把「搜索」「抓取」注册为可调用函数，并写清楚参数说明。保存后先用一个简单任务试跑，确认工具能被正确触发。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 Promptfoo 批量跑 Prompt 评测</h3>
+      <div class="text-base text-slate-700 leading-loose">在项目根目录创建 promptfooconfig.yaml，配置 prompts（你的提示词模板）、providers（模型或自定义脚本）和 tests（引用测评集）。运行 npx promptfoo eval 批量发送问题并收集回答。Promptfoo 会自动生成对比表格，方便你快速看不同提示词版本的差异。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>工具描述要写「什么时候用我」，比如「当需要获取网页正文时调用我，参数为url」，模型才会在正确时机调用。
+          💡 <span class="font-semibold">小贴士：</span>如果 Agent 不是纯 Prompt 调用，可以用 Promptfoo 的 custom provider 指向你的 Python 脚本，保持评测入口统一。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编写「规划-执行-反思」三段式系统提示词</h3>
-      <div class="text-base text-slate-700 leading-loose">在系统提示词中加入三段结构：第一段要求模型先输出执行计划（Plan），列出将调用哪些工具、顺序如何；第二段要求逐步执行并记录每步结果；第三段要求模型自查——如果某步结果为空或格式不对，自动重试或换策略。示例句式：「你先输出编号计划，然后逐步执行，每步后检查输出是否符合预期，不符合则修正后继续。」</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用 DeepEval 逐条计算指标</h3>
+      <div class="text-base text-slate-700 leading-loose">安装 deepeval 后，编写脚本读取 Promptfoo 的输出结果，对每条样本构造 LLMTestCase，填入 input、actual_output、retrieval_context 和 expected_output。调用 FaithfulnessMetric、AnswerRelevancyMetric 等指标逐条打分，最后汇总成 CSV 或 JSON 报告。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>加一句「最多重试2次，仍失败则跳过并记录原因」，防止模型陷入死循环烧token。
+          💡 <span class="font-semibold">小贴士：</span>DeepEval 默认用 OpenAI 做裁判，可以在脚本里设置 model 参数换成其他兼容模型，降低成本。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：通过API跑通完整工作流并收集中间结果</h3>
-      <div class="text-base text-slate-700 leading-loose">用Postman向TokenRhythm的对话补全接口发请求，body里带上你的智能体ID和用户任务描述。观察返回的流式输出，重点看模型是否按计划调用了工具、每步输出是否落在你定义的格式里。把完整响应保存为JSON日志，方便复盘哪一步偏航。如果某步失败，回到提示词里补一条约束再重跑。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：接入 LangSmith 追踪全链路</h3>
+      <div class="text-base text-slate-700 leading-loose">设置环境变量 LANGCHAIN_TRACING_V2=true 和 LANGCHAIN_API_KEY，在 Agent 调用外层加上 @traceable 装饰器或使用 LangSmith SDK 手动上报。这样每次评测的输入、检索、生成和评分都会形成一条可回放的 trace，方便定位是检索错还是生成错。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先用小任务（如只查1家公司）跑通链路，再扩展到多公司，排错成本低很多。
+          💡 <span class="font-semibold">小贴士：</span>给每次评测运行打上 run_name 和 metadata（如 prompt 版本号），后续在 LangSmith 里按标签筛选对比。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：加入人工审核节点并固化模板</h3>
-      <div class="text-base text-slate-700 leading-loose">在关键步骤后插入「人工确认」环节：让模型输出中间结果后暂停，你检查无误再回复「继续」。确认稳定后，把系统提示词、工具配置、示例任务整理成一个可复用的模板文件（Markdown或JSON），下次换任务只改用户输入部分。这样你就拥有了一个可反复调用的智能体工作流。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：汇总报告并固化流水线</h3>
+      <div class="text-base text-slate-700 leading-loose">写一个汇总脚本，把 Promptfoo 的通过率、DeepEval 的各项平均分和 LangSmith 的 trace 链接合并成一份 Markdown 报告。把整个流程封装成 make eval 或 GitHub Actions 工作流，每次改 Prompt 或换模型自动跑一遍，报告自动归档。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把每次跑通的完整对话记录存一份作为few-shot示例塞进提示词，模型表现会明显更稳。
+          💡 <span class="font-semibold">小贴士：</span>报告里保留每次运行的配置快照（模型、提示词版本、测评集版本），否则分数变化无法归因。
         </div>
     </div>
   </div>
@@ -180,7 +192,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你会在TokenRhythm平台上得到一个可复用的智能体：输入一句任务描述，它自动输出执行计划、依次调用搜索/抓取工具、按你定义的JSON格式返回结构化结果，并在失败时自动重试。整个流程从「人工一步步做」变成「模型跑链路+你只做审核」，单次任务耗时从小时级降到分钟级。
+    运行完整流水线后，你会得到一份包含每条样本回答、各项指标分数、平均分和 LangSmith trace 链接的评测报告。Promptfoo 的对比表格能直观看到提示词版本差异，DeepEval 给出量化分数，LangSmith 让你能点开任意一条失败案例回放整个执行过程。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +202,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有编程基础能用吗？</span>
+        <span>Promptfoo、DeepEval、LangSmith 三者功能有重叠，必须都用吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。平台网页端支持可视化配置智能体和工具，第4步的API调用也可以用平台自带的调试面板替代，不写代码也能跑通。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是必须。Promptfoo 强在批量 Prompt 对比，DeepEval 强在指标计算，LangSmith 强在链路追踪。可以按需组合，比如只用 Promptfoo + DeepEval 也能出报告，LangSmith 用于排障。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>1250亿参数模型对普通用户开放吗？</span>
+        <span>没有 OpenAI API Key 能跑吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">以官方发布信息为准。通常创业公司会先开放API或申请制试用，建议关注基元律动官网和智东西原文的入口说明。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。Promptfoo 和 DeepEval 都支持自定义 provider 或兼容 OpenAI 接口的模型服务，LangSmith 也支持自托管版本。把模型端点配成你的本地或第三方服务即可。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>工作流跑一半卡住或胡编怎么办？</span>
+        <span>测评集很小，分数波动大怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">优先检查工具描述是否清晰、输出格式约束是否够硬。加「每步输出后自检格式，不符合则重试」的提示词，并设置最大重试次数。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先保证测评集覆盖核心场景，每条样本可多次运行取平均；同时固定模型版本和温度参数，减少随机性。样本量建议逐步扩到 100 条以上再用于决策。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这套工作流能处理多长的任务？</span>
+        <span>LangSmith 的 trace 会不会包含敏感数据？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议单次任务控制在5-8个原子步骤内。更长的流程拆成多个智能体串联，每个智能体只负责一段，稳定性和可调试性都更好。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>成本大概多少？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">取决于token消耗和工具调用次数。先用小任务测出单次平均消耗，再估算批量成本；设置重试上限和步骤上限是控制成本的关键。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">会，默认会上报输入输出。生产环境建议开启脱敏或使用自托管 LangSmith，并在上报前过滤掉用户隐私字段。</div>
     </details>
   </div>
 </section>
@@ -229,14 +234,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把「竞品调研」换成「多平台内容分发」——智能体先改写文案为微博/小红书/公众号三个版本，再依次调用各平台发布工具，人工只做终审。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：接入本地代码执行器做「数据清洗流水线」——智能体读取CSV、自动写pandas脚本清洗、输出清洗报告和异常行清单，适合运营和数据分析岗。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：串联两个智能体做「研究+写作」——研究型智能体负责搜索抓取并输出结构化笔记，写作型智能体基于笔记生成报告，中间用JSON文件交接。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把 Promptfoo 换成自写批量脚本，只保留 DeepEval + LangSmith，适合已有成熟评测框架的团队。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：在 CI 中加阈值门禁，DeepEval 平均分低于基线时自动失败，防止 Prompt 改动导致效果回退。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用 LangSmith 的 dataset 功能管理测评集，直接在平台内发起评测并与 trace 关联，减少本地脚本维护。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    把大任务拆成原子指令链、给智能体挂对工具、用「规划-执行-反思」提示词闭环，你就能把1250亿参数的RSI模型变成一条可复用、可审核的自动化流水线。
+    用 Promptfoo 批量发题、DeepEval 逐条判分、LangSmith 追踪链路，把零散评测资产串成一条可自动运行、可归因、可复用的 Agent 评测流水线。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -244,19 +249,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Yolain工作流在ComfyUI中快速生成AI图像</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用社区提示词库快速找现成Prompt</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Awesome ComfyUI节点库扩展工作流</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用GPT-4o图像提示词库生成AI图片</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-juejin-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">掘金 AI 实战教程 · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用AI裁判重构编程工作流</div>
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

@@ -5,217 +5,221 @@
     <link>https://equinoxflower0.github.io/AI-Frontier/</link>
     <description>每天 5 分钟掌握全球 AI 核心动态：模型发布、开源项目、论文、产业动向，以及可上手的 AI 玩法。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 09 Nov 2026 07:57:47 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 08:08:04 +0000</lastBuildDate>
     <atom:link href="https://equinoxflower0.github.io/AI-Frontier/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>AI两小时半挖出Linux零日，400个root提权</title>
-      <link>https://www.infoq.cn/article/6kuDZAK0IFkKviGrGzIR</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/6kuDZAK0IFkKviGrGzIR</guid>
-      <description><![CDATA[安全团队用AI工具在Linux内核中快速发现大量零日漏洞和400多个root提权路径，人类逆向分析数周才看懂其中一个<br/><br/><b>为什么重要：</b>内核与系统安全团队需要重新评估漏洞披露节奏和补丁窗口——AI把零日发现从数周压缩到小时级，攻击方同样能用；下一步看主流发行版是否被迫缩短安全更新周期、以及AI辅助漏洞挖掘是否进入CVE流程<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>[EN] Benchmarking LLM Next-Step Recommendations with Knowledge Space Theory</title>
+      <link>https://arxiv.org/abs/2611.13667</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.13667</guid>
+      <description><![CDATA[arXiv:2611.13667v1 Announce Type: new 
+Abstract: Selecting an LLM for next-step…<br/><i>来源：arXiv cs.AI</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Anthropic斥34亿美元购1.7吉瓦发电机</title>
-      <link>https://zhidx.com/p/608214.html</link>
-      <guid isPermaLink="true">https://zhidx.com/p/608214.html</guid>
-      <description><![CDATA[Anthropic以34亿美元向OnePWR Solutions采购1.7吉瓦重型发电机，用于数据中心供电，为已知AI实验室最大单笔发电设备采购<br/><br/><b>为什么重要：</b>AI数据中心的瓶颈正从芯片转向电力，头部实验室开始绕过公用事业公司直接锁定发电设备。做算力规划、数据中心选址和AI基础设施投资的团队需重新评估电力获取周期；下一步看其他实验室是否跟进自建电源，以及燃气轮机产能会不会成为新的卡点<br/><i>来源：智东西</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>Anthropic启动IPO路演，英伟达谷歌各投100亿美元</title>
+      <link>https://zhidx.com/p/608995.html</link>
+      <guid isPermaLink="true">https://zhidx.com/p/608995.html</guid>
+      <description><![CDATA[Anthropic启动IPO路演，发行价区间70-78美元，最高募资643.5亿美元，估值达1.405万亿美元，并向谷歌、英伟达等七家公司私募配售260亿美元<br/><br/><b>为什么重要：</b>这是AI大模型公司首次以万亿美元级估值冲击公开市场，为整个AI行业的估值锚定和退出路径提供参照。做AI应用和投资的从业者需要关注两点：一是IPO定价能否被公开市场接受，将直接影响后续大模型公司的融资环境；二是谷歌、英伟达、AMD、微软等同时入股，说明算力与模型层的绑定进一步加深，中立模型厂商的站队空间在收窄。下一步看11月18日最终定价和上市首日表现<br/><i>来源：智东西</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>印度成OpenAI最大市场，Altman回应离职潮</title>
-      <link>https://www.infoq.cn/article/7AXcQvPCSwfPhtL8iQpo</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/7AXcQvPCSwfPhtL8iQpo</guid>
-      <description><![CDATA[OpenAI CEO Altman披露印度已成为其最大市场，并首次回应公司近期多位高管离职，称是聪明人之间互不信任所致<br/><br/><b>为什么重要：</b>印度成为最大市场意味着OpenAI增长重心正从欧美转向新兴市场，做海外AI应用和本地化的团队需要重新评估印度用户付费能力与合规环境；同时高管离职潮若持续，将影响OpenAI产品路线稳定性，开发者应关注后续模型发布节奏是否放缓<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>Anthropic撤回近700亿美元IPO定价，最快今日路演</title>
+      <link>https://www.infoq.cn/article/8tquwes1yGbmTeyOjOId</link>
+      <guid isPermaLink="true">https://www.infoq.cn/article/8tquwes1yGbmTeyOjOId</guid>
+      <description><![CDATA[Anthropic撤回近700亿美元规模的IPO定价，计划最快当天启动路演，下周冲刺上市<br/><br/><b>为什么重要：</b>Anthropic是OpenAI最主要的竞争对手之一，其上市进程和估值直接影响大模型公司的融资环境与竞争格局。做AI应用和投资的从业者需要关注：路演定价将给出市场对基础模型公司真实估值的第一个公开锚点，也会影响后续其他模型公司的融资节奏和估值预期。下一步看路演认购情况和最终定价是否下调<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>生物医学微调大模型的安全护栏侵蚀配对审计</title>
-      <link>https://arxiv.org/abs/2611.08780</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.08780</guid>
-      <description><![CDATA[研究对生物医学领域微调大模型进行配对审计，发现微调会削弱模型在知识型问题上拒答的能力，安全护栏出现侵蚀<br/><br/><b>为什么重要：</b>做医疗、法律等垂直微调的团队需要关注：微调在提升领域能力的同时可能破坏拒答机制，导致模型对不确定知识强行作答。下一步应看不同数据配比与微调方法对护栏侵蚀程度的量化差异，并据此设计微调后的安全回归测试<br/><i>来源：arXiv cs.CL</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>美团开源1.6万亿参数LongCat-2.5大模型</title>
+      <link>https://zhidx.com/p/608737.html</link>
+      <guid isPermaLink="true">https://zhidx.com/p/608737.html</guid>
+      <description><![CDATA[美团LongCat团队以MIT协议开源1.6万亿参数原生多模态模型LongCat-2.5，OpenCode平台累计Token用量约1090亿，四项评测第一<br/><br/><b>为什么重要：</b>1.6万亿参数模型用MIT协议开放商用和二次训练，开发者可直接拿来做垂域微调，省掉从头预训练的成本；做多模态Agent和长上下文应用的团队应关注其百万Token上下文在OpenCode上的免费窗口，下一步看社区微调效果和推理成本实测<br/><i>来源：智东西</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>强制选字母降低拒答：WMDP机制证据</title>
-      <link>https://arxiv.org/abs/2611.08639</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.08639</guid>
-      <description><![CDATA[研究用tuned lens在Llama-3.1-8B和Qwen3-8B上揭示，多选题格式会抑制模型对WMDP危险知识问题的拒答行为<br/><br/><b>为什么重要：</b>做安全评测和红队测试的团队需要关注：常用多选题基准会系统性低估模型的真实拒答率，导致安全分数虚高；下一步应改用开放式提问复核安全结论，并检查内部表征层面的拒答机制<br/><i>来源：arXiv cs.CL</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>Meta发布Muse Ember模型，1/3成本追平Claude Haiku 5.5</title>
+      <link>https://zhidx.com/p/608698.html</link>
+      <guid isPermaLink="true">https://zhidx.com/p/608698.html</guid>
+      <description><![CDATA[Meta发布迄今最小最高效模型Muse Ember，主打复杂推理与智能体任务，支持100万Token上下文和原生多模态理解，成本仅为同类三分之一<br/><br/><b>为什么重要：</b>做Agent工作流和长文档处理的开发者需要关注：100万Token上下文加多模态原生理解，配合三分之一成本，意味着全天候反复调用工具、跑测试修代码的Agent场景从经济上变得可行。下一步看第三方测评中最高推理强度下的实际表现与API定价细节<br/><i>来源：智东西</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>腾讯混元Hy4发布实测：开源第一梯队，距顶尖闭源仍有差距</title>
-      <link>https://www.geekpark.net/news/373644</link>
-      <guid isPermaLink="true">https://www.geekpark.net/news/373644</guid>
-      <description><![CDATA[腾讯11月4日发布混元Hy4大模型及轻量版Hy4 flash，权重将开源，官方定位首次跻身最强开源模型之列，极客公园围绕长程Agent与多模态能力进行实测<br/><br/><b>为什么重要：</b>关注开源模型选型的开发者和做Agent产品的团队需要看：Hy4把长程Agent任务完成度作为核心卖点，若权重如期开源，可替代部分闭源API跑多步任务，成本结构会变。下一步看权重实际开放时间与flash版定价<br/><i>来源：极客公园</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>Anthropic发布Claude Fable 5.2与Mythos 5.2双模型</title>
+      <link>https://zhidx.com/p/608593.html</link>
+      <guid isPermaLink="true">https://zhidx.com/p/608593.html</guid>
+      <description><![CDATA[Anthropic发布Claude Fable 5.2和Mythos 5.2两款新模型，在多项基准测试中领先，并已在AWS、谷歌云和Azure上线<br/><br/><b>为什么重要：</b>开发者需关注：新模型在软件迁移、电子设备设计、数学证明等任务上展现出超预期能力，且已通过三大云平台可用，意味着企业可立即评估其在复杂工程与科研场景的替代潜力；下一步应看实际API定价与长任务稳定性<br/><i>来源：智东西</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>英伟达启动独立调查，黄仁勋继续担任CEO</title>
-      <link>https://www.tmtpost.com/8198079.html</link>
-      <guid isPermaLink="true">https://www.tmtpost.com/8198079.html</guid>
-      <description><![CDATA[英伟达启动独立调查，黄仁勋继续担任CEO；亚洲芯片股反弹，英伟达场外合约仍在下跌<br/><br/><b>为什么重要：</b>英伟达是AI算力核心供应商，CEO去留与调查结论直接影响GPU供应预期和AI基础设施投资节奏。关注英伟达的AI从业者、云厂商和芯片股投资者需跟踪调查范围与结果，以及场外合约下跌是否预示市场对治理风险的重新定价<br/><i>来源：钛媒体</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>美国多州暂停数据中心审批，OpenAI 讨论重设2027容量预期</title>
+      <link>https://www.geekpark.net/news/373816</link>
+      <guid isPermaLink="true">https://www.geekpark.net/news/373816</guid>
+      <description><![CDATA[美国得州、俄亥俄、佐治亚等州因电力与居民保护暂停新建数据中心，7月至11月至少21个大型项目被取消，OpenAI 高管讨论重设2027年容量预期<br/><br/><b>为什么重要：</b>算力扩张的瓶颈从芯片转向电力与地方审批，直接约束 OpenAI、Anthropic 等公司的训练与推理扩容节奏。做模型训练和云容量规划的团队需重估2027年前的算力供给，关注州级立法进展与电力成本转嫁条款<br/><i>来源：极客公园</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AI办公智能体月活3316万，WorkBuddy居首</title>
-      <link>https://www.leiphone.com/category/industrynews/zGBfQTDDCpSCfYIK.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/zGBfQTDDCpSCfYIK.html</guid>
-      <description><![CDATA[腾讯WorkBuddy累计承接超90亿次任务请求，国内AI办公智能体桌面端月活达3316万，WorkBuddy占三分之一以上居第一<br/><br/><b>为什么重要：</b>办公智能体从对话走向自主交付，月活规模已可量化。做企业SaaS和Agent产品的团队需关注：桌面端入口正被WorkBuddy类产品占据，垂直场景（如对账、牧场诊疗）的交付时效被压缩到分钟级，竞争焦点从模型能力转向工作流嵌入深度。下一步看企业侧付费转化与多Agent协同的落地数据<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>泰克科技发布1系列DPO示波器：仅4.8磅重，小巧便携，可连智能体</title>
+      <link>https://zhidx.com/p/609235.html</link>
+      <guid isPermaLink="true">https://zhidx.com/p/609235.html</guid>
+      <description><![CDATA[智东西 
+ 作者 | ZeR0 
+ 编辑 | 漠影 
+ 智东西11月11日报道，今日，在2026年泰克创新论坛（TIF）大会上，美国示波器龙头泰克公司发布示波器…<br/><i>来源：智东西</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>具身智能模型开放API，机器人可云端微调</title>
-      <link>https://www.geekpark.net/news/373683</link>
-      <guid isPermaLink="true">https://www.geekpark.net/news/373683</guid>
-      <description><![CDATA[Physical Intelligence、Dream Labs、原力灵机等公司近期相继开放具身模型API，开发者可上传自有机器人数据微调模型并通过云端推理驱动机器人<br/><br/><b>为什么重要：</b>做机器人本体和垂直场景的团队现在可以用少量自有数据微调云端具身模型，不必自研基础模型；竞争焦点从发布演示视频转向真机任务成功率与后训练服务能力。下一步看按作业时长计费的成本曲线和跨本体迁移的实际泛化表现<br/><i>来源：极客公园</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>中国55%Token用于短剧，美国58%用于代码</title>
+      <link>https://www.tmtpost.com/8198782.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8198782.html</guid>
+      <description><![CDATA[钛媒体核验GitHub Copilot付费数据与AI短剧算力成本，对比中美Token流向差异，厘清流量型与生产力型AI的商业逻辑<br/><br/><b>为什么重要：</b>做AI应用和算力投资的团队需要关注：Token流向直接反映付费意愿和成本结构，短剧类流量型场景ARPU低但量大，代码类生产力场景付费强但门槛高。下一步该看两类场景的单位Token毛利和留存差异，判断哪条路线能跑通正向现金流<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>腾讯Agent布局不止WorkBuddy，发布Buddy One</title>
-      <link>https://www.leiphone.com/category/industrynews/oxR5pn9S7tI1IfF5.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/oxR5pn9S7tI1IfF5.html</guid>
-      <description><![CDATA[腾讯在数字生态大会发布跨应用协同体系Buddy One等40余场Agent相关发布，覆盖应用、数据、安全和工程四板块<br/><br/><b>为什么重要：</b>关注腾讯生态的开发者与企业IT负责人应留意：腾讯把Agent竞争焦点从模型能力转向连接业务系统与数据的'断点'问题，Buddy One的跨应用协同若落地，会改变企业Agent集成方式；下一步看其开放接口与第三方系统接入进度<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>灵光2.0上线两周托管事务量破300万</title>
+      <link>https://www.leiphone.com/category/industrynews/588lnnPVveccwufm.html</link>
+      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/588lnnPVveccwufm.html</guid>
+      <description><![CDATA[蚂蚁集团个人AI助理灵光2.0上线两周累计托管事务量突破300万项，累计执行任务超1100万次<br/><br/><b>为什么重要：</b>事务托管量衡量的是用户把长期事务交给AI持续跟进，而非单次问答，这标志着个人AI助理从响应指令转向持续履约。做AI助理和Agent产品的团队需要关注这一指标变化，它意味着竞争焦点从对话能力转向任务闭环与主动执行能力，下一步应看托管事务的完成率和用户留存<br/><i>来源：AI 科技评论</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Anthropic签34亿美元发电机协议供AI数据中心</title>
-      <link>https://www.reuters.com/business/energy/anthropic-secures-34-billion-generator-deal-ai-data-centers-ft-reports-2026-11-08/</link>
-      <guid isPermaLink="true">https://www.reuters.com/business/energy/anthropic-secures-34-billion-generator-deal-ai-data-centers-ft-reports-2026-11-08/</guid>
-      <description><![CDATA[Anthropic与发电设备供应商签署34亿美元协议，为其AI数据中心提供电力保障<br/><br/><b>为什么重要：</b>AI数据中心的瓶颈正从芯片转向电力，这笔交易说明头部实验室已开始锁定长期供电资源；做算力规划、数据中心选址和基础设施投资的团队需要关注，下一步看其他实验室是否跟进类似长约，以及电价与并网审批对训练成本的影响<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>阿里分拆平头哥赴港上市</title>
+      <link>https://www.tmtpost.com/8200942.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8200942.html</guid>
+      <description><![CDATA[阿里巴巴决定分拆旗下AI芯片公司平头哥独立赴港上市，让其自行从资本市场融资<br/><br/><b>为什么重要：</b>平头哥是阿里自研AI芯片（含光、倚天）的主体，分拆上市意味着其芯片业务将从内部成本中心转为独立融资平台，融资规模和客户结构将决定国产AI算力供给格局。关注AI芯片的从业者和云厂商应留意其招股书披露的出货量与外部客户占比<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>PRISM：压力测试对齐伪装主张</title>
-      <link>https://arxiv.org/abs/2607.13346</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2607.13346</guid>
-      <description><![CDATA[arXiv 论文提出 PRISM 方法，用于检验模型是否只在被监控时表现良好、即所谓对齐伪装行为<br/><br/><b>为什么重要：</b>做对齐评测与安全审计的团队需要关注：现有行为测试可能被伪装合规骗过，隐藏状态探针的可靠性也需要重新验证。下一步应看 PRISM 能否给出可复现的判别基准，以及前沿模型在该基准下的表现<br/><i>来源：arXiv cs.CL</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>文心5.5 Flash Preview发布，2800亿参数</title>
+      <link>https://www.leiphone.com/category/industrynews/sqz0hf4DoTPX5mqI.html</link>
+      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/sqz0hf4DoTPX5mqI.html</guid>
+      <description><![CDATA[百度发布文心5.5 Flash Preview，总参数2800亿、激活140亿，支持100万Token上下文，编程与3D建模能力升级<br/><br/><b>为什么重要：</b>2800亿总参、140亿激活的稀疏架构把长上下文推理成本压下来，100万Token让整库代码修复、长周期游戏开发等场景变得可行；做AI编程工具和3D内容生成的团队需重新评估自研还是接API，下一步看Terminal-Bench实测与定价<br/><i>来源：AI 科技评论</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>PixelBench：LLM能否逐像素生成图像</title>
-      <link>https://arxiv.org/abs/2611.02540</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.02540</guid>
-      <description><![CDATA[研究者提出PixelBench基准，测试大模型能否不借助图像分词器或解码器，直接用现有词表完成文本到像素及图像到像素的生成<br/><br/><b>为什么重要：</b>做多模态生成与图像tokenizer的团队需要关注：若LLM能直接输出像素，图像生成管线可省去训练专用编解码器，降低部署成本；下一步应看其在分辨率与保真度上的实测上限<br/><i>来源：arXiv cs.CL</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>实时纠错：LLM推理过程中的错误修正</title>
+      <link>https://arxiv.org/abs/2611.13107</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.13107</guid>
+      <description><![CDATA[研究者提出在LLM推理过程中实时检测并纠正错误步骤的方法，避免错误传播和推理token浪费<br/><br/><b>为什么重要：</b>做推理模型和Agent的团队需要关注：现有方案要么只查最终答案重跑，要么依赖额外验证器抢GPU，该方法把纠错嵌入推理过程本身，直接省token和延迟。下一步看它在数学、代码等长链任务上的纠错准确率与额外开销<br/><i>来源：arXiv cs.CL</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Edge AI Daily 早报（11月9日）</title>
-      <link>https://www.tmtpost.com/8197806.html</link>
-      <guid isPermaLink="true">https://www.tmtpost.com/8197806.html</guid>
-      <description><![CDATA[中期选举后美国46项数据中心公投否决扩张，AI基建进入许可时代；纳指单日跌5.5%、费半跌12%，亚洲市场熔断。Anthropic斥34亿美元购1.7GW燃气发…<br/><i>来源：钛媒体</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>可溯源临床推理基准MEB发布，含1536道医师题</title>
+      <link>https://arxiv.org/abs/2611.13562</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.13562</guid>
+      <description><![CDATA[研究者推出Med Evidence Bench，含1536道医师构建题目，覆盖指南知识、标准临床场景与真实检验场景，每条评分标准均链接到版本化来源<br/><br/><b>为什么重要：</b>医疗LLM评测长期缺乏可追溯证据链，MEB把每条评分标准绑定到版本化临床来源，让基准分数可解释。做医疗AI产品与模型评测的团队可直接用它替代黑箱打分，下一步应关注其真实检验场景子集对模型幻觉的区分度<br/><i>来源：arXiv cs.CL</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>OpenAI、Anthropic、Google 接口各异，开放标准距统一还有多远</title>
-      <link>https://www.infoq.cn/article/5e8Qs11VHRHRyYsB2kFO</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/5e8Qs11VHRHRyYsB2kFO</guid>
-      <description><![CDATA[InfoQ 中国发文讨论 OpenAI、Anthropic、Google 三家大模型接口互不兼容的现状，以及行业开放标准统一的进展与障碍<br/><br/><b>为什么重要：</b>做多模型接入的开发者目前要为每家厂商单独适配 SDK 和消息格式，切换成本高、锁定风险大；若标准统一，中间层与网关类工具的价值将被重估。下一步值得关注 MCP、OpenAI 兼容层等事实标准能否被三家同时接纳<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>Gemini 4 Carbon 正式上线，非付费用户暂不可用</title>
+      <link>https://www.ifanr.com/1688883</link>
+      <guid isPermaLink="true">https://www.ifanr.com/1688883</guid>
+      <description><![CDATA[谷歌发布 Gemini 4 Carbon 模型并正式上线，但初期仅向付费用户开放，非付费用户的使用时间尚未公布<br/><br/><b>为什么重要：</b>关注谷歌 Gemini 生态的开发者与产品团队需要留意：新模型能力升级但设置了付费门槛，意味着免费层用户和依赖免费 API 的小团队短期内无法接入，产品选型时需评估成本；下一步应看谷歌何时下放免费额度及定价策略<br/><i>来源：爱范儿</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>火山引擎称每两家头部手机厂商就有一家选其AI助手底座</title>
-      <link>https://www.infoq.cn/article/icMBWWjE3LTzEY1tHKr8</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/icMBWWjE3LTzEY1tHKr8</guid>
-      <description><![CDATA[火山引擎披露，其已成为半数头部手机厂商AI手机助手的底层技术供应商，为终端厂商提供大模型能力支撑<br/><br/><b>为什么重要：</b>做手机端AI助手的产品与算法团队需要关注：终端厂商正把大模型能力外包给云厂商而非自研，这降低了手机厂商做AI助手的门槛，也让火山引擎在端侧入口争夺中占住位置。下一步看具体合作机型、调用量级与端侧推理成本能否支撑规模化<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>阿里申请平头哥独立上市</title>
+      <link>https://www.leiphone.com/category/industrynews/dew7AYBxkGAYilZj.html</link>
+      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/dew7AYBxkGAYilZj.html</guid>
+      <description><![CDATA[阿里巴巴公告已向港交所交表，申请旗下AI芯片子公司平头哥以H股在主板独立上市，IPO规模未定<br/><br/><b>为什么重要：</b>关注国产AI算力供应链和半导体投资的人需要留意：平头哥真武系列AI芯片累计出货已达56万片，独立上市后其估值和订单将单独披露，成为观察国产数据中心芯片商业化进度的直接窗口。下一步看IPO定价、募资规模及阿里云之外的外部客户占比<br/><i>来源：AI 科技评论</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>开发者每周用AI省数十小时比例从68%降至26%</title>
-      <link>https://www.infoq.cn/article/sdqHapplv45dQguTJ415</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/sdqHapplv45dQguTJ415</guid>
-      <description><![CDATA[InfoQ 中国报道，一项调查显示开发者每周借助 AI 节约数十小时的比例在一年内从 68% 降至 26%<br/><br/><b>为什么重要：</b>做 AI 编程工具的团队需要关注：节省时长感知大幅下滑，说明工具红利正被日常化或遭遇瓶颈，下一步应看具体任务级提效数据与用户留存，而非笼统的'省时'宣传<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>Anthropic 重做源代码管理系统，提交量增长12倍</title>
+      <link>https://www.infoq.cn/article/sBjhhysFKZibZpXQZEGy</link>
+      <guid isPermaLink="true">https://www.infoq.cn/article/sBjhhysFKZibZpXQZEGy</guid>
+      <description><![CDATA[Anthropic 因 AI 编程智能体导致代码提交量激增 12 倍，传统 Git 架构难以承载，遂自研新的源代码管理系统<br/><br/><b>为什么重要：</b>做 AI 编程工具和内部研发平台的团队需要关注：智能体高频提交正在压垮 Git 的集中式瓶颈，代码托管层的架构假设需要重估。下一步看 Anthropic 是否开源这套系统，以及 GitHub/GitLab 如何应对智能体流量<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Harness 已很准，为何还需 Agent Native Database</title>
-      <link>https://www.infoq.cn/article/49JGp1l7v97riBlPpZ1q</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/49JGp1l7v97riBlPpZ1q</guid>
-      <description><![CDATA[InfoQ 中国发文讨论在 Harness 评测框架已较准确的情况下，为何仍需专为智能体设计的原生数据库<br/><br/><b>为什么重要：</b>做 Agent 基础设施与数据层的开发者需要关注：通用数据库在智能体的状态管理、记忆与并发写入上存在边界，原生数据库可能改变 Agent 应用的存储选型与成本结构。下一步看是否有具体产品落地与基准对比<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>OpenAI与Upwork研究：AI如何改变自由职业</title>
+      <link>https://openai.com/index/ai-effect-on-freelance-work</link>
+      <guid isPermaLink="true">https://openai.com/index/ai-effect-on-freelance-work</guid>
+      <description><![CDATA[OpenAI与Upwork联合研究发现，AI相关自由职业项目需求上升，出现新的技能组合，预算和工时均增加<br/><br/><b>为什么重要：</b>自由职业者和承接外包的企业需要关注：AI技能溢价正在形成，单纯写作、翻译类需求被压缩，而“AI+领域”复合技能报价更高。下一步看Upwork上AI相关岗位的时薪走势和任务类型分布，判断哪些岗位在被替代、哪些在被增强<br/><i>来源：OpenAI 官方</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>腾讯轻量云LoopForge多Agent编排实践</title>
-      <link>https://www.infoq.cn/article/wUArox9MHiAoyWPgRxpp</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/wUArox9MHiAoyWPgRxpp</guid>
-      <description><![CDATA[InfoQ报道腾讯轻量云在AICon北京分享LoopForge多Agent编排实践，聚焦从能写代码到能交付的工程化落地<br/><br/><b>为什么重要：</b>做AI Agent落地的开发者和平台团队值得关注：多Agent编排正从demo走向可交付，核心难点在任务拆解、工具调用与结果验收的工程闭环。下一步可看LoopForge是否开源、与主流Agent框架的兼容性及实际交付案例<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>蚂蚁灵波开源触觉模型LingBot-Touch，真机成功率提升14-26个百分点</title>
+      <link>https://www.leiphone.com/category/industrynews/Qhv28gnFkgFPCbXV.html</link>
+      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/Qhv28gnFkgFPCbXV.html</guid>
+      <description><![CDATA[11月10日，蚂蚁灵波科技开源基于近5000小时真实触觉数据预训练的触觉基础模型LingBot-Touch，已接入其LingBot-VLA，26项真机测试任务成功率提高14至26个百分点<br/><br/><b>为什么重要：</b>做具身智能和灵巧手的团队可直接复用这套跨磁触觉、视触觉、压阻式的统一触觉表征，省去自建触觉数据集的成本；触觉补齐后精细操作从演示走向可用。下一步看开源权重是否真开放、跨灵巧手迁移的实际效果<br/><i>来源：AI 科技评论</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Asahi Linux 禁止用 AI 贡献代码</title>
-      <link>https://asahilinux.org/llm-policy/</link>
-      <guid isPermaLink="true">https://asahilinux.org/llm-policy/</guid>
-      <description><![CDATA[Asahi Linux 发布 LLM 政策，明确禁止使用 AI 生成内容向该项目提交代码或贡献<br/><br/><b>为什么重要：</b>这是主流开源项目首次以正式政策形式对 AI 生成贡献设限，Linux 内核及下游发行版的维护者需要关注：AI 生成代码的版权与质量责任归属尚无共识，后续可能引发更多项目跟进制定类似规则，值得观察其他大型开源社区是否效仿<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>黄仁勋被曝婚外情 英伟达市值单日缩水近3万亿</title>
+      <link>https://www.leiphone.com/category/zaobao/zcxkdPkvpprE36Zv.html</link>
+      <guid isPermaLink="true">https://www.leiphone.com/category/zaobao/zcxkdPkvpprE36Zv.html</guid>
+      <description><![CDATA[英伟达CEO黄仁勋承认婚外情，公司股价盘中一度跌8.8%，市值最大缩水近3960亿美元，其个人持股账面缩水约143亿美元<br/><br/><b>为什么重要：</b>这是全球上市公司因高管个人丑闻引发的最大单日市值损失，持有英伟达股票或相关AI算力供应链的投资者需关注治理风险与股价波动；后续看董事会是否启动问责、以及事件对AI芯片订单与客户信心的实际影响<br/><i>来源：AI 科技评论</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AI产品路线图应数实验而非功能</title>
-      <link>https://juejin.cn/post/7705938834806964266</link>
-      <guid isPermaLink="true">https://juejin.cn/post/7705938834806964266</guid>
-      <description><![CDATA[Hamel Husain 在掘金发文指出，AI 团队常说不清改动是变好还是变差，主张先做错误分析、以实验数量而非功能数量规划路线图<br/><br/><b>为什么重要：</b>做 AI 产品的团队需要关注：AI 系统效果难以归因是普遍痛点，把路线图从功能驱动改为实验驱动，能倒逼团队建立度量和错误分析机制，避免几周开发后无法判断改动好坏。下一步值得看的是错误分析如何落地成可复用的评测集<br/><i>来源：掘金技术社区</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>苹果国行AI备案扩至iPad和笔记本；Claude Fable 5.2降价20%</title>
+      <link>https://www.ifanr.com/1688654</link>
+      <guid isPermaLink="true">https://www.ifanr.com/1688654</guid>
+      <description><![CDATA[爱范儿早报汇总：苹果国行AI备案新增iPad和笔记本设备，Claude Fable 5.2发布且价格下调20%，另曝玛莎拉蒂拟与尊界合作、谷歌发布第八代TPU等<br/><br/><b>为什么重要：</b>Claude新版本降价20%直接压低推理成本，做Agent和长文档应用的开发者可重新测算毛利；苹果把国行AI备案扩到iPad和Mac，意味着端侧AI入口从手机延伸到生产力设备，国内做适配的开发者需提前跟进备案与机型适配节奏<br/><i>来源：爱范儿</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>掘金分享AI内容核查系统实践：拆解可验证主张</title>
-      <link>https://juejin.cn/post/7705807831229005862</link>
-      <guid isPermaLink="true">https://juejin.cn/post/7705807831229005862</guid>
-      <description><![CDATA[掘金技术社区分享一套内容AI核查系统实践，核心做法是将AIGC内容拆成最小可验证主张，再对照权威来源核查事实错误<br/><br/><b>为什么重要：</b>做RAG、内容审核、AI搜索的团队需要关注：AIGC事实错误已从整段编造转向局部张冠李戴，传统人工抽检难覆盖。把内容拆成原子主张再逐条溯源，是可落地的工程路径，下一步可看其主张抽取准确率与权威源覆盖策略<br/><i>来源：掘金技术社区</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>Anthropic 发布 Claude Fable/Mythos 5.2，API 降价 20%</title>
+      <link>https://www.geekpark.net/news/373736</link>
+      <guid isPermaLink="true">https://www.geekpark.net/news/373736</guid>
+      <description><![CDATA[Anthropic 推出 Claude Fable 5.2 与 Mythos 5.2，两者同源，前者面向普通用户，后者面向通过审核的安全与生命科学机构，API 调用费下调 20%<br/><br/><b>为什么重要：</b>输入 8 美元、输出 40 美元每百万 token 的价格，让高频调用 Claude 的开发者与做长上下文应用的团队直接省下两成成本；同时把高风险能力拆成需审核的 Mythos 版本，为生物安全、网安类应用划出准入边界。下一步值得关注 Mythos 的审核门槛与 Fable 5.2 的实际生成速度提升幅度<br/><i>来源：极客公园</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>PowerContext v1.5.0 发布：长程 Agent 输入 token 降 75%</title>
-      <link>https://juejin.cn/post/7705980350746509346</link>
-      <guid isPermaLink="true">https://juejin.cn/post/7705980350746509346</guid>
-      <description><![CDATA[PowerContext 1.5.0 发布，实测单题最高输入量从约 2358 万降至 590 万 token，降幅约 75%，任务通过率同时提升<br/><br/><b>为什么重要：</b>做长程 Agent 的团队应关注：重复上下文开销是当前 Agent 成本的主要来源，输入量降 75% 直接压低单任务推理成本，并让更长链路任务变得可行。下一步看其去重机制能否在自有 Agent 框架中复现，以及通过率提升是否可稳定复现<br/><i>来源：掘金技术社区</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>SteerDistill：闭环教师引导量化LLM智能体</title>
+      <link>https://arxiv.org/abs/2611.13410</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.13410</guid>
+      <description><![CDATA[研究者提出SteerDistill方法，通过闭环教师引导纠正量化LLM智能体与全精度参考之间的行为偏差，以降低低比特量化的任务成功率损失<br/><br/><b>为什么重要：</b>做智能体端侧/低成本部署的团队需要关注：量化后智能体常忽略任务约束与环境条件，离线数据又覆盖不到学生的失败上下文，闭环引导提供了可操作的纠偏路径；下一步可看该方法在工具调用、多步任务上的成功率与推理成本权衡<br/><i>来源：arXiv cs.AI</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>苹果给工程师设每日200美元AI预算上限</title>
-      <link>https://www.stork.ai/newsletter/2026-11-08-apple-capped-engineers-at-a-200-daily-ai-budget</link>
-      <guid isPermaLink="true">https://www.stork.ai/newsletter/2026-11-08-apple-capped-engineers-at-a-200-daily-ai-budget</guid>
-      <description><![CDATA[据报道，苹果对内部工程师使用AI工具设定了每人每天200美元的预算上限，超出需审批<br/><br/><b>为什么重要：</b>大厂内部AI用量管控首次被具体量化，做企业AI采购和成本治理的团队可据此校准预算模型；也说明即便苹果这类巨头，AI推理成本仍是需要行政约束的现实问题。下一步看其他大厂是否跟进类似限额，以及这会否推动更便宜的本地/私有模型方案<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>仅用参考样本训练推理：强化对抗学习</title>
+      <link>https://arxiv.org/abs/2610.38851</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2610.38851</guid>
+      <description><![CDATA[论文提出仅依赖参考样本、无需显式可验证奖励的强化对抗学习方法，用于现代大模型后训练中的推理能力训练<br/><br/><b>为什么重要：</b>RLVR 受限于有明确正确性信号的任务，而大量场景只能判断答案好坏却难以打分。该方法若成立，可让做数学/代码之外领域（如写作、分析、专业问答）后训练的团队摆脱人工奖励建模，降低对标注奖励模型的依赖；下一步应关注其在不同任务上的稳定性与是否开源实现<br/><i>来源：arXiv cs.AI</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>推理蒸馏失败画像与可达轨迹选择</title>
-      <link>https://arxiv.org/abs/2611.09042</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.09042</guid>
-      <description><![CDATA[该论文提出对教师模型生成的推理轨迹做失败画像分析，并筛选学生模型实际可达的轨迹用于蒸馏训练<br/><br/><b>为什么重要：</b>做小模型数学推理蒸馏的团队需要关注：它针对学生推理时偏离训练分布导致过拟合教师输出的问题，给出轨迹筛选思路，可能降低无效蒸馏数据的训练成本。下一步看该方法在多个教师-学生规模组合上的泛化收益<br/><i>来源：arXiv cs.CL</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>LLM智能体自主优化RTL与综合的基准与自改进</title>
+      <link>https://arxiv.org/abs/2611.13713</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.13713</guid>
+      <description><![CDATA[论文提出面向真实EDA流程的RTL优化基准，并给出工具接地的智能体自改进方法，推动硬件设计自动化<br/><br/><b>为什么重要：</b>做芯片前端设计和EDA工具的团队需要关注：LLM智能体开始切入RTL优化这一高门槛环节，若基准和工具接地方案成熟，可降低手工调优人力成本，改变EDA自动化竞争格局。下一步看其基准能否被工业流程采纳、智能体在真实综合约束下的收敛表现<br/><i>来源：arXiv cs.AI</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Ansatz：持续图记忆助力数学发现</title>
-      <link>https://arxiv.org/abs/2610.02945</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.02945</guid>
-      <description><![CDATA[研究者提出Ansatz研究框架，用持续图记忆区分模型接受的结论与探索性内容，并配套Ansatze社区平台供人工检查与引导<br/><br/><b>为什么重要：</b>做AI数学证明和形式化验证的团队值得关注：它把“模型已接受的结论”与“待验证的探索”分开存储，避免错误结论污染后续推理，这是长周期数学发现任务的关键工程问题。下一步可看其在First Proof基准上的验证闭环能否扩展到更大规模问题<br/><i>来源：arXiv cs.CL</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>Mobile AI Factory：为手机自动定制专用小模型</title>
+      <link>https://arxiv.org/abs/2611.13509</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.13509</guid>
+      <description><![CDATA[研究者提出 Mobile AI Factory，一个由编排 LLM 驱动的智能体系统，可根据任务描述和目标手机自动完成小模型的微调与量化<br/><br/><b>为什么重要：</b>端侧小模型落地一直卡在“每个任务、每款机型都要专家手工调优”这一步，这套智能体流程把微调加量化变成自动化流水线，做端侧 AI 应用的团队和手机厂商可以少养调优人力、更快把模型塞进具体机型。下一步看它在真实芯片上的量化精度损失和端到端构建耗时<br/><i>来源：arXiv cs.CL</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>多模态临床记录非随机缺失下的因果表征学习</title>
-      <link>https://arxiv.org/abs/2509.17228</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2509.17228</guid>
-      <description><![CDATA[arXiv 论文提出在临床模态非随机缺失（如 MIMIC-IV 中 35.15% 患者无出院小结）条件下，从多模态临床记录中学习因果表征的方法<br/><br/><b>为什么重要：</b>做医疗 AI 与电子病历建模的团队需要关注：真实临床数据缺失是常态而非例外，该工作把缺失机制纳入因果建模，可能改变缺失数据下表征学习的可用性边界；下一步可看其在 MIMIC-IV 上的下游任务增益与对缺失率的鲁棒性<br/><i>来源：arXiv cs.CL</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>Meta新模型Muse Ember成本仅Claude Haiku 5.5的三分之一</title>
+      <link>https://www.infoq.cn/article/Ou4l4aD7zvUzXWXsWJfY</link>
+      <guid isPermaLink="true">https://www.infoq.cn/article/Ou4l4aD7zvUzXWXsWJfY</guid>
+      <description><![CDATA[Meta发布新模型Muse Ember，宣称推理成本仅为Claude Haiku 5.5的三分之一，直接对标后者<br/><br/><b>为什么重要：</b>做成本敏感型应用的开发者需要关注：若成本优势在实测中成立，高频调用场景（客服、批处理、Agent循环）的模型选型会多一个低价选项。下一步应看第三方基准测试验证其能力是否真能对齐Haiku 5.5，而非只比价格<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>利用跨语言不一致定位MoE大模型知识</title>
-      <link>https://arxiv.org/abs/2603.17102</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.17102</guid>
-      <description><![CDATA[研究者提出用跨语言行为差异作为工具，通过对比不同语言下的专家路由来定位MoE大模型中的知识存储位置<br/><br/><b>为什么重要：</b>做MoE可解释性和多语言能力分析的团队值得关注：它把跨语言不一致从待修复的缺陷变成探测工具，为知识定位提供了无需训练的新思路。下一步可看该方法能否推广到非MoE架构，以及能否指导多语言能力修补<br/><i>来源：arXiv cs.CL</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>DeepSeek Harness日活154万，官方给插件作者发Token</title>
+      <link>https://www.infoq.cn/article/Y7lTO7Q1M8oN5JhxhirK</link>
+      <guid isPermaLink="true">https://www.infoq.cn/article/Y7lTO7Q1M8oN5JhxhirK</guid>
+      <description><![CDATA[DeepSeek Harness日活达154万，官方宣布向插件开发者发放Token激励，推动Agent生态建设<br/><br/><b>为什么重要：</b>做Agent插件和工具链的开发者需要关注：官方用Token补贴降低插件开发成本，意味着Harness正从自研功能转向开发者生态驱动，早期入场者能拿到流量和资源红利。下一步看插件审核标准、Token发放规模和头部插件能否跑出可复用商业模式<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>DUET：块扩散语言模型的双稀疏推理</title>
-      <link>https://arxiv.org/abs/2611.09239</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2611.09239</guid>
-      <description><![CDATA[arXiv 新论文提出 DUET 双稀疏推理方法，针对块扩散语言模型的历史注意力与当前块冗余计算做稀疏化加速<br/><br/><b>为什么重要：</b>扩散语言模型推理成本高是落地瓶颈，做 DLM 推理优化和长文本生成的团队需关注；若稀疏策略可通用，能直接降低每步去噪的注意力开销，下一步看其在主流 DLM 上的实测加速比与质量损失<br/><i>来源：arXiv cs.CL</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>新加坡航空用OpenAI提升客服与办公效率</title>
+      <link>https://openai.com/index/singapore-airlines-travel-work</link>
+      <guid isPermaLink="true">https://openai.com/index/singapore-airlines-travel-work</guid>
+      <description><![CDATA[OpenAI官方披露新加坡航空使用其模型与API改造客服、行程发现和员工办公，Kris聊天机器人CSAT翻倍<br/><br/><b>为什么重要：</b>航空业是高人力成本、多语言、强合规的客服场景，CSAT翻倍说明大模型在真实生产环境已能替代相当部分人工坐席。做企业服务与客服SaaS的团队应关注其API集成方式与评测口径，下一步看是否披露具体模型版本、token成本与人工替代比例<br/><i>来源：OpenAI 官方</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>TraceSpec：面向LLM智能体的投机解码改进框架</title>
-      <link>https://arxiv.org/abs/2610.41177</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2610.41177</guid>
-      <description><![CDATA[arXiv 论文提出 TraceSpec 框架，将智能体轨迹评估与自适应草稿训练结合，用固定前缀重放改进投机解码<br/><br/><b>为什么重要：</b>做智能体推理加速的团队需要关注：现有投机解码指标把多步决策混在一起，无法定位草稿模型该在哪些环节加强；TraceSpec 按轨迹分段评估并针对性训练草稿模型，有望直接降低智能体多轮调用的延迟和推理成本。下一步看其开源代码与在真实工具调用负载上的加速比<br/><i>来源：arXiv cs.CL</i>]]></description>
-      <pubDate>2026-11-09 08:00:00 +0800</pubDate>
+      <title>千问办公2.0推出Team Agent，实测编辑部日常</title>
+      <link>https://www.qbitai.com/2026/11/508798.html</link>
+      <guid isPermaLink="true">https://www.qbitai.com/2026/11/508798.html</guid>
+      <description><![CDATA[阿里千问办公升级至2.0版本，新增面向团队的Team Agent功能，量子位用其跑了一遍编辑部日常工作流程<br/><br/><b>为什么重要：</b>办公AI从个人单机助手转向多智能体协作，直接冲击协作文档、项目管理类SaaS的定位；做企业办公工具的团队需关注Team Agent的任务拆解与权限边界，下一步看其多角色协同的实际稳定性与定价<br/><i>来源：量子位</i>]]></description>
+      <pubDate>2026-11-11 08:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>

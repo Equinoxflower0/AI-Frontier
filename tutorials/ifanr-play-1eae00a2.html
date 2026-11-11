@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>你不知道的客户端开发：AI 时代下的选型、原生与借力 - AI 玩法教程 · AI Frontier</title>
+<title>用 Seedream5.5 实测 AI 作图与改图工作流 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-09
+      2026-11-11
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🔗 工具链
+        🧭 工作流
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">你不知道的客户端开发：AI 时代下的选型、原生与借力</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 Seedream5.5 实测 AI 作图与改图工作流</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    少数派 AI 工具 · A级
+    爱范儿 AI 应用 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     权威媒体
   </span>
-  <a href="https://sspai.com/post/117713" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.ifanr.com/1688447" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">在 AI 时代做客户端开发，选型、原生与借力三者如何平衡？这篇教程带你从真实需求出发，用工具链思维快速落地一个 AI 辅助的客户端功能原型。</p>
+  <p class="text-base text-slate-800 leading-relaxed">Seedream5.5 是近期在 AI 绘图圈讨论度很高的模型，尤其擅长「改图不糊」——连续编辑多轮后画面依然清晰。这篇教程带你从零跑通一套「生成→局部改→风格迁移→批量输出」的实战工作流。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多开发者一上来就纠结框架选型，却忽略了用户最痛的需求。少数派这篇文章指出：选型只是锦上添花，核心是解决真实问题。本教程将带你用 AI 工具链（如 Cursor + 原型工具）快速验证需求，再决定技术栈，避免过度设计。适合独立开发者、小团队技术负责人，以及想用 AI 加速客户端迭代的产品经理。
+    很多 AI 绘图工具在反复修改同一张图时，会出现细节丢失、噪点堆积、主体变形等问题，导致「改到第 5 轮就废了」。Seedream5.5 的卖点正是长链路编辑的稳定性，爱范儿实测改图 100 轮仍保持可用画质。这套工作流适合需要反复打磨同一张视觉稿的设计师、自媒体配图作者，以及想批量产出风格统一素材的运营同学。掌握后你可以把「生成-修改-延展」串成流水线，而不是每次推倒重来。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Cursor  <a href="https://cursor.sh" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">AI 代码编辑器，用于快速生成和修改客户端代码</div>
+      <div class="font-semibold text-slate-900">Seedream5.5 访问入口  <a href="https://www.ifanr.com/1688447" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">通过官方合作平台或 API 调用，建议先确认你所在地区可用的入口（如火山引擎方舟、即梦等）</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Figma  <a href="https://figma.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">设计原型工具，用于梳理用户流程和界面草图</div>
+      <div class="font-semibold text-slate-900">即梦 / 豆包等字节系生图产品  <a href="https://jimeng.jianying.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Seedream 系列通常集成在这些产品中，用于网页端直接操作</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ChatGPT / Claude  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">对话式 AI，用于需求拆解和技术选型咨询</div>
+      <div class="font-semibold text-slate-900">参考图素材 </div>
+      <div class="text-sm text-slate-600 mt-1">准备 1-3 张风格参考图或需要修改的原图，分辨率建议不低于 1024px</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">GitHub Copilot  <a href="https://github.com/features/copilot" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">代码补全工具，辅助原生开发</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">少数派原文  <a href="https://sspai.com/post/117713" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">参考文章，理解选型与借力的思路</div>
+      <div class="font-semibold text-slate-900">提示词草稿文档 </div>
+      <div class="text-sm text-slate-600 mt-1">用备忘录或 Notion 记录每轮修改指令，方便回溯和复用</div>
     </li>
   </ul>
 </section>
@@ -126,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：用 AI 拆解真实用户需求</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 ChatGPT 或 Claude，输入提示词：“我打算做一个 [你的客户端类型，如记账App]，目标用户是 [人群]，请帮我列出他们最痛的3个需求，并给出每个需求的最小可行功能描述。” 把 AI 的回答整理成需求清单，再用 Figma 画一个简单的用户流程图，确认每个需求对应的操作路径。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：用「主体+场景+风格+画质」四段式写首轮提示词</h3>
+      <div class="text-base text-slate-700 leading-loose">打开 Seedream5.5 的生图入口，按四段式组织提示词：主体（谁/什么）、场景（在哪/什么氛围）、风格（摄影/插画/3D 等）、画质（8K、细节丰富、电影感）。例如「一位穿米色风衣的亚洲女性站在雨后的东京街头，电影感摄影，浅景深，8K 细节」。首轮不要堆太多形容词，先确保主体和构图正确，方便后续局部修改。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不要直接问“我该用什么框架”，先聚焦需求本身。AI 给出的需求清单可以再追问“哪些需求可以用系统原生能力直接满足？”
+          💡 <span class="font-semibold">小贴士：</span>首轮生成 2-4 张备选，选构图最接近预期的一张作为「底图」，后续所有修改都基于它，避免每次换底图导致风格漂移。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 Cursor 快速生成原型代码</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Cursor 中新建一个空项目，打开 Composer（Cmd+I），输入：“用 [你熟悉的语言/框架，如 SwiftUI 或 Flutter] 实现一个最小原型：包含 [需求清单中的核心功能]，界面简洁，数据用本地假数据。” 让 Cursor 生成完整代码并运行。根据报错或效果，用自然语言让 Cursor 调整，比如“把列表改成卡片样式”或“增加一个添加按钮”。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用「局部重绘」改细节，每轮只改一个变量</h3>
+      <div class="text-base text-slate-700 leading-loose">选中底图后进入局部重绘/编辑模式，框选要改的区域（如衣服颜色、背景招牌、手部姿势），在提示词里只描述该区域的新内容。关键原则：每轮只改一个变量，改完确认满意再进入下一轮。这样即使改 20 轮，画面也不会因为指令冲突而崩坏。Seedream5.5 的长链路稳定性在这里体现最明显——连续改图后边缘融合和纹理细节依然干净。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>原型阶段不要追求架构完美，能跑通核心流程即可。Cursor 的 Chat 模式可以边问边改，比手动查文档快很多。
+          💡 <span class="font-semibold">小贴士：</span>如果某轮改坏了，直接回退到上一版再改，不要在当前崩坏的图上继续叠加指令。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：评估原生与借力的边界</h3>
-      <div class="text-base text-slate-700 leading-loose">拿着原型，对照原文思路问自己：哪些功能必须用原生（如相机、蓝牙、性能敏感模块）？哪些可以借力第三方 SDK 或云服务（如登录、推送、AI 能力）？用 ChatGPT 辅助列出每个功能的“原生实现成本”和“借力方案成本”，做成一个简单的对比表格。优先选择借力方案来验证非核心功能。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用「风格参考图」做整体迁移，统一视觉语言</h3>
+      <div class="text-base text-slate-700 leading-loose">当主体和细节都满意后，上传 1-2 张风格参考图（如某位摄影师的色调、某类插画的笔触），使用图生图或风格参考功能，把参考图的色彩、光影、质感迁移到你的底图上。提示词里写「保持原图构图和主体不变，参考图的色调与光影风格」。这一步能把「能看」的图提升到「有统一视觉语言」的图。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>借力不是偷懒，而是把精力留给真正差异化的部分。比如用 Firebase 做登录，用 OpenAI API 做智能摘要，能省下大量时间。
+          💡 <span class="font-semibold">小贴士：</span>风格参考图不要选和底图构图差异太大的，否则模型容易把主体也改掉；优先选色调和光影接近你目标的图。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用 AI 辅助完成选型决策</h3>
-      <div class="text-base text-slate-700 leading-loose">把第3步的对比表格和你的团队情况（人数、技术栈、上线时间）输入给 ChatGPT，提示词：“基于以下功能和团队信息，推荐一个客户端技术栈（原生/跨平台/混合），并说明理由和风险。” 结合 AI 的建议和原文观点，做出最终选型。把决策理由写进项目 README，方便后续复盘。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：批量延展——用同一底图生成系列变体</h3>
+      <div class="text-base text-slate-700 leading-loose">固定底图和风格参考，只替换提示词中的场景或动作关键词（如「站在街头」换成「坐在咖啡馆窗边」），批量生成 4-8 张同风格变体。因为底图和风格锚点没变，系列图的一致性会很高，适合做封面套图、产品场景图、角色多姿态图。生成后统一导出，按「底图版本_变体编号」命名归档。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>AI 的建议要结合实际情况判断，比如团队没人会 Swift 就别硬上原生 iOS。选型后可以用 Cursor 快速生成一个该技术栈的 Hello World 验证环境。
+          💡 <span class="font-semibold">小贴士：</span>批量生成时把种子（seed）固定下来，能进一步降低随机性，让系列图更统一。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用工具链固化开发流程</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Cursor 中配置项目规则（.cursorrules），写入你的技术栈约定和代码风格。用 GitHub Copilot 辅助日常编码，用 ChatGPT 生成单元测试和文档。把“需求拆解 → 原型 → 选型 → 开发”的流程写成 checklist，每次新功能都走一遍。最后用 Cursor 的 @Codebase 功能快速回顾项目结构。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：终审与轻修——检查手部、文字、边缘融合</h3>
+      <div class="text-base text-slate-700 leading-loose">把最终图放大到 100% 检查三个高频翻车点：手部手指数量、画面中的文字是否可读、主体与背景的边缘是否自然。Seedream5.5 虽然稳定，但手部和文字仍是所有模型的薄弱项。发现问题就回到第 2 步做一次局部重绘，通常 1-2 轮就能修好。确认无误后导出最高分辨率版本。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>工具链不是越多越好，选 2-3 个顺手的深度使用。定期用 AI 复盘代码，比如问“这个模块有什么潜在性能问题？”
+          💡 <span class="font-semibold">小贴士：</span>需要印刷或大屏展示时，导出后可用 Topaz Photo AI 或 Real-ESRGAN 做一次无损放大，比在生图模型里反复重绘更稳。
         </div>
     </div>
   </div>
@@ -184,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你得到一个可运行的最小原型，一份基于真实需求的技术选型对比表，以及一套可复用的 AI 辅助开发流程。最终能清晰回答“为什么选这个技术栈”以及“哪些功能借力了第三方”。
+    你得到一张经过多轮局部修改和风格迁移的高完成度成图，以及一组风格统一的系列变体。整个过程中画面没有出现明显的噪点堆积、主体变形或细节糊化，验证了 Seedream5.5 长链路编辑的稳定性。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +190,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有编程基础能用这套流程吗？</span>
+        <span>Seedream5.5 在哪里可以用？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以部分使用。需求拆解和选型咨询用 ChatGPT 就能完成，但原型代码生成和调试需要一定编程基础。建议先从低代码平台（如 FlutterFlow）配合 AI 开始。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">它通常集成在字节系产品中（如即梦、豆包）或通过火山引擎方舟 API 调用。具体入口以官方最新公告为准，可参考爱范儿原文的实测链接。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>AI 生成的代码质量可靠吗？</span>
+        <span>为什么我改了几轮之后画面变糊了？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">原型阶段够用，但生产环境需要人工审查和测试。建议用 Cursor 生成后，让 AI 再写单元测试，并手动检查关键逻辑。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">常见原因是每轮都在「当前结果」上叠加修改，误差累积。正确做法是每轮只改一个变量，改坏了就回退到上一版，不要连续在崩坏图上叠加指令。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>选型时应该听 AI 的还是听团队的？</span>
+        <span>局部重绘时框选区域应该多大？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">AI 提供信息参考，最终决策要结合团队技术储备、维护成本和业务节奏。原文也强调：选型是锦上添花，解决真实需求才是根本。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">略大于要改的物体即可，留出 10%-20% 的边缘过渡区，让模型有融合空间。框太大容易影响周围内容，框太小则边缘衔接不自然。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>借力第三方服务会不会有锁定风险？</span>
+        <span>风格参考图和底图构图差异大怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">会，所以核心数据层尽量保持可迁移。非核心功能（如推送、分析）可以放心借力，但要在架构上做好抽象隔离。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">优先选构图接近的参考图；如果差异大，把风格参考的权重调低，并在提示词中强调「保持原图构图和主体不变」，避免模型把主体也迁移掉。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这套流程适合多大的项目？</span>
+        <span>这套工作流对电脑配置有要求吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合从 0 到 1 的验证阶段和中小型客户端项目。大型项目可以借鉴思路，但需要更严格的架构设计和代码审查流程。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">网页端操作基本不吃本地配置，主要依赖云端算力。只有本地放大、修图等后处理环节才需要一定的显卡或内存，普通轻薄本也能跑通全流程。</div>
     </details>
   </div>
 </section>
@@ -233,14 +229,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用 v0.dev 替代 Figma + Cursor，直接通过自然语言生成 React 组件原型，适合 Web 客户端快速验证。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 Bolt.new 或 Lovable 一键生成全栈原型，适合需要后端配合的客户端功能验证。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用 Claude Projects 建立项目知识库，把需求文档、选型记录、代码片段都放进去，让 AI 持续辅助决策。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：电商产品图工作流——用白底产品图做底图，局部重绘替换背景场景，风格参考统一品牌色调，批量生成不同使用场景的产品图。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：角色设定图工作流——先定角色底图，用局部重绘改服装和表情，再用固定种子批量生成多姿态、多角度设定图，适合漫画和游戏前期。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：自媒体封面套图——固定风格参考和版式，只替换主体和标题关键词，批量产出 6-10 张视觉统一的封面，直接用于多平台分发。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    先抓真实需求，再用 AI 快速原型和借力验证，最后才定选型——让工具链为需求服务，而不是反过来。
+    这套工作流的精髓是「锚定底图、单变量修改、风格参考统一」，把 AI 改图从碰运气变成可复现的流水线。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -248,19 +244,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
+    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Yolain工作流在ComfyUI中快速生成图像</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行AI Agent工作流</div>
+    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用awesome-comfyui节点合集扩展ComfyUI工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

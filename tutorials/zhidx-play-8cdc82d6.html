@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AMD收购后首秀！李飞飞发布“Atlas极速版”，打开浏览器实时体验世界模型 - AI 玩法教程 · AI Frontier</title>
+<title>用美团LongCat开源模型搭本地AI工作流 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-09
+      2026-11-11
     </div>
   </div>
 </nav>
@@ -37,7 +37,7 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🧭 工作流
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★☆☆ · 3/5
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">AMD收购后首秀！李飞飞发布“Atlas极速版”，打开浏览器实时体验世界模型</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用美团LongCat开源模型搭本地AI工作流</h1>
     
   </div>
 </header>
@@ -65,7 +65,7 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     权威媒体
   </span>
-  <a href="https://zhidx.com/p/607939.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://zhidx.com/p/608737.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">李飞飞团队 World Labs 在 AMD 收购后首次发布「Atlas 极速版」世界模型，打开浏览器就能实时生成可交互的 3D 场景。本教程带你从零跑通这条工作流，10 分钟做出自己的世界模型 Demo。</p>
+  <p class="text-base text-slate-800 leading-relaxed">美团 LongCat 团队开源了原生多模态模型，本文教你如何在本地搭建一套可用的 AI 工作流，实现文本生成、图像理解等任务的离线运行。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    世界模型（World Model）能根据一张图或一句话生成可漫游、可交互的 3D 环境，是空间智能的核心能力。World Labs 由李飞飞创立，Atlas 是其旗舰产品；「极速版」大幅降低了推理延迟，让浏览器端实时体验成为可能。对 AI 玩法爱好者来说，这意味着无需本地显卡、无需部署，就能亲手测试世界模型的生成质量与交互边界，非常适合做产品调研、创意原型和内容素材。
+    智东西报道了美团 LongCat 团队开源的原生多模态模型，该模型支持文本与图像联合理解，适合在本地部署以保护数据隐私、降低 API 成本。对于开发者、研究者或 AI 爱好者来说，搭建本地工作流意味着可以自由定制提示词、批量处理任务，并避免网络延迟。本教程将带你从零开始，用开源工具链完成模型下载、环境配置、服务启动和简单应用串联，最终形成一个可复用的本地 AI 工作流。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Chrome 或 Edge 浏览器（最新版）  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">Atlas 极速版基于 WebGL/WebGPU 运行，建议使用最新版 Chromium 内核浏览器并开启硬件加速</div>
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行模型推理脚本的基础环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">World Labs Atlas 体验入口  <a href="https://www.worldlabs.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">官方在线体验页面，注册后即可在浏览器中实时生成世界</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">克隆 LongCat 开源仓库</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">参考报道（智东西）  <a href="https://zhidx.com/p/607939.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">了解 Atlas 极速版的功能亮点与发布背景，便于对照体验</div>
+      <div class="font-semibold text-slate-900">CUDA 11.8+（可选但推荐）  <a href="https://developer.nvidia.com/cuda-toolkit" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">GPU 加速推理，显著提升速度</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一张清晰的场景图片（可选） </div>
-      <div class="text-sm text-slate-600 mt-1">用于图生世界的输入，建议 1024px 以上、主体明确的室内/室外照片</div>
+      <div class="font-semibold text-slate-900">Hugging Face 账号  <a href="https://huggingface.co/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">下载模型权重（部分模型需同意协议）</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">稳定网络（建议 50Mbps 以上） </div>
-      <div class="text-sm text-slate-600 mt-1">实时生成对带宽和延迟敏感，有线或 5GHz Wi-Fi 更稳</div>
+      <div class="font-semibold text-slate-900">Ollama 或 vLLM </div>
+      <div class="text-sm text-slate-600 mt-1">本地模型服务框架，二选一即可</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Docker（可选）  <a href="https://www.docker.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">容器化部署，简化环境依赖</div>
     </li>
   </ul>
 </section>
@@ -126,55 +130,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：注册并进入 Atlas 极速版</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 World Labs 官网，点击 Atlas 入口完成邮箱注册/登录。进入工作台后找到标注「Fast / 极速版」的模型选项并选中，确认页面右上角显示实时渲染状态。首次加载会下载 WebGL 资源，耐心等待进度条走完。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：获取 LongCat 模型与代码</h3>
+      <div class="text-base text-slate-700 leading-loose">访问美团 LongCat 团队在 GitHub 或 Hugging Face 上的开源页面（可通过智东西报道中的链接找到入口），克隆代码仓库到本地。使用 git clone 命令下载项目，并按照 README 指引安装依赖（通常为 pip install -r requirements.txt）。如果模型权重需要单独下载，请使用 huggingface-cli 或 git lfs 拉取。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果页面卡在加载，先关闭广告拦截插件并刷新；Chrome 地址栏输入 chrome://gpu 确认 WebGL 为 Hardware accelerated。
+          💡 <span class="font-semibold">小贴士：</span>建议先阅读仓库的 README 和模型卡片，确认硬件要求和许可证，避免下载不兼容的版本。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：选择输入方式并提交生成</h3>
-      <div class="text-base text-slate-700 leading-loose">Atlas 支持文本描述和图片两种输入。文本模式下用「主体 + 环境 + 光照 + 风格」的结构写提示词，例如「一间木质日式茶室，午后阳光从纸窗透入，地面有榻榻米纹理，写实风格」。图片模式则上传准备好的场景图。点击生成后观察实时预览窗口，通常数秒内出现第一版 3D 场景。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：配置本地推理环境</h3>
+      <div class="text-base text-slate-700 leading-loose">创建 Python 虚拟环境（如 conda create -n longcat python=3.10），激活后安装 PyTorch 和项目依赖。若使用 GPU，确保 CUDA 版本与 PyTorch 匹配。对于显存较小的设备，可以启用量化加载（如 4-bit 或 8-bit）以减少内存占用。检查 transformers、accelerate 等库是否安装正确。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>提示词里明确「相机视角」和「材质」能显著提升可用性，比如「第一人称视角、混凝土墙面」。
+          💡 <span class="font-semibold">小贴士：</span>运行 python -c &quot;import torch; print(torch.cuda.is_available())&quot; 验证 GPU 是否可用，若为 False 请检查驱动和 CUDA 安装。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：在浏览器中漫游与交互</h3>
-      <div class="text-base text-slate-700 leading-loose">生成完成后用 WASD 或方向键移动视角，鼠标拖拽旋转镜头，滚轮缩放。重点测试三件事：走到场景边缘看是否穿模、靠近物体看纹理是否清晰、快速转动视角看帧率是否稳定。把发现的问题截图记录，便于后续调参对比。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：启动模型服务</h3>
+      <div class="text-base text-slate-700 leading-loose">根据项目文档选择启动方式：若使用 Ollama，可编写 Modelfile 导入 LongCat 模型并运行 ollama serve；若使用 vLLM，则通过 python -m vllm.entrypoints.openai.api_server --model &lt;模型路径&gt; 启动兼容 OpenAI API 的服务。启动后，用 curl 或 Python requests 测试 /v1/completions 或 /v1/chat/completions 接口是否返回正常。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>按 F 键或界面按钮可切换全屏，沉浸感更强；帧率低时先在设置里把渲染分辨率调低一档。
+          💡 <span class="font-semibold">小贴士：</span>记录服务端口（默认 8000 或 11434），后续工作流中需要填写该地址。首次加载模型可能较慢，耐心等待日志显示“ready”。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：迭代提示词或换图重生成</h3>
-      <div class="text-base text-slate-700 leading-loose">根据第 3 步的问题修改输入：穿模多就补充「封闭空间、完整墙体」；纹理糊就强调「高细节、4K 材质」；风格不对就加「低多边形」「赛博朋克」等限定词。每次只改一个变量，生成 2-3 版做横向对比，选出最稳定的一版。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：编写提示词模板与调用脚本</h3>
+      <div class="text-base text-slate-700 leading-loose">创建一个 Python 脚本，使用 requests 或 openai 库向本地服务发送请求。设计一个简单的提示词模板，例如“请根据以下图片描述生成一段产品文案：{image_description}”。将文本输入和图像路径（若模型支持多模态）组织成 JSON 载荷，调用 API 并解析返回结果。可以封装成函数，方便批量处理。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把每次的提示词和截图存到同一个文档里，形成自己的「提示词-效果」对照表，复用率极高。
+          💡 <span class="font-semibold">小贴士：</span>在脚本中加入异常处理和重试机制，避免因服务暂时无响应导致任务中断。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：导出与二次使用</h3>
-      <div class="text-base text-slate-700 leading-loose">在场景页面找到导出/分享按钮，可生成分享链接或导出场景数据（以官方实际提供的格式为准）。分享链接可直接发给同事在浏览器打开体验；若支持导出网格或视频，可导入 Blender、Unity 做二次创作或作为视频素材。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：串联工作流并测试</h3>
+      <div class="text-base text-slate-700 leading-loose">将多个任务串联起来：例如先用模型对本地图片进行描述生成，再将描述文本送入另一个提示词生成营销文案，最后保存到 Markdown 文件。可以使用简单的 for 循环遍历文件夹中的图片，依次调用本地 API。运行脚本，观察输出是否连贯、格式是否正确。根据结果调整提示词或参数（如 temperature、max_tokens）。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>对外分享前先在自己手机浏览器打开链接测一遍，确认移动端也能正常加载。
+          💡 <span class="font-semibold">小贴士：</span>先用 2-3 张图片做小规模测试，确认流程通畅后再批量处理，节省调试时间。
         </div>
     </div>
   </div>
@@ -184,7 +188,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你会在浏览器中获得一个可实时漫游的 3D 世界：视角移动流畅、场景有基本光影和材质，能通过修改提示词或换图快速生成不同风格的版本，并拿到可分享的链接或导出文件。整个过程无需本地显卡和代码部署。
+    本地模型服务成功启动，通过 Python 脚本可以调用 LongCat 模型完成文本生成和图像理解任务，并自动将结果保存为文件。整个工作流无需联网，响应速度取决于硬件配置，通常 GPU 下每秒可生成数十个 token。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +198,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Atlas 极速版需要付费吗？</span>
+        <span>没有 GPU 可以运行吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">以官网当前政策为准，通常提供免费体验额度，超出后按订阅或点数计费，注册前先看定价页。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但速度较慢。建议使用量化版本（如 GGUF 格式）并通过 Ollama 在 CPU 上运行，或使用云 GPU 临时测试。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>我的电脑没有独立显卡能跑吗？</span>
+        <span>模型下载太慢怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">极速版在云端推理、浏览器端渲染，核显也能跑，但建议开启硬件加速并保持网络稳定；帧率低时降低渲染分辨率。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以使用 Hugging Face 镜像站（如 hf-mirror.com）或提前用 git lfs 拉取。国内用户也可关注 ModelScope 上是否有对应模型。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>生成的场景可以商用吗？</span>
+        <span>启动服务时报错“CUDA out of memory”如何解决？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">取决于 World Labs 的服务条款，商用前务必阅读其许可协议，尤其是导出资产的授权范围。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">降低 batch size、启用量化加载（load_in_8bit=True），或换用更小的模型变体。也可限制 max_model_len 减少显存占用。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>为什么生成的场景走两步就穿模？</span>
+        <span>如何让工作流支持多轮对话？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">世界模型对空间闭合性理解有限，提示词中强调「封闭空间、完整墙体、室内」可缓解，或换更简单的场景图。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>手机浏览器能体验吗？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">部分移动端浏览器支持，但交互以触屏为主、性能有限，建议用桌面端做完整测试，手机端仅做分享预览。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在调用 API 时维护一个 messages 列表，每次将历史对话和最新用户输入一起发送，并保留模型返回的回复追加到列表中。</div>
     </details>
   </div>
 </section>
@@ -233,14 +230,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：图生世界工作流——用 Midjourney/Stable Diffusion 先生成概念图，再喂给 Atlas 转成可漫游 3D 场景，适合游戏关卡原型和影视预演。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：提示词 A/B 测试——固定同一场景主题，只改变「光照」「材质」「视角」三个变量各生成 3 版，整理成对比表，快速摸清模型偏好。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：场景串联叙事——生成 3-5 个风格统一的小场景，用分享链接串成一条「空间故事线」，用于品牌展厅或互动叙事 Demo。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将本地模型接入 LangChain，构建带记忆和工具调用的智能体，实现自动搜索和总结。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：使用 Gradio 或 Streamlit 为本地工作流搭建 Web 界面，方便非技术用户上传图片并获取文案。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合定时任务（如 cron）和本地文件监控，实现新图片自动生成描述并归档的自动化流水线。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用浏览器打开 Atlas 极速版，以「结构化提示词 + 单变量迭代 + 漫游验收」三步循环，就能把世界模型变成随手可用的 3D 场景生成器。
+    用开源 LongCat 模型 + 本地推理框架 + 简单脚本，就能搭建一个隐私安全、可定制的多模态 AI 工作流，核心在于选对部署方式并设计好提示词模板。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -248,19 +245,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Yolain工作流在ComfyUI中快速生成AI图像</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Awesome ComfyUI节点库扩展工作流</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-juejin-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">掘金 AI 实战教程 · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用AI裁判重构编程工作流</div>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>英特尔参展第九届进博会，展示高能效计算成果，助力智能体时代绿色发展 - AI 玩法教程 · AI Frontier</title>
+<title>用AgentCore搭建企业智能体并做治理 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-09
+      2026-11-11
     </div>
   </div>
 </nav>
@@ -37,7 +37,7 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🧭 工作流
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★☆☆ · 3/5
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">英特尔参展第九届进博会，展示高能效计算成果，助力智能体时代绿色发展</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用AgentCore搭建企业智能体并做治理</h1>
     
   </div>
 </header>
@@ -58,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    智东西 AI 工具评测 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    掘金 AI 实战教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://zhidx.com/p/607550.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7706558554959331338" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">这是一篇基于英特尔进博会高能效计算成果的 AI 工作流实战教程，教你用「硬件选型 + 本地推理 + 智能体编排」三步搭建一个绿色低碳的 AI 智能体工作流。</p>
+  <p class="text-base text-slate-800 leading-relaxed">本教程教你用阿里云 AgentCore 搭建一个可治理的企业级智能体，从零完成配置、工具接入与权限管控。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    第九届进博会上，英特尔展示了从酷睿 Ultra 到至强 6 能效核处理器的高能效计算成果，强调在智能体时代用更低功耗跑通 AI 工作流。很多开发者想复现类似方案却不知道从哪下手：硬件怎么选、模型怎么量化、智能体怎么串起来。本教程把新闻里的展示逻辑拆成可落地的操作步骤，适合想搭建本地 AI 智能体、又在意电费和散热的中小团队与个人开发者。参考报道：https://zhidx.com/p/607550.html
+    企业里 AI 智能体往往散落在各个业务线，缺乏统一的构建与治理标准，导致重复开发、权限混乱、效果不可控。AgentCore 提供了一套从智能体编排、工具调用到访问治理的完整能力，适合需要把 AI 助手落地到客服、运维、数据分析等场景的团队。本教程基于掘金 AI 实战教程与杭州站沙龙内容整理，带你走通最小可用链路。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Intel Core Ultra 或 Xeon 6 平台  <a href="https://www.intel.cn/content/www/cn/zh/products/docs/processors/core-ultra.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">提供 NPU/能效核，用于低功耗本地推理</div>
+      <div class="font-semibold text-slate-900">阿里云账号  <a href="https://www.aliyun.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于开通 AgentCore 及相关云产品</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">OpenVINO 2024 或更新版本  <a href="https://docs.openvino.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">英特尔官方推理优化工具链，支持模型量化与 NPU 加速</div>
+      <div class="font-semibold text-slate-900">AgentCore 控制台  <a href="https://www.aliyun.com/product/agentcore" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">智能体构建与治理的主操作界面</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Ollama 或 LM Studio  <a href="https://ollama.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">本地大模型运行环境，便于快速加载量化模型</div>
+      <div class="font-semibold text-slate-900">大模型服务（如通义千问）  <a href="https://dashscope.aliyun.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">为智能体提供推理能力，需开通 API Key</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Dify 或 LangFlow  <a href="https://dify.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">可视化智能体工作流编排工具，用于串联工具链</div>
+      <div class="font-semibold text-slate-900">一个业务 API 或知识库  <a href="https://help.aliyun.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">作为智能体可调用的工具/数据源，例如订单查询接口或 FAQ 文档</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+ 与 Git  <a href="https://www.python.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行示例代码与拉取开源项目</div>
+      <div class="font-semibold text-slate-900">RAM 访问控制  <a href="https://ram.console.aliyun.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于配置智能体的访问权限与治理策略</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：确认硬件与能效基线</h3>
-      <div class="text-base text-slate-700 leading-loose">先查看你的设备是否带 NPU（酷睿 Ultra 系列）或能效核（至强 6），在 Windows 任务管理器或 Linux 的 lscpu 中确认核心与 NPU 状态。然后安装 Intel Power Gadget 或使用 powertop 记录空闲与满载功耗，作为后续对比基线。把基线数据记在表格里，方便量化「绿色」效果。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：开通服务并创建智能体空间</h3>
+      <div class="text-base text-slate-700 leading-loose">登录阿里云控制台，搜索 AgentCore 并开通服务。进入控制台后新建一个「智能体空间」，填写空间名称与描述，选择所属地域。空间是后续智能体、工具和治理策略的隔离单元，建议按业务线划分。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>没有 NPU 也能玩，用 CPU 能效核 + OpenVINO 量化同样能降功耗，只是加速比略低。
+          💡 <span class="font-semibold">小贴士：</span>空间命名建议带上业务前缀，例如 cs-agent-prod，方便后续 RAM 授权时按前缀批量匹配。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 OpenVINO 量化并部署本地模型</h3>
-      <div class="text-base text-slate-700 leading-loose">选一个 7B 级开源模型（如 Qwen2.5-7B-Instruct），用 OpenVINO 的 NNCF 做 INT4 权重量化，导出为 IR 格式。再用 OpenVINO GenAI 的 LLMPipeline 加载模型，跑一段问答测试首 token 延迟与功耗。对比 FP16 与 INT4 两组的延迟和功耗数据，确认能效提升。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：配置模型与提示词模板</h3>
+      <div class="text-base text-slate-700 leading-loose">在空间内创建智能体，选择通义千问等模型并填入 API Key。在系统提示词中定义角色、边界和输出格式，例如「你是订单客服助手，只回答订单相关问题，不确定时引导用户转人工」。保存后可先在调试窗口做一轮对话测试。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>量化后精度可能略降，建议用同一组 20 条测试问题对比答案质量，别只看速度。
+          💡 <span class="font-semibold">小贴士：</span>提示词里显式写出「不知道就说不知道」，能显著降低企业场景下的幻觉风险。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：在 Dify 中编排智能体工作流</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 Dify，新建一个 Chatflow，把本地 OpenVINO 服务封装成 OpenAI 兼容 API 后接入为模型供应商。然后添加「知识检索」节点挂一个本地文档库，再添加「代码执行」节点做简单计算，最后用条件分支把简单问题路由到小模型、复杂问题路由到大模型。保存并发布为 API。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：接入业务工具链</h3>
+      <div class="text-base text-slate-700 leading-loose">在「工具管理」中新增工具，选择 HTTP API 类型，填入业务接口地址、请求方法和参数 Schema。为工具编写清晰的描述，模型靠描述决定何时调用。将工具绑定到智能体后，用「查一下订单 12345 的状态」这类真实问题验证调用链路是否打通。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>路由阈值先设保守一点（如置信度 0.7），跑一周日志后再调，避免复杂问题被误判给小模型。
+          💡 <span class="font-semibold">小贴士：</span>参数 Schema 尽量精简，只暴露必要字段；接口返回做裁剪，避免超长响应撑爆上下文。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：接入真实工具链并压测能效</h3>
-      <div class="text-base text-slate-700 leading-loose">给智能体挂上 2-3 个真实工具，例如本地文件搜索、网页摘要、日历查询，用 Dify 的「工具」节点配置。然后用 Locust 或 wrk 对发布后的 API 做 50 并发压测，同时用 Power Gadget 记录整机功耗。计算「每千次请求耗电量」，与第1步基线对比，形成能效报告。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：配置治理与权限策略</h3>
+      <div class="text-base text-slate-700 leading-loose">进入治理模块，为智能体设置调用配额、敏感词过滤和工具白名单。通过 RAM 为不同角色分配只读、调试、发布等权限，避免所有人都有生产发布权。开启操作审计日志，记录每次工具调用与模型输入输出。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>压测时关掉无关后台程序，否则功耗数据会虚高，对比就不准了。
+          💡 <span class="font-semibold">小贴士：</span>先给测试环境配宽松策略跑通，再复制到生产环境收紧配额，避免一上来就被限流卡住。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：输出绿色智能体报告并迭代</h3>
-      <div class="text-base text-slate-700 leading-loose">把延迟、吞吐、功耗、每千次请求耗电量整理成一页 Markdown 报告，标注量化前后与路由前后的差异。根据报告找出瓶颈：如果是模型加载慢就换更小模型，如果是工具调用多就加缓存。把优化后的配置固化成 Docker Compose，方便复现。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：发布与灰度验证</h3>
+      <div class="text-base text-slate-700 leading-loose">完成调试后发布智能体，获取 API 端点或嵌入链接。先接入一个内部小流量入口做灰度，观察调用成功率、平均耗时和工具调用准确率。根据日志反馈迭代提示词和工具描述，稳定后再全量开放。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>报告里附上硬件型号和驱动版本，别人复现时才知道差异出在哪。
+          💡 <span class="font-semibold">小贴士：</span>灰度期重点看「工具误调用率」，这通常是企业智能体上线后最大的体验杀手。
         </div>
     </div>
   </div>
@@ -184,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你将得到一个可本地运行的智能体工作流：简单问题走 INT4 小模型、复杂问题走大模型，整机功耗比 FP16 基线明显下降，并产出一份含延迟、吞吐、每千次请求耗电量的能效报告。
+    你将得到一个可通过 API 调用的企业智能体：能理解用户问题、按需调用业务接口、在权限与配额约束下运行，并留下完整的审计日志。控制台调试窗口可正常对话，灰度入口能看到稳定的调用成功率。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有英特尔 NPU 的电脑能跟着做吗？</span>
+        <span>没有阿里云账号能玩吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。OpenVINO 支持纯 CPU 推理，量化步骤完全一样，只是加速比和功耗优势不如带 NPU 的平台明显。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能，AgentCore 依赖阿里云账号开通服务，但新账号通常有试用额度，可先低成本验证。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>INT4 量化后模型答非所问怎么办？</span>
+        <span>智能体总是乱调工具怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先换更稳的量化配方（如 AWQ 或 GPTQ），再检查是否量化了不该量化的层；也可以只量化线性层、保留 embedding 为 FP16。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">优先优化工具描述和参数 Schema，让描述明确「什么时候用、什么时候不用」；其次在提示词中约束调用条件。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Dify 接本地模型需要公网吗？</span>
+        <span>治理策略会不会影响调试？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要。把 OpenVINO 服务跑在 localhost 并用 OpenAI 兼容接口暴露，Dify 里填 http://127.0.0.1:端口/v1 即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">会。建议测试空间与生产空间分开，测试空间放宽配额，生产空间再收紧。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>压测数据波动很大怎么处理？</span>
+        <span>支持接入私有化部署的模型吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">固定 CPU 频率、关闭节能模式、每轮压测前空载 2 分钟，并取 3 次中位数，数据会稳定很多。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">取决于 AgentCore 当前版本的模型接入方式，可在控制台模型管理页查看支持的接入类型，或参考官方文档。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这套方案能商用吗？</span>
+        <span>如何评估智能体效果？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但要注意模型许可证（如 Qwen 系列有商用条款）和 OpenVINO 的 Apache 2.0 许可，商用前逐项核对。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用一批真实问题做回归测试集，统计回答准确率、工具调用准确率和人工转接率三个指标即可。</div>
     </details>
   </div>
 </section>
@@ -233,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把路由逻辑换成「按 token 长度分流」，短 prompt 走 NPU 小模型、长 prompt 走 CPU 大模型，适合文档摘要场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 LangFlow 替代 Dify 重搭同一工作流，对比两者在工具调用延迟上的差异，选更适合你团队的编排器。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把能效报告接入 Grafana，实时监控每千次请求耗电量，做成团队看板，持续追踪绿色指标。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把工具换成企业知识库检索，做一个内部制度问答助手，重点治理敏感信息过滤。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：接入工单系统 API，做运维值班智能体，重点配置调用配额与审计告警。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用多智能体编排，一个负责意图识别、一个负责业务查询，验证治理策略在链路中的传递。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    精髓在于：先用量化把模型压到能效核/NPU 能扛的尺寸，再用工作流路由把算力花在刀刃上，最后用功耗数据证明「绿色」不是口号。
+    用 AgentCore 把「建智能体」和「管智能体」放在同一条链路上，先跑通最小闭环，再用治理策略把它变成可上线的企业生产力。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -248,19 +248,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Yolain工作流在ComfyUI中快速生成AI图像</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Awesome ComfyUI节点库扩展工作流</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-juejin-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">掘金 AI 实战教程 · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用AI裁判重构编程工作流</div>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>微诗：从诗入画、且唱且行，这款免费 app 把诗装进手机 - AI 玩法教程 · AI Frontier</title>
+<title>用 MiniMax H3 Image 快速生成 4K 图像 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-09
+      2026-11-11
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">微诗：从诗入画、且唱且行，这款免费 app 把诗装进手机</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 MiniMax H3 Image 快速生成 4K 图像</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    少数派 AI 工具 · A级
+    爱范儿 AI 应用 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     权威媒体
   </span>
-  <a href="https://sspai.com/post/115819" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.ifanr.com/1688790" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">「微诗」是一款免费无广告的诗歌 App，它能让你从诗入画、且唱且行，把古典诗词装进手机里随时品味。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用 MiniMax H3 Image 模型，最快 10 秒就能生成 4K 高清图像，本文教你从零上手这套极速出图流程。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    「微诗」的开发者没有融资、没有收费，也没有商业计划，只是想把喜欢了很多年的东西做成心里的样子。这款 App 通过每日推荐、诗画结合、朗读配乐等方式，让古诗词融入现代生活。适合诗词爱好者、想培养文学素养的学生、以及寻找心灵栖息地的忙碌人群。它不追求商业成功，而是专注于提供纯粹的诗意体验。
+    MiniMax 推出的 H3 Image 模型主打高速高分辨率生成，官方演示中 4K 图像最快仅需 10 秒。对于需要快速产出视觉素材的设计师、自媒体运营和电商美工来说，这意味着从构思到成图的时间被大幅压缩。爱范儿 AI 应用栏目对此做了报道，本教程基于该玩法整理出可复现的操作链路，帮你把「10 秒 4K」真正用起来。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,16 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">微诗 App  <a href="https://sspai.com/post/115819" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">免费下载安装，支持 iOS 和 Android，可在各大应用商店搜索「微诗」获取</div>
+      <div class="font-semibold text-slate-900">MiniMax 开放平台账号  <a href="https://platform.minimaxi.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">注册并获取 API Key，用于调用 H3 Image 模型</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">智能手机 </div>
-      <div class="text-sm text-slate-600 mt-1">用于运行 App，建议系统版本 iOS 12+ 或 Android 8+</div>
+      <div class="font-semibold text-slate-900">MiniMax 官方体验入口（海螺 AI）  <a href="https://hailuoai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">不想写代码可直接在网页端体验图像生成</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">耳机（可选） </div>
-      <div class="text-sm text-slate-600 mt-1">用于聆听诗词朗读和配乐，提升沉浸感</div>
+      <div class="font-semibold text-slate-900">一台能上网的电脑或手机  <a href="https://www.ifanr.com/1688790" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">网页端或 API 调用均可，无特殊硬件要求</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">（可选）Postman 或 curl  <a href="https://www.postman.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于调试 API 请求，验证参数与返回结果</div>
     </li>
   </ul>
 </section>
@@ -118,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：下载并安装微诗 App</h3>
-      <div class="text-base text-slate-700 leading-loose">在手机应用商店（App Store 或各大安卓市场）搜索「微诗」，找到开发者信息为个人或小团队的免费版本，点击下载安装。安装完成后打开 App，无需注册账号即可直接使用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：注册账号并获取 API Key</h3>
+      <div class="text-base text-slate-700 leading-loose">打开 MiniMax 开放平台，用手机号或邮箱完成注册。进入控制台后找到「API 密钥」页面，创建一个新的 Key 并复制保存。注意 Key 只显示一次，建议存到密码管理器里。如果只想快速体验，也可以直接打开海螺 AI 网页端，跳过 API 配置。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>认准图标为简约风格、无广告标识的版本，避免下载到山寨应用。
+          💡 <span class="font-semibold">小贴士：</span>免费额度通常够测试几十张图，先别急着充值，跑通流程再决定。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：浏览每日推荐与诗库</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 App 后，首页会展示每日推荐的诗作，通常配有精美的插画和简短赏析。你可以上下滑动浏览，点击任意诗作进入详情页。在详情页中，可以查看原文、注释、译文和赏析，还能听到专业朗读。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：选择 H3 Image 模型并设定 4K 参数</h3>
+      <div class="text-base text-slate-700 leading-loose">在 API 文档中找到图像生成接口，模型名称填写 H3 Image 对应的 model ID。关键参数包括：分辨率设为 4K（如 3840×2160 或按比例），生成数量设为 1 先测试，采样步数用默认值即可。网页端用户直接在模型下拉框选择 H3 Image，并在尺寸选项里挑 4K。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>每天花 5 分钟浏览一首诗，坚持下来会有意想不到的积累。
+          💡 <span class="font-semibold">小贴士：</span>首次调用建议先用 1080P 跑通，确认 Key 和参数无误后再切 4K，避免浪费额度。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：使用「从诗入画」功能</h3>
-      <div class="text-base text-slate-700 leading-loose">在诗作详情页，寻找「画」或「意境」按钮（通常在底部菜单或右上角），点击后 App 会根据诗句生成或展示对应的画面。部分版本支持将诗句与画作合成图片保存到相册，方便分享到社交平台。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编写高质量提示词</h3>
+      <div class="text-base text-slate-700 leading-loose">提示词结构建议：主体 + 场景 + 风格 + 光影 + 画质词。例如「一只橘猫坐在窗台上，午后阳光，日系胶片风格，柔和逆光，4K 超高清，细节丰富」。H3 Image 对英文提示词兼容良好，中英混写也可以。把提示词填入 prompt 字段，负面提示词可留空或写「模糊、低质量、变形」。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>保存图片时可以选择不同风格（如水墨、简约），适合做手机壁纸。
+          💡 <span class="font-semibold">小贴士：</span>画质词放最后效果更稳，比如「8K、超精细、锐利对焦」这类词不要堆太多，3 个以内即可。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：开启「且唱且行」朗读模式</h3>
-      <div class="text-base text-slate-700 leading-loose">在诗作详情页点击播放按钮，App 会朗读诗句并配以背景音乐。你可以选择「循环播放」或「顺序播放」，在通勤、散步时聆听。部分诗作还支持跟读评分功能，尝试模仿朗读者的语调。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：发送请求并等待出图</h3>
+      <div class="text-base text-slate-700 leading-loose">用 curl 或 Postman 向图像生成端点发送 POST 请求，Header 带上 Authorization: Bearer 你的Key，Body 为 JSON 格式包含 model、prompt、size 等字段。点击发送后，最快约 10 秒返回图片 URL。网页端用户直接点「生成」按钮，等待进度条走完即可预览。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>连接耳机后音质更佳，建议在安静环境下体验跟读功能。
+          💡 <span class="font-semibold">小贴士：</span>如果返回超时，先检查网络和 Key 是否有效，再把 size 降到 2K 重试，排除是 4K 渲染耗时导致。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：收藏与整理个人诗单</h3>
-      <div class="text-base text-slate-700 leading-loose">遇到喜欢的诗作，点击收藏按钮（通常是星标或心形图标），将其加入个人诗单。在「我的」或「收藏」页面可以查看所有收藏，并按主题或时间排序。你还可以为诗单添加标签，方便日后检索。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：下载 4K 原图并做后期微调</h3>
+      <div class="text-base text-slate-700 leading-loose">从返回的 URL 下载图片，确认分辨率达到 4K 标准。如果构图满意但细节有瑕疵，可以固定随机种子（seed）微调提示词重新生成。需要批量出图时，把请求封装成脚本循环调用，每次更换 prompt 即可。最后用修图软件做锐化和色彩微调，让 4K 优势完全发挥。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>定期整理收藏，删除不再心动的诗，保持诗单精简。
+          💡 <span class="font-semibold">小贴士：</span>保存每次成功的 prompt 和 seed，方便复现和迭代，这是提升出图稳定性的关键习惯。
         </div>
     </div>
   </div>
@@ -176,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    完成以上步骤后，你将拥有一个专属的诗词宝库：每天收到一首推荐诗，能欣赏诗画结合的意境，聆听配乐朗读，并收藏自己喜爱的作品。手机成为随身的诗意空间，随时可以沉浸几分钟。
+    完成以上步骤后，你将获得一张分辨率达到 4K（约 3840×2160）的高清图像，生成耗时在 10 秒到 1 分钟之间，画面细节清晰、可直接用于海报、封面或电商详情页。同时你已掌握一套可复用的 API 调用流程，能批量产出 4K 素材。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -186,38 +190,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>微诗 App 真的完全免费吗？有没有隐藏收费？</span>
+        <span>10 秒生成 4K 是真实速度吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">根据开发者说明和用户反馈，微诗目前完全免费，无广告、无内购。开发者没有商业计划，仅出于个人兴趣维护。但未来若增加服务器成本，可能会寻求捐赠，建议关注官方公告。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">官方演示的最快速度在理想网络和简单提示词下可达，实际耗时受提示词复杂度、服务器负载和网络影响，通常在 10 秒到 1 分钟之间。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>App 中的诗画是 AI 生成的吗？</span>
+        <span>没有编程基础能用吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">部分插画为人工绘制或授权素材，部分版本可能引入 AI 生成图像。具体可在诗作详情页查看标注。无论来源如何，画面都旨在辅助理解诗意。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。直接使用海螺 AI 网页端，选择 H3 Image 模型和 4K 尺寸，输入提示词点生成即可，全程无需写代码。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>朗读功能支持哪些音色？可以自定义吗？</span>
+        <span>4K 图像会消耗更多额度吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">目前提供默认的男声/女声朗读，部分诗作有专属朗读版本。暂不支持用户自定义音色，但可以调整语速和背景音乐音量。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常分辨率越高消耗的额度越多，具体倍率以 MiniMax 开放平台的价格页为准，建议先用低分辨率测试。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>收藏的诗作会丢失吗？是否需要备份？</span>
+        <span>生成的图片可以商用吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">收藏数据保存在本地，卸载 App 会丢失。建议定期截图或使用 App 内的导出功能（如有）备份。目前不支持云同步。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">需遵守 MiniMax 的服务条款和内容政策，一般生成内容版权归用户，但建议查阅官方协议确认商用范围。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>微诗支持哪些设备？平板能用吗？</span>
+        <span>提示词用中文还是英文好？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">支持 iOS 和 Android 手机，平板设备通常兼容但界面可能未专门适配。建议在手机上使用以获得最佳体验。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">H3 Image 对中英文都支持，英文在风格和光影描述上更精准，中文更直观，可以中英混写取长补短。</div>
     </details>
   </div>
 </section>
@@ -225,14 +229,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将微诗与笔记软件结合——每天选一首诗，用微诗生成诗画图片，粘贴到 Notion 或 Obsidian 中，配上自己的感悟，打造个人诗词手账。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：亲子共读模式——家长用微诗播放朗读，让孩子跟读，并一起看诗画猜诗意，培养孩子的文学兴趣。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：创作辅助——用微诗中的诗句作为灵感，结合 AI 绘画工具（如 Midjourney）生成更丰富的画面，或让 AI 续写诗句，进行二次创作。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：批量电商主图——用脚本循环调用 API，每次替换产品名称和背景描述，一次性生成整套 4K 商品图。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：固定 seed 做系列图——锁定同一 seed，只改风格词，生成同一构图的多风格版本，适合做 A/B 测试素材。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合放大工具二次增强——先用 H3 Image 出 2K 图，再用 Real-ESRGAN 等放大工具超分到 4K，兼顾速度与细节。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    微诗以极简免费的方式，让古诗词通过画与声融入日常，每天几分钟即可滋养心灵。
+    选对模型、写好提示词、先低分辨率跑通再切 4K，你就能把「10 秒出 4K」变成日常出图流水线。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -242,17 +246,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
       <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

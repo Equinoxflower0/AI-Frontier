@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>不用困在厨房也能做出好饭：三十道省事家常蒸菜 - AI 玩法教程 · AI Frontier</title>
+<title>实测 AGENTS.md 过期指令对 Coding Agent 的影响 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-09
+      2026-11-11
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">不用困在厨房也能做出好饭：三十道省事家常蒸菜</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">实测 AGENTS.md 过期指令对 Coding Agent 的影响</h1>
     
   </div>
 </header>
@@ -58,24 +58,28 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    少数派 AI 工具 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    掘金 AI 实战教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://sspai.com/prime/story/30-easy-steamed-dishes" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7706719431355858994" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">Claude</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">用 AI 生成一套「蒸菜提示词模板」，让蒸锅变成你的懒人厨房主力，30 道家常蒸菜轮着做不重样。</p>
+  <p class="text-base text-slate-800 leading-relaxed">AGENTS.md 或 CLAUDE.md 里的指令过期后，Coding Agent 会怎么表现？这篇教程带你用 Claude 实测过期指令对 Agent 行为的影响，并教你如何规避。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多人下班后不想困在厨房，但又想吃得健康。蒸菜几乎不需要看火，备好料放进蒸锅就能去干别的事。少数派这篇《三十道省事家常蒸菜》提供了菜谱思路，但直接照做容易陷入「今天吃什么」的选择困难。本玩法把 AI 当作你的蒸菜规划师：先让 AI 根据你的口味和冰箱库存生成 30 道蒸菜清单，再让它输出每道菜的备料步骤和蒸制时间，最后整理成可打印的轮换菜单。适合忙碌上班族、健身备餐人群和厨房新手。
+    北卡州立大学团队从真实开源仓库中发现，许多项目的 AGENTS.md/CLAUDE.md 文件中的指令会随时间过期，导致 Coding Agent 执行错误操作。本玩法通过复现实验，让你理解过期指令的危害，并掌握检测与修复方法。适用场景：维护长期项目的开发者、使用 Claude 等 Coding Agent 的团队、对 Agent 可靠性感兴趣的研究者。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +100,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ChatGPT / Claude / Kimi 等对话式 AI  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用来生成蒸菜清单、步骤和轮换菜单，任选一个你顺手的即可</div>
+      <div class="font-semibold text-slate-900">Claude  <a href="https://claude.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于执行 Coding Agent 任务，需支持读取 AGENTS.md/CLAUDE.md 文件</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">电蒸锅或普通蒸锅  <a href="https://www.jd.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">核心烹饪工具，带定时功能更省心</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于克隆示例仓库和版本控制</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">厨房秤和量杯  <a href="https://www.jd.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">蒸菜调味比例稳定，新手建议称量</div>
+      <div class="font-semibold text-slate-900">Node.js (可选)  <a href="https://nodejs.org" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">部分示例项目依赖 Node 环境运行测试</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">保鲜盒若干  <a href="https://www.jd.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于提前备料和分装蒸菜，冷藏保存</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">少数派原文（参考菜谱灵感）  <a href="https://sspai.com/prime/story/30-easy-steamed-dishes" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">提供 30 道蒸菜的原始思路，可喂给 AI 做参考</div>
+      <div class="font-semibold text-slate-900">一个开源仓库  <a href="https://github.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">包含 AGENTS.md 或 CLAUDE.md 的仓库，可从 GitHub 搜索获取</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：让 AI 生成你的专属 30 道蒸菜清单</h3>
-      <div class="text-base text-slate-700 leading-loose">打开对话式 AI，输入提示词：「我是一名上班族，工作日晚上只有 30 分钟做饭时间，家里有电蒸锅。请参考少数派《三十道省事家常蒸菜》的思路，为我生成 30 道家常蒸菜清单，要求：1）荤素搭配，荤菜不超过 12 道；2）食材在普通超市能买到；3）每道菜标注主要食材和预计蒸制时间；4）按肉类、鱼类、蛋类、蔬菜、主食分类输出表格。」AI 会返回一张结构化表格，你可以直接保存。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：准备一个含过期指令的仓库</h3>
+      <div class="text-base text-slate-700 leading-loose">从 GitHub 找一个包含 AGENTS.md 或 CLAUDE.md 的开源项目，克隆到本地。检查文件中的指令是否与当前代码结构一致，例如指令要求运行 `npm test` 但项目已改用 `pnpm test`，或指令引用了已删除的目录。如果没有现成仓库，可手动创建一个示例项目，并编写一份包含过时命令的 AGENTS.md。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果 AI 生成的菜太复杂，追加一句「请把每道菜的备料时间控制在 10 分钟以内」来收紧范围。
+          💡 <span class="font-semibold">小贴士：</span>优先选择 1 年以上未更新的仓库，过期指令概率更高。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：让 AI 输出每道菜的「懒人版」操作卡</h3>
-      <div class="text-base text-slate-700 leading-loose">从清单中挑出你最想先做的 5 道菜，对 AI 说：「请为以下 5 道蒸菜各写一张操作卡，格式为：菜名 / 食材与用量（按 1-2 人份）/ 预处理步骤（不超过 3 步）/ 调味汁配方 / 蒸制时间与火候 / 关键提示。语言要像给厨房新手看的，不要用专业术语。」AI 会输出 5 张卡片，你把它们复制到备忘录或打印出来贴在冰箱上。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：让 Claude 读取并执行指令</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Claude 中打开项目，明确要求它读取 AGENTS.md/CLAUDE.md 并按照其中的指令完成一个任务，例如“根据 AGENTS.md 的说明运行测试并修复失败用例”。观察 Claude 是否会直接执行过期命令，以及执行后的错误反馈。记录 Claude 的决策过程，比如它是否尝试纠正指令。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>要求 AI 把调味汁统一成「一勺生抽+半勺蚝油+少许糖」这类可复用的基础公式，能减少备料复杂度。
+          💡 <span class="font-semibold">小贴士：</span>使用 Claude 的“项目”功能上传整个仓库，确保它能访问所有文件。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用 AI 生成一周蒸菜轮换表</h3>
-      <div class="text-base text-slate-700 leading-loose">把 30 道菜清单发给 AI，输入：「请根据这份清单，帮我排一周的晚餐蒸菜轮换表，周一到周日每天 1 道荤菜+1 道素菜，要求相邻两天不重复食材种类，并列出每周采购清单（按超市分区：肉禽蛋、水产、蔬菜、调味品）。」AI 会输出一张周表和一份采购清单，你照着买即可。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：对比指令过期前后的行为差异</h3>
+      <div class="text-base text-slate-700 leading-loose">将 AGENTS.md 中的过期指令手动更新为当前正确的指令，再次让 Claude 执行相同任务。对比两次运行的结果：过期指令下 Claude 是否频繁报错、是否绕开指令自行探索、是否产生幻觉。整理成表格，标注过期指令导致的典型失败模式。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>让 AI 把采购清单按「耐放」和「易坏」分开标注，先吃易坏的蔬菜，减少浪费。
+          💡 <span class="font-semibold">小贴士：</span>使用 Claude 的对话分支功能，保留两次运行的完整记录以便对比。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：周末集中备料，工作日直接蒸</h3>
-      <div class="text-base text-slate-700 leading-loose">按采购清单买齐食材后，周末花 40 分钟做预处理：肉类切好分装冷冻，蔬菜洗净切好放保鲜盒，调味汁按每餐用量调好装小瓶。每盒贴上标签写明菜名和蒸制时间。工作日下班回家，取出一盒直接上锅蒸，按操作卡上的时间定时即可。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：分析过期指令的根因与影响</h3>
+      <div class="text-base text-slate-700 leading-loose">检查过期指令的具体内容，判断属于哪类问题：命令变更、路径失效、依赖版本过时、或流程描述错误。结合北卡州立大学团队的研究结论，理解过期指令如何误导 Agent 的规划与执行。思考在真实项目中，这类问题可能导致的时间浪费和错误修复。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>叶菜类不要提前切，蒸之前再洗切，避免出水变蔫；根茎类和肉类可以提前 2-3 天备好。
+          💡 <span class="font-semibold">小贴士：</span>关注指令中硬编码的版本号、绝对路径和工具名，这些最容易过期。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用 AI 复盘并迭代菜单</h3>
-      <div class="text-base text-slate-700 leading-loose">一周结束后，告诉 AI：「这周做了 7 道菜，其中 A 菜太淡、B 菜蒸老了、C 菜孩子不爱吃，请根据反馈调整这 3 道菜的做法，并从剩余清单中推荐 3 道替代菜。」AI 会给出改进版操作卡和新推荐，你把它并入下一轮轮换表。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：制定修复与预防策略</h3>
+      <div class="text-base text-slate-700 leading-loose">针对发现的问题，更新 AGENTS.md/CLAUDE.md 中的指令，确保与当前项目状态一致。建议添加“指令最后验证日期”和“适用版本”注释。同时，在 CI 流程中加入指令有效性检查，例如定期运行指令中的命令并验证退出码。将修复后的文件提交，并让 Claude 重新执行任务验证效果。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>每次只调整 2-3 道菜，避免菜单变化太大导致备料混乱。
+          💡 <span class="font-semibold">小贴士：</span>使用 Claude 生成指令有效性检查脚本，自动化验证过程。
         </div>
     </div>
   </div>
@@ -184,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你得到一份 30 道蒸菜的专属清单、5 张懒人操作卡、一张一周轮换表和一份分区的采购清单。工作日下班后只需从冰箱取出备好的食材盒，上锅蒸 10-20 分钟即可开饭，不用在厨房长时间守着。
+    完成以上步骤后，你将得到一份过期指令导致 Agent 失败的实测记录，以及一份更新后的 AGENTS.md/CLAUDE.md 文件。Claude 在执行任务时的错误率明显下降，能够正确遵循指令完成测试和修复。你还能总结出过期指令的常见模式，并建立预防机制。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>AI 生成的菜谱分量不准怎么办？</span>
+        <span>没有现成的过期指令仓库怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在提示词中明确「按 1-2 人份、每道菜主料 200-300 克」来约束，首次做时用厨房秤称一次，之后按经验调整。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以手动创建一个示例项目，编写一份包含明显过时命令（如 `npm run build:old`）的 AGENTS.md，然后按照教程步骤操作。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有电蒸锅，普通蒸锅可以吗？</span>
+        <span>Claude 不读取 AGENTS.md 文件怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。普通蒸锅需要自己看火，建议配一个厨房定时器，按操作卡上的时间设定，到点关火即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">确保在对话中明确指示 Claude 读取该文件，或使用 Claude 的项目功能上传文件。也可以直接粘贴文件内容到对话中。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>蒸菜会不会太清淡吃不下？</span>
+        <span>过期指令一定会导致 Agent 失败吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">让 AI 在操作卡中加一栏「蘸汁或淋汁」配方，比如蒜蓉豉油汁、剁椒汁、芝麻酱汁，蒸好后淋上就有味道。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不一定，取决于 Agent 的纠错能力。但过期指令会增加失败概率和调试成本，尤其是当指令与当前环境严重不符时。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>周末备料真的能省时间吗？</span>
+        <span>如何自动化检测指令过期？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">能。集中洗切分装大约 40 分钟，换来工作日每餐节省 15-20 分钟备料时间，一周下来净省 1 小时以上。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以编写脚本定期运行 AGENTS.md 中的命令，检查退出码和输出。也可以使用 Claude 分析指令与代码库的一致性。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>AI 推荐的食材买不到怎么办？</span>
+        <span>这个玩法适合哪些人？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在提示词中加一句「只使用本地普通超市常见食材，不要出现稀有或进口食材」，AI 会自动替换成常见选项。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合使用 Coding Agent 的开发者、维护长期项目的团队，以及对 Agent 可靠性感兴趣的研究者。</div>
     </details>
   </div>
 </section>
@@ -233,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：健身备餐版——让 AI 按高蛋白低脂标准重新筛选 30 道蒸菜，每道标注蛋白质和热量估算，适合减脂期人群。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：儿童友好版——提示词改为「所有菜不放辣椒、少盐、食材切成孩子容易咀嚼的大小」，让 AI 生成适合亲子共食的蒸菜清单。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：一周全蒸挑战——让 AI 排一张 7 天三餐全蒸的极限菜单（含蒸早餐如蒸蛋、蒸红薯），适合想彻底解放厨房的人。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：多 Agent 对比测试——用 Claude、Cursor、Copilot 分别执行同一份过期指令，比较它们的纠错能力和失败模式。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：指令版本化管理——为 AGENTS.md 引入版本号，并让 Agent 根据项目版本自动选择对应指令，避免过期问题。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：动态指令生成——让 Agent 在每次任务前根据当前代码库状态自动生成或更新 AGENTS.md，减少人工维护成本。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 AI 把「今天蒸什么」变成一张可执行的轮换表，周末备料、工作日直接蒸，懒人也能天天吃上家常饭。
+    过期指令是 Coding Agent 的隐形陷阱，定期验证和更新 AGENTS.md/CLAUDE.md 才能让 Agent 稳定发挥。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,17 +250,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
       <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

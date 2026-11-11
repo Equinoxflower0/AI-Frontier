@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>阿里发布AI向善报告2026：数据中心算力密度两年增近5倍，绿电占比73.6% - AI 玩法教程 · AI Frontier</title>
+<title>用openEuler新方案让操作系统适配Agent - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-09
+      2026-11-11
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🧭 工作流
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">阿里发布AI向善报告2026：数据中心算力密度两年增近5倍，绿电占比73.6%</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用openEuler新方案让操作系统适配Agent</h1>
     
   </div>
 </header>
@@ -65,7 +65,7 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     权威媒体
   </span>
-  <a href="https://zhidx.com/p/607791.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://zhidx.com/p/608650.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">阿里2026年AI向善报告披露了数据中心算力密度两年增近5倍、绿电占比73.6%的硬核数据，本教程教你用一套轻量工作流，把这份报告变成可复用的行业洞察与可视化素材。</p>
+  <p class="text-base text-slate-800 leading-relaxed">这篇教程教你如何利用 openEuler 的新方案，让操作系统原生适配 AI Agent，实现从系统层面调度智能体任务。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    智东西11月5日报道了阿里发布的AI向善报告2026，其中数据中心算力密度两年增长近5倍、绿电占比达到73.6%等指标，是观察AI基础设施绿色化与集约化趋势的关键信号。很多读者看完新闻只记住了数字，却不知道如何把这些数据转化为自己的分析框架、汇报材料或内容选题。本玩法用「抓取—结构化—可视化—输出」四段式工作流，借助通用AI工具与表格/图表工具，在30分钟内产出一份可分享的洞察卡片，适合分析师、内容创作者、ESG从业者和技术管理者快速上手。
+    随着 AI Agent 从对话走向执行，传统操作系统缺乏对 Agent 生命周期、资源隔离和工具调用的统一管理。openEuler 新方案通过系统级抽象，将 Agent 视为一等公民，提供运行时环境、能力注册和通信总线。该玩法适合开发者、运维和 AI 应用架构师，用于构建稳定、可观测的 Agent 运行底座。参考智东西报道：https://zhidx.com/p/608650.html
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">浏览器（Chrome/Edge）  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">打开原文并复制正文内容</div>
+      <div class="font-semibold text-slate-900">openEuler 24.03 LTS  <a href="https://www.openeuler.org/zh/download/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">支持 Agent 新特性的操作系统基础环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">原文链接  <a href="https://zhidx.com/p/607791.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">智东西报道原文，作为数据来源</div>
+      <div class="font-semibold text-slate-900">Docker 或 Podman  <a href="https://docs.docker.com/get-docker/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于隔离 Agent 运行时和依赖</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">AI对话工具（如Kimi/通义千问/ChatGPT）  <a href="https://kimi.moonshot.cn/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于信息抽取、结构化与文案生成</div>
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编写 Agent 逻辑和调用系统接口</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">飞书表格或腾讯文档  <a href="https://www.feishu.cn/product/base" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">整理指标表格并生成图表</div>
+      <div class="font-semibold text-slate-900">openEuler Agent SDK  <a href="https://gitee.com/openeuler/agent-sdk" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">官方提供的 Agent 注册、通信和资源管理库</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Canva或稿定设计  <a href="https://www.canva.cn/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">把图表与结论排成一张洞察卡片</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">拉取示例代码和配置模板</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：抓取并清洗原文数据</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 https://zhidx.com/p/607791.html ，用浏览器阅读全文，把包含「算力密度」「绿电占比」「两年增近5倍」「73.6%」等关键数字的段落复制下来。粘贴到AI对话工具中，输入提示词：「请从以下文本中提取所有量化指标，按『指标名称｜数值｜时间范围｜同比/对比基准｜出处段落』五列输出为表格，不要遗漏任何百分比和倍数。」检查AI输出是否与原文一致，剔除推测性内容。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装并配置 openEuler Agent 运行时</h3>
+      <div class="text-base text-slate-700 leading-loose">在 openEuler 24.03 上执行 `sudo dnf install openeuler-agent-runtime` 安装运行时。然后启用并启动服务：`sudo systemctl enable --now agent-runtime`。检查状态 `systemctl status agent-runtime` 确保 active。最后将当前用户加入 agent 组：`sudo usermod -aG agent $USER` 并重新登录。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果原文有配图，先截图保存，图表里的数字往往比正文更细，可让AI结合图片OCR结果一起提取。
+          💡 <span class="font-semibold">小贴士：</span>如果 dnf 找不到包，先运行 `sudo dnf update` 并添加 openEuler 官方源。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：让AI生成结构化洞察框架</h3>
-      <div class="text-base text-slate-700 leading-loose">把上一步的指标表格继续喂给AI，追加提示词：「基于这些指标，按『事实—趋势—影响—建议』四层结构，写一份300字以内的行业洞察摘要，面向企业技术负责人，语言简洁、有判断、不堆砌形容词。」同时要求AI列出3个值得追问的问题，例如「算力密度提升是否伴随能耗总量下降」。把输出保存到文档中，作为后续图表和卡片的文案底稿。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：创建并注册你的第一个 Agent</h3>
+      <div class="text-base text-slate-700 leading-loose">使用 Agent SDK 初始化项目：`agent-sdk init my-agent --template=basic`。进入目录后编辑 `agent.yaml`，填写名称、入口脚本和所需能力（如文件读写、网络访问）。运行 `agent-sdk register my-agent` 将 Agent 注册到系统总线。注册成功后可用 `agent-sdk list` 查看已注册 Agent。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>提示词里明确「不堆砌形容词」能显著减少AI的空话，让结论更可用。
+          💡 <span class="font-semibold">小贴士：</span>能力声明要最小化，只申请实际需要的权限，便于系统做安全隔离。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：在表格工具中做对比可视化</h3>
-      <div class="text-base text-slate-700 leading-loose">打开飞书表格或腾讯文档，新建一张表，把「算力密度」和「绿电占比」两个核心指标按年份整理成两列（若原文只有两年数据，就做两年对比）。选中数据插入柱状图或折线图，给图表加标题「阿里数据中心算力密度与绿电占比变化（2024—2026）」。把第2步的洞察摘要压缩成一句话，放在图表上方作为结论句。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编写 Agent 逻辑并调用系统工具</h3>
+      <div class="text-base text-slate-700 leading-loose">在 `main.py` 中导入 `openeuler_agent` 模块，使用 `@agent.task` 装饰器定义任务函数。通过 `agent.tools.call('file.read', path)` 调用系统工具，或使用 `agent.bus.publish('topic', data)` 与其他 Agent 通信。本地测试：`agent-sdk run my-agent --task=hello`。确认输出符合预期后，用 `agent-sdk deploy my-agent` 部署为常驻服务。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>只有两个数据点时，用柱状图比折线图更不容易误导读者；记得在图表下方标注数据来源和链接。
+          💡 <span class="font-semibold">小贴士：</span>调试时开启 `--log-level=debug` 查看系统总线消息流，快速定位调用失败原因。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用设计工具排成一张洞察卡片</h3>
-      <div class="text-base text-slate-700 leading-loose">打开Canva或稿定设计，选择「信息图/长图」模板，把图表截图、结论句、3个追问问题依次排入。配色建议用绿色系呼应「绿电」主题，顶部放标题「阿里AI向善报告2026：算力密度×绿电占比」。导出PNG，尺寸建议1080×1440，适合微信/小红书分享。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：配置资源隔离与可观测性</h3>
+      <div class="text-base text-slate-700 leading-loose">编辑 `/etc/agent-runtime/config.yaml`，为 Agent 设置 CPU/内存限额和超时时间。启用内置的 Prometheus 指标导出：`metrics.enabled: true`。重启运行时后，访问 `http://localhost:9090/metrics` 查看 Agent 运行指标。结合 Grafana 导入官方看板模板，监控任务成功率与延迟。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>卡片上只放1个核心数字（如73.6%）做大字号强调，其余信息做辅助，阅读完成率会更高。
+          💡 <span class="font-semibold">小贴士：</span>生产环境建议为每个 Agent 单独设置 cgroup 限额，避免单个 Agent 耗尽系统资源。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：让AI做一次事实核查与延伸</h3>
-      <div class="text-base text-slate-700 leading-loose">把最终卡片文案贴回AI，输入提示词：「请逐条核查以下文案中的数字是否与原文一致，标出任何夸大或缺少出处的表述，并补充2条与AI数据中心绿色化相关的延伸阅读方向。」根据核查结果修正卡片，确保每个数字都能回溯到原文。最后把卡片、表格和摘要打包成一个文件夹归档。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：集成外部 AI 模型并完成端到端验证</h3>
+      <div class="text-base text-slate-700 leading-loose">在 `agent.yaml` 的 `env` 中配置模型 API Key（如 OpenAI 或本地 Ollama 地址）。修改任务函数，调用模型生成计划，再通过 `agent.tools.call` 执行系统操作。运行 `agent-sdk test my-agent --scenario=full` 进行端到端测试。观察日志和指标，确认 Agent 能正确调用工具并返回结果。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>让AI「标出缺少出处的表述」比让它「判断对错」更可靠，因为后者容易编造。
+          💡 <span class="font-semibold">小贴士：</span>先用 mock 模型测试工具链，再切换真实模型，避免调试时产生不必要的 API 费用。
         </div>
     </div>
   </div>
@@ -184,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你将得到一份包含指标表格、300字洞察摘要、一张对比图表和一张1080×1440洞察卡片的完整素材包，所有数字均可回溯到智东西原文，可直接用于汇报、社交媒体发布或选题会讨论。
+    完成以上步骤后，你将在 openEuler 上拥有一个已注册、可隔离运行、具备可观测性的 AI Agent。通过 `agent-sdk list` 能看到 Agent 状态为 running，Prometheus 指标正常上报，且 Agent 能按任务调用系统工具并返回结果。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,31 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>原文只有两个时间点的数据，做图表会不会太单薄？</span>
+        <span>openEuler Agent 运行时和普通 Docker 运行 Agent 有什么区别？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">两个点适合做「前后对比」柱状图，重点突出变化幅度（如近5倍），并在图注中说明数据口径，避免读者误读为连续趋势。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">运行时提供系统级 Agent 注册、能力权限管理和统一通信总线，而 Docker 只做进程隔离，缺少 Agent 生命周期和工具调用的标准抽象。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>AI提取的数字和原文对不上怎么办？</span>
+        <span>没有 openEuler 物理机，可以用虚拟机或 WSL 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">以原文为准，逐条人工核对；可要求AI在表格中附上原文句子作为出处，方便快速比对。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。推荐用 VirtualBox 或 VMware 安装 openEuler 24.03 镜像；WSL 暂不支持 agent-runtime 的全部内核特性。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有设计基础，卡片排版很丑怎么办？</span>
+        <span>Agent SDK 支持哪些编程语言？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">直接用Canva的「信息图」模板，只替换文字和图表截图，保持模板原有的留白和字号层级即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">目前官方主要支持 Python，社区有 Go 和 Rust 的早期绑定，建议优先使用 Python 以获得完整功能。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这套工作流能用在其他报告上吗？</span>
+        <span>注册 Agent 时提示权限不足怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，把第1步的提示词换成任意报告链接或PDF文本，后续步骤完全复用，适合批量处理行业报告。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">确认当前用户已在 agent 组中，并重新登录；或使用 `sudo agent-sdk register` 临时提权注册。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>如何卸载或停止一个已部署的 Agent？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">运行 `agent-sdk stop my-agent` 停止服务，`agent-sdk unregister my-agent` 从总线移除，再删除项目目录即可。</div>
     </details>
   </div>
 </section>
@@ -226,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把「洞察卡片」换成「5页PPT」，用AI生成每页标题与要点，适合周会汇报场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：把指标表格接入飞书多维表格，设置阈值提醒（如绿电占比低于70%标红），做成可持续跟踪的仪表盘。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：让AI基于报告数据写一篇800字公众号文章，再用卡片图做头图，形成「图文一体」的内容发布流。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：多 Agent 协作——注册多个职责单一的 Agent（如文件整理 Agent、网络查询 Agent），通过系统总线发布/订阅消息，实现流水线任务。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：边缘设备部署——在 openEuler 嵌入式版本上运行轻量 Agent，结合本地小模型（如 Ollama）实现离线智能运维。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：安全审计增强——利用运行时的能力声明和调用日志，构建 Agent 行为审计看板，自动告警异常工具调用。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用「抓数据—结构化—可视化—核查」四步工作流，把一份新闻报告变成可回溯、可分享、可复用的行业洞察素材。
+    把 Agent 当作系统原生服务来注册、隔离和观测，是 openEuler 新方案的核心精髓。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -241,19 +248,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Yolain工作流在ComfyUI中快速生成AI图像</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Awesome ComfyUI节点库扩展工作流</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-juejin-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">掘金 AI 实战教程 · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用AI裁判重构编程工作流</div>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

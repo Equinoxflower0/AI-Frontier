@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>10个月融了20亿，又跑出一家AI独角兽，上海国资投了 - AI 玩法教程 · AI Frontier</title>
+<title>用PyTorch hook逐层定位loss变NaN - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-09
+      2026-11-11
     </div>
   </div>
 </nav>
@@ -37,7 +37,7 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🧭 工作流
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★☆☆ · 3/5
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">10个月融了20亿，又跑出一家AI独角兽，上海国资投了</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用PyTorch hook逐层定位loss变NaN</h1>
     
   </div>
 </header>
@@ -58,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    智东西 AI 工具评测 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://zhidx.com/p/607594.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/dawudexiaowu/p/23626768" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">这篇教程将带你拆解「AI 独角兽融资新闻」背后的信息挖掘工作流，用一套可复用的工具链，把一篇行业报道变成你自己的选题库和投资观察笔记。</p>
+  <p class="text-base text-slate-800 leading-relaxed">训练模型时 loss 突然变成 NaN，别急着乱改代码——用 PyTorch 的 forward hook 逐层监控，能像烟感报警一样精准定位第一个冒出 inf 的层和步数。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    智东西报道了一家成立仅10个月就融资20亿、跑成AI独角兽并被上海国资投资的公司，这类新闻背后往往藏着技术路线、资本风向和落地场景三条线索。很多读者看完就划走，但如果你用一套「抓取—拆解—归档—输出」的工作流，就能把单篇新闻变成持续可用的行业情报。本玩法适合内容创作者、投资观察者和AI产品经理，难度中等，需要一点信息整理耐心。
+    很多人在训练深度学习模型时都遇到过 loss 突然变成 NaN 的情况，常见原因有两个：学习率过大导致梯度爆炸溢出，或者自定义损失函数里出现 log(0) 产生 inf 并传导为 NaN。直接看最终 loss 只能知道“坏了”，却不知道“哪一层、哪一步先坏”。本文通过两个真实复现场景，教你用 PyTorch 的 forward hook 给每一层装上监控，快速找到第一个出现 inf/NaN 的层，再配合二分法调参和数值稳定写法彻底解决问题。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">智东西原文  <a href="https://zhidx.com/p/607594.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">获取原始报道与配图信息</div>
+      <div class="font-semibold text-slate-900">Python 3.8+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行 PyTorch 代码的基础环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Notion 或飞书文档  <a href="https://www.notion.so/zh-cn" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">建立结构化情报卡片，归档公司、金额、投资方、技术方向</div>
+      <div class="font-semibold text-slate-900">PyTorch 1.10+  <a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">提供 forward hook 机制和自动求导功能</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ChatGPT / Claude / Kimi  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于新闻摘要、实体抽取和追问式分析</div>
+      <div class="font-semibold text-slate-900">NumPy  <a href="https://numpy.org/install/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">辅助检查数组中的 inf/NaN 值</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">浏览器阅读模式或 Readwise Reader  <a href="https://readwise.io/read" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">干净抓取正文，避免广告干扰</div>
+      <div class="font-semibold text-slate-900">Jupyter Notebook 或 VS Code  <a href="https://jupyter.org/install" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">交互式调试和逐段运行代码</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">天眼查 / 企查查  <a href="https://www.tianyancha.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">交叉验证公司主体、融资轮次和股东背景</div>
+      <div class="font-semibold text-slate-900">参考博客  <a href="https://www.cnblogs.com/dawudexiaowu/p/23626768" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">原始教程与复现代码</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：抓取原文并做「三线拆解」</h3>
-      <div class="text-base text-slate-700 leading-loose">打开智东西原文链接，用阅读模式抓取正文，复制到文档中。然后手动标出三条线：技术线（这家公司做什么AI能力）、资本线（融资轮次、金额、投资方，尤其上海国资）、场景线（产品落地在哪些行业）。每条线只留关键词，不要整段复制。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：复现一个会变 NaN 的训练场景</h3>
+      <div class="text-base text-slate-700 leading-loose">先写一个简单的小网络（比如 3 层全连接），故意把学习率设成 1.0 这种过大值，或者自定义一个含 log(x) 的损失函数并让 x 可能为 0。跑几个 batch，观察 loss 从正常数值突然跳到 nan。把随机种子固定，确保每次都能复现，方便后续调试。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先别急着让AI总结，自己标一遍能避免被公关稿带节奏。
+          💡 <span class="font-semibold">小贴士：</span>如果一次没复现，可以把学习率再调大 10 倍，或者把输入数据放大，让梯度更容易溢出。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用提示词模板做结构化抽取</h3>
-      <div class="text-base text-slate-700 leading-loose">把正文粘贴给ChatGPT或Kimi，使用提示词：「请从以下新闻中抽取：公司名、成立时间、融资轮次与金额、投资方名单、核心技术方向、目标客户、创始人背景、文中提到的风险点。用表格输出，缺失信息标注‘未提及’。」得到一张干净的情报表。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：给每一层注册 forward hook 监控输出</h3>
+      <div class="text-base text-slate-700 leading-loose">遍历 model.named_modules()，对每个子模块用 module.register_forward_hook(fn) 注册回调。回调里检查输出 tensor 是否包含 inf 或 nan（用 torch.isinf 和 torch.isnan），一旦发现就记录模块名、当前训练步数和输出统计量（max/min）。把记录存到一个全局列表里，方便训练结束后回溯。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>要求AI标注‘未提及’而不是编造，能显著降低幻觉。
+          💡 <span class="font-semibold">小贴士：</span>hook 里不要做太重的计算，只做 isinf/isnan 检查和简单统计，避免拖慢训练。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：交叉验证关键数据</h3>
-      <div class="text-base text-slate-700 leading-loose">拿AI抽出的公司名和融资信息，去天眼查或企查查核对工商主体、股东结构和融资历史。重点看上海国资是否出现在股东名单、注册资本变化是否与报道吻合。把验证结果补回情报表，标注「已核实/存疑」。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：训练中触发并定位首个异常层</h3>
+      <div class="text-base text-slate-700 leading-loose">正常跑训练循环，每个 step 后检查 hook 记录。一旦发现某层输出出现 inf，立即打印“第 N 步，层名 XXX 首次出现 inf”，并可以抛出异常或断点暂停。这样你就能明确知道是哪个层、哪一步先坏，而不是只看到最终 loss 变 NaN。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>新闻里的‘20亿’可能是估值、融资额或生态投入，务必看清口径。
+          💡 <span class="font-semibold">小贴士：</span>建议同时记录该层输入的统计量，方便判断是输入先坏还是本层计算溢出。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：建立可复用的情报卡片</h3>
-      <div class="text-base text-slate-700 leading-loose">在Notion或飞书建一个数据库，字段包括：公司名、赛道、融资阶段、金额、投资方、技术关键词、场景关键词、信息来源、核实状态、我的判断。把本条新闻填成一张卡片，并打上「AI独角兽」「国资背景」等标签。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：根据定位结果修复问题</h3>
+      <div class="text-base text-slate-700 leading-loose">如果是学习率过大导致梯度溢出，用二分法把学习率逐步减半，直到 loss 稳定不炸；如果是自定义损失里 log(0) 导致 inf，改成 log(x + eps) 或使用 torch.clamp 做数值稳定处理。修复后重新跑一遍 hook 监控，确认不再出现 inf/NaN。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>字段固定后，以后每看一篇同类新闻只需5分钟填卡，积累就是复利。
+          💡 <span class="font-semibold">小贴士：</span>二分法调参时每次只改一个变量，并固定随机种子，才能对比出效果。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：输出你的观点短文</h3>
-      <div class="text-base text-slate-700 leading-loose">基于卡片写一段200字以内的判断，回答三个问题：这家公司解决了什么真问题？上海国资为什么此时出手？这个赛道下一个可能被投的方向是什么？把短文附在卡片里，形成「信息+观点」的闭环。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：移除 hook 并做最终验证</h3>
+      <div class="text-base text-slate-700 leading-loose">调试完成后，用 handle.remove() 移除所有 hook，避免影响正式训练性能。再跑完整训练，观察 loss 曲线是否平稳下降，并在验证集上确认模型正常收敛。把这次定位经验记录下来，形成自己的排查清单。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>观点不必正确，但要可追溯——半年后回看能校准自己的判断力。
+          💡 <span class="font-semibold">小贴士：</span>可以把 hook 监控封装成一个上下文管理器，需要时一键开启，平时自动关闭。
         </div>
     </div>
   </div>
@@ -184,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你得到一张结构化的公司情报卡片（含核实状态），一段200字以内的独立判断，以及一个可继续填充的AI融资新闻数据库。以后再看同类报道，你能在10分钟内完成从阅读到归档的全流程。
+    训练时能准确打印出“第几步、哪一层首次出现 inf”，据此快速判断是学习率问题还是 log(0) 问题；修复后 loss 不再变 NaN，训练稳定收敛。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,31 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有Notion或飞书怎么办？</span>
+        <span>hook 会不会拖慢训练速度？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用Excel或Google Sheets建同样字段的表格即可，核心是字段固定、持续积累。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">会有轻微开销，因为每层都做了 isinf/isnan 检查。建议只在调试阶段开启，正式训练前移除 hook。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>AI抽取的信息不准怎么办？</span>
+        <span>为什么我注册了 hook 却没抓到 inf？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">把提示词改成‘只提取原文明确出现的信息，不确定就写未提及’，并务必用企查查交叉验证金额和股东。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可能 inf 出现在反向传播的梯度里而不是前向输出。可以同时对梯度注册 hook（register_full_backward_hook）或检查 param.grad。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这篇新闻本身信息量不大，值得做吗？</span>
+        <span>loss 变 NaN 一定是学习率太大吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">单篇价值有限，但工作流的价值在于批量复用。坚持做20篇后，你会拥有自己的赛道地图。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不一定。常见原因还有 log(0)、除零、输入数据本身含 NaN、混合精度溢出等。hook 定位到具体层后再针对性排查。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>需要付费工具吗？</span>
+        <span>二分法调学习率要调到多小？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要。阅读模式、表格和免费版AI对话工具就能跑通，付费工具只提升效率。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">一般从当前值开始每次减半，直到连续几个 epoch loss 稳定不炸。也可以配合梯度裁剪（clip_grad_norm_）一起用。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>这个方法适用于 Transformer 等大模型吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适用，但层数多时 hook 开销更大。可以只监控关键层（如 attention 输出、FFN 输出）或每隔几层监控一次。</div>
     </details>
   </div>
 </section>
@@ -226,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把「单篇拆解」升级为「周报流水线」——每周抓5篇同类融资新闻，批量填卡后用AI生成赛道周报。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：把情报卡片接入RSS或邮件提醒，当出现「同一赛道+同一投资方」的新新闻时自动标红，做早期信号追踪。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用同一套模板拆解海外AI融资新闻（如TechCrunch），做中外对标表，寻找国内空白场景。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把 hook 监控封装成装饰器或上下文管理器，一键开启/关闭，并自动把异常层信息写入日志文件。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：同时监控前向输出和反向梯度，用 register_full_backward_hook 定位梯度爆炸的具体层。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合 TensorBoard 或 WandB，把每层输出的 max/min 曲线画出来，直观看到数值随训练步数的变化趋势。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    把新闻当原料而不是终点，用「三线拆解—AI抽取—交叉验证—卡片归档—观点输出」的工作流，让每篇报道都变成你行业认知的一块砖。
+    用 forward hook 给每层装“烟感”，先定位第一个冒 inf 的层和步数，再对症下药——调学习率或做数值稳定，NaN 问题就不再是玄学。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -241,19 +248,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Yolain工作流在ComfyUI中快速生成AI图像</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Awesome ComfyUI节点库扩展工作流</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-juejin-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">掘金 AI 实战教程 · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用AI裁判重构编程工作流</div>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

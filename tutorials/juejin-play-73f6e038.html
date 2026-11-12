@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OpenCode 插件代理资源大全 - AI 玩法教程 · AI Frontier</title>
+<title>用阿里云四场Agent分享学智能体构建与治理 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-11
+      2026-11-12
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">OpenCode 插件代理资源大全</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用阿里云四场Agent分享学智能体构建与治理</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    GitHub Awesome AI Agents · B级
+    掘金 AI 实战教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://github.com/awesome-opencode/awesome-opencode" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7707088939719491622" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">OpenCode 插件代理资源大全是一个收录了 10200+ stars 的精选列表，帮你快速找到 OpenCode 生态中的插件、主题、代理和项目。</p>
+  <p class="text-base text-slate-800 leading-relaxed">通过阿里云在 COSCon'26 的四场 Agent 分享，系统学习智能体构建与治理的实战方法，并动手搭建一个可运行的 Agent 原型。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    OpenCode 是一个开源的 AI 编程助手平台，支持通过插件和代理扩展功能。但官方生态分散，新手很难找到高质量资源。这个 Awesome 列表由社区维护，把插件、主题、代理、项目、教程等分类整理，相当于 OpenCode 的“应用商店”。适合想深度定制 AI 编程工作流、或想快速搭建专属代理的开发者。
+    2025 年 11 月 14 日，COSCon'26 第十一届中国开源年会「智能体构建与治理——Agent Builder Meetup × AAIF Meetup」分论坛在杭州举行，阿里云讲师带来了四场关于 Agent 构建与治理的深度分享。这些分享覆盖了从 Agent 设计模式、工具链集成到多智能体协作与安全治理的完整链路，是当前 AI 应用落地的一手实战资料。本教程将带你以这四场分享为蓝本，拆解关键知识点并落地一个可运行的 Agent 原型，适合有一定开发基础、希望快速掌握智能体构建与治理的开发者。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">OpenCode  <a href="https://opencode.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">核心 AI 编程助手平台，需先安装并配置 API Key</div>
+      <div class="font-semibold text-slate-900">阿里云百炼平台  <a href="https://bailian.console.aliyun.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于创建和管理智能体、配置工具与知识库</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于克隆 Awesome 列表仓库或相关项目</div>
+      <div class="font-semibold text-slate-900">通义千问 API / DashScope SDK  <a href="https://help.aliyun.com/zh/dashscope/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">调用大模型能力，作为 Agent 的推理核心</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Node.js (&gt;=18)  <a href="https://nodejs.org" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行 OpenCode 插件和部分代理项目</div>
+      <div class="font-semibold text-slate-900">Python 3.10+ 与 pip  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编写和运行 Agent 代码</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">GitHub 账号  <a href="https://github.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于 Star、Fork 或提交 PR 贡献资源</div>
+      <div class="font-semibold text-slate-900">VS Code 或 PyCharm  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">代码编辑与调试</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">掘金 AI 实战教程原文  <a href="https://juejin.cn/post/7707088939719491622" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">参考四场分享的详细内容与案例</div>
     </li>
   </ul>
 </section>
@@ -122,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：访问 Awesome OpenCode 仓库</h3>
-      <div class="text-base text-slate-700 leading-loose">打开浏览器访问 https://github.com/awesome-opencode/awesome-opencode 。这是官方社区维护的精选列表，首页 README 按类别（Plugins、Themes、Agents、Projects、Resources）分节展示。先整体浏览一遍，了解有哪些类型的资源。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：精读四场分享，提炼 Agent 构建与治理的关键要素</h3>
+      <div class="text-base text-slate-700 leading-loose">打开掘金教程原文，通读阿里云四场分享的摘要与案例，重点记录每场分享的核心观点：Agent 设计模式（如 ReAct、Plan-and-Execute）、工具调用与函数注册方式、多智能体协作拓扑、以及治理层面的权限控制与可观测性。建议用表格整理「分享主题—关键方法—可复用点」三列，形成自己的知识地图。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议直接 Star 该仓库，方便后续在 GitHub 个人主页快速进入。
+          💡 <span class="font-semibold">小贴士：</span>优先关注带有代码片段或架构图的分享，这些内容最容易转化为可运行的实现。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：按需求筛选插件或代理</h3>
-      <div class="text-base text-slate-700 leading-loose">在 README 中使用 Ctrl+F 搜索关键词，比如 “agent”、“theme”、“plugin”。每个条目通常包含名称、一句话描述和 GitHub 链接。优先选择 stars 数高、最近有更新的项目。把感兴趣的链接复制到记事本或浏览器书签。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：在阿里云百炼平台创建基础 Agent 并配置工具</h3>
+      <div class="text-base text-slate-700 leading-loose">登录阿里云百炼控制台，进入「智能体应用」页面，点击创建智能体。选择通义千问作为基础模型，在「工具」选项卡中启用至少两个内置工具（如天气查询、网页搜索），并配置一个自定义函数工具（例如查询当前时间）。在「提示词」区域编写系统指令，明确 Agent 的角色、可用工具和输出格式。保存后使用平台内置的调试窗口进行对话测试。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>注意看条目旁边的徽章（如 stars 数、license），避免使用长期未维护的项目。
+          💡 <span class="font-semibold">小贴士：</span>系统提示词中显式列出工具名称和调用条件，能显著降低模型乱调用工具的概率。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：安装并配置选中的插件/代理</h3>
-      <div class="text-base text-slate-700 leading-loose">以插件为例，进入对应 GitHub 仓库，通常 README 会给出安装命令，如 `npm install opencode-plugin-xxx` 或 `opencode plugin add xxx`。按照说明修改 OpenCode 配置文件（如 `~/.opencode/config.json`），添加插件名称和参数。代理类资源可能需要克隆仓库并运行 `npm run start`。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用 DashScope SDK 在本地复现一个 ReAct 风格 Agent</h3>
+      <div class="text-base text-slate-700 leading-loose">安装 dashscope SDK（pip install dashscope），设置环境变量 DASHSCOPE_API_KEY。编写一个 Python 脚本，定义两个本地函数（如 get_weather 和 search_web），并将函数描述以 JSON Schema 形式注册到模型调用参数中。实现一个循环：模型返回工具调用请求时，本地执行对应函数并将结果回传给模型，直到模型输出最终答案。运行脚本，测试「北京今天天气如何，适合户外运动吗」这类需要多步推理的问题。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>安装前先备份原配置文件，避免插件冲突导致 OpenCode 无法启动。
+          💡 <span class="font-semibold">小贴士：</span>在循环中设置最大迭代次数（如 5 次），防止 Agent 陷入无限工具调用。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：在 OpenCode 中启用并测试</h3>
-      <div class="text-base text-slate-700 leading-loose">重启 OpenCode 服务或重新加载配置。在对话界面输入一个测试 prompt，观察插件是否生效（例如自动格式化代码、调用外部 API）。如果代理需要单独启动，确保其端口与 OpenCode 配置一致。查看 OpenCode 日志确认无报错。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：引入治理机制——日志、权限与人工审核点</h3>
+      <div class="text-base text-slate-700 leading-loose">在本地 Agent 脚本中加入结构化日志，记录每次模型输入、工具调用参数和返回结果。为工具函数增加权限校验装饰器，例如只允许查询白名单内的 API。在关键操作（如发送邮件、修改数据）前插入人工确认步骤，通过命令行输入 y/n 决定是否继续。参考分享中提到的治理框架，整理一份 Agent 治理检查清单。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果插件无响应，先检查 OpenCode 版本是否兼容，多数插件要求 &gt;=0.5.0。
+          💡 <span class="font-semibold">小贴士：</span>日志建议输出为 JSON Lines 格式，方便后续用 jq 或日志平台做审计分析。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：贡献或反馈</h3>
-      <div class="text-base text-slate-700 leading-loose">如果你发现好用的资源不在列表中，可以 Fork 该仓库，在对应分类下添加条目（格式参考现有条目），然后提交 Pull Request。遇到插件问题，去其 GitHub Issues 搜索或提问。也可以给 Awesome 列表提 Issue 推荐新资源。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：对比分享中的多智能体协作模式，扩展一个双 Agent 协作 Demo</h3>
+      <div class="text-base text-slate-700 leading-loose">基于第 3 步的代码，拆分出两个角色：一个「规划 Agent」负责拆解任务，一个「执行 Agent」负责调用工具完成子任务。规划 Agent 输出 JSON 格式的任务列表，执行 Agent 逐条处理并汇总结果。用简单的消息队列（如 Python queue）在两者之间传递消息。运行并观察协作效果，记录与单 Agent 模式在准确率和耗时上的差异。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>提交 PR 时附上资源链接和一句话描述，维护者通常很快合并。
+          💡 <span class="font-semibold">小贴士：</span>两个 Agent 使用不同的系统提示词，并限制各自可用的工具集，能减少职责混淆。
         </div>
     </div>
   </div>
@@ -180,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你成功从 Awesome 列表中挑选并安装了至少一个插件或代理，OpenCode 功能得到扩展（例如自动生成 commit message、代码审查、主题美化等）。同时你掌握了持续发现和贡献 OpenCode 生态资源的方法。
+    你将在百炼平台上拥有一个可对话的 Agent 应用，并在本地跑通一个具备工具调用、治理日志和双 Agent 协作的 Python 原型。通过对比实验，你能清晰说出单 Agent 与多 Agent 在任务拆解、工具使用和错误恢复上的差异，并形成一份可复用的 Agent 治理检查清单。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个列表和 OpenCode 官方插件市场有什么区别？</span>
+        <span>没有阿里云账号可以学吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">官方市场可能只收录审核过的插件，而 Awesome 列表是社区驱动，收录范围更广，包括实验性项目和主题，更新更快。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。百炼平台部分功能需实名认证，但本地 DashScope SDK 只需 API Key，注册阿里云账号即可获取免费额度；也可用其他兼容 OpenAI 接口的模型替代。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>我安装插件后 OpenCode 启动报错怎么办？</span>
+        <span>四场分享的视频回放在哪里看？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先禁用最近安装的插件，检查版本兼容性。多数插件要求 OpenCode &gt;=0.5.0，可运行 `opencode --version` 确认。查看插件 README 的“Troubleshooting”部分。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">COSCon 官方通常会在会后于 B 站或开源社渠道发布回放，可关注掘金原文更新和 COSCon 官网通知。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>列表里的代理（Agent）和插件（Plugin）有什么区别？</span>
+        <span>Agent 总是调用错误工具怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">插件通常直接嵌入 OpenCode 进程，扩展其功能；代理是独立运行的服务，通过 API 与 OpenCode 通信，适合复杂任务如多步推理、外部工具调用。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查工具描述是否足够具体，在系统提示词中明确工具适用场景，并降低 temperature；必要时在代码层面对工具名做白名单校验。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何判断一个资源是否值得使用？</span>
+        <span>治理部分需要额外付费工具吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">看 stars 数、最近 commit 时间、Issue 活跃度、是否有详细文档。优先选择 100+ stars 且半年内有更新的项目。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要。本教程的治理机制用 Python 标准库即可实现；生产环境可选用阿里云日志服务 SLS 或开源 Langfuse 做可观测性。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>我可以同时安装多个插件吗？</span>
+        <span>双 Agent 协作 Demo 太简单，如何进阶？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但注意插件之间可能冲突（如两个都修改同一快捷键）。建议逐个安装并测试，确认稳定后再加下一个。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可引入第三个「评审 Agent」对执行结果打分，或改用 AutoGen、CrewAI 等框架实现更复杂的拓扑。</div>
     </details>
   </div>
 </section>
@@ -229,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：只关注主题（Themes）——在 Awesome 列表中筛选 Themes 分类，挑选喜欢的配色方案，按说明替换 OpenCode 的 CSS 或配置文件，快速改变界面外观。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：搭建多代理协作工作流——从 Agents 分类中选 2-3 个代理（如代码生成、代码审查、测试生成），用 OpenCode 的 workflow 功能串联，实现自动 PR 流水线。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：基于列表做二次开发——Fork Awesome 仓库，用脚本自动抓取每个资源的 stars 和更新时间，生成自己的推荐榜单，甚至做成网站。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将本地 ReAct Agent 接入百炼平台的自定义插件，实现云端工具与本地逻辑混合调用。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 LangGraph 重写双 Agent 协作流程，加入条件边和循环，实现带评审环节的 Agent 工作流。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：围绕治理主题，为 Agent 增加基于 OpenTelemetry 的全链路追踪，并输出可视化调用链。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    Awesome OpenCode 列表是 OpenCode 生态的入口地图，学会筛选、安装、测试和贡献，你就能把 AI 编程助手打造成完全贴合自己习惯的超级工具。
+    以阿里云四场分享为知识骨架，从平台创建到本地编码再到治理与协作扩展，边学边做，把智能体构建与治理一次跑通。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -246,17 +250,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把Office文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行的AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>智能体设计模式大全：4967星精选 - AI 玩法教程 · AI Frontier</title>
+<title>给工业测点数据加出身标签的AIoT重构法 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-11
+      2026-11-12
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">智能体设计模式大全：4967星精选</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">给工业测点数据加出身标签的AIoT重构法</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    GitHub Awesome AI Agents · B级
+    博客园 AI 教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://github.com/nibzard/awesome-agentic-patterns" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/yefanqiu/p/23639586" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">今天带你玩转 GitHub 上 4967 星的「智能体设计模式大全」，用一套可复用的模式库，快速搭建属于你自己的 AI Agent 工作流。</p>
+  <p class="text-base text-slate-800 leading-relaxed">这个玩法教你用 AI 给每条工业测点数据打上「出身标签」，让数据自带来源、时间、设备等元信息，解决 AI 时代最贵的验证问题。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多人在做 AI Agent 时，都会遇到「不知道该怎么设计」「重复造轮子」「效果不稳定」的问题。awesome-agentic-patterns 这个仓库把社区里验证过的 Agent 设计模式整理成了一份目录，涵盖提示词模板、工具链、工作流、一键试用等多种类型。你可以把它当成一本「Agent 设计菜谱」，按场景挑选模式，直接套用到自己的项目里。尤其适合正在做多智能体协作、RAG、自动化工作流的开发者。
+    在工业物联场景中，测点数据往往脱离设备上下文后变得难以追溯，导致 AI 分析结果无法验证。作者基于二十年工业物联经验，提出将测点从设备上「解耦」，让每条数据携带完整的出身信息（设备 ID、采集时间、点位类型、原始值等），从而在 AI 生成内容时能清晰说明数据出处。这种方法特别适合需要数据审计、故障回溯、AI 辅助决策的工业场景，能大幅提升数据可信度和验证效率。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">GitHub 账号  <a href="https://github.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于 Star、Fork 和提交 Issue</div>
+      <div class="font-semibold text-slate-900">Python 3.8+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编写数据处理脚本和 AI 调用逻辑</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Git 或 GitHub Desktop  <a href="https://git-scm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">把仓库克隆到本地，方便搜索和阅读</div>
+      <div class="font-semibold text-slate-900">Pandas  <a href="https://pandas.pydata.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">处理测点数据表格，添加元数据列</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">VS Code 或任意 Markdown 编辑器  <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">阅读和整理模式文档</div>
+      <div class="font-semibold text-slate-900">OpenAI API 或兼容大模型  <a href="https://platform.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于生成数据描述和验证问答</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一个 LLM API（如 OpenAI、Claude、通义千问）  <a href="https://platform.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于实际测试模式中的提示词和工具链</div>
+      <div class="font-semibold text-slate-900">SQLite 或轻量数据库  <a href="https://www.sqlite.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">存储带出身标签的测点数据</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">LangChain 或 LlamaIndex（可选）  <a href="https://www.langchain.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">把模式快速落地成可运行代码</div>
+      <div class="font-semibold text-slate-900">Jupyter Notebook  <a href="https://jupyter.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">交互式开发和调试</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：克隆仓库并建立本地索引</h3>
-      <div class="text-base text-slate-700 leading-loose">打开终端，执行 git clone https://github.com/nibzard/awesome-agentic-patterns.git。进入目录后，用 VS Code 打开，按 Ctrl+Shift+F 全局搜索关键词，比如「tool_chain」「prompt」「workflow」。建议先浏览 README 的目录结构，把模式按类型分类记到自己的笔记里。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：解构测点数据，提取出身字段</h3>
+      <div class="text-base text-slate-700 leading-loose">从原始设备数据中分离出测点值与其元数据。每条测点记录至少包含：设备ID、测点名称、采集时间戳、原始值、单位、数据类型（模拟量/开关量）。用 Pandas 读取 CSV 或数据库表，将元数据列与数值列拆开，形成「数据+出身」的宽表结构。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果仓库很大，可以用 ripgrep 命令 rg -i &quot;pattern&quot; 快速定位，比 VS Code 搜索更快。
+          💡 <span class="font-semibold">小贴士：</span>如果原始数据缺少设备ID，可以用设备IP或采集网关编号临时替代，后续再补全。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：筛选 3 个与你场景最匹配的模式</h3>
-      <div class="text-base text-slate-700 leading-loose">根据你当前的项目需求，从目录中挑出 3 个模式。比如做客服机器人，可以选「ReAct」「Tool Use」「Memory」；做自动化报告，可以选「Plan-and-Execute」「Reflection」「Multi-Agent」。把每个模式的说明、适用场景、示例代码复制到一个单独的 Markdown 文件里，方便对比。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：为每条数据生成出身标签（JSON 格式）</h3>
+      <div class="text-base text-slate-700 leading-loose">编写 Python 函数，将每行测点数据转换为一个 JSON 对象，包含字段：device_id、point_name、timestamp、value、unit、data_type、source_system。使用 Pandas 的 apply 方法逐行生成，并存储到新列「lineage_tag」中。这样每条数据都自带完整的出身描述。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不要贪多，先选 3 个，跑通一个再扩展。模式之间往往可以组合，但一开始要控制复杂度。
+          💡 <span class="font-semibold">小贴士：</span>时间戳统一用 ISO 8601 格式（如 2025-03-21T10:30:00Z），方便后续 AI 解析和跨系统交换。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：把模式转成可运行的提示词或工具链</h3>
-      <div class="text-base text-slate-700 leading-loose">针对每个模式，写一个最小可运行示例。例如 ReAct 模式，可以用 LangChain 的 create_react_agent，配一个搜索工具和计算工具。把模式文档里的伪代码或描述翻译成你熟悉的框架代码。运行后观察输出是否符合预期，如果不符合，回到模式文档检查是否漏了关键约束。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：构建 AI 提示词模板，让模型基于出身标签回答</h3>
+      <div class="text-base text-slate-700 leading-loose">设计一个提示词模板，要求 AI 在回答问题时必须引用数据的出身标签。例如：「你是一个工业数据分析助手。以下每条数据都带有 lineage_tag，请根据这些标签回答用户问题，并在答案中注明数据来源的设备ID和时间。数据：{data_with_tags} 问题：{user_question}」。将上一步生成的带标签数据填入模板，调用大模型 API。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议用 Jupyter Notebook 逐步调试，每一步都打印中间结果，方便定位问题。
+          💡 <span class="font-semibold">小贴士：</span>在提示词中明确要求 AI 输出格式如「根据设备 DEV-001 在 2025-03-21 10:30 的测点值…」，便于人工验证。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：组合多个模式搭建完整工作流</h3>
-      <div class="text-base text-slate-700 leading-loose">把第 3 步跑通的模式串起来。比如先用「Plan-and-Execute」做任务拆解，再用「Tool Use」调用外部 API，最后用「Reflection」做结果校验。用 LangGraph 或自己写一个简单的状态机来管理流程。每加一个模式，就回归测试一次，确保整体稳定。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：存储与查询带出身标签的数据</h3>
+      <div class="text-base text-slate-700 leading-loose">将带有 lineage_tag 的数据写入 SQLite 数据库，建立表结构包含 id、lineage_tag（JSON 文本）、value 等字段。编写查询函数，支持按设备ID、时间范围、测点名称过滤，并返回带标签的完整记录。这样后续任何 AI 分析都能直接读取带出身的数据。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>组合时注意模式之间的输入输出格式要统一，建议先定义好一个中间数据结构（如 JSON Schema）。
+          💡 <span class="font-semibold">小贴士：</span>SQLite 支持 JSON1 扩展，可以直接用 SQL 查询 lineage_tag 中的字段，例如 json_extract(lineage_tag, '$.device_id')。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：记录效果并回馈社区</h3>
-      <div class="text-base text-slate-700 leading-loose">把你的实现过程、踩坑记录、效果对比写成一篇笔记或博客。如果发现某个模式有改进空间，可以在原仓库提 Issue 或 PR。也可以把你的组合方案整理成一个新的模式，提交给 awesome-agentic-patterns，帮助更多人。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：验证与回溯——让 AI 解释数据出处</h3>
+      <div class="text-base text-slate-700 leading-loose">设计一个验证流程：给定一个 AI 生成的结论（如「设备A温度异常」），反向查询相关测点的出身标签，检查 AI 是否引用了正确的设备、时间和数值。可以编写一个简单的脚本，自动比对 AI 回答中的引用与数据库中的标签是否一致，输出验证报告。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>提交 PR 前先看 CONTRIBUTING.md，按照模板写，通过率更高。
+          💡 <span class="font-semibold">小贴士：</span>初期可以人工抽检 10% 的 AI 回答，确认引用准确性，再逐步自动化。
         </div>
     </div>
   </div>
@@ -184,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你会得到一个可运行的 AI Agent 原型，它至少包含 3 个来自 awesome-agentic-patterns 的设计模式，并且能完成一个具体任务（如自动调研、客服问答、报告生成）。同时你手里会有一份自己的模式笔记和可复用的代码片段。
+    完成以上步骤后，你将得到一个带出身标签的测点数据库，每条数据都能说清来源；同时拥有一个 AI 问答接口，其回答会自动引用数据出处。你可以随时验证 AI 结论是否基于真实数据，大幅提升工业数据分析的可信度。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个仓库和 LangChain 有什么区别？</span>
+        <span>没有工业设备数据，可以用模拟数据练习吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">仓库是模式目录，偏设计思路和最佳实践；LangChain 是代码框架，偏实现。两者互补，先用仓库选模式，再用 LangChain 落地。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。用 Python 的 Faker 库或手动构造 CSV，包含设备ID、时间戳、测点值等字段即可完整走通流程。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有编程基础能玩吗？</span>
+        <span>必须用 OpenAI 吗？可以用国产大模型吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但只能读懂模式描述和提示词模板。要跑通工具链和工作流，至少需要会 Python 或 JavaScript 基础。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">任何支持 Chat Completions 接口的模型都可以，如通义千问、文心一言、DeepSeek 等，只需替换 API 地址和密钥。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>模式太多，怎么选？</span>
+        <span>出身标签会不会让数据量暴增？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先明确你的任务类型：是单轮问答、多轮对话、还是自动化流程？然后按仓库里的分类标签筛选，优先选有示例代码的模式。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">每条数据增加约 200-500 字节的 JSON 文本，对于百万级测点约增加 200-500MB，可接受。若担心，可只存关键字段或使用压缩。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>需要付费 API 吗？</span>
+        <span>如何保证 AI 不编造数据出处？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">大部分模式可以用本地模型（如 Ollama）跑，但效果可能不如 GPT-4 或 Claude。建议先用免费额度测试，再决定是否付费。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在提示词中强制要求引用 lineage_tag，并在后处理中校验 AI 回答里的设备ID和时间是否存在于数据库，不存在则标记为可疑。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何判断一个模式是否适合我？</span>
+        <span>这个玩法适合实时数据流吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">看三点：输入输出是否匹配你的场景、依赖工具你是否具备、复杂度是否在你能维护的范围内。先跑最小示例，再决定是否深入。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合。可以在流处理管道（如 Kafka + Flink）中为每条消息附加出身标签，再写入数据库或直接送给 AI 分析。</div>
     </details>
   </div>
 </section>
@@ -233,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：只取「提示词模板」类模式，做成一个 Prompt 库，配合 ChatGPT 或 Claude 直接使用，适合非开发者。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：把「工具链」类模式封装成 MCP Server，让 Claude Desktop 或 Cursor 直接调用，适合工具集成场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用「多智能体」模式搭建一个自动写代码的 Agent 团队，一个负责规划、一个负责编码、一个负责测试，适合复杂项目。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将出身标签扩展为「数据护照」，增加采集质量标记（如传感器精度、校准状态），让 AI 在分析时自动过滤低质量数据。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：结合知识图谱，把设备、测点、时间、人员操作记录关联成图，AI 回答时不仅引用数据，还能追溯操作事件。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用 LangChain 构建工具链，让 AI 自动调用数据库查询函数获取带标签数据，实现「提问-查数据-引用出处」的全自动流程。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    把 awesome-agentic-patterns 当成 Agent 设计的「菜谱」，先选模式、再跑最小示例、最后组合成工作流，你就能快速从零搭出一个可用的 AI Agent。
+    给每条工业测点数据打上出身标签，让 AI 的每个结论都能追溯到具体设备、时间和原始值，用验证换信任。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,17 +250,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把Office文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行的AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

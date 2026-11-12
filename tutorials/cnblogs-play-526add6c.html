@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>会自己开终端窗口的编程智能体 - AI 玩法教程 · AI Frontier</title>
+<title>零基础搭建ECG心电算法研究环境 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-11
+      2026-11-12
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">会自己开终端窗口的编程智能体</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">零基础搭建ECG心电算法研究环境</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+    博客园 AI 教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.producthunt.com/products/zerg" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/windbetter/p/23642698" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">让编程智能体自己打开终端窗口、执行命令、查看输出并继续下一步——Zerg 这个「会自己开终端窗口的编程智能体」把多窗格终端操作变成了 AI 的拿手好戏。</p>
+  <p class="text-base text-slate-800 leading-relaxed">这是一份面向零基础研究者的ECG心电算法环境搭建指南，帮你从零跑通「数据读取→滤波→AI降噪→部署验证」全链路。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    传统 AI 编程助手只能在你指定的单个终端里跑命令，遇到需要并行开多个窗格、分别监控不同服务、或根据输出动态切换目录的场景就捉襟见肘。Zerg 是一个 coding agent harness，它把终端窗格当作可编程资源，智能体可以自主创建、切换、读写多个终端 pane，从而完成「启动前端 → 开另一个窗格跑后端 → 再开一个窗格看日志」这类真实开发工作流。这个玩法适合本地开发调试、多服务联调、以及需要 AI 自主排错并验证结果的场景。
+    心电信号（ECG）是穿戴设备与医疗AI的核心数据源，但很多初学者卡在环境配置和工具链串联上。本玩法基于博客园实战教程，用Python生态把信号处理、深度学习与嵌入式部署串成一条可复现的研究流水线。适合做毕业设计、算法预研或可穿戴产品原型的学生与工程师。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Zerg  <a href="https://www.producthunt.com/products/zerg" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">核心工具，会自己开终端窗格的编程智能体 harness</div>
+      <div class="font-semibold text-slate-900">Python 3.10+（Miniconda）  <a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">管理虚拟环境与依赖，避免包冲突</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">tmux 或 iTerm2（macOS）/ Windows Terminal（Windows）  <a href="https://github.com/tmux/tmux" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">提供多窗格终端环境，Zerg 依赖窗格管理能力</div>
+      <div class="font-semibold text-slate-900">VS Code + Jupyter 插件  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">交互式调试信号处理与模型训练代码</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Node.js 18+ 与 npm  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">多数 coding agent 的运行环境依赖</div>
+      <div class="font-semibold text-slate-900">WFDB / PhysioNet 数据  <a href="https://physionet.org/content/mitdb/1.0.0/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">读取MIT-BIH等公开ECG数据集</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一个可用的 LLM API Key（如 OpenAI / Anthropic）  <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">为智能体提供推理能力</div>
+      <div class="font-semibold text-slate-900">SciPy + NumPy + Matplotlib  <a href="https://scipy.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">传统滤波、频谱分析与可视化</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一个示例项目仓库（含前后端）  <a href="https://github.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于演示多窗格联调，可用 create-react-app + express 快速搭建</div>
+      <div class="font-semibold text-slate-900">PyTorch（CPU版即可）  <a href="https://pytorch.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">搭建轻量化AI降噪模型</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">ONNX Runtime / TensorFlow Lite  <a href="https://onnxruntime.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">模型导出与低功耗部署验证</div>
     </li>
   </ul>
 </section>
@@ -126,55 +130,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装并初始化 Zerg</h3>
-      <div class="text-base text-slate-700 leading-loose">从 Product Hunt 页面进入 Zerg 官网，按文档用 npm 全局安装（或 npx 直接运行）。安装完成后在项目根目录执行初始化命令，填入你的 LLM API Key，并确认 Zerg 能检测到当前终端支持多窗格（tmux 或 iTerm2）。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：创建隔离环境并安装核心依赖</h3>
+      <div class="text-base text-slate-700 leading-loose">用 conda 创建名为 ecg 的虚拟环境（Python 3.10），激活后依次安装 numpy、scipy、matplotlib、wfdb、torch、onnxruntime。建议把依赖写入 requirements.txt 便于复现。安装完成后在终端运行 python -c &quot;import scipy, wfdb, torch&quot; 验证无报错。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果检测不到窗格能力，先在 tmux 会话里启动 Zerg，成功率最高。
+          💡 <span class="font-semibold">小贴士：</span>国内下载慢可加清华镜像源：pip install -i https://pypi.tuna.tsinghua.edu.cn/simple 包名。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用自然语言描述多窗格任务</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Zerg 的交互界面输入类似「打开三个终端窗格：第一个运行 npm run dev 启动前端，第二个运行 node server.js 启动后端，第三个 tail -f logs/app.log 监控日志，等前端编译完成后告诉我访问地址」的指令。Zerg 会解析意图并规划窗格分配。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：下载并读取公开ECG数据集</h3>
+      <div class="text-base text-slate-700 leading-loose">从 PhysioNet 下载 MIT-BIH 心律失常数据库（约100MB），解压到 data/ 目录。用 wfdb.rdrecord('data/100') 读取记录，再用 wfdb.plot_wfdb 画出前10秒波形确认数据完整。注意采样率通常为360Hz，后续滤波参数要按此设计。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把每个窗格要跑的命令和预期结果写清楚，智能体分配窗格会更准确。
+          💡 <span class="font-semibold">小贴士：</span>先用单条记录（如100号）跑通流程，再批量处理，避免一开始就被大数据集卡住。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：观察智能体自主开窗与执行</h3>
-      <div class="text-base text-slate-700 leading-loose">Zerg 会依次创建终端 pane、写入命令、读取输出。你可以在界面上看到每个窗格的实时状态：哪个在编译、哪个已就绪、哪个报错。如果某个窗格命令失败，Zerg 会自动读取错误输出并尝试修复（如换端口、装依赖）。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：实现传统滤波与信号分析</h3>
+      <div class="text-base text-slate-700 leading-loose">用 scipy.signal 设计0.5–40Hz带通滤波器去除基线漂移和高频噪声，再用50Hz陷波器消除工频干扰。对滤波前后信号做FFT频谱对比，并用 matplotlib 保存对比图。这一步是理解ECG噪声特性的关键，也是后续AI降噪的baseline。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不要手动去抢窗格操作，让智能体自己完成闭环，否则容易打断它的状态跟踪。
+          💡 <span class="font-semibold">小贴士：</span>滤波阶数不要太高（建议2–4阶），否则相位失真会影响R波定位。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：根据输出做二次指令</h3>
-      <div class="text-base text-slate-700 leading-loose">当 Zerg 汇报「前端已就绪在 3000 端口，后端在 4000 端口」后，你可以继续下指令，比如「在第四个窗格用 curl 测试 /api/health 接口，把结果贴出来」或「如果日志里出现 ERROR 就自动重启后端」。Zerg 会新开窗格或复用现有窗格执行。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：搭建轻量化AI降噪模型并训练</h3>
+      <div class="text-base text-slate-700 leading-loose">用 PyTorch 写一个1D卷积自编码器（3层Conv1d + 对称上采样），输入为含噪ECG片段，目标为滤波后的干净信号。构造滑动窗口数据集（如512点/样本），用MSE损失训练20个epoch。训练完保存模型权重，并对比AI输出与传统滤波的SNR提升。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>用「如果…就…」的条件句式，能触发 Zerg 的自主监控与响应能力。
+          💡 <span class="font-semibold">小贴士：</span>CPU训练即可，batch_size设32、学习率1e-3，10分钟内能跑完小数据集。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：收尾与清理</h3>
-      <div class="text-base text-slate-700 leading-loose">任务完成后，让 Zerg「关闭所有它自己开的窗格并汇总本次执行日志」。Zerg 会逐个退出 pane 并生成一份操作摘要，方便你复盘哪些命令被自动执行过。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：导出模型并做部署验证</h3>
+      <div class="text-base text-slate-700 leading-loose">用 torch.onnx.export 把训练好的模型导出为ONNX格式，再用 onnxruntime 加载推理，对比PyTorch输出误差应小于1e-4。若目标为可穿戴设备，可进一步用 TensorFlow Lite 转换并测试单次推理耗时，评估是否满足低功耗实时要求。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>保留摘要日志，下次可以让 Zerg 参考历史记录跳过重复的环境检查。
+          💡 <span class="font-semibold">小贴士：</span>导出时固定输入shape（如[1,1,512]），避免动态轴导致部署端不兼容。
         </div>
     </div>
   </div>
@@ -184,7 +188,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    Zerg 自主创建 3-4 个终端窗格，分别运行前端、后端、日志监控和接口测试，并在主界面汇总每个窗格的状态与关键输出。你无需手动切换窗格，就能看到前后端联调成功、健康检查返回 200、日志无 ERROR。
+    你将在本地得到一条完整可复现的ECG研究流水线：能读取MIT-BIH数据、画出滤波前后对比图、训练出轻量AI降噪模型，并成功导出ONNX做推理验证。所有代码与图表可整理成实验报告或论文素材。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +198,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Zerg 支持 Windows 吗？</span>
+        <span>没有GPU能跑吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">官方主要面向 macOS/Linux 的 tmux 与 iTerm2 环境；Windows 建议在 WSL2 里用 tmux 运行，或使用 Windows Terminal 的多窗格配合兼容层。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。本教程的1D卷积模型很小，CPU训练完全够用，重点是跑通流程而非追求精度。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>智能体开的窗格会和我手动开的冲突吗？</span>
+        <span>MIT-BIH数据下载太慢怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Zerg 会为自己创建的 pane 打标记并独立管理，一般不会动你已有的窗格；但建议在专用 tmux 会话里运行以避免误操作。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可先用wfdb包自带的示例数据，或从国内镜像站获取；也可先用单条记录跑通再批量下载。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>需要多强的模型？</span>
+        <span>滤波后波形还是有很多毛刺？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议使用支持工具调用（function calling）的较强模型，如 GPT-4o 或 Claude 3.5 Sonnet，弱模型容易在窗格状态跟踪上出错。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查采样率是否匹配滤波器设计，并确认是否加了50Hz陷波；毛刺也可能来自肌电噪声，可适当降低带通上限到35Hz。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>命令执行安全吗？</span>
+        <span>AI降噪效果不如传统滤波？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Zerg 默认会在执行破坏性命令前请求确认；你可以在配置里开启「只读模式」先观察它的规划，确认无误再放开执行。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">正常。小模型+小数据下AI未必超过带通滤波，建议增加数据量、调整窗口长度，或把AI作为滤波后的二次增强。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>可以接入 CI 或远程服务器吗？</span>
+        <span>ONNX推理结果和PyTorch不一致？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，只要目标环境有 tmux，Zerg 能通过 SSH 在远程会话里开窗格；CI 场景建议用非交互模式并限制可用命令白名单。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查导出时的opset版本和输入归一化方式，确保推理前做了相同的预处理。</div>
     </details>
   </div>
 </section>
@@ -233,14 +237,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：多服务监控——让 Zerg 开 N 个窗格分别 tail 不同微服务日志，并设置关键词告警，一旦出现 ERROR 自动在另一个窗格执行重启脚本。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：AI 自主排错——给 Zerg 一个失败测试用例，让它自己开窗格跑测试、读报错、改代码、再跑测试，形成闭环直到通过。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：远程开发机编排——通过 SSH 连到远程服务器，让 Zerg 在远程 tmux 里开窗格部署服务、跑迁移、看状态，本地只做指令下发。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把传统滤波换成小波变换降噪，对比AI模型在不同噪声水平下的鲁棒性。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用公开的ECG分类任务（如房颤检测）替换降噪目标，把流水线扩展为「预处理+分类」端到端研究。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：将ONNX模型部署到树莓派或ESP32-S3，实测功耗与延迟，做成可穿戴原型demo。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    把终端窗格变成 AI 可编程的资源，让智能体自己开窗、跑命令、读输出、做决策——这就是 Zerg 的核心玩法。
+    先用公开数据和传统滤波建立baseline，再用轻量AI模型做增强，最后导出部署——这条「数据→滤波→AI→部署」流水线就是ECG算法研究的最小闭环。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,17 +254,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把Office文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行的AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

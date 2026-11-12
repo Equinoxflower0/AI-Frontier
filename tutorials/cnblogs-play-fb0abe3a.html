@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RAG 论文全景图：一页看懂检索增强生成 - AI 玩法教程 · AI Frontier</title>
+<title>用五层技术栈搭建自主AI Agent - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-11
+      2026-11-12
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🔗 工具链
+        💬 Prompt 模板
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★★ · 5/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 30min
+        ⏱ 约 5min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">RAG 论文全景图：一页看懂检索增强生成</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用五层技术栈搭建自主AI Agent</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    GitHub Awesome RAG · B级
+    博客园 AI 教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://github.com/hymie122/RAG-Survey" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/vivotech/p/23638332" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -79,7 +79,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">想快速掌握 RAG（检索增强生成）的全貌却不知从何下手？这篇教程带你用 LlamaIndex 亲手跑通一个迷你 RAG 系统，并借助 Awesome RAG 论文库建立完整知识地图。</p>
+  <p class="text-base text-slate-800 leading-relaxed">想不想拥有一个能自己规划、自己调工具、自己交付结果的「数字员工」？这篇教程带你用 LlamaIndex 五层技术栈，从零搭出一个真正能跑起来的自主 AI Agent。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    RAG 已成为大模型落地最火的技术之一，但论文、工具、方案层出不穷，新手容易迷失。GitHub 上的 Awesome RAG 项目收集了 1789+ 星标的 RAG 论文，并提出了「基础-增强-应用」的分类体系。本教程将论文分类与 LlamaIndex 实战结合，让你既懂原理又能动手，适合 AI 应用开发者、产品经理和研究者快速入门。
+    很多人做 AI 应用还停留在「写个提示词问一句答一句」的阶段，但真正的 Agent 需要能拆解任务、检索知识、调用工具、循环纠错。博客园这篇《用五层技术栈搭建自主AI Agent》把提示词工程、RAG、Harness 工程、ReAct 循环、多智能体协作串成了一条完整链路。本教程把它拆成可动手的步骤，适合有一定 Python 基础、想从「调 API」进阶到「造系统」的开发者。跟着做完，你会得到一个能自主完成多步任务的 Agent 原型。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,24 +100,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.9+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行环境，建议用 conda 或 venv 创建虚拟环境</div>
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行环境，建议用 conda 或 venv 建虚拟环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">LlamaIndex  <a href="https://www.llamaindex.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">核心工具链，用于构建 RAG 索引和查询引擎</div>
+      <div class="font-semibold text-slate-900">LlamaIndex  <a href="https://docs.llamaindex.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">核心框架，负责 Agent、工具、RAG 的编排</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
       <div class="font-semibold text-slate-900">OpenAI API Key（或兼容接口）  <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于调用 LLM 和 Embedding 模型，也可用本地 Ollama 替代</div>
+      <div class="text-sm text-slate-600 mt-1">驱动 LLM 推理，也可换成本地 Ollama 模型</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Awesome RAG 论文库  <a href="https://github.com/hymie122/RAG-Survey" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">参考分类体系和论文列表，用于扩展知识</div>
+      <div class="font-semibold text-slate-900">Tavily Search API  <a href="https://tavily.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">给 Agent 联网搜索能力的工具，免费额度够测试</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Jupyter Notebook 或 VS Code  <a href="https://jupyter.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">编写和调试代码</div>
+      <div class="font-semibold text-slate-900">Chroma 或 FAISS  <a href="https://www.trychroma.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">向量库，用于 RAG 层存储外部知识</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">VS Code + Jupyter  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">边写边调，方便观察 Agent 的每一步输出</div>
     </li>
   </ul>
 </section>
@@ -130,55 +134,66 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装依赖并配置 API Key</h3>
-      <div class="text-base text-slate-700 leading-loose">在终端执行 pip install llama-index openai。然后设置环境变量 OPENAI_API_KEY=你的密钥（Windows 用 set，Mac/Linux 用 export）。如果使用本地模型，可安装 llama-index-llms-ollama 并配置 base_url。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：搭好环境并跑通最小 LLM 调用</h3>
+      <div class="text-base text-slate-700 leading-loose">先创建虚拟环境，执行 pip install llama-index llama-index-llms-openai llama-index-tools-tavily-research chromadb。然后在 Jupyter 里配置 OPENAI_API_KEY 环境变量，用 Settings.llm = OpenAI(model=&quot;gpt-4o-mini&quot;) 设置全局模型，发一句「你好」验证连通。这一步的目的是确认底座没问题，后面所有层都依赖它。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议把 API Key 写入 .env 文件并用 python-dotenv 加载，避免泄露。
+          💡 <span class="font-semibold">小贴士：</span>如果用的是国内兼容接口，记得同时设置 api_base，并把模型名换成对应名称，否则会报 404。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：准备你的私有知识库</h3>
-      <div class="text-base text-slate-700 leading-loose">新建 data 文件夹，放入 2-3 个 txt 或 pdf 文件（例如公司产品文档、个人笔记）。LlamaIndex 支持多种格式，本教程用 SimpleDirectoryReader 自动读取。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：写好提示词层，把意图说清楚</h3>
+      <div class="text-base text-slate-700 leading-loose">提示词层是 Agent 的「大脑说明书」。用 ChatPromptTemplate 定义系统角色，明确写出：你是任务规划助手，输出必须是 JSON，包含 task 和 steps 两个字段。把用户原始需求套进模板，先让模型只做规划、不执行，观察它拆出的步骤是否合理。反复调 2-3 轮措辞，直到拆解稳定。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>文件内容尽量结构化，避免扫描版 PDF，否则需要额外 OCR。
+          💡 <span class="font-semibold">小贴士：</span>在提示词里加一句「如果信息不足，先列出需要澄清的问题」，能显著减少 Agent 瞎编。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：构建索引并持久化</h3>
-      <div class="text-base text-slate-700 leading-loose">用 SimpleDirectoryReader 加载文档，调用 VectorStoreIndex.from_documents(documents) 生成向量索引。然后执行 index.storage_context.persist('./storage') 保存到本地，下次直接加载，省去重复 embedding 费用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：接入 RAG 层，让 Agent 有外部知识</h3>
+      <div class="text-base text-slate-700 leading-loose">准备一份 PDF 或 Markdown 知识文档，用 SimpleDirectoryReader 读取，配合 VectorStoreIndex 建索引并持久化到 Chroma。把索引封装成 QueryEngineTool，描述写成「用于查询内部知识库」。这样 Agent 在规划时就能判断什么时候该查资料，而不是全靠模型记忆。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果文档很大，先用 SentenceSplitter 分块，chunk_size 设为 512-1024 效果较好。
+          💡 <span class="font-semibold">小贴士：</span>工具描述（description）写得越具体，Agent 选工具的准确率越高，别偷懒只写「查询工具」。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：创建查询引擎并提问</h3>
-      <div class="text-base text-slate-700 leading-loose">通过 index.as_query_engine(similarity_top_k=3) 得到查询引擎。然后输入问题，例如「我们产品的退货政策是什么？」，引擎会先检索相关片段再交给 LLM 生成答案。打印 response 即可看到结果。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用 ReAct 循环把工具串起来</h3>
+      <div class="text-base text-slate-700 leading-loose">用 ReActAgent 或 FunctionAgent 把上一步的 RAG 工具和 Tavily 搜索工具一起注册进去。设置 max_iterations=10 防止死循环，然后丢一个多步任务，比如「查一下 LlamaIndex 最新版本，并对比我知识库里的旧版本差异」。观察日志里 Thought → Action → Observation 的循环过程，确认它真的在自主决策。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>开启 response_mode='compact' 可减少 token 消耗，适合长文档。
+          💡 <span class="font-semibold">小贴士：</span>第一次跑建议把 verbose 打开，逐条看 Agent 的思考轨迹，出问题一眼就能定位是哪一层断了。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：对照 Awesome RAG 分类体系做扩展</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 https://github.com/hymie122/RAG-Survey，阅读其提出的「基础-增强-应用」分类。尝试在你的代码中加入一个增强模块，比如查询改写（Query Rewrite）或重排序（Rerank），观察效果变化。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：加 Harness 工程，让运行稳定可靠</h3>
+      <div class="text-base text-slate-700 leading-loose">Harness 层负责兜底：给每次工具调用加 try/except 和超时，失败时把错误信息回传给模型让它重试；用 memory 保存对话上下文；对最终输出做格式校验，不合格就触发一次自我修正。再包一层日志，记录每步耗时和 token 消耗。这一步做完，Agent 才从「玩具」变成「能交付」的系统。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>LlamaIndex 内置 HyDE、SentenceWindowNodeParser 等增强组件，直接替换即可。
+          💡 <span class="font-semibold">小贴士：</span>给工具调用设 30 秒超时，并限制重试 2 次，能避免 Agent 卡死在某个坏接口上。
+        </div>
+    </div>
+    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        6
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：进阶到多智能体协作（可选）</h3>
+      <div class="text-base text-slate-700 leading-loose">如果任务复杂，可以用 AgentWorkflow 定义「规划者」和「执行者」两个角色：规划者负责拆任务，执行者负责调工具，二者通过共享上下文传递结果。跑一个「调研 + 写报告」的组合任务，观察两个 Agent 如何交接。这一步是五层栈的顶层，也是最能体现「数字员工」形态的地方。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>多智能体容易互相甩锅，给每个角色写死职责边界和输出格式，协作会顺畅很多。
         </div>
     </div>
   </div>
@@ -188,7 +203,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你将在本地拥有一个可运行的 RAG 问答系统，能针对自己的文档回答具体问题，并输出引用来源。同时你已理解 RAG 论文分类框架，知道下一步该优化哪个环节。
+    你会得到一个能接收自然语言任务、自主拆解步骤、按需调用知识库和搜索工具、并在出错时自我修正的 Agent 原型。在 Jupyter 里能看到完整的 Thought/Action/Observation 轨迹，最终输出一份结构化结果，比如版本对比报告或调研摘要。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -198,38 +213,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 OpenAI API Key 怎么办？</span>
+        <span>没有 OpenAI Key 能玩吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以用 Ollama 本地运行 Llama 3 或 Qwen，配合 llama-index-llms-ollama 和 llama-index-embeddings-huggingface，完全免费。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，用 Ollama 跑本地模型（如 qwen2.5），把 Settings.llm 换成 Ollama 即可，但工具调用能力会弱一些，建议选支持 function calling 的模型。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>检索结果不准确怎么调？</span>
+        <span>ReAct 循环一直转不停怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先检查分块大小，再尝试增加 similarity_top_k，或加入 Rerank 模型（如 BAAI/bge-reranker-base）。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">设置 max_iterations 上限，并在提示词里要求「信息足够时立即输出 Final Answer」，同时检查工具描述是否让模型误以为还要继续查。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>索引持久化后如何重新加载？</span>
+        <span>RAG 检索结果不相关怎么调？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用 StorageContext.from_defaults(persist_dir='./storage') 和 load_index_from_storage(storage_context) 即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先调 chunk_size 和 similarity_top_k，再考虑换 embedding 模型；也可以在 QueryEngineTool 的描述里限定适用范围，减少误触发。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Awesome RAG 论文太多，从哪看起？</span>
+        <span>五层必须全上吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先看 Survey 原文的 taxonomy 图，再按「基础→增强→应用」顺序挑 3-5 篇高引论文精读。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不必。简单任务提示词 + 工具就够；RAG 和 Harness 按需加；多智能体只在任务确实需要分工时才上，否则是过度设计。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>LlamaIndex 和 LangChain 选哪个？</span>
+        <span>这套东西能上生产吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">LlamaIndex 更专注 RAG 索引和检索，上手快；LangChain 生态更广。初学者建议先用 LlamaIndex 跑通流程。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">原型可以，生产还需要加鉴权、限流、可观测性和人工审核节点，Harness 层要补得更厚。</div>
     </details>
   </div>
 </section>
@@ -237,14 +252,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用本地 Ollama + Llama 3 替换 OpenAI，搭建完全离线、零成本的 RAG 系统。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：加入多模态检索，用 CLIP 嵌入图片，实现图文混合问答。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：将查询引擎封装成 FastAPI 接口，部署为可调用的微服务，供前端或聊天机器人使用。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把搜索工具换成数据库查询工具，做一个能自主查业务数据的「分析助手」，适合运营和 BI 场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用多智能体做「客服 + 工单」流水线，一个 Agent 分类问题，一个 Agent 查知识库回复，一个 Agent 决定是否转人工。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把 Harness 层做成可配置的 YAML，把工具、超时、重试策略外置，快速复用到不同业务 Agent 上。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 LlamaIndex 跑通最小 RAG 闭环，再对照 Awesome RAG 论文分类持续增强，就是掌握检索增强生成的最短路径。
+    五层技术栈的精髓不是堆技术，而是让每一层各司其职：提示词定意图、RAG 补知识、Harness 保稳定、ReAct 给自主、多智能体做分工，串起来才是一个能交付结果的数字员工。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -252,19 +267,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用社区提示词库找现成ChatGPT指令</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用GPT-4o图像提示词库复刻AI视觉作品</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把Office文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

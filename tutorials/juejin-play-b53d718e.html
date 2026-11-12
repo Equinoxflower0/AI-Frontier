@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>新玩意 255｜少数派的编辑们最近买了啥？ - AI 玩法教程 · AI Frontier</title>
+<title>用 DeepSeek Harness 打造专属工作台 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-11
+      2026-11-12
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">新玩意 255｜少数派的编辑们最近买了啥？</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 DeepSeek Harness 打造专属工作台</h1>
     
   </div>
 </header>
@@ -58,24 +58,28 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    少数派 AI 工具 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    掘金 AI 实战教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://sspai.com/post/118541" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7707106224123166755" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">这是一套把「少数派编辑部新玩意」栏目变成可复用 AI 工具链的实战教程，帮你从零搭建一个自动追踪编辑推荐、生成选购建议的轻量工作流。</p>
+  <p class="text-base text-slate-800 leading-relaxed">只需一个开源底座，就能把 DeepSeek 的输入框变成自媒体排版台、UI 原型画布、游戏工坊或本地文献库。今天手把手教你用 DeepSeek Harness 打造专属工作台。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    少数派《新玩意》栏目每期由编辑分享最近在用的新奇产品，内容真实但分散在长文中，手动整理费时费力。本玩法用工具链把「抓取文章 → 提取产品信息 → 生成结构化推荐 → 输出选购清单」串起来，适合想高效跟进行业动态、做产品调研或内容二次创作的人。难度中等，需要基本的信息抓取和 AI 提示词编排能力。
+    很多人用 DeepSeek 只是聊天问答，其实它还能通过官方开源工具 DeepSeek Harness（DSH）接入本地文件、自定义界面和插件，变成生产力工作台。这个玩法适合内容创作者、设计师、独立开发者，以及需要管理本地文献的研究者。你不需要写复杂代码，跟着步骤配置就能让 AI 直接操作你的素材和工具。相比通用聊天，专属工作台能大幅减少重复复制粘贴，让 AI 真正融入你的工作流。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +100,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">少数派官网  <a href="https://sspai.com/post/118541" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">获取《新玩意》栏目原文，作为信息源</div>
+      <div class="font-semibold text-slate-900">DeepSeek 账号  <a href="https://platform.deepseek.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于获取 API Key 和访问模型服务</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ChatGPT / Claude / Kimi  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">任选一个支持长文本的 AI 助手，用于信息提取和推荐生成</div>
+      <div class="font-semibold text-slate-900">DeepSeek Harness (DSH)  <a href="https://github.com/deepseek-ai/harness" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">官方开源底座，提供工作台框架和插件机制</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">飞书多维表格 / Notion  <a href="https://www.feishu.cn/product/base" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">存储结构化产品清单，方便筛选和分享</div>
+      <div class="font-semibold text-slate-900">Node.js 18+  <a href="https://nodejs.org" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行 DSH 的本地环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">浏览器阅读模式或稍后读工具（如 Instapaper）  <a href="https://www.instapaper.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">净化文章页面，方便复制全文给 AI</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">克隆 DSH 仓库和插件</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">代码编辑器（VS Code）  <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编辑配置文件和插件代码</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">参考教程  <a href="https://juejin.cn/post/7707106224123166755" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">掘金 AI 实战教程原文，含详细截图和示例</div>
     </li>
   </ul>
 </section>
@@ -122,55 +134,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：抓取并净化原文</h3>
-      <div class="text-base text-slate-700 leading-loose">打开少数派《新玩意》文章链接，使用浏览器阅读模式或 Instapaper 去掉广告和侧栏，只保留正文。将净化后的全文复制到剪贴板，确保包含每位编辑的推荐产品名称、使用场景和评价。如果文章较长，可分段复制，但不要遗漏产品段落。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装并启动 DeepSeek Harness</h3>
+      <div class="text-base text-slate-700 leading-loose">打开终端，执行 git clone https://github.com/deepseek-ai/harness.git 克隆仓库，进入目录后运行 npm install 安装依赖。接着复制 .env.example 为 .env，填入你的 DeepSeek API Key。最后运行 npm run dev 启动本地服务，浏览器访问 http://localhost:3000 就能看到 DSH 的初始界面。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>优先复制「编辑自述」部分，那里通常包含最真实的使用体验和优缺点。
+          💡 <span class="font-semibold">小贴士：</span>如果 npm install 报错，先检查 Node.js 版本是否 ≥18，并尝试切换 npm 镜像源。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用提示词模板提取产品信息</h3>
-      <div class="text-base text-slate-700 leading-loose">把全文粘贴给 AI，并附上以下提示词：「请从以下文章中提取所有被推荐的产品，按 JSON 数组输出，每个产品包含：产品名、推荐编辑、品类、核心卖点（1 句话）、适用人群、原文链接锚点。不要遗漏任何产品。」检查 AI 输出是否完整，如有遗漏可补充「还有第 X 段提到的 Y 产品」。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：配置工作台基础参数</h3>
+      <div class="text-base text-slate-700 leading-loose">在 DSH 根目录找到 config/default.json，修改 model 为 deepseek-chat，并设置 temperature 为 0.7。在 plugins 数组中启用你需要的插件，例如 file-reader、markdown-render、ui-canvas。保存后重启服务，界面左侧会出现插件面板。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>要求 AI 输出 JSON 而不是纯文本，方便后续导入表格；如果 AI 截断，可分段处理再合并。
+          💡 <span class="font-semibold">小贴士：</span>初次使用建议只启用 1-2 个插件，避免界面过于复杂，后续再逐步添加。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：生成结构化选购建议</h3>
-      <div class="text-base text-slate-700 leading-loose">将上一步的 JSON 结果再次喂给 AI，使用提示词：「基于这些产品信息，按品类分组，为每个品类写一段 100 字以内的选购建议，说明适合谁、不适合谁，并给出优先级排序（高/中/低）。」把 AI 返回的内容整理成表格，列包括：品类、产品名、推荐编辑、选购建议、优先级。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：接入本地素材库（以文献库为例）</h3>
+      <div class="text-base text-slate-700 leading-loose">在 DSH 界面点击「添加数据源」，选择本地文件夹路径，DSH 会自动索引其中的 PDF、Markdown 和 TXT 文件。然后在对话输入框用 @ 引用具体文件，AI 就能基于文件内容回答。你也可以在 config 中设置自动索引的文件夹，实现打开即用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>让 AI 标注「优先级」时要求它引用原文中的评价强度，避免凭空编造。
+          💡 <span class="font-semibold">小贴士：</span>文件较多时首次索引会慢一些，建议按主题分文件夹存放，方便 AI 精准检索。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：导入表格并建立追踪视图</h3>
-      <div class="text-base text-slate-700 leading-loose">把整理好的表格导入飞书多维表格或 Notion，字段设置为：产品名、品类、推荐编辑、核心卖点、适用人群、优先级、原文链接。创建一个「按品类分组」的视图和一个「高优先级」筛选视图，方便快速浏览。之后每期新文章都按同样流程追加数据。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：定制你的专属界面（自媒体排版台/UI 画布）</h3>
+      <div class="text-base text-slate-700 leading-loose">在 plugins 目录下新建一个文件夹，复制示例插件模板，修改 manifest.json 中的名称和图标。然后在 index.js 中定义输入框的快捷指令，比如输入 /排版 就调用 Markdown 渲染插件输出公众号格式。保存后刷新页面，输入框旁会出现你的自定义按钮。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在表格中加一列「我的状态」（未看/已种草/已购买），方便个人跟进。
+          💡 <span class="font-semibold">小贴士：</span>可以先从修改现有插件的文案和图标开始，熟悉结构后再写逻辑，降低上手难度。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：生成一期摘要卡片</h3>
-      <div class="text-base text-slate-700 leading-loose">让 AI 基于表格数据生成一段 200 字以内的「本期新玩意速览」，格式为：「本期共推荐 X 款产品，其中高优先级 Y 款，最值得关注的是 A（理由）和 B（理由）。」把这段文字复制到社交媒体或笔记中，作为内容二次创作的素材。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：测试完整工作流并保存为模板</h3>
+      <div class="text-base text-slate-700 leading-loose">在输入框输入一段测试内容，选择你配置的插件（如「自媒体排版」），观察输出是否符合预期。调整 prompt 模板和插件参数直到满意，然后点击界面右上角的「保存为工作台模板」，下次打开 DSH 可直接加载。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>要求 AI 用口语化、有态度的语气写摘要，更接近少数派编辑的风格。
+          💡 <span class="font-semibold">小贴士：</span>把常用指令写成 prompt 模板文件放在 templates 目录，团队协作时可以直接共享。
         </div>
     </div>
   </div>
@@ -180,7 +192,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你得到一份结构化的产品清单表格，包含每期《新玩意》的所有推荐产品、选购建议和优先级，并附带一段可直接发布的速览摘要。后续每期只需重复第 1-4 步，即可持续积累个人产品数据库。
+    完成以上步骤后，你的 DeepSeek 界面将变成一个带插件面板的专属工作台：左侧可管理本地文献库，输入框支持快捷指令，能一键完成自媒体排版、UI 原型草图或游戏素材生成。每次打开 DSH 都会加载你保存的模板，无需重复配置。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +202,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>文章太长，AI 一次读不完怎么办？</span>
+        <span>DSH 和直接使用 DeepSeek 网页版有什么区别？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">按编辑段落分段处理，每段单独提取 JSON，最后合并去重；或使用支持长上下文的模型（如 Kimi、Claude 长上下文版）。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">DSH 是本地开源底座，能接入本地文件、自定义界面和插件，把 AI 嵌入你的工作流；网页版是通用聊天，无法直接操作本地素材。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>AI 提取的产品信息不准确怎么办？</span>
+        <span>没有编程基础能玩吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在提示词中要求 AI 只基于原文内容输出，并附上原文引用片段；对关键产品手动核对原文。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。基础配置只需改 JSON 文件和复制模板，按教程操作即可；进阶插件开发才需要少量 JavaScript 知识。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有飞书或 Notion 可以用什么替代？</span>
+        <span>API Key 会不会泄露？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用 Excel、Google Sheets 或 Obsidian 表格均可，核心是保留结构化字段和筛选能力。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Key 保存在本地 .env 文件，不会上传到第三方。注意不要将 .env 提交到 Git 仓库，建议加入 .gitignore。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个玩法能自动化吗？</span>
+        <span>支持哪些文件格式？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，用 RSS 订阅少数派栏目 + n8n/Make 自动抓取新文章，再调用 AI API 提取信息写入表格，但需要一定技术基础。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">默认支持 PDF、Markdown、TXT、JSON 和图片，可通过插件扩展支持 Word、Excel 等格式。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>适合用来做什么？</span>
+        <span>DSH 是否免费？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合个人选购参考、产品调研、内容选题库、行业趋势观察，也可作为 AI 信息提取的练手项目。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">DSH 本身开源免费，但调用 DeepSeek 模型需要按 API 用量付费，具体价格见 DeepSeek 官网。</div>
     </details>
   </div>
 </section>
@@ -229,14 +241,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把信息源换成「少数派 Matrix」或「即刻」上的产品推荐帖，用同样的提示词模板提取并对比不同社区的口碑差异。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：增加一步「价格追踪」，让 AI 根据产品名生成电商搜索链接，手动填入当前价格，形成带价格的选购清单。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把输出改为「播客脚本」，让 AI 基于表格数据写一段 3 分钟的产品闲聊脚本，用于音频内容创作。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：游戏工坊——接入游戏素材生成插件，用自然语言描述角色和场景，DSH 直接输出像素图或关卡草图。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：本地文献库问答——把论文 PDF 批量放入文件夹，配置检索插件，实现基于本地文献的精准问答和摘要。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：UI 原型画布——启用 ui-canvas 插件，输入「生成一个登录页原型」，DSH 输出可交互的 HTML 草图并支持导出。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用「净化原文 → AI 提取 → 结构化表格 → 摘要输出」的工具链，把零散的产品推荐变成可检索、可对比、可复用的个人知识库。
+    用 DeepSeek Harness 把通用 AI 变成你的专属工作台，核心就是「装底座、配插件、接素材、存模板」四步走。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -246,17 +258,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把Office文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行的AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

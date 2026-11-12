@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rainbrand：给AI代理加品牌层 - AI 玩法教程 · AI Frontier</title>
+<title>用Modern Web Guidance让Agent按需查浏览器能力 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-11
+      2026-11-12
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">Rainbrand：给AI代理加品牌层</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Modern Web Guidance让Agent按需查浏览器能力</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+    掘金 AI 实战教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.producthunt.com/products/rainbrand" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7707100499275169834" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">Rainbrand 是一个给 AI 代理（Agent）添加品牌层的工具，让 AI 在回答中自动带上你的品牌风格、话术和视觉元素。</p>
+  <p class="text-base text-slate-800 leading-relaxed">让编码 Agent 在写浏览器代码前先查一份「浏览器能力指南」，避免写出过时或不兼容的 API。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    随着 AI 代理（如客服机器人、内容生成器）的普及，用户越来越难区分不同品牌提供的 AI 服务。Rainbrand 通过注入品牌层，让 AI 的输出保持一致的品牌调性、语气和视觉标识，从而提升品牌辨识度和用户信任。它适用于客服、营销文案、社交媒体自动回复等场景，尤其适合需要多代理协同但又要统一品牌形象的企业。
+    前端 API 迭代快，Agent 常凭训练数据写出已废弃或兼容性差的代码。Modern Web Guidance 把本地混合检索、特性门控和指南评测接入 Agent，让它在生成代码前按需查询浏览器能力，并给出兼容回退方案。适合需要稳定交付、多端兼容的前端项目，也适合想约束 Agent 输出质量的团队。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Rainbrand 账号  <a href="https://www.producthunt.com/products/rainbrand" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">注册并获取 API Key，用于接入品牌层服务</div>
+      <div class="font-semibold text-slate-900">Node.js 18+  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行本地检索服务和构建工具</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">AI 代理平台（如 OpenAI API、Claude API 或自建代理）  <a href="https://platform.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">作为基础 AI 能力提供方，Rainbrand 会包装其输出</div>
+      <div class="font-semibold text-slate-900">Claude Code / Cursor / 任意支持 MCP 的编码 Agent  <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">作为调用方，按需查询指南</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">品牌素材（Logo、色板、话术模板、语气指南） </div>
-      <div class="text-sm text-slate-600 mt-1">用于配置品牌层，确保输出符合品牌规范</div>
+      <div class="font-semibold text-slate-900">Modern Web Guidance 仓库  <a href="https://juejin.cn/post/7707100499275169834" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">获取指南数据与检索脚本</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Postman 或类似 API 测试工具  <a href="https://www.postman.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于调试 Rainbrand 的 API 调用</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">克隆仓库和版本管理</div>
     </li>
   </ul>
 </section>
@@ -122,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：注册 Rainbrand 并创建品牌配置</h3>
-      <div class="text-base text-slate-700 leading-loose">访问 Rainbrand 的 Product Hunt 页面，点击“Get”或“Visit”进入官网注册账号。登录后进入控制台，点击“Create Brand”填写品牌名称、行业、语气风格（如专业、友好、幽默）和禁用词列表。上传品牌 Logo 和主色板，系统会自动生成品牌视觉层。保存后获得一个 Brand ID，后续调用需要用到。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：克隆仓库并安装依赖</h3>
+      <div class="text-base text-slate-700 leading-loose">从掘金文章中找到 Modern Web Guidance 的仓库地址，执行 git clone 后进入目录运行 npm install。确认 package.json 中的 scripts 包含检索和评测命令。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议先只配置核心品牌元素（名称、语气、禁用词），后续再逐步丰富视觉层，避免一开始过于复杂。
+          💡 <span class="font-semibold">小贴士：</span>先跑一次 npm run build 确认指南数据能正常生成，避免后续检索为空。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：获取 API Key 并阅读文档</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Rainbrand 控制台的“API Keys”页面生成一个新的 API Key，并复制保存。然后打开官方文档（通常在控制台有链接），重点查看“Brand Layer Injection”和“Response Formatting”两个端点。文档会说明如何将 Brand ID 和 API Key 作为请求头传入，以及如何指定基础 AI 模型（如 gpt-4）。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：启动本地混合检索服务</h3>
+      <div class="text-base text-slate-700 leading-loose">运行仓库提供的检索服务命令（如 npm run serve 或 node server.js），默认监听本地端口。用 curl 测试一个查询，例如「dialog element」，确认返回相关指南片段。混合检索会结合关键词和向量相似度，比纯关键词更懂语义。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>将 API Key 存储在环境变量中，不要硬编码在代码里，避免泄露。
+          💡 <span class="font-semibold">小贴士：</span>如果返回结果太少，检查指南数据是否已索引，或调大 topK 参数。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：在 AI 代理中集成 Rainbrand API</h3>
-      <div class="text-base text-slate-700 leading-loose">在你的 AI 代理代码中，将原本直接调用 OpenAI 或 Claude 的请求改为调用 Rainbrand 的代理端点。例如，使用 Python 的 requests 库，向 `https://api.rainbrand.com/v1/chat` 发送 POST 请求，请求体包含 `brand_id`、`messages` 和 `model` 字段，并在 Header 中带上 `Authorization: Bearer YOUR_API_KEY`。Rainbrand 会自动将品牌层注入到系统提示词和输出格式中。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：把检索能力接入编码 Agent</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Agent 的 MCP 配置或自定义工具配置中，把本地检索服务注册为一个可调用工具，描述写成「查询浏览器 API 兼容性与用法」。在系统提示词里加一句：写浏览器相关代码前，先调用该工具查询目标 API。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先用 Postman 测试一次请求，确认返回内容包含品牌元素（如 Logo 链接、品牌色标记）后再集成到代码。
+          💡 <span class="font-semibold">小贴士：</span>提示词里明确要求「先查再写」，否则 Agent 容易跳过工具直接凭记忆生成。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：测试并调整品牌层参数</h3>
-      <div class="text-base text-slate-700 leading-loose">发送几条测试消息，检查 AI 回复是否体现了品牌语气、是否避免了禁用词、是否在适当位置插入了品牌视觉元素（如签名档、Logo）。如果效果不理想，回到 Rainbrand 控制台调整“语气强度”和“视觉注入频率”参数。例如，将语气强度从 0.5 调到 0.8 会让品牌风格更明显。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用特性门控约束生成代码</h3>
+      <div class="text-base text-slate-700 leading-loose">在提示词模板中要求 Agent 对每个用到的浏览器特性做特性检测，例如 if ('showModal' in HTMLDialogElement.prototype)。让 Agent 在指南返回的兼容性信息基础上，自动生成回退分支，而不是直接假设 API 存在。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>测试时覆盖多种场景（问候、投诉、产品咨询），确保品牌层在不同语境下都自然。
+          💡 <span class="font-semibold">小贴士：</span>把「必须包含特性检测」写成硬性验收条件，方便后续评测。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：部署并监控品牌层效果</h3>
-      <div class="text-base text-slate-700 leading-loose">将集成后的代理部署到生产环境，并在 Rainbrand 控制台的“Analytics”页面监控品牌层调用次数、平均响应时间和用户满意度（如果有反馈收集）。设置告警，当品牌层注入失败率超过 5% 时通知你。定期查看日志，确保没有因品牌层导致 AI 回答质量下降。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：跑指南评测并验收业务边界</h3>
+      <div class="text-base text-slate-700 leading-loose">用仓库自带的评测脚本对 Agent 生成的代码打分，检查是否引用了指南中的推荐用法、是否覆盖回退路径。再结合业务验收：原生弹窗等场景要确认焦点管理、ESC 关闭、无障碍属性是否满足产品要求。评测通过后再合入。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>初期可以设置 A/B 测试，对比启用品牌层前后的用户互动数据，量化品牌层的价值。
+          💡 <span class="font-semibold">小贴士：</span>评测只保证「符合指南」，业务边界（如弹窗层级、动画时长）仍需人工验收。
         </div>
     </div>
   </div>
@@ -180,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    AI 代理的回复中自动包含品牌名称、符合品牌语气的措辞、品牌色标记或 Logo 链接，且禁用词被过滤。用户能明显感知到这是你的品牌提供的 AI 服务，品牌辨识度提升。
+    Agent 在生成浏览器代码前会自动查询本地指南，输出带特性检测和兼容回退的代码；评测脚本给出通过报告，人工验收确认业务细节无误。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +190,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Rainbrand 支持哪些基础 AI 模型？</span>
+        <span>没有 MCP 支持的 Agent 能用吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">官方文档显示支持 OpenAI GPT 系列、Anthropic Claude 系列以及部分开源模型（如 Llama）。具体列表请查看 Rainbrand 控制台的“Models”页面。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。把检索服务包装成 CLI 命令，在提示词里让 Agent 先执行命令再写代码，效果类似。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>品牌层会增加响应延迟吗？</span>
+        <span>混合检索需要额外配置向量库吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Rainbrand 的注入逻辑在服务端完成，通常增加 50-100ms 延迟，具体取决于品牌配置复杂度。建议在测试阶段测量实际延迟。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">仓库通常内置轻量索引方案，按 README 初始化即可；数据量大时再考虑外接向量库。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>我可以为不同产品线创建多个品牌层吗？</span>
+        <span>指南数据过时怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。在控制台创建多个 Brand，每个 Brand 有独立的 Brand ID 和配置，调用时指定不同的 Brand ID 即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">定期更新仓库并重建索引；也可在评测中加入 MDN 兼容性数据做交叉校验。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>品牌层会修改 AI 的原始回答内容吗？</span>
+        <span>评测通过就代表代码能上线吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">品牌层主要注入系统提示词和输出格式，不会篡改事实性内容，但会调整语气、添加品牌元素。你可以通过“内容保护”开关限制修改范围。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何确保品牌层不违反 AI 平台的使用政策？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Rainbrand 遵循主流 AI 平台的政策，品牌层只做风格和格式调整。建议阅读 Rainbrand 的合规指南，并避免注入误导性信息。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不代表。评测只验证指南符合度，业务验收、真机兼容和性能仍需人工把关。</div>
     </details>
   </div>
 </section>
@@ -229,14 +222,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：多代理品牌统一——为客服、营销、技术支持三个代理分别配置同一 Brand ID，确保所有对外 AI 输出品牌一致。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：动态品牌层——根据用户所在地区或语言，调用不同的 Brand ID（如中文品牌层、英文品牌层），实现本地化品牌体验。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：品牌层+工作流——将 Rainbrand 与 Zapier 或 Make 结合，当 AI 生成内容后自动触发品牌层处理，再发布到社交媒体。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把检索服务换成远程 API，让团队共用一份指南索引，Agent 配置里只填 URL。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：在 CI 中加一道指南评测门禁，Agent 生成的 PR 不通过评测就自动打回。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：针对特定框架（如 React/Vue）定制提示词模板，让回退方案直接生成对应框架写法。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    Rainbrand 通过 API 为 AI 代理注入品牌层，让每一次 AI 交互都成为品牌曝光，核心是配置品牌元素、集成 API、调优参数并持续监控。
+    让 Agent 先查指南再写代码，用特性门控和评测把「凭记忆生成」变成「有据可查、可验收」。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -246,17 +239,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把Office文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行的AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

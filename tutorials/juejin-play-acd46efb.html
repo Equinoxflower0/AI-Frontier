@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>雇一支AI团队：分工干活还会先问你 - AI 玩法教程 · AI Frontier</title>
+<title>本地AI网关统一管理模型用量与工具 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-11
+      2026-11-12
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">雇一支AI团队：分工干活还会先问你</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">本地AI网关统一管理模型用量与工具</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+    掘金 AI 实战教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.producthunt.com/products/easy-peasy-ai" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7706396464942972954" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">想拥有一个能自动分工、还会在发送前征求你同意的 AI 团队吗？Easy Peasy AI 让你像雇真人一样组建 AI 小队，把复杂任务拆解给不同角色，并在关键节点主动询问你的意见。</p>
+  <p class="text-base text-slate-800 leading-relaxed">本地 AI 网关帮你把多个大模型供应商的授权、路由和用量统一管起来，告别来回切换账号和对账头疼。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    在 Product Hunt 上发现的 Easy Peasy AI 主打「雇一支 AI 团队」的概念：你不再需要手动写一堆提示词，而是像管理一个小团队一样，给每个 AI 成员分配角色和任务。它会自动拆分工作流，并在发送邮件、发布内容等敏感操作前先问你。适合内容创作、客户支持、项目调研等需要多步骤协作的场景，能大幅减少重复劳动，同时保留最终控制权。
+    随着团队和个人使用的模型越来越多（OpenAI、Claude、Gemini、本地 Ollama 等），API Key 散落各处、调用成本不透明、模型切换靠手动改代码成了常态。本地 AI 网关在桌面端运行，把供应商授权集中管理，按规则智能路由请求，并记录每次调用的用量历史。它适合需要多模型协作的开发者、小团队以及对成本敏感的 AI 应用场景。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Easy Peasy AI  <a href="https://www.producthunt.com/products/easy-peasy-ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">核心工具，用于创建和管理 AI 团队</div>
+      <div class="font-semibold text-slate-900">本地 AI 网关客户端  <a href="https://juejin.cn/post/7706396464942972954" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">桌面端网关主程序，负责统一代理和路由模型请求</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">浏览器（Chrome/Edge）  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">访问 Web 应用</div>
+      <div class="font-semibold text-slate-900">各供应商 API Key  <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">如 OpenAI、Anthropic、Google AI Studio 等平台的密钥</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">邮箱账号  <a href="https://mail.google.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">注册和接收通知</div>
+      <div class="font-semibold text-slate-900">Ollama（可选）  <a href="https://ollama.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">本地模型运行环境，用于接入本地模型做兜底或离线调用</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">任务说明文档 </div>
-      <div class="text-sm text-slate-600 mt-1">提前写好你想让 AI 团队完成的目标和约束</div>
+      <div class="font-semibold text-slate-900">Postman 或 curl  <a href="https://www.postman.com/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于验证网关接口是否正常转发请求</div>
     </li>
   </ul>
 </section>
@@ -122,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：注册并创建你的 AI 团队</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 Easy Peasy AI 官网，用邮箱注册账号。进入控制台后点击「Create Team」，为团队命名（例如「内容突击队」）。然后添加成员：每个成员对应一个 AI 角色，比如「研究员」「文案手」「审核员」。你可以从预设角色中选择，也可以自定义角色描述和技能。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装并启动本地网关</h3>
+      <div class="text-base text-slate-700 leading-loose">从官方渠道下载桌面端安装包，完成安装后启动应用。首次启动会引导你设置本地监听端口（默认通常是 8787 或类似端口），记下这个地址，后续所有请求都发往这里。确保网关在后台常驻运行，可以勾选开机自启。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>初期建议只加 2-3 个角色，避免任务流转过于复杂。
+          💡 <span class="font-semibold">小贴士：</span>如果端口被占用，换一个 10000 以上的端口，避免和常见开发服务冲突。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：定义团队分工与协作规则</h3>
-      <div class="text-base text-slate-700 leading-loose">在团队设置里，为每个角色指定职责和输入输出格式。例如：研究员负责搜集资料并输出要点列表；文案手根据要点写初稿；审核员检查语法和品牌调性。然后设置协作顺序：研究员 → 文案手 → 审核员。Easy Peasy AI 会自动按顺序传递任务。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：录入供应商授权信息</h3>
+      <div class="text-base text-slate-700 leading-loose">在网关的「供应商」或「授权」页面，逐个添加你拥有的模型平台：填入名称、API Base URL 和 API Key。添加后点击测试连接，确认网关能成功拉取模型列表。把不常用的供应商先禁用，减少路由干扰。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>用「如果…则…」的句式写规则，比如「如果审核员打回，则文案手重写」。
+          💡 <span class="font-semibold">小贴士：</span>API Key 建议使用平台提供的子密钥或限额密钥，不要直接填主账号全权限密钥。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：创建任务并启动工作流</h3>
-      <div class="text-base text-slate-700 leading-loose">点击「New Task」，输入任务目标（例如「写一篇关于 AI 团队协作的博客文章」），并附上参考资料或链接。选择你的团队，然后点击「Run」。系统会显示每个成员的工作状态，你可以实时看到进度。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：配置智能模型路由规则</h3>
+      <div class="text-base text-slate-700 leading-loose">进入「路由」设置，按场景建立规则：例如默认走性价比高的模型，代码任务路由到擅长代码的模型，长文本路由到上下文窗口大的模型。可以设置失败自动降级到备用供应商。保存后网关会按规则把请求分发到对应模型。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>任务描述越具体，AI 团队输出越精准。建议包含字数、风格、截止时间等约束。
+          💡 <span class="font-semibold">小贴士：</span>先配一条「默认路由 + 一个备用」，跑通后再加细分规则，避免一开始规则太复杂难排查。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：在关键节点审批 AI 的请求</h3>
-      <div class="text-base text-slate-700 leading-loose">当 AI 团队完成初稿或准备发送邮件/发布内容时，系统会弹出「Approval Request」通知。你可以在界面中查看内容，选择「Approve」同意或「Request Changes」并填写修改意见。AI 会根据你的反馈调整并重新提交。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用统一接口发起调用</h3>
+      <div class="text-base text-slate-700 leading-loose">把业务代码或工具里的 API Base URL 改成网关地址，模型名填网关支持的统一模型标识。用 curl 或 Postman 发一条测试请求，确认返回正常。之后所有调用都会经过网关，无需再改各平台 SDK 的密钥。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>开启邮件或 Slack 通知，避免错过审批请求。
+          💡 <span class="font-semibold">小贴士：</span>保持请求格式兼容 OpenAI Chat Completions 风格，大多数工具可以零改造接入。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：导出结果并复盘优化</h3>
-      <div class="text-base text-slate-700 leading-loose">任务完成后，你可以导出最终成果（文本、Markdown 或直接复制）。在「History」中查看每个成员的贡献和耗时。根据表现调整角色描述或协作规则，让下一次运行更高效。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：查看用量历史与对账</h3>
+      <div class="text-base text-slate-700 leading-loose">在「用量」面板查看每次调用的时间、模型、token 数和预估费用，按供应商或按天筛选。定期导出用量记录，和各家平台账单核对。发现异常调用可以回到路由规则里调整或禁用某个供应商。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>定期清理不活跃的角色，保持团队精简。
+          💡 <span class="font-semibold">小贴士：</span>给不同项目使用不同的网关实例或标签，用量统计会更清晰。
         </div>
     </div>
   </div>
@@ -180,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你将拥有一个自动运转的 AI 团队：输入任务后，成员按顺序协作，产出初稿，并在发送前主动询问你。你只需在关键节点点击批准或提出修改，即可获得符合要求的结果，同时保留最终控制权。
+    网关稳定运行后，你只需维护一处密钥和路由配置，所有 AI 调用统一走本地地址；用量面板能实时看到各模型消耗，对账从翻多个后台变成看一张表。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +190,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Easy Peasy AI 是免费的吗？</span>
+        <span>网关必须一直开着吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">提供免费试用额度，超出后需订阅付费计划。具体价格见官网。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">是的，它是本地代理服务，关闭后所有经网关的调用会失败。建议设为开机自启并常驻后台。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>我可以自定义 AI 角色的性格和技能吗？</span>
+        <span>支持哪些模型供应商？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。在角色设置中填写描述、技能和语气，越详细越贴合你的需求。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常支持 OpenAI 兼容接口的供应商，以及 Anthropic、Google 等主流平台，本地 Ollama 也可接入，具体以客户端列表为准。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>审批请求会通过什么方式通知我？</span>
+        <span>API Key 存在本地安全吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">支持站内通知、邮件和 Slack 集成，可在设置中开启。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">密钥保存在本机，不上传云端。但仍建议使用限额子密钥，并做好本机访问控制。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如果 AI 团队卡在某个步骤怎么办？</span>
+        <span>路由失败会自动切换吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查该角色的输入是否明确，或手动调整协作顺序。也可以暂停任务并重新分配。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以在路由规则里配置降级备用供应商，主模型报错时自动切到备用模型。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>支持中文任务吗？</span>
+        <span>用量费用是精确的吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">支持。在任务描述和角色设置中使用中文即可，AI 会用中文输出。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">网关按 token 数和内置价目表估算，实际以各平台账单为准，适合做趋势监控和对账参考。</div>
     </details>
   </div>
 </section>
@@ -229,14 +229,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：客户支持团队——设置「分类员」「回复手」「质检员」，自动处理客户邮件，回复前需你批准。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：竞品调研团队——「爬虫手」收集信息，「分析师」提炼洞察，「报告手」生成摘要，最终报告发送前问你。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：社交媒体运营团队——「选题手」找热点，「文案手」写帖子，「设计手」配图建议，发布前统一审批。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：团队共享网关——把网关部署在一台内网机器上，团队成员统一走内网地址，集中管理密钥和用量。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：成本告警路由——结合用量面板设置预算阈值，超支时自动把请求路由到更便宜的模型或本地 Ollama。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：多环境隔离——为开发、测试、生产各建一套路由配置，避免测试流量污染生产用量统计。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    把复杂任务拆给 AI 团队，让它们分工协作、主动请示，你只做关键决策。
+    用本地网关把多模型授权、路由和用量收口到一处，让 AI 调用像管理一个 API 一样简单可控。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -246,17 +246,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把Office文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行的AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>设计一个 Agent 调度工作流：状态机、工具注册与多模型路由的工程实践 - AI 玩法教程 · AI Frontier</title>
+<title>用Nuxt 4和MediaPipe在浏览器本地做人脸关键点分析 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-11
+      2026-11-12
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        📖 教程指引
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 1h
+        ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">设计一个 Agent 调度工作流：状态机、工具注册与多模型路由的工程实践</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Nuxt 4和MediaPipe在浏览器本地做人脸关键点分析</h1>
     
   </div>
 </header>
@@ -65,7 +65,7 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7704542913922580514" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7706913833988227072" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">本文带你从零搭建一个零第三方依赖的 Agent 调度工作流，涵盖状态机、工具注册与多模型路由，让你能快速落地一个可扩展的 AI 调度系统。</p>
+  <p class="text-base text-slate-800 leading-relaxed">不用服务器、不上传照片，用 Nuxt 4 + MediaPipe 在浏览器本地就能完成人脸关键点检测和面部比例计算，隐私安全又省成本。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    在构建 AI Agent 时，如何优雅地管理任务状态、动态注册工具以及灵活切换模型是三大痛点。本文基于掘金实战教程，复盘一套四层架构、五态状态机、装饰器式工具注册与多模型兜底链的设计，并给出本地模型全量 offload 的关键开关与显存预算。适合需要构建复杂 Agent 工作流的开发者，尤其是希望减少依赖、提升可维护性的场景。
+    传统图片分析工具通常把用户照片上传到服务器再调用 AI 模型，流程重、成本高，还有隐私风险。但像人脸关键点检测、面部比例计算这类轻量任务，完全可以在浏览器端用 MediaPipe 的 WASM 推理完成。Nuxt 4 提供了优秀的 SSR 和客户端组件能力，配合 MediaPipe Face Mesh 可以做到零后端依赖。这个玩法适合做颜值打分、虚拟试妆、表情互动等前端工具，也适合作为学习浏览器端 AI 推理的入门项目。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">基础运行环境，建议使用 3.10 或更高版本以支持新特性</div>
+      <div class="font-semibold text-slate-900">Node.js  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行 Nuxt 4 开发环境，建议 v20 以上</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Ollama  <a href="https://ollama.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">本地模型运行工具，用于多模型路由与兜底链的本地模型部署</div>
+      <div class="font-semibold text-slate-900">Nuxt 4  <a href="https://nuxt.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">前端框架，用于搭建页面和客户端组件</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">MediaPipe Tasks Vision  <a href="https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Google 官方的人脸关键点检测库，支持浏览器端 WASM 推理</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
       <div class="font-semibold text-slate-900">VS Code  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">代码编辑器，配合 Python 插件进行开发调试</div>
+      <div class="text-sm text-slate-600 mt-1">代码编辑器，可选装 Vue 官方插件</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">版本控制，方便拉取示例代码或管理项目</div>
+      <div class="font-semibold text-slate-900">现代浏览器  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Chrome/Edge 等支持 WebAssembly 和 WebGL 的浏览器</div>
     </li>
   </ul>
 </section>
@@ -122,66 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：设计四层架构与五态状态机</h3>
-      <div class="text-base text-slate-700 leading-loose">首先定义 Agent 工作流的四层架构：接口层、调度层、工具层与模型层。接口层负责接收用户请求；调度层包含状态机，管理任务流转；工具层提供可注册的工具函数；模型层封装多模型调用。接着实现五态状态机：IDLE、PLANNING、EXECUTING、REVIEWING、DONE，每个状态对应不同的处理逻辑，状态转移由事件驱动。使用 Python 的 enum 定义状态，并用字典维护合法转移路径。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：初始化 Nuxt 4 项目并安装依赖</h3>
+      <div class="text-base text-slate-700 leading-loose">在终端执行 npx nuxi@latest init face-mesh-demo 创建项目，进入目录后 npm install。然后安装 MediaPipe 任务包：npm install @mediapipe/tasks-vision。启动开发服务器 npm run dev，确认默认页面能正常访问。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>状态机尽量保持简单，避免过多状态导致复杂度爆炸；可以用状态图工具先画清楚再编码。
+          💡 <span class="font-semibold">小贴士：</span>如果网络慢，可以配置 npm 镜像源；Nuxt 4 默认使用 app/ 目录结构，注意文件路径。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：实现装饰器式工具注册</h3>
-      <div class="text-base text-slate-700 leading-loose">创建一个工具注册中心，使用装饰器 @register_tool(name, description) 将普通函数注册为工具。注册中心维护一个字典，键为工具名，值为函数及其元数据。调度层根据任务需求动态查找并调用工具。工具函数应统一输入输出格式，例如接收 dict 参数并返回 dict 结果。可以添加工具描述和参数 schema，便于后续模型路由时生成提示词。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：准备人脸关键点模型文件</h3>
+      <div class="text-base text-slate-700 leading-loose">从 MediaPipe 官方模型页下载 face_landmarker.task 模型文件，放到 Nuxt 项目的 public/models/ 目录下。这个模型文件约几 MB，浏览器首次加载后会缓存。在代码中通过 /models/face_landmarker.task 路径引用即可。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>工具函数内部做好异常捕获，避免单个工具失败导致整个工作流崩溃；注册时校验重名。
+          💡 <span class="font-semibold">小贴士：</span>模型文件不要放在 assets 目录，public 下的静态资源才能被浏览器直接访问。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：构建多模型路由与兜底链</h3>
-      <div class="text-base text-slate-700 leading-loose">定义模型路由策略：根据任务类型、成本或延迟选择模型。例如，简单任务走本地小模型（如 Ollama 的 llama3.2:3b），复杂任务走云端大模型（如 GPT-4）。实现兜底链：当主模型调用失败或超时时，自动降级到备用模型。使用配置文件或环境变量管理模型端点与密钥。路由逻辑可以封装为 ModelRouter 类，提供 generate(prompt, task_type) 方法。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：封装客户端人脸检测组件</h3>
+      <div class="text-base text-slate-700 leading-loose">在 components/ 下新建 FaceMeshAnalyzer.client.vue，使用 .client 后缀确保只在浏览器运行。在 onMounted 中通过 FilesetResolver.forVisionTasks 加载 WASM，再创建 FaceLandmarker 实例，配置 runningMode 为 IMAGE。暴露一个 analyze(imageElement) 方法，调用 detect 返回关键点数组。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>为每个模型设置超时和重试次数，兜底链至少包含两个备选模型；本地模型注意显存占用。
+          💡 <span class="font-semibold">小贴士：</span>MediaPipe 的 WASM 文件路径要用 CDN 或本地复制，推荐用官方 CDN 避免路径问题。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：集成状态机与工具调用</h3>
-      <div class="text-base text-slate-700 leading-loose">在调度层中，将状态机与工具注册中心结合。当状态为 PLANNING 时，调用模型生成任务计划（如需要哪些工具）；进入 EXECUTING 状态后，按计划依次调用工具，并将结果存入上下文；REVIEWING 状态检查结果是否满足要求，若不满足则回退到 PLANNING 或 EXECUTING。使用一个上下文对象贯穿整个流程，保存中间结果和状态。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：实现图片上传与关键点绘制</h3>
+      <div class="text-base text-slate-700 leading-loose">在页面中放一个 file input 和 canvas，用户选择图片后读取为 Image 对象，传给 analyze 方法。拿到 478 个关键点后，用 canvas 的 fillRect 或 arc 把每个点画出来，也可以只画轮廓线。同时计算面部比例，比如两眼距离与脸宽的比值，显示在页面上。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>为每个状态添加日志输出，便于调试；上下文对象使用 dataclass 定义，清晰易读。
+          💡 <span class="font-semibold">小贴士：</span>绘制前记得清空 canvas，图片按原始尺寸绘制避免坐标错位。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：本地模型全量 offload 与显存优化</h3>
-      <div class="text-base text-slate-700 leading-loose">若使用本地模型（如 Ollama），通过三个关键开关实现全量 offload：设置 num_gpu 为最大层数、启用 flash_attention、调整 num_thread 匹配 CPU 核心数。在 Ollama 中可通过 Modelfile 或 API 参数配置。显存预算方面，根据模型参数量估算：FP16 下每 1B 参数约需 2GB 显存，量化后减半。使用 nvidia-smi 监控显存，避免 OOM。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：优化体验与错误处理</h3>
+      <div class="text-base text-slate-700 leading-loose">添加加载状态提示，模型加载完成前禁用上传按钮。处理非人脸图片的情况，检测结果为空时给出友好提示。用 URL.createObjectURL 预览图片，组件卸载时 revoke 释放内存。最后在 nuxt.config.ts 中确认没有 SSR 相关报错。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先从小模型开始测试，逐步增加层数；使用量化版本（如 q4_0）大幅降低显存需求。
-        </div>
-    </div>
-    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
-      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
-        6
-      </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：编写入口脚本与测试用例</h3>
-      <div class="text-base text-slate-700 leading-loose">创建一个 main.py 作为入口，初始化状态机、注册工具、配置模型路由，然后接收用户输入并启动工作流。编写单元测试覆盖状态转移、工具注册和模型路由的兜底逻辑。可以使用 pytest 和 mock 模拟模型调用。最后运行一个端到端示例，例如“查询天气并总结”的任务，观察状态流转和工具调用。</div>
-      
-        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>测试时使用假模型响应，避免依赖外部 API；端到端示例尽量简单，便于验证。
+          💡 <span class="font-semibold">小贴士：</span>可以在页面加一个“示例图片”按钮，方便用户快速体验，不用自己找图。
         </div>
     </div>
   </div>
@@ -191,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    完成以上步骤后，你将得到一个可运行的 Agent 调度工作流：用户输入任务后，系统自动规划、调用注册的工具、根据任务类型路由到合适模型（本地或云端），并在失败时自动降级。控制台会打印状态转移日志和工具调用结果，最终输出任务答案。
+    打开页面后上传一张人脸照片，浏览器本地完成检测，canvas 上叠加显示人脸关键点，页面同时展示计算出的面部比例数值。整个过程没有网络请求上传照片，刷新后模型会从缓存快速加载。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -201,38 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>状态机是否必须严格五态？可以自定义吗？</span>
+        <span>为什么必须用 .client.vue 后缀？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">五态是示例，你可以根据业务增减状态，但建议保持状态数量适中，避免过于复杂。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">MediaPipe 依赖浏览器 API（如 WebAssembly、Canvas），在服务端渲染时会报错，.client 后缀让组件只在客户端挂载。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>工具注册装饰器如何支持异步函数？</span>
+        <span>模型加载很慢怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以在注册中心判断函数是否为协程，并在调用时使用 await；或者统一用同步函数包装异步调用。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">首次加载需要下载 WASM 和模型文件，建议部署时把模型放到 CDN 或开启 gzip/brotli 压缩，后续会走浏览器缓存。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>多模型路由如何选择模型？</span>
+        <span>能检测视频流吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以根据任务类型、成本、延迟或历史成功率动态选择，也可以简单按优先级列表依次尝试。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，把 FaceLandmarker 的 runningMode 改为 VIDEO，配合 requestAnimationFrame 循环调用 detectForVideo 即可。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>本地模型 offload 后速度很慢怎么办？</span>
+        <span>关键点数量是多少？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查是否启用了 GPU 加速，调整 num_gpu 层数，或使用更小的量化模型；同时确保 CPU 线程数合理。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">MediaPipe Face Landmarker 默认输出 478 个 3D 关键点，包含面部轮廓、眼睛、嘴唇等区域。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个工作流可以用于生产环境吗？</span>
+        <span>需要后端吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以作为基础框架，但生产环境需要增加监控、限流、持久化和安全控制等。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">完全不需要，所有推理在浏览器本地完成，适合静态部署到 Vercel、Netlify 等平台。</div>
     </details>
   </div>
 </section>
@@ -240,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将状态机替换为基于事件驱动的有限状态机库（如 transitions），简化状态管理代码。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：增加工具的动态加载机制，从插件目录自动发现并注册工具，提升扩展性。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：引入缓存层，对模型调用结果进行缓存，减少重复请求和成本。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：实时摄像头人脸关键点——把图片上传换成 getUserMedia 视频流，逐帧检测并绘制，做实时表情或姿态互动。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：面部比例颜值分析——基于关键点计算三庭五眼比例，给出趣味评分和可视化报告。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：虚拟试妆/贴纸——根据嘴唇和眼睛关键点定位，在 canvas 上叠加口红颜色或 AR 贴纸。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    掌握状态机、工具注册与多模型路由三大核心，你就能构建一个灵活、可扩展的 Agent 调度工作流，轻松应对复杂 AI 任务。
+    用 Nuxt 4 搭壳、MediaPipe 做本地推理，把轻量人脸分析从服务器搬到浏览器，隐私和成本双赢。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -255,19 +248,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把Office文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行的AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

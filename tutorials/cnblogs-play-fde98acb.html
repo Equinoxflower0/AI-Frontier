@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SnapTiles：浏览器里玩转3D磁力片 - AI 玩法教程 · AI Frontier</title>
+<title>跟AI学Ubuntu 26.04搭建Docker环境 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-12
+      2026-11-13
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">SnapTiles：浏览器里玩转3D磁力片</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">跟AI学Ubuntu 26.04搭建Docker环境</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    Product Hunt - AI 频道 · B级
+    博客园 AI 教程 · B级
   </span>
-  
+  <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.producthunt.com/products/snaptiles" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/datacool/p/23645223" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">SnapTiles 让你在浏览器里像玩磁力片一样自由拼搭 3D 模型，无需安装任何软件，打开网页就能上手。</p>
+  <p class="text-base text-slate-800 leading-relaxed">跟着AI一步步在Ubuntu 26.04上搭建Docker环境，零基础也能照做，顺便学点Linux运维硬技能。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    SnapTiles 是一款基于浏览器的 3D 磁力片搭建工具，它把实体磁力片的拼搭体验搬到了数字世界。你可以在虚拟空间里拖拽、旋转、吸附各种形状的磁力片，快速构建出建筑、动物或抽象雕塑。对于设计师、教育工作者和 3D 爱好者来说，它既是快速原型工具，也是空间思维训练玩具。无需下载、免费使用，让创意随时落地。
+    一位47岁的大龄程序员码农阿峰，靠Linux技能保住了饭碗，但自觉不够强，于是用AI辅助学习Ubuntu Server 26.04上搭建Docker环境。这个玩法适合刚接触Linux服务器、想快速上手容器化部署的开发者或运维新手。通过AI对话式引导，你能避开常见坑，把环境搭得又稳又快。整个过程也是练习“用AI学新东西”的元技能。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,16 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">SnapTiles 网页版  <a href="https://www.producthunt.com/products/snaptiles" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">核心搭建工具，直接在浏览器中运行</div>
+      <div class="font-semibold text-slate-900">Ubuntu Server 26.04 LTS 镜像  <a href="https://ubuntu.com/download/server" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">操作系统安装源，建议用官方ISO</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">现代浏览器（Chrome/Edge/Firefox 最新版）  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">确保 WebGL 和 3D 渲染性能</div>
+      <div class="font-semibold text-slate-900">一台虚拟机或云服务器  <a href="https://www.virtualbox.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于安装Ubuntu Server，本地可用VirtualBox/VMware，云端可选阿里云/腾讯云轻量服务器</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">鼠标或触控板 </div>
-      <div class="text-sm text-slate-600 mt-1">用于拖拽、旋转和缩放视角</div>
+      <div class="font-semibold text-slate-900">SSH客户端  <a href="https://www.putty.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">远程连接服务器，Windows可用PuTTY或Windows Terminal，macOS/Linux用终端</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">AI对话工具  <a href="https://chat.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于向AI提问获取命令和排错建议，如ChatGPT、Claude、文心一言等</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Docker官方文档  <a href="https://docs.docker.com/engine/install/ubuntu/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">安装和配置的权威参考</div>
     </li>
   </ul>
 </section>
@@ -118,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：打开 SnapTiles 并熟悉界面</h3>
-      <div class="text-base text-slate-700 leading-loose">访问 SnapTiles 产品页，点击“Try it”或直接进入网页应用。界面通常分为三部分：左侧是磁力片形状库（三角形、正方形、菱形等），中间是 3D 搭建区，右侧是视角控制或属性面板。先用鼠标左键拖拽空白处旋转视角，滚轮缩放，右键平移，感受 3D 空间的操作逻辑。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装Ubuntu Server 26.04并完成基础配置</h3>
+      <div class="text-base text-slate-700 leading-loose">用虚拟机或云服务器安装Ubuntu Server 26.04，安装时勾选OpenSSH Server以便远程连接。安装完成后用SSH登录，执行sudo apt update &amp;&amp; sudo apt upgrade -y更新系统。接着设置主机名、时区，并创建一个有sudo权限的普通用户（如果安装时没建）。最后确认网络连通，能ping通外网。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果页面加载慢，检查浏览器是否开启了硬件加速（设置→系统→使用硬件加速）。
+          💡 <span class="font-semibold">小贴士：</span>安装时建议最小化安装，不要选额外的服务包，保持系统干净，后续按需安装。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：从形状库拖出第一片磁力片</h3>
-      <div class="text-base text-slate-700 leading-loose">在左侧形状库中点击或拖拽一个正方形磁力片到搭建区中央。磁力片会自动吸附到网格或已有磁力片的边缘。尝试拖拽不同形状（如三角形、六边形），观察它们如何通过磁力边缘自动对齐。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：向AI提问获取Docker安装命令</h3>
+      <div class="text-base text-slate-700 leading-loose">打开AI对话工具，输入提示词：“我是Ubuntu Server 26.04新手，请给出安装Docker Engine和Docker Compose的完整命令步骤，要求用官方apt仓库，并解释每条命令的作用。”AI会返回一套命令，包括安装依赖、添加GPG密钥、添加仓库、安装docker-ce等。你逐条复制执行，遇到不懂的就追问AI。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>按住 Shift 键拖拽可以自由旋转磁力片，方便调整角度。
+          💡 <span class="font-semibold">小贴士：</span>让AI解释每条命令，不要盲目复制粘贴，这是学习的关键。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：利用磁力吸附快速拼接</h3>
-      <div class="text-base text-slate-700 leading-loose">将新磁力片靠近已有磁力片的边缘，当出现高亮提示时松开鼠标，两片就会自动吸附。继续添加磁力片，尝试拼出一个立方体或简单房屋。注意磁力片只能吸附在边缘的磁力点上，不是任意位置。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：执行安装并配置Docker</h3>
+      <div class="text-base text-slate-700 leading-loose">按照AI给出的命令依次执行：先安装ca-certificates、curl等依赖，然后添加Docker官方GPG密钥和apt仓库，接着sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y。安装完成后启动Docker服务并设为开机自启：sudo systemctl enable --now docker。最后把当前用户加入docker组，避免每次用sudo：sudo usermod -aG docker $USER，然后重新登录生效。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果吸附不成功，稍微旋转视角从侧面观察磁力点位置，再靠近。
+          💡 <span class="font-semibold">小贴士：</span>加入docker组后必须退出SSH重新登录，否则组权限不生效。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：调整视角与颜色，完善作品</h3>
-      <div class="text-base text-slate-700 leading-loose">使用鼠标右键拖拽平移视角，左键旋转，滚轮缩放，从不同角度检查拼接是否牢固。点击已放置的磁力片，在右侧面板中更改颜色或材质，让作品更生动。也可以使用“撤销/重做”按钮修正错误。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：验证安装并跑通第一个容器</h3>
+      <div class="text-base text-slate-700 leading-loose">执行docker version和docker compose version确认版本信息。然后运行sudo docker run hello-world，看到“Hello from Docker!”说明安装成功。再尝试运行一个Nginx容器：docker run -d -p 8080:80 --name mynginx nginx，然后在浏览器访问服务器IP:8080，看到Nginx欢迎页即证明容器网络正常。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>按键盘上的“R”键可以快速重置视角到正面。
+          💡 <span class="font-semibold">小贴士：</span>如果访问不了，检查服务器防火墙或云安全组是否放行了8080端口。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：保存或分享你的 3D 作品</h3>
-      <div class="text-base text-slate-700 leading-loose">完成搭建后，寻找界面上的“保存”或“导出”按钮，通常可以保存为图片或生成分享链接。部分版本支持导出 3D 模型文件（如 .glb），方便导入其他 3D 软件继续编辑。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用AI辅助排错与优化</h3>
+      <div class="text-base text-slate-700 leading-loose">如果某步报错，把错误信息完整复制给AI，并说明你的操作环境，AI会给出排查思路。常见问题包括GPG密钥下载失败、仓库地址错误、权限不足等。根据AI建议修复后，再让AI给出Docker常用配置优化建议，比如配置国内镜像加速器、设置日志轮转等。最后把整个流程整理成自己的笔记。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>定期保存，避免浏览器崩溃丢失进度；分享链接前确认隐私设置。
+          💡 <span class="font-semibold">小贴士：</span>让AI用“一步一步教我”的方式回答，避免它一次性给太多信息。
         </div>
     </div>
   </div>
@@ -176,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你将在浏览器中成功搭建出一个由多片磁力片组成的 3D 结构（如立方体或小房子），并能自由旋转视角、更改颜色，最后保存或分享作品。
+    Ubuntu 26.04上成功安装Docker Engine和Docker Compose，docker run hello-world正常输出，Nginx容器可通过浏览器访问，当前用户无需sudo即可执行docker命令，并且你拥有了一套AI辅助排错的实战经验。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -186,38 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>SnapTiles 需要付费吗？</span>
+        <span>Ubuntu 26.04太新，Docker官方仓库支持吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">基础功能免费，高级功能（如导出高精度模型）可能需要订阅，具体以官网为准。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">如果官方仓库尚未收录26.04代号，可以暂时使用相邻LTS版本的仓库（如24.04），或改用Ubuntu自带docker.io包，但版本较旧。建议先问AI确认最新支持情况。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>可以在手机上玩吗？</span>
+        <span>执行docker命令提示权限被拒绝怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">支持触屏操作，但小屏幕体验不如桌面端，建议使用平板或电脑。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">说明当前用户不在docker组。执行sudo usermod -aG docker $USER后退出SSH重新登录即可。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>磁力片吸附不灵敏怎么办？</span>
+        <span>拉取镜像很慢或失败怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">确保磁力片边缘靠近磁力点，并尝试旋转视角从侧面观察；也可能是浏览器性能问题，关闭其他标签页再试。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">配置国内镜像加速器，在/etc/docker/daemon.json中加入registry-mirrors，然后sudo systemctl restart docker。具体地址可让AI推荐当前可用的。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>作品能导出为 3D 打印文件吗？</span>
+        <span>AI给的命令我不敢直接执行，怎么确保安全？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">目前 SnapTiles 主要支持图片和链接分享，部分版本可导出 .glb，需自行转换格式用于 3D 打印。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">让AI逐条解释命令作用，对涉及删除、修改系统文件的命令格外警惕，可以先在测试虚拟机里跑一遍。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何撤销上一步操作？</span>
+        <span>Docker Compose和docker-compose命令有什么区别？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">使用界面上的撤销按钮（通常为左箭头图标）或按 Ctrl+Z（Mac 为 Cmd+Z）。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">新版是Docker Compose插件，命令为docker compose（中间空格）；旧版是独立二进制docker-compose。安装docker-compose-plugin后使用前者。</div>
     </details>
   </div>
 </section>
@@ -225,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：教育场景——用 SnapTiles 讲解几何体（如柏拉图立体），让学生边拼边学空间结构。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：快速原型——设计师用磁力片搭建产品概念模型，导出截图放入演示文稿。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：解谜挑战——给自己限定磁力片数量，拼出指定形状，锻炼空间推理能力。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用AI辅助在Ubuntu 26.04上搭建Docker + Portainer可视化管理界面，通过Web UI管理容器。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：让AI生成一个多容器应用（如Nginx + MySQL + WordPress）的docker-compose.yml，并一步步部署上线。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用AI制定Docker安全加固清单，包括非root运行容器、限制资源、配置防火墙等，并逐项实践。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    SnapTiles 把磁力片的直觉拼搭搬进浏览器，让你在 3D 空间里快速实现创意，边玩边学。
+    把AI当成随叫随到的Linux老师，边问边做边排错，在实战中把Docker环境搭起来，同时练就独立解决问题的能力。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -240,19 +248,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把Office文档转成Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
     <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行的AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把文件转成Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

@@ -185,6 +185,7 @@ def render_html(items: list, date_str: str) -> str:
     </a>
     <div class="flex items-center gap-4">
       <a href="archive.html" class="text-sm text-slate-600 hover:text-blue-600">📅 往期资讯</a>
+      <a href="search.html" class="text-sm text-slate-600 hover:text-blue-600">🔍 站内搜索</a>
       <div class="text-sm text-slate-500">{date_str} · 周{datetime.strptime(date_str, "%Y-%m-%d").weekday()+1 if False else "—"}</div>
     </div>
   </div>

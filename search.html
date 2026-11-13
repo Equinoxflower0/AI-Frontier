@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>站内搜索 · AI Frontier</title>
+<meta name="description" content="AI Frontier 站内搜索：搜索过往全部日报的历史资讯，覆盖大模型、开源、论文、产业、工具、观点六大板块。">
+<link rel="stylesheet" href="assets/tailwind.css">
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; }
+  mark { background: #fef08a; color: inherit; border-radius: 2px; padding: 0 1px; }
+  .result-card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -12px rgba(15,23,42,.18); border-color: #cbd5e1; }
+</style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+
+<header class="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="text-2xl">🌐</span>
+        <span class="font-bold text-lg">AI Frontier</span>
+        <span class="text-xs text-slate-400 ml-2 hidden sm:inline">| 全球AI前沿</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="index.html" class="hover:text-blue-600">今日</a>
+        <a href="archive.html" class="hover:text-blue-600">📅 往期</a>
+        <a href="playground.html" class="hover:text-indigo-600">🎮 玩法实验室</a>
+        <a href="search.html" class="text-blue-600 border-b-2 border-blue-500 pb-0.5">🔍 搜索</a>
+        <a href="rss.xml" class="hover:text-orange-600">📰 RSS</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 w-full flex-1">
+
+  <div class="text-center mb-8">
+    <h1 class="text-3xl font-bold mb-2">🔍 站内搜索</h1>
+    <p class="text-slate-500 text-sm">搜索过往所有日报的历史资讯 · 多个关键词用空格分隔（全部命中才显示）</p>
+    <p id="stats" class="text-xs text-slate-400 mt-2">索引加载中…</p>
+  </div>
+
+  <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 mb-6">
+    <div class="flex gap-3">
+      <input id="q" type="search" autocomplete="off" placeholder="例如：DeepSeek 开源 / 智能体 融资 / GPT 发布"
+             class="flex-1 border border-slate-300 rounded-lg px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+      <button id="go" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition">搜索</button>
+    </div>
+    <div id="cats" class="flex flex-wrap gap-2 mt-4 text-xs"></div>
+  </div>
+
+  <div id="hint" class="text-sm text-slate-400 text-center py-10"></div>
+  <div id="results" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  <div id="more" class="text-center mt-8 hidden">
+    <button id="more-btn" class="bg-white border border-slate-300 hover:border-slate-400 text-slate-700 font-medium px-6 py-2.5 rounded-lg transition">加载更多</button>
+  </div>
+
+</main>
+
+<footer class="border-t border-slate-200 bg-white">
+  <div class="max-w-6xl mx-auto px-4 py-8 text-center text-xs text-slate-400">
+    AI Frontier · 站内搜索 · 索引随每日流水线自动重建 · 数据来自公开 RSS 源
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var CAT_COLOR = {
+    "大模型": ["bg-red-100", "text-red-700"],
+    "开源":   ["bg-purple-100", "text-purple-700"],
+    "论文":   ["bg-blue-100", "text-blue-700"],
+    "产业":   ["bg-green-100", "text-green-700"],
+    "工具":   ["bg-yellow-100", "text-yellow-700"],
+    "观点":   ["bg-pink-100", "text-pink-700"],
+    "综合":   ["bg-slate-100", "text-slate-700"]
+  };
+  var PAGE = 30;           // 每次渲染条数
+  var shown = 0;           // 已渲染数
+  var current = [];        // 当前结果集
+  var activeCat = "";      // 当前分类筛选
+  var items = [];
+
+  var $ = function (id) { return document.getElementById(id); };
+  var qEl = $("q"), resEl = $("results"), hintEl = $("hint"),
+      statsEl = $("stats"), catsEl = $("cats"), moreEl = $("more"), moreBtn = $("more-btn");
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  // 关键词高亮（先转义再包 mark）
+  function hl(s, toks) {
+    var out = esc(s);
+    for (var i = 0; i < toks.length; i++) {
+      try {
+        var re = new RegExp("(" + toks[i].replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ")", "gi");
+        out = out.replace(re, "<mark>$1</mark>");
+      } catch (e) { /* 忽略非法正则 */ }
+    }
+    return out;
+  }
+
+  function renderCats(cats) {
+    var html = '<button data-cat="" class="cat-btn ' + (activeCat === "" ? "bg-blue-600 text-white" : "bg-slate-100 text-slate-600") + ' px-3 py-1.5 rounded-full">全部分类</button>';
+    var order = ["大模型", "开源", "论文", "产业", "工具", "观点", "综合"];
+    for (var i = 0; i < order.length; i++) {
+      var c = order[i];
+      if (!cats[c]) continue;
+      var col = CAT_COLOR[c] || CAT_COLOR["综合"];
+      var sel = activeCat === c;
+      html += '<button data-cat="' + esc(c) + '" class="cat-btn ' + (sel ? "ring-2 ring-offset-1 ring-blue-400 " : "") + col[0] + " " + col[1] + ' px-3 py-1.5 rounded-full">' + esc(c) + " · " + cats[c] + "</button>";
+    }
+    catsEl.innerHTML = html;
+    Array.prototype.forEach.call(catsEl.querySelectorAll(".cat-btn"), function (b) {
+      b.addEventListener("click", function () {
+        activeCat = b.getAttribute("data-cat");
+        run();
+      });
+    });
+  }
+
+  function tokenize(q) {
+    return String(q || "").trim().toLowerCase().split(/\s+/).filter(Boolean);
+  }
+
+  function search(toks) {
+    var out = [];
+    for (var i = 0; i < items.length; i++) {
+      var it = items[i];
+      if (activeCat && it.c !== activeCat) continue;
+      var title = (it.t || "").toLowerCase();
+      var body = ((it.s || "") + " " + (it.w || "") + " " + (it.src || "") + " " + (it.c || "")).toLowerCase();
+      var score = 0, miss = false;
+      for (var j = 0; j < toks.length && !miss; j++) {
+        var t = toks[j];
+        var inTitle = title.indexOf(t) !== -1;
+        var inBody = body.indexOf(t) !== -1;
+        if (!inTitle && !inBody) { miss = true; break; }
+        score += inTitle ? 5 : 1;
+        if (inTitle && (it.s || "").toLowerCase().indexOf(t) !== -1) score += 1;
+      }
+      if (!miss && toks.length) out.push([score, it]);
+    }
+    if (toks.length) {
+      out.sort(function (a, b) { return b[0] - a[0] || (b[1].d < a[1].d ? -1 : 1); });
+    } else {
+      out.sort(function (a, b) { return a[1].d < b[1].d ? 1 : -1; });
+    }
+    return out.map(function (x) { return x[1]; });
+  }
+
+  function card(it, toks) {
+    var col = CAT_COLOR[it.c] || CAT_COLOR["综合"];
+    return '<article class="result-card bg-white rounded-xl border border-slate-200 p-5 transition">' +
+      '<div class="flex items-center flex-wrap gap-2 mb-2">' +
+        '<span class="' + col[0] + " " + col[1] + ' text-xs font-semibold px-2 py-0.5 rounded">' + esc(it.c) + "</span>" +
+        '<span class="text-xs text-slate-400">' + esc(it.src) + (it.pub ? " · " + esc(it.pub) : "") + "</span>" +
+        '<span class="text-xs text-slate-300">|</span>' +
+        '<a href="daily-brief-' + esc(it.d) + '.html" class="text-xs text-blue-600 hover:underline">查看 ' + esc(it.d) + " 期日报</a>" +
+      "</div>" +
+      '<h3 class="text-base font-bold leading-snug mb-1"><a href="' + esc(it.l) + '" target="_blank" rel="noopener" class="hover:text-blue-600">' + hl(it.t, toks) + "</a></h3>" +
+      (it.s ? '<p class="text-sm text-slate-600 leading-relaxed">' + hl(it.s, toks.slice(0, 4)) + "</p>" : "") +
+      (it.w ? '<p class="text-xs text-slate-500 leading-relaxed mt-2"><strong class="text-slate-600">为什么重要：</strong>' + esc(it.w) + "</p>" : "") +
+      "</article>";
+  }
+
+  function paint() {
+    var n = Math.min(shown + PAGE, current.length);
+    var toks = tokenize(qEl.value);
+    var html = "";
+    for (var i = shown; i < n; i++) html += card(current[i], toks);
+    resEl.insertAdjacentHTML("beforeend", html);
+    shown = n;
+    moreEl.classList.toggle("hidden", shown >= current.length);
+    moreBtn.textContent = "加载更多（还剩 " + (current.length - shown) + " 条）";
+  }
+
+  function run() {
+    var toks = tokenize(qEl.value);
+    var counts = {};
+    items.forEach(function (it) { counts[it.c] = (counts[it.c] || 0) + 1; });
+    renderCats(counts);
+    current = search(toks);
+    resEl.innerHTML = "";
+    shown = 0;
+    if (!toks.length) {
+      hintEl.textContent = current.length ? "输入关键词开始搜索，当前按日期倒序展示全部资讯" : "";
+      statsEl.textContent = "共 " + items.length + " 条资讯 · 来自全部历史日报";
+    } else {
+      hintEl.textContent = current.length
+        ? "找到 " + current.length + " 条相关资讯（按相关度排序）"
+        : "没有找到相关资讯：试试更短的关键词，或换一种说法";
+    }
+    if (current.length) paint(); else moreEl.classList.add("hidden");
+  }
+
+  $("go").addEventListener("click", run);
+  qEl.addEventListener("keydown", function (e) { if (e.key === "Enter") run(); });
+  qEl.addEventListener("input", function () {
+    if (!qEl.value.trim() && items.length) run();   // 清空输入回到全部列表
+  });
+  moreBtn.addEventListener("click", paint);
+
+  // 支持 ?q= 预置搜索词（其他页面可带参跳转）
+  var preset = new URLSearchParams(location.search).get("q");
+  if (preset) { qEl.value = preset; }
+
+  fetch("search-index.json", { cache: "no-store" })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      items = (data && data.items) || [];
+      statsEl.textContent = "共 " + items.length + " 条资讯 · 来自 " + (data.issues || "?") + " 期日报 · 索引更新于 " + (data.built_at || "—");
+      run();
+    })
+    .catch(function () {
+      statsEl.textContent = "索引加载失败，请刷新重试";
+      hintEl.textContent = "无法加载 search-index.json";
+    });
+})();
+</script>
+</body>
+</html>

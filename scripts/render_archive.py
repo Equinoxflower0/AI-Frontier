@@ -270,6 +270,7 @@ def render_html(items) -> str:
         <a href="archive.html" class="text-blue-600 border-b-2 border-blue-500 pb-0.5">📅 往期</a>
         <a href="playground.html" class="hover:text-indigo-600">🎮 玩法实验室</a>
         <a href="tutorials/index.html" class="hover:text-indigo-600">📚 全部教程</a>
+        <a href="search.html" class="hover:text-blue-600">🔍 搜索</a>
       </nav>
     </div>
   </div>

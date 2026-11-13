@@ -299,6 +299,7 @@ def render_html(items, date_str, plays=()):
         <a href="playground.html" class="hover:text-indigo-600">🎮 玩法实验室</a>
         <a href="daily-brief-{date_str}.html" class="hover:text-blue-600">日报</a>
         <a href="archive.html" class="hover:text-blue-600">📅 往期</a>
+        <a href="search.html" class="hover:text-blue-600">🔍 搜索</a>
         <a href="rss.xml" class="hover:text-blue-600">📡 订阅</a>
         <a href="#categories" class="hover:text-blue-600">板块</a>
         <a href="#feed" class="hover:text-blue-600">资讯流</a>

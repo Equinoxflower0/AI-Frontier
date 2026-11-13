@@ -46,7 +46,7 @@ def collect_pages():
     """收集要进 sitemap 的页面：(相对路径, 优先级, 更新频率)"""
     pages = []
 
-    for name in ("index.html", "playground.html", "archive.html"):
+    for name in ("index.html", "playground.html", "archive.html", "search.html"):
         if (ROOT / name).exists():
             pages.append((name, "1.0" if name == "index.html" else "0.9", "daily"))
 

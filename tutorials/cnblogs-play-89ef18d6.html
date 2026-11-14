@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用DeepSeek Harness写代码生成视频 - AI 玩法教程 · AI Frontier</title>
+<title>用Oracle医疗AI案例理解SaaS进化 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-13
+      2026-11-14
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        💬 Prompt 模板
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★☆☆☆ · 2/5
+        ★★★★★ · 5/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 5min
+        ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用DeepSeek Harness写代码生成视频</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Oracle医疗AI案例理解SaaS进化</h1>
     
   </div>
 </header>
@@ -65,21 +65,17 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.cnblogs.com/znlgis/p/23589724" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/jyzhao/p/23662323" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
-<div class="mb-4">
-  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
-  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
-</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">用 DeepSeek 写代码来生成视频，不是让 AI 直接生成像素，而是让 AI 帮你写程序化渲染的代码，每一帧都由代码精确控制。</p>
+  <p class="text-base text-slate-800 leading-relaxed">本教程教你用 Oracle 医疗 AI 案例作为切入点，理解 SaaS 如何通过 AI 进化而非被取代，并动手搭建一个分析框架。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多人把“代码生成视频”误解为“让模型生成视频”，结果用扩散模型每次输出都不一样，中间过程难以控制。程序化渲染则相反：画面里每个像素都由代码计算得出，同一帧号永远得到同一张图。代价是需要自己写构图、渐变、排版和缓动，收益是改了就一定变，没变就说明没改对。这个玩法适合需要精确控制画面、可复现、可批量生成的场景，比如数据可视化动画、教学演示、Logo 动效等。
+    在 Oracle AI World 2026 主题演讲中，Larry Ellison 重点发布了 Oracle Health 全新医疗应用套件，并回应了“AI 会不会让 SaaS 走向终结”的热门话题。他的观点是：AI 不是取代商用软件，而是推动软件进化。这个案例非常适合用来理解 SaaS 的 AI 化路径。你可以通过本教程学会拆解这类案例，并迁移到其他行业分析中。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,24 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">DeepSeek  <a href="https://www.deepseek.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于生成程序化渲染的代码（Python + 绘图库）</div>
+      <div class="font-semibold text-slate-900">Oracle Cloud Free Tier  <a href="https://www.oracle.com/cloud/free/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">注册免费云账号，用于体验 Oracle Health 相关演示或 API</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行生成的代码，建议安装最新稳定版</div>
+      <div class="font-semibold text-slate-900">ChatGPT / Claude / 文心一言  <a href="https://chat.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">任一大模型对话工具，用于辅助拆解案例和生成分析框架</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Pillow (PIL)  <a href="https://pypi.org/project/Pillow/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">图像绘制库，用于逐帧生成图片</div>
+      <div class="font-semibold text-slate-900">Notion / 飞书文档  <a href="https://www.notion.so/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">记录分析笔记和结构化输出</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">imageio 或 OpenCV  <a href="https://pypi.org/project/imageio/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">将图片序列合成为视频文件</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">FFmpeg  <a href="https://ffmpeg.org/download.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">视频编码与格式转换（imageio 可自动调用）</div>
+      <div class="font-semibold text-slate-900">博客园原文  <a href="https://www.cnblogs.com/jyzhao/p/23662323" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">阅读原始案例资料</div>
     </li>
   </ul>
 </section>
@@ -130,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：明确视频参数与画面需求</h3>
-      <div class="text-base text-slate-700 leading-loose">在向 DeepSeek 提问前，先确定视频的分辨率（如 1920x1080）、帧率（如 30fps）、时长（如 5 秒）、总帧数（150 帧），以及画面内容（如渐变背景、文字动画、几何图形运动）。把这些参数写清楚，模型才能生成可直接运行的代码。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：精读原文并提取核心论点</h3>
+      <div class="text-base text-slate-700 leading-loose">打开博客园原文，通读一遍，重点标记 Larry Ellison 关于“AI 不会终结 SaaS，而是推动进化”的论述。用一句话写下他的核心结论，并列出 3 个支撑论据（如医疗套件发布、AI 嵌入现有工作流等）。将笔记保存到 Notion 或飞书文档中。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议先用小分辨率（如 640x360）和低帧率（如 15fps）测试，确认逻辑正确后再放大。
+          💡 <span class="font-semibold">小贴士：</span>不要只读摘要，原文中的具体产品名和场景描述是后续分析的关键素材。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：向 DeepSeek 描述程序化渲染任务</h3>
-      <div class="text-base text-slate-700 leading-loose">用自然语言告诉 DeepSeek：“请用 Python 的 Pillow 库写一个程序化渲染脚本，生成 150 帧 640x360 的图片，每帧根据帧号计算背景渐变色和一个小球的运动位置，最后用 imageio 合成 mp4 视频。” 要求代码包含完整注释和依赖安装说明。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用大模型拆解 SaaS 进化路径</h3>
+      <div class="text-base text-slate-700 leading-loose">把第1步的笔记粘贴给 ChatGPT/Claude，使用提示词模板：“请基于以下案例，分析 SaaS 产品从传统模式到 AI 增强模式的 3 个关键进化维度，每个维度给出 Oracle Health 的具体体现，并用表格输出。” 将模型输出与原文对照，修正不准确之处。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>强调“同一帧号必须得到同一张图”，避免模型引入随机数或时间依赖。
+          💡 <span class="font-semibold">小贴士：</span>提示词中明确要求“表格输出”和“具体体现”，能显著提升回答的结构化程度。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：安装依赖并运行生成的代码</h3>
-      <div class="text-base text-slate-700 leading-loose">在终端执行 pip install pillow imageio imageio-ffmpeg 安装依赖。将 DeepSeek 生成的代码保存为 render.py，然后运行 python render.py。程序会逐帧生成 PNG 图片并合成视频。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：搭建自己的 SaaS+AI 分析框架</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Notion 中新建一个页面，创建三列表格：维度、传统 SaaS 表现、AI 增强后表现。参考第2步的输出，填入至少 5 个维度（如交互方式、数据利用、自动化程度、个性化、商业模式）。每个维度用一句话描述 Oracle Health 的对应变化。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果 imageio 报 FFmpeg 错误，可手动安装 FFmpeg 并加入系统 PATH，或改用 opencv-python 的 VideoWriter。
+          💡 <span class="font-semibold">小贴士：</span>维度不必追求全面，选你所在行业最相关的 5 个即可，方便后续迁移。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：检查输出并调整画面细节</h3>
-      <div class="text-base text-slate-700 leading-loose">打开生成的 output.mp4，检查动画是否流畅、颜色是否符合预期。如果发现问题，回到 DeepSeek 对话中描述具体现象（如“小球运动太快”“渐变方向反了”），让模型修改对应代码段，然后重新运行。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用 Oracle 免费云环境做一次小验证</h3>
+      <div class="text-base text-slate-700 leading-loose">登录 Oracle Cloud Free Tier，在控制台搜索“Health”或“AI Services”，查看是否有可试用的医疗相关 API 或演示。如果没有直接入口，可创建一个 Always Free 的 Autonomous Database，体验其内置的 AI 功能（如 Select AI），感受 AI 如何嵌入数据库服务。记录你的操作路径和感受。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>每次只改一个变量（如速度、颜色、缓动函数），方便定位问题。
+          💡 <span class="font-semibold">小贴士：</span>免费层资源有限，优先体验“AI 嵌入现有服务”这一模式，而不是追求完整医疗套件。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：导出最终视频并归档代码</h3>
-      <div class="text-base text-slate-700 leading-loose">确认效果后，将分辨率、帧率、时长调整为最终需求，重新运行生成高清视频。把代码、依赖清单（requirements.txt）和输出视频一起归档，方便后续复现或修改。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：输出一篇 500 字分析短文</h3>
+      <div class="text-base text-slate-700 leading-loose">综合前四步的素材，写一篇短文，结构为：案例背景（2 句）、SaaS 进化 3 个维度（各 2 句）、对你的启示（2 句）。发布到博客园、知乎或公司内部分享，并附上原文链接。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在代码开头用注释记录参数和版本，避免以后忘记。
+          💡 <span class="font-semibold">小贴士：</span>写完后让大模型帮你检查逻辑是否自洽，但结论必须用自己的话表述。
         </div>
     </div>
   </div>
@@ -188,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    运行脚本后，当前目录下会生成 output.mp4 视频文件，播放时能看到由代码精确控制的动画（如渐变背景上小球匀速运动），同一帧号重新渲染结果完全一致。
+    你得到一份结构化的 SaaS+AI 分析框架表格、一次 Oracle 云上 AI 功能的实操体验记录，以及一篇可发布的 500 字分析短文。同时能清晰复述“AI 推动 SaaS 进化而非取代”的核心逻辑。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -198,31 +190,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>DeepSeek 生成的代码报错怎么办？</span>
+        <span>没有 Oracle 账号，能完成教程吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">把完整报错信息复制给 DeepSeek，让它修复。常见问题包括缺少依赖、API 用法过时、路径错误等。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。第4步是可选验证，前3步和第5步用公开资料和大模型即可完成，不影响核心产出。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>为什么不用扩散模型直接生成视频？</span>
+        <span>大模型分析结果和原文有出入怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">扩散模型每次输出不同，难以精确控制中间帧；程序化渲染可复现、可逐帧调整，适合需要确定性的场景。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">以原文为准，把模型输出当作启发。可以在提示词中附上原文关键段落，减少偏差。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>生成视频很慢怎么办？</span>
+        <span>这个框架能用在非医疗行业吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">降低分辨率或帧率测试逻辑，最终渲染时再提高参数；也可用多进程并行渲染帧。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">能。把“医疗”替换为你的行业，调整维度描述即可，框架本身是通用的。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>可以用其他编程语言吗？</span>
+        <span>需要编程基础吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，DeepSeek 也能生成 JavaScript（Canvas）、Processing、GLSL 等代码，思路相同。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要。全程以阅读、提示词和文档整理为主，第4步也只是控制台点击操作。</div>
     </details>
   </div>
 </section>
@@ -230,14 +222,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用 JavaScript + Canvas 在浏览器中实时渲染并录制视频（MediaRecorder API）</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 Python + Manim 生成数学动画视频，适合教学演示</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用 GLSL 着色器写片段着色器，通过 FFmpeg 逐帧渲染出高质量视频</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把案例换成 Salesforce 或 SAP 的 AI 发布，用同一框架做对比分析，输出双案例对照表。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用大模型模拟一场“AI 是否终结 SaaS”的辩论，你扮演反方，模型扮演正方，记录论点并复盘。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：将分析框架做成一个可复用的提示词模板，输入任意 SaaS 产品名即可生成进化维度表。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    让 AI 写程序化渲染代码，用确定性计算代替随机生成，实现精确可控、可复现的视频制作。
+    用真实案例做锚点，借大模型拆解逻辑，再用轻量实操验证，最终沉淀出可迁移的 SaaS+AI 分析框架。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -245,19 +237,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用prompts.chat社区提示词库快速找灵感</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用GPT-4o图像提示词库复刻AI视觉作品</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
-    </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文档一键转成 Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

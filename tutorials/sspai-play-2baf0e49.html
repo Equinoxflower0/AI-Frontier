@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用知识蒸馏把大模型压缩进手机 - AI 玩法教程 · AI Frontier</title>
+<title>用AI工具链辅助完成研究生综述写作 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-13
+      2026-11-14
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用知识蒸馏把大模型压缩进手机</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用AI工具链辅助完成研究生综述写作</h1>
     
   </div>
 </header>
@@ -58,28 +58,24 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    博客园 AI 教程 · B级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+    少数派 AI 工具 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    技术社区
+    权威媒体
   </span>
-  <a href="https://www.cnblogs.com/Tomorrowland/p/23592581" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://sspai.com/post/118153" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
-<div class="mb-4">
-  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
-  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
-</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">知识蒸馏就像让一位“学霸老教授”把毕生功力浓缩成一本“随身笔记”，塞进你的手机里。本文手把手教你用 DeepSeek 模型完成一次完整的蒸馏实验，让大模型在本地也能跑起来。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用一套 AI 工具链把研究生综述写作从「苦力活」变成「流水线」，你只需要负责判断和润色。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    顶级大模型（如 DeepSeek-R1）能力强大但参数动辄千亿，显存和算力要求极高，无法直接部署在手机或笔记本上。知识蒸馏通过让一个小模型（学生）模仿大模型（教师）的输出分布，把“学霸大脑”压缩成轻量级版本。这个玩法适合想在自己的设备上离线运行 AI、学习模型压缩技术、或为特定任务定制小模型的开发者。掌握后，你可以把任意大模型的能力迁移到手机端，实现隐私安全、低延迟的本地推理。
+    研究生综述写作通常要读几十上百篇文献，手动整理观点、对比方法、梳理脉络，耗时数周且容易遗漏。少数派这篇文章提出用 AI 工具链辅助完成综述写作，核心不是让 AI 代写，而是把检索、精读、归纳、成文四个环节拆开，每个环节用合适的 AI 工具提效。这套玩法适合正在写开题综述、课程论文综述或期刊综述的研究生，也适合需要快速进入新领域的开发者。难度中等偏上，因为需要你保持批判性判断，不能全盘接受 AI 输出。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,24 +96,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">DeepSeek 开放平台  <a href="https://platform.deepseek.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">获取教师模型的 API 密钥，用于生成蒸馏数据</div>
+      <div class="font-semibold text-slate-900">Semantic Scholar  <a href="https://www.semanticscholar.org" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">AI 驱动的学术搜索引擎，用于快速检索相关文献并查看引用关系</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Hugging Face Transformers  <a href="https://huggingface.co/docs/transformers" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">加载学生模型和训练脚本的核心库</div>
+      <div class="font-semibold text-slate-900">Consensus  <a href="https://consensus.app" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">基于论文的问答式搜索，输入研究问题直接返回相关论文结论</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Google Colab 或本地 GPU 环境  <a href="https://colab.research.google.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">提供训练所需的算力（建议至少 16GB 显存）</div>
+      <div class="font-semibold text-slate-900">ChatPDF 或 Kimi </div>
+      <div class="text-sm text-slate-600 mt-1">上传 PDF 后与论文对话，快速提取方法、数据和结论</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">PyTorch  <a href="https://pytorch.org" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">深度学习框架，用于实现蒸馏损失和训练循环</div>
+      <div class="font-semibold text-slate-900">Notion 或 Obsidian </div>
+      <div class="text-sm text-slate-600 mt-1">建立文献笔记库，按主题/方法/结论结构化归档</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">学生模型（如 Qwen2.5-0.5B）  <a href="https://huggingface.co/Qwen/Qwen2.5-0.5B" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">轻量级模型，作为蒸馏的目标载体</div>
+      <div class="font-semibold text-slate-900">Claude 或 ChatGPT </div>
+      <div class="text-sm text-slate-600 mt-1">用于归纳对比、生成综述提纲和润色段落</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Zotero  <a href="https://www.zotero.org" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">文献管理工具，配合浏览器插件一键抓取元数据</div>
     </li>
   </ul>
 </section>
@@ -130,44 +130,66 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：准备教师模型 API 并生成蒸馏数据集</h3>
-      <div class="text-base text-slate-700 leading-loose">注册 DeepSeek 开放平台并获取 API Key。准备一批任务相关的提示词（如数学题、代码片段、日常问答），用脚本批量调用 DeepSeek-R1 的 API，获取每个提示词对应的完整输出（包括推理过程和最终答案）。将结果保存为 JSONL 格式，每行包含 prompt 和 response 字段。建议至少生成 5000 条样本，覆盖目标场景的多样性。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：用 AI 搜索圈定文献池</h3>
+      <div class="text-base text-slate-700 leading-loose">打开 Semantic Scholar，输入你的综述主题关键词（中英文都试），利用「Highly Influential Citations」筛选高影响力论文。同时用 Consensus 输入一个具体研究问题（如「XXX 方法在 YYY 场景下的效果如何」），它会直接返回相关论文的结论摘要。把两个渠道找到的 20-40 篇候选文献导入 Zotero，按相关性打标签。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>调用 API 时设置 temperature=0.7 增加输出多样性，同时记录 token 用量以控制成本。
+          💡 <span class="font-semibold">小贴士：</span>不要贪多，先锁定 30 篇左右核心文献；Semantic Scholar 的「引用上下文」功能可以帮你判断一篇论文是否值得精读。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：加载学生模型并配置蒸馏训练环境</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Colab 或本地环境中安装 transformers、datasets、accelerate 等库。使用 AutoModelForCausalLM 加载轻量学生模型（如 Qwen2.5-0.5B），并加载对应的 tokenizer。将第1步生成的数据集划分为训练集和验证集（9:1），并用 tokenizer 对 prompt 和 response 进行编码，设置最大长度（如 512）。配置 TrainingArguments，指定学习率（如 5e-5）、批次大小和训练轮数（3-5 轮）。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 ChatPDF/Kimi 批量精读并做结构化笔记</h3>
+      <div class="text-base text-slate-700 leading-loose">把 Zotero 中标记为「必读」的 PDF 逐篇上传到 ChatPDF 或 Kimi，用固定提示词提问：「请用表格输出这篇论文的研究问题、方法、数据集、主要结论、局限性」。把回答复制到 Notion 或 Obsidian 的文献笔记模板中，每篇笔记保留原文链接和 DOI。对于关键论文，再追问「这篇论文和 XXX 论文的区别是什么」。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>学生模型参数量建议在 0.5B 以下，否则手机端推理仍然吃力；训练时开启 gradient_checkpointing 节省显存。
+          💡 <span class="font-semibold">小贴士：</span>提示词模板固定下来后可以复用，保证每篇笔记字段一致，后续对比时不会缺信息。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：实现知识蒸馏损失并开始训练</h3>
-      <div class="text-base text-slate-700 leading-loose">定义蒸馏损失函数：除了标准的交叉熵损失（学生输出与真实标签），加入 KL 散度损失，让学生模型的输出分布逼近教师模型的输出分布。教师模型的输出概率可以通过对第1步保存的 response 进行前向计算得到（或直接使用 API 返回的 logprobs）。将两种损失加权求和（如 0.3*CE + 0.7*KL），用 Trainer 或自定义训练循环进行训练。训练过程中监控验证集损失，防止过拟合。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用 Claude/ChatGPT 做跨文献归纳与对比</h3>
+      <div class="text-base text-slate-700 leading-loose">把 10-15 篇核心文献的结构化笔记粘贴给 Claude 或 ChatGPT，要求它：「按研究方法分类，输出一个对比表格，列包括方法、代表文献、优点、缺点、适用场景」。再让它「找出这些文献中互相矛盾的结论，并标注出处」。你人工核对关键结论是否与原文一致，剔除 AI 编造或过度概括的内容。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果 API 不返回 logprobs，可以用温度缩放（temperature=2）后的 softmax 输出作为软标签，效果接近。
+          💡 <span class="font-semibold">小贴士：</span>每次给 AI 的文献不要超过 15 篇，太多会降低归纳质量；要求它标注文献编号，方便回溯。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：评估蒸馏后模型并导出为手机可用格式</h3>
-      <div class="text-base text-slate-700 leading-loose">在验证集上对比学生模型与教师模型的输出质量（如准确率、BLEU 分数或人工评分）。若效果达标，使用 optimum 或 llama.cpp 将模型转换为 ONNX 或 GGUF 格式，并量化到 4-bit（如 Q4_K_M），大幅减小模型体积。最后将量化后的模型文件拷贝到手机，用 MLC LLM 或 llama.cpp 的移动端示例加载运行，测试推理速度和内存占用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：生成综述提纲并人工调整逻辑</h3>
+      <div class="text-base text-slate-700 leading-loose">基于上一步的对比表格，让 AI 生成一份综述提纲，要求包含「引言、发展脉络、方法分类对比、关键问题与争议、未来方向」五个部分，每部分列出 2-3 个核心论点并标注支撑文献。你根据自己阅读时的判断调整章节顺序和论点权重，删掉 AI 硬凑的过渡句。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>量化后精度会有轻微下降，建议在转换前后各跑一次评估，确保下降在可接受范围内（如 &lt;5%）。
+          💡 <span class="font-semibold">小贴士：</span>提纲阶段一定要自己动手改，AI 给的逻辑链往往偏平，综述的「故事线」需要你来定。
+        </div>
+    </div>
+    <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        5
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：分段写作 + AI 润色 + 人工校验</h3>
+      <div class="text-base text-slate-700 leading-loose">按提纲逐段写作，每段先自己写 3-5 句核心观点，再让 AI 扩写成学术段落，提示词中附上要引用的文献编号和关键结论。AI 输出后逐句核对：引用是否准确、是否有原文没有的断言、术语是否一致。最后用 AI 做一轮语言润色，但保留你自己的学术语气。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>永远不要让 AI 直接生成带引用的整段文字，引用必须你亲自核对原文；润色时要求「不改变原意，只优化表达」。
+        </div>
+    </div>
+    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        6
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：用 AI 做查漏补缺和格式检查</h3>
+      <div class="text-base text-slate-700 leading-loose">把成稿发给 AI，要求它「以审稿人视角指出：哪些论点缺少文献支撑、哪些段落逻辑跳跃、参考文献格式是否统一」。根据反馈回到 Zotero 补文献或调整段落。最后用 Zotero 插件一键生成参考文献列表，人工抽查 5-10 条格式是否正确。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>让 AI 扮演「严厉审稿人」比让它「检查语法」更有价值，能提前暴露结构性问题。
         </div>
     </div>
   </div>
@@ -177,7 +199,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你得到一个体积仅几百 MB 的量化学生模型，能在手机或笔记本上离线运行，针对你选择的场景（如数学解题、代码补全）输出质量接近 DeepSeek-R1 的 70%-85%，推理延迟低于 2 秒。同时你掌握了完整的蒸馏流程，可复用到其他模型和任务。
+    你会在 1-2 周内完成一篇结构清晰、引用准确、有自己观点线的文献综述初稿。文献笔记库可复用于后续论文写作，AI 对比表格能直接变成综述中的核心章节。整个过程你始终掌握判断权，AI 只负责提效。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -187,38 +209,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 GPU 能做知识蒸馏吗？</span>
+        <span>AI 会不会编造参考文献？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但训练会非常慢。建议使用 Google Colab 免费 GPU 或租用云 GPU（如 AutoDL），成本约几元/小时。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">会。所以所有引用必须回到原文核对，Zotero 中保存的 PDF 和 DOI 是你的安全网。AI 只用来归纳你已读过的文献，不要让它「推荐文献」。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>蒸馏需要多少数据？</span>
+        <span>综述主题很新，AI 搜索找不到足够文献怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">至少 3000-5000 条高质量样本。数据越贴近目标场景，蒸馏效果越好；也可用公开指令数据集（如 Alpaca）替代。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用 Google Scholar 补搜预印本（arXiv、SSRN），再用 Consensus 查相关领域的间接证据。AI 工具是加速器，不是替代品，冷门主题仍需手动检索。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>学生模型选多大合适？</span>
+        <span>用 AI 辅助写综述算学术不端吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">手机端建议 0.5B 以下（如 Qwen2.5-0.5B、TinyLlama-1.1B 量化后也可）。若只做特定任务，甚至可以用 0.1B 级别模型。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">多数高校允许用 AI 辅助文献整理和语言润色，但禁止 AI 代写核心论点。建议在方法部分或致谢中声明使用了 AI 工具辅助文献检索与整理，具体以你所在学校的规范为准。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>蒸馏后的模型能完全替代教师模型吗？</span>
+        <span>ChatPDF 和 Kimi 哪个更好用？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能。蒸馏是能力迁移，学生模型在通用能力上会弱于教师，但在特定任务上可以接近。适合对成本和隐私敏感的场景。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">英文论文 ChatPDF 的表格提取更稳，中文论文和长文档 Kimi 更顺手。可以两个都用，按论文语言分工。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>API 调用成本高吗？</span>
+        <span>这套流程能用在开题报告的文献综述部分吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">DeepSeek API 价格较低，生成 5000 条样本（每条约 500 token）成本约几元到十几元，远低于自己训练大模型。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">完全可以，而且开题综述篇幅较短，可以跳过第 6 步的审稿人视角，重点做第 2-4 步的文献对比和提纲生成。</div>
     </details>
   </div>
 </section>
@@ -226,14 +248,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用本地大模型替代 API——在电脑上运行 DeepSeek-R1 蒸馏版（如 7B）作为教师，完全离线生成数据，适合隐私要求极高的场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：多教师蒸馏——同时用 DeepSeek-R1 和另一个模型（如 Qwen）作为教师，让学生模型学习两者的融合输出，提升鲁棒性。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：任务特化蒸馏——只针对单一任务（如 SQL 生成）构造提示词，蒸馏出极小的专家模型（&lt;100MB），可嵌入浏览器插件或手机 App。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把「文献对比表格」直接变成综述中的「方法对比表」——让 AI 按你定的列字段输出 Markdown 表格，稍作润色即可放入正文，省去重新制表的时间。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 Perplexity 替代 Semantic Scholar + Consensus 组合——Perplexity 的学术模式可以直接给出带引用的综述式回答，适合快速摸底一个全新领域，但引用仍需逐条核对。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用 Obsidian + Smart Connections 插件搭建本地文献知识库——把所有笔记向量化，写作时用自然语言检索「哪些论文讨论了 XXX 的局限性」，比手动翻笔记快得多。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    知识蒸馏的精髓是“用大模型教小模型”，你只需要一批提示词、一个 API 和一个轻量学生模型，就能把学霸大脑装进口袋。
+    AI 不替你写综述，而是把「搜、读、比、写、查」五个环节拆开提速，你负责判断和串联，它负责搬运和归纳。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -243,12 +265,12 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把文件转成Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文档一键转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">

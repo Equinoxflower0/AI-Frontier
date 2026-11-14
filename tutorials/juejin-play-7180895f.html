@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用 Agent as a Service 把 AI Agent 变成可调用服务 - AI 玩法教程 · AI Frontier</title>
+<title>用DeepSeek双路由搭电梯维保Agent - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-13
+      2026-11-14
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 Agent as a Service 把 AI Agent 变成可调用服务</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用DeepSeek双路由搭电梯维保Agent</h1>
     
   </div>
 </header>
@@ -65,17 +65,21 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7704982591657525258" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7707639689457582106" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">把 AI Agent 封装成可调用的服务，让工单系统、CI 流水线等外部系统能随时触发智能排查。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用 DeepSeek 双路由（V4.1-Flash + V4-Pro）搭建一个电梯维保 Agent，兼顾极速响应、低成本与特种设备零事故风控。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    传统 AI Agent 往往需要人工在聊天窗口里手动提问，效率低且难以集成到自动化流程中。Agent as a Service（AaaS）的思路是把 Agent 变成一个 HTTP 接口或消息队列消费者，当有 Bug 工单提交、代码合并请求等事件发生时，系统自动调用 Agent 执行排查、复现、生成报告等任务。这种玩法适合研发团队、运维团队以及任何希望将 AI 能力嵌入现有工作流的场景，能显著缩短问题响应时间并减少重复劳动。
+    电梯维保是典型的工业级场景：既要秒级响应日常问答，又要在故障诊断时调用强模型做深度推理，同时必须满足特种设备安全法规的零事故要求。单一模型要么贵要么慢，双路由架构让简单问题走 Flash、复杂问题走 Pro，再配合混合检索与安全网关，就能在成本、速度、风控之间取得平衡。本文基于掘金实战教程，拆解一套可直接复用的 Agent 搭建流程，适合运维、IoT、工业 AI 方向的开发者。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +100,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">FastAPI  <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于快速搭建 HTTP 服务，暴露 Agent 调用接口</div>
+      <div class="font-semibold text-slate-900">DeepSeek 开放平台  <a href="https://platform.deepseek.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">获取 V4.1-Flash 与 V4-Pro 的 API Key，用于双路由调用</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">LangChain  <a href="https://www.langchain.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">构建 Agent 逻辑，管理工具调用与提示词模板</div>
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编写路由逻辑、检索与网关代码</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">OpenAI API  <a href="https://platform.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">提供大模型能力，也可替换为其他兼容 API</div>
+      <div class="font-semibold text-slate-900">FastAPI  <a href="https://fastapi.tiangolo.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">对外暴露 Agent 的 HTTP 接口</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Docker  <a href="https://www.docker.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">容器化部署 Agent 服务，方便环境隔离与扩展</div>
+      <div class="font-semibold text-slate-900">Chroma 或 Milvus  <a href="https://www.trychroma.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">存储电梯维保手册、故障案例的向量库，用于混合检索</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Postman 或 curl  <a href="https://www.postman.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">测试 HTTP 接口调用</div>
+      <div class="font-semibold text-slate-900">BM25 检索库（rank_bm25）  <a href="https://pypi.org/project/rank-bm25/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">与向量检索组成混合检索，提升召回准确率</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Docker  <a href="https://www.docker.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">打包安全网关与 Agent 服务，便于部署</div>
     </li>
   </ul>
 </section>
@@ -126,55 +134,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：定义 Agent 的输入输出契约</h3>
-      <div class="text-base text-slate-700 leading-loose">先明确 Agent 服务接收什么参数、返回什么结果。例如输入包含工单标题、描述、复现步骤、代码仓库地址；输出包含排查结论、复现结果、失败测试日志、建议修复方案。用 Pydantic 模型定义请求和响应体，保证接口清晰且可校验。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：准备双模型 API 与路由策略</h3>
+      <div class="text-base text-slate-700 leading-loose">在 DeepSeek 平台分别创建 V4.1-Flash 和 V4-Pro 的 API Key，写入环境变量 DEEPSEEK_FLASH_KEY 和 DEEPSEEK_PRO_KEY。定义路由规则：用户问题若命中「急停、困人、异响、门锁」等安全关键词，或意图为故障诊断，则走 V4-Pro；其余日常保养问答走 V4.1-Flash。用 Python 写一个 route_model(query) 函数返回模型名，并记录路由日志便于后续调优。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>输入字段尽量精简，避免传递大文件，可用 URL 引用外部资源。
+          💡 <span class="font-semibold">小贴士：</span>先用小流量灰度，把路由决策日志打到 ELK 或本地文件，观察一周再调整关键词表。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 LangChain 构建 Agent 逻辑</h3>
-      <div class="text-base text-slate-700 leading-loose">创建一个 LangChain Agent，配备必要的工具：代码检索工具（读取仓库文件）、测试执行工具（运行指定测试命令）、日志查询工具（拉取 CI 日志）。编写提示词模板，要求 Agent 按“复现→定位→分析→建议”的流程输出结构化结果。将 Agent 封装成一个函数，接收请求对象并返回响应对象。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：搭建混合检索知识库</h3>
+      <div class="text-base text-slate-700 leading-loose">收集电梯维保手册、故障代码表、历史工单，切块后分别写入 Chroma 向量库和 BM25 索引。检索时同时跑向量相似度和 BM25 关键词匹配，用 RRF（倒数排名融合）合并结果，取 Top-5 作为上下文。这样既能召回语义相近的案例，又能精准命中「E51 门锁故障」这类代码。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>为每个工具设置超时和错误处理，避免单个工具失败导致整个 Agent 卡死。
+          💡 <span class="font-semibold">小贴士：</span>切块时保留章节标题作为元数据，检索结果里带上来源页码，方便维保人员核对原文。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用 FastAPI 暴露 HTTP 接口</h3>
-      <div class="text-base text-slate-700 leading-loose">创建 FastAPI 应用，定义一个 POST 端点（如 /agent/investigate），接收第1步定义的请求体，调用第2步的 Agent 函数，返回响应体。添加健康检查端点 /health 和异步任务支持（如使用 BackgroundTasks），因为 Agent 执行可能耗时较长。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：实现安全网关与风控拦截</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Agent 入口加一层安全网关：先做输入过滤（禁止危险操作指令、注入攻击），再对模型输出做规则校验——涉及「短接门锁、屏蔽安全回路」等违规建议直接拦截并转人工。网关同时记录每次调用的模型、耗时、token 消耗，形成审计日志，满足特种设备可追溯要求。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>对于长任务，建议先返回任务 ID，再提供查询结果的端点，避免 HTTP 超时。
+          💡 <span class="font-semibold">小贴士：</span>把拦截规则做成可配置的 YAML 文件，法规更新时改配置即可，不用改代码。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：容器化并部署服务</h3>
-      <div class="text-base text-slate-700 leading-loose">编写 Dockerfile，将 FastAPI 应用和依赖打包成镜像。使用 docker-compose 或直接 docker run 启动服务，映射端口。配置环境变量（如 OpenAI API Key）通过 .env 文件或密钥管理服务注入，不要硬编码在代码中。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：组装 Agent 主流程</h3>
+      <div class="text-base text-slate-700 leading-loose">主流程为：接收问题 → 安全网关输入过滤 → route_model 选模型 → 混合检索取上下文 → 拼接提示词模板（角色：电梯维保专家；约束：只基于检索内容回答，不确定时建议转人工）→ 调用对应 DeepSeek 模型 → 输出经安全网关校验 → 返回答案并附来源。用 FastAPI 暴露 /ask 接口，请求体包含 query 和 session_id。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在 Dockerfile 中使用多阶段构建减小镜像体积，并设置非 root 用户运行。
+          💡 <span class="font-semibold">小贴士：</span>提示词里明确要求模型输出 JSON（answer、confidence、sources），方便前端展示和后续自动化处理。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：集成到工单系统并测试</h3>
-      <div class="text-base text-slate-700 leading-loose">在工单系统（如 Jira、GitHub Issues）中配置 Webhook，当新工单创建时自动向 Agent 服务发送 POST 请求。用 Postman 或 curl 模拟请求，验证 Agent 能正确返回排查结果。观察日志，确保异常情况有友好错误提示。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：压测与成本对比</h3>
+      <div class="text-base text-slate-700 leading-loose">准备 100 条真实维保问答，分别用纯 Pro、纯 Flash、双路由跑一遍，对比准确率、平均延迟和 token 成本。预期双路由在准确率接近纯 Pro 的前提下，成本下降 40% 以上、平均延迟下降 50% 左右。根据结果微调路由关键词和检索 Top-K。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先用少量真实工单做灰度测试，确认 Agent 输出质量后再全量启用。
+          💡 <span class="font-semibold">小贴士：</span>用 LangSmith 或自建表格记录每次调用的模型与评分，形成可复现的评测集。
         </div>
     </div>
   </div>
@@ -184,7 +192,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    工单提交后几分钟内，工单页面自动出现 Agent 生成的排查报告，包含复现步骤、失败测试输出和修复建议。服务日志显示每次调用耗时和状态，接口可用性达到 99% 以上。
+    完成部署后，访问 /ask 接口提问「电梯门锁反复断开怎么排查」，系统自动路由到 V4-Pro 并返回带来源的排查步骤；提问「电梯多久做一次保养」则走 V4.1-Flash 秒回。安全网关能拦截违规建议，日志中可看到每次调用的模型、耗时与成本。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,31 +202,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Agent 执行时间太长导致 HTTP 超时怎么办？</span>
+        <span>双路由的关键词表怎么定？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">改为异步模式：接口立即返回任务 ID，Agent 在后台执行，客户端轮询结果端点。或者使用消息队列（如 RabbitMQ）解耦。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先从历史工单里统计高频故障词和安全词，形成初版；上线后每周看路由日志，把误判样本补进关键词表或改用小分类模型做意图识别。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何保证 Agent 输出的稳定性？</span>
+        <span>混合检索的 RRF 参数怎么调？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在提示词中明确输出格式（如 JSON Schema），并设置温度参数为较低值（如 0.2）。对关键任务可增加后处理校验步骤。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">RRF 的 k 值一般取 60，向量和 BM25 各取 Top-20 再融合取 Top-5；如果发现代码类查询召回差，可提高 BM25 权重。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 OpenAI API 可以用其他模型吗？</span>
+        <span>安全网关会不会误拦正常回答？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，LangChain 支持多种模型后端，如 Anthropic、通义千问、本地部署的 Ollama 等，只需替换 LLM 初始化部分。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">规则先设为「命中即转人工」而非直接报错，人工复核后再决定是否放行，同时把误拦样本加入白名单。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Agent 需要访问内部代码仓库，如何安全授权？</span>
+        <span>没有电梯行业数据能跑通吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">使用最小权限的访问令牌（如只读 token），并通过环境变量注入。避免在提示词中暴露敏感信息，必要时对工具调用做审计日志。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，先用公开的电梯维保规范和安全技术规范做知识库，跑通流程后再替换为企业私有工单数据。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>成本大概能降多少？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">按教程压测数据，日常问答占比约 70% 走 Flash，整体 token 成本可降 40%-60%，具体取决于问题分布。</div>
     </details>
   </div>
 </section>
@@ -226,14 +241,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将 Agent 服务接入 CI 流水线，当测试失败时自动触发 Agent 分析失败原因并评论到 PR 中。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 Serverless 函数（如 AWS Lambda）部署 Agent，按调用次数计费，适合低频场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：为 Agent 增加多轮对话能力，通过会话 ID 保持上下文，支持人工追问和澄清。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把双路由换成「小模型意图分类 + 大模型兜底」，用本地 7B 模型做路由决策，进一步降低路由成本。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：在安全网关后加一层「人工审核队列」，高风险回答先推给值班工程师确认再返回，适合法规更严的场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：将检索结果与工单系统打通，Agent 回答后自动生成维保工单草稿，形成闭环。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    把 Agent 封装成标准 HTTP 服务，用事件驱动的方式嵌入现有工作流，让 AI 能力像水电一样随取随用。
+    双路由 + 混合检索 + 安全网关，是工业级 Agent 在成本、速度与风控之间取得平衡的可复用范式。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -243,12 +258,12 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把文件转成Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文档一键转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">

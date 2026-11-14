@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用提示词工作流去除AI写作腔调 - AI 玩法教程 · AI Frontier</title>
+<title>用Mole清理Mac并体验慢产品设计 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-13
+      2026-11-14
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用提示词工作流去除AI写作腔调</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Mole清理Mac并体验慢产品设计</h1>
     
   </div>
 </header>
@@ -58,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    博客园 AI 教程 · B级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+    少数派 AI 工具 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    技术社区
+    权威媒体
   </span>
-  <a href="https://www.cnblogs.com/deep-sky/p/23590338" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://sspai.com/post/118512" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">AI 写作又快又“假”？这套提示词工作流帮你把 AI 味一点点洗掉，让文章读起来像人写的。</p>
+  <p class="text-base text-slate-800 leading-relaxed">这篇教程教你用开源清理工具 Mole 给 Mac 做一次深度瘦身，同时借它的「慢产品设计」思路，反思自己日常被效率工具绑架的习惯。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    AI 写作门槛低，但生成的文章常带“AI 腔”：套话多、结构僵、情感假。博客园这篇教程把写作比作做菜，AI 是快但缺火候的大厨。本玩法用一套可复用的提示词工作流，分阶段约束 AI 的输出，从提纲到成稿逐步去味。适合公众号、博客、报告等需要“人味”的写作场景。
+    Mole 是一款从开源项目成长起来的 Mac 清理工具，作者在少数派文章中记录了它从 1.13 到 1.19 的迭代过程，期间加入了 AI 工具清理和系统数据清理功能。与 CleanMyMac 等商业软件不同，Mole 刻意保留了「慢」的交互节奏——扫描过程可见、删除前需确认、不搞一键无脑清理。这种设计反而让用户更清楚自己删了什么、为什么删。本玩法适合想清理 Mac 又不想被「一键优化」忽悠的用户，也适合对产品设计感兴趣、想体验「反效率」思路的读者。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,16 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ChatGPT / Claude / 文心一言 / 通义千问  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">任选一个支持多轮对话的大模型，用于执行提示词工作流</div>
+      <div class="font-semibold text-slate-900">Mole  <a href="https://sspai.com/post/118512" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Mac 清理工具，支持 AI 工具缓存清理和系统数据清理</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Notion 或飞书文档  <a href="https://www.notion.so" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">存放提示词模板和生成稿，方便迭代对比</div>
+      <div class="font-semibold text-slate-900">macOS 系统  <a href="https://www.apple.com/macos/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">建议 macOS 12 及以上，确保兼容最新版 Mole</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">原始参考教程  <a href="https://www.cnblogs.com/deep-sky/p/23590338" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">博客园原文，含提示词思路和示例</div>
+      <div class="font-semibold text-slate-900">终端（Terminal）  <a href="https://support.apple.com/zh-cn/guide/terminal/welcome/mac" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">部分操作需通过命令行执行，系统自带</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">备份工具（可选）  <a href="https://support.apple.com/zh-cn/mac-backup" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">清理前建议用 Time Machine 做一次快照，防止误删</div>
     </li>
   </ul>
 </section>
@@ -118,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：拆解 AI 腔的典型特征</h3>
-      <div class="text-base text-slate-700 leading-loose">先让 AI 自己列出“AI 写作腔”的常见毛病，比如过度使用“首先/其次/最后”、堆砌形容词、每段结构雷同、缺乏具体细节。把这份清单存到 Notion，作为后续提示词的“负面约束”。再找 2-3 篇你喜欢的真人文章，提炼它们的语气和节奏作为正面参考。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装并首次启动 Mole</h3>
+      <div class="text-base text-slate-700 leading-loose">从少数派文章中的链接获取 Mole 最新版（1.19+），拖入「应用程序」文件夹。首次打开时 macOS 会提示「无法验证开发者」，需前往「系统设置 &gt; 隐私与安全性」点击「仍要打开」。启动后不要急着点「扫描」，先花一分钟浏览主界面，注意它把「AI 工具清理」「系统数据清理」「应用残留」分成了独立模块，而不是一个大按钮。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>让 AI 用“请以编辑视角列出 AI 文章最常见的 10 个破绽”开头，效果更聚焦。
+          💡 <span class="font-semibold">小贴士：</span>如果不想每次都被 Gatekeeper 拦截，可在终端执行 sudo spctl --master-disable 临时关闭（用完记得改回 enable）。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：写第一版“去味”系统提示词</h3>
-      <div class="text-base text-slate-700 leading-loose">在对话开头设置系统提示词，明确角色、目标和禁令。例如：“你是资深专栏作者，写作时避免套话、避免排比堆砌、每段不超过 4 句、必须加入 1 个具体案例或数据、语气像和朋友聊天。”把第 1 步的负面清单逐条转成“不要……”的约束。保存为模板，后续每次写作复用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：先跑一次「只读扫描」，看懂它扫了什么</h3>
+      <div class="text-base text-slate-700 leading-loose">选择「AI 工具清理」模块，点击扫描。Mole 会列出 Cursor、Warp、Ollama 等工具产生的缓存、日志和模型残留文件，并标注每项的大小和路径。此时不要勾选任何项目，先观察列表——你会发现很多「你以为删了」的 AI 工具其实留下了几百 MB 的对话历史或模型分片。同样方式再扫一遍「系统数据清理」，重点看「日志」「缓存」「旧 iOS 备份」三类。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>约束不要超过 8 条，太多 AI 会顾此失彼；优先保留“具体细节”和“句式变化”两条。
+          💡 <span class="font-semibold">小贴士：</span>扫描结果可以导出为文本（菜单栏 &gt; 文件 &gt; 导出报告），方便对比清理前后的差异。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：分阶段生成，先提纲后成文</h3>
-      <div class="text-base text-slate-700 leading-loose">不要一次性让 AI 写全文。先让它输出 3 个不同角度的提纲，你选一个并手动改两处；再让它按提纲逐段写，每段写完你给一句反馈（如“太正式，口语化一点”）。分阶段能显著降低 AI 腔，因为每轮都有你的干预。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：按「风险等级」分批勾选，而不是全选</h3>
+      <div class="text-base text-slate-700 leading-loose">Mole 的慢设计体现在它不提供「全选」按钮。你需要逐项判断：绿色标记（缓存、日志）可放心勾选；黄色标记（应用残留、旧备份）建议先确认路径是否属于已卸载软件；红色标记（系统数据中的「其他」卷）不要动，除非你清楚那是什么。建议第一轮只清理绿色项，执行删除后重启一次，观察系统是否正常。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>每段生成后回一句“用更短的句子重写这段”，去味效果立竿见影。
+          💡 <span class="font-semibold">小贴士：</span>删除前把鼠标悬停在项目上，Mole 会显示「上次访问时间」，超过 90 天没动过的缓存基本可以放心删。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用“人类改写”提示词做二次清洗</h3>
-      <div class="text-base text-slate-700 leading-loose">全文生成后，追加一条改写提示词：“请以人类编辑身份重写以下文章：删掉所有‘首先/其次/总之’，把被动句改主动句，每段开头不要用相同句式，加入 1 处个人化比喻，保留原意。”对比改写前后的差异，把有效的指令补进你的模板。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用「慢确认」机制复盘删除记录</h3>
+      <div class="text-base text-slate-700 leading-loose">Mole 每次删除后会在「历史」标签页生成一条记录，包含删除时间、项目数量和释放空间。打开历史记录，逐条回看：有没有你其实还想保留的文件？比如某个 AI 工具的本地模型虽然大，但重新下载要花很久。如果有误删，Mole 支持从「最近删除」中恢复（保留 7 天）。这一步是「慢产品设计」的核心——让你为每一次删除负责。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>改写后自己朗读一遍，拗口的地方就是残留的 AI 腔，手动改掉。
+          💡 <span class="font-semibold">小贴士：</span>把历史记录截图保存，一个月后回看，你会发现自己真正需要清理的其实就那么几类。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：建立个人提示词工作流库</h3>
-      <div class="text-base text-slate-700 leading-loose">把系统提示词、提纲提示词、逐段反馈话术、改写提示词按顺序存成一个工作流文档。下次写作直接按顺序复制粘贴，形成固定流水线。每写完一篇，记录哪条约束最有效，持续迭代模板。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：设置「定期提醒」而非「自动清理」</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Mole 偏好设置中，关闭「自动清理」选项（默认就是关闭的），改为开启「每月提醒扫描」。这样每月你会收到一次通知，手动执行第 2-4 步。这种设计刻意不让你「无感」地清理，而是把清理变成一个有意识的行为。坚持三个月后，你会对自己的 Mac 存储结构有更清晰的认知。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>用 Notion 的模板按钮或飞书快捷指令，一键插入整套提示词，省去重复复制。
+          💡 <span class="font-semibold">小贴士：</span>提醒时间建议设在周末上午，避免工作日被打断；提醒文案可以自定义成「该看看你的 AI 工具又偷偷存了什么」。
         </div>
     </div>
   </div>
@@ -176,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    生成的文章套话明显减少，段落长短错落，有具体案例和个人化表达，朗读时不再有“机器念稿”的感觉；你还会拥有一套可复用的提示词工作流模板。
+    完成上述步骤后，你的 Mac 通常能释放 5-20 GB 空间（取决于 AI 工具使用频率），同时你会得到一份可回溯的清理历史记录。更重要的是，你会开始留意哪些工具在「偷偷」占空间，以及自己是否真的需要那么多「一键优化」功能。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -186,31 +190,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这套方法对所有大模型都有效吗？</span>
+        <span>Mole 和 CleanMyMac 有什么区别？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">核心思路通用，但不同模型对约束的服从度不同。建议先在 ChatGPT 或 Claude 上调好模板，再迁移到其他模型时微调约束条数。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Mole 是开源工具，不搞「一键智能清理」，所有删除项都需手动确认，且专注 AI 工具缓存和系统数据这类商业软件常忽略的角落；CleanMyMac 更自动化但透明度低。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>去 AI 腔后文章会不会变得不专业？</span>
+        <span>删除 AI 工具缓存会导致对话记录丢失吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不会。去味针对的是套话和僵化结构，专业术语和数据应保留。可以在提示词中明确“保留所有专业名词和数据”。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Mole 默认只清理缓存和日志，不碰对话数据库。但部分工具（如 Ollama）的模型文件会被标记为「可清理」，删除后需重新下载模型，请按需勾选。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>每次都要手动复制提示词太麻烦怎么办？</span>
+        <span>为什么扫描结果里「系统数据」占了很大一块？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">把整套提示词存成文档模板，或用支持自定义指令的客户端（如 ChatGPT 的自定义指令、Claude 的 Project）固化系统提示词。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">macOS 的「系统数据」包含日志、缓存、旧备份、虚拟机镜像等，Mole 会细分展示。建议只清理明确标注为「日志」和「缓存」的子项，其余保持不动。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>改写后字数变少很多正常吗？</span>
+        <span>清理后系统出问题怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">正常，AI 腔常伴随冗余表达。若字数不够，让 AI 补充具体案例或数据，而不是恢复套话。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Mole 的「最近删除」保留 7 天，可从历史记录中恢复。若问题严重，用 Time Machine 回滚到清理前的快照即可。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>这个玩法适合电脑小白吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合但需谨慎。建议小白只勾选绿色标记项，跳过黄色和红色项；或者先只跑「只读扫描」看报告，不执行删除，熟悉后再动手。</div>
     </details>
   </div>
 </section>
@@ -218,14 +229,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把工作流做成“角色扮演链”——先让 AI 扮演挑剔编辑挑毛病，再扮演作者重写，最后扮演读者给反馈，三轮去味。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：针对特定文体（如小红书、技术博客）各建一套负面约束清单，按文体切换提示词模板。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用 API 把“提纲→逐段生成→改写”串成自动化脚本，批量处理多篇文章。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：只清理 AI 工具缓存——针对 Cursor、Warp、Ollama 等工具单独跑 Mole 的 AI 模块，适合空间紧张但不想动系统文件的用户。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 Mole 的导出报告做「存储审计」——每月导出一次扫描报告，对比三个月的数据，找出持续膨胀的目录，针对性处理而非盲目清理。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把「慢清理」流程写成脚本——用 Mole 的命令行模式（如有）配合 cron 每月自动生成报告但不删除，人工审核后再执行，兼顾自动化和可控性。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    去 AI 腔的精髓不是一次生成，而是用分阶段提示词把 AI 的快和人的判断交替起来，让每一轮都留下人味。
+    用 Mole 清理 Mac 的精髓不在于「清出多少空间」，而在于借它的慢设计重新建立对数字资产的掌控感——每一次删除都知情，每一次清理都留痕。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -235,12 +246,12 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把文件转成Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文档一键转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">

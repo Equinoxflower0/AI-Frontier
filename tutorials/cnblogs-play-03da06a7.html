@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用AI编程Agent排查文件消失问题 - AI 玩法教程 · AI Frontier</title>
+<title>用Pipeline防数据泄漏：划分先于预处理 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-13
+      2026-11-14
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🔗 工具链
+        🧭 工作流
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用AI编程Agent排查文件消失问题</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Pipeline防数据泄漏：划分先于预处理</h1>
     
   </div>
 </header>
@@ -65,21 +65,17 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.cnblogs.com/zhenl/p/23591702" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/dawudexiaowu/p/23662932" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
-<div class="mb-4">
-  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
-  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">Stable Diffusion</span></div>
-</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">用 AI 编程 Agent 自动排查开发中文件莫名消失的诡异问题，把“玄学 bug”变成可复现、可修复的工程问题。</p>
+  <p class="text-base text-slate-800 leading-relaxed">离线评估0.97、上线只剩0.82？最隐蔽的根因往往是预处理做在了数据划分之前。这篇教程教你用Pipeline把数据泄漏堵死在第一行。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    作者在用 DeepSeek Harness（模型 GLM5.3）开发基于 ComfyUI 的动漫制作软件时，每次修改前端后 app.js 都会神秘消失。起初只是让 Agent 补文件，但反复出现后意识到必须根治。这个玩法展示了如何把 AI 编程 Agent 当作“结对调试员”，通过对话引导它阅读代码、分析文件操作逻辑、定位根因并给出修复方案，适合所有遇到偶发文件丢失、构建产物被误删等问题的开发者。
+    很多同学在建模时习惯先做SMOTE过采样或标准化，再划分训练集和测试集，结果测试集里混入了合成样本的“近亲”，离线指标虚高4.2个点。真机实验证明，全集SMOTE再划分会让模型在测试集上“偷看”答案。防线是结构性的：划分永远第一行、预处理塞进Pipeline、上线用holdout终评。这套工作流适用于任何需要严谨评估的分类/回归任务，尤其是样本不均衡场景。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">DeepSeek Harness  <a href="https://www.deepseek.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">AI 编程 Agent 运行环境，用于对话式排查问题</div>
+      <div class="font-semibold text-slate-900">Python 3.8+  <a href="https://www.anaconda.com/products/individual" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行环境，建议用Anaconda管理虚拟环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">GLM5.3 模型  <a href="https://open.bigmodel.cn" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">作为 Agent 的推理模型，提供代码理解与根因分析能力</div>
+      <div class="font-semibold text-slate-900">scikit-learn  <a href="https://scikit-learn.org/stable/install.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">提供Pipeline、ColumnTransformer、SMOTE等核心工具</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ComfyUI  <a href="https://github.com/comfyanonymous/ComfyUI" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">动漫制作软件的基础框架，项目运行环境</div>
+      <div class="font-semibold text-slate-900">imbalanced-learn  <a href="https://imbalanced-learn.org/stable/install.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">提供SMOTE等过采样方法，与sklearn Pipeline兼容</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Stable Diffusion  <a href="https://stability.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">图像生成模型，项目功能依赖</div>
+      <div class="font-semibold text-slate-900">pandas  <a href="https://pandas.pydata.org/docs/getting_started/install.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">数据读取与初步检查</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">VS Code 或任意编辑器  <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">查看项目文件与日志</div>
+      <div class="font-semibold text-slate-900">Jupyter Notebook  <a href="https://jupyter.org/install" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">交互式实验与结果可视化</div>
     </li>
   </ul>
 </section>
@@ -130,55 +126,44 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：复现并记录文件消失现象</h3>
-      <div class="text-base text-slate-700 leading-loose">在修改前端代码后，立即检查 app.js 是否存在，记录消失前后的操作序列（如保存了哪个文件、执行了什么命令、是否触发了构建）。把现象整理成一段清晰的描述，包括出现频率和已尝试的临时补救措施。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：先划分，再碰数据</h3>
+      <div class="text-base text-slate-700 leading-loose">加载数据后，第一行代码就是train_test_split。用stratify=y保持类别比例，random_state固定随机种子。划分前不要做任何fit操作，包括标准化、编码、过采样。把测试集锁进保险箱，直到最终评估才拿出来。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>用 git status 或文件监视工具确认文件是“被删除”还是“被重命名/移动”，这决定后续排查方向。
+          💡 <span class="font-semibold">小贴士：</span>养成习惯：任何fit_transform之前，先问自己“这是训练集吗？”
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：向 AI Agent 描述问题并给出上下文</h3>
-      <div class="text-base text-slate-700 leading-loose">在 DeepSeek Harness 中打开项目，向 Agent 说明：“每次修改前端后 app.js 会消失，已出现多次，请阅读项目代码找出原因”。把复现步骤、项目结构、相关配置文件路径一并提供，让 Agent 有足够上下文。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：构建预处理Pipeline</h3>
+      <div class="text-base text-slate-700 leading-loose">用ColumnTransformer分别处理数值列和类别列：数值列用StandardScaler，类别列用OneHotEncoder(handle_unknown='ignore')。然后把SMOTE作为Pipeline的一个步骤，放在预处理之后、模型之前。注意：SMOTE只能作用于训练集，Pipeline会自动保证这一点。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不要只说“文件没了”，要给出“修改前端→保存→app.js 消失”的因果链，Agent 定位会快很多。
+          💡 <span class="font-semibold">小贴士：</span>imbalanced-learn的SMOTE可以直接塞进sklearn Pipeline，但要求前面步骤输出数值矩阵，所以OneHotEncoder要设sparse_output=False（旧版sparse=False）。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：引导 Agent 阅读代码并搜索文件操作</h3>
-      <div class="text-base text-slate-700 leading-loose">让 Agent 重点检查项目中所有涉及文件删除、重命名、构建清理的逻辑，例如 fs.unlink、rimraf、clean 脚本、webpack/vite 插件、文件监听器。要求它列出可疑代码位置并解释触发条件。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：交叉验证评估Pipeline</h3>
+      <div class="text-base text-slate-700 leading-loose">用cross_val_score或cross_validate对完整Pipeline做5折交叉验证。每次折内，Pipeline只在训练折上fit预处理和SMOTE，验证折保持原始分布。对比之前“先SMOTE再划分”的虚高分数，你会看到真实差距。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>可以追加提示：“请搜索所有删除文件的调用，并说明在什么操作下会被触发”，避免 Agent 泛泛而谈。
+          💡 <span class="font-semibold">小贴士：</span>用scoring=['roc_auc','f1']多指标评估，避免单一指标误导。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：让 Agent 给出根因假设与验证方法</h3>
-      <div class="text-base text-slate-700 leading-loose">要求 Agent 基于代码阅读结果，给出最可能的根因假设，并设计一个最小验证实验（如临时注释掉某段清理逻辑、加日志打印删除调用栈）。按建议执行验证，确认是否复现消失。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：holdout终评与上线</h3>
+      <div class="text-base text-slate-700 leading-loose">在训练集上fit整个Pipeline，然后对锁定的测试集做predict。只评估一次，不要反复调参看测试集。如果测试集指标与交叉验证均值接近（差距&lt;2%），说明没有泄漏；如果差距大，回头检查是否有预处理漏在Pipeline外。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>让 Agent 输出“假设→验证→结论”的表格，排查过程会更清晰，也方便回滚。
-        </div>
-    </div>
-    <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
-      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
-        5
-      </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：实施修复并让 Agent 复查</h3>
-      <div class="text-base text-slate-700 leading-loose">根据确认的根因修改代码（如调整清理脚本的匹配规则、修复文件监听误删逻辑），然后让 Agent 复查修改是否引入新风险。最后重复第1步的复现操作，确认 app.js 不再消失。</div>
-      
-        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>修复后让 Agent 生成一段回归测试或检查清单，防止同类问题再次出现。
+          💡 <span class="font-semibold">小贴士：</span>上线前用joblib.dump保存整个Pipeline，推理时直接加载，避免手工复现预处理步骤。
         </div>
     </div>
   </div>
@@ -188,7 +173,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    AI Agent 定位到导致 app.js 被删除的具体代码逻辑（如构建清理脚本误匹配、文件监听器误删），给出修复方案；修改后反复修改前端，app.js 稳定存在，问题彻底解决。
+    交叉验证分数与holdout测试分数差距在2个点以内，离线指标不再虚高。你会看到真实性能（比如从虚高的0.97回落到0.82左右），但上线后模型表现稳定，不再出现“离线天堂、上线地狱”的落差。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -198,31 +183,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>AI Agent 读不懂整个项目怎么办？</span>
+        <span>SMOTE必须放在Pipeline里吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先缩小范围，只把与文件操作相关的目录和配置文件提供给 Agent，或让它分模块阅读，避免一次性塞入过多代码。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">是的。SMOTE属于过采样，必须在训练折内fit，否则合成样本会泄漏到验证折。Pipeline能自动保证这一点。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Agent 给出的根因不确定，如何判断？</span>
+        <span>类别特征OneHotEncoder后稀疏矩阵能接SMOTE吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">要求 Agent 设计最小验证实验，通过注释代码、加日志、打印调用栈等方式实际验证，不要直接采信假设。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能直接接。需要设sparse_output=False输出稠密矩阵，或者用SMOTENC专门处理混合类型。简单做法是OneHotEncoder(dense)后再SMOTE。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>文件消失但 Agent 找不到删除调用怎么办？</span>
+        <span>交叉验证分数和holdout差多少算正常？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查是否有外部工具（如杀毒软件、同步盘、IDE 插件）或系统级清理任务，让 Agent 分析项目外的可能性，并用文件监视工具抓现场。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">一般2个点以内算正常波动。如果差距超过5个点，大概率有泄漏或分布偏移，重点检查预处理是否在划分前做了fit。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个玩法只能用于文件消失问题吗？</span>
+        <span>时间序列数据也能用这套流程吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是，任何偶发、难以复现的 bug 都可以用同样的“描述现象→提供上下文→引导搜索→假设验证→修复复查”流程。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能直接用train_test_split随机划分。时间序列要用TimeSeriesSplit，且预处理（如滚动统计）必须只基于过去数据，Pipeline同样适用但需自定义cv。</div>
     </details>
   </div>
 </section>
@@ -230,14 +215,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用 AI Agent 排查构建产物被误删问题——把“app.js 消失”换成“dist 目录被清空”，流程完全复用。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：让 Agent 自动生成文件操作审计脚本——在项目中加入日志埋点，记录所有删除/重命名调用，便于后续排查。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把排查过程整理成团队 SOP——将 Agent 的假设验证表沉淀为调试模板，用于其他偶发 bug 的排查。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用imblearn.pipeline.Pipeline替代sklearn Pipeline，原生支持SMOTE等采样器，写法更简洁。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：把SMOTE换成class_weight='balanced'，不生成合成样本，直接让模型加权，适合高维稀疏数据。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用FeatureUnion组合多个特征提取器（如PCA+SelectKBest），全部塞进Pipeline，进一步杜绝泄漏。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    把 AI 编程 Agent 当作结对调试员，用“现象描述+上下文+引导搜索+假设验证”的闭环，把玄学文件消失问题变成可定位、可修复的工程问题。
+    划分永远第一行，预处理全部塞进Pipeline，holdout只评一次——结构性防泄漏，比任何调参都值钱。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -245,19 +230,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Yolain工作流在ComfyUI快速出图</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用awesome-comfyui节点合集扩展ComfyUI工作流</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把文件转成Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

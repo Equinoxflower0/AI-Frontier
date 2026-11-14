@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用Cosmos 3四模型生成驾驶与机器人视频 - AI 玩法教程 · AI Frontier</title>
+<title>用BM25检索与依赖补全精简Agent工具集 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-13
+      2026-11-14
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🔗 工具链
+        💬 Prompt 模板
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 30min
+        ⏱ 约 5min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Cosmos 3四模型生成驾驶与机器人视频</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用BM25检索与依赖补全精简Agent工具集</h1>
     
   </div>
 </header>
@@ -65,7 +65,7 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7705257674057564187" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7707546300394045482" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">用 NVIDIA Cosmos 3 的四个开放权重模型，零门槛生成多视角驾驶视频、流式仿真、物理控制转视频和双臂机器人动作预测。</p>
+  <p class="text-base text-slate-800 leading-relaxed">当你的 Agent 接入几十个工具时，把所有工具定义塞进 Prompt 会浪费上下文、增加误选。本教程教你用 BM25 检索 + 依赖补全 + 风险过滤，动态精简工具集，让 Agent 又快又准。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    NVIDIA 为 Cosmos 3 模型家族新增了四个 160 亿参数的 Cosmos 3 Nano 后训练检查点，分别覆盖多视角驾驶数据生成、流式仿真、物理控制转视频和双臂机器人动作预测。这些模型开放权重，意味着开发者可以在本地或云端直接部署，快速生成高质量的合成视频数据，用于自动驾驶仿真、机器人训练和物理 AI 研究。相比传统数据采集，这套工具链能大幅降低成本和周期，尤其适合需要大量边缘场景数据的团队。
+    很多团队在构建 AI Agent 时，习惯把所有工具（API、函数）的定义一股脑塞进系统提示词。工具少时没问题，一旦超过 20 个，上下文成本飙升，模型还容易选错工具或漏选依赖工具。本文基于掘金实战教程，实现一套轻量级工具检索与补全机制：先用 BM25 根据用户 query 召回相关工具，再根据工具间的依赖关系自动补全必要的前置工具，最后按风险等级过滤掉高危操作，只把最精简、最安全的工具集交给 Agent。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">NVIDIA Cosmos 3 模型权重  <a href="https://huggingface.co/nvidia" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">从 NVIDIA NGC 或 Hugging Face 获取四个 Nano 检查点</div>
+      <div class="font-semibold text-slate-900">Python 3.9+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+ 与 PyTorch  <a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行模型推理的基础环境</div>
+      <div class="font-semibold text-slate-900">rank_bm25  <a href="https://pypi.org/project/rank-bm25/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">BM25 检索库，用于工具召回</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">NVIDIA GPU（建议 24GB+ 显存）  <a href="https://www.nvidia.com/en-us/deep-learning-ai/products/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">160 亿参数模型需要足够显存，可用 A100/H100 或 RTX 4090</div>
+      <div class="font-semibold text-slate-900">OpenAI API（或兼容接口）  <a href="https://platform.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">调用 LLM 生成工具调用决策</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Cosmos 推理代码库  <a href="https://github.com/NVIDIA/Cosmos" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">官方示例脚本和工具链</div>
+      <div class="font-semibold text-slate-900">一个代码编辑器（VS Code / PyCharm）  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编写和调试代码</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Jupyter Notebook 或 VS Code  <a href="https://jupyter.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">交互式调试和可视化生成结果</div>
+      <div class="font-semibold text-slate-900">原始教程参考  <a href="https://juejin.cn/post/7707546300394045482" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">掘金 AI 实战教程原文</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：环境搭建与模型下载</h3>
-      <div class="text-base text-slate-700 leading-loose">创建 Python 虚拟环境，安装 PyTorch 和 Cosmos 依赖库。从 Hugging Face 下载四个 Cosmos 3 Nano 检查点（多视角驾驶、流式仿真、物理控制转视频、双臂机器人），保存到本地 models 目录。确保 GPU 驱动和 CUDA 版本匹配。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：定义工具元数据与依赖关系</h3>
+      <div class="text-base text-slate-700 leading-loose">为每个工具准备结构化描述：名称、功能描述、参数、依赖的其他工具列表、风险等级（low/medium/high）。例如“发送邮件”依赖“查询联系人”，“删除数据库”风险等级为 high。把这些元数据存成 JSON 或 Python 字典列表，作为后续检索和过滤的基础。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>下载前先检查显存，160 亿参数模型推理至少需要 24GB，可用 8-bit 量化降低需求。
+          💡 <span class="font-semibold">小贴士：</span>描述字段尽量用自然语言写清楚使用场景，BM25 靠关键词匹配，描述越贴近用户问法召回越准。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：多视角驾驶数据生成</h3>
-      <div class="text-base text-slate-700 leading-loose">加载多视角驾驶模型，准备一段简短的驾驶场景描述（如“雨天城市道路，前车突然刹车”），调用推理脚本生成 6 个视角的同步视频。调整帧率和分辨率参数，输出 MP4 文件。检查视频中车辆、行人、光照是否合理。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 BM25 根据用户 query 召回候选工具</h3>
+      <div class="text-base text-slate-700 leading-loose">将每个工具的描述文本拼接成文档，用 rank_bm25 建立索引。用户输入 query 后，对 query 分词并计算 BM25 得分，取 Top-K（如 K=5）作为候选工具。注意对中文先做简单分词（可用 jieba），英文直接空格切分。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>描述越具体，生成视频越真实；可加入天气、时间、道路类型等关键词。
+          💡 <span class="font-semibold">小贴士：</span>K 不要设太大，5~8 足够；如果召回结果太少，可以适当降低 BM25 阈值或增加同义词扩展。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：流式仿真与物理控制转视频</h3>
-      <div class="text-base text-slate-700 leading-loose">使用流式仿真模型，输入初始场景和一系列控制指令（如转向角、油门），实时生成连续视频流。再切换到物理控制转视频模型，将机器人关节角度序列转换为视频，验证动作与视觉的一致性。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：依赖补全——自动加入前置工具</h3>
+      <div class="text-base text-slate-700 leading-loose">遍历候选工具，检查每个工具的依赖列表。如果某个依赖工具不在候选集中，就把它加入。递归检查直到没有新的依赖被加入。这样确保 Agent 拿到的是“可执行闭环”的工具集，而不是孤立的工具。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>流式仿真适合测试闭环控制，建议先用短序列（2-3 秒）快速验证。
+          💡 <span class="font-semibold">小贴士：</span>依赖关系建议只保留直接依赖，避免循环依赖；可以用 visited 集合防止死循环。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：双臂机器人动作预测与视频生成</h3>
-      <div class="text-base text-slate-700 leading-loose">加载双臂机器人模型，输入目标物体位置和抓取任务描述，模型会预测双臂关节轨迹并生成对应视频。对比预测轨迹与实际机器人运动学约束，微调提示词或参数。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：风险过滤——剔除高危工具</h3>
+      <div class="text-base text-slate-700 leading-loose">根据工具的风险等级过滤：如果候选集中包含 high 风险工具，可以选择直接移除，或者替换为低风险的只读版本（如“查询”代替“删除”）。也可以设置策略：只有用户明确授权时才保留 high 风险工具。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>动作预测结果可导出为 JSON，方便与 ROS 或仿真器对接。
+          💡 <span class="font-semibold">小贴士：</span>风险等级不要写死，建议放在配置文件中，方便不同环境（开发/生产）切换策略。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：结果评估与迭代</h3>
-      <div class="text-base text-slate-700 leading-loose">用简单的脚本批量生成 10-20 个样本，人工检查视频的物理合理性、多视角一致性和动作连贯性。记录失败案例，调整提示词模板或模型参数（如温度、采样步数），重复生成直到满足需求。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：组装精简 Prompt 并调用 Agent</h3>
+      <div class="text-base text-slate-700 leading-loose">把最终工具集（通常 3~8 个）格式化成工具定义文本，插入系统提示词，再拼接用户 query 调用 LLM。观察模型是否选择了正确的工具链。可以打印每次召回和补全的结果，便于调试。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建立提示词模板库，把效果好的描述保存下来复用。
+          💡 <span class="font-semibold">小贴士：</span>在 Prompt 中明确告诉模型“你只能使用以下工具”，并给出工具调用格式示例，能进一步降低误选。
         </div>
     </div>
   </div>
@@ -184,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    本地成功生成多视角驾驶视频、流式仿真视频、物理控制转视频和双臂机器人动作视频，每个视频分辨率不低于 512x512，帧率 10-30fps，物理表现基本合理，可直接用于数据增强或仿真测试。
+    Agent 每次只收到 3~8 个相关且安全的工具定义，上下文长度显著下降，工具选择准确率提升，高危操作被自动拦截。你可以在日志中看到：用户 query → BM25 召回 Top5 → 依赖补全后 6 个 → 风险过滤后 5 个 → 最终 Prompt 长度减少 70% 以上。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 24GB 显存的 GPU 怎么办？</span>
+        <span>BM25 对中文效果不好怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以使用 8-bit 量化或云 GPU 服务（如 AWS、阿里云），也可以降低生成分辨率和帧数。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先对工具描述和 query 做分词（推荐 jieba），再建索引；也可以加入同义词词典扩展 query，或者换用轻量向量检索（如 sentence-transformers）做混合召回。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>四个模型必须全部下载吗？</span>
+        <span>依赖补全会不会把工具集撑得太大？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不必，按需下载。只做驾驶视频就只下多视角驾驶模型，节省时间和存储。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常不会。依赖链一般很短（1~2 层），补全后工具数仍在个位数。如果依赖过多，说明工具粒度太细，建议合并工具或重新设计接口。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>生成视频有闪烁或物理错误怎么调？</span>
+        <span>风险过滤会不会误删必要工具？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">增加采样步数、降低温度参数，或细化提示词中的物理约束描述。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以分级处理：high 风险工具默认移除，但保留一个“申请授权”的占位提示；或者只移除写操作，保留读操作。策略应结合业务场景调整。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>模型支持中文提示词吗？</span>
+        <span>没有 OpenAI API 可以用吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">官方主要支持英文，建议用英文描述，或先用翻译工具转成英文。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。任何支持 function calling 的模型都行，比如 Claude、通义千问、DeepSeek 等。只需替换调用代码，工具检索与补全逻辑完全复用。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>生成的视频可以商用吗？</span>
+        <span>这套方法适合多少工具规模？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">需查看 NVIDIA Cosmos 的许可证，开放权重通常允许研究和小规模商用，具体以官方条款为准。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">20~200 个工具效果最明显。少于 10 个时收益不大；超过 200 个建议引入向量检索或分层工具目录。</div>
     </details>
   </div>
 </section>
@@ -233,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用多视角驾驶模型生成极端天气（暴雨、大雾）场景，扩充自动驾驶测试集。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：将双臂机器人动作预测接入 ROS，实现真实机器人抓取任务的视频预演。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：组合流式仿真和物理控制转视频，构建闭环仿真环境，测试控制算法。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：混合检索——BM25 召回后，再用轻量向量模型（如 text2vec）对 Top20 重排序，提升语义匹配准确率。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：动态风险策略——根据用户身份或会话上下文动态调整风险阈值，例如管理员会话保留 high 风险工具，普通用户则过滤。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：工具分组路由——先让 LLM 判断 query 属于哪个业务域（如“邮件”“数据库”“文件”），再只在对应分组内做 BM25 检索，进一步缩小候选集。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 Cosmos 3 四个开放权重模型，按需加载、分步生成，快速产出驾驶与机器人合成视频数据。
+    用 BM25 精准召回、依赖补全保闭环、风险过滤守安全，三招把 Agent 的工具集从“全量塞入”变成“按需精简”，上下文更省、选择更准、运行更安全。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -248,19 +248,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 prompts.chat 社区提示词库找现成 prompt</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用GPT-4o图像提示词库复刻AI视觉作品</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
+    </a>
+    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零搭建AI智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把文件转成Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

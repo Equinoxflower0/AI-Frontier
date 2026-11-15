@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用单模型四档思考配置工程化Agent - AI 玩法教程 · AI Frontier</title>
+<title>用Tez执行计划优化Hive SQL慢脚本 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-14
+      2026-11-15
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用单模型四档思考配置工程化Agent</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Tez执行计划优化Hive SQL慢脚本</h1>
     
   </div>
 </header>
@@ -65,21 +65,17 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.cnblogs.com/znlgis/p/23603140" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/ilovetech/p/23670963" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
-<div class="mb-4">
-  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
-  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
-</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">只用 DeepSeek 一个模型，通过四档思考配置（默认档到 #max）来工程化 Agent，让不同 Agent 的差异全部由思考深度表达。</p>
+  <p class="text-base text-slate-800 leading-relaxed">本教程教你用 Tez 执行计划分析并优化运行缓慢的 Hive SQL 脚本，通过查看执行计划、统计信息和 SQL 改写，让离线任务从数小时缩短到分钟级。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多团队在搭建多 Agent 系统时，习惯为每个 Agent 配不同模型，导致成本高、维护乱。这篇玩法来自博客园 AI 教程，核心思路是：只保留 deepseek/deepseek-flash 一个模型，把 Agent 之间的差异全部交给 thinking tier 表达。11 月的改动把思考档从三档扩到四档，并重排了 Agent 档位，同时强调“Agent 级权限不得放宽全局默认”。这套方案适合想用单模型低成本构建多角色 Agent 的开发者。
+    一年前为业务部门开发的 Hive SQL 离线分析脚本，随着数据量增长从几分钟变成几小时，严重影响报表产出。很多同学遇到慢查询只会加资源，却不知道问题出在 join 倾斜、全表扫描还是 Tez 的 DAG 切分不合理。本玩法通过「看执行计划 → 查表统计信息 → 针对性改写 SQL」三步闭环，帮你定位瓶颈并落地优化，适用于所有基于 Tez 引擎的 Hive 数仓离线任务调优场景。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,24 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">DeepSeek 开放平台账号  <a href="https://platform.deepseek.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">获取 API Key，用于调用 deepseek-flash 模型</div>
+      <div class="font-semibold text-slate-900">Apache Hive（含 Tez 引擎）  <a href="https://hive.apache.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于执行 SQL 并查看 Tez 执行计划，建议 Hive 2.x 以上</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">DeepSeek API 文档  <a href="https://api-docs.deepseek.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">查阅 thinking tier / reasoning 相关参数说明</div>
+      <div class="font-semibold text-slate-900">Apache Tez  <a href="https://tez.apache.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Hive 的 DAG 执行引擎，需在 hive-site.xml 中配置 hive.execution.engine=tez</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">编写 Agent 调度与配置代码</div>
+      <div class="font-semibold text-slate-900">Hadoop/YARN 集群  <a href="https://hadoop.apache.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">提供底层存储与资源调度，用于查看任务日志和资源使用</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">OpenAI Python SDK  <a href="https://pypi.org/project/openai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">兼容 DeepSeek API 的客户端调用</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">博客园原文  <a href="https://www.cnblogs.com/znlgis/p/23603140" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">参考完整配置细节与 11 月改动说明</div>
+      <div class="font-semibold text-slate-900">Hue 或 Hive CLI/Beeline  <a href="https://gethue.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">提交 SQL 和查看执行计划的客户端工具</div>
     </li>
   </ul>
 </section>
@@ -130,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：统一模型入口，锁定 deepseek-flash</h3>
-      <div class="text-base text-slate-700 leading-loose">在项目配置中只保留一个模型标识 deepseek/deepseek-flash，删除其他模型分支。所有 Agent 的模型字段都指向这个常量，避免后续误配。用环境变量 DEEPSEEK_API_KEY 注入密钥，base_url 指向 https://api.deepseek.com。这样后续所有差异都只能通过思考档位表达，从架构上杜绝“换模型解决一切”的惯性。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：确认引擎并开启执行计划输出</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Hive 客户端执行 set hive.execution.engine=tez; 确认当前使用 Tez 引擎。然后对慢脚本加上 EXPLAIN 关键字（或 EXPLAIN EXTENDED）查看逻辑执行计划，重点关注 Stage 依赖关系、Map/Reduce 算子以及是否有 Cartesian Product。也可以执行 EXPLAIN FORMATTED 查看更详细的算子信息。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把模型名写成常量 MODEL = &quot;deepseek/deepseek-flash&quot;，全局引用，改一处即可。
+          💡 <span class="font-semibold">小贴士：</span>先用 EXPLAIN 而不是直接跑任务，避免浪费集群资源；把执行计划保存到文件方便对比优化前后差异。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：定义四档思考配置（默认档到 #max）</h3>
-      <div class="text-base text-slate-700 leading-loose">在代码中定义四档 thinking tier：default（默认档，低延迟）、high（高思考）、ultra（超高思考）、#max（最大思考，用于最复杂任务）。每档对应不同的 reasoning 参数或提示词前缀，例如 #max 档会在系统提示中追加“请进行多步深度推理并给出验证”。把四档封装成枚举或字典，方便 Agent 引用。注意档位越高，token 消耗和延迟越大，需要按任务复杂度分配。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：分析 Tez DAG 与 Stage 瓶颈</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Tez UI（通常为 YARN ResourceManager 页面中的 Tez 视图）中打开对应任务的 DAG 图，观察哪个 Vertex 耗时最长、哪个 Edge 发生大量数据 Shuffle。重点看 Map 输入数据量、Reduce 输出数据量以及是否存在数据倾斜（某个 Task 处理量远大于其他）。结合执行计划中的 Stage 划分，判断是扫描阶段慢、Join 阶段慢还是聚合阶段慢。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先用 default 档跑通全流程，再逐档调高，避免一上来就 #max 导致成本失控。
+          💡 <span class="font-semibold">小贴士：</span>Tez UI 中 Vertex 的颜色和耗时条能快速定位长尾任务；如果某个 Reduce Task 耗时是其他的数倍，基本可判定为数据倾斜。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：重排 Agent 档位映射</h3>
-      <div class="text-base text-slate-700 leading-loose">为每个 Agent 角色指定一个思考档位：简单路由 Agent 用 default，分析类 Agent 用 high，规划类用 ultra，核心决策或复杂推理用 #max。把映射写成配置表（如 YAML 或 Python dict），Agent 初始化时读取。11 月改动强调重排档位，建议按“任务复杂度 × 错误代价”两个维度重新评估，而不是沿用旧三档的惯性分配。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：查看并更新表统计信息</h3>
+      <div class="text-base text-slate-700 leading-loose">执行 ANALYZE TABLE 表名 COMPUTE STATISTICS 收集表级统计信息，对分区表使用 ANALYZE TABLE 表名 PARTITION(分区字段) COMPUTE STATISTICS。再执行 ANALYZE TABLE 表名 COMPUTE STATISTICS FOR COLUMNS 收集列级统计信息。统计信息准确后，Tez 优化器才能正确选择 Join 顺序、判断是否使用 Map Join，避免生成低效计划。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>给每个 Agent 加一行注释说明为什么选这个档，方便后续复盘调整。
+          💡 <span class="font-semibold">小贴士：</span>统计信息过期是慢查询的隐形杀手，建议在 ETL 完成后自动触发 ANALYZE，或设置 hive.stats.autogather=true 自动收集。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：落实权限约束——Agent 级不得放宽全局默认</h3>
-      <div class="text-base text-slate-700 leading-loose">在配置加载层加一条校验规则：Agent 级配置只能收紧权限，不能放宽全局默认。例如全局默认禁止文件写入，某个 Agent 不能通过配置开启写入。实现方式是在合并配置时做单向覆盖检查，发现 Agent 试图放宽就抛错或降级。这条规则能防止高思考档 Agent 因“更聪明”而被误授过高权限。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：针对性改写 SQL 脚本</h3>
+      <div class="text-base text-slate-700 leading-loose">根据前几步定位的瓶颈改写 SQL：小表 Join 大表时使用 /*+ MAPJOIN(小表) */ 提示或调大 hive.auto.convert.join.noconditionaltask.size；数据倾斜时对倾斜 key 加随机前缀打散后再聚合；避免 SELECT * 只取必要列；用分区过滤裁剪数据；将多次重复扫描的 CTE 结果落地临时表。改写后再次 EXPLAIN 对比计划变化。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把校验写成单元测试，每次改配置自动跑，防止回归。
+          💡 <span class="font-semibold">小贴士：</span>改写要一次只改一个点并对比耗时，避免多个改动混在一起无法判断哪个生效；优先解决最大的瓶颈而不是全面重写。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：跑通一个最小 Agent 链并观测档位差异</h3>
-      <div class="text-base text-slate-700 leading-loose">构造一个两段式 Agent 链：第一个 Agent 用 default 档做意图分类，第二个 Agent 用 #max 档做复杂回答。用同一组输入分别跑四档，记录延迟、token 消耗和回答质量。观察 default 到 #max 的边际收益，判断哪些 Agent 值得升档。把观测结果回写到档位映射表，形成“配置—观测—调优”的闭环。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：调优 Tez 参数并验证效果</h3>
+      <div class="text-base text-slate-700 leading-loose">根据 DAG 分析结果调整 Tez 参数，例如设置 tez.grouping.max-size 控制输入分片大小、hive.tez.container.size 调整容器内存、tez.runtime.io.sort.mb 调整排序缓冲区。调整后重新运行脚本，对比优化前后的执行时间、Shuffle 数据量和 Tez UI 中的 DAG 耗时，确认优化生效并记录参数配置。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>用简单脚本打印每档的 latency 和 completion_tokens，比凭感觉调档靠谱得多。
+          💡 <span class="font-semibold">小贴士：</span>参数调优要小步快跑，每次只调 1-2 个参数并记录基线；不要盲目调大内存，先确认瓶颈是 CPU、内存还是 IO。
         </div>
     </div>
   </div>
@@ -188,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    项目里只有一个模型 deepseek/deepseek-flash，所有 Agent 通过四档 thinking tier 区分行为；配置校验能阻止 Agent 级权限放宽；跑最小链时能看到 default 到 #max 的延迟与质量梯度，并据此完成档位调优。
+    慢脚本执行时间明显下降（常见从小时级降到分钟级），Tez UI 中长尾 Vertex 消失或耗时大幅缩短，Shuffle 数据量减少，执行计划中不再出现全表扫描和不合理的 Cartesian Product，任务稳定可复现。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -198,38 +190,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>四档思考具体怎么在 API 里表达？</span>
+        <span>没有 Tez UI 权限怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">DeepSeek 的 reasoning 相关参数或提示词前缀均可表达档位，具体字段以官方文档为准；核心是把档位封装成统一配置，而不是散落在各 Agent 代码里。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以找集群管理员开通 YARN ResourceManager 的 Tez 视图访问权限，或通过 yarn application -list 找到 applicationId 后查看日志中的 DAG 信息。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>为什么不让每个 Agent 用不同模型？</span>
+        <span>ANALYZE 统计信息很慢，必须每次都跑吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">多模型会带来成本、版本、维护三重碎片化。单模型加思考档位能把差异收敛到一个维度，调优和回滚都更简单。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不必每次全量跑，可只对参与 Join 和聚合的关键表/分区按需收集，或在 ETL 后增量收集，配合 hive.stats.autogather 自动收集基础统计。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>#max 档会不会太贵？</span>
+        <span>MAPJOIN 提示加了但没生效？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">会。所以只给错误代价最高的核心决策 Agent 用 #max，其余按复杂度降档，并用观测数据验证边际收益。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查小表大小是否超过 hive.auto.convert.join.noconditionaltask.size 阈值，以及是否使用了 LEFT JOIN 等不支持 Map Join 的场景，必要时调大阈值或改写 Join 顺序。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>权限不得放宽全局默认，具体怎么校验？</span>
+        <span>数据倾斜加随机前缀后结果不对？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在配置合并时做单向覆盖检查：Agent 配置只能把权限从宽改窄，反向修改直接报错或降级。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">加前缀后需要两阶段聚合：先按「前缀+key」聚合，再去掉前缀按原 key 二次聚合，确保最终结果与原来一致。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这套方案适合什么规模的团队？</span>
+        <span>优化后过一段时间又变慢了？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合已有多个 Agent 角色、开始感到模型配置混乱的中小团队；单人小项目也可用，但收益在角色变多后更明显。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">数据量增长或统计信息过期都可能导致回退，建议把 ANALYZE 和关键 Tez 参数固化到调度脚本中，并定期复查执行计划。</div>
     </details>
   </div>
 </section>
@@ -237,14 +229,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把四档映射成提示词模板库，每档对应一段系统提示前缀，不改 API 参数也能实现档位差异。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：加一个自动选档器，用小模型或规则先判断任务复杂度，再动态分配 default/high/ultra/#max。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把档位配置外置为 YAML，配合 CI 做权限单向校验和档位回归测试，形成工程化流水线。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把执行计划分析做成自动化脚本，定期对慢 SQL 跑 EXPLAIN 并对比 DAG 耗时，提前发现性能回退。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：将 Tez 调优经验迁移到 Spark SQL 引擎，对比同一 SQL 在 Tez 与 Spark 下的执行计划和耗时，选择更优引擎。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合 Hive 的 CBO（基于代价优化）开启 hive.cbo.enable=true，配合准确统计信息让优化器自动选择更优 Join 顺序和算法。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    单模型是底座，四档思考是旋钮，权限单向约束是保险丝——三者合起来才是可工程化的 Agent 配置。
+    用 Tez 执行计划定位瓶颈、用统计信息喂饱优化器、用针对性 SQL 改写和参数调优解决瓶颈，形成「看计划→查统计→改 SQL→调参数→验效果」的慢查询优化闭环。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -252,19 +244,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件与 Office 文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文档一键转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建 AI Agent 工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

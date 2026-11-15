@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用Anthropic上下文工程法优化Agent提示词 - AI 玩法教程 · AI Frontier</title>
+<title>用上下文压缩机制排查 Agent 遗忘指令问题 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-14
+      2026-11-15
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        💬 Prompt 模板
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 5min
+        ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Anthropic上下文工程法优化Agent提示词</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用上下文压缩机制排查 Agent 遗忘指令问题</h1>
     
   </div>
 </header>
@@ -59,27 +59,23 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    掘金 AI 实战教程 · B级
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7705349866764255275" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/leikooo/p/23666738" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
-<div class="mb-4">
-  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
-  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">Claude</span></div>
-</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">本教程教你用 Anthropic 的上下文工程方法，系统优化 Agent 提示词，解决上下文腐烂问题，提升 Agent 在长任务中的表现。</p>
+  <p class="text-base text-slate-800 leading-relaxed">当你的 AI Agent 在长任务中突然弹出「Compacting conversation…」并开始遗忘关键指令时，这套教程能帮你用上下文压缩机制精准定位并修复问题。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    随着 Agent 处理的任务越来越复杂，上下文窗口容易堆积大量低信号信息，导致模型注意力分散、推理质量下降，这就是“上下文腐烂”。Anthropic 提出的上下文工程法通过筛选高信号信息、压缩上下文、引入 Agentic Memory 和子 Agent 等策略，显著提升 Agent 的稳定性和效率。本教程拆解该方法，并给出可落地的提示词优化步骤，适合正在构建复杂 Agent 的开发者。
+    很多开发者用 Agent 跑长流程任务时，都遇到过 Agent 中途「失忆」：明明说好「别动这个文件」，压缩完上下文它又去改了。这背后是 compaction（上下文压缩）机制在作祟——它把聊天记录总结成更短的版本以节省 token，但总结过程可能丢掉关键约束。本教程教你如何系统排查这类遗忘指令问题，适合使用 Claude Code、Cursor、Cline 等支持长上下文 Agent 的开发者。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,20 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Claude 账号  <a href="https://claude.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于测试和运行优化后的提示词</div>
+      <div class="font-semibold text-slate-900">Claude Code  <a href="https://claude.ai/code" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">支持 compaction 机制的 Agent 工具，用于复现和排查遗忘问题</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Anthropic API Key  <a href="https://console.anthropic.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">如需通过 API 调用 Claude 进行自动化测试</div>
+      <div class="font-semibold text-slate-900">Cursor  <a href="https://cursor.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">备选 Agent IDE，可观察上下文压缩行为</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">文本编辑器或 IDE  <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">编写和保存提示词模板</div>
+      <div class="font-semibold text-slate-900">Cline (VS Code 插件)  <a href="https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">开源 Agent 插件，可查看上下文管理日志</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">原始教程参考  <a href="https://juejin.cn/post/7705349866764255275" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">掘金 AI 实战教程原文</div>
+      <div class="font-semibold text-slate-900">一个长任务测试项目  <a href="https://github.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">准备一个包含多文件修改的仓库，用于触发 compaction</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">文本对比工具  <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">如 VS Code 内置 diff 或 Beyond Compare，用于对比压缩前后指令</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：识别上下文腐烂与高信号信息</h3>
-      <div class="text-base text-slate-700 leading-loose">先分析你的 Agent 当前提示词和对话历史，找出哪些信息是低信号（如重复的确认、无关的闲聊、过时的中间结果），哪些是高信号（如任务目标、关键约束、最新状态）。可以用一个简单表格列出每类信息及其出现频率。然后设定规则：只保留高信号信息，低信号信息要么删除，要么压缩成一句话摘要。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：复现遗忘场景并记录压缩触发点</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Agent 中启动一个长任务，例如「重构项目中的 5 个文件，但不要修改 config.py」。持续对话直到出现「Compacting conversation…」提示。记录压缩前后的对话轮次和 Agent 行为变化，重点标记它开始违反约束的那一轮。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>可以要求 Claude 帮你标注一段对话中的高信号与低信号句子，快速建立判断标准。
+          💡 <span class="font-semibold">小贴士：</span>用屏幕录制或日志工具记录整个过程，方便回放定位。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：设计上下文压缩策略</h3>
-      <div class="text-base text-slate-700 leading-loose">针对长对话或长文档，制定压缩规则。例如：每轮对话后，让模型用一句话总结本轮新增的关键信息；对于工具调用结果，只保留结论和关键数据，丢弃原始日志。在提示词中明确写出压缩指令，如“请将以下内容压缩为不超过50字的高信号摘要”。同时设置压缩触发条件，比如上下文超过2000 token 时自动压缩。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：提取压缩前后的上下文快照</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Agent 工具中开启详细日志（如 Claude Code 的 --verbose 模式），找到 compaction 发生时的原始消息列表和压缩后的摘要。将两者导出为文本文件，用 diff 工具对比，找出被摘要丢弃的关键指令（如「别动 config.py」）。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>压缩时保留时间戳和实体名称，避免后续指代不清。
+          💡 <span class="font-semibold">小贴士：</span>关注摘要中是否把「不要做 X」这类否定约束弱化成了「注意 X」。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：引入 Agentic Memory 管理长期状态</h3>
-      <div class="text-base text-slate-700 leading-loose">为 Agent 增加一个外部记忆模块，可以用文件、数据库或简单的键值存储。在提示词中定义记忆的读写规则：何时写入记忆（如任务阶段完成、关键决策点），何时读取记忆（如开始新子任务时）。例如，让 Agent 在每完成一个子任务后，将结果摘要写入 memory 文件，并在下一轮开始时先读取该文件。这样上下文窗口只保留当前任务所需的高信号信息。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：分析压缩策略并定位丢失原因</h3>
+      <div class="text-base text-slate-700 leading-loose">阅读你所用 Agent 的 compaction 实现文档或源码（如 Claude Code 的上下文管理逻辑），判断它是按轮次截断、按 token 预算摘要，还是用 LLM 重写。对照第2步的 diff 结果，确认是哪类信息被优先丢弃——通常否定指令和早期约束最容易被压缩掉。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>记忆内容也要定期压缩和清理，避免记忆本身膨胀。
+          💡 <span class="font-semibold">小贴士：</span>如果工具闭源，可用多次实验归纳规律：改变指令位置和措辞，观察保留率。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：使用子 Agent 拆分复杂任务</h3>
-      <div class="text-base text-slate-700 leading-loose">将复杂任务拆分为多个子任务，每个子任务由一个独立的子 Agent 处理，子 Agent 只接收与自身任务相关的高信号上下文。主 Agent 负责调度和汇总结果。在提示词中定义子 Agent 的职责、输入输出格式以及主 Agent 的协调逻辑。例如，主 Agent 先分解任务，然后依次调用子 Agent，每个子 Agent 返回压缩后的结果，主 Agent 再整合。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：设计抗压缩的指令加固方案</h3>
+      <div class="text-base text-slate-700 leading-loose">针对丢失的约束，采用三种加固方式：1）把关键约束写成系统提示或项目规则文件（如 CLAUDE.md），让压缩时优先保留；2）在每轮任务开始时用短句重申约束；3）把否定指令改为正向可执行清单（如「只修改 a.py、b.py」）。修改后重新跑同一长任务验证。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>子 Agent 之间尽量不共享完整上下文，只传递必要的接口信息，减少污染。
+          💡 <span class="font-semibold">小贴士：</span>把约束放在对话最开头和最近一轮，两头夹击能显著降低丢失率。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用 5 张工单做 token 对比与迭代</h3>
-      <div class="text-base text-slate-700 leading-loose">准备 5 个有代表性的工单（任务），分别用原始提示词和优化后的提示词运行，记录每次的 token 消耗和任务完成质量。对比分析哪些优化最有效，哪些地方还有冗余。根据结果调整压缩阈值、记忆规则或子 Agent 划分。重复迭代直到 token 消耗和效果达到平衡。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：验证修复效果并建立回归检查</h3>
+      <div class="text-base text-slate-700 leading-loose">重新执行原任务，观察 compaction 后 Agent 是否仍遵守约束。若仍遗忘，尝试调大上下文窗口或关闭自动压缩（如设置环境变量禁用 compaction）。最后把测试用例固化成脚本，每次升级 Agent 后跑一遍，防止回归。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>工单要覆盖不同复杂度，至少包含一个长上下文任务和一个多步骤任务。
+          💡 <span class="font-semibold">小贴士：</span>在关键文件上设置只读权限，作为最后一道物理防线。
         </div>
     </div>
   </div>
@@ -184,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    优化后的 Agent 在相同任务上 token 消耗降低 30%-50%，同时任务完成质量和稳定性明显提升，长任务中不再出现上下文腐烂导致的逻辑混乱或遗漏。
+    你能稳定复现 Agent 在 compaction 后遗忘指令的问题，并通过 diff 对比定位到被丢弃的约束；应用加固方案后，Agent 在长任务中遵守关键指令的成功率明显提升，且有一套可重复的回归测试流程。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,31 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>上下文压缩会不会丢失重要信息？</span>
+        <span>为什么 Agent 压缩后总是忘记「不要做某事」？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">合理设计压缩规则可以保留高信号信息。建议压缩时保留实体、时间、关键决策和约束条件，并定期人工抽查压缩结果。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">因为摘要模型倾向于保留正向任务描述，否定约束在压缩时容易被弱化或省略。把否定改为正向清单能缓解。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Agentic Memory 用什么实现最简单？</span>
+        <span>所有 Agent 的 compaction 机制都一样吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">初期可以用本地文本文件或 JSON 文件，按任务 ID 存储摘要。生产环境可换用 Redis 或向量数据库。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不一样。Claude Code、Cursor、Cline 的实现策略不同，有的按轮次截断，有的用 LLM 重写摘要。需要针对具体工具分析。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>子 Agent 会增加调用成本吗？</span>
+        <span>能否完全关闭上下文压缩？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">子 Agent 会增加调用次数，但每个子 Agent 的上下文更短，总体 token 可能反而下降。需要根据任务复杂度权衡。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">部分工具支持（如环境变量或配置项），但关闭后可能因超长上下文导致报错或费用飙升。建议优先做指令加固而非直接关闭。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何判断上下文是否已经腐烂？</span>
+        <span>没有源码怎么分析压缩策略？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">观察 Agent 是否开始重复之前的信息、忽略最新指令或回答偏离主题。也可以监控上下文长度和 token 利用率。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用控制变量法做黑盒实验：改变指令位置、措辞、长度，多次触发 compaction 并记录保留情况，归纳出规律。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>这个排查方法适用于哪些场景？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适用于所有需要 Agent 执行多步骤长任务且包含关键约束的场景，如代码重构、批量文件处理、自动化运维等。</div>
     </details>
   </div>
 </section>
@@ -226,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将压缩策略改为滑动窗口+摘要，只保留最近 N 轮对话和全局摘要，适合客服对话场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用向量数据库实现语义记忆检索，Agent 根据当前任务动态检索相关记忆片段，适合知识密集型任务。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：引入多个子 Agent 并行处理不同子任务，主 Agent 做结果融合，适合可并行拆分的复杂工作流。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把关键约束写入项目根目录的规则文件（如 CLAUDE.md、.cursorrules），利用工具对规则文件的优先保留机制对抗压缩丢失。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：在每轮 Agent 回复后自动追加一条「约束提醒」消息，用脚本或钩子实现，确保最近上下文始终包含关键指令。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：对超长任务做分段拆解，每段任务结束后手动触发一次上下文重置并重新注入约束，避免单次压缩丢失过多信息。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    上下文工程的核心是持续筛选高信号信息、压缩冗余、外置记忆并拆分任务，让 Agent 在有限上下文窗口内保持高效推理。
+    排查 Agent 遗忘指令的核心是：复现压缩、diff 快照、定位丢失、加固指令、回归验证——把「别动什么」变成「只动什么」，并让约束在上下文中两头夹击。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -241,19 +248,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 prompts.chat 社区提示词库找现成 prompt</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件与 Office 文档转成 Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用GPT-4o图像提示词库复刻AI视觉作品</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建 AI Agent 工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用cuda_doctor命令定位GPU不可用断点 - AI 玩法教程 · AI Frontier</title>
+<title>用腾讯Hy4 flash生成黄仁勋MV - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-16
+      2026-11-17
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用cuda_doctor命令定位GPU不可用断点</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用腾讯Hy4 flash生成黄仁勋MV</h1>
     
   </div>
 </header>
@@ -58,24 +58,28 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    博客园 AI 教程 · B级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+    智东西 AI 工具评测 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    技术社区
+    权威媒体
   </span>
-  <a href="https://www.cnblogs.com/dawudexiaowu/p/23598740" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://zhidx.com/p/610493.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">GPU 用不上别急着重装驱动，用 cuda_doctor 命令按框架层→环境变量层→驱动层的顺序定位断点，一条命令就能找到问题在哪一层。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用腾讯混元视频生成模型 Hy4 Flash 配合 DeepSeek 写脚本，零基础也能做出一支以黄仁勋为主角的 AI MV。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多开发者遇到 PyTorch 或 TensorFlow 检测不到 GPU 时，第一反应是重装驱动，结果折腾半天发现是装了 CPU 版轮子。更隐蔽的是 CUDA_VISIBLE_DEVICES 被设成 -1，程序零报错但 GPU 凭空消失。这个玩法把 GPU 不可用问题按概率排序分三层排查，用一条 cuda_doctor 命令快速定断点，避免盲目重装驱动浪费时间。
+    智东西作者江宇实测了用腾讯 Hy4 Flash 生成黄仁勋 MV 的完整流程，视频效果在口型、表情和镜头运动上都相当自然。这个玩法的核心是「文本脚本 + 图生视频 + 音乐卡点」的工具链组合，适合想做人物向 AI 短片、产品宣传片或社交媒体整活视频的创作者。整个流程不需要本地显卡，全部在网页端完成，但需要一定的提示词打磨和剪辑耐心。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +100,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.8+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行环境和 cuda_doctor 脚本</div>
+      <div class="font-semibold text-slate-900">DeepSeek  <a href="https://chat.deepseek.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于生成 MV 分镜脚本、歌词和视频提示词</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">PyTorch 或 TensorFlow  <a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于验证框架层 GPU 是否可用</div>
+      <div class="font-semibold text-slate-900">腾讯混元视频 Hy4 Flash  <a href="https://video.hunyuan.tencent.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">图生视频/文生视频主力工具，生成黄仁勋动态镜头</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">NVIDIA 驱动与 CUDA Toolkit  <a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">驱动层排查需要 nvidia-smi 和 nvcc</div>
+      <div class="font-semibold text-slate-900">即梦/可灵（备选）  <a href="https://jimeng.jianying.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">当 Hy4 Flash 排队或效果不理想时做备选生成</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">cuda_doctor 脚本  <a href="https://www.cnblogs.com/dawudexiaowu/p/23598740" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">一键检测三层断点的工具脚本，可从原文获取或自行编写</div>
+      <div class="font-semibold text-slate-900">剪映专业版  <a href="https://www.capcut.cn" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">拼接视频片段、对齐音乐节拍、加字幕和转场</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">黄仁勋参考图 </div>
+      <div class="text-sm text-slate-600 mt-1">准备 3-5 张正面/侧面高清照片作为图生视频首帧</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">背景音乐 </div>
+      <div class="text-sm text-slate-600 mt-1">选一段 15-30 秒节奏感强的 BGM，用于卡点剪辑</div>
     </li>
   </ul>
 </section>
@@ -122,55 +134,44 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：准备 cuda_doctor 检测脚本</h3>
-      <div class="text-base text-slate-700 leading-loose">新建一个 cuda_doctor.py 文件，写入检测逻辑：先打印 torch.__version__ 和 torch.version.cuda 判断是否 CPU 轮子；再读取 os.environ.get('CUDA_VISIBLE_DEVICES') 检查是否被设为 -1；最后调用 subprocess 执行 nvidia-smi 和 nvcc --version 验证驱动层。保存后在终端运行 python cuda_doctor.py。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：用 DeepSeek 写 MV 脚本和分镜提示词</h3>
+      <div class="text-base text-slate-700 leading-loose">打开 DeepSeek，输入提示词：「你是 MV 导演，请以黄仁勋为主角，写一支 20 秒、6 个镜头的科技感 MV 分镜脚本。每个镜头给出：画面描述、镜头运动、英文视频生成提示词（包含人物外观、服装、场景、光线、动作）。风格参考赛博朋克加发布会舞台。」DeepSeek 会输出结构化分镜表，你把每个镜头的英文提示词复制出来备用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果不想自己写，可直接参考原文博客中的脚本片段，复制后按需修改。
+          💡 <span class="font-semibold">小贴士：</span>提示词里固定人物描述，比如「Jensen Huang, black leather jacket, short gray hair」，能减少不同镜头之间的人物漂移。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：检查框架层是否装了 CPU 轮子</h3>
-      <div class="text-base text-slate-700 leading-loose">运行脚本后看第一段输出：如果 torch.version.cuda 为 None 或空，说明装的是 CPU 版 PyTorch。此时执行 pip list | grep torch 确认版本，然后卸载重装对应 CUDA 版本的轮子，例如 pip install torch --index-url https://download.pytorch.org/whl/cu118。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：在 Hy4 Flash 中逐镜头生成视频</h3>
+      <div class="text-base text-slate-700 leading-loose">打开腾讯混元视频官网，选择「图生视频」，上传一张黄仁勋参考图作为首帧，把 DeepSeek 给出的英文提示词粘贴到描述框。每个镜头生成 3-5 秒，分辨率选 720p 先试效果，满意后再生成高清版。6 个镜头逐个生成并下载到本地，文件名按镜头序号命名。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>这是最常见的原因，占 GPU 不可用问题的一半以上，优先排查。
+          💡 <span class="font-semibold">小贴士：</span>如果人物脸部变形，把提示词里的动作描述改简单，并加一句「face remains consistent, high detail」。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：检查 CUDA_VISIBLE_DEVICES 环境变量</h3>
-      <div class="text-base text-slate-700 leading-loose">看脚本第二段输出：如果 CUDA_VISIBLE_DEVICES 被设为 -1，GPU 会被隐藏且零报错。在终端执行 echo $CUDA_VISIBLE_DEVICES 确认，若为 -1 则用 export CUDA_VISIBLE_DEVICES=0 临时恢复，或检查 .bashrc、.zshrc、Dockerfile 中是否写死了 -1。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用剪映拼接并卡音乐节拍</h3>
+      <div class="text-base text-slate-700 leading-loose">打开剪映专业版，新建项目，先拖入 BGM 到音频轨，用「自动踩点」标记节拍。然后把 6 段视频按脚本顺序拖到视频轨，每段视频的切换点对齐踩点标记。镜头之间加 0.2 秒的叠化或闪白转场，让节奏更顺。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>这个坑最隐蔽，因为程序不会报错，只是 torch.cuda.is_available() 返回 False。
+          💡 <span class="font-semibold">小贴士：</span>视频片段比音乐节拍短一点没关系，用剪映的「变速-曲线」微调时长，比硬切更自然。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：检查驱动层 nvidia-smi 与 nvcc</h3>
-      <div class="text-base text-slate-700 leading-loose">看脚本第三段输出：如果 nvidia-smi 报错或找不到命令，说明驱动没装好或 GPU 未挂载。先运行 nvidia-smi 看是否能列出 GPU，再运行 nvcc --version 确认 CUDA Toolkit 版本。若 nvidia-smi 正常但 nvcc 缺失，安装对应 CUDA Toolkit 即可。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：加字幕、调色和导出</h3>
+      <div class="text-base text-slate-700 leading-loose">用剪映的「识别字幕」给 MV 加上歌词或旁白字幕，字体选科技感无衬线体。统一调色：提高对比度和饱和度，阴影加一点蓝青色，高光偏暖，模拟发布会灯光。最后导出 1080p、30fps 的 MP4 文件。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>驱动层放最后排查，因为重装驱动成本最高，前面两层能解决大部分问题。
-        </div>
-    </div>
-    <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
-      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
-        5
-      </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：验证修复结果</h3>
-      <div class="text-base text-slate-700 leading-loose">按断点修复后，重新运行 python cuda_doctor.py，确认三层全部通过。再执行 python -c &quot;import torch; print(torch.cuda.is_available(), torch.cuda.device_count())&quot; 应输出 True 和大于 0 的数字。最后跑一个小张量到 GPU 上验证实际可用。</div>
-      
-        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>验证时用 torch.randn(1).cuda() 做一次真实运算，比只看 is_available() 更可靠。
+          💡 <span class="font-semibold">小贴士：</span>导出前把音量归一化到 -6dB 左右，避免平台压缩后声音忽大忽小。
         </div>
     </div>
   </div>
@@ -180,7 +181,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    cuda_doctor 输出显示框架层 CUDA 版本正常、CUDA_VISIBLE_DEVICES 未设为 -1、nvidia-smi 和 nvcc 均可执行，torch.cuda.is_available() 返回 True，GPU 可正常用于训练和推理。
+    得到一支 15-25 秒、以黄仁勋为主角的 AI MV：人物面部稳定、镜头有运动感、画面切换卡在音乐节拍上，整体呈现科技发布会风格的短片，可直接发抖音/B站/视频号。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +191,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>cuda_doctor 命令是官方工具吗？</span>
+        <span>Hy4 Flash 生成的人物脸总是变怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是，它是社区脚本或自定义检测脚本，核心是把三层排查逻辑串起来，可自行编写或从原文获取。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">优先用图生视频而不是文生视频，首帧选正面清晰照；提示词里固定人物外观描述，减少复杂动作，必要时只生成 3 秒短镜头。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>torch.version.cuda 有值但 is_available() 仍为 False 怎么办？</span>
+        <span>没有黄仁勋的授权照片可以用吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">重点查 CUDA_VISIBLE_DEVICES 是否被设为 -1，以及驱动版本是否低于框架要求的 CUDA 版本。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">仅限个人学习或娱乐整活，不要用于商业宣传或误导性内容；公开发布时建议标注「AI 生成」。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>nvidia-smi 正常但 nvcc 找不到怎么办？</span>
+        <span>每个镜头要生成几次才能用？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">说明驱动装了但 CUDA Toolkit 没装或没加进 PATH，安装对应版本 Toolkit 并配置环境变量即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">一般 2-4 次挑一条，重点镜头可以多抽几次；建议先低分辨率试，满意再生成高清，节省额度。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Docker 容器里 GPU 不可用怎么排查？</span>
+        <span>BGM 有版权风险吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先确认启动时加了 --gpus all，再在容器内跑 cuda_doctor，重点看 CUDA_VISIBLE_DEVICES 和设备挂载情况。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用剪映音乐库或免版权音乐站的曲目最稳妥；如果只是个人分享，平台曲库内的音乐通常可合规使用。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>重装驱动能解决所有问题吗？</span>
+        <span>整个流程大概要多久？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能，驱动层只是第三层，框架层 CPU 轮子和环境变量 -1 更常见，盲目重装驱动往往白费功夫。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">熟练后 1-2 小时可以完成一支 20 秒 MV，主要时间花在视频抽卡和剪辑卡点上。</div>
     </details>
   </div>
 </section>
@@ -229,14 +230,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把 cuda_doctor 封装成 CI 检查步骤，在训练任务启动前自动跑一遍，提前拦截 GPU 不可用问题。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：扩展 cuda_doctor 增加显存占用和 GPU 型号检测，输出更完整的健康报告。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：将三层排查逻辑写成 shell 脚本，在无 Python 环境的服务器上也能一键定位断点。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把主角换成其他科技大佬或虚拟 IP，用同一套 DeepSeek 分镜 + Hy4 Flash 图生视频流程批量产出人物向短片。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：做「产品发布倒计时」版本，用黄仁勋形象口播 3 句产品卖点，配合字幕和音效，适合营销预热。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用文生视频直接生成赛博朋克城市空镜，再与人物镜头交叉剪辑，做成更完整的 30 秒概念预告片。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    GPU 不可用先别重装驱动，用 cuda_doctor 按框架层→环境变量层→驱动层的概率顺序排查，一条命令定断点，省时省力。
+    这个玩法的精髓是「DeepSeek 定分镜、Hy4 Flash 出画面、剪映卡节拍」三段式工具链，把人物向 AI MV 的门槛压到一台普通电脑就能完成。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -246,18 +247,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文档一键转 Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课学搭AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可编排的智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务AI智能体工作流</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
     </a></div>
 </section>
 

@@ -737,112 +737,117 @@
       "playability_score": 8.5
     }
   },
-  "github-play-langchain-a48bb101": {
-    "_sig": "bytedance/deer-flow: An open-source long-horizon SuperAgent harness tha|https://github.com/bytedance/deer-flow",
+  "github-play-autogen-757dec3f": {
+    "_sig": "microsoft/ai-agents-for-beginners: 18 Lessons to Get Started Building AI Agents|https://github.com/microsoft/ai-agents-for-beginners",
     "tutorial": {
-      "intro": "字节跳动开源的 DeerFlow 是一个能研究、写代码、做创作的超级智能体框架，本教程带你用 LlamaIndex 把它跑起来，打造属于你的长周期 AI 助手。",
-      "background": "DeerFlow 在 GitHub 上已获得超过 8 万星标，它通过沙箱、记忆、工具、技能、子智能体和消息网关等组件，让 AI 能处理从简单问答到复杂项目开发的各类任务。相比普通聊天机器人，它更擅长多步骤、长周期的自主工作流。本教程适合想快速体验开源 SuperAgent 能力的开发者、AI 爱好者和效率工具玩家。",
+      "intro": "微软官方出品的《AI Agents for Beginners》18课教程，用 Jupyter Notebook 带你从零动手搭建 AI 智能体，零基础也能跟下来。",
+      "background": "很多人想学 AI Agent，但一上来就被 LangChain、AutoGen、函数调用、多智能体协作这些概念劝退。微软在 GitHub 上开源了 ai-agents-for-beginners 项目，把智能体开发拆成 18 节循序渐进的课，每节都有可运行的 Notebook 代码。它不讲空理论，而是直接带你调用模型、挂工具、做记忆、搭多智能体团队。适合想系统入门 AI Agent 的开发者、产品经理和学生，也适合作为团队内部培训材料。",
       "prerequisites": [
         {
-          "name": "Python 3.10+",
-          "desc": "运行 DeerFlow 的基础环境",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
           "name": "Git",
-          "desc": "克隆 DeerFlow 仓库",
+          "desc": "克隆 GitHub 仓库",
           "url": "https://git-scm.com/"
         },
         {
-          "name": "LlamaIndex",
-          "desc": "用于构建和增强智能体的数据框架",
-          "url": "https://www.llamaindex.ai/"
+          "name": "Python 3.10+",
+          "desc": "运行 Jupyter Notebook 和示例代码",
+          "url": "https://www.python.org/downloads/"
         },
         {
-          "name": "OpenAI API Key 或兼容接口",
-          "desc": "为智能体提供大模型能力",
+          "name": "Jupyter Notebook / VS Code",
+          "desc": "打开并逐格运行 .ipynb 教程文件",
+          "url": "https://jupyter.org/install"
+        },
+        {
+          "name": "OpenAI API Key 或 Azure OpenAI",
+          "desc": "调用大模型驱动智能体",
           "url": "https://platform.openai.com/api-keys"
         },
         {
-          "name": "Docker（可选）",
-          "desc": "用于沙箱隔离和依赖管理",
-          "url": "https://www.docker.com/"
+          "name": "GitHub 账号",
+          "desc": "Star 仓库、提 Issue、跟进更新",
+          "url": "https://github.com/microsoft/ai-agents-for-beginners"
         }
       ],
       "steps": [
         {
-          "title": "第1步：克隆 DeerFlow 并安装依赖",
-          "content": "打开终端，执行 git clone https://github.com/bytedance/deer-flow.git 下载项目。进入目录后创建 Python 虚拟环境：python -m venv venv，然后激活（Windows 用 venv\\Scripts\\activate，Mac/Linux 用 source venv/bin/activate）。最后运行 pip install -r requirements.txt 安装所有依赖，包括 LlamaIndex 相关包。",
-          "tip": "如果安装缓慢，可换用国内 pip 镜像：pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple"
+          "title": "第1步：克隆仓库并搭好运行环境",
+          "content": "打开终端执行 git clone https://github.com/microsoft/ai-agents-for-beginners.git，进入目录后创建虚拟环境 python -m venv venv 并激活。然后 pip install -r requirements.txt 安装依赖。最后用 jupyter notebook 或 VS Code 打开任意 .ipynb 文件，确认能正常启动。",
+          "tip": "建议单独建一个 conda 环境，避免和本机其他项目的包版本冲突。"
         },
         {
-          "title": "第2步：配置环境变量与模型密钥",
-          "content": "在项目根目录复制 .env.example 为 .env，填入你的 OPENAI_API_KEY（或其他兼容模型的 key 和 base_url）。如果使用 LlamaIndex 的默认集成，确保 LLAMA_INDEX 相关配置也指向同一模型。保存后，DeerFlow 会自动读取这些变量来初始化智能体。",
-          "tip": "没有 OpenAI 账号？可以用 DeepSeek、通义千问等兼容 OpenAI 接口的模型，只需修改 base_url 和 model 名称。"
+          "title": "第2步：配置模型访问密钥",
+          "content": "在项目根目录创建 .env 文件，按教程说明填入 OPENAI_API_KEY 或 Azure OpenAI 的 endpoint、key、deployment 名称。多数 Notebook 会通过 python-dotenv 自动读取这个文件。配置好后先跑一个最简单的“Hello Agent”单元格，确认模型能正常返回内容。",
+          "tip": "不要把 .env 提交到 Git，仓库里通常有 .env.example 可以复制改名。"
         },
         {
-          "title": "第3步：启动 DeerFlow 服务",
-          "content": "运行 python main.py 或按照 README 中的启动命令（如 uvicorn app:app --reload）启动后端。首次启动会自动下载必要的模型或工具包，等待终端出现监听端口（通常是 8000 或 3000）即表示成功。此时你可以通过浏览器访问本地地址，看到 DeerFlow 的交互界面。",
-          "tip": "如果端口被占用，可在启动命令后加 --port 8080 换一个端口。"
+          "title": "第3步：按顺序刷前几课，理解 Agent 基本结构",
+          "content": "从第 1 课开始，依次学习“什么是 AI Agent”“探索 AI Agent 框架”“理解 Agentic 设计模式”等基础内容。每节课都先读 Markdown 讲解，再逐格运行代码，观察输入输出。重点理解 Agent 如何接收任务、调用模型、返回结果。",
+          "tip": "不要跳课，前几课的概念是后面工具调用和多智能体的基础。"
         },
         {
-          "title": "第4步：用 LlamaIndex 增强智能体记忆与检索",
-          "content": "在 DeerFlow 的配置文件中找到 memory 或 knowledge 部分，启用 LlamaIndex 作为向量存储后端。你可以把本地文档（PDF、Markdown）放入指定文件夹，DeerFlow 会自动用 LlamaIndex 建立索引。这样智能体在回答时就能引用你的私有资料，实现更精准的研究和创作。",
-          "tip": "建议先放 3-5 个短文档测试，确认索引生效后再批量导入。"
+          "title": "第4步：动手做工具调用和记忆模块",
+          "content": "进入工具调用相关课程，跟着 Notebook 把自定义函数注册成 Agent 可调用的工具，比如查天气、算汇率。再学习记忆模块，让 Agent 在多轮对话中记住上下文。运行后尝试修改函数参数，观察 Agent 行为变化。",
+          "tip": "工具函数的 docstring 要写清楚，模型靠它判断什么时候调用这个工具。"
         },
         {
-          "title": "第5步：发起第一个长周期任务",
-          "content": "在 Web 界面输入一个需要多步完成的任务，例如：“帮我调研 2025 年 AI 智能体趋势，写一份 500 字摘要，并生成一个简单的 Python 脚本统计关键词频率。” DeerFlow 会自动拆解任务、调用工具、使用沙箱执行代码，并返回最终结果。观察右侧的步骤日志，可以看到它如何一步步工作。",
-          "tip": "任务描述越具体，智能体执行越准确。可以加上“请先列出计划再执行”来观察它的推理过程。"
+          "title": "第5步：搭建多智能体协作小项目",
+          "content": "学习多智能体协作课程，用 AutoGen 或 Semantic Kernel 创建多个角色，比如“产品经理”“程序员”“测试员”，让它们围绕一个任务互相讨论。运行示例后，尝试把任务换成你自己的小需求，比如“写一个待办清单网页”。",
+          "tip": "角色设定越具体，智能体之间的对话越有方向，别只写“你是助手”。"
+        },
+        {
+          "title": "第6步：选一个方向做自己的 Agent 并复盘",
+          "content": "从 18 课里挑一个你最感兴趣的方向，比如 RAG、代码执行、多模态或生产部署，基于示例改造成自己的小项目。完成后回到仓库 Star 并阅读 Issues，看看别人怎么扩展。把踩坑记录写成笔记，方便以后复用。",
+          "tip": "先跑通再优化，不要一上来就追求完美架构。"
         }
       ],
-      "expected_result": "完成以上步骤后，你将在本地成功运行 DeerFlow，并看到一个能自主研究、写代码、做创作的超级智能体。输入复杂任务时，它会自动规划、调用工具、使用沙箱执行，并返回结构化的结果。你还可以通过 LlamaIndex 让它访问你的私有知识库，实现个性化增强。",
+      "expected_result": "你能独立运行 18 课中的大部分 Notebook，理解 AI Agent 的基本组成（模型、工具、记忆、规划、多智能体），并拥有一个自己改造的小型 Agent 项目。",
       "faq": [
         {
-          "q": "DeerFlow 和普通 ChatGPT 有什么区别？",
-          "a": "DeerFlow 是智能体框架，能自主拆解任务、调用工具、执行代码和长期记忆，而 ChatGPT 主要是对话式问答。"
+          "q": "没有 OpenAI API Key 能学吗？",
+          "a": "可以。部分课程支持 Azure OpenAI、GitHub Models 或本地模型，但多数示例默认需要模型接口，建议至少准备一个可用的 API Key。"
         },
         {
-          "q": "必须用 OpenAI 的 API 吗？",
-          "a": "不是，任何兼容 OpenAI 接口的模型都可以，比如 DeepSeek、通义千问、Kimi 等，只需修改 base_url 和 model。"
+          "q": "需要很强的 Python 基础吗？",
+          "a": "不需要。会基本的变量、函数和 pip 安装即可，Notebook 已经把复杂逻辑拆成可运行的单元格。"
         },
         {
-          "q": "LlamaIndex 是必须的吗？",
-          "a": "不是必须，但推荐使用。它能让 DeerFlow 更好地索引和检索你的私有文档，提升回答质量。"
+          "q": "18 课要全部学完吗？",
+          "a": "不一定。前 6-8 课是核心，后面可按兴趣选学。想快速上手可以先看工具调用和多智能体协作。"
         },
         {
-          "q": "运行时报错缺少依赖怎么办？",
-          "a": "先确认 Python 版本为 3.10+，然后重新执行 pip install -r requirements.txt。如果仍报错，可尝试单独安装缺失的包。"
+          "q": "运行代码报错怎么办？",
+          "a": "先检查 Python 版本和依赖是否按 requirements.txt 安装，再确认 .env 配置正确。也可以去 GitHub Issues 搜报错关键词。"
         },
         {
-          "q": "沙箱功能需要 Docker 吗？",
-          "a": "推荐使用 Docker 以获得更好的隔离性，但非必须。没有 Docker 时，DeerFlow 会尝试用本地进程执行代码，安全性稍低。"
+          "q": "这个教程和 LangChain 官方教程有什么区别？",
+          "a": "它更偏微软生态（AutoGen、Semantic Kernel、Azure），但概念通用，且结构更系统，适合从零建立完整认知。"
         }
       ],
       "variants": [
-        "变体1：接入本地 Ollama 模型，完全离线运行 DeerFlow，保护数据隐私。",
-        "变体2：将 DeerFlow 作为后端，通过 API 接入飞书/钉钉机器人，实现团队自动化助手。",
-        "变体3：结合 LlamaIndex 的 RAG 能力，打造专属法律或医疗领域的智能研究助手。"
+        "变体1：把示例中的 OpenAI 模型换成 Azure OpenAI 或本地 Ollama，搭建离线可用的 Agent 学习环境。",
+        "变体2：用课程里的多智能体模板，做一个“自动写周报”或“竞品分析”小助手，接入自己的数据。",
+        "变体3：把 Notebook 改造成 FastAPI 服务，部署到云端，做成可被其他应用调用的 Agent API。"
       ],
-      "summary": "用 LlamaIndex 增强 DeerFlow，你就能在本地拥有一个能研究、写代码、做创作的开源超级智能体，把复杂任务交给它自动完成。"
+      "summary": "跟着微软官方 18 课边读边跑，用最小成本把 AI Agent 从概念变成能跑起来的小项目。"
     },
-    "generated_at": "2026-09-12T03:40:43.467776+00:00",
+    "generated_at": "2026-09-12T03:41:19.976000+00:00",
     "play_meta": {
-      "title_zh": "字节开源超级智能体DeerFlow",
-      "title_en": "bytedance/deer-flow: An open-source long-horizon SuperAgent harness tha",
-      "source_id": "github-play-langchain",
-      "source_name": "GitHub LangChain",
+      "title_zh": "微软官方18课：从零构建AI智能体",
+      "title_en": "microsoft/ai-agents-for-beginners: 18 Lessons to Get Started Building AI Agents",
+      "source_id": "github-play-autogen",
+      "source_name": "GitHub AutoGen",
       "source_label": "官方一手",
       "source_tier": "S",
       "source_color": "green",
       "source_emoji": "🟢",
       "play_type": "tool_chain",
-      "difficulty": 3,
+      "difficulty": 2,
       "time_estimate": "30min",
       "tools": [
-        "LlamaIndex"
+        "未标注"
       ],
-      "link": "https://github.com/bytedance/deer-flow",
+      "link": "https://github.com/microsoft/ai-agents-for-beginners",
       "is_domestic": false,
       "tags": [],
       "playability_score": 8.5
@@ -1184,117 +1189,6 @@
       "is_domestic": false,
       "tags": [],
       "playability_score": 8.5
-    }
-  },
-  "github-play-awesome-ai-agents-95b50059": {
-    "_sig": "awesome-opencode/awesome-opencode: A curated list of awesome plugins, themes, ag|https://github.com/awesome-opencode/awesome-opencode",
-    "tutorial": {
-      "intro": "用 awesome-opencode 清单快速筛选 OpenCode 生态里的插件、主题和智能体，搭建你的专属 AI 编程工作流。",
-      "background": "OpenCode 是一个开源的 AI 编程助手，支持插件、主题和智能体扩展，但官方生态分散在多个仓库。awesome-opencode 是一个获得 10898 stars 的精选清单，把插件、主题、智能体和项目资源集中在一处。对于想深度定制 OpenCode 的开发者，这份清单能节省大量搜索和试错时间。本教程教你如何高效利用这份清单，从零搭建一个带插件和智能体的 OpenCode 环境。",
-      "prerequisites": [
-        {
-          "name": "OpenCode",
-          "desc": "开源 AI 编程助手，本教程的核心工具",
-          "url": "https://opencode.ai"
-        },
-        {
-          "name": "Git",
-          "desc": "用于克隆 awesome-opencode 仓库",
-          "url": "https://git-scm.com"
-        },
-        {
-          "name": "Node.js (>=18)",
-          "desc": "运行 OpenCode 及部分插件依赖",
-          "url": "https://nodejs.org"
-        },
-        {
-          "name": "文本编辑器/IDE",
-          "desc": "如 VS Code，用于查看和编辑配置文件",
-          "url": "https://code.visualstudio.com"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：克隆并浏览 awesome-opencode 清单",
-          "content": "打开终端，执行 git clone https://github.com/awesome-opencode/awesome-opencode.git，然后进入目录用编辑器打开 README.md。清单按插件、主题、智能体、项目等分类，每个条目附带简短描述和链接。先快速扫一遍分类标题，了解有哪些资源类型。",
-          "tip": "用 VS Code 的 Markdown 预览功能（Ctrl+Shift+V）可以更直观地浏览清单结构。"
-        },
-        {
-          "title": "第2步：筛选并记录目标插件与智能体",
-          "content": "根据你的需求（比如代码补全、Git 集成、UI 主题），在清单中挑选 2-3 个插件和 1-2 个智能体。把它们的名称、仓库链接和安装说明复制到一个临时笔记中。注意查看每个条目的标签（如 official、community），优先选择维护活跃的项目。",
-          "tip": "在 GitHub 上查看仓库的最近提交时间和 issue 活跃度，避免选用已废弃的插件。"
-        },
-        {
-          "title": "第3步：安装 OpenCode 并配置基础环境",
-          "content": "按照 OpenCode 官网指引安装 CLI（如 npm install -g opencode 或下载二进制）。运行 opencode --version 确认安装成功。然后在项目根目录创建 opencode.json 配置文件，填入你的 API 密钥和基础模型设置。",
-          "tip": "如果使用本地模型，可以在配置中指定 baseURL 指向 Ollama 或 LM Studio 的本地端口。"
-        },
-        {
-          "title": "第4步：安装并启用选定的插件",
-          "content": "根据第2步记录的插件安装说明，通常通过 npm 安装或直接在 opencode.json 的 plugins 数组中添加插件包名。例如添加 \"plugins\": [\"opencode-plugin-git\"]。保存配置后重启 OpenCode，用 /plugins 命令（或查看日志）确认插件已加载。",
-          "tip": "一次只加一个插件，测试通过后再加下一个，方便定位冲突。"
-        },
-        {
-          "title": "第5步：导入智能体并测试工作流",
-          "content": "在清单中找到智能体条目，通常是一个 Markdown 或 JSON 文件。将其复制到项目的 .opencode/agents/ 目录（或配置中指定的路径）。在 OpenCode 对话中用 @agent-name 调用该智能体，输入一个简单任务（如“审查当前文件的代码风格”）验证是否生效。",
-          "tip": "智能体的提示词文件可以自行微调，加入你团队的编码规范效果更好。"
-        },
-        {
-          "title": "第6步：应用主题并固化配置",
-          "content": "从清单的主题分类中选一个喜欢的主题，按说明安装（通常是复制 CSS 或修改配置中的 theme 字段）。重启后检查界面变化。最后把 opencode.json 和 .opencode/ 目录提交到 Git，方便团队共享。",
-          "tip": "主题文件一般很小，可以直接放进仓库；插件依赖建议在 README 中注明安装命令。"
-        }
-      ],
-      "expected_result": "OpenCode 启动后加载了你选定的插件和智能体，界面应用了新主题。你可以用 @agent 调用智能体完成代码审查等任务，插件提供的额外命令（如 Git 集成）也可正常使用。团队其他成员克隆仓库后按 README 安装即可复现相同环境。",
-      "faq": [
-        {
-          "q": "awesome-opencode 清单里的插件都兼容最新版 OpenCode 吗？",
-          "a": "不一定。清单是社区维护的，部分插件可能滞后。安装前查看插件仓库的 package.json 中 peerDependencies 或 README 的兼容说明，优先选最近 3 个月有更新的项目。"
-        },
-        {
-          "q": "安装插件后 OpenCode 启动报错怎么办？",
-          "a": "先移除最近添加的插件，确认基础功能正常。然后查看 OpenCode 日志（通常用 --verbose 启动）定位缺失的依赖或版本冲突。也可以到插件仓库的 issue 区搜索类似错误。"
-        },
-        {
-          "q": "智能体和插件有什么区别？",
-          "a": "插件是扩展 OpenCode 功能的代码模块（如新增命令、工具集成）；智能体是预配置的提示词角色（如“代码审查员”），通过 @ 调用，不涉及代码安装。两者可以组合使用。"
-        },
-        {
-          "q": "可以同时使用多个主题吗？",
-          "a": "通常只能激活一个主题。你可以在配置中快速切换，但不要同时加载多个主题文件，否则样式会冲突。"
-        },
-        {
-          "q": "如何向 awesome-opencode 清单贡献自己的插件？",
-          "a": " Fork 仓库，按照 README 中的贡献指南在对应分类下添加条目，附上简短描述和链接，然后提交 Pull Request。维护者审核后会合并。"
-        }
-      ],
-      "variants": [
-        "变体1：只使用智能体不装插件——从清单中挑选 3 个智能体（如代码审查、文档生成、测试编写），分别配置到 .opencode/agents/，用 @ 切换角色完成日常开发任务，适合不想折腾插件的用户。",
-        "变体2：基于清单搭建团队共享配置——把选定的插件、智能体和主题整理成一个内部模板仓库，附带安装脚本和 README，新成员一键初始化 OpenCode 环境。",
-        "变体3：用清单做插件选型调研——按 stars 数、最近更新时间和功能标签对清单中的插件排序，生成对比表格，为团队技术选型提供依据。"
-      ],
-      "summary": "把 awesome-opencode 当作 OpenCode 生态的导航图，按需筛选、小步验证、固化配置，就能快速搭出顺手的 AI 编程环境。"
-    },
-    "generated_at": "2026-11-07T06:33:44.115898+00:00",
-    "play_meta": {
-      "title_zh": "用 awesome-opencode 清单找插件主题与智能体",
-      "title_en": "awesome-opencode/awesome-opencode: A curated list of awesome plugins, themes, agents",
-      "source_id": "github-play-awesome-ai-agents",
-      "source_name": "GitHub Awesome AI Agents",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 4,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://github.com/awesome-opencode/awesome-opencode",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 7.5
     }
   },
   "hf-space-open-llm-leaderboard-open_llm_leaderboard-899416ad": {
@@ -1731,117 +1625,218 @@
       "playability_score": 7.5
     }
   },
-  "github-play-autogen-757dec3f": {
-    "_sig": "microsoft/ai-agents-for-beginners: 18 Lessons to Get Started Building AI Agents|https://github.com/microsoft/ai-agents-for-beginners",
+  "sspai-play-792506dc": {
+    "_sig": "在快 AI 时代，我是怎么把 Mole 做成一款「慢产品」的？|https://sspai.com/post/118512",
     "tutorial": {
-      "intro": "微软官方出品的《AI Agents for Beginners》18课教程，用 Jupyter Notebook 带你从零动手搭建 AI 智能体，零基础也能跟下来。",
-      "background": "很多人想学 AI Agent，但一上来就被 LangChain、AutoGen、函数调用、多智能体协作这些概念劝退。微软在 GitHub 上开源了 ai-agents-for-beginners 项目，把智能体开发拆成 18 节循序渐进的课，每节都有可运行的 Notebook 代码。它不讲空理论，而是直接带你调用模型、挂工具、做记忆、搭多智能体团队。适合想系统入门 AI Agent 的开发者、产品经理和学生，也适合作为团队内部培训材料。",
+      "intro": "这篇教程教你用开源清理工具 Mole 给 Mac 做一次深度瘦身，同时借它的「慢产品设计」思路，反思自己日常被效率工具绑架的习惯。",
+      "background": "Mole 是一款从开源项目成长起来的 Mac 清理工具，作者在少数派文章中记录了它从 1.13 到 1.19 的迭代过程，期间加入了 AI 工具清理和系统数据清理功能。与 CleanMyMac 等商业软件不同，Mole 刻意保留了「慢」的交互节奏——扫描过程可见、删除前需确认、不搞一键无脑清理。这种设计反而让用户更清楚自己删了什么、为什么删。本玩法适合想清理 Mac 又不想被「一键优化」忽悠的用户，也适合对产品设计感兴趣、想体验「反效率」思路的读者。",
       "prerequisites": [
         {
-          "name": "Git",
-          "desc": "克隆 GitHub 仓库",
-          "url": "https://git-scm.com/"
+          "name": "Mole",
+          "desc": "Mac 清理工具，支持 AI 工具缓存清理和系统数据清理",
+          "url": "https://sspai.com/post/118512"
         },
         {
-          "name": "Python 3.10+",
-          "desc": "运行 Jupyter Notebook 和示例代码",
-          "url": "https://www.python.org/downloads/"
+          "name": "macOS 系统",
+          "desc": "建议 macOS 12 及以上，确保兼容最新版 Mole",
+          "url": "https://www.apple.com/macos/"
         },
         {
-          "name": "Jupyter Notebook / VS Code",
-          "desc": "打开并逐格运行 .ipynb 教程文件",
-          "url": "https://jupyter.org/install"
+          "name": "终端（Terminal）",
+          "desc": "部分操作需通过命令行执行，系统自带",
+          "url": "https://support.apple.com/zh-cn/guide/terminal/welcome/mac"
         },
         {
-          "name": "OpenAI API Key 或 Azure OpenAI",
-          "desc": "调用大模型驱动智能体",
-          "url": "https://platform.openai.com/api-keys"
-        },
-        {
-          "name": "GitHub 账号",
-          "desc": "Star 仓库、提 Issue、跟进更新",
-          "url": "https://github.com/microsoft/ai-agents-for-beginners"
+          "name": "备份工具（可选）",
+          "desc": "清理前建议用 Time Machine 做一次快照，防止误删",
+          "url": "https://support.apple.com/zh-cn/mac-backup"
         }
       ],
       "steps": [
         {
-          "title": "第1步：克隆仓库并搭好运行环境",
-          "content": "打开终端执行 git clone https://github.com/microsoft/ai-agents-for-beginners.git，进入目录后创建虚拟环境 python -m venv venv 并激活。然后 pip install -r requirements.txt 安装依赖。最后用 jupyter notebook 或 VS Code 打开任意 .ipynb 文件，确认能正常启动。",
-          "tip": "建议单独建一个 conda 环境，避免和本机其他项目的包版本冲突。"
+          "title": "第1步：安装并首次启动 Mole",
+          "content": "从少数派文章中的链接获取 Mole 最新版（1.19+），拖入「应用程序」文件夹。首次打开时 macOS 会提示「无法验证开发者」，需前往「系统设置 > 隐私与安全性」点击「仍要打开」。启动后不要急着点「扫描」，先花一分钟浏览主界面，注意它把「AI 工具清理」「系统数据清理」「应用残留」分成了独立模块，而不是一个大按钮。",
+          "tip": "如果不想每次都被 Gatekeeper 拦截，可在终端执行 sudo spctl --master-disable 临时关闭（用完记得改回 enable）。"
         },
         {
-          "title": "第2步：配置模型访问密钥",
-          "content": "在项目根目录创建 .env 文件，按教程说明填入 OPENAI_API_KEY 或 Azure OpenAI 的 endpoint、key、deployment 名称。多数 Notebook 会通过 python-dotenv 自动读取这个文件。配置好后先跑一个最简单的“Hello Agent”单元格，确认模型能正常返回内容。",
-          "tip": "不要把 .env 提交到 Git，仓库里通常有 .env.example 可以复制改名。"
+          "title": "第2步：先跑一次「只读扫描」，看懂它扫了什么",
+          "content": "选择「AI 工具清理」模块，点击扫描。Mole 会列出 Cursor、Warp、Ollama 等工具产生的缓存、日志和模型残留文件，并标注每项的大小和路径。此时不要勾选任何项目，先观察列表——你会发现很多「你以为删了」的 AI 工具其实留下了几百 MB 的对话历史或模型分片。同样方式再扫一遍「系统数据清理」，重点看「日志」「缓存」「旧 iOS 备份」三类。",
+          "tip": "扫描结果可以导出为文本（菜单栏 > 文件 > 导出报告），方便对比清理前后的差异。"
         },
         {
-          "title": "第3步：按顺序刷前几课，理解 Agent 基本结构",
-          "content": "从第 1 课开始，依次学习“什么是 AI Agent”“探索 AI Agent 框架”“理解 Agentic 设计模式”等基础内容。每节课都先读 Markdown 讲解，再逐格运行代码，观察输入输出。重点理解 Agent 如何接收任务、调用模型、返回结果。",
-          "tip": "不要跳课，前几课的概念是后面工具调用和多智能体的基础。"
+          "title": "第3步：按「风险等级」分批勾选，而不是全选",
+          "content": "Mole 的慢设计体现在它不提供「全选」按钮。你需要逐项判断：绿色标记（缓存、日志）可放心勾选；黄色标记（应用残留、旧备份）建议先确认路径是否属于已卸载软件；红色标记（系统数据中的「其他」卷）不要动，除非你清楚那是什么。建议第一轮只清理绿色项，执行删除后重启一次，观察系统是否正常。",
+          "tip": "删除前把鼠标悬停在项目上，Mole 会显示「上次访问时间」，超过 90 天没动过的缓存基本可以放心删。"
         },
         {
-          "title": "第4步：动手做工具调用和记忆模块",
-          "content": "进入工具调用相关课程，跟着 Notebook 把自定义函数注册成 Agent 可调用的工具，比如查天气、算汇率。再学习记忆模块，让 Agent 在多轮对话中记住上下文。运行后尝试修改函数参数，观察 Agent 行为变化。",
-          "tip": "工具函数的 docstring 要写清楚，模型靠它判断什么时候调用这个工具。"
+          "title": "第4步：用「慢确认」机制复盘删除记录",
+          "content": "Mole 每次删除后会在「历史」标签页生成一条记录，包含删除时间、项目数量和释放空间。打开历史记录，逐条回看：有没有你其实还想保留的文件？比如某个 AI 工具的本地模型虽然大，但重新下载要花很久。如果有误删，Mole 支持从「最近删除」中恢复（保留 7 天）。这一步是「慢产品设计」的核心——让你为每一次删除负责。",
+          "tip": "把历史记录截图保存，一个月后回看，你会发现自己真正需要清理的其实就那么几类。"
         },
         {
-          "title": "第5步：搭建多智能体协作小项目",
-          "content": "学习多智能体协作课程，用 AutoGen 或 Semantic Kernel 创建多个角色，比如“产品经理”“程序员”“测试员”，让它们围绕一个任务互相讨论。运行示例后，尝试把任务换成你自己的小需求，比如“写一个待办清单网页”。",
-          "tip": "角色设定越具体，智能体之间的对话越有方向，别只写“你是助手”。"
-        },
-        {
-          "title": "第6步：选一个方向做自己的 Agent 并复盘",
-          "content": "从 18 课里挑一个你最感兴趣的方向，比如 RAG、代码执行、多模态或生产部署，基于示例改造成自己的小项目。完成后回到仓库 Star 并阅读 Issues，看看别人怎么扩展。把踩坑记录写成笔记，方便以后复用。",
-          "tip": "先跑通再优化，不要一上来就追求完美架构。"
+          "title": "第5步：设置「定期提醒」而非「自动清理」",
+          "content": "在 Mole 偏好设置中，关闭「自动清理」选项（默认就是关闭的），改为开启「每月提醒扫描」。这样每月你会收到一次通知，手动执行第 2-4 步。这种设计刻意不让你「无感」地清理，而是把清理变成一个有意识的行为。坚持三个月后，你会对自己的 Mac 存储结构有更清晰的认知。",
+          "tip": "提醒时间建议设在周末上午，避免工作日被打断；提醒文案可以自定义成「该看看你的 AI 工具又偷偷存了什么」。"
         }
       ],
-      "expected_result": "你能独立运行 18 课中的大部分 Notebook，理解 AI Agent 的基本组成（模型、工具、记忆、规划、多智能体），并拥有一个自己改造的小型 Agent 项目。",
+      "expected_result": "完成上述步骤后，你的 Mac 通常能释放 5-20 GB 空间（取决于 AI 工具使用频率），同时你会得到一份可回溯的清理历史记录。更重要的是，你会开始留意哪些工具在「偷偷」占空间，以及自己是否真的需要那么多「一键优化」功能。",
       "faq": [
         {
-          "q": "没有 OpenAI API Key 能学吗？",
-          "a": "可以。部分课程支持 Azure OpenAI、GitHub Models 或本地模型，但多数示例默认需要模型接口，建议至少准备一个可用的 API Key。"
+          "q": "Mole 和 CleanMyMac 有什么区别？",
+          "a": "Mole 是开源工具，不搞「一键智能清理」，所有删除项都需手动确认，且专注 AI 工具缓存和系统数据这类商业软件常忽略的角落；CleanMyMac 更自动化但透明度低。"
         },
         {
-          "q": "需要很强的 Python 基础吗？",
-          "a": "不需要。会基本的变量、函数和 pip 安装即可，Notebook 已经把复杂逻辑拆成可运行的单元格。"
+          "q": "删除 AI 工具缓存会导致对话记录丢失吗？",
+          "a": "Mole 默认只清理缓存和日志，不碰对话数据库。但部分工具（如 Ollama）的模型文件会被标记为「可清理」，删除后需重新下载模型，请按需勾选。"
         },
         {
-          "q": "18 课要全部学完吗？",
-          "a": "不一定。前 6-8 课是核心，后面可按兴趣选学。想快速上手可以先看工具调用和多智能体协作。"
+          "q": "为什么扫描结果里「系统数据」占了很大一块？",
+          "a": "macOS 的「系统数据」包含日志、缓存、旧备份、虚拟机镜像等，Mole 会细分展示。建议只清理明确标注为「日志」和「缓存」的子项，其余保持不动。"
         },
         {
-          "q": "运行代码报错怎么办？",
-          "a": "先检查 Python 版本和依赖是否按 requirements.txt 安装，再确认 .env 配置正确。也可以去 GitHub Issues 搜报错关键词。"
+          "q": "清理后系统出问题怎么办？",
+          "a": "Mole 的「最近删除」保留 7 天，可从历史记录中恢复。若问题严重，用 Time Machine 回滚到清理前的快照即可。"
         },
         {
-          "q": "这个教程和 LangChain 官方教程有什么区别？",
-          "a": "它更偏微软生态（AutoGen、Semantic Kernel、Azure），但概念通用，且结构更系统，适合从零建立完整认知。"
+          "q": "这个玩法适合电脑小白吗？",
+          "a": "适合但需谨慎。建议小白只勾选绿色标记项，跳过黄色和红色项；或者先只跑「只读扫描」看报告，不执行删除，熟悉后再动手。"
         }
       ],
       "variants": [
-        "变体1：把示例中的 OpenAI 模型换成 Azure OpenAI 或本地 Ollama，搭建离线可用的 Agent 学习环境。",
-        "变体2：用课程里的多智能体模板，做一个“自动写周报”或“竞品分析”小助手，接入自己的数据。",
-        "变体3：把 Notebook 改造成 FastAPI 服务，部署到云端，做成可被其他应用调用的 Agent API。"
+        "变体1：只清理 AI 工具缓存——针对 Cursor、Warp、Ollama 等工具单独跑 Mole 的 AI 模块，适合空间紧张但不想动系统文件的用户。",
+        "变体2：用 Mole 的导出报告做「存储审计」——每月导出一次扫描报告，对比三个月的数据，找出持续膨胀的目录，针对性处理而非盲目清理。",
+        "变体3：把「慢清理」流程写成脚本——用 Mole 的命令行模式（如有）配合 cron 每月自动生成报告但不删除，人工审核后再执行，兼顾自动化和可控性。"
       ],
-      "summary": "跟着微软官方 18 课边读边跑，用最小成本把 AI Agent 从概念变成能跑起来的小项目。"
+      "summary": "用 Mole 清理 Mac 的精髓不在于「清出多少空间」，而在于借它的慢设计重新建立对数字资产的掌控感——每一次删除都知情，每一次清理都留痕。"
     },
-    "generated_at": "2026-09-12T03:41:19.976000+00:00",
+    "generated_at": "2026-11-14T07:56:34.285886+00:00",
     "play_meta": {
-      "title_zh": "微软官方18课：从零构建AI智能体",
-      "title_en": "microsoft/ai-agents-for-beginners: 18 Lessons to Get Started Building AI Agents",
-      "source_id": "github-play-autogen",
-      "source_name": "GitHub AutoGen",
+      "title_zh": "用Mole清理Mac并体验慢产品设计",
+      "title_en": "在快 AI 时代，我是怎么把 Mole 做成一款「慢产品」的？",
+      "source_id": "sspai-play",
+      "source_name": "少数派 AI 工具",
+      "source_label": "权威媒体",
+      "source_tier": "A",
+      "source_color": "blue",
+      "source_emoji": "🔵",
+      "play_type": "tool_chain",
+      "difficulty": 4,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://sspai.com/post/118512",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 6.5
+    }
+  },
+  "github-play-langchain-a48bb101": {
+    "_sig": "bytedance/deer-flow: An open-source long-horizon SuperAgent harness tha|https://github.com/bytedance/deer-flow",
+    "tutorial": {
+      "intro": "字节跳动开源的 DeerFlow 是一个能研究、写代码、做创作的超级智能体框架，本教程带你用 LlamaIndex 把它跑起来，打造属于你的长周期 AI 助手。",
+      "background": "DeerFlow 在 GitHub 上已获得超过 8 万星标，它通过沙箱、记忆、工具、技能、子智能体和消息网关等组件，让 AI 能处理从简单问答到复杂项目开发的各类任务。相比普通聊天机器人，它更擅长多步骤、长周期的自主工作流。本教程适合想快速体验开源 SuperAgent 能力的开发者、AI 爱好者和效率工具玩家。",
+      "prerequisites": [
+        {
+          "name": "Python 3.10+",
+          "desc": "运行 DeerFlow 的基础环境",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "Git",
+          "desc": "克隆 DeerFlow 仓库",
+          "url": "https://git-scm.com/"
+        },
+        {
+          "name": "LlamaIndex",
+          "desc": "用于构建和增强智能体的数据框架",
+          "url": "https://www.llamaindex.ai/"
+        },
+        {
+          "name": "OpenAI API Key 或兼容接口",
+          "desc": "为智能体提供大模型能力",
+          "url": "https://platform.openai.com/api-keys"
+        },
+        {
+          "name": "Docker（可选）",
+          "desc": "用于沙箱隔离和依赖管理",
+          "url": "https://www.docker.com/"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：克隆 DeerFlow 并安装依赖",
+          "content": "打开终端，执行 git clone https://github.com/bytedance/deer-flow.git 下载项目。进入目录后创建 Python 虚拟环境：python -m venv venv，然后激活（Windows 用 venv\\Scripts\\activate，Mac/Linux 用 source venv/bin/activate）。最后运行 pip install -r requirements.txt 安装所有依赖，包括 LlamaIndex 相关包。",
+          "tip": "如果安装缓慢，可换用国内 pip 镜像：pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple"
+        },
+        {
+          "title": "第2步：配置环境变量与模型密钥",
+          "content": "在项目根目录复制 .env.example 为 .env，填入你的 OPENAI_API_KEY（或其他兼容模型的 key 和 base_url）。如果使用 LlamaIndex 的默认集成，确保 LLAMA_INDEX 相关配置也指向同一模型。保存后，DeerFlow 会自动读取这些变量来初始化智能体。",
+          "tip": "没有 OpenAI 账号？可以用 DeepSeek、通义千问等兼容 OpenAI 接口的模型，只需修改 base_url 和 model 名称。"
+        },
+        {
+          "title": "第3步：启动 DeerFlow 服务",
+          "content": "运行 python main.py 或按照 README 中的启动命令（如 uvicorn app:app --reload）启动后端。首次启动会自动下载必要的模型或工具包，等待终端出现监听端口（通常是 8000 或 3000）即表示成功。此时你可以通过浏览器访问本地地址，看到 DeerFlow 的交互界面。",
+          "tip": "如果端口被占用，可在启动命令后加 --port 8080 换一个端口。"
+        },
+        {
+          "title": "第4步：用 LlamaIndex 增强智能体记忆与检索",
+          "content": "在 DeerFlow 的配置文件中找到 memory 或 knowledge 部分，启用 LlamaIndex 作为向量存储后端。你可以把本地文档（PDF、Markdown）放入指定文件夹，DeerFlow 会自动用 LlamaIndex 建立索引。这样智能体在回答时就能引用你的私有资料，实现更精准的研究和创作。",
+          "tip": "建议先放 3-5 个短文档测试，确认索引生效后再批量导入。"
+        },
+        {
+          "title": "第5步：发起第一个长周期任务",
+          "content": "在 Web 界面输入一个需要多步完成的任务，例如：“帮我调研 2025 年 AI 智能体趋势，写一份 500 字摘要，并生成一个简单的 Python 脚本统计关键词频率。” DeerFlow 会自动拆解任务、调用工具、使用沙箱执行代码，并返回最终结果。观察右侧的步骤日志，可以看到它如何一步步工作。",
+          "tip": "任务描述越具体，智能体执行越准确。可以加上“请先列出计划再执行”来观察它的推理过程。"
+        }
+      ],
+      "expected_result": "完成以上步骤后，你将在本地成功运行 DeerFlow，并看到一个能自主研究、写代码、做创作的超级智能体。输入复杂任务时，它会自动规划、调用工具、使用沙箱执行，并返回结构化的结果。你还可以通过 LlamaIndex 让它访问你的私有知识库，实现个性化增强。",
+      "faq": [
+        {
+          "q": "DeerFlow 和普通 ChatGPT 有什么区别？",
+          "a": "DeerFlow 是智能体框架，能自主拆解任务、调用工具、执行代码和长期记忆，而 ChatGPT 主要是对话式问答。"
+        },
+        {
+          "q": "必须用 OpenAI 的 API 吗？",
+          "a": "不是，任何兼容 OpenAI 接口的模型都可以，比如 DeepSeek、通义千问、Kimi 等，只需修改 base_url 和 model。"
+        },
+        {
+          "q": "LlamaIndex 是必须的吗？",
+          "a": "不是必须，但推荐使用。它能让 DeerFlow 更好地索引和检索你的私有文档，提升回答质量。"
+        },
+        {
+          "q": "运行时报错缺少依赖怎么办？",
+          "a": "先确认 Python 版本为 3.10+，然后重新执行 pip install -r requirements.txt。如果仍报错，可尝试单独安装缺失的包。"
+        },
+        {
+          "q": "沙箱功能需要 Docker 吗？",
+          "a": "推荐使用 Docker 以获得更好的隔离性，但非必须。没有 Docker 时，DeerFlow 会尝试用本地进程执行代码，安全性稍低。"
+        }
+      ],
+      "variants": [
+        "变体1：接入本地 Ollama 模型，完全离线运行 DeerFlow，保护数据隐私。",
+        "变体2：将 DeerFlow 作为后端，通过 API 接入飞书/钉钉机器人，实现团队自动化助手。",
+        "变体3：结合 LlamaIndex 的 RAG 能力，打造专属法律或医疗领域的智能研究助手。"
+      ],
+      "summary": "用 LlamaIndex 增强 DeerFlow，你就能在本地拥有一个能研究、写代码、做创作的开源超级智能体，把复杂任务交给它自动完成。"
+    },
+    "generated_at": "2026-09-12T03:40:43.467776+00:00",
+    "play_meta": {
+      "title_zh": "字节开源超级智能体DeerFlow",
+      "title_en": "bytedance/deer-flow: An open-source long-horizon SuperAgent harness tha",
+      "source_id": "github-play-langchain",
+      "source_name": "GitHub LangChain",
       "source_label": "官方一手",
       "source_tier": "S",
       "source_color": "green",
       "source_emoji": "🟢",
       "play_type": "tool_chain",
-      "difficulty": 2,
+      "difficulty": 3,
       "time_estimate": "30min",
       "tools": [
-        "未标注"
+        "LlamaIndex"
       ],
-      "link": "https://github.com/microsoft/ai-agents-for-beginners",
+      "link": "https://github.com/bytedance/deer-flow",
       "is_domestic": false,
       "tags": [],
       "playability_score": 8.5
@@ -2084,6 +2079,117 @@
       "playability_score": 9.2
     }
   },
+  "github-play-awesome-rag-579b4646": {
+    "_sig": "lizhe2004/Awesome-LLM-RAG-Application: the resources about the application based|https://github.com/lizhe2004/Awesome-LLM-RAG-Application",
+    "tutorial": {
+      "intro": "Awesome-LLM-RAG 是一个汇集了基于 RAG 模式的 LLM 应用资源的 GitHub 仓库，本教程将带你用 LlamaIndex 快速搭建一个可用的 RAG 问答系统。",
+      "background": "随着大语言模型（LLM）的普及，如何让模型回答基于私有数据的问题成为刚需。RAG（检索增强生成）通过先检索相关文档再生成答案，有效缓解了模型幻觉和知识过时问题。Awesome-LLM-RAG 仓库整理了 1658+ 星标的 RAG 应用资源，涵盖框架、工具、论文和案例。本教程以 LlamaIndex 为核心，带你从零构建一个本地文档问答机器人，适合开发者、产品经理和 AI 爱好者快速上手。",
+      "prerequisites": [
+        {
+          "name": "Python 3.9+",
+          "desc": "运行环境，建议使用 3.10 或 3.11",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "LlamaIndex",
+          "desc": "核心 RAG 框架，用于索引和查询文档",
+          "url": "https://www.llamaindex.ai/"
+        },
+        {
+          "name": "OpenAI API Key",
+          "desc": "用于调用 GPT 模型生成答案（也可替换为本地模型）",
+          "url": "https://platform.openai.com/api-keys"
+        },
+        {
+          "name": "Awesome-LLM-RAG 仓库",
+          "desc": "参考资源大全，获取更多工具和案例",
+          "url": "https://github.com/lizhe2004/Awesome-LLM-RAG-Application"
+        },
+        {
+          "name": "Jupyter Notebook 或 VS Code",
+          "desc": "编写和调试代码",
+          "url": "https://code.visualstudio.com/"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：安装依赖并配置环境",
+          "content": "打开终端，创建虚拟环境并安装 LlamaIndex 和 OpenAI 库：pip install llama-index openai。然后设置 OpenAI API Key 环境变量：export OPENAI_API_KEY='你的密钥'（Windows 用 set）。如果使用本地模型，可安装 llama-index-llms-ollama 并运行 Ollama 服务。",
+          "tip": "建议用 conda 或 venv 隔离环境，避免版本冲突。API Key 不要硬编码在代码里。"
+        },
+        {
+          "title": "第2步：准备你的私有文档",
+          "content": "在项目目录下新建 data 文件夹，放入你要问答的文档，支持 txt、pdf、md、docx 等格式。例如放入公司产品手册.pdf 或个人笔记.md。LlamaIndex 会自动读取并解析。",
+          "tip": "文档越干净，检索效果越好。可以先手动删除无关页眉页脚。"
+        },
+        {
+          "title": "第3步：编写索引构建脚本",
+          "content": "新建 build_index.py，写入以下代码：from llama_index.core import VectorStoreIndex, SimpleDirectoryReader; documents = SimpleDirectoryReader('data').load_data(); index = VectorStoreIndex.from_documents(documents); index.storage_context.persist('./storage')。运行后会在 storage 文件夹生成向量索引。",
+          "tip": "首次运行会调用 OpenAI 嵌入模型，产生少量费用。可改用本地嵌入模型如 BAAI/bge-small-zh。"
+        },
+        {
+          "title": "第4步：实现问答查询",
+          "content": "新建 query.py，加载已保存的索引：from llama_index.core import StorageContext, load_index_from_storage; storage_context = StorageContext.from_defaults(persist_dir='./storage'); index = load_index_from_storage(storage_context); query_engine = index.as_query_engine(); response = query_engine.query('你的问题'); print(response)。运行即可得到基于文档的答案。",
+          "tip": "可以调整 similarity_top_k 参数控制检索文档数量，默认 2，增大可提高召回但可能引入噪声。"
+        },
+        {
+          "title": "第5步：优化与调试",
+          "content": "如果答案不准确，尝试：1）调整 chunk_size（默认 1024）和 chunk_overlap；2）更换嵌入模型；3）使用 SentenceSplitter 自定义分块；4）在 query_engine 中设置 response_mode='compact' 或 'refine'。也可以加入 rerank 模块提升排序质量。",
+          "tip": "用 index.as_query_engine(similarity_top_k=5, response_mode='compact') 快速测试不同参数组合。"
+        }
+      ],
+      "expected_result": "运行 query.py 后，输入“产品保修期是多久？”等问题，系统会从你放入的文档中检索相关段落，并生成准确、有依据的回答。控制台会打印答案，并可扩展为 Web 服务或聊天机器人。",
+      "faq": [
+        {
+          "q": "没有 OpenAI API Key 怎么办？",
+          "a": "可以使用本地模型，如 Ollama 运行 Llama 3 或 Qwen，然后安装 llama-index-llms-ollama 并设置 llm=Ollama(model='llama3')。嵌入模型也可用 HuggingFace 本地模型。"
+        },
+        {
+          "q": "支持中文文档吗？",
+          "a": "支持，但建议使用中文嵌入模型（如 BAAI/bge-large-zh）和中文 LLM（如 Qwen、ChatGLM），否则检索效果可能下降。"
+        },
+        {
+          "q": "索引构建很慢或报错？",
+          "a": "检查文档是否过大，可分批处理；确认网络能访问 OpenAI；若用本地模型，确保显存足够。也可先用小样本测试。"
+        },
+        {
+          "q": "如何让答案只基于文档，不编造？",
+          "a": "在 query_engine 中设置 response_mode='compact' 并添加系统提示词，如“仅根据以下上下文回答，不知道就说不知道”。"
+        },
+        {
+          "q": "Awesome-LLM-RAG 仓库怎么用？",
+          "a": "该仓库是资源大全，可从中找到更多 RAG 工具、论文和案例。建议先浏览 README 的分类，再按需深入。"
+        }
+      ],
+      "variants": [
+        "变体1：用 Streamlit 搭建 Web 界面，让非技术用户也能上传文档并提问。",
+        "变体2：结合 LangChain 和 LlamaIndex，构建多模态 RAG（支持图片和表格）。",
+        "变体3：使用本地向量数据库（如 Chroma、Qdrant）替代默认存储，支持大规模文档和增量更新。"
+      ],
+      "summary": "用 LlamaIndex 快速构建 RAG 问答系统，核心是“文档索引 + 检索 + 生成”，再根据效果调参优化。"
+    },
+    "generated_at": "2026-09-19T09:20:21.269557+00:00",
+    "play_meta": {
+      "title_zh": "Awesome-LLM-RAG：RAG应用资源大全",
+      "title_en": "lizhe2004/Awesome-LLM-RAG-Application: the resources about the application based on LLM w",
+      "source_id": "github-play-awesome-rag",
+      "source_name": "GitHub Awesome RAG",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
+      "difficulty": 5,
+      "time_estimate": "30min",
+      "tools": [
+        "LlamaIndex"
+      ],
+      "link": "https://github.com/lizhe2004/Awesome-LLM-RAG-Application",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
   "github-play-autogen-0d150b19": {
     "_sig": "microsoft/autogen: A programming framework for agentic AI|https://github.com/microsoft/autogen",
     "tutorial": {
@@ -2193,6 +2299,233 @@
       "is_domestic": false,
       "tags": [],
       "playability_score": 8.5
+    }
+  },
+  "cnblogs-play-d552d050": {
+    "_sig": "chat-demo 源码解析与 DeepSeek 全家桶 API 能力盘点 - 我才是银古|https://www.cnblogs.com/znlgis/p/23680323",
+    "tutorial": {
+      "intro": "想快速搞懂 DeepSeek 全栈 API 怎么用？直接读官方 chat-demo 源码，一下午就能把流式、思考、搜索、引用、附件、语音、分支、导入导出全跑通。",
+      "background": "chat-demo 是 DeepSeek 官方放出的静态聊天示例，没有后端、没有会话库，浏览器直接拿着你的 API Key 去请求你配置的服务。它小到可以一下午读完全部逻辑，又完整到把流式、思考、搜索、引用、附件、语音、分支、导入导出全做了一遍。如果你的目标是接一套对话产品，它是一份极佳的参考实现；如果你只想学 API 用法，它比文档更直观。本教程带你从零跑通这个 demo，并拆解核心代码，让你能举一反三。",
+      "prerequisites": [
+        {
+          "name": "DeepSeek 开放平台账号",
+          "desc": "获取 API Key，用于调用模型",
+          "url": "https://platform.deepseek.com/"
+        },
+        {
+          "name": "Node.js (v18+)",
+          "desc": "运行本地静态服务器和构建工具",
+          "url": "https://nodejs.org/"
+        },
+        {
+          "name": "Git",
+          "desc": "克隆 chat-demo 源码仓库",
+          "url": "https://git-scm.com/"
+        },
+        {
+          "name": "VS Code",
+          "desc": "阅读和调试源码",
+          "url": "https://code.visualstudio.com/"
+        },
+        {
+          "name": "现代浏览器 (Chrome/Edge)",
+          "desc": "运行 demo 并调试网络请求",
+          "url": "https://www.google.com/chrome/"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：获取源码并安装依赖",
+          "content": "打开终端，执行 git clone https://github.com/deepseek-ai/chat-demo.git（若仓库地址变动，请参考博客园原文中的链接）。进入目录后运行 npm install 安装依赖。然后用 npm run dev 启动本地开发服务器，浏览器访问终端提示的地址（通常是 http://localhost:5173）。",
+          "tip": "如果 npm install 慢，可切换淘宝镜像：npm config set registry https://registry.npmmirror.com"
+        },
+        {
+          "title": "第2步：配置 API Key 与请求地址",
+          "content": "在项目根目录找到 .env 或 config 文件（不同版本可能不同），填入你的 DeepSeek API Key。同时确认请求的 base URL 指向 https://api.deepseek.com。保存后重启开发服务器。注意：demo 是纯前端，API Key 会暴露在浏览器中，仅限本地学习使用。",
+          "tip": "不要把带 Key 的代码推送到公开仓库；建议用 .env.local 并加入 .gitignore。"
+        },
+        {
+          "title": "第3步：跑通基础对话与流式输出",
+          "content": "在聊天框输入“你好”，观察浏览器 Network 面板中的请求。你会看到 POST /chat/completions 请求，且响应是 stream 形式（text/event-stream）。阅读 src/api/chat.js 或类似文件，理解如何用 fetch + ReadableStream 逐块解析 SSE 数据并更新 UI。",
+          "tip": "在 Network 面板勾选“EventStream”标签，可以直观看到每个 chunk 的内容。"
+        },
+        {
+          "title": "第4步：拆解思考、搜索与引用功能",
+          "content": "在输入框上方找到“深度思考”和“联网搜索”开关。打开后发问，观察请求体中多了 reasoning 或 search 相关参数。阅读对应组件代码，理解如何将模型返回的 reasoning_content 和 citations 字段渲染到界面上。引用通常以角标形式展示，点击可跳转来源。",
+          "tip": "搜索功能依赖后端代理，demo 中可能用模拟数据；重点看请求参数和渲染逻辑，而非真实搜索。"
+        },
+        {
+          "title": "第5步：体验附件、语音、分支与导入导出",
+          "content": "尝试上传一张图片或 PDF，观察请求如何将文件转为 base64 或 multipart 发送。点击麦克风按钮测试语音输入（依赖浏览器 Web Speech API）。在消息上右键或点击按钮创建分支，理解会话树的数据结构。最后使用导出按钮将对话保存为 JSON 或 Markdown。",
+          "tip": "分支功能的核心是维护一个树形消息列表，每个节点有 parentId；阅读 store 或 reducer 代码即可掌握。"
+        },
+        {
+          "title": "第6步：修改源码并验证自定义功能",
+          "content": "尝试修改系统提示词（system prompt）或默认模型参数（如 temperature）。例如在请求体中加入 system: '你是一个幽默的助手'，刷新后观察回复风格变化。再修改流式渲染的节流逻辑，让打字机效果更快或更慢。通过小改动验证你对代码的理解。",
+          "tip": "用 VS Code 的调试功能在关键函数打断点，比 console.log 更高效。"
+        }
+      ],
+      "expected_result": "本地成功运行 chat-demo，能与 DeepSeek 模型进行流式对话，并体验思考、搜索、引用、附件、语音、分支、导入导出等全部功能。同时能读懂核心请求与渲染逻辑，具备基于此 demo 二次开发的能力。",
+      "faq": [
+        {
+          "q": "没有 DeepSeek API Key 能跑吗？",
+          "a": "不能真实调用模型，但可以修改代码指向兼容 OpenAI 接口的本地模型（如 Ollama），或使用 mock 数据学习前端逻辑。"
+        },
+        {
+          "q": "为什么我的请求报 401 错误？",
+          "a": "检查 API Key 是否填写正确、是否有多余空格，以及请求头 Authorization 是否为 Bearer <key>。"
+        },
+        {
+          "q": "demo 中的联网搜索是真实的吗？",
+          "a": "官方 demo 可能仅演示参数传递和 UI 渲染，真实搜索需要你自行接入搜索 API 并在后端代理，避免前端暴露 Key。"
+        },
+        {
+          "q": "分支功能的数据结构是怎样的？",
+          "a": "通常是一个消息树，每个消息有 id 和 parentId，当前分支由当前选中节点回溯到根节点决定。阅读 store 中的 addMessage 和 switchBranch 即可理解。"
+        },
+        {
+          "q": "如何部署到线上？",
+          "a": "由于是纯前端且含 API Key，不建议直接部署。正确做法是加一个轻量后端代理（如 Node.js/Express）转发请求并隐藏 Key，前端只与代理通信。"
+        }
+      ],
+      "variants": [
+        "变体1：将 chat-demo 改造成多模型切换器——在设置中增加模型选择（deepseek-chat / deepseek-reasoner），请求时动态替换 model 字段。",
+        "变体2：基于 demo 的分支功能实现“对话树可视化”——用 D3.js 或 React Flow 画出消息节点关系图，点击节点切换分支。",
+        "变体3：把 demo 的流式渲染逻辑抽离成独立 npm 包，供其他项目复用，支持自定义 chunk 解析器和打字机速度。"
+      ],
+      "summary": "读官方最小 demo 是学 API 的最短路径：跑通它、拆解它、改造它，一下午就能把 DeepSeek 全栈能力装进自己口袋。"
+    },
+    "generated_at": "2026-11-16T08:17:51.263713+00:00",
+    "play_meta": {
+      "title_zh": "读 chat-demo 源码学 DeepSeek 全栈 API",
+      "title_en": "chat-demo 源码解析与 DeepSeek 全家桶 API 能力盘点 - 我才是银古",
+      "source_id": "cnblogs-play",
+      "source_name": "博客园 AI 教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "runnable_demo",
+      "difficulty": 2,
+      "time_estimate": "10min",
+      "tools": [
+        "DeepSeek"
+      ],
+      "link": "https://www.cnblogs.com/znlgis/p/23680323",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
+  "github-play-awesome-ai-agents-95b50059": {
+    "_sig": "awesome-opencode/awesome-opencode: A curated list of awesome plugins, themes, ag|https://github.com/awesome-opencode/awesome-opencode",
+    "tutorial": {
+      "intro": "用 awesome-opencode 清单快速筛选 OpenCode 生态里的插件、主题和智能体，搭建你的专属 AI 编程工作流。",
+      "background": "OpenCode 是一个开源的 AI 编程助手，支持插件、主题和智能体扩展，但官方生态分散在多个仓库。awesome-opencode 是一个获得 10898 stars 的精选清单，把插件、主题、智能体和项目资源集中在一处。对于想深度定制 OpenCode 的开发者，这份清单能节省大量搜索和试错时间。本教程教你如何高效利用这份清单，从零搭建一个带插件和智能体的 OpenCode 环境。",
+      "prerequisites": [
+        {
+          "name": "OpenCode",
+          "desc": "开源 AI 编程助手，本教程的核心工具",
+          "url": "https://opencode.ai"
+        },
+        {
+          "name": "Git",
+          "desc": "用于克隆 awesome-opencode 仓库",
+          "url": "https://git-scm.com"
+        },
+        {
+          "name": "Node.js (>=18)",
+          "desc": "运行 OpenCode 及部分插件依赖",
+          "url": "https://nodejs.org"
+        },
+        {
+          "name": "文本编辑器/IDE",
+          "desc": "如 VS Code，用于查看和编辑配置文件",
+          "url": "https://code.visualstudio.com"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：克隆并浏览 awesome-opencode 清单",
+          "content": "打开终端，执行 git clone https://github.com/awesome-opencode/awesome-opencode.git，然后进入目录用编辑器打开 README.md。清单按插件、主题、智能体、项目等分类，每个条目附带简短描述和链接。先快速扫一遍分类标题，了解有哪些资源类型。",
+          "tip": "用 VS Code 的 Markdown 预览功能（Ctrl+Shift+V）可以更直观地浏览清单结构。"
+        },
+        {
+          "title": "第2步：筛选并记录目标插件与智能体",
+          "content": "根据你的需求（比如代码补全、Git 集成、UI 主题），在清单中挑选 2-3 个插件和 1-2 个智能体。把它们的名称、仓库链接和安装说明复制到一个临时笔记中。注意查看每个条目的标签（如 official、community），优先选择维护活跃的项目。",
+          "tip": "在 GitHub 上查看仓库的最近提交时间和 issue 活跃度，避免选用已废弃的插件。"
+        },
+        {
+          "title": "第3步：安装 OpenCode 并配置基础环境",
+          "content": "按照 OpenCode 官网指引安装 CLI（如 npm install -g opencode 或下载二进制）。运行 opencode --version 确认安装成功。然后在项目根目录创建 opencode.json 配置文件，填入你的 API 密钥和基础模型设置。",
+          "tip": "如果使用本地模型，可以在配置中指定 baseURL 指向 Ollama 或 LM Studio 的本地端口。"
+        },
+        {
+          "title": "第4步：安装并启用选定的插件",
+          "content": "根据第2步记录的插件安装说明，通常通过 npm 安装或直接在 opencode.json 的 plugins 数组中添加插件包名。例如添加 \"plugins\": [\"opencode-plugin-git\"]。保存配置后重启 OpenCode，用 /plugins 命令（或查看日志）确认插件已加载。",
+          "tip": "一次只加一个插件，测试通过后再加下一个，方便定位冲突。"
+        },
+        {
+          "title": "第5步：导入智能体并测试工作流",
+          "content": "在清单中找到智能体条目，通常是一个 Markdown 或 JSON 文件。将其复制到项目的 .opencode/agents/ 目录（或配置中指定的路径）。在 OpenCode 对话中用 @agent-name 调用该智能体，输入一个简单任务（如“审查当前文件的代码风格”）验证是否生效。",
+          "tip": "智能体的提示词文件可以自行微调，加入你团队的编码规范效果更好。"
+        },
+        {
+          "title": "第6步：应用主题并固化配置",
+          "content": "从清单的主题分类中选一个喜欢的主题，按说明安装（通常是复制 CSS 或修改配置中的 theme 字段）。重启后检查界面变化。最后把 opencode.json 和 .opencode/ 目录提交到 Git，方便团队共享。",
+          "tip": "主题文件一般很小，可以直接放进仓库；插件依赖建议在 README 中注明安装命令。"
+        }
+      ],
+      "expected_result": "OpenCode 启动后加载了你选定的插件和智能体，界面应用了新主题。你可以用 @agent 调用智能体完成代码审查等任务，插件提供的额外命令（如 Git 集成）也可正常使用。团队其他成员克隆仓库后按 README 安装即可复现相同环境。",
+      "faq": [
+        {
+          "q": "awesome-opencode 清单里的插件都兼容最新版 OpenCode 吗？",
+          "a": "不一定。清单是社区维护的，部分插件可能滞后。安装前查看插件仓库的 package.json 中 peerDependencies 或 README 的兼容说明，优先选最近 3 个月有更新的项目。"
+        },
+        {
+          "q": "安装插件后 OpenCode 启动报错怎么办？",
+          "a": "先移除最近添加的插件，确认基础功能正常。然后查看 OpenCode 日志（通常用 --verbose 启动）定位缺失的依赖或版本冲突。也可以到插件仓库的 issue 区搜索类似错误。"
+        },
+        {
+          "q": "智能体和插件有什么区别？",
+          "a": "插件是扩展 OpenCode 功能的代码模块（如新增命令、工具集成）；智能体是预配置的提示词角色（如“代码审查员”），通过 @ 调用，不涉及代码安装。两者可以组合使用。"
+        },
+        {
+          "q": "可以同时使用多个主题吗？",
+          "a": "通常只能激活一个主题。你可以在配置中快速切换，但不要同时加载多个主题文件，否则样式会冲突。"
+        },
+        {
+          "q": "如何向 awesome-opencode 清单贡献自己的插件？",
+          "a": " Fork 仓库，按照 README 中的贡献指南在对应分类下添加条目，附上简短描述和链接，然后提交 Pull Request。维护者审核后会合并。"
+        }
+      ],
+      "variants": [
+        "变体1：只使用智能体不装插件——从清单中挑选 3 个智能体（如代码审查、文档生成、测试编写），分别配置到 .opencode/agents/，用 @ 切换角色完成日常开发任务，适合不想折腾插件的用户。",
+        "变体2：基于清单搭建团队共享配置——把选定的插件、智能体和主题整理成一个内部模板仓库，附带安装脚本和 README，新成员一键初始化 OpenCode 环境。",
+        "变体3：用清单做插件选型调研——按 stars 数、最近更新时间和功能标签对清单中的插件排序，生成对比表格，为团队技术选型提供依据。"
+      ],
+      "summary": "把 awesome-opencode 当作 OpenCode 生态的导航图，按需筛选、小步验证、固化配置，就能快速搭出顺手的 AI 编程环境。"
+    },
+    "generated_at": "2026-11-07T06:33:44.115898+00:00",
+    "play_meta": {
+      "title_zh": "用 awesome-opencode 清单找插件主题与智能体",
+      "title_en": "awesome-opencode/awesome-opencode: A curated list of awesome plugins, themes, agents",
+      "source_id": "github-play-awesome-ai-agents",
+      "source_name": "GitHub Awesome AI Agents",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
+      "difficulty": 4,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://github.com/awesome-opencode/awesome-opencode",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 7.5
     }
   },
   "github-play-awesome-rag-7bf9f818": {
@@ -2417,112 +2750,6 @@
       "playability_score": 6.5
     }
   },
-  "sspai-play-792506dc": {
-    "_sig": "在快 AI 时代，我是怎么把 Mole 做成一款「慢产品」的？|https://sspai.com/post/118512",
-    "tutorial": {
-      "intro": "这篇教程教你用开源清理工具 Mole 给 Mac 做一次深度瘦身，同时借它的「慢产品设计」思路，反思自己日常被效率工具绑架的习惯。",
-      "background": "Mole 是一款从开源项目成长起来的 Mac 清理工具，作者在少数派文章中记录了它从 1.13 到 1.19 的迭代过程，期间加入了 AI 工具清理和系统数据清理功能。与 CleanMyMac 等商业软件不同，Mole 刻意保留了「慢」的交互节奏——扫描过程可见、删除前需确认、不搞一键无脑清理。这种设计反而让用户更清楚自己删了什么、为什么删。本玩法适合想清理 Mac 又不想被「一键优化」忽悠的用户，也适合对产品设计感兴趣、想体验「反效率」思路的读者。",
-      "prerequisites": [
-        {
-          "name": "Mole",
-          "desc": "Mac 清理工具，支持 AI 工具缓存清理和系统数据清理",
-          "url": "https://sspai.com/post/118512"
-        },
-        {
-          "name": "macOS 系统",
-          "desc": "建议 macOS 12 及以上，确保兼容最新版 Mole",
-          "url": "https://www.apple.com/macos/"
-        },
-        {
-          "name": "终端（Terminal）",
-          "desc": "部分操作需通过命令行执行，系统自带",
-          "url": "https://support.apple.com/zh-cn/guide/terminal/welcome/mac"
-        },
-        {
-          "name": "备份工具（可选）",
-          "desc": "清理前建议用 Time Machine 做一次快照，防止误删",
-          "url": "https://support.apple.com/zh-cn/mac-backup"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：安装并首次启动 Mole",
-          "content": "从少数派文章中的链接获取 Mole 最新版（1.19+），拖入「应用程序」文件夹。首次打开时 macOS 会提示「无法验证开发者」，需前往「系统设置 > 隐私与安全性」点击「仍要打开」。启动后不要急着点「扫描」，先花一分钟浏览主界面，注意它把「AI 工具清理」「系统数据清理」「应用残留」分成了独立模块，而不是一个大按钮。",
-          "tip": "如果不想每次都被 Gatekeeper 拦截，可在终端执行 sudo spctl --master-disable 临时关闭（用完记得改回 enable）。"
-        },
-        {
-          "title": "第2步：先跑一次「只读扫描」，看懂它扫了什么",
-          "content": "选择「AI 工具清理」模块，点击扫描。Mole 会列出 Cursor、Warp、Ollama 等工具产生的缓存、日志和模型残留文件，并标注每项的大小和路径。此时不要勾选任何项目，先观察列表——你会发现很多「你以为删了」的 AI 工具其实留下了几百 MB 的对话历史或模型分片。同样方式再扫一遍「系统数据清理」，重点看「日志」「缓存」「旧 iOS 备份」三类。",
-          "tip": "扫描结果可以导出为文本（菜单栏 > 文件 > 导出报告），方便对比清理前后的差异。"
-        },
-        {
-          "title": "第3步：按「风险等级」分批勾选，而不是全选",
-          "content": "Mole 的慢设计体现在它不提供「全选」按钮。你需要逐项判断：绿色标记（缓存、日志）可放心勾选；黄色标记（应用残留、旧备份）建议先确认路径是否属于已卸载软件；红色标记（系统数据中的「其他」卷）不要动，除非你清楚那是什么。建议第一轮只清理绿色项，执行删除后重启一次，观察系统是否正常。",
-          "tip": "删除前把鼠标悬停在项目上，Mole 会显示「上次访问时间」，超过 90 天没动过的缓存基本可以放心删。"
-        },
-        {
-          "title": "第4步：用「慢确认」机制复盘删除记录",
-          "content": "Mole 每次删除后会在「历史」标签页生成一条记录，包含删除时间、项目数量和释放空间。打开历史记录，逐条回看：有没有你其实还想保留的文件？比如某个 AI 工具的本地模型虽然大，但重新下载要花很久。如果有误删，Mole 支持从「最近删除」中恢复（保留 7 天）。这一步是「慢产品设计」的核心——让你为每一次删除负责。",
-          "tip": "把历史记录截图保存，一个月后回看，你会发现自己真正需要清理的其实就那么几类。"
-        },
-        {
-          "title": "第5步：设置「定期提醒」而非「自动清理」",
-          "content": "在 Mole 偏好设置中，关闭「自动清理」选项（默认就是关闭的），改为开启「每月提醒扫描」。这样每月你会收到一次通知，手动执行第 2-4 步。这种设计刻意不让你「无感」地清理，而是把清理变成一个有意识的行为。坚持三个月后，你会对自己的 Mac 存储结构有更清晰的认知。",
-          "tip": "提醒时间建议设在周末上午，避免工作日被打断；提醒文案可以自定义成「该看看你的 AI 工具又偷偷存了什么」。"
-        }
-      ],
-      "expected_result": "完成上述步骤后，你的 Mac 通常能释放 5-20 GB 空间（取决于 AI 工具使用频率），同时你会得到一份可回溯的清理历史记录。更重要的是，你会开始留意哪些工具在「偷偷」占空间，以及自己是否真的需要那么多「一键优化」功能。",
-      "faq": [
-        {
-          "q": "Mole 和 CleanMyMac 有什么区别？",
-          "a": "Mole 是开源工具，不搞「一键智能清理」，所有删除项都需手动确认，且专注 AI 工具缓存和系统数据这类商业软件常忽略的角落；CleanMyMac 更自动化但透明度低。"
-        },
-        {
-          "q": "删除 AI 工具缓存会导致对话记录丢失吗？",
-          "a": "Mole 默认只清理缓存和日志，不碰对话数据库。但部分工具（如 Ollama）的模型文件会被标记为「可清理」，删除后需重新下载模型，请按需勾选。"
-        },
-        {
-          "q": "为什么扫描结果里「系统数据」占了很大一块？",
-          "a": "macOS 的「系统数据」包含日志、缓存、旧备份、虚拟机镜像等，Mole 会细分展示。建议只清理明确标注为「日志」和「缓存」的子项，其余保持不动。"
-        },
-        {
-          "q": "清理后系统出问题怎么办？",
-          "a": "Mole 的「最近删除」保留 7 天，可从历史记录中恢复。若问题严重，用 Time Machine 回滚到清理前的快照即可。"
-        },
-        {
-          "q": "这个玩法适合电脑小白吗？",
-          "a": "适合但需谨慎。建议小白只勾选绿色标记项，跳过黄色和红色项；或者先只跑「只读扫描」看报告，不执行删除，熟悉后再动手。"
-        }
-      ],
-      "variants": [
-        "变体1：只清理 AI 工具缓存——针对 Cursor、Warp、Ollama 等工具单独跑 Mole 的 AI 模块，适合空间紧张但不想动系统文件的用户。",
-        "变体2：用 Mole 的导出报告做「存储审计」——每月导出一次扫描报告，对比三个月的数据，找出持续膨胀的目录，针对性处理而非盲目清理。",
-        "变体3：把「慢清理」流程写成脚本——用 Mole 的命令行模式（如有）配合 cron 每月自动生成报告但不删除，人工审核后再执行，兼顾自动化和可控性。"
-      ],
-      "summary": "用 Mole 清理 Mac 的精髓不在于「清出多少空间」，而在于借它的慢设计重新建立对数字资产的掌控感——每一次删除都知情，每一次清理都留痕。"
-    },
-    "generated_at": "2026-11-14T07:56:34.285886+00:00",
-    "play_meta": {
-      "title_zh": "用Mole清理Mac并体验慢产品设计",
-      "title_en": "在快 AI 时代，我是怎么把 Mole 做成一款「慢产品」的？",
-      "source_id": "sspai-play",
-      "source_name": "少数派 AI 工具",
-      "source_label": "权威媒体",
-      "source_tier": "A",
-      "source_color": "blue",
-      "source_emoji": "🔵",
-      "play_type": "tool_chain",
-      "difficulty": 4,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://sspai.com/post/118512",
-      "is_domestic": true,
-      "tags": [],
-      "playability_score": 6.5
-    }
-  },
   "cnblogs-play-ce32423c": {
     "_sig": "刚说好别动这个文件，Agent 怎么又改了？聊聊上下文压缩 - leikooo|https://www.cnblogs.com/leikooo/p/23666738",
     "tutorial": {
@@ -2632,117 +2859,6 @@
       "is_domestic": true,
       "tags": [],
       "playability_score": 6.5
-    }
-  },
-  "github-play-awesome-rag-579b4646": {
-    "_sig": "lizhe2004/Awesome-LLM-RAG-Application: the resources about the application based|https://github.com/lizhe2004/Awesome-LLM-RAG-Application",
-    "tutorial": {
-      "intro": "Awesome-LLM-RAG 是一个汇集了基于 RAG 模式的 LLM 应用资源的 GitHub 仓库，本教程将带你用 LlamaIndex 快速搭建一个可用的 RAG 问答系统。",
-      "background": "随着大语言模型（LLM）的普及，如何让模型回答基于私有数据的问题成为刚需。RAG（检索增强生成）通过先检索相关文档再生成答案，有效缓解了模型幻觉和知识过时问题。Awesome-LLM-RAG 仓库整理了 1658+ 星标的 RAG 应用资源，涵盖框架、工具、论文和案例。本教程以 LlamaIndex 为核心，带你从零构建一个本地文档问答机器人，适合开发者、产品经理和 AI 爱好者快速上手。",
-      "prerequisites": [
-        {
-          "name": "Python 3.9+",
-          "desc": "运行环境，建议使用 3.10 或 3.11",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "LlamaIndex",
-          "desc": "核心 RAG 框架，用于索引和查询文档",
-          "url": "https://www.llamaindex.ai/"
-        },
-        {
-          "name": "OpenAI API Key",
-          "desc": "用于调用 GPT 模型生成答案（也可替换为本地模型）",
-          "url": "https://platform.openai.com/api-keys"
-        },
-        {
-          "name": "Awesome-LLM-RAG 仓库",
-          "desc": "参考资源大全，获取更多工具和案例",
-          "url": "https://github.com/lizhe2004/Awesome-LLM-RAG-Application"
-        },
-        {
-          "name": "Jupyter Notebook 或 VS Code",
-          "desc": "编写和调试代码",
-          "url": "https://code.visualstudio.com/"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：安装依赖并配置环境",
-          "content": "打开终端，创建虚拟环境并安装 LlamaIndex 和 OpenAI 库：pip install llama-index openai。然后设置 OpenAI API Key 环境变量：export OPENAI_API_KEY='你的密钥'（Windows 用 set）。如果使用本地模型，可安装 llama-index-llms-ollama 并运行 Ollama 服务。",
-          "tip": "建议用 conda 或 venv 隔离环境，避免版本冲突。API Key 不要硬编码在代码里。"
-        },
-        {
-          "title": "第2步：准备你的私有文档",
-          "content": "在项目目录下新建 data 文件夹，放入你要问答的文档，支持 txt、pdf、md、docx 等格式。例如放入公司产品手册.pdf 或个人笔记.md。LlamaIndex 会自动读取并解析。",
-          "tip": "文档越干净，检索效果越好。可以先手动删除无关页眉页脚。"
-        },
-        {
-          "title": "第3步：编写索引构建脚本",
-          "content": "新建 build_index.py，写入以下代码：from llama_index.core import VectorStoreIndex, SimpleDirectoryReader; documents = SimpleDirectoryReader('data').load_data(); index = VectorStoreIndex.from_documents(documents); index.storage_context.persist('./storage')。运行后会在 storage 文件夹生成向量索引。",
-          "tip": "首次运行会调用 OpenAI 嵌入模型，产生少量费用。可改用本地嵌入模型如 BAAI/bge-small-zh。"
-        },
-        {
-          "title": "第4步：实现问答查询",
-          "content": "新建 query.py，加载已保存的索引：from llama_index.core import StorageContext, load_index_from_storage; storage_context = StorageContext.from_defaults(persist_dir='./storage'); index = load_index_from_storage(storage_context); query_engine = index.as_query_engine(); response = query_engine.query('你的问题'); print(response)。运行即可得到基于文档的答案。",
-          "tip": "可以调整 similarity_top_k 参数控制检索文档数量，默认 2，增大可提高召回但可能引入噪声。"
-        },
-        {
-          "title": "第5步：优化与调试",
-          "content": "如果答案不准确，尝试：1）调整 chunk_size（默认 1024）和 chunk_overlap；2）更换嵌入模型；3）使用 SentenceSplitter 自定义分块；4）在 query_engine 中设置 response_mode='compact' 或 'refine'。也可以加入 rerank 模块提升排序质量。",
-          "tip": "用 index.as_query_engine(similarity_top_k=5, response_mode='compact') 快速测试不同参数组合。"
-        }
-      ],
-      "expected_result": "运行 query.py 后，输入“产品保修期是多久？”等问题，系统会从你放入的文档中检索相关段落，并生成准确、有依据的回答。控制台会打印答案，并可扩展为 Web 服务或聊天机器人。",
-      "faq": [
-        {
-          "q": "没有 OpenAI API Key 怎么办？",
-          "a": "可以使用本地模型，如 Ollama 运行 Llama 3 或 Qwen，然后安装 llama-index-llms-ollama 并设置 llm=Ollama(model='llama3')。嵌入模型也可用 HuggingFace 本地模型。"
-        },
-        {
-          "q": "支持中文文档吗？",
-          "a": "支持，但建议使用中文嵌入模型（如 BAAI/bge-large-zh）和中文 LLM（如 Qwen、ChatGLM），否则检索效果可能下降。"
-        },
-        {
-          "q": "索引构建很慢或报错？",
-          "a": "检查文档是否过大，可分批处理；确认网络能访问 OpenAI；若用本地模型，确保显存足够。也可先用小样本测试。"
-        },
-        {
-          "q": "如何让答案只基于文档，不编造？",
-          "a": "在 query_engine 中设置 response_mode='compact' 并添加系统提示词，如“仅根据以下上下文回答，不知道就说不知道”。"
-        },
-        {
-          "q": "Awesome-LLM-RAG 仓库怎么用？",
-          "a": "该仓库是资源大全，可从中找到更多 RAG 工具、论文和案例。建议先浏览 README 的分类，再按需深入。"
-        }
-      ],
-      "variants": [
-        "变体1：用 Streamlit 搭建 Web 界面，让非技术用户也能上传文档并提问。",
-        "变体2：结合 LangChain 和 LlamaIndex，构建多模态 RAG（支持图片和表格）。",
-        "变体3：使用本地向量数据库（如 Chroma、Qdrant）替代默认存储，支持大规模文档和增量更新。"
-      ],
-      "summary": "用 LlamaIndex 快速构建 RAG 问答系统，核心是“文档索引 + 检索 + 生成”，再根据效果调参优化。"
-    },
-    "generated_at": "2026-09-19T09:20:21.269557+00:00",
-    "play_meta": {
-      "title_zh": "Awesome-LLM-RAG：RAG应用资源大全",
-      "title_en": "lizhe2004/Awesome-LLM-RAG-Application: the resources about the application based on LLM w",
-      "source_id": "github-play-awesome-rag",
-      "source_name": "GitHub Awesome RAG",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 5,
-      "time_estimate": "30min",
-      "tools": [
-        "LlamaIndex"
-      ],
-      "link": "https://github.com/lizhe2004/Awesome-LLM-RAG-Application",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 7.5
     }
   },
   "cnblogs-play-1962b04e": {
@@ -6480,117 +6596,6 @@
         "LangChain"
       ],
       "link": "https://www.cnblogs.com/buchizicai/p/23594631",
-      "is_domestic": true,
-      "tags": [],
-      "playability_score": 7.5
-    }
-  },
-  "juejin-play-ba7e0172": {
-    "_sig": "一个人 + AI，用 Tauri 2 和 Rust 写了个开源的 Windows 效率工具：提醒 + 笔记 + 启动器|https://juejin.cn/post/7705782451822690355",
-    "tutorial": {
-      "intro": "用 Tauri 2 + Rust 打造一个 Windows 桌面小工具，一句话设提醒、随手记笔记、顺手启动程序，免费开源还轻量。",
-      "background": "日常工作中，我们经常需要快速记下灵感、设置一个临时提醒，或者打开某个常用软件。但打开笔记应用、设置闹钟、找到程序图标这些操作太繁琐。这个玩法教你用 Tauri 2 和 Rust 构建一个极简的 Windows 启动器，把提醒、笔记和程序启动三合一，常驻托盘，随叫随到。它适合喜欢折腾桌面效率工具的开发者，也适合想学习 Tauri 跨端开发的新手。整个项目代码量不大，难度适中，跟着教程走就能跑起来。",
-      "prerequisites": [
-        {
-          "name": "Rust 工具链",
-          "desc": "编译 Rust 代码，需安装 rustup 并配置 MSVC 工具链",
-          "url": "https://www.rust-lang.org/tools/install"
-        },
-        {
-          "name": "Node.js (>=18)",
-          "desc": "运行前端构建工具和包管理器",
-          "url": "https://nodejs.org/"
-        },
-        {
-          "name": "Tauri CLI",
-          "desc": "创建和构建 Tauri 项目，通过 cargo install tauri-cli 或 npm 安装",
-          "url": "https://tauri.app/start/"
-        },
-        {
-          "name": "Visual Studio Build Tools",
-          "desc": "Windows 上编译 Rust 所需的 C++ 构建工具",
-          "url": "https://visualstudio.microsoft.com/visual-cpp-build-tools/"
-        },
-        {
-          "name": "WebView2 Runtime",
-          "desc": "Windows 10/11 通常已内置，用于渲染 Tauri 前端界面",
-          "url": "https://developer.microsoft.com/microsoft-edge/webview2/"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：初始化 Tauri 2 项目",
-          "content": "打开终端，运行 `npm create tauri-app@latest`，按提示输入项目名（如 reminder-launcher），选择前端框架（推荐 Vanilla 或 React），包管理器选 npm。进入项目目录后执行 `npm install` 安装依赖。最后运行 `npm run tauri dev` 确认默认窗口能正常启动。",
-          "tip": "如果遇到 Rust 编译错误，检查是否安装了 MSVC 构建工具，并确保 rustup 默认工具链为 stable-x86_64-pc-windows-msvc。"
-        },
-        {
-          "title": "第2步：设计主界面与交互逻辑",
-          "content": "在 src 目录下编辑前端页面，添加一个输入框用于输入指令，一个按钮用于提交。指令格式约定为：`提醒 10:30 开会`、`笔记 买牛奶`、`启动 notepad`。用 JavaScript 监听按钮点击，将输入内容通过 Tauri 的 invoke 函数发送到 Rust 后端。同时可以加一个简单的历史记录列表，展示最近的操作。",
-          "tip": "输入框支持回车提交，体验更顺手；用 localStorage 暂存历史记录，刷新不丢失。"
-        },
-        {
-          "title": "第3步：Rust 后端实现三大功能",
-          "content": "在 src-tauri/src/main.rs 中定义三个 Tauri command：`set_reminder` 解析时间并启动一个异步任务，到点后调用系统通知；`save_note` 将笔记内容追加写入本地文件（如 notes.txt）；`launch_app` 使用 std::process::Command 启动指定程序（如 notepad.exe）。每个 command 返回 Result 给前端反馈。",
-          "tip": "提醒功能可以用 tokio 的 sleep 实现，注意在 Tauri 的异步运行时中 spawn 任务；启动程序时对参数做简单校验，避免命令注入。"
-        },
-        {
-          "title": "第4步：配置系统托盘与全局快捷键",
-          "content": "在 tauri.conf.json 中启用托盘图标，并在 Rust 端使用 Tauri 的 TrayIconBuilder 创建托盘菜单，包含“显示主窗口”和“退出”。同时注册全局快捷键（如 Ctrl+Shift+Space）唤起窗口，方便随时输入指令。需要引入 tauri-plugin-global-shortcut 插件并在配置中启用。",
-          "tip": "托盘图标建议用 .ico 格式，尺寸 32x32；全局快捷键不要与系统常用快捷键冲突。"
-        },
-        {
-          "title": "第5步：打包为 Windows 安装包",
-          "content": "运行 `npm run tauri build`，Tauri 会自动编译 Rust 并打包前端资源，生成 .msi 和 .exe 安装包，位于 src-tauri/target/release/bundle/ 目录下。安装后即可在开始菜单找到应用，双击运行。如需开机自启，可在安装包配置中勾选或手动将快捷方式放入启动文件夹。",
-          "tip": "首次构建时间较长，耐心等待；若想减小体积，可在 tauri.conf.json 中开启压缩和移除未使用功能。"
-        }
-      ],
-      "expected_result": "运行应用后，系统托盘出现图标，按下 Ctrl+Shift+Space 弹出输入框。输入“提醒 14:00 喝水”后，到点会收到 Windows 通知；输入“笔记 明天交报告”后，笔记被保存到本地文件；输入“启动 calc”后，计算器程序被打开。所有操作都有即时反馈，历史记录清晰可见。",
-      "faq": [
-        {
-          "q": "没有 Rust 基础能跟着做吗？",
-          "a": "可以。教程提供的代码片段直接复制即可运行，重点理解 Tauri 的 command 机制和前端调用方式，Rust 语法只需看懂大致逻辑。"
-        },
-        {
-          "q": "提醒功能在应用关闭后还能生效吗？",
-          "a": "默认不能，因为提醒任务运行在应用进程内。如需离线提醒，可将提醒时间写入系统计划任务，或让应用常驻托盘不退出。"
-        },
-        {
-          "q": "启动程序时如何传递参数？",
-          "a": "在 launch_app 命令中接收一个参数列表，用 Command::new(program).args(args) 传入即可，注意对参数做转义处理。"
-        },
-        {
-          "q": "打包后的应用体积多大？",
-          "a": "Tauri 应用通常只有几 MB 到十几 MB，远小于 Electron。具体取决于前端资源和 Rust 编译优化选项。"
-        },
-        {
-          "q": "能否在 macOS 或 Linux 上使用？",
-          "a": "Tauri 本身跨平台，但本教程的托盘和快捷键实现针对 Windows 优化，其他平台需调整部分 API 和打包配置。"
-        }
-      ],
-      "variants": [
-        "变体1：增加语音输入——集成 Windows 语音识别 API，说出指令自动转文字并执行，彻底解放双手。",
-        "变体2：支持自定义脚本——允许用户配置快捷指令映射到任意 shell 命令或脚本，打造个人专属启动器。",
-        "变体3：云同步笔记——将笔记文件替换为调用云端 API（如 WebDAV 或 Notion），实现多设备同步。"
-      ],
-      "summary": "用 Tauri 2 把提醒、笔记和程序启动浓缩进一个常驻托盘的小工具，代码少、体积小、体验顺，是桌面效率提升的绝佳练手项目。"
-    },
-    "generated_at": "2026-11-09T07:57:33.511749+00:00",
-    "play_meta": {
-      "title_zh": "用Tauri 2和Rust做Windows提醒笔记启动器",
-      "title_en": "一个人 + AI，用 Tauri 2 和 Rust 写了个开源的 Windows 效率工具：提醒 + 笔记 + 启动器",
-      "source_id": "juejin-play",
-      "source_name": "掘金 AI 实战教程",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 2,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://juejin.cn/post/7705782451822690355",
       "is_domestic": true,
       "tags": [],
       "playability_score": 7.5

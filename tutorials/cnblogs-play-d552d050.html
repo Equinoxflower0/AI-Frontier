@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用Tauri 2和Rust做Windows提醒笔记启动器 - AI 玩法教程 · AI Frontier</title>
+<title>读 chat-demo 源码学 DeepSeek 全栈 API - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-15
+      2026-11-16
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🔗 工具链
+        🚀 可立即试用
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 30min
+        ⏱ 约 10min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Tauri 2和Rust做Windows提醒笔记启动器</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">读 chat-demo 源码学 DeepSeek 全栈 API</h1>
     
   </div>
 </header>
@@ -59,23 +59,27 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    掘金 AI 实战教程 · B级
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7705782451822690355" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/znlgis/p/23680323" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">用 Tauri 2 + Rust 打造一个 Windows 桌面小工具，一句话设提醒、随手记笔记、顺手启动程序，免费开源还轻量。</p>
+  <p class="text-base text-slate-800 leading-relaxed">想快速搞懂 DeepSeek 全栈 API 怎么用？直接读官方 chat-demo 源码，一下午就能把流式、思考、搜索、引用、附件、语音、分支、导入导出全跑通。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    日常工作中，我们经常需要快速记下灵感、设置一个临时提醒，或者打开某个常用软件。但打开笔记应用、设置闹钟、找到程序图标这些操作太繁琐。这个玩法教你用 Tauri 2 和 Rust 构建一个极简的 Windows 启动器，把提醒、笔记和程序启动三合一，常驻托盘，随叫随到。它适合喜欢折腾桌面效率工具的开发者，也适合想学习 Tauri 跨端开发的新手。整个项目代码量不大，难度适中，跟着教程走就能跑起来。
+    chat-demo 是 DeepSeek 官方放出的静态聊天示例，没有后端、没有会话库，浏览器直接拿着你的 API Key 去请求你配置的服务。它小到可以一下午读完全部逻辑，又完整到把流式、思考、搜索、引用、附件、语音、分支、导入导出全做了一遍。如果你的目标是接一套对话产品，它是一份极佳的参考实现；如果你只想学 API 用法，它比文档更直观。本教程带你从零跑通这个 demo，并拆解核心代码，让你能举一反三。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +100,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Rust 工具链  <a href="https://www.rust-lang.org/tools/install" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">编译 Rust 代码，需安装 rustup 并配置 MSVC 工具链</div>
+      <div class="font-semibold text-slate-900">DeepSeek 开放平台账号  <a href="https://platform.deepseek.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">获取 API Key，用于调用模型</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Node.js (&gt;=18)  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行前端构建工具和包管理器</div>
+      <div class="font-semibold text-slate-900">Node.js (v18+)  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行本地静态服务器和构建工具</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Tauri CLI  <a href="https://tauri.app/start/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">创建和构建 Tauri 项目，通过 cargo install tauri-cli 或 npm 安装</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">克隆 chat-demo 源码仓库</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Visual Studio Build Tools  <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">Windows 上编译 Rust 所需的 C++ 构建工具</div>
+      <div class="font-semibold text-slate-900">VS Code  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">阅读和调试源码</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">WebView2 Runtime  <a href="https://developer.microsoft.com/microsoft-edge/webview2/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">Windows 10/11 通常已内置，用于渲染 Tauri 前端界面</div>
+      <div class="font-semibold text-slate-900">现代浏览器 (Chrome/Edge)  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行 demo 并调试网络请求</div>
     </li>
   </ul>
 </section>
@@ -126,55 +130,66 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：初始化 Tauri 2 项目</h3>
-      <div class="text-base text-slate-700 leading-loose">打开终端，运行 `npm create tauri-app@latest`，按提示输入项目名（如 reminder-launcher），选择前端框架（推荐 Vanilla 或 React），包管理器选 npm。进入项目目录后执行 `npm install` 安装依赖。最后运行 `npm run tauri dev` 确认默认窗口能正常启动。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：获取源码并安装依赖</h3>
+      <div class="text-base text-slate-700 leading-loose">打开终端，执行 git clone https://github.com/deepseek-ai/chat-demo.git（若仓库地址变动，请参考博客园原文中的链接）。进入目录后运行 npm install 安装依赖。然后用 npm run dev 启动本地开发服务器，浏览器访问终端提示的地址（通常是 http://localhost:5173）。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果遇到 Rust 编译错误，检查是否安装了 MSVC 构建工具，并确保 rustup 默认工具链为 stable-x86_64-pc-windows-msvc。
+          💡 <span class="font-semibold">小贴士：</span>如果 npm install 慢，可切换淘宝镜像：npm config set registry https://registry.npmmirror.com
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：设计主界面与交互逻辑</h3>
-      <div class="text-base text-slate-700 leading-loose">在 src 目录下编辑前端页面，添加一个输入框用于输入指令，一个按钮用于提交。指令格式约定为：`提醒 10:30 开会`、`笔记 买牛奶`、`启动 notepad`。用 JavaScript 监听按钮点击，将输入内容通过 Tauri 的 invoke 函数发送到 Rust 后端。同时可以加一个简单的历史记录列表，展示最近的操作。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：配置 API Key 与请求地址</h3>
+      <div class="text-base text-slate-700 leading-loose">在项目根目录找到 .env 或 config 文件（不同版本可能不同），填入你的 DeepSeek API Key。同时确认请求的 base URL 指向 https://api.deepseek.com。保存后重启开发服务器。注意：demo 是纯前端，API Key 会暴露在浏览器中，仅限本地学习使用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>输入框支持回车提交，体验更顺手；用 localStorage 暂存历史记录，刷新不丢失。
+          💡 <span class="font-semibold">小贴士：</span>不要把带 Key 的代码推送到公开仓库；建议用 .env.local 并加入 .gitignore。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：Rust 后端实现三大功能</h3>
-      <div class="text-base text-slate-700 leading-loose">在 src-tauri/src/main.rs 中定义三个 Tauri command：`set_reminder` 解析时间并启动一个异步任务，到点后调用系统通知；`save_note` 将笔记内容追加写入本地文件（如 notes.txt）；`launch_app` 使用 std::process::Command 启动指定程序（如 notepad.exe）。每个 command 返回 Result 给前端反馈。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：跑通基础对话与流式输出</h3>
+      <div class="text-base text-slate-700 leading-loose">在聊天框输入“你好”，观察浏览器 Network 面板中的请求。你会看到 POST /chat/completions 请求，且响应是 stream 形式（text/event-stream）。阅读 src/api/chat.js 或类似文件，理解如何用 fetch + ReadableStream 逐块解析 SSE 数据并更新 UI。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>提醒功能可以用 tokio 的 sleep 实现，注意在 Tauri 的异步运行时中 spawn 任务；启动程序时对参数做简单校验，避免命令注入。
+          💡 <span class="font-semibold">小贴士：</span>在 Network 面板勾选“EventStream”标签，可以直观看到每个 chunk 的内容。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：配置系统托盘与全局快捷键</h3>
-      <div class="text-base text-slate-700 leading-loose">在 tauri.conf.json 中启用托盘图标，并在 Rust 端使用 Tauri 的 TrayIconBuilder 创建托盘菜单，包含“显示主窗口”和“退出”。同时注册全局快捷键（如 Ctrl+Shift+Space）唤起窗口，方便随时输入指令。需要引入 tauri-plugin-global-shortcut 插件并在配置中启用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：拆解思考、搜索与引用功能</h3>
+      <div class="text-base text-slate-700 leading-loose">在输入框上方找到“深度思考”和“联网搜索”开关。打开后发问，观察请求体中多了 reasoning 或 search 相关参数。阅读对应组件代码，理解如何将模型返回的 reasoning_content 和 citations 字段渲染到界面上。引用通常以角标形式展示，点击可跳转来源。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>托盘图标建议用 .ico 格式，尺寸 32x32；全局快捷键不要与系统常用快捷键冲突。
+          💡 <span class="font-semibold">小贴士：</span>搜索功能依赖后端代理，demo 中可能用模拟数据；重点看请求参数和渲染逻辑，而非真实搜索。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：打包为 Windows 安装包</h3>
-      <div class="text-base text-slate-700 leading-loose">运行 `npm run tauri build`，Tauri 会自动编译 Rust 并打包前端资源，生成 .msi 和 .exe 安装包，位于 src-tauri/target/release/bundle/ 目录下。安装后即可在开始菜单找到应用，双击运行。如需开机自启，可在安装包配置中勾选或手动将快捷方式放入启动文件夹。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：体验附件、语音、分支与导入导出</h3>
+      <div class="text-base text-slate-700 leading-loose">尝试上传一张图片或 PDF，观察请求如何将文件转为 base64 或 multipart 发送。点击麦克风按钮测试语音输入（依赖浏览器 Web Speech API）。在消息上右键或点击按钮创建分支，理解会话树的数据结构。最后使用导出按钮将对话保存为 JSON 或 Markdown。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>首次构建时间较长，耐心等待；若想减小体积，可在 tauri.conf.json 中开启压缩和移除未使用功能。
+          💡 <span class="font-semibold">小贴士：</span>分支功能的核心是维护一个树形消息列表，每个节点有 parentId；阅读 store 或 reducer 代码即可掌握。
+        </div>
+    </div>
+    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        6
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：修改源码并验证自定义功能</h3>
+      <div class="text-base text-slate-700 leading-loose">尝试修改系统提示词（system prompt）或默认模型参数（如 temperature）。例如在请求体中加入 system: '你是一个幽默的助手'，刷新后观察回复风格变化。再修改流式渲染的节流逻辑，让打字机效果更快或更慢。通过小改动验证你对代码的理解。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>用 VS Code 的调试功能在关键函数打断点，比 console.log 更高效。
         </div>
     </div>
   </div>
@@ -184,7 +199,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    运行应用后，系统托盘出现图标，按下 Ctrl+Shift+Space 弹出输入框。输入“提醒 14:00 喝水”后，到点会收到 Windows 通知；输入“笔记 明天交报告”后，笔记被保存到本地文件；输入“启动 calc”后，计算器程序被打开。所有操作都有即时反馈，历史记录清晰可见。
+    本地成功运行 chat-demo，能与 DeepSeek 模型进行流式对话，并体验思考、搜索、引用、附件、语音、分支、导入导出等全部功能。同时能读懂核心请求与渲染逻辑，具备基于此 demo 二次开发的能力。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +209,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 Rust 基础能跟着做吗？</span>
+        <span>没有 DeepSeek API Key 能跑吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。教程提供的代码片段直接复制即可运行，重点理解 Tauri 的 command 机制和前端调用方式，Rust 语法只需看懂大致逻辑。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能真实调用模型，但可以修改代码指向兼容 OpenAI 接口的本地模型（如 Ollama），或使用 mock 数据学习前端逻辑。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>提醒功能在应用关闭后还能生效吗？</span>
+        <span>为什么我的请求报 401 错误？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">默认不能，因为提醒任务运行在应用进程内。如需离线提醒，可将提醒时间写入系统计划任务，或让应用常驻托盘不退出。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查 API Key 是否填写正确、是否有多余空格，以及请求头 Authorization 是否为 Bearer &lt;key&gt;。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>启动程序时如何传递参数？</span>
+        <span>demo 中的联网搜索是真实的吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在 launch_app 命令中接收一个参数列表，用 Command::new(program).args(args) 传入即可，注意对参数做转义处理。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">官方 demo 可能仅演示参数传递和 UI 渲染，真实搜索需要你自行接入搜索 API 并在后端代理，避免前端暴露 Key。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>打包后的应用体积多大？</span>
+        <span>分支功能的数据结构是怎样的？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Tauri 应用通常只有几 MB 到十几 MB，远小于 Electron。具体取决于前端资源和 Rust 编译优化选项。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常是一个消息树，每个消息有 id 和 parentId，当前分支由当前选中节点回溯到根节点决定。阅读 store 中的 addMessage 和 switchBranch 即可理解。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>能否在 macOS 或 Linux 上使用？</span>
+        <span>如何部署到线上？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Tauri 本身跨平台，但本教程的托盘和快捷键实现针对 Windows 优化，其他平台需调整部分 API 和打包配置。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">由于是纯前端且含 API Key，不建议直接部署。正确做法是加一个轻量后端代理（如 Node.js/Express）转发请求并隐藏 Key，前端只与代理通信。</div>
     </details>
   </div>
 </section>
@@ -233,14 +248,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：增加语音输入——集成 Windows 语音识别 API，说出指令自动转文字并执行，彻底解放双手。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：支持自定义脚本——允许用户配置快捷指令映射到任意 shell 命令或脚本，打造个人专属启动器。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：云同步笔记——将笔记文件替换为调用云端 API（如 WebDAV 或 Notion），实现多设备同步。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将 chat-demo 改造成多模型切换器——在设置中增加模型选择（deepseek-chat / deepseek-reasoner），请求时动态替换 model 字段。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：基于 demo 的分支功能实现“对话树可视化”——用 D3.js 或 React Flow 画出消息节点关系图，点击节点切换分支。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把 demo 的流式渲染逻辑抽离成独立 npm 包，供其他项目复用，支持自定义 chunk 解析器和打字机速度。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 Tauri 2 把提醒、笔记和程序启动浓缩进一个常驻托盘的小工具，代码少、体积小、体验顺，是桌面效率提升的绝佳练手项目。
+    读官方最小 demo 是学 API 的最短路径：跑通它、拆解它、改造它，一下午就能把 DeepSeek 全栈能力装进自己口袋。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -248,20 +263,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件与 Office 文档转成 Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-hf-space-mrfakename/Z-Image-Turbo" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">HuggingFace Spaces · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">在线试玩Z Image Turbo图像生成</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-hf-space-hexgrad/Kokoro-TTS" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">HuggingFace Spaces · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Kokoro TTS在线生成语音</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建 AI Agent 工作流</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-hf-space-selfit-camera/Omni-Image-Editor" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">HuggingFace Spaces · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Selfit相机在线玩转全能图像编辑</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a></div>
 </section>
 

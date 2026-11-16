@@ -5,217 +5,217 @@
     <link>https://equinoxflower0.github.io/AI-Frontier/</link>
     <description>每天 5 分钟掌握全球 AI 核心动态：模型发布、开源项目、论文、产业动向，以及可上手的 AI 玩法。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 15 Nov 2026 08:06:53 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2026 08:17:52 +0000</lastBuildDate>
     <atom:link href="https://equinoxflower0.github.io/AI-Frontier/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>黄仁勋辞任英伟达CEO，阿里拟分拆平头哥上市</title>
-      <link>https://www.tmtpost.com/8205592.html</link>
-      <guid isPermaLink="true">https://www.tmtpost.com/8205592.html</guid>
-      <description><![CDATA[数智周报汇总：黄仁勋辞任英伟达CEO由CFO临时接任，阿里拟分拆平头哥港股独立上市，Anthropic启动IPO路演估值近腰斩<br/><br/><b>为什么重要：</b>英伟达换帅与Anthropic估值腰斩同时出现，说明AI算力与模型两端的资本叙事都在松动；关注英伟达新任CEO对华策略及平头哥分拆后国产AI芯片竞争格局，下一步看Anthropic定价能否稳住<br/><i>来源：钛媒体</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>DeepSeek开放全套API，联网搜索价格不到OpenAI的8%</title>
+      <link>https://www.infoq.cn/article/NWmk4epBL0jPAUtpKSKb</link>
+      <guid isPermaLink="true">https://www.infoq.cn/article/NWmk4epBL0jPAUtpKSKb</guid>
+      <description><![CDATA[DeepSeek将官方App的完整能力开放为API，包括联网搜索，定价不到OpenAI、Claude同类服务的8%<br/><br/><b>为什么重要：</b>做AI应用和Agent的开发者可直接用低价联网搜索API替代OpenAI方案，检索增强类产品成本大幅下降；下一步看实际限流、稳定性和搜索质量是否撑得住生产环境<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>黄仁勋如何为北京搭建AI芯片后门通道</title>
-      <link>https://www.wsj.com/tech/jensen-huang-backdoor-ai-data-centers-a5e4499d</link>
-      <guid isPermaLink="true">https://www.wsj.com/tech/jensen-huang-backdoor-ai-data-centers-a5e4499d</guid>
-      <description><![CDATA[WSJ报道称英伟达CEO黄仁勋通过海外数据中心等途径，维持中国获取AI算力的通道<br/><br/><b>为什么重要：</b>关注AI芯片出口管制与算力供应链的从业者需留意：若报道属实，中国AI公司获取高端GPU的路径可能比公开政策更宽松，直接影响国内大模型训练成本与节奏；下一步应看美国商务部是否收紧对第三国转口的监管，以及英伟达财报中中国区收入的真实口径<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>阿里发布Qwen4-Max：2.4T参数、百万上下文</title>
+      <link>https://www.leiphone.com/category/industrynews/TRw4D5Bw5HsTmC1G.html</link>
+      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/TRw4D5Bw5HsTmC1G.html</guid>
+      <description><![CDATA[11月16日阿里发布Qwen4-Max基座大模型，总参数2.4T，原生视觉、百万上下文，智能体与编程能力进入全球领先梯队，API缓存命中每百万Tokens 0.5元<br/><br/><b>为什么重要：</b>做Agent和长文档应用的开发者可直接受益：百万上下文加单任务成本降6成，让长周期多工具调用从demo走向生产；CodeArena第六说明国产模型在前端编程上已进入可替代梯队。下一步看中小尺寸开源版本的许可证与实测能力<br/><i>来源：AI 科技评论</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>全球芯片股较峰值回撤近四成，AI泡沫争议升温</title>
-      <link>https://www.tmtpost.com/8205717.html</link>
-      <guid isPermaLink="true">https://www.tmtpost.com/8205717.html</guid>
-      <description><![CDATA[全球芯片股较峰值回撤近四成，但非AI板块却创出新高，市场对AI泡沫是否破裂展开讨论<br/><br/><b>为什么重要：</b>持有AI芯片仓位的投资者和关注算力供应链的从业者需要区分：这轮回撤是估值消化还是需求见顶。非AI板块创新高说明资金在板块间轮动而非全面撤退，下一步应看英伟达等龙头下季度指引与云厂商资本开支是否延续<br/><i>来源：钛媒体</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>谷歌、Anthropic、OpenAI等巨头涌入制药业</title>
+      <link>https://www.tmtpost.com/8206733.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8206733.html</guid>
+      <description><![CDATA[谷歌、Anthropic、OpenAI、亚马逊、英伟达、微软等科技巨头正加速布局制药场景，将AI应用于药物研发<br/><br/><b>为什么重要：</b>做AI制药、生物医药信息化的团队需关注：科技巨头带着算力和模型能力直接切入靶点发现、临床试验等环节，可能挤压垂直AI制药公司的空间。下一步看谁先拿到大药企的落地合同和真实管线数据<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Kimi估值500亿美元，月之暗面急拆海外架构</title>
-      <link>https://www.tmtpost.com/8205584.html</link>
-      <guid isPermaLink="true">https://www.tmtpost.com/8205584.html</guid>
-      <description><![CDATA[月之暗面（Kimi）估值达500亿美元，正推进拆除海外VIE架构，为回国上市或引入境内资本铺路<br/><br/><b>为什么重要：</b>关注AI公司资本结构的中后期投资人和创业者需注意：拆VIE通常意味着上市地或资方结构变化，可能影响后续融资节奏与估值锚定；下一步应看其境内主体融资进展和上市窗口选择，这也会成为其他大模型公司资本路径的参照<br/><i>来源：钛媒体</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>美国数据中心建设减速：电力与选票改写AI竞赛</title>
+      <link>https://www.tmtpost.com/8205675.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8205675.html</guid>
+      <description><![CDATA[美国数据中心建设因电力供应紧张和地方选举阻力而放缓，AI算力扩张从芯片竞赛转向电力、选票与现金流的多重约束<br/><br/><b>为什么重要：</b>做AI基础设施和算力规划的团队需要关注：电力供给和地方审批正成为比芯片更硬的瓶颈，数据中心选址、自建电厂、长期购电协议会直接影响训练与推理成本曲线。下一步看各州审批节奏和电网接入排队时长<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>黄仁勋离任传闻引发连锁反应，亚洲重估AI芯片供应风险</title>
-      <link>https://www.tmtpost.com/8205610.html</link>
-      <guid isPermaLink="true">https://www.tmtpost.com/8205610.html</guid>
-      <description><![CDATA[传闻黄仁勋离任英伟达，超11.5万人联署要求其回任，马斯克等高管声援；亚洲政府重估单一AI基础设施供应商风险，韩国锁定26万颗GPU<br/><br/><b>为什么重要：</b>英伟达人事传闻叠加亚洲供应链重估，直接牵动AI算力采购与出口管制格局。做AI基础设施和芯片采购的团队需关注继任传闻是否坐实、韩国26万颗GPU订单落地节奏，以及中国出口管制是否进一步收紧——这些将决定明年算力成本与供应稳定性<br/><i>来源：钛媒体</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>GDP.xlsx：70个真实职场表格基准评测前沿模型</title>
+      <link>https://arxiv.org/abs/2611.17766</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.17766</guid>
+      <description><![CDATA[研究者发布GDP_xlsx基准，含13个领域70个真实职场表格任务、218万单元格与791条二元评分标准，用可打开文件的智能体裁判评测模型<br/><br/><b>为什么重要：</b>表格处理是智能体落地办公场景的核心能力，此前缺少贴近真实工作簿的评测。做Agent产品和企业办公自动化的团队可据此定位模型在完整性与排他性上的短板，下一步应关注该基准上的模型排名与失败模式分析<br/><i>来源：arXiv cs.AI</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>斯坦福哈佛等发布史上最严湿实验预测基准</title>
-      <link>https://www.qbitai.com/2026/11/510232.html</link>
-      <guid isPermaLink="true">https://www.qbitai.com/2026/11/510232.html</guid>
-      <description><![CDATA[斯坦福、哈佛、康奈尔等十余家顶尖团队联合发布湿实验预测基准，测试显示即使推理能力拉满、算力增加5倍，模型表现仍无显著提升<br/><br/><b>为什么重要：</b>做AI for Science和生物医药大模型的团队需要重点关注：该基准直接划定了当前模型在真实湿实验预测上的能力边界，说明堆推理算力和扩大模型规模在这类任务上收益有限，下一步应关注数据质量与领域先验的引入方式，而非继续加码算力<br/><i>来源：量子位</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>Agentic-OPD：用在线策略蒸馏找回被丢弃的智能体能力</title>
+      <link>https://arxiv.org/abs/2611.12799</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.12799</guid>
+      <description><![CDATA[研究发现GRPO训练中最佳验证检查点会遗忘早期检查点已解决的问题，提出Agentic-OPD方法通过在线策略蒸馏恢复被丢弃检查点的能力<br/><br/><b>为什么重要：</b>做LLM智能体RL训练的团队需要关注：标准做法只保留最佳检查点是有损的，跨检查点解题并集远超单一检查点，意味着现有训练流程白白浪费了已获得的能力。下一步该看该方法在不同任务和模型规模上的泛化性，以及能否集成进现有RL训练管线降低重训成本<br/><i>来源：arXiv cs.AI</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>百度词元所发布首日供应商破百客户超千</title>
-      <link>https://www.leiphone.com/category/industrynews/cqPXhF38rM4VcVa7.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/cqPXhF38rM4VcVa7.html</guid>
-      <description><![CDATA[百度11月12日发布大模型交易所词元所，首日新增入驻供应商超100家、新增客户超1000家，平台主打模型验真与供应商信用评级<br/><br/><b>为什么重要：</b>词元中转市场长期缺乏模型真实性与服务稳定性的核验，做企业级AI采购的团队此前只能自行压测比价；词元所把模型指纹比对、定期抽检和信用评级做成平台标准，可能改变第三方推理服务商的获客方式。下一步看信用评级能否成为企业选型的通用依据，以及主流模型原厂是否愿意长期留在平台内<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>英伟达作为AI经济无限开支票的日子将终结</title>
+      <link>https://www.wsj.com/tech/ai/nvidias-days-as-an-open-checkbook-for-the-ai-economy-are-numbered-90c7b388</link>
+      <guid isPermaLink="true">https://www.wsj.com/tech/ai/nvidias-days-as-an-open-checkbook-for-the-ai-economy-are-numbered-90c7b388</guid>
+      <description><![CDATA[WSJ报道称英伟达在AI经济中扮演的无限资金提供者角色即将结束，Hacker News社区对此展开讨论<br/><br/><b>为什么重要：</b>英伟达既是AI芯片供应商又是AI初创企业的重要投资方，其投资策略转向将直接影响依赖英伟达资金或GPU配额的AI创业公司；关注英伟达财报中投资板块与GPU租赁价格走势，可提前判断AI算力市场的供需拐点<br/><i>来源：Hacker News</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>DeepSeek开放全家桶API，App功能可自由组合调用</title>
-      <link>https://www.qbitai.com/2026/11/510003.html</link>
-      <guid isPermaLink="true">https://www.qbitai.com/2026/11/510003.html</guid>
-      <description><![CDATA[DeepSeek宣布开放全家桶API，官方App的各项功能均可自由组合调用<br/><br/><b>为什么重要：</b>开发者可直接把DeepSeek官方App的搜索、推理等功能模块拼装进自己的产品，省去自建多能力管线的工程成本；做AI应用和Agent的团队应关注具体接口粒度与定价，判断能否替代现有拼凑方案<br/><i>来源：量子位</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>AI巨头向民航退役航发借电，订单排到2031年</title>
+      <link>https://www.tmtpost.com/8206355.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8206355.html</guid>
+      <description><![CDATA[AI算力需求激增导致电力短缺，AI公司开始采购民航退役航空发动机改装的发电设备，相关订单已排至2031年<br/><br/><b>为什么重要：</b>做AI数据中心和算力基建的团队需要关注：电力供给正成为算力扩张的硬约束，供电方案从电网转向自建/改装发电设备，会推高单位算力成本并拉长交付周期。下一步看航改燃机、燃气轮机的供应产能和监管审批能否跟上<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>LangChain完成3亿美元C轮融资，估值30亿美元</title>
-      <link>https://www.ifanr.com/1689450</link>
-      <guid isPermaLink="true">https://www.ifanr.com/1689450</guid>
-      <description><![CDATA[LangChain 完成 3 亿美元 C 轮融资，估值达 30 亿美元，同时英伟达员工请愿黄仁勋回归、Microsoft 365 故障延续 48 小时<br/><br/><b>为什么重要：</b>LangChain 是智能体与 LLM 应用开发的主流框架，30 亿美元估值说明资本仍看好开发者工具层；做 Agent 和 RAG 的团队需关注其后续是否加速商业化、收紧开源许可或扩展托管服务，这会直接影响技术选型与迁移成本<br/><i>来源：爱范儿</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>黄仁勋或重返英伟达任CEO，苹果明年发智能眼镜</title>
+      <link>https://www.geekpark.net/news/373994</link>
+      <guid isPermaLink="true">https://www.geekpark.net/news/373994</guid>
+      <description><![CDATA[英媒曝黄仁勋考虑重返英伟达任CEO并获硅谷盟友施压支持；苹果计划2027年WWDC发布首款AI智能眼镜；OpenAI撤销独立机器人团队<br/><br/><b>为什么重要：</b>黄仁勋回归若成真将直接改变英伟达AI芯片战略与供应链节奏，关注其与董事会的博弈进展；苹果智能眼镜意味着AI可穿戴入口竞争升温，做端侧AI与AR应用的开发者需提前布局N50生态<br/><i>来源：极客公园</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>刚说好别动这个文件，Agent 怎么又改了？聊聊上下文压缩 - leikooo</title>
-      <link>https://www.cnblogs.com/leikooo/p/23666738</link>
-      <guid isPermaLink="true">https://www.cnblogs.com/leikooo/p/23666738</guid>
-      <description><![CDATA[用 Agent 跑长任务，迟早会碰到这一幕：屏幕上跳出一行 Compacting conversation…，等它转完，Agent 继续干活，但好像忘了点什么，…<br/><i>来源：博客园</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>OpenAI用GPT-6 Astra辅助推导标准模型格点定义</title>
+      <link>https://openai.com/index/step-toward-defining-the-standard-model</link>
+      <guid isPermaLink="true">https://openai.com/index/step-toward-defining-the-standard-model</guid>
+      <description><![CDATA[OpenAI发布研究，提出标准模型的非微扰格点定义候选方案，并称GPT-6 Astra协助将这一想法转化为详细证明<br/><br/><b>为什么重要：</b>理论物理从业者需关注：这是AI首次被官方明确用于推进格点场论的形式化证明，而非仅做文献检索。若可复现，AI辅助数学推导将从玩具问题进入真实物理建模，下一步应看证明是否经同行评审及Astra在推导中的具体贡献边界<br/><i>来源：OpenAI 官方</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Yelp AI助手融合原生UI与服务端驱动UI</title>
-      <link>https://www.infoq.cn/article/1N801doFOEl2Swqey5Jy</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/1N801doFOEl2Swqey5Jy</guid>
-      <description><![CDATA[Yelp介绍其AI助手如何结合原生UI与服务端驱动UI，以动态渲染方式呈现AI生成的交互界面<br/><br/><b>为什么重要：</b>做AI应用前端和Agent交互的开发者值得关注：服务端驱动UI让AI输出直接决定界面结构，减少客户端硬编码，缩短新功能上线周期。下一步看这种模式能否在复杂表单、多轮对话场景稳定落地<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>DRTriton：合成数据强化学习生成Triton内核</title>
+      <link>https://arxiv.org/abs/2603.21465</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2603.21465</guid>
+      <description><![CDATA[研究者提出DRTriton框架，用大规模合成数据驱动强化学习，让LLM自动将PyTorch实现转换为高效Triton内核<br/><br/><b>为什么重要：</b>CUDA/Triton内核编写是AI基础设施的稀缺技能，GPT-5.2和Claude-Sonnet-4.5在此任务上仍表现不佳。若合成数据+RL路线跑通，算子优化的人力成本可大幅压缩，做推理框架和编译器优化的团队应关注其合成数据构造与奖励设计细节<br/><i>来源：arXiv cs.CL</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AICon北京：闭环AI自我进化从Skill到模型训练</title>
-      <link>https://www.infoq.cn/article/fZSEkDatL9xajG8PVi7G</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/fZSEkDatL9xajG8PVi7G</guid>
-      <description><![CDATA[InfoQ中国发布AICon北京议题，讨论从Skill、Harness到模型训练与评估的闭环AI自我进化路径<br/><br/><b>为什么重要：</b>关注AI Agent工程化的开发者需要留意：把技能编排、执行框架与训练评估打通，意味着Agent能力可以靠数据回流持续迭代，而非一次性调优。下一步该看这套闭环在真实业务中的落地成本与评估标准是否可复用<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>HackWorld：评测计算机使用智能体挖掘Web漏洞</title>
+      <link>https://arxiv.org/abs/2510.12200</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2510.12200</guid>
+      <description><![CDATA[arXiv发布HackWorld基准，用于评估计算机使用智能体（CUA）利用Web应用漏洞的能力<br/><br/><b>为什么重要：</b>安全团队和做Agent的开发者需要关注：它把CUA能力评测从网页操作扩展到真实漏洞利用，明确了视觉理解与多步交互在自动化渗透测试中的价值边界。下一步可看该基准的漏洞覆盖面和CUA成功率，判断自动化渗透测试能否替代部分人工成本<br/><i>来源：arXiv cs.CL</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>GitLab 19.5 将智能体开发纳入 DevOps 治理</title>
-      <link>https://www.infoq.cn/article/0IpE2EOypcqMFtL7z4z1</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/0IpE2EOypcqMFtL7z4z1</guid>
-      <description><![CDATA[GitLab 发布 19.5 版本，把 AI 智能体开发纳入平台，提供可治理的 DevOps 能力<br/><br/><b>为什么重要：</b>用 GitLab 做 CI/CD 的团队需要关注：智能体从个人脚本变成平台内可审计、可管权限的资产，企业落地 AI 自动化的合规门槛降低；下一步看其智能体运行时与权限模型的成熟度<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>Astraios：28个模型系统对比7种PEFT方法</title>
+      <link>https://arxiv.org/abs/2401.00788</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2401.00788</guid>
+      <description><![CDATA[研究者发布Astraios套件，用7种微调方法和4种模型规模（最大16B）训练28个指令微调OctoCoder模型，系统比较不同规模下的成本性能权衡<br/><br/><b>为什么重要：</b>做代码模型微调的团队此前只能凭经验选PEFT方法，这份工作首次在16B以内多规模上给出统一对比基准，可直接指导显存受限时该选LoRA还是其他方案；下一步值得看它在代码生成基准上的具体排名与显存/吞吐数据<br/><i>来源：arXiv cs.AI</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>IBM发布Spyre AI加速卡：75W PCIe配128GB LPDDR5</title>
-      <link>https://www.ibm.com/docs/en/systems-hardware/zsystems/9175-ME1?topic=introduction-spyre-accelerator</link>
-      <guid isPermaLink="true">https://www.ibm.com/docs/en/systems-hardware/zsystems/9175-ME1?topic=introduction-spyre-accelerator</guid>
-      <description><![CDATA[IBM在官方文档中公布Spyre AI加速卡规格：75W PCIe接口，配备128GB LPDDR5内存，面向zSystems服务器<br/><br/><b>为什么重要：</b>75W功耗做到128GB显存，对跑大模型推理的私有化部署团队是关键信号——单卡即可容纳更大模型或更长上下文，且无需额外供电改造。做企业级推理硬件选型的架构师应关注其实际带宽与软件栈支持，下一步看是否开放独立PCIe版本及对主流框架的适配<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>假新闻检测器对大模型生成文本存在偏见</title>
+      <link>https://arxiv.org/abs/2309.08674</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2309.08674</guid>
+      <description><![CDATA[该论文提出新评测范式，发现假新闻检测器在同时面对人类撰写与大模型生成的虚假信息时，对后者存在显著偏见<br/><br/><b>为什么重要：</b>做内容审核、事实核查和平台风控的团队需要关注：检测器对LLM生成文本的系统性偏见意味着现有审核管线可能误判或漏判，直接影响到虚假信息治理的可靠性。下一步应看偏见的具体方向（误报还是漏报）及跨模型泛化性<br/><i>来源：arXiv cs.CL</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Anthropic收购一人AI生物技术公司</title>
-      <link>https://www.nature.com/articles/d41586-026-03640-9</link>
-      <guid isPermaLink="true">https://www.nature.com/articles/d41586-026-03640-9</guid>
-      <description><![CDATA[Anthropic收购了一家仅有一名员工、以AI驱动研发的生物技术初创公司，Nature对此进行了报道<br/><br/><b>为什么重要：</b>AI大模型公司开始通过并购直接切入垂直科研场景，而非只卖API。做AI for Science的团队需关注：模型厂商正从工具提供方变成领域玩家，可能挤压中间层创业空间。下一步看收购后团队与模型如何整合、是否产出可验证的科研结果<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>临床AI评测即干预：评审模型会掩盖错误</title>
+      <link>https://arxiv.org/abs/2611.18297</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.18297</guid>
+      <description><![CDATA[论文指出，用AI评审模型按评分标准给临床AI输出打分并据此选提示词或训练模型时，评审本身就成了干预的一部分，筛选可能偏向评审忽略的错误<br/><br/><b>为什么重要：</b>做临床AI的团队若把LLM评审当自动质检，选型阶段就会系统性放大评审盲区里的临床错误；论文要求评审报告必须披露盲区，且每项评审驱动的改动都要配独立临床测试，医疗AI产品与合规团队应据此重设验收流程<br/><i>来源：arXiv cs.CL</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Linus 质疑 Linux AI 补丁潮是否见顶</title>
-      <link>https://linux.slashdot.org/story/26/11/14/0827227/linus-torvalds-wonders-if-linuxs-ai-prompted-patch-flood-has-peaked</link>
-      <guid isPermaLink="true">https://linux.slashdot.org/story/26/11/14/0827227/linus-torvalds-wonders-if-linuxs-ai-prompted-patch-flood-has-peaked</guid>
-      <description><![CDATA[Linus Torvalds 在社区讨论中提出疑问：由 AI 提示生成并提交给 Linux 内核的补丁数量激增，这一趋势是否已经达到顶峰<br/><br/><b>为什么重要：</b>Linux 内核维护者正面临 AI 生成补丁带来的审查负担，这直接关系到开源协作流程的可扩展性。内核社区如何处理低质量 AI 提交，将成为其他大型开源项目的参考样本；后续值得关注的是补丁接受率与审查成本数据<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>千问办公上线10款模型可选</title>
+      <link>https://www.leiphone.com/category/industrynews/tDhzNl3D84AjopSh.html</link>
+      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/tDhzNl3D84AjopSh.html</guid>
+      <description><![CDATA[11月16日，千问办公在原有三档模型基础上新增Qwen4-Max、Kimi-K3.1、GLM-5.3、DeepSeek等10款模型，个人版和企业标准版用户可自由选择<br/><br/><b>为什么重要：</b>办公Agent用户可按任务复杂度在效果、速度、成本间取舍，做企业Agent集成和办公SaaS的团队需要重新评估模型路由策略；下一步看千问办公是否开放按任务自动选模型，以及三方模型接入的计费与稳定性<br/><i>来源：AI 科技评论</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>黄仁勋离职风波折射中国AI芯片依赖困境</title>
-      <link>https://www.tmtpost.com/8205600.html</link>
-      <guid isPermaLink="true">https://www.tmtpost.com/8205600.html</guid>
-      <description><![CDATA[钛媒体评论称，黄仁勋离职风波背后涉及芯片转运与出口管制调查，折射中国AI产业对海外算力的现实依赖<br/><br/><b>为什么重要：</b>做AI基础设施和算力采购的团队需要关注：出口管制调查若升级，英伟达对华供货节奏可能进一步收紧，国产替代方案的切换成本和窗口期会直接变化。下一步看调查结论与后续管制细则<br/><i>来源：钛媒体</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>制造企业试RAG、知识图谱与Agent后收回权限</title>
+      <link>https://www.cnblogs.com/aifrontiers/p/23665080</link>
+      <guid isPermaLink="true">https://www.cnblogs.com/aifrontiers/p/23665080</guid>
+      <description><![CDATA[一家年营收二十多亿的精密制造企业试用向量知识库、知识图谱和Agent工作流，上线半月内三次故障后老板收回自动执行权限<br/><br/><b>为什么重要：</b>给正在落地企业级Agent的团队一个反面样本：故障根源是词义与业务概念缺少统一定义（本体层），而非模型能力不足。做知识库和Agent工作流的开发者应先补语义层再谈自动化，否则越自动越危险<br/><i>来源：博客园</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AI叙事转变：暴跌、监管与数据中心博弈</title>
-      <link>https://www.tmtpost.com/8205551.html</link>
-      <guid isPermaLink="true">https://www.tmtpost.com/8205551.html</guid>
-      <description><![CDATA[钛媒体报道AI行业正遭遇美股暴跌、美国监管收紧与政治博弈三重冲击，数据中心未来走向成为焦点<br/><br/><b>为什么重要：</b>关注AI基础设施投资与算力布局的从业者需留意：美国监管与政治不确定性正直接冲击数据中心建设节奏和资本开支预期，AI叙事从单纯扩张转向政策风险定价。下一步应跟踪具体监管条款落地及头部云厂商的资本开支指引调整<br/><i>来源：钛媒体</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>Co-Sight Harness：外置控制资产让长流程业务智能体可靠</title>
+      <link>https://arxiv.org/abs/2611.17696</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.17696</guid>
+      <description><![CDATA[研究者提出Co-Sight Harness方法，将工作流定义、状态与领域知识移出模型，作为版本化控制资产，在不改动LLM的前提下用状态机确定性执行长流程业务任务<br/><br/><b>为什么重要：</b>做企业级智能体落地的团队需要关注：它把可靠性从“靠模型能力”转到“靠外部状态机与版本化知识”，直接针对长链条错误累积和术语错配两大失败模式。下一步看它在真实业务流程上的成功率与维护成本对比<br/><i>来源：arXiv cs.AI</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>算力狂飙净利率跌破5%，工业AI算不出真利润</title>
-      <link>https://www.tmtpost.com/8205381.html</link>
-      <guid isPermaLink="true">https://www.tmtpost.com/8205381.html</guid>
-      <description><![CDATA[钛媒体分析指出，制造业净利率跌破5%的背景下，工业AI若只做聊天式降本，无法触及实体企业真实利润，真正的价值在物理AI的'同源耦合'<br/><br/><b>为什么重要：</b>做工业AI和制造业数字化的团队需要重新校准价值主张：通用大模型套壳做客服、文档类场景难以支撑5%净利率下的投入回报，必须切入生产决策、工艺参数等物理环节。下一步看谁能把AI能力嵌入产线数据闭环，而非停留在对话框<br/><i>来源：钛媒体</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>Codex、Claude Code之后，产品即提示词成新黑马</title>
+      <link>https://www.infoq.cn/article/8TySw9wzqf0l90keJUNf</link>
+      <guid isPermaLink="true">https://www.infoq.cn/article/8TySw9wzqf0l90keJUNf</guid>
+      <description><![CDATA[InfoQ 中国报道，在 Codex、Claude Code 等编码智能体之后，出现将整个产品做成单一提示词的新范式<br/><br/><b>为什么重要：</b>做 AI 产品与 Agent 的开发者需要关注：产品形态从多模块工程收敛为一段可迭代提示词，验证与分发成本大幅降低，竞争点转向提示词质量与上下文管理。下一步看这类产品在真实任务上的稳定性与可维护性<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>斯坦福开源Memorilla：16个记忆token压缩文档集</title>
-      <link>https://www.marktechpost.com/2026/11/14/stanford-memorilla-memory-system-16-memory-tokens/</link>
-      <guid isPermaLink="true">https://www.marktechpost.com/2026/11/14/stanford-memorilla-memory-system-16-memory-tokens/</guid>
-      <description><![CDATA[斯坦福研究者开源Memorilla记忆系统，将文档集压缩为16个记忆token，在冻结的Qwen3-8B上FactKG达84.33%，文档token用量减少108倍<br/><br/><b>为什么重要：</b>做长文档RAG和知识库问答的开发者值得关注：把文档集压到16个token意味着上下文成本几乎归零，冻结模型无需微调即可获得外部记忆，检索增强架构可能被这种潜空间记忆方案替代。下一步看它在多文档更新、跨领域泛化和真实业务语料上的表现，以及是否放出训练代码与权重<br/><i>来源：MarkTechPost</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>AI 写得快，谁来接住生产责任</title>
+      <link>https://www.infoq.cn/article/sIqEVPmL3P9PExLjPzPW</link>
+      <guid isPermaLink="true">https://www.infoq.cn/article/sIqEVPmL3P9PExLjPzPW</guid>
+      <description><![CDATA[InfoQ 中国发文讨论 AI 生成代码与内容速度提升后，生产环境中的责任归属与审核机制问题<br/><br/><b>为什么重要：</b>面向使用 AI 编码的工程团队和技术管理者：AI 把交付速度拉高后，代码审查、测试覆盖和线上事故追责成为新瓶颈，团队需要明确人机责任边界与准入流程。下一步值得关注各公司如何落地 AI 生成内容的审核与署名规范<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>英伟达员工请愿让黄仁勋回归</title>
-      <link>https://www.qbitai.com/2026/11/510297.html</link>
-      <guid isPermaLink="true">https://www.qbitai.com/2026/11/510297.html</guid>
-      <description><![CDATA[英伟达员工发起集体请愿，要求让黄仁勋回归，马斯克也在请愿书上签名<br/><br/><b>为什么重要：</b>英伟达是 AI 芯片的核心供应商，管理层变动会直接影响 GPU 路线图与产能分配；关注英伟达的开发者、云厂商和 AI 创业公司需要留意后续人事与战略是否波及供货节奏<br/><i>来源：量子位</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>Super Agent进群：11.11数字人队长主动干活</title>
+      <link>https://www.infoq.cn/article/myl5Mcw3iyCYv3ZJ3hwQ</link>
+      <guid isPermaLink="true">https://www.infoq.cn/article/myl5Mcw3iyCYv3ZJ3hwQ</guid>
+      <description><![CDATA[InfoQ报道今年11.11期间，Super Agent以“数字人队长”形式进入工作群，可主动执行任务<br/><br/><b>为什么重要：</b>做电商运营和客服自动化的团队需要关注：智能体从被动响应转向群内主动接活，意味着大促期间人力调度和任务分发的产品形态可能被重构。下一步看它在真实流量下的任务完成率与错误兜底机制<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Vercel发布UI SDK：50+UI行为供AI编码智能体</title>
-      <link>https://www.marktechpost.com/2026/11/13/vercel-ui-sdk-agent-ui-behaviors/</link>
-      <guid isPermaLink="true">https://www.marktechpost.com/2026/11/13/vercel-ui-sdk-agent-ui-behaviors/</guid>
-      <description><![CDATA[Vercel Labs发布Apache-2.0许可的Vercel UI SDK测试版，含50多种UI行为，编码智能体可将其组合为React、Vue、Svelte、Solid及Web Components的可访问组件，并提供直接控制UI的桥接层<br/><br/><b>为什么重要：</b>做AI编码工具和前端智能体的团队需要关注：此前智能体生成UI常缺可访问性和跨框架一致性，这套行为库把组件质量下限抬高，降低了智能体产出可用界面的成本。下一步看它能否被主流编码智能体默认集成，以及社区是否围绕它形成行为规范<br/><i>来源：MarkTechPost</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>阿里称新旗舰AI模型任务成本降60%并强化安全防护</title>
+      <link>https://www.scmp.com/tech/big-tech/article/3374540/alibaba-says-new-flagship-ai-model-cuts-task-costs-60-while-tightening-cyber-guardrails</link>
+      <guid isPermaLink="true">https://www.scmp.com/tech/big-tech/article/3374540/alibaba-says-new-flagship-ai-model-cuts-task-costs-60-while-tightening-cyber-guardrails</guid>
+      <description><![CDATA[阿里巴巴发布新旗舰AI模型，宣称可将任务成本降低60%，同时加强网络安全防护措施<br/><br/><b>为什么重要：</b>做AI应用落地的团队需要关注：任务成本降60%直接影响推理经济性，原先因成本搁置的高频调用场景可能变得可行。下一步应看第三方复现的成本数据和实际安全防护效果，而非官方口径<br/><i>来源：Hacker News</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>巴尔的摩县学校停用AI阅读项目</title>
-      <link>https://www.thebanner.com/education/k-12-schools/county-schools-artificial-intelligence-453DCFYJL5CDBAM4AY3NYY4ILU/</link>
-      <guid isPermaLink="true">https://www.thebanner.com/education/k-12-schools/county-schools-artificial-intelligence-453DCFYJL5CDBAM4AY3NYY4ILU/</guid>
-      <description><![CDATA[巴尔的摩县公立学校决定逐步淘汰一款AI阅读教学项目，具体原因和替代方案尚未在摘要中说明<br/><br/><b>为什么重要：</b>这是K-12教育场景中AI产品被实际叫停的案例，做教育AI的团队需要关注：学校采购方对效果验证和合规风险的要求正在变严，产品若拿不出可量化的学习增益，续约和扩张会受阻。下一步看当地教育部门是否披露评估数据与替代方案<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>居民反对AI数据中心，美地方政府为何争抢</title>
+      <link>https://www.tmtpost.com/8206716.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8206716.html</guid>
+      <description><![CDATA[美国多地居民反对AI数据中心，但地方政府仍积极争取落地，看重税收与就业<br/><br/><b>为什么重要：</b>AI数据中心选址正从技术问题变成地方政治经济博弈：居民关注水电噪音，政府看重房产税与就业。做AI基础设施、算力租赁和选址的团队需关注地方审批与社区关系成本，下一步看税收优惠与环评门槛如何变化<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>钛媒体推智能大迁移专题，聚焦AI重写影视业成本与权力</title>
-      <link>https://www.tmtpost.com/8205257.html</link>
-      <guid isPermaLink="true">https://www.tmtpost.com/8205257.html</guid>
-      <description><![CDATA[钛媒体启动《智能大迁移》专题，从十个问题出发观察AI如何从模型之争落地到影视等千行百业<br/><br/><b>为什么重要：</b>影视从业者和内容投资人可关注：AI正在改变制作成本结构与资本流向，但该文目前只是专题预告，尚无具体数据或案例。下一步应看其后续是否给出可量化的成本对比与中美行业差异分析<br/><i>来源：钛媒体</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>黄仁勋想回来，AI却回不去了</title>
+      <link>https://www.tmtpost.com/8206643.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8206643.html</guid>
+      <description><![CDATA[钛媒体评论文章指出，黄仁勋试图重返中国市场，但AI产业格局已变，回不到过去<br/><br/><b>为什么重要：</b>关注英伟达在华业务与国产AI芯片替代进程的从业者需留意：文章讨论的是地缘政治与供应链重构下，中国市场对英伟达的依赖度变化。下一步应看英伟达特供芯片的实际出货数据与国产算力份额<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AI硬件专利风暴将至：资本、内存墙与光互连</title>
-      <link>https://www.troutman.com/insights/the-coming-patent-storm-in-ai-hardware-what-the-capital-flows-the-memory-wall-and-the-optical-interconnect-race-mean-for-your-ip-strategy/</link>
-      <guid isPermaLink="true">https://www.troutman.com/insights/the-coming-patent-storm-in-ai-hardware-what-the-capital-flows-the-memory-wall-and-the-optical-interconnect-race-mean-for-your-ip-strategy/</guid>
-      <description><![CDATA[Troutman律师事务所发布分析文章，指出AI硬件领域的资本涌入、内存墙瓶颈和光互连竞赛将引发专利诉讼潮，建议企业提前布局知识产权策略<br/><br/><b>为什么重要：</b>做AI芯片、光模块和HBM相关硬件的团队需要关注：资本密集涌入意味着专利圈地加速，内存墙和光互连是当前技术竞争焦点，提前做FTO检索和专利布局可避免产品上市后被诉讼卡住。下一步看HN讨论中是否有从业者披露实际专利纠纷案例<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>OpenButterfly追踪AI生态环境影响</title>
+      <link>https://openbutterfly.com/</link>
+      <guid isPermaLink="true">https://openbutterfly.com/</guid>
+      <description><![CDATA[开发者推出OpenButterfly，追踪AI实验室、云厂商、芯片商和数据中心运营商的能耗、排放与水压力，35家公司中8家未披露任何环境数据<br/><br/><b>为什么重要：</b>AI数据中心的水电消耗正成为选址与监管焦点，做数据中心选址、ESG合规和AI基础设施投资的团队可直接用它比对35家公司的披露缺口；下一步看未披露的8家是否被监管或客户倒逼公开数据<br/><i>来源：Hacker News</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>律师用8块V100私服跑DeepSeek v4.1 Flash</title>
-      <link>https://www.tomshardware.com/tech-industry/artificial-intelligence/lawyer-upgrades-eight-v100-private-ai-server-to-run-80-percent-of-deepseek-v4-1-flash-at-4-bit-nvfp4-precision-adds-1tb-of-ram-an-nvidia-rtx-3090-and-fixes-crashes-caused-by-a-bad-psu</link>
-      <guid isPermaLink="true">https://www.tomshardware.com/tech-industry/artificial-intelligence/lawyer-upgrades-eight-v100-private-ai-server-to-run-80-percent-of-deepseek-v4-1-flash-at-4-bit-nvfp4-precision-adds-1tb-of-ram-an-nvidia-rtx-3090-and-fixes-crashes-caused-by-a-bad-psu</guid>
-      <description><![CDATA[一名律师升级自建8卡V100服务器，加装1TB内存和RTX 3090，以4-bit NVFP4精度运行DeepSeek v4.1 Flash约80%的能力，并修复了电源故障导致的崩溃<br/><br/><b>为什么重要：</b>对想私有化部署大模型的个人和小团队有参考价值：二手V100加消费级3090和大量内存，就能跑起接近前沿的开源模型，说明本地推理的硬件门槛和成本结构正在下探。下一步值得关注4-bit量化在长上下文和实际任务上的精度损失有多大<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>AscendGYM：昇腾NPU真实负载内核优化基准</title>
+      <link>https://arxiv.org/abs/2611.17621</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.17621</guid>
+      <description><![CDATA[arXiv发布AscendGYM基准，含48个昇腾NPU内核，评测智能体在真实负载输入配置下优化已有内核实现的能力<br/><br/><b>为什么重要：</b>现有昇腾内核基准偏重内核生成，忽视真实负载下的优化能力；做昇腾算子调优、推理部署和国产芯片适配的团队可直接用它衡量智能体优化效果，下一步看其难度分层与真实负载覆盖是否够广<br/><i>来源：arXiv cs.AI</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>手搓AI Agent 06：短期压缩与长期存储的记忆设计</title>
-      <link>https://www.cnblogs.com/MrHuo/p/23671261/agent-from-scratch-06</link>
-      <guid isPermaLink="true">https://www.cnblogs.com/MrHuo/p/23671261/agent-from-scratch-06</guid>
-      <description><![CDATA[博客园系列教程第6篇，用Node.js+TypeScript从零实现Agent记忆模块，分短期上下文压缩防溢出与长期跨会话存储两种形态<br/><br/><b>为什么重要：</b>做Agent落地的开发者可直接参考这套记忆分层方案：短期压缩解决上下文窗口成本与溢出，长期存储解决跨会话状态丢失，是自研Agent绕不开的工程细节。下一步可关注其压缩策略与存储选型是否可复用<br/><i>来源：博客园</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>CPM-MultiAgent：模拟患者情绪动态演化框架</title>
+      <link>https://arxiv.org/abs/2607.07824</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2607.07824</guid>
+      <description><![CDATA[研究者提出CPM-MultiAgent框架，基于认知评价理论建模医疗对话中模拟患者情绪的随对话动态演化，而非静态属性<br/><br/><b>为什么重要：</b>做医疗问诊训练、共情对话和虚拟标准化病人的团队值得关注：现有模拟患者情绪多为静态标签，该框架让情绪随临床信息逐步变化，训练场景更接近真实。下一步看其情绪演化是否可评测、能否接入现有对话训练管线<br/><i>来源：arXiv cs.AI</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>ChatMate：通过沙箱逃逸远程执行AI助手提示词</title>
-      <link>https://www.youtube.com/watch?v=MspRSCAb6uI</link>
-      <guid isPermaLink="true">https://www.youtube.com/watch?v=MspRSCAb6uI</guid>
-      <description><![CDATA[研究者展示ChatMate方法，利用沙箱逃逸在AI助手上实现远程提示词执行，视频发布于YouTube并在Hacker News讨论<br/><br/><b>为什么重要：</b>做AI Agent和插件沙箱隔离的开发者需要关注：沙箱逃逸意味着第三方提示词可绕过隔离在宿主环境执行，直接冲击AI助手的权限边界设计；下一步应看该方法在主流Agent框架上的复现条件与厂商修补节奏<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>研究思维链跨模型传递的可复用性与可验证性</title>
+      <link>https://arxiv.org/abs/2602.17544</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.17544</guid>
+      <description><![CDATA[arXiv 论文提出用 Sender-Receiver 框架评估思维链推理在模型间传递时是否可靠、有用且安全<br/><br/><b>为什么重要：</b>多模型串联已成 AI 应用主流架构，但上游模型的推理文本传给下游时是否失真、是否可验证此前缺乏系统评估。做 Agent 编排、多模型流水线和推理链复用的团队需要关注这套评估维度，下一步可看其能否成为推理传递质量的基准测试<br/><i>来源：arXiv cs.AI</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AI时代软件终局：界面退位，契约上位</title>
-      <link>https://www.cnblogs.com/hugogoos/p/23668983</link>
-      <guid isPermaLink="true">https://www.cnblogs.com/hugogoos/p/23668983</guid>
-      <description><![CDATA[博客园文章提出，AI将「人看界面→程序查表」压缩为「意图→能力」，界面层失去必要性，责任与审计上移至语义层和治理层，形成五层结构<br/><br/><b>为什么重要：</b>做企业软件和AI Agent架构的团队值得一读：它把「界面会不会消失」的争论转成「授权与治理怎么分层」的工程问题，提示语义层和治理层将成为新的竞争壁垒。下一步可关注该五层结构在真实Agent系统中的落地验证<br/><i>来源：博客园</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>小开源模型群体决策：输出融合与语言聚合的边界</title>
+      <link>https://arxiv.org/abs/2611.17589</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.17589</guid>
+      <description><![CDATA[研究测试5个8-36B开源权重模型在重复查询下通过2-tuple语言表示聚合判断，能否稳定收敛为决策而非标签<br/><br/><b>为什么重要：</b>给想在自有基础设施上跑群体决策的机构一个明确边界：小模型重复采样加语言聚合能否替代单次判断，直接决定私有化部署方案是否可行；做多智能体投票和不确定性量化的团队应关注聚合策略在8-36B区间的失效点<br/><i>来源：arXiv cs.CL</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Capri：本地优先桌面AI智能体，赛博朋克HUD</title>
-      <link>https://github.com/Outpostkrewhirl86/Capri-AI</link>
-      <guid isPermaLink="true">https://github.com/Outpostkrewhirl86/Capri-AI</guid>
-      <description><![CDATA[GitHub项目Capri-AI获345星，是一个本地优先的Windows桌面AI智能体，可控制文件、应用、终端和浏览器，支持Claude Code、Codex等多种后端<br/><br/><b>为什么重要：</b>面向Windows用户的本地桌面Agent，把文件、终端、浏览器操作统一到一个HUD界面，且后端可插拔，开发者可低成本试不同模型。关注点是本地权限控制与多后端切换的实际体验，以及个人项目能否稳定维护<br/><i>来源：GitHub 高星 AI Agent</i>]]></description>
-      <pubDate>2026-11-15 08:00:00 +0800</pubDate>
+      <title>BBOWP-Bench：评估大模型黑箱优化应用题</title>
+      <link>https://arxiv.org/abs/2608.02612</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2608.02612</guid>
+      <description><![CDATA[arXiv 发布 BBOWP-Bench 基准，用于评测大模型在目标与约束无法显式写成数学表达式的黑箱优化应用题上的表现<br/><br/><b>为什么重要：</b>现有基准只覆盖可显式建模的优化问题，而工程调度、参数调优等真实场景多为黑箱。做 LLM 自动建模、运筹优化 Agent 的团队可据此判断模型能力边界；下一步值得关注该基准的具体任务构成与各模型得分差距<br/><i>来源：arXiv cs.CL</i>]]></description>
+      <pubDate>2026-11-16 08:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>微信装AI录音笔，免费转写会议纪要 - AI 玩法教程 · AI Frontier</title>
+<title>用DeepSeek API接入历史记录实现不限额对话 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-17
+      2026-11-18
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">微信装AI录音笔，免费转写会议纪要</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用DeepSeek API接入历史记录实现不限额对话</h1>
     
   </div>
 </header>
@@ -65,17 +65,21 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     权威媒体
   </span>
-  <a href="https://www.ifanr.com/1688410" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.ifanr.com/1689869" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">微信里藏着一个「AI录音笔」功能，能自动把语音转成文字并生成会议纪要，全程免费。今天手把手教你把它用起来，开会摸鱼两不误。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用 DeepSeek API 接入历史对话记录，打造一个不限额、可长期记忆的私人 AI 助手。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多人不知道，微信自带的「录音转文字」功能其实已经接入了AI能力，不仅能实时转写，还能自动分段、提炼重点。对于经常开会、听讲座、做访谈的人来说，这相当于白嫖了一个专业录音笔+速记员。相比市面上动辄几十上百元的转写服务，微信这个功能完全免费，而且就在聊天窗口里，随用随开。爱范儿这篇报道详细拆解了操作路径，我把它整理成可复现的教程。
+    很多用户在使用 DeepSeek 网页版时，会遇到对话长度限制或历史记录无法跨会话继承的问题。通过 API 接入并手动管理历史记录，你可以突破这些限制，实现无限轮次的连续对话，并且完全掌控数据。这个玩法适合需要长期项目讨论、角色扮演、代码调试等场景，也适合想深入理解大模型上下文机制的开发者。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +100,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">微信（最新版）  <a href="https://weixin.qq.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">核心工具，需更新到最新版本以支持AI转写功能</div>
+      <div class="font-semibold text-slate-900">DeepSeek 开放平台账号  <a href="https://platform.deepseek.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于获取 API Key，调用 DeepSeek 模型</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">手机系统录音权限 </div>
-      <div class="text-sm text-slate-600 mt-1">确保微信有麦克风权限，否则无法录音</div>
+      <div class="font-semibold text-slate-900">Python 3.8+ 环境  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行脚本，管理对话历史</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">安静环境或外接麦克风 </div>
-      <div class="text-sm text-slate-600 mt-1">提升转写准确率，会议场景建议用领夹麦或手机靠近声源</div>
+      <div class="font-semibold text-slate-900">openai Python 包  <a href="https://pypi.org/project/openai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">DeepSeek API 兼容 OpenAI SDK，用 pip install openai 安装</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">参考原文  <a href="https://www.ifanr.com/1688410" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">爱范儿原始玩法报道，含截图和细节</div>
+      <div class="font-semibold text-slate-900">文本编辑器或 IDE  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编写和运行代码，如 VS Code、PyCharm</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">参考文章  <a href="https://www.ifanr.com/1689869" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">爱范儿 AI 应用原文，提供玩法背景</div>
     </li>
   </ul>
 </section>
@@ -122,55 +130,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：打开微信「收藏」里的录音入口</h3>
-      <div class="text-base text-slate-700 leading-loose">进入微信，点击底部「我」-「收藏」，点击右上角「+」新建笔记。在笔记编辑界面底部工具栏找到「录音」按钮（麦克风图标），点击开始录音。这个入口比聊天窗口的语音消息更适合长录音，因为收藏笔记支持长时间录制且不会中断。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：获取 DeepSeek API Key</h3>
+      <div class="text-base text-slate-700 leading-loose">登录 DeepSeek 开放平台，进入「API Keys」页面，点击「创建 API Key」，复制生成的密钥并妥善保存。注意：密钥只显示一次，丢失需重新创建。建议将密钥设置为环境变量，避免硬编码在代码中。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果找不到录音按钮，先把微信更新到最新版；部分安卓机型需在笔记编辑页滑动工具栏才能看到。
+          💡 <span class="font-semibold">小贴士：</span>免费额度有限，可先充值少量金额测试；密钥不要泄露到公开仓库。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：录制会议或语音内容</h3>
-      <div class="text-base text-slate-700 leading-loose">点击录音后，微信会开始实时录制。把手机放在会议桌中间或靠近发言人，尽量避开空调、风扇等噪音源。录制过程中可以随时暂停，但不要退出笔记界面，否则可能中断。建议单次录制不超过60分钟，太长可分多段录。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：安装依赖并初始化客户端</h3>
+      <div class="text-base text-slate-700 leading-loose">在终端执行 pip install openai 安装官方 SDK。然后新建 Python 文件，导入 OpenAI 类，用 api_key 和 base_url='https://api.deepseek.com' 初始化客户端。这样就能像调用 OpenAI 一样调用 DeepSeek 模型。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>开会前先录10秒测试回放，确认音量正常；用耳机麦克风比手机自带麦克风效果更好。
+          💡 <span class="font-semibold">小贴士：</span>base_url 必须带 https://，且不要加 /v1 后缀（DeepSeek 兼容路径已内置）。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：停止录音并触发AI转写</h3>
-      <div class="text-base text-slate-700 leading-loose">录制完成后点击停止按钮，录音文件会保存在笔记里。点击录音条右侧的「转文字」按钮（部分版本显示为「转写」），微信会自动调用AI引擎把语音转成文字。转写过程需要联网，时长取决于录音长度，一般1分钟录音几秒内完成。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：设计历史记录存储结构</h3>
+      <div class="text-base text-slate-700 leading-loose">创建一个列表 messages 来保存对话历史，每条消息为 {'role': 'user'/'assistant', 'content': '文本'} 格式。每次用户输入后，将用户消息追加到列表，再调用 API 时把整个列表作为 messages 参数传入。这样模型就能看到完整上下文。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>转写时保持微信在前台，锁屏可能导致中断；如果按钮灰色，检查网络或微信版本。
+          💡 <span class="font-semibold">小贴士：</span>可以定期将 messages 保存到 JSON 文件，实现跨会话持久化。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：编辑转写文本并生成纪要</h3>
-      <div class="text-base text-slate-700 leading-loose">转写完成后，文字会直接插入笔记中。你可以手动修正错别字、删除语气词，然后利用微信笔记的「待办」「分割线」等功能整理成结构化纪要。更高效的做法是：把转写文本复制到AI对话工具（如Kimi、文心一言）里，用提示词「请把以下会议记录整理成纪要，分点列出结论和待办」一键生成。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：编写循环对话脚本</h3>
+      <div class="text-base text-slate-700 leading-loose">用 while True 循环接收用户输入，将输入追加到 messages，调用 client.chat.completions.create(model='deepseek-chat', messages=messages)，获取回复后追加到 messages 并打印。设置退出命令（如输入 'exit'）结束循环。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>转写文本里说话人不会自动区分，多人会议建议手动标注「张三：」「李四：」再交给AI总结。
+          💡 <span class="font-semibold">小贴士：</span>每次调用后检查返回的 usage 字段，监控 token 消耗，避免意外超支。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：保存与分享纪要</h3>
-      <div class="text-base text-slate-700 leading-loose">整理好的笔记可以直接点击右上角「…」-「发送给朋友」或「分享到朋友圈」，也可以导出为图片保存。如果是团队会议，把纪要发到工作群，附上原始录音笔记链接，方便回溯。整个流程从录音到出纪要，熟练后5分钟内搞定。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：导入历史记录并测试不限额对话</h3>
+      <div class="text-base text-slate-700 leading-loose">准备一个历史对话的 JSON 文件（格式与 messages 一致），在脚本启动时加载到 messages 列表。运行脚本，连续提问多个问题，观察模型是否能引用之前的对话内容。由于 API 按 token 计费，理论上只要余额充足，对话轮次无硬性限制。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>重要会议建议同时保留原始录音和转写文本，避免AI转写误差导致信息丢失。
+          💡 <span class="font-semibold">小贴士：</span>如果历史记录过长，可手动截断最早的消息，或使用摘要技术压缩上下文。
         </div>
     </div>
   </div>
@@ -180,7 +188,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你会在微信收藏里得到一份带录音和转写文字的笔记，文字可编辑、可分享。配合AI总结后，一份结构清晰的会议纪要就诞生了，全程零成本。
+    脚本运行后，你可以连续输入任意多轮对话，模型能准确记住并引用之前的所有内容，且对话历史保存在本地文件中，随时可恢复。相比网页版，你完全掌控了上下文长度和存储方式。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +198,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>微信录音转文字收费吗？</span>
+        <span>DeepSeek API 真的不限额吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">完全免费，这是微信收藏笔记的内置功能，不消耗任何费用，但转写需要联网。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">API 本身没有硬性轮次限制，但按 token 计费，余额耗尽则无法继续。只要账户有余额，就可以无限轮次对话。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>转写准确率怎么样？</span>
+        <span>历史记录太长导致 token 超限怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">普通话标准、环境安静时准确率很高；方言、口音重或噪音大时会出错，建议录完后人工校对关键信息。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">DeepSeek 模型有上下文窗口限制（如 64K），超出会报错。可以截断最早的消息，或使用摘要模型压缩历史，只保留关键信息。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>能转写多长的录音？</span>
+        <span>可以用其他模型吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">收藏笔记录音时长上限较长，但建议单段不超过60分钟，太长可分多段录制再分别转写。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，DeepSeek API 兼容 OpenAI 格式，只需修改 model 参数为 'deepseek-chat' 或 'deepseek-reasoner'，也可替换 base_url 使用其他兼容服务。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>转写文字能区分说话人吗？</span>
+        <span>如何保证 API Key 安全？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">目前微信转写不自动区分说话人，多人会议需要手动标注或借助第三方AI工具处理。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">将密钥存储在环境变量中，代码里用 os.getenv 读取；不要将密钥提交到 Git 仓库；定期轮换密钥。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>录音文件会丢失吗？</span>
+        <span>对话历史如何跨设备同步？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">保存在微信收藏笔记里，只要不删除笔记且微信数据在，就不会丢失；建议重要内容额外备份到电脑。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">将 messages 列表保存到云存储（如数据库、对象存储），或使用网盘同步 JSON 文件，即可在多设备间共享历史。</div>
     </details>
   </div>
 </section>
@@ -229,14 +237,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用「飞书妙记」替代——飞书自带AI转写和说话人区分，适合正式会议，免费额度够用，导出纪要更专业。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：微信转写+ChatGPT/Kimi总结——把转写文本粘贴给AI，用提示词「提炼3个关键结论、5个待办事项、1个风险点」，秒变高级纪要。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：录音笔硬件+微信转写——用专业录音笔录制后，通过微信文件传输助手把音频发到手机，再用收藏笔记的「导入音频」转写，音质更好。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将历史记录存入 SQLite 数据库，实现多会话管理和快速检索。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：结合 Streamlit 或 Gradio 搭建 Web 界面，让不限额对话更易用。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：使用 LangChain 的 ConversationBufferMemory 自动管理历史，简化代码。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    微信收藏里的录音转文字就是免费AI录音笔，录完转写再丢给AI总结，开会摸鱼两不误。
+    核心在于用 API 手动维护 messages 列表，突破网页版限制，实现完全可控的无限轮次对话。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -246,18 +254,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可编排的智能体工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务AI智能体工作流</div>
-      <div class="text-xs text-amber-500">★★☆☆☆</div>
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

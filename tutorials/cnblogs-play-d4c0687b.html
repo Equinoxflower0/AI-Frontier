@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用AI裁判重构编程工作流 - AI 玩法教程 · AI Frontier</title>
+<title>四层随机种子+算法开关实现PyTorch完全可复现 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-17
+      2026-11-18
     </div>
   </div>
 </nav>
@@ -37,7 +37,7 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🧭 工作流
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★☆☆ · 3/5
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用AI裁判重构编程工作流</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">四层随机种子+算法开关实现PyTorch完全可复现</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    掘金 AI 实战教程 · B级
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7705974459690156073" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/dawudexiaowu/p/23693203" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">用 AI 扮演「裁判」角色，在编程工作流的每个关键节点设置 Gate 检查，确保想清楚再写代码，大幅减少返工。</p>
+  <p class="text-base text-slate-800 leading-relaxed">同一份 PyTorch 代码两次跑出不同 loss？别只怪 torch.manual_seed，真正要锁住的是 Python、NumPy、PyTorch、CUDA 四层随机源，再加一个 cudnn 确定性开关。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多开发者写代码时习惯直接上手，结果方案没想透、边界没理清，写到一半才发现方向错了。掘金这篇实战教程提出用 AI 裁判重构工作流：把开发拆成背景、方案、实现、审查、验证五个阶段，每个阶段结束让 AI 按预设标准判定是否通过，不通过就退回上一阶段。这套结构适合 dev-workflow，也能迁移到 bugfix 等场景，尤其适合独立开发者或小团队在没有 Code Review 的情况下保证质量。
+    很多同学在复现实验时发现，明明设了 torch.manual_seed(42)，两次运行的 loss 却从 0.002 变成 0.0004，权重也对不上。根因是 PyTorch 的随机性来自四层：Python 内置 random、NumPy、PyTorch CPU/GPU、CUDA 底层，只设一层等于没锁全。本教程带你用「四层种子 + 算法开关」实现逐位可复现，适合论文复现、调参对比、CI 回归测试等场景。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ChatGPT / Claude / DeepSeek  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">作为 AI 裁判，负责按标准判定每个 Gate 是否通过</div>
+      <div class="font-semibold text-slate-900">Python 3.8+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行环境，建议用 conda 或 venv 隔离</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Cursor 或 VS Code + Copilot  <a href="https://cursor.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">在编辑器内直接调用 AI 裁判，减少切换成本</div>
+      <div class="font-semibold text-slate-900">PyTorch 1.10+  <a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">深度学习框架，需带 CUDA 版本（若用 GPU）</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Notion / Obsidian / 飞书文档  <a href="https://www.notion.so" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">记录每个阶段的产出和裁判结论，形成可追溯的工作流日志</div>
+      <div class="font-semibold text-slate-900">NumPy  <a href="https://numpy.org/install/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">数值计算库，PyTorch 依赖它，需单独设种子</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用分支或 commit 标记每个 Gate 的通过点，方便回滚</div>
+      <div class="font-semibold text-slate-900">CUDA Toolkit（可选）  <a href="https://developer.nvidia.com/cuda-toolkit" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">GPU 运行需要，版本与 PyTorch 匹配</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">文本编辑器/IDE  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">VS Code 或 PyCharm，方便写复现脚本</div>
     </li>
   </ul>
 </section>
@@ -122,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：定义五阶段工作流与 Gate 标准</h3>
-      <div class="text-base text-slate-700 leading-loose">在文档中写下五个阶段：背景（为什么做）、方案（怎么做）、实现（写代码）、审查（代码质量）、验证（测试通过）。为每个阶段写一条明确的 Gate 通过标准，例如「背景阶段必须包含用户场景和验收条件」「方案阶段必须列出至少两个备选方案及取舍理由」。把这些标准整理成一段 prompt 模板，后续每次让 AI 裁判按此判定。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：写一个可复现种子函数，一次锁四层</h3>
+      <div class="text-base text-slate-700 leading-loose">新建 seed_everything.py，定义函数 set_seed(seed=42)：先 import random, numpy as np, torch；依次执行 random.seed(seed)、np.random.seed(seed)、torch.manual_seed(seed)、torch.cuda.manual_seed_all(seed)。这样 Python、NumPy、PyTorch CPU、PyTorch 所有 GPU 的随机源都被固定。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>Gate 标准要可量化，避免「方案合理」这种模糊表述，改成「方案包含数据流图和异常处理说明」。
+          💡 <span class="font-semibold">小贴士：</span>torch.cuda.manual_seed_all 要放在 torch.manual_seed 之后，且即使没有 GPU 也建议保留，方便代码迁移。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：让 AI 裁判执行背景 Gate</h3>
-      <div class="text-base text-slate-700 leading-loose">把需求描述和背景文档发给 AI，附上第1步的 Gate 标准，要求它输出「通过/不通过 + 缺失项清单」。如果不通过，按缺失项补充背景文档，再次提交裁判，直到通过。通过后把结论记录到工作流日志，并打一个 Git tag 如 gate-1-pass。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：打开 cudnn 确定性开关，锁住算法层</h3>
+      <div class="text-base text-slate-700 leading-loose">在 set_seed 里继续加两行：torch.backends.cudnn.deterministic = True 和 torch.backends.cudnn.benchmark = False。前者强制 cuDNN 使用确定性算法，后者关闭自动调优以避免不同运行选到不同算法。这是第五层「算法非确定性」的开关。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>可以让 AI 裁判同时扮演「挑剔的产品经理」，主动追问边界场景，逼你把背景想全。
+          💡 <span class="font-semibold">小贴士：</span>开启 deterministic 后部分算子会变慢，训练速度可能下降 5%-20%，复现优先时再开。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：方案 Gate 与实现 Gate 串联</h3>
-      <div class="text-base text-slate-700 leading-loose">背景通过后，让 AI 生成或你手写技术方案，提交给 AI 裁判按方案 Gate 标准判定。方案通过后再进入编码，编码完成后把 diff 或关键代码片段发给裁判，按实现 Gate 标准检查是否覆盖方案中的每个点。两个 Gate 都通过才允许进入审查阶段。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：在训练脚本入口第一时间调用</h3>
+      <div class="text-base text-slate-700 leading-loose">在 train.py 的 import 之后、任何模型/数据创建之前调用 set_seed(42)。注意 DataLoader 的 worker 也要设种子：给 DataLoader 传 worker_init_fn=lambda worker_id: np.random.seed(42 + worker_id)，并设 generator=torch.Generator().manual_seed(42)。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>实现 Gate 可以要求 AI 对照方案逐条打勾，输出「方案点 → 代码位置」的映射表，漏掉的一目了然。
+          💡 <span class="font-semibold">小贴士：</span>如果用了多进程 DataLoader，不设 worker_init_fn 的话每个 epoch 的数据顺序仍可能不同。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：审查 Gate 与验证 Gate 收尾</h3>
-      <div class="text-base text-slate-700 leading-loose">审查阶段让 AI 裁判按代码规范、安全、性能三个维度打分，低于阈值则退回实现阶段。验证阶段把测试用例和运行结果发给裁判，确认验收条件全部满足。全部通过后合并代码，并在日志中记录五个 Gate 的通过时间与裁判结论。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：双跑对比验证逐位一致</h3>
+      <div class="text-base text-slate-700 leading-loose">写一个最小训练脚本：固定随机数据、两层线性模型、固定学习率，跑 10 个 step 后打印 loss 和第一层权重。连续运行两次，把输出保存到 log1.txt 和 log2.txt，用 diff 命令对比。若完全一致，说明四层种子 + 开关生效。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>审查 Gate 可以固定用同一段 prompt，保证每次评判标准一致，避免 AI 随机发挥。
+          💡 <span class="font-semibold">小贴士：</span>对比时建议打印权重的前 5 个元素，比只看 loss 更能暴露细微差异。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：沉淀为可复用的 prompt 模板库</h3>
-      <div class="text-base text-slate-700 leading-loose">把五个 Gate 的 prompt 分别保存为模板文件，变量部分用占位符（如 {{需求描述}}、{{代码diff}}）。下次新任务直接套模板，只需替换变量。可以进一步把模板接入 Cursor 的 Rules 或自定义指令，实现一键调用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：排查仍不一致的残留因素</h3>
+      <div class="text-base text-slate-700 leading-loose">如果 diff 仍有差异，依次检查：是否用了非确定性算子（如 torch.nn.functional.interpolate 的某些模式）、是否开了 TF32（设 torch.backends.cuda.matmul.allow_tf32 = False）、是否用了随机增强且未设种子、是否多卡 DDP 未设 torch.distributed 种子。逐项关闭后重跑对比。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>模板库按项目类型分目录，dev-workflow 和 bugfix-workflow 各一套，复用率更高。
+          💡 <span class="font-semibold">小贴士：</span>PyTorch 官方有 reproducibility 文档，列出所有非确定性算子，遇到怪问题先查表。
         </div>
     </div>
   </div>
@@ -180,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    每个开发任务都有五个 Gate 的通过记录，代码返工率明显下降；AI 裁判输出的缺失项清单成为改进依据；prompt 模板库可复用于后续任务，形成个人或团队的标准化工作流。
+    两次运行输出的 loss 和权重逐位一致（diff 无输出），loss 不再从 0.002 跳到 0.0004。在 CPU 和单卡 GPU 上均可复现；多卡场景需额外设 DDP 种子，但四层种子 + cudnn 开关已覆盖绝大多数单机实验。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,31 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>AI 裁判会不会太宽松，什么都给通过？</span>
+        <span>只设 torch.manual_seed 为什么不够？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">把 Gate 标准写成可量化的检查项，并要求 AI 输出「逐项打勾 + 缺失项」，宽松问题会大幅缓解；也可以让 AI 先扮演反方挑刺再判定。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">因为 PyTorch 的随机数还来自 Python random、NumPy 和 CUDA 底层，只设 torch 层等于只锁了一扇门，其他三扇仍会引入随机性。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>每个 Gate 都调用 AI 会不会很慢？</span>
+        <span>开了 deterministic 训练变慢怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">背景和方案 Gate 可以合并成一次对话完成；实现和审查 Gate 可以批量提交 diff。实际多花的时间远小于返工成本。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">复现实验时开启，正式训练可关闭；也可只对需要对比的 epoch 开启，或用环境变量按需切换。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有测试用例怎么做验证 Gate？</span>
+        <span>多卡 DDP 怎么保证可复现？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">让 AI 裁判根据背景阶段的验收条件生成测试用例草稿，人工确认后执行，再把结果交给裁判判定。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">除四层种子外，还要在每张卡上设 torch.cuda.manual_seed_all，并给 torch.distributed 设种子；数据切分也要固定。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这套流程适合多大的任务？</span>
+        <span>为什么两次 loss 一样但权重有微小差异？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合半天到三天规模的功能开发或 bugfix；太小的改动可以只保留方案和审查两个 Gate。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可能是 TF32 或非确定性算子导致，检查 torch.backends.cuda.matmul.allow_tf32 并关闭，再排查 interpolate 等算子。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>CPU 上需要设 cudnn 开关吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要，cudnn 只影响 GPU；但保留代码无副作用，方便同一脚本在 CPU/GPU 间切换。</div>
     </details>
   </div>
 </section>
@@ -222,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：bugfix-workflow——把五阶段改为「复现→根因→修复→回归」，Gate 标准侧重复现步骤完整性和回归用例覆盖。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：双裁判模式——用两个不同模型（如 GPT 和 Claude）分别判定同一 Gate，结论不一致时人工介入，降低单模型偏差。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：CI 集成——把审查 Gate 的 prompt 封装成脚本，在 Git pre-push hook 中自动运行，不通过则阻止推送。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把 set_seed 封装成装饰器，自动包裹训练函数，避免忘记调用。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 pytest 写回归测试，固定种子跑 3 个 step，断言 loss 与基准值误差小于 1e-6，接入 CI。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：在 Hydra/OmegaConf 配置里加 seed 字段，启动时统一注入，适合多实验管理。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 AI 裁判在五个关键节点设 Gate，把「想清楚再写代码」变成可执行、可追溯的标准化工作流。
+    四层种子锁随机源，cudnn 开关锁算法，双跑 diff 验一致——这就是 PyTorch 完全可复现的精髓。参考原文：https://www.cnblogs.com/dawudexiaowu/p/23693203
   </blockquote>
 </section>
 <section class="mb-12">
@@ -237,19 +248,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Yolain工作流在ComfyUI里快速出图</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">ComfyUI 自定义节点合集，扩展工作流能力</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

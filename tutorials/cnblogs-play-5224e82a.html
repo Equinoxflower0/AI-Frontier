@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用Prompt让AI在对话框里手写UI - AI 玩法教程 · AI Frontier</title>
+<title>用原生子窗口遮罩+双信号竞速根治鸿蒙APP冷启动白屏 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-17
+      2026-11-18
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        💬 Prompt 模板
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 5min
+        ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Prompt让AI在对话框里手写UI</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用原生子窗口遮罩+双信号竞速根治鸿蒙APP冷启动白屏</h1>
     
   </div>
 </header>
@@ -65,21 +65,17 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.cnblogs.com/gogoSandy/p/23555610" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/xyyt/p/23696775" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
-<div class="mb-4">
-  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
-  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">ChatGPT</span></div>
-</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">让 ChatGPT 不再只吐文字，而是直接在对话框里“手写”出可交互的 UI 界面，把数据变成看得见、点得动的窗口。</p>
+  <p class="text-base text-slate-800 leading-relaxed">这个玩法教你用「原生子窗口遮罩 + 双信号竞速」彻底解决鸿蒙 APP 冷启动白屏问题，让启动页像安卓一样丝滑。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    传统 AI 对话只能输出文字，用户需要脑补表格、图表和按钮。OpenAI 的 Intelligent UI 与 MCP Apps 让聊天框可以“开窗”，实现界面展示与双向交互。lustereczko-mcp 进一步让 AI 现场生成 UI 代码并渲染，把提示词变成界面。这个玩法适合需要快速可视化数据、做轻量交互原型、或想让 AI 回答更直观的场景。
+    很多鸿蒙开发者在做「渐变整图启动页」时，发现 AI 给的方案总是无法同时满足「整图渐变」和「零白屏」。作者经过五轮 hilog 真机取证，发现核心在于让遮罩和门帘使用同一张图，并通过双信号竞速（窗口就绪信号与图片解码信号）来消除 35ms 的竞态窗口。这个玩法适用于所有需要高质量冷启动体验的 HarmonyOS 应用，尤其是对启动画面有严格视觉要求的场景。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,24 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ChatGPT  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">主力对话工具，需支持自定义 GPT 或代码解释器（Plus/Pro 账号）</div>
+      <div class="font-semibold text-slate-900">DevEco Studio  <a href="https://developer.harmonyos.com/cn/develop/deveco-studio" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">鸿蒙官方 IDE，用于编写和调试代码</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">lustereczko-mcp  <a href="https://github.com/lustereczko/lustereczko-mcp" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">让 AI 现场手写 UI 的 MCP 服务，需按项目文档部署</div>
+      <div class="font-semibold text-slate-900">HarmonyOS SDK  <a href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides/installation-0000001053582415" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">提供原生子窗口、hilog 等 API</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Node.js 18+  <a href="https://nodejs.org" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行 MCP 服务与本地渲染环境</div>
+      <div class="font-semibold text-slate-900">真机或模拟器  <a href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides/emulator-0000001053582415" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于验证冷启动效果和抓取 hilog 日志</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">MCP 客户端（如 Claude Desktop 或支持 MCP 的 ChatGPT 插件）  <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">连接 MCP 服务，让 AI 能调用 UI 生成能力</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">浏览器（Chrome/Edge）  <a href="https://www.google.com/chrome" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">预览 AI 生成的 UI 界面</div>
+      <div class="font-semibold text-slate-900">一张渐变整图启动页素材 </div>
+      <div class="text-sm text-slate-600 mt-1">作为遮罩和门帘的同一张图，建议 1080x2340 或适配设备分辨率</div>
     </li>
   </ul>
 </section>
@@ -130,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：部署 lustereczko-mcp 服务</h3>
-      <div class="text-base text-slate-700 leading-loose">克隆 lustereczko-mcp 仓库，进入目录后运行 npm install 安装依赖。根据 README 配置环境变量（如端口、API Key），然后执行 npm start 启动服务。确认终端输出监听地址（通常是 http://localhost:3000）。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：创建原生子窗口作为遮罩层</h3>
+      <div class="text-base text-slate-700 leading-loose">在 EntryAbility 的 onWindowStageCreate 中，使用 window.createSubWindow 创建一个全屏子窗口，设置其背景为透明，并加载一个仅包含 Image 组件的页面。这个 Image 组件使用与启动页完全相同的渐变整图，并设置 objectFit 为 Cover。子窗口的层级要高于主窗口，确保覆盖整个屏幕。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果端口被占用，可在 .env 中修改 PORT 变量，避免与本地其他服务冲突。
+          💡 <span class="font-semibold">小贴士：</span>子窗口的宽高必须设置为 MATCH_PARENT，且背景透明，否则会遮挡主窗口内容。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：在 ChatGPT 中接入 MCP 客户端</h3>
-      <div class="text-base text-slate-700 leading-loose">打开支持 MCP 的 ChatGPT 客户端（或 Claude Desktop），在设置中找到 MCP Servers 配置项。添加一个服务器，名称填 lustereczko，命令指向本地服务地址或启动脚本。保存后重启客户端，确认连接状态为绿色。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：实现双信号竞速逻辑</h3>
+      <div class="text-base text-slate-700 leading-loose">定义两个布尔标志：windowReady（主窗口内容就绪）和 imageDecoded（遮罩图片解码完成）。在子窗口的 Image 组件 onComplete 回调中设置 imageDecoded = true；在主窗口的页面 aboutToAppear 或首帧渲染回调中设置 windowReady = true。然后写一个 checkAndHideMask 函数，当两个标志都为 true 时，以动画方式隐藏子窗口（例如透明度渐变或直接销毁）。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不同客户端配置格式略有差异，优先参考 lustereczko-mcp 官方 README 的示例配置。
+          💡 <span class="font-semibold">小贴士：</span>使用 Promise 或计数器确保两个信号都到达后再执行隐藏，避免竞态导致白屏闪现。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编写 Prompt 让 AI 生成 UI</h3>
-      <div class="text-base text-slate-700 leading-loose">在对话框输入提示词，例如：“请用 lustereczko 生成一个销售数据看板，包含柱状图、筛选下拉框和刷新按钮，数据用示例数据。” AI 会调用 MCP 工具，返回一段 UI 描述或代码。保持对话，让 AI 根据你的反馈调整布局和交互。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：处理 1300002 静默失败并增加 hilog 取证</h3>
+      <div class="text-base text-slate-700 leading-loose">在创建子窗口和加载图片的代码中，用 try-catch 捕获异常，并针对错误码 1300002（窗口操作失败）做重试或降级处理。同时，在关键节点（子窗口创建、图片加载开始/完成、信号设置、隐藏遮罩）插入 hilog.info 日志，输出时间戳和状态。真机运行时通过 hilog 抓取日志，确认两个信号的到达顺序和耗时。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>提示词里明确“用 lustereczko 生成 UI”，并给出组件清单和交互要求，成功率更高。
+          💡 <span class="font-semibold">小贴士：</span>错误码 1300002 通常是因为窗口未准备好，可以延迟 50ms 重试一次。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：在聊天框内预览与交互</h3>
-      <div class="text-base text-slate-700 leading-loose">AI 生成 UI 后，聊天框会嵌入一个可交互窗口（或返回预览链接）。点击按钮、切换筛选条件，观察数据是否联动更新。如果界面没有自动渲染，复制 AI 返回的 HTML/JS 代码到本地文件，用浏览器打开预览。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：优化竞态窗口至 35ms 以内</h3>
+      <div class="text-base text-slate-700 leading-loose">根据 hilog 日志分析两个信号的时间差。如果 imageDecoded 先到而 windowReady 后到，可以预加载图片到内存缓存，减少解码时间；如果 windowReady 先到，可以提前创建子窗口但先隐藏，等图片解码后再显示。通过调整图片加载时机（例如在 Ability 启动时就开始加载）和窗口创建顺序，将竞态窗口压缩到 35ms 以内。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>首次渲染失败时，检查 MCP 服务日志是否有报错，常见原因是缺少依赖或端口未开放。
+          💡 <span class="font-semibold">小贴士：</span>使用 Image 的 syncLoad 属性为 true 可以同步加载小图，但大图建议异步并配合缓存。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：迭代优化 UI 与交互逻辑</h3>
-      <div class="text-base text-slate-700 leading-loose">根据预览效果继续对话，例如“把柱状图换成折线图”“增加日期范围选择器”“按钮点击后弹出提示”。AI 会重新生成或增量修改 UI。每次修改后刷新预览，确认交互符合预期。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：真机验证与丝滑度对比</h3>
+      <div class="text-base text-slate-700 leading-loose">在真机上冷启动应用（先杀进程），观察从点击图标到主界面出现的全过程。使用屏幕录制或慢动作视频检查是否有白屏帧。对比安卓端启动效果，确保鸿蒙端同样丝滑。如果仍有轻微白屏，检查子窗口的显示时机是否晚于主窗口首帧，可尝试将子窗口的 show 调用提前到 onWindowStageCreate 的最开始。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把满意的版本让 AI 保存为代码片段，方便后续复用或嵌入其他页面。
+          💡 <span class="font-semibold">小贴士：</span>冷启动测试前务必清理应用缓存并重启设备，避免系统缓存干扰。
         </div>
     </div>
   </div>
@@ -188,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    ChatGPT 对话框内出现一个可交互的 UI 窗口（如销售看板），包含图表、筛选器和按钮，点击操作能实时更新数据，无需离开聊天界面。
+    冷启动应用时，用户首先看到与启动页完全一致的渐变整图遮罩，随后主界面内容在遮罩下方准备就绪，遮罩平滑消失，全程无白屏闪烁，视觉体验与安卓端一致甚至更丝滑。hilog 日志显示两个信号在 35ms 内先后到达，无 1300002 错误。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -198,38 +190,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 Plus 账号能用吗？</span>
+        <span>为什么不能直接用启动页图片作为窗口背景？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">基础对话可以，但 MCP 接入和自定义 GPT 通常需要 Plus/Pro 或支持 MCP 的客户端，建议先确认账号权限。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">窗口背景在冷启动时可能先于图片解码显示为白色，而子窗口遮罩可以独立控制显示时机，确保图片解码完成后再显示。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>lustereczko-mcp 启动报错怎么办？</span>
+        <span>双信号竞速中如果某个信号永远不到达怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查 Node.js 版本是否 18+，依赖是否安装完整，端口是否被占用；查看终端日志定位具体错误。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">设置超时机制，例如 500ms 后强制隐藏遮罩并记录错误日志，避免应用卡在遮罩层。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>生成的 UI 能导出吗？</span>
+        <span>错误码 1300002 是什么原因？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，让 AI 把最终 UI 以 HTML/CSS/JS 代码块输出，复制保存为 .html 文件即可在浏览器独立运行。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常是窗口未创建完成或权限不足，检查是否在 UI 线程调用，并确保子窗口的 type 为 TYPE_APPLICATION_OVERLAY 或类似合适类型。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>为什么 AI 不调用 MCP 工具？</span>
+        <span>这个方案对应用性能有影响吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">提示词中未明确要求使用 lustereczko，或 MCP 客户端未正确连接；在提示词里写明“请调用 lustereczko 生成 UI”并检查连接状态。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">子窗口和图片解码会增加少量内存和 CPU 开销，但通过缓存和及时销毁遮罩，影响可忽略不计。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>支持哪些图表类型？</span>
+        <span>是否适用于所有鸿蒙版本？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">取决于 AI 生成的库（如 Chart.js、ECharts），在提示词中指定图表库和类型即可，例如“用 ECharts 画折线图”。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议在 API 9 及以上版本使用，低版本可能不支持子窗口的某些特性，需做兼容处理。</div>
     </details>
   </div>
 </section>
@@ -237,14 +229,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：让 AI 生成一个可交互的表单页面，包含输入校验和提交按钮，用于快速收集用户反馈。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：让 AI 根据 CSV 数据现场生成带筛选和排序的表格 UI，实现“对话式数据分析”。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：让 AI 生成一个迷你游戏界面（如猜数字），在聊天框内直接玩，测试双向交互能力。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：使用动画组件（如 animateTo）实现遮罩的淡出效果，而不是直接销毁，提升视觉平滑度。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：将遮罩图片替换为 Lottie 动画，实现更丰富的启动动效，但需注意动画解码时间对竞态的影响。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合预加载机制，在应用安装后首次启动时缓存启动图到本地，后续冷启动直接读取缓存，进一步缩短竞态窗口。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 Prompt 驱动 MCP 让 AI 在聊天框里现场手写 UI，把文字对话升级为看得见、点得动的交互界面。
+    让遮罩和门帘共用同一张图，并用双信号竞速确保图片解码与窗口就绪同步，从而根治冷启动白屏。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -252,19 +244,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用prompts.chat社区提示词库找现成AI指令</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用GPT-4o图像提示词合集生成AI视觉</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
-    </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

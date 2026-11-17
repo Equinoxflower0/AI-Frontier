@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用AgentCore搭建企业智能体并做治理 - AI 玩法教程 · AI Frontier</title>
+<title>用知识库给 AI 喂项目经验，约束设计与编码 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-17
+      2026-11-18
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用AgentCore搭建企业智能体并做治理</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用知识库给 AI 喂项目经验，约束设计与编码</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    掘金 AI 实战教程 · B级
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7706558554959331338" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/lishen2/p/23698465" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">本教程教你用阿里云 AgentCore 搭建一个可治理的企业级智能体，从零完成配置、工具接入与权限管控。</p>
+  <p class="text-base text-slate-800 leading-relaxed">把成熟项目的架构决策和编码模式整理成 AI 可检索的知识库，让 AI 在设计新模块时自动参考已验证经验，而不是凭空发挥。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    企业里 AI 智能体往往散落在各个业务线，缺乏统一的构建与治理标准，导致重复开发、权限混乱、效果不可控。AgentCore 提供了一套从智能体编排、工具调用到访问治理的完整能力，适合需要把 AI 助手落地到客服、运维、数据分析等场景的团队。本教程基于掘金 AI 实战教程与杭州站沙龙内容整理，带你走通最小可用链路。
+    很多团队用 AI 写代码时都遇到过类似问题：AI 能写出语法正确的代码，但架构风格和团队习惯完全不匹配，返工成本很高。这篇来自《嵌入式 AI 落地手记》的玩法指出，AI 不是不会写，而是不知道我们为什么这样写。通过把成熟项目中的设计文档、代码片段、评审记录整理成知识库，并在提示词中强制 AI 先检索再设计，就能让 AI 的输出被约束在团队已验证的框架内。这个玩法特别适合嵌入式、后端服务等对架构一致性要求高的项目。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">阿里云账号  <a href="https://www.aliyun.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于开通 AgentCore 及相关云产品</div>
+      <div class="font-semibold text-slate-900">Dify  <a href="https://dify.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">搭建知识库和 AI 应用的工作流平台，支持文档上传、分段检索和提示词编排</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">AgentCore 控制台  <a href="https://www.aliyun.com/product/agentcore" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">智能体构建与治理的主操作界面</div>
+      <div class="font-semibold text-slate-900">FastGPT  <a href="https://fastgpt.in" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">国产知识库问答平台，适合快速搭建带检索增强生成的应用</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">大模型服务（如通义千问）  <a href="https://dashscope.aliyun.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">为智能体提供推理能力，需开通 API Key</div>
+      <div class="font-semibold text-slate-900">Git 仓库  <a href="https://git-scm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">存放成熟项目的代码、设计文档和评审记录，作为知识库原始素材</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一个业务 API 或知识库  <a href="https://help.aliyun.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">作为智能体可调用的工具/数据源，例如订单查询接口或 FAQ 文档</div>
+      <div class="font-semibold text-slate-900">Markdown 编辑器  <a href="https://obsidian.md" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">整理知识库文档，推荐 Obsidian 或 Typora</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">RAM 访问控制  <a href="https://ram.console.aliyun.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于配置智能体的访问权限与治理策略</div>
+      <div class="font-semibold text-slate-900">ChatGPT / Claude / DeepSeek  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">作为 AI 编码助手，配合知识库检索结果使用</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：开通服务并创建智能体空间</h3>
-      <div class="text-base text-slate-700 leading-loose">登录阿里云控制台，搜索 AgentCore 并开通服务。进入控制台后新建一个「智能体空间」，填写空间名称与描述，选择所属地域。空间是后续智能体、工具和治理策略的隔离单元，建议按业务线划分。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：从成熟项目中提取可复用的知识素材</h3>
+      <div class="text-base text-slate-700 leading-loose">打开一个已经上线且稳定的项目仓库，按模块整理三类素材：架构设计文档（模块划分、分层方式、通信协议）、关键代码模式（错误处理、日志规范、状态机写法）、评审记录中的决策理由（为什么选 A 不选 B）。每类素材整理成独立的 Markdown 文件，文件名带模块前缀，例如 `arch-通信层.md`、`pattern-错误码.md`。不要直接上传整个代码仓库，先做人工筛选，只保留经过验证的结论。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>空间命名建议带上业务前缀，例如 cs-agent-prod，方便后续 RAM 授权时按前缀批量匹配。
+          💡 <span class="font-semibold">小贴士：</span>优先整理“为什么这样做”的说明，AI 最缺的不是代码本身，而是决策上下文。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：配置模型与提示词模板</h3>
-      <div class="text-base text-slate-700 leading-loose">在空间内创建智能体，选择通义千问等模型并填入 API Key。在系统提示词中定义角色、边界和输出格式，例如「你是订单客服助手，只回答订单相关问题，不确定时引导用户转人工」。保存后可先在调试窗口做一轮对话测试。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：在 Dify 中创建知识库并上传文档</h3>
+      <div class="text-base text-slate-700 leading-loose">登录 Dify，进入「知识库」页面，点击「创建知识库」，选择「导入已有文本」，把第 1 步整理好的 Markdown 文件批量上传。分段设置建议选择「自定义」，分段长度设为 500-800 字符，重叠 50 字符，保证一个完整的设计决策不会被切断。索引方式选择「高质量」以启用向量检索，嵌入模型选平台默认即可。上传后等待索引完成，用几个关键词测试召回效果。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>提示词里显式写出「不知道就说不知道」，能显著降低企业场景下的幻觉风险。
+          💡 <span class="font-semibold">小贴士：</span>如果召回不准，回到文档层面把标题写得更具体，比如把「通信设计」改成「通信层-串口协议帧格式与超时重试策略」。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：接入业务工具链</h3>
-      <div class="text-base text-slate-700 leading-loose">在「工具管理」中新增工具，选择 HTTP API 类型，填入业务接口地址、请求方法和参数 Schema。为工具编写清晰的描述，模型靠描述决定何时调用。将工具绑定到智能体后，用「查一下订单 12345 的状态」这类真实问题验证调用链路是否打通。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编写约束型提示词模板</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Dify 中创建一个「聊天助手」应用，关联第 2 步的知识库。系统提示词按以下结构编写：第一段声明角色——“你是本项目的高级嵌入式工程师”；第二段写强制流程——“收到设计或编码请求后，必须先检索知识库，列出命中的架构约束和代码模式，再给出方案”；第三段写约束——“方案必须引用知识库中的具体条目，若知识库无相关内容，明确说明并请求人工确认，不得自行发明架构”。把这段提示词保存为模板，后续所有设计请求都复用它。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>参数 Schema 尽量精简，只暴露必要字段；接口返回做裁剪，避免超长响应撑爆上下文。
+          💡 <span class="font-semibold">小贴士：</span>提示词里加一句“先输出检索摘要，再输出方案”，能明显减少 AI 跳过检索直接编造的情况。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：配置治理与权限策略</h3>
-      <div class="text-base text-slate-700 leading-loose">进入治理模块，为智能体设置调用配额、敏感词过滤和工具白名单。通过 RAM 为不同角色分配只读、调试、发布等权限，避免所有人都有生产发布权。开启操作审计日志，记录每次工具调用与模型输入输出。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用真实需求跑一次设计与编码</h3>
+      <div class="text-base text-slate-700 leading-loose">拿一个新模块需求做测试，例如“新增一个 Modbus 从站数据采集任务”。在聊天框中输入需求，观察 AI 是否先列出知识库命中的约束（如任务分层方式、错误码规范、日志格式），再给出设计。确认设计合理后，继续让 AI 基于该设计生成代码，并要求它标注每段代码对应的知识库模式来源。把输出结果与团队现有代码风格做对比，记录偏差。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先给测试环境配宽松策略跑通，再复制到生产环境收紧配额，避免一上来就被限流卡住。
+          💡 <span class="font-semibold">小贴士：</span>第一次跑不要追求完美，重点看 AI 有没有“先检索再回答”的动作，这是流程是否生效的标志。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：发布与灰度验证</h3>
-      <div class="text-base text-slate-700 leading-loose">完成调试后发布智能体，获取 API 端点或嵌入链接。先接入一个内部小流量入口做灰度，观察调用成功率、平均耗时和工具调用准确率。根据日志反馈迭代提示词和工具描述，稳定后再全量开放。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：根据偏差迭代知识库和提示词</h3>
+      <div class="text-base text-slate-700 leading-loose">把第 4 步中 AI 偏离团队习惯的地方分类：是知识库缺文档，还是提示词约束不够强。缺文档就补充对应模块的设计说明；约束不够就在提示词中增加反面示例，例如“不要使用全局变量传递状态，参考知识库中的 `pattern-状态机.md`”。每次迭代后重跑同一个需求，对比输出变化。建议维护一个简单的迭代记录表，记录每次修改点和效果。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>灰度期重点看「工具误调用率」，这通常是企业智能体上线后最大的体验杀手。
+          💡 <span class="font-semibold">小贴士：</span>知识库不是一次建完的，前两周每天花 10 分钟补一条缺失知识，效果提升最明显。
         </div>
     </div>
   </div>
@@ -184,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你将得到一个可通过 API 调用的企业智能体：能理解用户问题、按需调用业务接口、在权限与配额约束下运行，并留下完整的审计日志。控制台调试窗口可正常对话，灰度入口能看到稳定的调用成功率。
+    AI 在收到设计或编码请求时，会先输出知识库检索摘要，列出命中的架构约束和代码模式，再给出引用这些条目的设计方案和代码。输出风格与成熟项目保持一致，架构决策有据可查，人工评审时可以直接对照知识库条目验证，返工率明显下降。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有阿里云账号能玩吗？</span>
+        <span>知识库要放多少文档才有效？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能，AgentCore 依赖阿里云账号开通服务，但新账号通常有试用额度，可先低成本验证。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不在多而在准。初期 10-20 份高质量文档，覆盖核心架构决策和关键代码模式，就足以约束大部分设计场景。关键是每份文档都写清楚“为什么这样做”。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>智能体总是乱调工具怎么办？</span>
+        <span>AI 还是会跳过检索直接回答怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">优先优化工具描述和参数 Schema，让描述明确「什么时候用、什么时候不用」；其次在提示词中约束调用条件。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在提示词中把检索设为强制第一步，并要求输出检索摘要。如果平台支持工作流模式，可以把“检索”做成独立节点，AI 必须经过该节点才能进入生成环节。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>治理策略会不会影响调试？</span>
+        <span>代码仓库能直接整个上传吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">会。建议测试空间与生产空间分开，测试空间放宽配额，生产空间再收紧。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不建议。整仓上传会引入大量噪声，检索命中率下降。应先人工筛选出经过验证的模式和决策文档，再上传。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>支持接入私有化部署的模型吗？</span>
+        <span>这套方法适合小团队吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">取决于 AgentCore 当前版本的模型接入方式，可在控制台模型管理页查看支持的接入类型，或参考官方文档。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合。小团队可以从一个成熟模块开始，整理 5-10 份文档就能见效，成本低且能直接减少 AI 返工。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何评估智能体效果？</span>
+        <span>知识库更新后需要重新调提示词吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用一批真实问题做回归测试集，统计回答准确率、工具调用准确率和人工转接率三个指标即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常不需要。提示词约束的是流程，知识库提供的是内容，两者解耦。只有当知识库结构大改时才需要微调提示词中的引用方式。</div>
     </details>
   </div>
 </section>
@@ -233,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把工具换成企业知识库检索，做一个内部制度问答助手，重点治理敏感信息过滤。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：接入工单系统 API，做运维值班智能体，重点配置调用配额与审计告警。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用多智能体编排，一个负责意图识别、一个负责业务查询，验证治理策略在链路中的传递。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把知识库检索接入 CI 流程，AI 生成代码后自动比对知识库中的规范条目，输出合规检查报告，作为代码评审的辅助材料。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：为不同项目建立独立知识库，在提示词中根据项目名动态切换检索范围，实现一套提示词服务多个项目的架构约束。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把知识库与 IDE 插件结合，在编码时实时检索并提示团队规范，把约束从“事后评审”前移到“编写时”。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 AgentCore 把「建智能体」和「管智能体」放在同一条链路上，先跑通最小闭环，再用治理策略把它变成可上线的企业生产力。
+    让 AI 先查团队已验证的经验再动手，用知识库把“为什么这样写”变成 AI 的默认输入。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,18 +250,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可编排的智能体工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务AI智能体工作流</div>
-      <div class="text-xs text-amber-500">★★☆☆☆</div>
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用openEuler新方案让操作系统适配Agent - AI 玩法教程 · AI Frontier</title>
+<title>用SnapSharp一站式完成截图标注OCR翻译与AI抠图 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-17
+      2026-11-18
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用openEuler新方案让操作系统适配Agent</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用SnapSharp一站式完成截图标注OCR翻译与AI抠图</h1>
     
   </div>
 </header>
@@ -58,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    智东西 AI 工具评测 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://zhidx.com/p/608650.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/liessay/p/23692146" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">这篇教程教你如何利用 openEuler 的新方案，让操作系统原生适配 AI Agent，实现从系统层面调度智能体任务。</p>
+  <p class="text-base text-slate-800 leading-relaxed">SnapSharp 是一款把截图、标注、OCR、翻译和 AI 抠图打包在一起的 Windows 效率工具，特别适合写技术博客、做教程和整理资料时使用。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    随着 AI Agent 从对话走向执行，传统操作系统缺乏对 Agent 生命周期、资源隔离和工具调用的统一管理。openEuler 新方案通过系统级抽象，将 Agent 视为一等公民，提供运行时环境、能力注册和通信总线。该玩法适合开发者、运维和 AI 应用架构师，用于构建稳定、可观测的 Agent 运行底座。参考智东西报道：https://zhidx.com/p/608650.html
+    写技术文章时，一张截图往往只是开始：截完界面要用箭头标出操作入口，拿到图片里的英文需要先识别再翻译，遇到表格又希望直接导入 Excel，为了说明连续操作还可能得录一段 GIF。过去这些步骤要切换四五个软件，费时又容易打断思路。SnapSharp 把这些高频操作整合到一个工具里，让截图后的处理流程一气呵成，尤其适合经常写教程、做文档或整理外文资料的人。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,16 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">openEuler 24.03 LTS  <a href="https://www.openeuler.org/zh/download/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">支持 Agent 新特性的操作系统基础环境</div>
+      <div class="font-semibold text-slate-900">SnapSharp  <a href="https://www.cnblogs.com/liessay/p/23692146" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Windows 端截图标注、OCR、翻译与 AI 抠图一体化工具</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Docker 或 Podman  <a href="https://docs.docker.com/get-docker/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于隔离 Agent 运行时和依赖</div>
+      <div class="font-semibold text-slate-900">Windows 10/11 电脑  <a href="https://www.microsoft.com/windows" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行 SnapSharp 的操作系统环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">编写 Agent 逻辑和调用系统接口</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">openEuler Agent SDK  <a href="https://gitee.com/openeuler/agent-sdk" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">官方提供的 Agent 注册、通信和资源管理库</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">拉取示例代码和配置模板</div>
+      <div class="font-semibold text-slate-900">网络连接 </div>
+      <div class="text-sm text-slate-600 mt-1">用于 OCR、翻译和 AI 抠图等在线能力</div>
     </li>
   </ul>
 </section>
@@ -126,55 +118,66 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装并配置 openEuler Agent 运行时</h3>
-      <div class="text-base text-slate-700 leading-loose">在 openEuler 24.03 上执行 `sudo dnf install openeuler-agent-runtime` 安装运行时。然后启用并启动服务：`sudo systemctl enable --now agent-runtime`。检查状态 `systemctl status agent-runtime` 确保 active。最后将当前用户加入 agent 组：`sudo usermod -aG agent $USER` 并重新登录。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装并设置 SnapSharp</h3>
+      <div class="text-base text-slate-700 leading-loose">从博客园教程页面获取 SnapSharp 的下载与安装说明，完成安装后启动软件。首次运行时建议在设置里确认截图快捷键、默认保存目录以及 OCR/翻译的语言偏好。把常用快捷键记下来，后续操作会快很多。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果 dnf 找不到包，先运行 `sudo dnf update` 并添加 openEuler 官方源。
+          💡 <span class="font-semibold">小贴士：</span>建议把截图快捷键设成自己顺手的组合，避免和微信、QQ 的截图快捷键冲突。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：创建并注册你的第一个 Agent</h3>
-      <div class="text-base text-slate-700 leading-loose">使用 Agent SDK 初始化项目：`agent-sdk init my-agent --template=basic`。进入目录后编辑 `agent.yaml`，填写名称、入口脚本和所需能力（如文件读写、网络访问）。运行 `agent-sdk register my-agent` 将 Agent 注册到系统总线。注册成功后可用 `agent-sdk list` 查看已注册 Agent。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：截图并完成标注</h3>
+      <div class="text-base text-slate-700 leading-loose">按下截图快捷键框选需要的内容，进入标注编辑界面。用箭头标出操作入口，用矩形框圈出重点区域，必要时加上文字说明或序号。标注完成后可以先复制到剪贴板，也可以直接保存为图片文件。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>能力声明要最小化，只申请实际需要的权限，便于系统做安全隔离。
+          💡 <span class="font-semibold">小贴士：</span>标注时保持箭头粗细和颜色统一，博客里的截图会显得更专业。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编写 Agent 逻辑并调用系统工具</h3>
-      <div class="text-base text-slate-700 leading-loose">在 `main.py` 中导入 `openeuler_agent` 模块，使用 `@agent.task` 装饰器定义任务函数。通过 `agent.tools.call('file.read', path)` 调用系统工具，或使用 `agent.bus.publish('topic', data)` 与其他 Agent 通信。本地测试：`agent-sdk run my-agent --task=hello`。确认输出符合预期后，用 `agent-sdk deploy my-agent` 部署为常驻服务。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：对截图做 OCR 文字识别</h3>
+      <div class="text-base text-slate-700 leading-loose">在 SnapSharp 中对刚截取的图片执行 OCR 识别，软件会把图片里的文字提取成可编辑文本。识别后检查一下中英文混排和数字是否准确，有少量错字可以手动修正。识别结果可以直接复制，省去手打的时间。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>调试时开启 `--log-level=debug` 查看系统总线消息流，快速定位调用失败原因。
+          💡 <span class="font-semibold">小贴士：</span>截图时尽量保证文字清晰、不要过度缩放，OCR 准确率会明显更高。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：配置资源隔离与可观测性</h3>
-      <div class="text-base text-slate-700 leading-loose">编辑 `/etc/agent-runtime/config.yaml`，为 Agent 设置 CPU/内存限额和超时时间。启用内置的 Prometheus 指标导出：`metrics.enabled: true`。重启运行时后，访问 `http://localhost:9090/metrics` 查看 Agent 运行指标。结合 Grafana 导入官方看板模板，监控任务成功率与延迟。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：一键翻译识别出的文字</h3>
+      <div class="text-base text-slate-700 leading-loose">选中 OCR 得到的文本，调用 SnapSharp 内置的翻译功能，把英文或其他外文翻译成中文。翻译结果可以和原文对照查看，确认术语是否准确。需要引用到文章里时，直接复制译文即可。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>生产环境建议为每个 Agent 单独设置 cgroup 限额，避免单个 Agent 耗尽系统资源。
+          💡 <span class="font-semibold">小贴士：</span>技术术语如果翻译得别扭，保留英文原文加括号注释，读者更容易理解。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：集成外部 AI 模型并完成端到端验证</h3>
-      <div class="text-base text-slate-700 leading-loose">在 `agent.yaml` 的 `env` 中配置模型 API Key（如 OpenAI 或本地 Ollama 地址）。修改任务函数，调用模型生成计划，再通过 `agent.tools.call` 执行系统操作。运行 `agent-sdk test my-agent --scenario=full` 进行端到端测试。观察日志和指标，确认 Agent 能正确调用工具并返回结果。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用 AI 抠图处理素材</h3>
+      <div class="text-base text-slate-700 leading-loose">如果截图里包含图标、人物或产品图，可以使用 SnapSharp 的 AI 抠图功能去掉背景。导入图片后等待自动识别主体，检查边缘是否干净，必要时手动微调。抠好的透明背景图可以直接用于文章配图或 PPT。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先用 mock 模型测试工具链，再切换真实模型，避免调试时产生不必要的 API 费用。
+          💡 <span class="font-semibold">小贴士：</span>抠图前尽量选择主体与背景对比明显的图片，AI 识别效果会更好。
+        </div>
+    </div>
+    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        6
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：导出与归档</h3>
+      <div class="text-base text-slate-700 leading-loose">把标注图、识别文本、译文和抠图结果分别保存到同一个项目文件夹，按「日期+主题」命名。写博客时按顺序插入图片和文字，整篇教程的素材就齐了。最后检查一遍图片清晰度和文字准确性再发布。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>建议保留一份原始截图，方便后续修改标注或重新识别。
         </div>
     </div>
   </div>
@@ -184,7 +187,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    完成以上步骤后，你将在 openEuler 上拥有一个已注册、可隔离运行、具备可观测性的 AI Agent。通过 `agent-sdk list` 能看到 Agent 状态为 running，Prometheus 指标正常上报，且 Agent 能按任务调用系统工具并返回结果。
+    完成上述步骤后，你会得到一组带标注的清晰截图、可编辑的 OCR 文本、准确的中文译文以及透明背景的抠图素材，全部整理在同一个文件夹中，可以直接用于技术博客或文档写作。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +197,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>openEuler Agent 运行时和普通 Docker 运行 Agent 有什么区别？</span>
+        <span>SnapSharp 支持哪些 Windows 版本？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">运行时提供系统级 Agent 注册、能力权限管理和统一通信总线，而 Docker 只做进程隔离，缺少 Agent 生命周期和工具调用的标准抽象。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">一般支持 Windows 10 和 Windows 11，具体以博客园教程中的说明为准，安装前建议确认系统版本。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 openEuler 物理机，可以用虚拟机或 WSL 吗？</span>
+        <span>OCR 识别中文和英文混合内容准确吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。推荐用 VirtualBox 或 VMware 安装 openEuler 24.03 镜像；WSL 暂不支持 agent-runtime 的全部内核特性。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">清晰截图下准确率较高，但特殊字体、低分辨率或复杂背景可能出错，识别后建议人工校对一遍。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Agent SDK 支持哪些编程语言？</span>
+        <span>翻译功能需要联网吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">目前官方主要支持 Python，社区有 Go 和 Rust 的早期绑定，建议优先使用 Python 以获得完整功能。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常需要联网调用翻译服务，离线状态下可能无法使用，使用前确保网络正常。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>注册 Agent 时提示权限不足怎么办？</span>
+        <span>AI 抠图对哪些图片效果最好？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">确认当前用户已在 agent 组中，并重新登录；或使用 `sudo agent-sdk register` 临时提权注册。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">主体与背景对比明显、边缘清晰的图片效果最好，复杂毛发或半透明物体可能需要手动微调。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何卸载或停止一个已部署的 Agent？</span>
+        <span>截图快捷键和微信冲突怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">运行 `agent-sdk stop my-agent` 停止服务，`agent-sdk unregister my-agent` 从总线移除，再删除项目目录即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在 SnapSharp 设置中修改截图快捷键，避开微信、QQ 等常用软件的默认组合即可。</div>
     </details>
   </div>
 </section>
@@ -233,14 +236,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：多 Agent 协作——注册多个职责单一的 Agent（如文件整理 Agent、网络查询 Agent），通过系统总线发布/订阅消息，实现流水线任务。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：边缘设备部署——在 openEuler 嵌入式版本上运行轻量 Agent，结合本地小模型（如 Ollama）实现离线智能运维。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：安全审计增强——利用运行时的能力声明和调用日志，构建 Agent 行为审计看板，自动告警异常工具调用。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把 SnapSharp 用于外文技术文档整理——批量截图后 OCR 加翻译，快速生成中文笔记。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 AI 抠图制作博客封面素材——把产品图或图标抠成透明背景，再搭配文字排版。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合 GIF 录制做连续操作教程——截图标注关键步骤，再用录屏工具补充动态过程。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    把 Agent 当作系统原生服务来注册、隔离和观测，是 openEuler 新方案的核心精髓。
+    SnapSharp 的精髓在于把截图后的标注、识别、翻译和抠图串成一条流水线，让写教程的人少切换软件、多专注内容。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,18 +253,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可编排的智能体工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务AI智能体工作流</div>
-      <div class="text-xs text-amber-500">★★☆☆☆</div>
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

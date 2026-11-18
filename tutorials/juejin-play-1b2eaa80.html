@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用 Node.js 手搓能搜索计算读文件的 Agent - AI 玩法教程 · AI Frontier</title>
+<title>用四类高价值注释让AI准确理解代码 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-18
+      2026-11-19
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★★★★ · 5/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 Node.js 手搓能搜索计算读文件的 Agent</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用四类高价值注释让AI准确理解代码</h1>
     
   </div>
 </header>
@@ -59,27 +59,23 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    博客园 AI 教程 · B级
+    掘金 AI 实战教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.cnblogs.com/MrHuo/p/23636656/agent-from-scratch-04" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7709386928819241010" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
-<div class="mb-4">
-  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
-  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">ChatGPT</span></div>
-</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">用 Node.js 从零手搓一个能搜索、计算、读文件的 AI Agent，理解工具调用的底层逻辑。</p>
+  <p class="text-base text-slate-800 leading-relaxed">AI 读不懂你的代码，往往是因为注释只写了「做什么」，而没写「为什么」。本教程教你用四类高价值注释，让 AI 准确理解代码意图、边界与取舍。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多开发者想入门 AI Agent 但被框架的复杂度劝退。这个玩法带你用最少的依赖（Node.js 22 + TypeScript + OpenAI SDK）实现一个通用工具型 Agent，支持对话、工具调用、任务规划，并最终接入 MCP 生态。适合想深入理解 Agent 原理、或需要定制轻量级 Agent 的后端开发者。
+    很多开发者抱怨 AI 生成的代码「跑偏」：要么曲解需求，要么过度优化，要么把无关上下文塞进 prompt。根源在于注释信息量不足——AI 只能看到函数签名和零散描述，无法还原设计决策。四类高价值注释（意图注释、边界注释、取舍注释、示例注释）能补上这些缺失的上下文，让 AI 在补全、重构、审查时更精准。适用于日常编码、代码审查、AI 辅助重构等场景。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,24 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Node.js 22+  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行环境，需支持原生 fetch 和 ES 模块</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">TypeScript  <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">类型安全，提升开发体验</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">OpenAI API Key  <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">调用 GPT 模型，也可替换为兼容 OpenAI 接口的其他模型</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
       <div class="font-semibold text-slate-900">VS Code  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">代码编辑器，推荐安装 ESLint 和 Prettier 插件</div>
+      <div class="text-sm text-slate-600 mt-1">主流代码编辑器，用于编写和查看注释</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">版本控制，方便回滚和分享代码</div>
+      <div class="font-semibold text-slate-900">GitHub Copilot  <a href="https://github.com/features/copilot" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">AI 代码补全工具，验证注释对生成效果的影响</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Cursor  <a href="https://cursor.sh/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">AI 优先的编辑器，支持对话式代码理解</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">掘金原文  <a href="https://juejin.cn/post/7709386928819241010" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">参考教程原文，了解四类注释的完整案例</div>
     </li>
   </ul>
 </section>
@@ -130,66 +122,66 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：初始化项目与安装依赖</h3>
-      <div class="text-base text-slate-700 leading-loose">创建新目录并初始化 npm 项目，安装 openai、dotenv、tsx 等依赖。配置 tsconfig.json 启用 ES 模块和严格模式。在 .env 文件中填入 OPENAI_API_KEY。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：识别「做什么」注释并标记待改造点</h3>
+      <div class="text-base text-slate-700 leading-loose">打开你的项目，搜索所有只描述行为的注释，例如「// 计算总价」「// 过滤空值」。用 TODO 或 FIXME 标记这些位置，作为后续补充高价值注释的清单。重点标记核心业务函数、公共工具类和易被 AI 误改的复杂逻辑。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>使用 pnpm 或 yarn 可以更快安装依赖；记得将 .env 加入 .gitignore。
+          💡 <span class="font-semibold">小贴士：</span>优先处理被 AI 频繁引用或修改的文件，收益最高。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：定义工具接口与实现三个基础工具</h3>
-      <div class="text-base text-slate-700 leading-loose">创建一个 Tool 接口，包含 name、description、parameters（JSON Schema）和 execute 方法。实现三个工具：search（模拟搜索，返回固定结果）、calculate（用 eval 安全执行数学表达式）、readFile（读取指定路径的文件内容）。每个工具都要有清晰的描述，方便模型理解何时调用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：补充「意图注释」——说明为什么这样做</h3>
+      <div class="text-base text-slate-700 leading-loose">在函数上方用块注释写清楚业务目标、设计动机和预期结果。例如：「本函数用于兼容旧版 API 返回格式，新接口上线后可删除」。意图注释要回答「为什么需要这段代码」，而不是「这段代码做了什么」。AI 看到意图后，不会轻易把兼容逻辑当成冗余删掉。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>工具描述要具体，比如“计算数学表达式，支持加减乘除和括号”，这样模型才能准确选择工具。
+          💡 <span class="font-semibold">小贴士：</span>用「为了…」「因为…」「避免…」开头，强制自己写出动机。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：构建 Agent 核心循环</h3>
-      <div class="text-base text-slate-700 leading-loose">编写一个 runAgent 函数，接收用户消息和工具列表。调用 OpenAI 的 chat.completions.create，传入 tools 参数。解析响应中的 tool_calls，依次执行对应工具，将结果以 role: 'tool' 的消息追加到对话历史中，再次调用模型，直到模型不再请求工具调用为止。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：补充「边界注释」——明确输入输出与异常条件</h3>
+      <div class="text-base text-slate-700 leading-loose">在参数和返回值附近注释合法范围、空值处理、异常抛出条件。例如：「userId 必须为正整数，否则抛出 IllegalArgumentException」「返回空列表而非 null」。边界注释能防止 AI 生成缺少校验的代码，也能减少过度防御式编程。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>设置最大循环次数（如 10 次）防止无限调用；每次工具执行后打印日志便于调试。
+          💡 <span class="font-semibold">小贴士：</span>把边界条件写成断言式短句，AI 更容易在生成时复用。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：编写命令行交互入口</h3>
-      <div class="text-base text-slate-700 leading-loose">使用 readline 模块创建交互式命令行，循环读取用户输入，调用 runAgent 并打印最终回复。支持多轮对话，维护一个全局 messages 数组保存上下文。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：补充「取舍注释」——记录方案对比与放弃原因</h3>
+      <div class="text-base text-slate-700 leading-loose">在关键实现处注释为什么选 A 不选 B，例如：「此处用同步锁而非分布式锁，因为单机 QPS 低于 100，引入 Redis 成本更高」。取舍注释让 AI 理解约束条件，避免它「好心」改成更复杂但不符合场景的方案。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>可以添加 /clear 命令清空对话历史，方便测试不同场景。
+          💡 <span class="font-semibold">小贴士：</span>记录被否决的方案名称和一句话原因，信息密度最高。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：测试与调试</h3>
-      <div class="text-base text-slate-700 leading-loose">运行程序，尝试输入“帮我搜索 Node.js 22 的新特性”、“计算 (3+5)*2”、“读取 package.json 文件内容”等指令，观察 Agent 是否正确调用工具并整合结果。根据日志调整工具描述或参数定义。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：补充「示例注释」——给出典型输入输出</h3>
+      <div class="text-base text-slate-700 leading-loose">在复杂函数上方用注释写 1-2 组典型输入输出示例，格式如「输入: [1,2,3] -&gt; 输出: 6」。示例注释是 AI 最好的 few-shot 素材，能显著降低曲解概率。对于格式化、解析、计算类函数尤其有效。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果模型不调用工具，检查 tools 参数格式是否正确；如果调用错误工具，优化工具描述。
+          💡 <span class="font-semibold">小贴士：</span>示例要覆盖正常值和至少一个边界值，效果更好。
         </div>
     </div>
     <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         6
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：接入 MCP 生态（可选扩展）</h3>
-      <div class="text-base text-slate-700 leading-loose">参考 MCP 协议文档，将工具实现为 MCP Server，通过 stdio 或 HTTP 与 Agent 通信。这样你的 Agent 就能动态发现和调用外部工具，无需硬编码。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：用 AI 工具验证注释效果并迭代</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Cursor 或 Copilot 中选中带注释的函数，让 AI 解释代码或生成单元测试，对比改造前后的理解准确度。如果 AI 仍误解，说明注释缺少关键约束，回到第 2-4 步补充。重复 2-3 轮，直到 AI 能准确复述意图和边界。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先从官方 MCP 示例开始，逐步替换自己的工具，保持兼容性。
+          💡 <span class="font-semibold">小贴士：</span>让 AI 用自己的话总结函数职责，是检验注释质量的最快方法。
         </div>
     </div>
   </div>
@@ -199,7 +191,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    命令行中启动 Agent 后，输入自然语言指令，Agent 能自动判断是否需要调用工具，并返回整合后的答案。例如输入“搜索 Node.js 22 并计算 2 的 10 次方”，Agent 会先调用 search 工具，再调用 calculate 工具，最后汇总结果输出。
+    AI 在补全、重构和审查代码时能准确复述函数意图、遵守边界条件、尊重既有取舍，曲解和过度优化明显减少；同时由于注释信息密度提高，prompt 中无需堆砌大量上下文，token 消耗下降。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -209,38 +201,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 OpenAI API Key 怎么办？</span>
+        <span>四类注释必须全部写吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以使用兼容 OpenAI 接口的本地模型（如 Ollama + OpenAI 兼容层），或申请免费额度的其他平台（如 Groq、DeepSeek）。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不必。核心业务函数建议四类齐全，简单工具函数至少写意图和边界注释即可。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>工具调用总是失败或格式错误？</span>
+        <span>注释写多了会不会让代码臃肿？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查 tools 参数的 JSON Schema 是否符合 OpenAI 规范，确保每个工具都有 name、description 和 parameters 字段，且 parameters 是合法的 JSON Schema 对象。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">高价值注释信息密度高，通常每函数 3-5 行即可。避免写「做什么」的废话注释，整体可读性反而提升。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何让 Agent 支持更多工具？</span>
+        <span>对 AI 生成代码也适用吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">按照 Tool 接口实现新的工具类，并在工具列表中注册即可。工具描述越清晰，模型选择越准确。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适用。让 AI 生成代码时要求它同时输出四类注释，后续维护和二次生成都会更准确。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Agent 陷入循环调用怎么办？</span>
+        <span>如何衡量效果？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在 runAgent 中设置最大迭代次数（如 10 次），超过后强制返回当前结果或提示用户。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个 Agent 能用于生产环境吗？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以作为原型，但生产环境需要增加错误处理、日志、限流、安全校验（如文件读取路径限制）等。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">对比改造前后 AI 解释代码的准确率、生成测试的覆盖率，以及人工修正次数，通常 1-2 周可见明显差异。</div>
     </details>
   </div>
 </section>
@@ -248,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将工具调用改为并行执行——当模型一次返回多个 tool_calls 时，用 Promise.all 并发执行，提升效率。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：增加记忆功能——将对话历史持久化到 SQLite 或 Redis，实现跨会话记忆。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：接入真实搜索 API——用 SerpAPI 或 Bing Search API 替换模拟搜索工具，让 Agent 能获取实时信息。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：团队注释模板——将四类注释做成代码片段模板（VS Code Snippet），团队统一使用，提升协作效率。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：AI 自动补注释——用 Cursor 或 Copilot Chat 让 AI 根据代码反向生成四类注释草稿，人工审核后落库。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：注释驱动测试生成——把四类注释作为 prompt 输入，让 AI 直接生成覆盖边界和取舍的单元测试。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    手搓 Agent 的精髓在于理解“模型决策 + 工具执行”的循环，用最小依赖实现最大灵活性。
+    用意图、边界、取舍、示例四类注释把「为什么」写进代码，AI 才能从「猜」变成「懂」。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -265,17 +250,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用 Seedream5.5 实测 AI 作图与改图工作流 - AI 玩法教程 · AI Frontier</title>
+<title>清理坏样例+类型测试约束AI代码风格 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-18
+      2026-11-19
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🧭 工作流
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 Seedream5.5 实测 AI 作图与改图工作流</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">清理坏样例+类型测试约束AI代码风格</h1>
     
   </div>
 </header>
@@ -58,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    爱范儿 AI 应用 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    掘金 AI 实战教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://www.ifanr.com/1688447" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7709358271694520329" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">Seedream5.5 是近期在 AI 绘图圈讨论度很高的模型，尤其擅长「改图不糊」——连续编辑多轮后画面依然清晰。这篇教程带你从零跑通一套「生成→局部改→风格迁移→批量输出」的实战工作流。</p>
+  <p class="text-base text-slate-800 leading-relaxed">AI 总爱抄你项目里的旧代码？不是它学坏了，而是坏样例没清理。两步就能治：先删可抄的旧代码，再用类型和测试让错写法编译不过。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多 AI 绘图工具在反复修改同一张图时，会出现细节丢失、噪点堆积、主体变形等问题，导致「改到第 5 轮就废了」。Seedream5.5 的卖点正是长链路编辑的稳定性，爱范儿实测改图 100 轮仍保持可用画质。这套工作流适合需要反复打磨同一张视觉稿的设计师、自媒体配图作者，以及想批量产出风格统一素材的运营同学。掌握后你可以把「生成-修改-延展」串成流水线，而不是每次推倒重来。
+    很多团队在用 AI 辅助编码时发现，AI 生成的代码风格越来越像项目里的历史遗留代码——命名随意、类型松散、缺少校验。根本原因是 AI 的上下文里充满了可被模仿的坏样例。这个玩法通过「清理坏样例 + 类型与测试约束」两步，让 AI 只能学到好写法，从源头约束代码风格。适用于任何有历史包袱、正在引入 AI 编码的团队。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Seedream5.5 访问入口  <a href="https://www.ifanr.com/1688447" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">通过官方合作平台或 API 调用，建议先确认你所在地区可用的入口（如火山引擎方舟、即梦等）</div>
+      <div class="font-semibold text-slate-900">TypeScript  <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">利用严格类型检查让错误写法编译失败</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">即梦 / 豆包等字节系生图产品  <a href="https://jimeng.jianying.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">Seedream 系列通常集成在这些产品中，用于网页端直接操作</div>
+      <div class="font-semibold text-slate-900">ESLint  <a href="https://eslint.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">静态检查代码风格，配合 AI 生成后自动修复</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">参考图素材 </div>
-      <div class="text-sm text-slate-600 mt-1">准备 1-3 张风格参考图或需要修改的原图，分辨率建议不低于 1024px</div>
+      <div class="font-semibold text-slate-900">Jest / Vitest </div>
+      <div class="text-sm text-slate-600 mt-1">单元测试框架，用测试用例锁定正确行为</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">提示词草稿文档 </div>
-      <div class="text-sm text-slate-600 mt-1">用备忘录或 Notion 记录每轮修改指令，方便回溯和复用</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">版本控制，用于安全删除旧代码和回滚</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">AI 编码助手（如 GitHub Copilot / Cursor） </div>
+      <div class="text-sm text-slate-600 mt-1">生成代码的工具，本玩法对其输出进行约束</div>
     </li>
   </ul>
 </section>
@@ -122,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：用「主体+场景+风格+画质」四段式写首轮提示词</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 Seedream5.5 的生图入口，按四段式组织提示词：主体（谁/什么）、场景（在哪/什么氛围）、风格（摄影/插画/3D 等）、画质（8K、细节丰富、电影感）。例如「一位穿米色风衣的亚洲女性站在雨后的东京街头，电影感摄影，浅景深，8K 细节」。首轮不要堆太多形容词，先确保主体和构图正确，方便后续局部修改。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：盘点并标记「坏样例」代码</h3>
+      <div class="text-base text-slate-700 leading-loose">在项目里搜索那些你不想让 AI 模仿的旧写法，比如 any 类型、var 声明、回调地狱、重复的工具函数。用 Git 分支或注释标记它们，列出清单。重点找 AI 最容易抄的：公共 utils、旧组件、遗留 API 封装。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>首轮生成 2-4 张备选，选构图最接近预期的一张作为「底图」，后续所有修改都基于它，避免每次换底图导致风格漂移。
+          💡 <span class="font-semibold">小贴士：</span>可以先用 ESLint 的 no-explicit-any、no-var 等规则扫一遍，快速定位坏样例。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用「局部重绘」改细节，每轮只改一个变量</h3>
-      <div class="text-base text-slate-700 leading-loose">选中底图后进入局部重绘/编辑模式，框选要改的区域（如衣服颜色、背景招牌、手部姿势），在提示词里只描述该区域的新内容。关键原则：每轮只改一个变量，改完确认满意再进入下一轮。这样即使改 20 轮，画面也不会因为指令冲突而崩坏。Seedream5.5 的长链路稳定性在这里体现最明显——连续改图后边缘融合和纹理细节依然干净。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：安全删除或隔离坏样例</h3>
+      <div class="text-base text-slate-700 leading-loose">对于确认不再使用的旧代码，直接删除；对于仍需保留但不想被 AI 抄的代码，移到单独的 legacy 目录并在 .cursorignore 或 .copilotignore 中排除。确保 AI 的上下文里看不到这些坏样例。删除前务必跑通测试，用 Git 提交以便回滚。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果某轮改坏了，直接回退到上一版再改，不要在当前崩坏的图上继续叠加指令。
+          💡 <span class="font-semibold">小贴士：</span>删除前先打 tag 或建分支，万一误删可以快速恢复。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用「风格参考图」做整体迁移，统一视觉语言</h3>
-      <div class="text-base text-slate-700 leading-loose">当主体和细节都满意后，上传 1-2 张风格参考图（如某位摄影师的色调、某类插画的笔触），使用图生图或风格参考功能，把参考图的色彩、光影、质感迁移到你的底图上。提示词里写「保持原图构图和主体不变，参考图的色调与光影风格」。这一步能把「能看」的图提升到「有统一视觉语言」的图。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：开启严格类型检查，让错写法编译不过</h3>
+      <div class="text-base text-slate-700 leading-loose">在 tsconfig.json 中开启 strict: true、noImplicitAny: true、strictNullChecks: true 等选项。配置 ESLint 规则（如 @typescript-eslint/no-explicit-any 设为 error）。这样 AI 生成的 any 类型或松散写法会直接报错，迫使它改用正确类型。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>风格参考图不要选和底图构图差异太大的，否则模型容易把主体也改掉；优先选色调和光影接近你目标的图。
+          💡 <span class="font-semibold">小贴士：</span>可以逐步开启严格选项，先开 noImplicitAny，再开 strictNullChecks，避免一次性改动太大。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：批量延展——用同一底图生成系列变体</h3>
-      <div class="text-base text-slate-700 leading-loose">固定底图和风格参考，只替换提示词中的场景或动作关键词（如「站在街头」换成「坐在咖啡馆窗边」），批量生成 4-8 张同风格变体。因为底图和风格锚点没变，系列图的一致性会很高，适合做封面套图、产品场景图、角色多姿态图。生成后统一导出，按「底图版本_变体编号」命名归档。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用测试用例锁定正确行为</h3>
+      <div class="text-base text-slate-700 leading-loose">为关键函数和组件编写单元测试，覆盖边界条件和错误处理。当 AI 生成不符合预期的代码时，测试会失败，你就能及时发现并纠正。测试本身也是给 AI 的「好样例」，让它学习正确的调用方式。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>批量生成时把种子（seed）固定下来，能进一步降低随机性，让系列图更统一。
+          💡 <span class="font-semibold">小贴士：</span>测试文件命名清晰，如 *.test.ts，并放在 AI 容易读取的目录，让 AI 参考测试写法。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：终审与轻修——检查手部、文字、边缘融合</h3>
-      <div class="text-base text-slate-700 leading-loose">把最终图放大到 100% 检查三个高频翻车点：手部手指数量、画面中的文字是否可读、主体与背景的边缘是否自然。Seedream5.5 虽然稳定，但手部和文字仍是所有模型的薄弱项。发现问题就回到第 2 步做一次局部重绘，通常 1-2 轮就能修好。确认无误后导出最高分辨率版本。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：在 AI 提示词中明确约束</h3>
+      <div class="text-base text-slate-700 leading-loose">在给 AI 的提示词中加入风格约束，例如「使用 TypeScript 严格模式，禁止 any，遵循项目 ESLint 规则，参考现有测试文件」。配合前几步的工程约束，形成双重保险。每次 AI 生成后，运行类型检查和测试，不通过就让它重写。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>需要印刷或大屏展示时，导出后可用 Topaz Photo AI 或 Real-ESRGAN 做一次无损放大，比在生图模型里反复重绘更稳。
+          💡 <span class="font-semibold">小贴士：</span>可以把常用约束保存为提示词模板，每次对话直接粘贴，省时省力。
         </div>
     </div>
   </div>
@@ -180,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你得到一张经过多轮局部修改和风格迁移的高完成度成图，以及一组风格统一的系列变体。整个过程中画面没有出现明显的噪点堆积、主体变形或细节糊化，验证了 Seedream5.5 长链路编辑的稳定性。
+    AI 生成的代码不再出现 any、var 等坏写法，类型检查通过，测试全部绿色。项目代码风格趋于统一，新代码自动遵循最佳实践，团队 review 成本明显下降。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +194,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Seedream5.5 在哪里可以用？</span>
+        <span>删除旧代码风险太大怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">它通常集成在字节系产品中（如即梦、豆包）或通过火山引擎方舟 API 调用。具体入口以官方最新公告为准，可参考爱范儿原文的实测链接。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以先隔离而不是删除：把旧代码移到 legacy 目录并在 AI 工具中排除，同时用 Git 保留历史。确认无引用后再逐步删除。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>为什么我改了几轮之后画面变糊了？</span>
+        <span>严格类型检查导致大量报错，如何推进？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">常见原因是每轮都在「当前结果」上叠加修改，误差累积。正确做法是每轮只改一个变量，改坏了就回退到上一版，不要连续在崩坏图上叠加指令。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">分阶段开启规则，先开 noImplicitAny，修复完再开 strictNullChecks。也可以对 legacy 目录单独放宽规则，新代码严格执行。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>局部重绘时框选区域应该多大？</span>
+        <span>AI 不遵守提示词约束怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">略大于要改的物体即可，留出 10%-20% 的边缘过渡区，让模型有融合空间。框太大容易影响周围内容，框太小则边缘衔接不自然。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">工程约束比提示词更可靠。确保类型检查和测试在 CI 中强制执行，AI 生成的代码不通过就无法合并，倒逼它学习正确写法。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>风格参考图和底图构图差异大怎么办？</span>
+        <span>没有测试覆盖的老项目怎么开始？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">优先选构图接近的参考图；如果差异大，把风格参考的权重调低，并在提示词中强调「保持原图构图和主体不变」，避免模型把主体也迁移掉。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这套工作流对电脑配置有要求吗？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">网页端操作基本不吃本地配置，主要依赖云端算力。只有本地放大、修图等后处理环节才需要一定的显卡或内存，普通轻薄本也能跑通全流程。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">从核心工具函数和公共组件开始补测试，优先覆盖 AI 最常改动的部分。测试不必追求覆盖率，关键是锁定关键行为。</div>
     </details>
   </div>
 </section>
@@ -229,14 +226,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：电商产品图工作流——用白底产品图做底图，局部重绘替换背景场景，风格参考统一品牌色调，批量生成不同使用场景的产品图。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：角色设定图工作流——先定角色底图，用局部重绘改服装和表情，再用固定种子批量生成多姿态、多角度设定图，适合漫画和游戏前期。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：自媒体封面套图——固定风格参考和版式，只替换主体和标题关键词，批量产出 6-10 张视觉统一的封面，直接用于多平台分发。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用 AI 自动重构坏样例——让 AI 批量将 any 替换为具体类型，再人工 review，加速清理过程。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：建立「好样例」代码库——专门维护一个 examples 目录，存放符合规范的代码片段，并在提示词中引导 AI 参考。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：CI 门禁自动化——在 CI 中集成类型检查、ESLint 和测试，AI 生成的 PR 不通过则自动拒绝，形成闭环约束。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    这套工作流的精髓是「锚定底图、单变量修改、风格参考统一」，把 AI 改图从碰运气变成可复现的流水线。
+    清理坏样例让 AI 无坏可抄，类型与测试让错写法无法存活，双管齐下约束 AI 代码风格。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -244,19 +241,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Yolain工作流在ComfyUI中快速生成图像</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">ComfyUI 自定义节点合集，扩展工作流能力</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

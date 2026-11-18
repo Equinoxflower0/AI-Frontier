@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用美团LongCat开源模型搭本地AI工作流 - AI 玩法教程 · AI Frontier</title>
+<title>实测GPT-6.2 Astra：用评测对比判断模型是否被冤枉 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-18
+      2026-11-19
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用美团LongCat开源模型搭本地AI工作流</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">实测GPT-6.2 Astra：用评测对比判断模型是否被冤枉</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    智东西 AI 工具评测 · A级
+    爱范儿 AI 应用 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     权威媒体
   </span>
-  <a href="https://zhidx.com/p/608737.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.ifanr.com/1690103" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">美团 LongCat 团队开源了原生多模态模型，本文教你如何在本地搭建一套可用的 AI 工作流，实现文本生成、图像理解等任务的离线运行。</p>
+  <p class="text-base text-slate-800 leading-relaxed">当新模型发布时，别急着被跑分带节奏——用一套可复现的评测对比流程，自己判断它到底是被冤枉还是真不行。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    智东西报道了美团 LongCat 团队开源的原生多模态模型，该模型支持文本与图像联合理解，适合在本地部署以保护数据隐私、降低 API 成本。对于开发者、研究者或 AI 爱好者来说，搭建本地工作流意味着可以自由定制提示词、批量处理任务，并避免网络延迟。本教程将带你从零开始，用开源工具链完成模型下载、环境配置、服务启动和简单应用串联，最终形成一个可复用的本地 AI 工作流。
+    GPT-6.2 Astra 发布后，社区评价两极分化：有人夸它推理更强，有人吐槽它“变笨了”。爱范儿的实测文章指出，最聪明的模型未必最好用，最好用的也未必最聪明。这个玩法的价值在于：教你搭建一个轻量评测工具链，用同一套提示词和评分标准横向对比新旧模型，避免被单一跑分或主观感受误导。适用场景包括：新模型上线后的选型决策、团队内部模型迁移评估、以及个人开发者判断是否值得切换 API。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,28 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行模型推理脚本的基础环境</div>
+      <div class="font-semibold text-slate-900">OpenAI API 或兼容接口  <a href="https://platform.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于调用 GPT-6.2 Astra 及对比模型（如 GPT-5.5、Claude 等），需准备 API Key</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">克隆 LongCat 开源仓库</div>
+      <div class="font-semibold text-slate-900">Python 3.10+ 与 requests/openai 库  <a href="https://www.python.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编写批量评测脚本，发送提示词并收集回复</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">CUDA 11.8+（可选但推荐）  <a href="https://developer.nvidia.com/cuda-toolkit" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">GPU 加速推理，显著提升速度</div>
+      <div class="font-semibold text-slate-900">Google Sheets 或 Excel  <a href="https://sheets.google.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">记录每次评测的提示词、模型输出、人工评分，便于横向对比</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Hugging Face 账号  <a href="https://huggingface.co/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">下载模型权重（部分模型需同意协议）</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Ollama 或 vLLM </div>
-      <div class="text-sm text-slate-600 mt-1">本地模型服务框架，二选一即可</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Docker（可选）  <a href="https://www.docker.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">容器化部署，简化环境依赖</div>
+      <div class="font-semibold text-slate-900">爱范儿原文参考  <a href="https://www.ifanr.com/1690103" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">了解 GPT-6.2 Astra 的实测背景和评测思路</div>
     </li>
   </ul>
 </section>
@@ -130,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：获取 LongCat 模型与代码</h3>
-      <div class="text-base text-slate-700 leading-loose">访问美团 LongCat 团队在 GitHub 或 Hugging Face 上的开源页面（可通过智东西报道中的链接找到入口），克隆代码仓库到本地。使用 git clone 命令下载项目，并按照 README 指引安装依赖（通常为 pip install -r requirements.txt）。如果模型权重需要单独下载，请使用 huggingface-cli 或 git lfs 拉取。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：定义评测任务集与评分维度</h3>
+      <div class="text-base text-slate-700 leading-loose">从你日常真实使用场景中挑选 10-15 个代表性任务，覆盖推理、代码、写作、指令遵循四类。为每个任务写一条固定提示词，并定义 1-5 分的评分标准（如准确性、完整性、格式合规）。把任务清单和评分表建在 Google Sheets 中，确保后续所有模型用完全相同的输入。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议先阅读仓库的 README 和模型卡片，确认硬件要求和许可证，避免下载不兼容的版本。
+          💡 <span class="font-semibold">小贴士：</span>任务集不要贪多，10 条高质量、有区分度的提示词比 100 条泛泛而问更有用。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：配置本地推理环境</h3>
-      <div class="text-base text-slate-700 leading-loose">创建 Python 虚拟环境（如 conda create -n longcat python=3.10），激活后安装 PyTorch 和项目依赖。若使用 GPU，确保 CUDA 版本与 PyTorch 匹配。对于显存较小的设备，可以启用量化加载（如 4-bit 或 8-bit）以减少内存占用。检查 transformers、accelerate 等库是否安装正确。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：编写批量调用脚本</h3>
+      <div class="text-base text-slate-700 leading-loose">用 Python 写一个脚本，读取任务清单中的提示词，依次调用 GPT-6.2 Astra 和对比模型（如 GPT-5.5）。每次调用固定 temperature=0、max_tokens 一致，并把模型名、提示词、输出、耗时写入 CSV。建议加一个 sleep 避免触发速率限制。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>运行 python -c &quot;import torch; print(torch.cuda.is_available())&quot; 验证 GPU 是否可用，若为 False 请检查驱动和 CUDA 安装。
+          💡 <span class="font-semibold">小贴士：</span>用环境变量存 API Key，不要把密钥硬编码进脚本；对同一提示词可跑 2-3 次取平均，降低随机性干扰。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：启动模型服务</h3>
-      <div class="text-base text-slate-700 leading-loose">根据项目文档选择启动方式：若使用 Ollama，可编写 Modelfile 导入 LongCat 模型并运行 ollama serve；若使用 vLLM，则通过 python -m vllm.entrypoints.openai.api_server --model &lt;模型路径&gt; 启动兼容 OpenAI API 的服务。启动后，用 curl 或 Python requests 测试 /v1/completions 或 /v1/chat/completions 接口是否返回正常。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：人工盲评与打分</h3>
+      <div class="text-base text-slate-700 leading-loose">把 CSV 中的模型输出复制到评分表中，隐藏模型名称（盲评），逐条按第1步的评分维度打分。至少找一位同事交叉评分，减少个人偏好。重点记录模型“翻车”的具体表现，比如格式错误、事实错误、拒绝回答等。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>记录服务端口（默认 8000 或 11434），后续工作流中需要填写该地址。首次加载模型可能较慢，耐心等待日志显示“ready”。
+          💡 <span class="font-semibold">小贴士：</span>盲评是关键——知道模型名字后，人很容易产生“贵的就是好”的偏见。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：编写提示词模板与调用脚本</h3>
-      <div class="text-base text-slate-700 leading-loose">创建一个 Python 脚本，使用 requests 或 openai 库向本地服务发送请求。设计一个简单的提示词模板，例如“请根据以下图片描述生成一段产品文案：{image_description}”。将文本输入和图像路径（若模型支持多模态）组织成 JSON 载荷，调用 API 并解析返回结果。可以封装成函数，方便批量处理。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：汇总对比与归因分析</h3>
+      <div class="text-base text-slate-700 leading-loose">计算每个模型在各维度上的平均分和总分，画出简单的柱状图或雷达图。对分差较大的任务，回看原始输出，判断是模型能力差异还是提示词歧义导致。结合爱范儿文章中的观点，区分“聪明”（推理深度）和“好用”（指令遵循、格式稳定）两个维度分别打分。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在脚本中加入异常处理和重试机制，避免因服务暂时无响应导致任务中断。
+          💡 <span class="font-semibold">小贴士：</span>不要只看总分——某个模型可能总分低但在你的核心场景上表现更好，按场景加权更合理。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：串联工作流并测试</h3>
-      <div class="text-base text-slate-700 leading-loose">将多个任务串联起来：例如先用模型对本地图片进行描述生成，再将描述文本送入另一个提示词生成营销文案，最后保存到 Markdown 文件。可以使用简单的 for 循环遍历文件夹中的图片，依次调用本地 API。运行脚本，观察输出是否连贯、格式是否正确。根据结果调整提示词或参数（如 temperature、max_tokens）。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：形成结论并复测</h3>
+      <div class="text-base text-slate-700 leading-loose">根据对比结果写出结论：GPT-6.2 Astra 在你的任务集上是否被冤枉？它在哪些任务上强、哪些弱？如果结论与社区口碑差异大，换一批提示词或调整 temperature 后复测一次，确认结论稳健。最后把评测脚本和评分表存档，方便下次新模型发布时直接复用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先用 2-3 张图片做小规模测试，确认流程通畅后再批量处理，节省调试时间。
+          💡 <span class="font-semibold">小贴士：</span>把评测集当成长期资产维护，每次新模型发布只需替换模型名重跑，效率极高。
         </div>
     </div>
   </div>
@@ -188,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    本地模型服务成功启动，通过 Python 脚本可以调用 LongCat 模型完成文本生成和图像理解任务，并自动将结果保存为文件。整个工作流无需联网，响应速度取决于硬件配置，通常 GPU 下每秒可生成数十个 token。
+    你将得到一张包含多模型、多任务、多维度评分的对比表，以及一份基于自己真实场景的选型结论。能清楚看到 GPT-6.2 Astra 在哪些任务上优于/劣于对比模型，不再被单一跑分或社区情绪左右。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -198,31 +190,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 GPU 可以运行吗？</span>
+        <span>没有多个模型的 API 权限怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但速度较慢。建议使用量化版本（如 GGUF 格式）并通过 Ollama 在 CPU 上运行，或使用云 GPU 临时测试。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以只评测 GPT-6.2 Astra 与一个你常用的旧模型，甚至用网页版手动复制输出到表格中，流程完全一样，只是自动化程度低一些。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>模型下载太慢怎么办？</span>
+        <span>评测任务集应该选多少条？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以使用 Hugging Face 镜像站（如 hf-mirror.com）或提前用 git lfs 拉取。国内用户也可关注 ModelScope 上是否有对应模型。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议 10-15 条，覆盖 3-4 类场景即可。太少没有统计意义，太多人工评分成本过高，容易半途而废。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>启动服务时报错“CUDA out of memory”如何解决？</span>
+        <span>人工评分太主观怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">降低 batch size、启用量化加载（load_in_8bit=True），或换用更小的模型变体。也可限制 max_model_len 减少显存占用。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">把评分维度拆细（如准确性、完整性、格式合规各 1-5 分），并找第二个人独立盲评，取平均分；对分歧大的条目回看原始输出讨论定分。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何让工作流支持多轮对话？</span>
+        <span>temperature 设多少合适？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在调用 API 时维护一个 messages 列表，每次将历史对话和最新用户输入一起发送，并保留模型返回的回复追加到列表中。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">评测对比建议统一设为 0 或接近 0，减少随机性；如果你关心创意类任务，可单独设一组 temperature=0.7 的对照实验。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>这个流程能用于非 GPT 模型吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">完全可以。只要模型提供 API 或网页版，把调用方式替换掉即可，评分表和对比逻辑通用。</div>
     </details>
   </div>
 </section>
@@ -230,14 +229,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将本地模型接入 LangChain，构建带记忆和工具调用的智能体，实现自动搜索和总结。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：使用 Gradio 或 Streamlit 为本地工作流搭建 Web 界面，方便非技术用户上传图片并获取文案。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合定时任务（如 cron）和本地文件监控，实现新图片自动生成描述并归档的自动化流水线。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：A/B 盲测投票——把两个模型的输出匿名并列展示给同事，让大家投票选更好的，最后揭晓模型名，适合快速感知“好用度”。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：成本-性能二维对比——在评分基础上记录每个模型的 token 成本和响应延迟，画出性价比散点图，适合团队做 API 选型决策。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：回归测试集——把历史评测中模型翻车的提示词单独整理成“回归集”，每次新模型发布先跑这一组，快速判断旧问题是否修复。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用开源 LongCat 模型 + 本地推理框架 + 简单脚本，就能搭建一个隐私安全、可定制的多模态 AI 工作流，核心在于选对部署方式并设计好提示词模板。
+    用固定提示词、盲评打分和归因分析搭建一套可复用的轻量评测链，让模型选型从“听口碑”变成“看数据”。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -247,17 +246,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

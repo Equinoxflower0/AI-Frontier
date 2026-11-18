@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>实测 AGENTS.md 过期指令对 Coding Agent 的影响 - AI 玩法教程 · AI Frontier</title>
+<title>手写 MCP 客户端与服务端打通外部工具 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-18
+      2026-11-19
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">实测 AGENTS.md 过期指令对 Coding Agent 的影响</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">手写 MCP 客户端与服务端打通外部工具</h1>
     
   </div>
 </header>
@@ -59,27 +59,23 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    掘金 AI 实战教程 · B级
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7706719431355858994" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/MrHuo/p/23705636/agent-from-scratch-09" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
-<div class="mb-4">
-  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
-  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">Claude</span></div>
-</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">AGENTS.md 或 CLAUDE.md 里的指令过期后，Coding Agent 会怎么表现？这篇教程带你用 Claude 实测过期指令对 Agent 行为的影响，并教你如何规避。</p>
+  <p class="text-base text-slate-800 leading-relaxed">不依赖任何 MCP SDK，手写一个最小客户端与服务端，彻底搞懂 Model Context Protocol 到底有多薄。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    北卡州立大学团队从真实开源仓库中发现，许多项目的 AGENTS.md/CLAUDE.md 文件中的指令会随时间过期，导致 Coding Agent 执行错误操作。本玩法通过复现实验，让你理解过期指令的危害，并掌握检测与修复方法。适用场景：维护长期项目的开发者、使用 Claude 等 Coding Agent 的团队、对 Agent 可靠性感兴趣的研究者。
+    MCP 旨在让外部服务按统一协议暴露工具，客户端按统一协议发现并调用，双方无需为彼此写胶水代码。很多开发者觉得协议很神秘，其实核心就是 JSON-RPC 风格的请求/响应。本教程带你从零手写客户端与服务端，打通一个真实的外部工具（如天气查询），看清协议本质，为后续接入更多工具链打下基础。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,20 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Claude  <a href="https://claude.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于执行 Coding Agent 任务，需支持读取 AGENTS.md/CLAUDE.md 文件</div>
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行客户端与服务端代码</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于克隆示例仓库和版本控制</div>
+      <div class="font-semibold text-slate-900">VS Code 或任意编辑器  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编写和调试代码</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Node.js (可选)  <a href="https://nodejs.org" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">部分示例项目依赖 Node 环境运行测试</div>
+      <div class="font-semibold text-slate-900">curl 或 Postman  <a href="https://curl.se/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">手动测试服务端 HTTP 接口</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一个开源仓库  <a href="https://github.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">包含 AGENTS.md 或 CLAUDE.md 的仓库，可从 GitHub 搜索获取</div>
+      <div class="font-semibold text-slate-900">一个可调用的外部 API（如 OpenWeatherMap 免费天气 API）  <a href="https://openweathermap.org/api" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">作为被 MCP 暴露的外部工具</div>
     </li>
   </ul>
 </section>
@@ -126,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：准备一个含过期指令的仓库</h3>
-      <div class="text-base text-slate-700 leading-loose">从 GitHub 找一个包含 AGENTS.md 或 CLAUDE.md 的开源项目，克隆到本地。检查文件中的指令是否与当前代码结构一致，例如指令要求运行 `npm test` 但项目已改用 `pnpm test`，或指令引用了已删除的目录。如果没有现成仓库，可手动创建一个示例项目，并编写一份包含过时命令的 AGENTS.md。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：定义 MCP 消息格式与工具描述</h3>
+      <div class="text-base text-slate-700 leading-loose">先约定客户端与服务端之间的 JSON 消息结构：请求包含 jsonrpc、id、method、params；响应包含 jsonrpc、id、result 或 error。工具描述用 name、description、inputSchema 三个字段，其中 inputSchema 采用 JSON Schema 描述参数。把这份约定写成一个共享的 protocol.py 文件，后续两端都导入它，保证格式一致。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>优先选择 1 年以上未更新的仓库，过期指令概率更高。
+          💡 <span class="font-semibold">小贴士：</span>不用追求完整规范，先实现 tools/list 和 tools/call 两个方法即可跑通核心流程。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：让 Claude 读取并执行指令</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Claude 中打开项目，明确要求它读取 AGENTS.md/CLAUDE.md 并按照其中的指令完成一个任务，例如“根据 AGENTS.md 的说明运行测试并修复失败用例”。观察 Claude 是否会直接执行过期命令，以及执行后的错误反馈。记录 Claude 的决策过程，比如它是否尝试纠正指令。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：手写 MCP 服务端（暴露外部工具）</h3>
+      <div class="text-base text-slate-700 leading-loose">用 Python 标准库 http.server 起一个 HTTP 服务，监听 /mcp 路径。收到 POST 请求后解析 JSON，根据 method 分发：tools/list 返回工具列表（包含天气查询工具及其 inputSchema）；tools/call 根据工具名调用真实的外部天气 API，把结果包装成 MCP 响应返回。外部 API 的密钥从环境变量读取，不要硬编码。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>使用 Claude 的“项目”功能上传整个仓库，确保它能访问所有文件。
+          💡 <span class="font-semibold">小贴士：</span>先用 curl 手动发一条 tools/list 请求，确认服务端能返回正确 JSON，再写客户端。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：对比指令过期前后的行为差异</h3>
-      <div class="text-base text-slate-700 leading-loose">将 AGENTS.md 中的过期指令手动更新为当前正确的指令，再次让 Claude 执行相同任务。对比两次运行的结果：过期指令下 Claude 是否频繁报错、是否绕开指令自行探索、是否产生幻觉。整理成表格，标注过期指令导致的典型失败模式。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：手写 MCP 客户端（发现并调用工具）</h3>
+      <div class="text-base text-slate-700 leading-loose">客户端同样用 Python 标准库 urllib 或 requests 向服务端 /mcp 发 POST 请求。先调用 tools/list 拿到工具列表并打印；再根据用户输入构造 tools/call 请求，传入工具名和参数（如城市名），发送后解析响应，提取结果字段展示给用户。把请求 id 用递增整数管理，方便匹配响应。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>使用 Claude 的对话分支功能，保留两次运行的完整记录以便对比。
+          💡 <span class="font-semibold">小贴士：</span>客户端里加一个简单的命令行交互循环，输入城市名就调用一次，体验更直观。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：分析过期指令的根因与影响</h3>
-      <div class="text-base text-slate-700 leading-loose">检查过期指令的具体内容，判断属于哪类问题：命令变更、路径失效、依赖版本过时、或流程描述错误。结合北卡州立大学团队的研究结论，理解过期指令如何误导 Agent 的规划与执行。思考在真实项目中，这类问题可能导致的时间浪费和错误修复。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：联调与错误处理</h3>
+      <div class="text-base text-slate-700 leading-loose">启动服务端，再运行客户端，依次测试：正常调用、工具名不存在、参数缺失、外部 API 超时。服务端对未知 method 返回 error 对象，对工具执行异常捕获后返回 error 而不是崩溃。客户端对 error 响应做友好提示。确保两端对 id 的匹配逻辑正确，避免响应错位。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>关注指令中硬编码的版本号、绝对路径和工具名，这些最容易过期。
+          💡 <span class="font-semibold">小贴士：</span>在服务端日志里打印收到的原始 JSON，排查协议问题时非常有用。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：制定修复与预防策略</h3>
-      <div class="text-base text-slate-700 leading-loose">针对发现的问题，更新 AGENTS.md/CLAUDE.md 中的指令，确保与当前项目状态一致。建议添加“指令最后验证日期”和“适用版本”注释。同时，在 CI 流程中加入指令有效性检查，例如定期运行指令中的命令并验证退出码。将修复后的文件提交，并让 Claude 重新执行任务验证效果。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：接入第二个工具，验证协议扩展性</h3>
+      <div class="text-base text-slate-700 leading-loose">再写一个简单工具，比如“当前时间查询”或“随机名言”，在服务端 tools/list 中追加描述，在 tools/call 中增加分支。客户端无需修改任何代码，就能发现并调用新工具。这直接证明了 MCP 的价值：新增工具只需服务端注册，客户端自动发现。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>使用 Claude 生成指令有效性检查脚本，自动化验证过程。
+          💡 <span class="font-semibold">小贴士：</span>把工具实现拆成独立函数，用字典注册表管理，后续加工具就是加一行注册。
         </div>
     </div>
   </div>
@@ -184,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    完成以上步骤后，你将得到一份过期指令导致 Agent 失败的实测记录，以及一份更新后的 AGENTS.md/CLAUDE.md 文件。Claude 在执行任务时的错误率明显下降，能够正确遵循指令完成测试和修复。你还能总结出过期指令的常见模式，并建立预防机制。
+    服务端在本地 8000 端口运行，客户端启动后打印出工具列表（天气查询、时间查询等），输入城市名后成功返回天气信息，输入未知工具名时收到结构化错误提示。整个流程不依赖任何 MCP SDK，代码总量约 150 行。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +190,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有现成的过期指令仓库怎么办？</span>
+        <span>必须用 HTTP 吗？能不能用 stdio？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以手动创建一个示例项目，编写一份包含明显过时命令（如 `npm run build:old`）的 AGENTS.md，然后按照教程步骤操作。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">MCP 支持多种传输方式，stdio 也很常见。本教程用 HTTP 是为了方便用 curl 调试，你可以把服务端改成从标准输入读 JSON、向标准输出写 JSON，客户端用 subprocess 启动它即可。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Claude 不读取 AGENTS.md 文件怎么办？</span>
+        <span>inputSchema 必须写完整 JSON Schema 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">确保在对话中明确指示 Claude 读取该文件，或使用 Claude 的项目功能上传文件。也可以直接粘贴文件内容到对话中。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议至少写 type、properties 和 required，这样客户端才能做参数校验和提示。简单工具可以只写 type 和 properties，但完整一点更利于后续接入通用客户端。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>过期指令一定会导致 Agent 失败吗？</span>
+        <span>外部 API 密钥怎么管理？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不一定，取决于 Agent 的纠错能力。但过期指令会增加失败概率和调试成本，尤其是当指令与当前环境严重不符时。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用环境变量读取，不要写进代码或提交到仓库。本地可以建 .env 文件并用 python-dotenv 加载，生产环境用密钥管理服务。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何自动化检测指令过期？</span>
+        <span>客户端如何知道服务端有哪些工具？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以编写脚本定期运行 AGENTS.md 中的命令，检查退出码和输出。也可以使用 Claude 分析指令与代码库的一致性。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通过 tools/list 方法动态获取，不要硬编码工具列表。这样服务端新增工具时客户端零改动，这正是 MCP 的设计目标。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个玩法适合哪些人？</span>
+        <span>手写版和官方 SDK 版有什么区别？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合使用 Coding Agent 的开发者、维护长期项目的团队，以及对 Agent 可靠性感兴趣的研究者。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">手写版帮你理解协议本质，但缺少连接管理、重试、流式响应等工程能力。生产环境建议用官方 SDK，手写版适合学习和快速验证。</div>
     </details>
   </div>
 </section>
@@ -233,14 +229,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：多 Agent 对比测试——用 Claude、Cursor、Copilot 分别执行同一份过期指令，比较它们的纠错能力和失败模式。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：指令版本化管理——为 AGENTS.md 引入版本号，并让 Agent 根据项目版本自动选择对应指令，避免过期问题。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：动态指令生成——让 Agent 在每次任务前根据当前代码库状态自动生成或更新 AGENTS.md，减少人工维护成本。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把服务端改成 stdio 传输，客户端用 subprocess 启动服务端进程，体验本地工具进程模式。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：增加 resources/list 和 prompts/list 方法，让服务端除了工具还能暴露静态资源和提示词模板。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把客户端接到一个真实 LLM（如 OpenAI API），让模型根据用户问题自动选择工具并生成 tools/call 参数，形成完整 Agent 循环。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    过期指令是 Coding Agent 的隐形陷阱，定期验证和更新 AGENTS.md/CLAUDE.md 才能让 Agent 稳定发挥。
+    MCP 的本质就是一套极薄的 JSON 消息约定，手写一遍客户端与服务端，你就能看清工具发现与调用的全貌，从此接入任何外部工具都不再神秘。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,17 +246,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

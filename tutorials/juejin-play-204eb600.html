@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用阿里云四场Agent分享学智能体构建与治理 - AI 玩法教程 · AI Frontier</title>
+<title>用五周实测复盘AI编程拦截点 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-18
+      2026-11-19
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用阿里云四场Agent分享学智能体构建与治理</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用五周实测复盘AI编程拦截点</h1>
     
   </div>
 </header>
@@ -65,7 +65,7 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7707088939719491622" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7709384944046260234" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">通过阿里云在 COSCon'26 的四场 Agent 分享，系统学习智能体构建与治理的实战方法，并动手搭建一个可运行的 Agent 原型。</p>
+  <p class="text-base text-slate-800 leading-relaxed">这是一套用五周时间实测复盘 AI 编程拦截点的完整方法，帮你从「盲目信任 AI」转向「有意识地拦截与校验」。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    2025 年 11 月 14 日，COSCon'26 第十一届中国开源年会「智能体构建与治理——Agent Builder Meetup × AAIF Meetup」分论坛在杭州举行，阿里云讲师带来了四场关于 Agent 构建与治理的深度分享。这些分享覆盖了从 Agent 设计模式、工具链集成到多智能体协作与安全治理的完整链路，是当前 AI 应用落地的一手实战资料。本教程将带你以这四场分享为蓝本，拆解关键知识点并落地一个可运行的 Agent 原型，适合有一定开发基础、希望快速掌握智能体构建与治理的开发者。
+    作者是一名自认积极拥抱 AI 的 Java 程序员，在系列前五篇完成品牌 AI 可见性、榜单、一人+Agent 复盘等测量后，第六篇转向自身：用五周实测记录 AI 编程中哪些环节会「翻车」。这套复盘法适合所有用 AI 写代码的开发者，尤其是已经感受到 AI 提效但偶尔被坑的人。通过结构化记录拦截点，你能把模糊的「AI 不靠谱」变成可复用的检查清单，最终形成人机协作的稳定工作流。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">阿里云百炼平台  <a href="https://bailian.console.aliyun.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于创建和管理智能体、配置工具与知识库</div>
+      <div class="font-semibold text-slate-900">Cursor  <a href="https://cursor.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">AI 编程 IDE，用于日常 AI 辅助编码与对话记录</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">通义千问 API / DashScope SDK  <a href="https://help.aliyun.com/zh/dashscope/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">调用大模型能力，作为 Agent 的推理核心</div>
+      <div class="font-semibold text-slate-900">GitHub Copilot  <a href="https://github.com/features/copilot" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">代码补全与 Chat 工具，作为第二 AI 编码入口</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+ 与 pip  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">编写和运行 Agent 代码</div>
+      <div class="font-semibold text-slate-900">Notion 或飞书文档  <a href="https://www.notion.so" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">建立「AI 拦截点日志」表格，记录每次翻车场景</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">VS Code 或 PyCharm  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">代码编辑与调试</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">版本控制，用于对比 AI 修改前后的代码差异</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">掘金 AI 实战教程原文  <a href="https://juejin.cn/post/7707088939719491622" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">参考四场分享的详细内容与案例</div>
+      <div class="font-semibold text-slate-900">掘金原文  <a href="https://juejin.cn/post/7709384944046260234" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">参考作者的完整五周实测复盘过程</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,66 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：精读四场分享，提炼 Agent 构建与治理的关键要素</h3>
-      <div class="text-base text-slate-700 leading-loose">打开掘金教程原文，通读阿里云四场分享的摘要与案例，重点记录每场分享的核心观点：Agent 设计模式（如 ReAct、Plan-and-Execute）、工具调用与函数注册方式、多智能体协作拓扑、以及治理层面的权限控制与可观测性。建议用表格整理「分享主题—关键方法—可复用点」三列，形成自己的知识地图。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：建立「AI 拦截点日志」表格</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Notion 或飞书文档中新建一个表格，字段包括：日期、任务类型（如写新功能/改 bug/重构）、使用的 AI 工具、AI 给出的方案摘要、实际结果（成功/部分成功/失败）、拦截点描述（哪里出了问题）、修复方式、耗时。每天结束前花 5 分钟填写当天所有 AI 协作记录，坚持五周。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>优先关注带有代码片段或架构图的分享，这些内容最容易转化为可运行的实现。
+          💡 <span class="font-semibold">小贴士：</span>拦截点描述要具体到「AI 假设了某个不存在的 API」或「AI 忽略了事务边界」这种粒度，不要只写「AI 错了」。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：在阿里云百炼平台创建基础 Agent 并配置工具</h3>
-      <div class="text-base text-slate-700 leading-loose">登录阿里云百炼控制台，进入「智能体应用」页面，点击创建智能体。选择通义千问作为基础模型，在「工具」选项卡中启用至少两个内置工具（如天气查询、网页搜索），并配置一个自定义函数工具（例如查询当前时间）。在「提示词」区域编写系统指令，明确 Agent 的角色、可用工具和输出格式。保存后使用平台内置的调试窗口进行对话测试。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：按任务类型归类拦截点</h3>
+      <div class="text-base text-slate-700 leading-loose">每周日回顾本周日志，把拦截点按任务类型分组。常见类别包括：依赖/版本假设错误、业务逻辑遗漏、边界条件缺失、安全漏洞（如 SQL 注入）、性能陷阱（如 N+1 查询）、架构不一致。统计每类出现的频次，找出你的「高频翻车区」。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>系统提示词中显式列出工具名称和调用条件，能显著降低模型乱调用工具的概率。
+          💡 <span class="font-semibold">小贴士：</span>用颜色标记频次最高的前三类，后续重点防御。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用 DashScope SDK 在本地复现一个 ReAct 风格 Agent</h3>
-      <div class="text-base text-slate-700 leading-loose">安装 dashscope SDK（pip install dashscope），设置环境变量 DASHSCOPE_API_KEY。编写一个 Python 脚本，定义两个本地函数（如 get_weather 和 search_web），并将函数描述以 JSON Schema 形式注册到模型调用参数中。实现一个循环：模型返回工具调用请求时，本地执行对应函数并将结果回传给模型，直到模型输出最终答案。运行脚本，测试「北京今天天气如何，适合户外运动吗」这类需要多步推理的问题。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：为高频拦截点设计「拦截检查清单」</h3>
+      <div class="text-base text-slate-700 leading-loose">针对每类高频拦截点，写 2-3 条可执行的检查项。例如「依赖假设错误」对应：让 AI 先列出所用依赖及版本，再人工核对 pom.xml；「事务边界」对应：AI 生成 Service 方法后，检查 @Transactional 注解是否覆盖所有写操作。把清单保存为模板，每次 AI 生成代码后逐条过一遍。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在循环中设置最大迭代次数（如 5 次），防止 Agent 陷入无限工具调用。
+          💡 <span class="font-semibold">小贴士：</span>清单不要超过 10 条，否则执行率会骤降。优先覆盖频次最高的三类即可。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：引入治理机制——日志、权限与人工审核点</h3>
-      <div class="text-base text-slate-700 leading-loose">在本地 Agent 脚本中加入结构化日志，记录每次模型输入、工具调用参数和返回结果。为工具函数增加权限校验装饰器，例如只允许查询白名单内的 API。在关键操作（如发送邮件、修改数据）前插入人工确认步骤，通过命令行输入 y/n 决定是否继续。参考分享中提到的治理框架，整理一份 Agent 治理检查清单。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：在 AI 对话中前置「约束提示词」</h3>
+      <div class="text-base text-slate-700 leading-loose">根据检查清单，在每次向 AI 提问时加入前置约束。例如：「请基于以下依赖版本生成代码：Spring Boot 3.2、MyBatis-Plus 3.5.5；生成后请自检是否使用了不存在的 API；涉及数据库写操作请标注事务边界。」把常用约束整理成提示词模板，保存在 Cursor 的 Rules 或 Copilot 的提示库中。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>日志建议输出为 JSON Lines 格式，方便后续用 jq 或日志平台做审计分析。
+          💡 <span class="font-semibold">小贴士：</span>约束提示词要短而具体，一次不超过 5 条，否则 AI 会忽略部分约束。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：对比分享中的多智能体协作模式，扩展一个双 Agent 协作 Demo</h3>
-      <div class="text-base text-slate-700 leading-loose">基于第 3 步的代码，拆分出两个角色：一个「规划 Agent」负责拆解任务，一个「执行 Agent」负责调用工具完成子任务。规划 Agent 输出 JSON 格式的任务列表，执行 Agent 逐条处理并汇总结果。用简单的消息队列（如 Python queue）在两者之间传递消息。运行并观察协作效果，记录与单 Agent 模式在准确率和耗时上的差异。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：每周做一次「拦截复盘会」</h3>
+      <div class="text-base text-slate-700 leading-loose">每周固定 30 分钟，对照日志和检查清单，回答三个问题：本周拦截点比上周多了还是少了？清单里哪条最有效、哪条没起作用？下周要新增或删除哪条检查项？把结论更新到清单和提示词模板中，形成迭代闭环。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>两个 Agent 使用不同的系统提示词，并限制各自可用的工具集，能减少职责混淆。
+          💡 <span class="font-semibold">小贴士：</span>复盘时只看数据，不凭感觉。用频次变化判断清单是否有效。
+        </div>
+    </div>
+    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        6
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：五周后输出个人「AI 编程拦截手册」</h3>
+      <div class="text-base text-slate-700 leading-loose">汇总五周的日志、分类统计、检查清单和提示词模板，整理成一份个人手册。手册结构建议：高频拦截点 Top 5、对应检查清单、约束提示词模板、典型翻车案例（附代码对比）。把手册分享给团队或写成掘金文章，完成从「实测」到「可复用资产」的转化。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>案例部分保留 Git diff 截图或代码前后对比，比纯文字更有说服力。
         </div>
     </div>
   </div>
@@ -184,7 +195,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你将在百炼平台上拥有一个可对话的 Agent 应用，并在本地跑通一个具备工具调用、治理日志和双 Agent 协作的 Python 原型。通过对比实验，你能清晰说出单 Agent 与多 Agent 在任务拆解、工具使用和错误恢复上的差异，并形成一份可复用的 Agent 治理检查清单。
+    五周后你应得到：一份包含至少 20 条记录的拦截点日志、三类高频翻车区统计、一份 10 条以内的检查清单、一套约束提示词模板，以及一份可分享的个人 AI 编程拦截手册。日常 AI 协作的返工率应有可感知的下降。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +205,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有阿里云账号可以学吗？</span>
+        <span>每天记录太麻烦，能简化吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。百炼平台部分功能需实名认证，但本地 DashScope SDK 只需 API Key，注册阿里云账号即可获取免费额度；也可用其他兼容 OpenAI 接口的模型替代。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以只记录「失败或部分成功」的案例，成功案例不必逐条记。重点是拦截点，不是流水账。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>四场分享的视频回放在哪里看？</span>
+        <span>五周太长，能不能缩短？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">COSCon 官方通常会在会后于 B 站或开源社渠道发布回放，可关注掘金原文更新和 COSCon 官网通知。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以压缩到两周，但样本量会偏少，高频拦截点的统计置信度下降。建议至少三周。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Agent 总是调用错误工具怎么办？</span>
+        <span>只用一种 AI 工具可以吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查工具描述是否足够具体，在系统提示词中明确工具适用场景，并降低 temperature；必要时在代码层面对工具名做白名单校验。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。工具不是关键，关键是持续记录和归类。单一工具反而更容易对比。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>治理部分需要额外付费工具吗？</span>
+        <span>检查清单会不会让 AI 变慢？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要。本教程的治理机制用 Python 标准库即可实现；生产环境可选用阿里云日志服务 SLS 或开源 Langfuse 做可观测性。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">前置约束会增加一点提示词长度，但能显著减少返工。实测净耗时通常是下降的。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>双 Agent 协作 Demo 太简单，如何进阶？</span>
+        <span>这个方法适合非 Java 开发者吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可引入第三个「评审 Agent」对执行结果打分，或改用 AutoGen、CrewAI 等框架实现更复杂的拓扑。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合。拦截点分类和检查清单的逻辑与语言无关，只需替换具体技术栈的检查项即可。</div>
     </details>
   </div>
 </section>
@@ -233,14 +244,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将本地 ReAct Agent 接入百炼平台的自定义插件，实现云端工具与本地逻辑混合调用。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 LangGraph 重写双 Agent 协作流程，加入条件边和循环，实现带评审环节的 Agent 工作流。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：围绕治理主题，为 Agent 增加基于 OpenTelemetry 的全链路追踪，并输出可视化调用链。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：团队版拦截复盘——让团队成员共用一张日志表，每周汇总统计，形成团队级 AI 编程规范。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：按项目阶段拆分——把拦截点按「需求理解/编码/测试/部署」四阶段归类，针对每个阶段设计不同的拦截策略。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：AI 自检提示词链——把检查清单改写成让 AI 自我审查的多轮提示词，例如「请先列出你使用的依赖版本，再生成代码，最后自检是否违反约束」。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    以阿里云四场分享为知识骨架，从平台创建到本地编码再到治理与协作扩展，边学边做，把智能体构建与治理一次跑通。
+    用五周结构化记录把 AI 编程的「翻车感」变成可复用的拦截清单和提示词模板，实现从盲目信任到有意识校验的转变。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,17 +261,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

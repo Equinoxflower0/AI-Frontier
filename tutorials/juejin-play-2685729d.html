@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用仓颉与Rust各写一个Tauri播放器对比实测 - AI 玩法教程 · AI Frontier</title>
+<title>拆解Chrome前端规范AI检索包并实测 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-18
+      2026-11-19
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★☆☆☆ · 2/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用仓颉与Rust各写一个Tauri播放器对比实测</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">拆解Chrome前端规范AI检索包并实测</h1>
     
   </div>
 </header>
@@ -65,7 +65,7 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7707119961877200934" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7709418733185531955" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">AI 写代码变便宜了，但编译、体积、内存这些工程指标反而成了新瓶颈。这篇教程带你用同一个音乐播放器，分别用 Rust/Tauri 和仓颉/cj-tauri 实现，前端一字不改，同口径实测对比。</p>
+  <p class="text-base text-slate-800 leading-relaxed">本文带你拆解 Chrome 前端规范 AI 检索包（Modern Web Guidance），并实测其离线检索、fallback 机制、扫描器与守卫逻辑，帮你快速判断是否值得集成到自己的 AI 编码工作流中。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    在 AI 辅助编程时代，生成代码的成本大幅降低，但编译等待、磁盘占用、依赖管理和运行时验证成了新的效率瓶颈。本玩法通过一个真实的小型桌面应用（音乐播放器），让你亲手对比两种技术栈在编译速度、增量重编、产物体积、内存占用、启动时间和功能完整性上的差异。适合对 Tauri、Rust 或仓颉感兴趣，想用数据驱动技术选型的开发者。所有脚本和测试方法都会给出，你可以直接复现。
+    Chrome 团队推出的 Modern Web Guidance 是一个面向 AI 编码助手的前端规范检索包，旨在让 AI 在生成代码时能引用最新、最准确的 Web 平台特性。掘金作者实测发现：离线检索仅需 0.77 秒，fallback 能精确到版本；但扫描器首轮 0 命中，守卫按文件砍，发布包 35 条而源码已有 51 条；此外 telemetry 默认外发搜索词，需注意隐私。这个玩法适合正在搭建 AI 编码助手、需要注入前端规范知识库的开发者，也适合想了解 AI 检索包设计思路的技术爱好者。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,28 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Rust 工具链（rustup）  <a href="https://rustup.rs/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">编译 Rust/Tauri 项目，安装后运行 rustc --version 验证</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Node.js（含 npm）  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">安装前端依赖和运行构建脚本，建议 LTS 版本</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Tauri CLI  <a href="https://tauri.app/start/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">创建和构建 Tauri 应用，可通过 cargo install tauri-cli 或 npm 安装</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">仓颉编程语言工具链（cj-tauri）  <a href="https://gitcode.com/Cangjie" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">编译仓颉版播放器，需按官方文档安装仓颉 SDK 和 cj-tauri 绑定</div>
+      <div class="font-semibold text-slate-900">Node.js (&gt;=18)  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行检索包脚本和本地测试环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
       <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">克隆示例仓库或管理代码版本</div>
+      <div class="text-sm text-slate-600 mt-1">克隆 Modern Web Guidance 仓库</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">系统性能监控工具  <a href="https://learn.microsoft.com/sysinternals/downloads/process-explorer" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">测量内存和启动时间，Windows 可用任务管理器/Process Explorer，macOS 用活动监视器，Linux 用 ps/top</div>
+      <div class="font-semibold text-slate-900">VS Code 或任意编辑器  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">查看源码、修改配置和调试</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Chrome 浏览器  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">验证前端规范的实际兼容性和效果</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">掘金原文  <a href="https://juejin.cn/post/7709418733185531955" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">参考完整实测数据和作者分析</div>
     </li>
   </ul>
 </section>
@@ -130,66 +126,66 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：准备统一的前端与项目骨架</h3>
-      <div class="text-base text-slate-700 leading-loose">先创建一个纯前端音乐播放器页面（HTML/CSS/JS），包含播放/暂停、进度条、音量控制和播放列表，确保不依赖任何框架。然后分别用 Tauri 和 cj-tauri 的模板创建两个项目，把同一份前端文件复制到两个项目的静态资源目录中。前端代码一字不改，保证对比公平。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：获取检索包并了解目录结构</h3>
+      <div class="text-base text-slate-700 leading-loose">从 Chrome 官方仓库或掘金文中提供的链接克隆 Modern Web Guidance 项目。进入项目后重点查看 packages/ 下的检索包源码和 dist/ 下的发布包，对比源码条目数（51 条）与发布包条目数（35 条），理解哪些规范被裁剪以及裁剪规则。同时阅读 README 中的 telemetry 说明，确认默认外发搜索词的行为。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>前端尽量简单，避免使用需要额外构建的框架，减少变量干扰。
+          💡 <span class="font-semibold">小贴士：</span>先不要急着运行，用 tree 命令或编辑器全局搜索 'telemetry' 和 'fallback' 关键词，快速定位关键逻辑。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：实现 Rust/Tauri 版播放器后端</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Tauri 项目中，使用 Rust 编写命令（command）来处理音频文件的读取和元数据解析，前端通过 invoke 调用。配置 tauri.conf.json 允许访问本地文件系统。运行 cargo tauri dev 确认功能正常，再执行 cargo tauri build 生成发布版。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：本地运行离线检索并计时</h3>
+      <div class="text-base text-slate-700 leading-loose">在项目根目录执行 npm install 安装依赖，然后找到检索入口脚本（通常在 scripts/ 或 src/ 下），用 node 运行一次离线检索。使用 console.time 或 performance.now() 包裹检索调用，记录耗时。实测应接近 0.77 秒。同时传入一个具体的前端特性查询（如 'container queries'），观察返回结果是否包含版本兼容信息。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>音频播放可以完全交给前端 HTML5 Audio 元素，Rust 只负责文件选择和元数据，降低后端复杂度。
+          💡 <span class="font-semibold">小贴士：</span>如果检索耗时明显偏高，检查是否首次运行触发了索引构建，第二次运行才是纯检索耗时。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：实现仓颉/cj-tauri 版播放器后端</h3>
-      <div class="text-base text-slate-700 leading-loose">按照 cj-tauri 的文档创建仓颉项目，将同一份前端资源放入对应目录。用仓颉实现与 Rust 版等价的文件选择和元数据读取逻辑，并通过 cj-tauri 的绑定暴露给前端。编译生成发布版，确保功能与 Rust 版一致。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：验证 fallback 精确到版本的机制</h3>
+      <div class="text-base text-slate-700 leading-loose">构造一个检索包中不存在的查询词，观察 fallback 逻辑如何回退到相近规范或版本信息。修改检索脚本，打印 fallback 触发时的中间变量，确认它是否能精确到具体浏览器版本号。对比有结果和无结果两种场景下的输出差异，理解守卫按文件砍的逻辑——即当某个文件不满足条件时，整个文件被排除而非逐条过滤。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果 cj-tauri 生态还不完善，可以先用仓颉实现最简文件对话框，其余逻辑复用前端，保证可对比。
+          💡 <span class="font-semibold">小贴士：</span>可以故意传入一个拼写错误的特性名，测试 fallback 的容错边界，这能帮你判断实际使用中的召回率。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：设计同口径测量脚本</h3>
-      <div class="text-base text-slate-700 leading-loose">编写脚本分别记录：首次全量编译时间（清理缓存后计时）、增量重编时间（修改一行代码后重新编译）、发布版产物体积（du -sh 或查看安装包大小）、启动时间（从进程启动到窗口可交互，可用秒表或脚本打点）、内存占用（启动后稳定运行 30 秒读取 RSS）。每个指标至少测 3 次取平均值。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：实测扫描器首轮 0 命中的原因</h3>
+      <div class="text-base text-slate-700 leading-loose">运行项目自带的扫描器（scanner），观察首轮扫描结果。根据掘金作者实测，首轮 0 命中是正常现象，通常因为扫描器需要先建立索引或缓存。检查扫描器配置中的 include/exclude 规则，确认是否因为默认排除规则过严导致。调整配置后再次运行，对比命中数量变化，理解扫描器与检索包之间的数据流关系。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>使用 /usr/bin/time -v（Linux）或 PowerShell 的 Measure-Command 来精确计时，避免手动秒表误差。
+          💡 <span class="font-semibold">小贴士：</span>在扫描器入口加一行日志打印扫描的文件列表，能快速定位是文件没被扫到还是匹配规则没命中。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：执行实测并记录数据</h3>
-      <div class="text-base text-slate-700 leading-loose">在相同机器、相同电源模式下，分别对两个版本执行测量脚本。记录编译时间、增量时间、产物体积、内存、启动时间，并逐项测试播放、暂停、切歌、音量调节等功能是否正常。将结果整理成表格，标注测试环境和版本号。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：关闭 telemetry 并做隐私检查</h3>
+      <div class="text-base text-slate-700 leading-loose">在项目配置中找到 telemetry 开关（通常在 config 文件或环境变量中），将其设为 false 或设置 DO_NOT_TRACK=1。然后再次运行检索，用网络抓包工具（如 Chrome DevTools 的 Network 面板或 mitmproxy）确认没有外发请求。如果项目没有提供关闭选项，可以在代码中注释掉上报调用，并记录修改点以便后续升级时重新应用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>测试前关闭其他大型应用，避免内存和 CPU 干扰；每个版本测试前重启一次系统更稳定。
+          💡 <span class="font-semibold">小贴士：</span>建议在 CI 或团队共享环境中默认关闭 telemetry，避免搜索词泄露内部项目信息。
         </div>
     </div>
     <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         6
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：分析对比并输出结论</h3>
-      <div class="text-base text-slate-700 leading-loose">对比两组数据，重点关注编译速度、产物体积和内存占用的差异，结合开发体验（依赖安装、错误提示、生态成熟度）给出适用场景建议。把脚本和测试结果整理成可复现的文档，附上参考链接。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：集成到自己的 AI 编码工作流并评估</h3>
+      <div class="text-base text-slate-700 leading-loose">将检索包作为一个工具函数接入你的 AI 编码助手（如通过 function calling 或 MCP 协议），让模型在生成前端代码前先调用检索获取规范。对比接入前后 AI 生成代码的准确率，重点关注版本兼容性和新特性使用是否正确。记录检索耗时、命中率和 fallback 频率，判断是否满足你的延迟要求。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不要只看平均值，记录最大最小值，能发现编译缓存或系统负载带来的波动。
+          💡 <span class="font-semibold">小贴士：</span>可以先在低风险场景（如内部工具页面）试用一周，收集 bad case 再决定是否全量接入。
         </div>
     </div>
   </div>
@@ -199,7 +195,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你将得到两个功能一致的音乐播放器（Rust/Tauri 版和仓颉/cj-tauri 版），以及一份包含编译时间、增量重编时间、产物体积、内存占用、启动时间和功能测试的对比表格。能直观看到两种技术栈在工程效率上的差异，并拥有可复现的测量脚本。
+    完成上述步骤后，你应能本地跑通 Modern Web Guidance 的离线检索（耗时约 0.77 秒），理解 fallback 精确到版本的机制，复现扫描器首轮 0 命中的现象并知道如何调整，成功关闭 telemetry 并验证无外发请求，最终将检索包集成到自己的 AI 编码助手中，获得更准确的前端规范建议。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -209,38 +205,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有仓颉环境，还能做这个对比吗？</span>
+        <span>离线检索 0.77 秒算快吗？能用于实时 AI 编码场景吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以只做 Rust/Tauri 部分，或者用其他 Tauri 绑定语言（如 Python）替代仓颉，但对比结论会不同。建议先按官方文档安装仓颉 SDK。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">0.77 秒对于单次检索可以接受，但如果 AI 每生成一段代码都调用一次，累积延迟会明显。建议做结果缓存或批量检索，把多次查询合并为一次。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>前端一字不改，那音频播放逻辑放在哪？</span>
+        <span>扫描器首轮 0 命中是 bug 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">播放核心用 HTML5 Audio 元素放在前端，后端只负责文件选择、元数据读取等原生能力，这样两种后端实现的功能边界一致。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是 bug，通常是索引未建立或缓存为空导致。首轮扫描用于预热，第二轮开始才有命中。可以在启动时主动触发一次预热扫描。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>测量启动时间有什么简单可靠的方法？</span>
+        <span>发布包 35 条但源码 51 条，少的 16 条去哪了？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以在应用启动代码里打时间戳，窗口显示后写日志；或者用脚本监控进程创建到窗口出现的时间。多次测量取平均。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">发布包会按规则裁剪，可能排除了实验性规范、重复条目或未达到稳定版本的特性。具体裁剪逻辑需查看构建脚本中的 filter 规则。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>产物体积应该比较安装包还是解压后的目录？</span>
+        <span>telemetry 默认外发搜索词，会不会泄露代码？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">两者都记录。安装包反映分发成本，解压目录反映磁盘占用，对比时注明口径即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">默认会上报搜索词，可能包含你查询的前端特性名。如果查询词涉及内部项目代号，存在泄露风险。建议关闭 telemetry 或设置 DO_NOT_TRACK=1。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个对比能说明哪个技术栈更好吗？</span>
+        <span>这个检索包能直接给 Cursor / Copilot 用吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能一概而论。Rust/Tauri 生态成熟、资料多；仓颉/cj-tauri 较新，可能在特定场景有优势。结论应结合你的项目需求、团队熟悉度和长期维护成本。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能直接插拔，需要自己封装成工具调用或 MCP server。检索包本身是数据+检索逻辑，AI 助手需要能主动调用它才能发挥作用。</div>
     </details>
   </div>
 </section>
@@ -248,14 +244,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把播放器换成图片查看器或 Markdown 编辑器，重复同样的对比流程，验证结论是否具有通用性。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：增加第三个技术栈（如 Electron 或 Wails），做三方圆对比，更全面评估桌面应用方案。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：只针对编译效率做深度测试，比如引入大型依赖后观察增量编译变化，专门优化开发体验。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将检索包封装为 MCP Server，让 Claude Desktop 或 Cursor 通过 MCP 协议直接调用，实现前端规范实时检索。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：把检索包与 ESLint 结合，在代码提交前自动检索相关规范并生成提示，形成「检索+校验」双保险。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：定期对比源码与发布包差异，自动生成「新增规范」报告，推送到团队群，保持前端知识库同步更新。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用同一个前端和同一套测量脚本，让 Rust/Tauri 与仓颉/cj-tauri 在编译、体积、内存、启动上同台竞技，用数据代替感觉做技术选型。
+    这个玩法的精髓在于：先跑通检索、再验证 fallback 和扫描器边界、最后关掉 telemetry 再集成，用实测数据判断 AI 检索包是否值得进入你的编码工作流。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -265,17 +261,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

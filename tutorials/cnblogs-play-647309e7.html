@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用Promptfoo/DeepEval/LangSmith搭Agent评测链 - AI 玩法教程 · AI Frontier</title>
+<title>用一行归一化修复向量相似度阈值失效 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-18
+      2026-11-19
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        💬 Prompt 模板
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 5min
+        ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Promptfoo/DeepEval/LangSmith搭Agent评测链</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用一行归一化修复向量相似度阈值失效</h1>
     
   </div>
 </header>
@@ -65,21 +65,17 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.cnblogs.com/jinjiangongzuoshi/p/23623797" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/dawudexiaowu/p/23703439" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
-<div class="mb-4">
-  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
-  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">LlamaIndex</span></div>
-</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">这篇教程教你用 Promptfoo、DeepEval 和 LangSmith 串起一条完整的 Agent 评测链，把零散的测评集、指标和评分器变成可批量执行、可追踪的自动化报告。</p>
+  <p class="text-base text-slate-800 leading-relaxed">向量检索里相似度分数忽大忽小、阈值怎么设都不对？一行归一化就能让分数回到可解释的 0~1 区间。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多团队已经攒好了测评集、指标和评分器，但这些资产还停留在文档和脑子里，无法批量跑起来。要交给老板一份可信的评测报告，中间缺的正是执行链路：题怎么批量发、结果怎么逐条判、分数怎么汇总。本玩法以 LlamaIndex 构建的 RAG Agent 为被测对象，用 Promptfoo 做批量 Prompt 评测，DeepEval 做指标计算，LangSmith 做全链路追踪，三者拼成一条可复用的评测流水线。
+    很多人在做 RAG 或语义搜索时，直接拿原始向量做点积或余弦相似度，结果发现分数挤成一团或者量纲爆炸，阈值根本没法设，排序也可能失效。根因是向量没有归一化：点积等于语义分乘以两个向量的范数，范数不受控，分数就不可控。本机实测原始向量点积在 11.7~36.2 之间，归一化后回到 0.232~0.734，阈值立刻变得可解释。修法只需一行代码，但入库和查询两侧都要做，否则依然对不齐。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,28 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行评测脚本的基础环境</div>
+      <div class="font-semibold text-slate-900">Python 3.8+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行环境，用于编写归一化与检索脚本</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">LlamaIndex  <a href="https://www.llamaindex.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">构建被测 RAG Agent 的框架</div>
+      <div class="font-semibold text-slate-900">NumPy  <a href="https://numpy.org/install/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">向量计算与 L2 归一化</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Promptfoo  <a href="https://www.promptfoo.dev/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">批量 Prompt 评测与对比工具</div>
+      <div class="font-semibold text-slate-900">sentence-transformers  <a href="https://www.sbert.net/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">生成文本嵌入向量（也可用 OpenAI Embedding API 替代）</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">DeepEval  <a href="https://github.com/confident-ai/deepeval" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">LLM 评测指标库（忠实度、相关性等）</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">LangSmith  <a href="https://smith.langchain.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">Agent 执行链路追踪与评测平台</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">OpenAI API Key 或兼容模型  <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">驱动 Agent 和评分器的模型凭证</div>
+      <div class="font-semibold text-slate-900">FAISS 或 Chroma  <a href="https://github.com/facebookresearch/faiss" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">向量库，用于验证归一化前后的检索效果</div>
     </li>
   </ul>
 </section>
@@ -134,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：准备测评集与 Agent 入口</h3>
-      <div class="text-base text-slate-700 leading-loose">把测评集整理成 JSONL 格式，每行包含 question 和 ground_truth 两个字段。同时用 LlamaIndex 把 RAG Agent 封装成一个可调用的函数，输入问题返回答案和检索到的上下文。确保这个函数不依赖交互式环境，能被脚本批量调用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：复现问题，观察原始分数分布</h3>
+      <div class="text-base text-slate-700 leading-loose">先用 sentence-transformers 加载一个嵌入模型（如 all-MiniLM-L6-v2），把 10~20 条文本编码成向量。然后两两计算点积，打印最小值和最大值。你会看到分数跨度很大（例如 11.7~36.2），完全无法用 0.8 这种阈值来筛选。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>测评集先放 20-50 条即可跑通链路，后续再扩充；Agent 函数记得返回 context，DeepEval 算忠实度时要用。
+          💡 <span class="font-semibold">小贴士：</span>用 np.dot 计算点积即可，不要先做余弦相似度，否则会掩盖范数的影响。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 Promptfoo 批量跑 Prompt 评测</h3>
-      <div class="text-base text-slate-700 leading-loose">在项目根目录创建 promptfooconfig.yaml，配置 prompts（你的提示词模板）、providers（模型或自定义脚本）和 tests（引用测评集）。运行 npx promptfoo eval 批量发送问题并收集回答。Promptfoo 会自动生成对比表格，方便你快速看不同提示词版本的差异。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：写一行归一化函数</h3>
+      <div class="text-base text-slate-700 leading-loose">定义一个 normalize 函数：v / np.linalg.norm(v, axis=-1, keepdims=True)。注意要处理零向量，加一个极小值 eps 防止除零。这一行就是整个修复的核心。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果 Agent 不是纯 Prompt 调用，可以用 Promptfoo 的 custom provider 指向你的 Python 脚本，保持评测入口统一。
+          💡 <span class="font-semibold">小贴士：</span>keepdims=True 能保持维度，方便批量处理；eps 建议用 1e-12。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用 DeepEval 逐条计算指标</h3>
-      <div class="text-base text-slate-700 leading-loose">安装 deepeval 后，编写脚本读取 Promptfoo 的输出结果，对每条样本构造 LLMTestCase，填入 input、actual_output、retrieval_context 和 expected_output。调用 FaithfulnessMetric、AnswerRelevancyMetric 等指标逐条打分，最后汇总成 CSV 或 JSON 报告。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：入库侧统一归一化</h3>
+      <div class="text-base text-slate-700 leading-loose">在把向量写入 FAISS 或 Chroma 之前，先调用 normalize 函数处理所有文档向量。确保入库的每一个向量都是单位长度。如果你用的是 FAISS 的 IndexFlatIP，归一化后内积就等于余弦相似度。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>DeepEval 默认用 OpenAI 做裁判，可以在脚本里设置 model 参数换成其他兼容模型，降低成本。
+          💡 <span class="font-semibold">小贴士：</span>批量归一化后再 add，不要逐条处理，避免遗漏。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：接入 LangSmith 追踪全链路</h3>
-      <div class="text-base text-slate-700 leading-loose">设置环境变量 LANGCHAIN_TRACING_V2=true 和 LANGCHAIN_API_KEY，在 Agent 调用外层加上 @traceable 装饰器或使用 LangSmith SDK 手动上报。这样每次评测的输入、检索、生成和评分都会形成一条可回放的 trace，方便定位是检索错还是生成错。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：查询侧同样归一化</h3>
+      <div class="text-base text-slate-700 leading-loose">用户查询编码成向量后，也必须做同样的归一化，再拿去检索。很多阈值失效的案例就是只归一化了入库侧，查询侧没做，导致两边量纲不一致。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>给每次评测运行打上 run_name 和 metadata（如 prompt 版本号），后续在 LangSmith 里按标签筛选对比。
+          💡 <span class="font-semibold">小贴士：</span>把归一化封装成 encode_and_normalize 函数，入库和查询共用，杜绝不一致。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：汇总报告并固化流水线</h3>
-      <div class="text-base text-slate-700 leading-loose">写一个汇总脚本，把 Promptfoo 的通过率、DeepEval 的各项平均分和 LangSmith 的 trace 链接合并成一份 Markdown 报告。把整个流程封装成 make eval 或 GitHub Actions 工作流，每次改 Prompt 或换模型自动跑一遍，报告自动归档。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：验证分数区间与阈值</h3>
+      <div class="text-base text-slate-700 leading-loose">重新计算归一化后的点积，观察分数是否回到 0~1 附近（实测 0.232~0.734）。此时可以放心设置阈值，例如 0.5 以上为相关。再对比归一化前后的 Top-K 排序，确认排序稳定性提升。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>报告里保留每次运行的配置快照（模型、提示词版本、测评集版本），否则分数变化无法归因。
+          💡 <span class="font-semibold">小贴士：</span>用同一批 query 做 A/B 对比，记录阈值命中率和排序变化。
         </div>
     </div>
   </div>
@@ -192,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    运行完整流水线后，你会得到一份包含每条样本回答、各项指标分数、平均分和 LangSmith trace 链接的评测报告。Promptfoo 的对比表格能直观看到提示词版本差异，DeepEval 给出量化分数，LangSmith 让你能点开任意一条失败案例回放整个执行过程。
+    归一化后，相似度分数从 11.7~36.2 收敛到 0.232~0.734，阈值可以按 0.5 左右稳定设置，Top-K 排序不再受向量范数干扰，检索结果可解释性大幅提升。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -202,31 +190,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Promptfoo、DeepEval、LangSmith 三者功能有重叠，必须都用吗？</span>
+        <span>为什么只归一化入库侧不够？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是必须。Promptfoo 强在批量 Prompt 对比，DeepEval 强在指标计算，LangSmith 强在链路追踪。可以按需组合，比如只用 Promptfoo + DeepEval 也能出报告，LangSmith 用于排障。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">点积是双向的，查询向量范数不受控时，分数依然会被放大或缩小，必须两侧都归一化才能让内积等价于余弦相似度。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 OpenAI API Key 能跑吗？</span>
+        <span>归一化后还能用欧氏距离吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。Promptfoo 和 DeepEval 都支持自定义 provider 或兼容 OpenAI 接口的模型服务，LangSmith 也支持自托管版本。把模型端点配成你的本地或第三方服务即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但单位向量下欧氏距离与余弦相似度单调对应，建议直接用内积或余弦，语义更直观。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>测评集很小，分数波动大怎么办？</span>
+        <span>零向量怎么处理？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先保证测评集覆盖核心场景，每条样本可多次运行取平均；同时固定模型版本和温度参数，减少随机性。样本量建议逐步扩到 100 条以上再用于决策。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在分母加 eps（如 1e-12），避免除零；同时检查嵌入模型是否真的产出了零向量，那通常是异常输入。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>LangSmith 的 trace 会不会包含敏感数据？</span>
+        <span>所有嵌入模型都需要归一化吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">会，默认会上报输入输出。生产环境建议开启脱敏或使用自托管 LangSmith，并在上报前过滤掉用户隐私字段。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">大多数模型输出未归一化向量，建议统一做；部分模型（如 OpenAI text-embedding-3）已归一化，但显式再做一次也无害。</div>
     </details>
   </div>
 </section>
@@ -234,14 +222,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把 Promptfoo 换成自写批量脚本，只保留 DeepEval + LangSmith，适合已有成熟评测框架的团队。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：在 CI 中加阈值门禁，DeepEval 平均分低于基线时自动失败，防止 Prompt 改动导致效果回退。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用 LangSmith 的 dataset 功能管理测评集，直接在平台内发起评测并与 trace 关联，减少本地脚本维护。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：在向量库层面开启归一化——FAISS 用 IndexFlatIP 前手动归一化，Chroma 可在写入前统一处理，Milvus 支持 IP 度量并建议归一化。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：把归一化封装进嵌入管道——用 LangChain 的 Embeddings 包装类，在 embed_documents 和 embed_query 里自动归一化，业务代码零改动。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用余弦相似度替代点积——直接调用 sklearn 的 cosine_similarity，内部自动归一化，适合小规模验证，但大规模检索仍建议预归一化加内积。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 Promptfoo 批量发题、DeepEval 逐条判分、LangSmith 追踪链路，把零散评测资产串成一条可自动运行、可归因、可复用的 Agent 评测流水线。
+    向量检索阈值失效的根因是范数不受控，一行 L2 归一化并在入库与查询两侧同时执行，就能让分数回到可解释区间。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -249,19 +237,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用社区提示词库找现成Prompt</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用GPT-4o图像提示词合集生成同款AI图片</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
-    </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

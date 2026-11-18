@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用 DeepSeek Harness 打造专属工作台 - AI 玩法教程 · AI Frontier</title>
+<title>用RTX Spark主机本地跑AI Demo - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-18
+      2026-11-19
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🔗 工具链
+        🚀 可立即试用
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 30min
+        ⏱ 约 10min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 DeepSeek Harness 打造专属工作台</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用RTX Spark主机本地跑AI Demo</h1>
     
   </div>
 </header>
@@ -58,28 +58,24 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    掘金 AI 实战教程 · B级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+    智东西 AI 工具评测 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    技术社区
+    权威媒体
   </span>
-  <a href="https://juejin.cn/post/7707106224123166755" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://zhidx.com/p/611447.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
-<div class="mb-4">
-  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
-  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
-</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">只需一个开源底座，就能把 DeepSeek 的输入框变成自媒体排版台、UI 原型画布、游戏工坊或本地文献库。今天手把手教你用 DeepSeek Harness 打造专属工作台。</p>
+  <p class="text-base text-slate-800 leading-relaxed">想亲手跑一跑英伟达最新的 AI Demo，又不想折腾云端环境？用 RTX Spark 主机本地部署，几步就能体验。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多人用 DeepSeek 只是聊天问答，其实它还能通过官方开源工具 DeepSeek Harness（DSH）接入本地文件、自定义界面和插件，变成生产力工作台。这个玩法适合内容创作者、设计师、独立开发者，以及需要管理本地文献的研究者。你不需要写复杂代码，跟着步骤配置就能让 AI 直接操作你的素材和工具。相比通用聊天，专属工作台能大幅减少重复复制粘贴，让 AI 真正融入你的工作流。
+    英伟达在上海举办的 RTX 技术分享会上，展示了基于 RTX Spark 主机的多个本地 AI Demo，涵盖图像生成、语音交互等场景。相比云端方案，本地运行无需上传数据、延迟更低，且能充分利用 RTX GPU 的算力。智东西的评测文章详细记录了这些 Demo 的部署流程和实际效果，适合想尝鲜本地 AI 的开发者或爱好者参考。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,28 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">DeepSeek 账号  <a href="https://platform.deepseek.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于获取 API Key 和访问模型服务</div>
+      <div class="font-semibold text-slate-900">RTX Spark 主机  <a href="https://www.nvidia.com/zh-cn/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">搭载 RTX GPU 的迷你主机或工作站，用于本地推理</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">DeepSeek Harness (DSH)  <a href="https://github.com/deepseek-ai/harness" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">官方开源底座，提供工作台框架和插件机制</div>
+      <div class="font-semibold text-slate-900">NVIDIA 驱动与 CUDA Toolkit  <a href="https://developer.nvidia.com/cuda-toolkit" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">确保 GPU 驱动为最新版，并安装 CUDA 以支持 AI 框架</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Node.js 18+  <a href="https://nodejs.org" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行 DSH 的本地环境</div>
+      <div class="font-semibold text-slate-900">Python 3.10+ 与 pip  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行 Demo 脚本的基础环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">克隆 DSH 仓库和插件</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">克隆 Demo 仓库</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">代码编辑器（VS Code）  <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">编辑配置文件和插件代码</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">参考教程  <a href="https://juejin.cn/post/7707106224123166755" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">掘金 AI 实战教程原文，含详细截图和示例</div>
+      <div class="font-semibold text-slate-900">参考文章  <a href="https://zhidx.com/p/611447.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">智东西的原始评测，包含 Demo 列表和部署细节</div>
     </li>
   </ul>
 </section>
@@ -134,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装并启动 DeepSeek Harness</h3>
-      <div class="text-base text-slate-700 leading-loose">打开终端，执行 git clone https://github.com/deepseek-ai/harness.git 克隆仓库，进入目录后运行 npm install 安装依赖。接着复制 .env.example 为 .env，填入你的 DeepSeek API Key。最后运行 npm run dev 启动本地服务，浏览器访问 http://localhost:3000 就能看到 DSH 的初始界面。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：确认硬件与驱动就绪</h3>
+      <div class="text-base text-slate-700 leading-loose">开机进入 RTX Spark 主机，打开终端运行 nvidia-smi，确认 GPU 型号和驱动版本。建议驱动版本不低于 535，CUDA 版本为 12.1 以上。如果驱动过旧，去 NVIDIA 官网下载对应 RTX 型号的最新驱动安装。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果 npm install 报错，先检查 Node.js 版本是否 ≥18，并尝试切换 npm 镜像源。
+          💡 <span class="font-semibold">小贴士：</span>运行 nvidia-smi 时若提示命令不存在，说明驱动未装好，先解决驱动问题再继续。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：配置工作台基础参数</h3>
-      <div class="text-base text-slate-700 leading-loose">在 DSH 根目录找到 config/default.json，修改 model 为 deepseek-chat，并设置 temperature 为 0.7。在 plugins 数组中启用你需要的插件，例如 file-reader、markdown-render、ui-canvas。保存后重启服务，界面左侧会出现插件面板。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：创建 Python 虚拟环境并安装依赖</h3>
+      <div class="text-base text-slate-700 leading-loose">在终端执行 python -m venv ai-demo 创建虚拟环境，然后 source ai-demo/bin/activate（Windows 用 ai-demo\Scripts\activate）。接着用 pip 安装 torch、transformers、diffusers 等常用库，具体版本参考 Demo 仓库的 requirements.txt。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>初次使用建议只启用 1-2 个插件，避免界面过于复杂，后续再逐步添加。
+          💡 <span class="font-semibold">小贴士：</span>安装 PyTorch 时务必选择与 CUDA 版本匹配的 wheel，例如 pip install torch --index-url https://download.pytorch.org/whl/cu121。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：接入本地素材库（以文献库为例）</h3>
-      <div class="text-base text-slate-700 leading-loose">在 DSH 界面点击「添加数据源」，选择本地文件夹路径，DSH 会自动索引其中的 PDF、Markdown 和 TXT 文件。然后在对话输入框用 @ 引用具体文件，AI 就能基于文件内容回答。你也可以在 config 中设置自动索引的文件夹，实现打开即用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：克隆并配置 Demo 仓库</h3>
+      <div class="text-base text-slate-700 leading-loose">从智东西文章中提到的 Demo 来源（如 NVIDIA 官方 GitHub 或作者提供的链接）克隆仓库到本地。进入仓库目录，根据 README 修改配置文件，比如模型路径、端口号、输入输出目录。部分 Demo 需要提前下载模型权重，按说明放置到指定文件夹。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>文件较多时首次索引会慢一些，建议按主题分文件夹存放，方便 AI 精准检索。
+          💡 <span class="font-semibold">小贴士：</span>模型权重较大，建议提前用 aria2 或迅雷多线程下载，避免克隆时卡住。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：定制你的专属界面（自媒体排版台/UI 画布）</h3>
-      <div class="text-base text-slate-700 leading-loose">在 plugins 目录下新建一个文件夹，复制示例插件模板，修改 manifest.json 中的名称和图标。然后在 index.js 中定义输入框的快捷指令，比如输入 /排版 就调用 Markdown 渲染插件输出公众号格式。保存后刷新页面，输入框旁会出现你的自定义按钮。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：启动 Demo 并测试推理</h3>
+      <div class="text-base text-slate-700 leading-loose">在虚拟环境中运行启动命令，例如 python app.py 或 python demo.py --model xxx。观察终端日志，确认模型加载到 GPU 且无报错。然后用浏览器打开本地地址（通常是 http://127.0.0.1:7860）或按脚本提示输入测试数据，查看生成结果。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>可以先从修改现有插件的文案和图标开始，熟悉结构后再写逻辑，降低上手难度。
+          💡 <span class="font-semibold">小贴士：</span>首次运行会编译 CUDA 内核，耗时较长属正常现象，耐心等待日志出现“Running on local URL”即可。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：测试完整工作流并保存为模板</h3>
-      <div class="text-base text-slate-700 leading-loose">在输入框输入一段测试内容，选择你配置的插件（如「自媒体排版」），观察输出是否符合预期。调整 prompt 模板和插件参数直到满意，然后点击界面右上角的「保存为工作台模板」，下次打开 DSH 可直接加载。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：调整参数体验不同效果</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Demo 界面或配置文件中修改关键参数，如图像生成的采样步数、引导系数，或语音交互的麦克风灵敏度。每次修改后重启服务，对比输出差异。记录下效果较好的参数组合，方便后续复用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把常用指令写成 prompt 模板文件放在 templates 目录，团队协作时可以直接共享。
+          💡 <span class="font-semibold">小贴士：</span>修改参数时一次只变一个，否则难以判断哪个参数起了作用。
         </div>
     </div>
   </div>
@@ -192,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    完成以上步骤后，你的 DeepSeek 界面将变成一个带插件面板的专属工作台：左侧可管理本地文献库，输入框支持快捷指令，能一键完成自媒体排版、UI 原型草图或游戏素材生成。每次打开 DSH 都会加载你保存的模板，无需重复配置。
+    完成以上步骤后，你可以在本地浏览器中看到 Demo 的交互界面，输入文字或上传图片后，RTX GPU 在几秒到几十秒内返回生成结果（如图像、语音回复），终端日志显示推理过程无报错，GPU 利用率明显上升。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -202,38 +194,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>DSH 和直接使用 DeepSeek 网页版有什么区别？</span>
+        <span>没有 RTX Spark 主机，能用普通 RTX 显卡的电脑代替吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">DSH 是本地开源底座，能接入本地文件、自定义界面和插件，把 AI 嵌入你的工作流；网页版是通用聊天，无法直接操作本地素材。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，只要显卡支持 CUDA 且显存足够（建议 8GB 以上），步骤基本一致，但性能会有差异。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有编程基础能玩吗？</span>
+        <span>运行 Demo 时提示 CUDA out of memory 怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。基础配置只需改 JSON 文件和复制模板，按教程操作即可；进阶插件开发才需要少量 JavaScript 知识。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">降低 batch size 或分辨率，关闭其他占用显存的程序，或在脚本中启用半精度（fp16）推理。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>API Key 会不会泄露？</span>
+        <span>模型下载太慢或失败怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Key 保存在本地 .env 文件，不会上传到第三方。注意不要将 .env 提交到 Git 仓库，建议加入 .gitignore。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">使用国内镜像源（如 Hugging Face 镜像站）或手动下载后放到缓存目录，也可用代理工具加速。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>支持哪些文件格式？</span>
+        <span>Demo 启动后浏览器打不开本地地址？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">默认支持 PDF、Markdown、TXT、JSON 和图片，可通过插件扩展支持 Word、Excel 等格式。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>DSH 是否免费？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">DSH 本身开源免费，但调用 DeepSeek 模型需要按 API 用量付费，具体价格见 DeepSeek 官网。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查防火墙是否拦截端口，确认脚本监听的 IP 是 0.0.0.0 或 127.0.0.1，并尝试换一个端口。</div>
     </details>
   </div>
 </section>
@@ -241,14 +226,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：游戏工坊——接入游戏素材生成插件，用自然语言描述角色和场景，DSH 直接输出像素图或关卡草图。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：本地文献库问答——把论文 PDF 批量放入文件夹，配置检索插件，实现基于本地文献的精准问答和摘要。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：UI 原型画布——启用 ui-canvas 插件，输入「生成一个登录页原型」，DSH 输出可交互的 HTML 草图并支持导出。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将 Demo 封装成 Docker 镜像，实现一键部署和跨机器迁移，避免环境依赖问题。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 Gradio 或 Streamlit 给 Demo 套一个更友好的 Web 界面，方便非技术用户试用。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把多个 Demo 串联成工作流，例如先语音转文字，再交给大模型生成回复，最后用 TTS 播报，体验完整本地 AI 链路。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 DeepSeek Harness 把通用 AI 变成你的专属工作台，核心就是「装底座、配插件、接素材、存模板」四步走。
+    本地跑 AI Demo 的精髓在于：驱动对、环境净、模型全，然后大胆调参试错。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -256,20 +241,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-hf-space-mrfakename/Z-Image-Turbo" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">HuggingFace Spaces · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">在浏览器里用Z Image Turbo快速生成图片</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-hf-space-hexgrad/Kokoro-TTS" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">HuggingFace Spaces · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Kokoro TTS在线试文字转语音</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-hf-space-selfit-camera/Omni-Image-Editor" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">HuggingFace Spaces · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Selfit Camera在线编辑图片</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a></div>
 </section>
 

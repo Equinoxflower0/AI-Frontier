@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用Modern Web Guidance让Agent按需查浏览器能力 - AI 玩法教程 · AI Frontier</title>
+<title>用黑板架构让多Agent协作排查API超时 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-19
+      2026-11-20
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Modern Web Guidance让Agent按需查浏览器能力</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用黑板架构让多Agent协作排查API超时</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    掘金 AI 实战教程 · B级
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7707100499275169834" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/Qiniu-developer/p/23719835" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">让编码 Agent 在写浏览器代码前先查一份「浏览器能力指南」，避免写出过时或不兼容的 API。</p>
+  <p class="text-base text-slate-800 leading-relaxed">本教程教你用「黑板架构」让多个 AI Agent 围绕同一个复杂问题持续协作，以排查报表导出 API 超时为例，实现日志、指标、链路等 Agent 的发现共享与协同推理。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    前端 API 迭代快，Agent 常凭训练数据写出已废弃或兼容性差的代码。Modern Web Guidance 把本地混合检索、特性门控和指南评测接入 Agent，让它在生成代码前按需查询浏览器能力，并给出兼容回退方案。适合需要稳定交付、多端兼容的前端项目，也适合想约束 Agent 输出质量的团队。
+    在真实运维场景中，排查一个 API 超时往往需要同时看日志、指标、链路追踪、数据库慢查询等多个数据源。单个 Agent 很难独立完成，而让多个 Agent 依次传递上下文又容易丢失关键信息。黑板架构借鉴经典 AI 设计模式：所有 Agent 共享一块「黑板」写入和读取发现，围绕同一问题持续协作。本玩法适合复杂故障排查、多源数据分析、跨系统根因定位等场景，难度中等偏上，但一旦跑通可复用到很多协作型任务。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,32 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Node.js 18+  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行本地检索服务和构建工具</div>
+      <div class="font-semibold text-slate-900">Dify  <a href="https://dify.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于编排多 Agent 工作流，支持工具调用和变量传递</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Claude Code / Cursor / 任意支持 MCP 的编码 Agent  <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">作为调用方，按需查询指南</div>
+      <div class="font-semibold text-slate-900">FastGPT  <a href="https://fastgpt.in" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">可选替代，用于搭建知识库和 Agent 协作流程</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Modern Web Guidance 仓库  <a href="https://juejin.cn/post/7707100499275169834" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">获取指南数据与检索脚本</div>
+      <div class="font-semibold text-slate-900">OpenAI API 或兼容大模型  <a href="https://platform.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">提供 Agent 推理能力，如 GPT-4o、DeepSeek 等</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">克隆仓库和版本管理</div>
+      <div class="font-semibold text-slate-900">Redis  <a href="https://redis.io" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">作为「黑板」存储，支持多 Agent 读写共享发现</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Elasticsearch / Loki  <a href="https://www.elastic.co" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">日志数据源，供日志 Agent 查询</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Prometheus + Grafana  <a href="https://prometheus.io" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">指标数据源，供指标 Agent 查询</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Jaeger / SkyWalking  <a href="https://www.jaegertracing.io" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">链路追踪数据源，供链路 Agent 查询</div>
     </li>
   </ul>
 </section>
@@ -122,55 +134,66 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：克隆仓库并安装依赖</h3>
-      <div class="text-base text-slate-700 leading-loose">从掘金文章中找到 Modern Web Guidance 的仓库地址，执行 git clone 后进入目录运行 npm install。确认 package.json 中的 scripts 包含检索和评测命令。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：定义黑板数据结构与协作协议</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Redis 中设计一个 Hash 结构作为黑板，键为 `blackboard:{incident_id}`，字段包括 `problem`（问题描述）、`findings`（各 Agent 写入的发现列表）、`hypotheses`（待验证假设）、`conclusion`（当前结论）。同时约定每个 Agent 写入格式：`{agent, timestamp, observation, evidence, confidence}`。这样所有 Agent 都能以统一格式读写，避免上下文丢失。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先跑一次 npm run build 确认指南数据能正常生成，避免后续检索为空。
+          💡 <span class="font-semibold">小贴士：</span>用 Redis List 存 findings 可以保留写入顺序，方便回溯推理链；给每个 incident 设置 TTL 防止黑板无限增长。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：启动本地混合检索服务</h3>
-      <div class="text-base text-slate-700 leading-loose">运行仓库提供的检索服务命令（如 npm run serve 或 node server.js），默认监听本地端口。用 curl 测试一个查询，例如「dialog element」，确认返回相关指南片段。混合检索会结合关键词和向量相似度，比纯关键词更懂语义。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：搭建三个数据源 Agent</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Dify 中分别创建日志 Agent、指标 Agent、链路 Agent。每个 Agent 配置对应的查询工具：日志 Agent 接 Elasticsearch 查询接口，指标 Agent 接 Prometheus HTTP API，链路 Agent 接 Jaeger API。每个 Agent 的提示词模板统一为：「你是{角色}，请针对问题{problem}查询数据，将发现按约定格式写入黑板，并读取黑板中其他 Agent 的发现作为参考。」</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果返回结果太少，检查指南数据是否已索引，或调大 topK 参数。
+          💡 <span class="font-semibold">小贴士：</span>提示词里明确要求 Agent 先读黑板再查询，能显著减少重复查询和无效发现。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：把检索能力接入编码 Agent</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Agent 的 MCP 配置或自定义工具配置中，把本地检索服务注册为一个可调用工具，描述写成「查询浏览器 API 兼容性与用法」。在系统提示词里加一句：写浏览器相关代码前，先调用该工具查询目标 API。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编排协作循环与仲裁 Agent</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Dify 工作流中设置一个循环节点：依次调用三个数据源 Agent，每轮结束后由仲裁 Agent 读取黑板全部内容，判断是否已能定位根因。若不能，仲裁 Agent 生成新的假设写入 `hypotheses`，并指定下一轮各 Agent 的查询重点。循环最多执行 3-5 轮，避免无限循环。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>提示词里明确要求「先查再写」，否则 Agent 容易跳过工具直接凭记忆生成。
+          💡 <span class="font-semibold">小贴士：</span>仲裁 Agent 的提示词要强调「基于证据判断」，并要求输出结构化的 `{status: continue|done, next_focus: ...}`，便于工作流分支。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用特性门控约束生成代码</h3>
-      <div class="text-base text-slate-700 leading-loose">在提示词模板中要求 Agent 对每个用到的浏览器特性做特性检测，例如 if ('showModal' in HTMLDialogElement.prototype)。让 Agent 在指南返回的兼容性信息基础上，自动生成回退分支，而不是直接假设 API 存在。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：注入初始问题并触发排查</h3>
+      <div class="text-base text-slate-700 leading-loose">向黑板写入初始 `problem`：「报表导出 API 在每日 10:00-11:00 出现 P99 超时超过 30s，影响约 5% 请求。」然后触发工作流。各 Agent 第一轮会分别查询该时段日志错误、接口耗时指标、慢链路 span，并将发现写入黑板。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把「必须包含特性检测」写成硬性验收条件，方便后续评测。
+          💡 <span class="font-semibold">小贴士：</span>初始问题描述越具体（时间窗口、影响面、指标阈值），Agent 查询越聚焦，排查效率越高。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：跑指南评测并验收业务边界</h3>
-      <div class="text-base text-slate-700 leading-loose">用仓库自带的评测脚本对 Agent 生成的代码打分，检查是否引用了指南中的推荐用法、是否覆盖回退路径。再结合业务验收：原生弹窗等场景要确认焦点管理、ESC 关闭、无障碍属性是否满足产品要求。评测通过后再合入。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：观察协作过程并人工干预</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Dify 运行日志中实时查看每轮黑板内容变化，重点关注 `findings` 是否出现交叉印证（如日志 Agent 发现慢 SQL，链路 Agent 发现 DB span 耗时占比高）。若发现某 Agent 跑偏，可手动向黑板写入提示或调整其查询范围，再继续循环。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>评测只保证「符合指南」，业务边界（如弹窗层级、动画时长）仍需人工验收。
+          💡 <span class="font-semibold">小贴士：</span>把黑板内容定期导出为 Markdown 复盘文档，既是故障报告也是 Agent 协作的调试素材。
+        </div>
+    </div>
+    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        6
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：输出根因报告与沉淀</h3>
+      <div class="text-base text-slate-700 leading-loose">当仲裁 Agent 判定 `status: done` 时，让它基于黑板全部内容生成根因报告，包含：问题现象、各 Agent 关键发现、证据链、根因结论、修复建议。将报告和黑板快照存入知识库，供后续类似问题检索复用。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>要求仲裁 Agent 在报告中标注每条结论对应的黑板 finding 编号，保证可追溯。
         </div>
     </div>
   </div>
@@ -180,7 +203,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    Agent 在生成浏览器代码前会自动查询本地指南，输出带特性检测和兼容回退的代码；评测脚本给出通过报告，人工验收确认业务细节无误。
+    工作流运行 2-4 轮后，黑板中汇聚日志、指标、链路三方的交叉证据，仲裁 Agent 输出结构化根因报告（例如「慢 SQL 导致 DB 连接池耗尽，进而引发导出 API 超时」），并附带完整证据链和修复建议。整个过程可在 Dify 运行日志中回放，黑板快照可导出复盘。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,31 +213,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 MCP 支持的 Agent 能用吗？</span>
+        <span>黑板用 Redis 还是用文件/数据库？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。把检索服务包装成 CLI 命令，在提示词里让 Agent 先执行命令再写代码，效果类似。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">小规模实验用 JSON 文件或 SQLite 即可；多 Agent 并发读写建议用 Redis，支持原子操作和 TTL，部署也简单。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>混合检索需要额外配置向量库吗？</span>
+        <span>Agent 之间会不会互相污染错误发现？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">仓库通常内置轻量索引方案，按 README 初始化即可；数据量大时再考虑外接向量库。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">会。所以每条 finding 必须带 confidence 和 evidence 字段，仲裁 Agent 要基于证据而非投票做判断，必要时人工干预剔除低质量发现。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>指南数据过时怎么办？</span>
+        <span>循环几轮比较合适？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">定期更新仓库并重建索引；也可在评测中加入 MDN 兼容性数据做交叉校验。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">一般 3-5 轮足够。超过 5 轮仍无结论，说明问题描述或数据源覆盖不足，应人工介入而不是继续烧 token。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>评测通过就代表代码能上线吗？</span>
+        <span>没有 Dify 能用别的工具吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不代表。评测只验证指南符合度，业务验收、真机兼容和性能仍需人工把关。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。FastGPT、Coze、n8n 甚至自己用 Python + LangChain 都能实现，核心是「共享存储 + 循环编排 + 仲裁判断」三要素。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>这个玩法只能用于排查 API 超时吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是。任何需要多源数据交叉验证的复杂问题都适用，如安全事件分析、用户流失归因、供应链异常定位等。</div>
     </details>
   </div>
 </section>
@@ -222,14 +252,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把检索服务换成远程 API，让团队共用一份指南索引，Agent 配置里只填 URL。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：在 CI 中加一道指南评测门禁，Agent 生成的 PR 不通过评测就自动打回。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：针对特定框架（如 React/Vue）定制提示词模板，让回退方案直接生成对应框架写法。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把黑板换成向量数据库，让每个 Agent 写入发现时自动生成 embedding，仲裁 Agent 用语义检索找相关发现，适合发现数量大、需要模糊关联的场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：引入「红队 Agent」专门挑战其他 Agent 的结论，在黑板中写入反例和质疑，提升根因判断的严谨性，适合高 stakes 的生产故障复盘。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：将黑板架构用于产品需求评审，让市场、技术、设计三个 Agent 围绕同一需求文档持续写入风险和方案，仲裁 Agent 汇总评审结论。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    让 Agent 先查指南再写代码，用特性门控和评测把「凭记忆生成」变成「有据可查、可验收」。
+    黑板架构的精髓是：用一块共享存储让多个 Agent 围绕同一问题持续读写发现，配合仲裁 Agent 控制循环，把「各自为战」变成「交叉印证」的协作排查。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -239,12 +269,12 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可运行 Agent 工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">

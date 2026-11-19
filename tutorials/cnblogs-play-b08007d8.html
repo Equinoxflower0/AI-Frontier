@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用Nuxt 4和MediaPipe在浏览器本地做人脸关键点分析 - AI 玩法教程 · AI Frontier</title>
+<title>用GradScaler排查混合精度训练NaN问题 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-19
+      2026-11-20
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Nuxt 4和MediaPipe在浏览器本地做人脸关键点分析</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用GradScaler排查混合精度训练NaN问题</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    掘金 AI 实战教程 · B级
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7706913833988227072" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/dawudexiaowu/p/23717125" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">不用服务器、不上传照片，用 Nuxt 4 + MediaPipe 在浏览器本地就能完成人脸关键点检测和面部比例计算，隐私安全又省成本。</p>
+  <p class="text-base text-slate-800 leading-relaxed">混合精度训练中，GradScaler 是防止 fp16 梯度下溢的必备工具，但用不好反而会引入 NaN 问题。本教程教你用 GradScaler 的调试接口快速定位并修复 NaN，让模型训练不再“装死”。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    传统图片分析工具通常把用户照片上传到服务器再调用 AI 模型，流程重、成本高，还有隐私风险。但像人脸关键点检测、面部比例计算这类轻量任务，完全可以在浏览器端用 MediaPipe 的 WASM 推理完成。Nuxt 4 提供了优秀的 SSR 和客户端组件能力，配合 MediaPipe Face Mesh 可以做到零后端依赖。这个玩法适合做颜值打分、虚拟试妆、表情互动等前端工具，也适合作为学习浏览器端 AI 推理的入门项目。
+    fp16 的数值范围只有 6.1e-5 到 65504，远小于 fp32，梯度很容易下溢成 0 或上溢成 inf。下溢时模型静默失效，loss 不降但也不报错，排查起来非常痛苦。GradScaler 通过动态缩放梯度来缓解这个问题，但它本身也会因为 scale 过大而引发 inf。掌握 GradScaler 的调试技巧，能让你在混合精度训练中快速定位 NaN 根因，节省大量试错时间。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Node.js  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行 Nuxt 4 开发环境，建议 v20 以上</div>
+      <div class="font-semibold text-slate-900">PyTorch 2.0+  <a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">提供 torch.cuda.amp.GradScaler 及调试接口</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Nuxt 4  <a href="https://nuxt.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">前端框架，用于搭建页面和客户端组件</div>
+      <div class="font-semibold text-slate-900">NVIDIA GPU（支持 fp16）  <a href="https://developer.nvidia.com/cuda-gpus" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">如 RTX 30/40 系列、A100 等，用于实际运行混合精度训练</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">MediaPipe Tasks Vision  <a href="https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">Google 官方的人脸关键点检测库，支持浏览器端 WASM 推理</div>
+      <div class="font-semibold text-slate-900">Python 3.8+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">VS Code  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">代码编辑器，可选装 Vue 官方插件</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">现代浏览器  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">Chrome/Edge 等支持 WebAssembly 和 WebGL 的浏览器</div>
+      <div class="font-semibold text-slate-900">一个可复现的混合精度训练脚本  <a href="https://pytorch.org/tutorials/recipes/recipes/amp_recipe.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于注入调试逻辑，建议从简单模型开始</div>
     </li>
   </ul>
 </section>
@@ -126,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：初始化 Nuxt 4 项目并安装依赖</h3>
-      <div class="text-base text-slate-700 leading-loose">在终端执行 npx nuxi@latest init face-mesh-demo 创建项目，进入目录后 npm install。然后安装 MediaPipe 任务包：npm install @mediapipe/tasks-vision。启动开发服务器 npm run dev，确认默认页面能正常访问。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：开启 GradScaler 的调试日志</h3>
+      <div class="text-base text-slate-700 leading-loose">在创建 GradScaler 时传入 init_scale 和 growth_interval 参数，并设置环境变量 TORCH_AMP_DEBUG=1 或使用 torch.cuda.amp.GradScaler(init_scale=2**16, growth_interval=100)。然后在 scaler.step(optimizer) 前后打印 scaler.get_scale()，观察 scale 是否频繁下降。如果 scale 持续下降，说明梯度频繁上溢，需要降低初始 scale。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果网络慢，可以配置 npm 镜像源；Nuxt 4 默认使用 app/ 目录结构，注意文件路径。
+          💡 <span class="font-semibold">小贴士：</span>先用较小的 init_scale（如 2**12）跑几百步，确认稳定后再逐步调大。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：准备人脸关键点模型文件</h3>
-      <div class="text-base text-slate-700 leading-loose">从 MediaPipe 官方模型页下载 face_landmarker.task 模型文件，放到 Nuxt 项目的 public/models/ 目录下。这个模型文件约几 MB，浏览器首次加载后会缓存。在代码中通过 /models/face_landmarker.task 路径引用即可。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：定位 NaN 出现的具体迭代和层</h3>
+      <div class="text-base text-slate-700 leading-loose">在训练循环中加入条件判断：if not torch.isfinite(loss): print(f'NaN at step {step}') 并保存当前 batch 数据。然后使用 torch.autograd.set_detect_anomaly(True) 包裹前向和反向传播，PyTorch 会打印出产生 NaN 的具体算子。结合 scaler.unscale_(optimizer) 后检查各参数梯度是否有限，快速缩小问题范围。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>模型文件不要放在 assets 目录，public 下的静态资源才能被浏览器直接访问。
+          💡 <span class="font-semibold">小贴士：</span>set_detect_anomaly 会显著拖慢训练，只在复现 NaN 的短循环中开启。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：封装客户端人脸检测组件</h3>
-      <div class="text-base text-slate-700 leading-loose">在 components/ 下新建 FaceMeshAnalyzer.client.vue，使用 .client 后缀确保只在浏览器运行。在 onMounted 中通过 FilesetResolver.forVisionTasks 加载 WASM，再创建 FaceLandmarker 实例，配置 runningMode 为 IMAGE。暴露一个 analyze(imageElement) 方法，调用 detect 返回关键点数组。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：检查梯度裁剪与 GradScaler 的配合</h3>
+      <div class="text-base text-slate-700 leading-loose">混合精度下必须先调用 scaler.unscale_(optimizer) 再执行 torch.nn.utils.clip_grad_norm_，否则裁剪的是被放大后的梯度，导致裁剪失效或误判。确认代码顺序为：scaler.scale(loss).backward() → scaler.unscale_(optimizer) → clip_grad_norm_ → scaler.step(optimizer) → scaler.update()。顺序错误是 NaN 的常见诱因。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>MediaPipe 的 WASM 文件路径要用 CDN 或本地复制，推荐用官方 CDN 避免路径问题。
+          💡 <span class="font-semibold">小贴士：</span>用 scaler.get_scale() 在 unscale 前后打印，确认梯度数值范围是否合理。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：实现图片上传与关键点绘制</h3>
-      <div class="text-base text-slate-700 leading-loose">在页面中放一个 file input 和 canvas，用户选择图片后读取为 Image 对象，传给 analyze 方法。拿到 478 个关键点后，用 canvas 的 fillRect 或 arc 把每个点画出来，也可以只画轮廓线。同时计算面部比例，比如两眼距离与脸宽的比值，显示在页面上。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：调整 GradScaler 参数并加入跳过机制</h3>
+      <div class="text-base text-slate-700 leading-loose">如果 NaN 偶发，可设置 scaler = GradScaler(init_scale=2**14, growth_factor=1.5, backoff_factor=0.5, growth_interval=2000)。当 scaler.step 检测到 inf 时会自动跳过该步并降低 scale，但你需要用 scaler.update() 后检查 scaler.get_scale() 是否骤降。若骤降频繁，说明模型对 fp16 敏感，可对部分层（如 LayerNorm）保留 fp32。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>绘制前记得清空 canvas，图片按原始尺寸绘制避免坐标错位。
+          💡 <span class="font-semibold">小贴士：</span>在 scaler.update() 后加一行 if scaler.get_scale() &lt; 1: print('scale too low, check model') 作为预警。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：优化体验与错误处理</h3>
-      <div class="text-base text-slate-700 leading-loose">添加加载状态提示，模型加载完成前禁用上传按钮。处理非人脸图片的情况，检测结果为空时给出友好提示。用 URL.createObjectURL 预览图片，组件卸载时 revoke 释放内存。最后在 nuxt.config.ts 中确认没有 SSR 相关报错。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用最小复现脚本验证修复效果</h3>
+      <div class="text-base text-slate-700 leading-loose">将出问题的 batch 数据固定下来，写一个最小循环：只跑该 batch 的前向+反向，重复 100 次，观察 loss 和 scale 变化。修复后应看到 loss 稳定下降、scale 不再持续下降、无 NaN 输出。最后把修复逻辑合并回主训练脚本，跑完整 epoch 确认。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>可以在页面加一个“示例图片”按钮，方便用户快速体验，不用自己找图。
+          💡 <span class="font-semibold">小贴士：</span>保存修复前后的 scaler.get_scale() 曲线对比图，便于复盘。
         </div>
     </div>
   </div>
@@ -184,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    打开页面后上传一张人脸照片，浏览器本地完成检测，canvas 上叠加显示人脸关键点，页面同时展示计算出的面部比例数值。整个过程没有网络请求上传照片，刷新后模型会从缓存快速加载。
+    训练过程中 loss 正常下降，scaler.get_scale() 保持稳定或缓慢增长，不再出现 NaN 或 inf；若偶发上溢，scaler 能自动降 scale 并跳过该步，训练继续。你能明确知道 NaN 来自哪一层或哪个操作，并有针对性地修复。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +190,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>为什么必须用 .client.vue 后缀？</span>
+        <span>GradScaler 的 scale 一直下降怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">MediaPipe 依赖浏览器 API（如 WebAssembly、Canvas），在服务端渲染时会报错，.client 后缀让组件只在客户端挂载。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">说明梯度频繁上溢，先降低 init_scale（如 2**12），检查是否有梯度爆炸，并确认 unscale_ 在 clip 之前调用。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>模型加载很慢怎么办？</span>
+        <span>为什么加了 GradScaler 反而出现 NaN？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">首次加载需要下载 WASM 和模型文件，建议部署时把模型放到 CDN 或开启 gzip/brotli 压缩，后续会走浏览器缓存。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">常见原因是 scale 过大导致梯度上溢，或 unscale_ 与 clip 顺序错误。用 set_detect_anomaly 定位具体算子。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>能检测视频流吗？</span>
+        <span>所有层都需要 fp16 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，把 FaceLandmarker 的 runningMode 改为 VIDEO，配合 requestAnimationFrame 循环调用 detectForVideo 即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是。LayerNorm、softmax、loss 计算等对数值敏感的操作建议保留 fp32，可用 torch.cuda.amp.autocast 的 enabled=False 局部关闭。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>关键点数量是多少？</span>
+        <span>CPU 上能用 GradScaler 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">MediaPipe Face Landmarker 默认输出 478 个 3D 关键点，包含面部轮廓、眼睛、嘴唇等区域。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">GradScaler 主要针对 CUDA fp16，CPU 上混合精度支持有限，建议在 GPU 上使用。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>需要后端吗？</span>
+        <span>如何判断是下溢还是上溢？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">完全不需要，所有推理在浏览器本地完成，适合静态部署到 Vercel、Netlify 等平台。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">下溢时梯度变 0，loss 不降但无报错；上溢时梯度变 inf，scaler 会降 scale。打印 unscale 后的梯度范数可区分。</div>
     </details>
   </div>
 </section>
@@ -233,14 +229,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：实时摄像头人脸关键点——把图片上传换成 getUserMedia 视频流，逐帧检测并绘制，做实时表情或姿态互动。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：面部比例颜值分析——基于关键点计算三庭五眼比例，给出趣味评分和可视化报告。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：虚拟试妆/贴纸——根据嘴唇和眼睛关键点定位，在 canvas 上叠加口红颜色或 AR 贴纸。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用 torch.cuda.amp.GradScaler 配合 torch.autograd.detect_anomaly 做自动化 NaN 捕获脚本，每次 NaN 自动保存 batch 和模型状态。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：对模型不同子模块设置不同的 autocast 策略（如 embedding 用 fp32，线性层用 fp16），再用 GradScaler 统一管理，降低 NaN 概率。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：将 GradScaler 的 scale 变化记录到 TensorBoard，结合梯度范数曲线做可视化监控，提前预警数值不稳定。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 Nuxt 4 搭壳、MediaPipe 做本地推理，把轻量人脸分析从服务器搬到浏览器，隐私和成本双赢。
+    GradScaler 不仅是防下溢的“电梯”，更是排查混合精度 NaN 的“听诊器”——用好它的调试接口和参数，就能让 fp16 训练既快又稳。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,12 +246,12 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可运行 Agent 工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">

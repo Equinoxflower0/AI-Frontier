@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用4B模型压缩上下文降本78% - AI 玩法教程 · AI Frontier</title>
+<title>用Castrol CORE方案规划AI数据中心液冷部署 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-19
+      2026-11-20
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用4B模型压缩上下文降本78%</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Castrol CORE方案规划AI数据中心液冷部署</h1>
     
   </div>
 </header>
@@ -65,7 +65,7 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     权威媒体
   </span>
-  <a href="https://zhidx.com/p/609168.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://zhidx.com/p/612470.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">用一个小巧的4B模型做上下文压缩，把长文档、长对话先“瘦身”再喂给大模型，实测能省下78%的Token成本。</p>
+  <p class="text-base text-slate-800 leading-relaxed">这篇教程教你用 Castrol CORE 方案（一套针对 AI 数据中心液冷部署的规划框架）来系统性地设计液冷方案，从需求评估到落地验证，一步到位。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    硅心科技（aiXcoder）孵化自北京大学软件工程研究所，近期开源了一个4B参数的上下文压缩模型，专门解决长上下文场景下Token费用高、推理慢的问题。它的思路是先用小模型把冗长内容提炼成精简摘要，再交给大模型处理，从而大幅降低输入Token量。这个玩法特别适合需要频繁处理长文档、代码库或客服对话的团队，在不明显损失效果的前提下把API账单打下来。
+    随着 AI 算力需求爆发，数据中心功率密度飙升，传统风冷已力不从心，液冷成为必选项。但液冷部署涉及热管理、基础设施改造、成本与运维等多重挑战，很多团队缺乏系统规划方法。Castrol CORE 方案在数据中心标准大会上提出，旨在提供一套结构化的液冷部署规划流程，帮助工程师快速评估可行性、选型并制定实施路径。本教程基于智东西的报道，将这套方案拆解为可操作的步骤，适合数据中心架构师、运维负责人及 AI 基础设施规划者参考。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">aiXcoder 开源压缩模型  <a href="https://zhidx.com/p/609168.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">4B参数的上下文压缩模型，用于将长文本提炼为短摘要</div>
+      <div class="font-semibold text-slate-900">Castrol CORE 方案资料  <a href="https://zhidx.com/p/612470.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">了解 CORE 框架的基本概念和评估维度，可参考智东西报道原文</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.9+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行压缩脚本和调用API的基础环境</div>
+      <div class="font-semibold text-slate-900">数据中心热管理基础工具（如 Excel 或在线计算器）  <a href="https://www.microsoft.com/zh-cn/microsoft-365/excel" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于记录功率密度、冷却需求等参数并进行简单计算</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Hugging Face Transformers  <a href="https://huggingface.co/docs/transformers/installation" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">加载和推理4B压缩模型</div>
+      <div class="font-semibold text-slate-900">液冷技术选型参考（如冷板式、浸没式对比表）  <a href="https://www.vertiv.com/zh-cn/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">辅助判断适合的液冷类型，可自行整理或使用行业报告</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">任意大模型API（如OpenAI GPT-4o、DeepSeek、通义千问）  <a href="https://platform.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">接收压缩后的上下文并完成最终任务</div>
+      <div class="font-semibold text-slate-900">AI 数据中心机柜布局图或 CAD 图纸  <a href="https://www.autodesk.com.cn/products/autocad/overview" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于规划液冷管路和 CDU 位置</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">tiktoken 或对应分词器  <a href="https://github.com/openai/tiktoken" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">统计压缩前后Token数量，验证降本效果</div>
+      <div class="font-semibold text-slate-900">成本估算模板  <a href="https://www.smartsheet.com/free-cost-estimate-templates" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">评估液冷部署的初期投资和运营成本</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：获取并加载4B压缩模型</h3>
-      <div class="text-base text-slate-700 leading-loose">从aiXcoder开源仓库或Hugging Face下载4B压缩模型权重，用Transformers的AutoModelForCausalLM和AutoTokenizer加载。建议先用fp16精度加载，显存占用约8-10GB，单卡即可跑通。加载后写一个compress(text)函数，输入长文本、输出压缩摘要。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：明确 AI 负载与热密度需求</h3>
+      <div class="text-base text-slate-700 leading-loose">收集目标 AI 集群的 GPU 型号、单机柜功率密度（kW/柜）、持续运行负载曲线。使用 Excel 列出每个机柜的峰值和平均热负荷，并标注未来 3 年的扩展计划。参考 Castrol CORE 方案中的评估维度，将负载分为高密度（&gt;30kW/柜）、中密度（15-30kW/柜）和低密度（&lt;15kW/柜）。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果显存紧张，可以用bitsandbytes做4bit量化加载，显存可降到约4GB，速度略慢但够用。
+          💡 <span class="font-semibold">小贴士：</span>务必考虑 AI 训练任务的波动性，峰值热负荷可能比平均高 30% 以上，留足余量。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：设计压缩提示词模板</h3>
-      <div class="text-base text-slate-700 leading-loose">压缩模型需要明确的指令才能稳定输出。建议模板为：“请将以下内容压缩为不超过原文20%的摘要，保留关键事实、数字、结论和待办事项，删除冗余描述和重复信息。原文：{text}”。把模板固化到代码里，保证每次压缩行为一致。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：选择液冷类型并匹配 CORE 方案模块</h3>
+      <div class="text-base text-slate-700 leading-loose">根据第1步的热密度结果，对照 Castrol CORE 方案中的液冷选型建议：高密度机柜优先考虑浸没式液冷，中密度可选冷板式液冷，低密度可混合风冷。在 CORE 框架下，分别评估冷却液兼容性、CDU（冷量分配单元）容量、管路布局和运维可达性。制作一个选型对比表，列出每种方案的初投资、PUE 预期和改造难度。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>压缩比例不要一刀切，代码类内容建议保留30%，客服对话可压到15%，按场景调参效果更好。
+          💡 <span class="font-semibold">小贴士：</span>冷板式液冷对现有数据中心改造更友好，浸没式则适合全新建设；可先用小规模试点验证。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：搭建“压缩→大模型”工具链</h3>
-      <div class="text-base text-slate-700 leading-loose">写一个两段式流水线：第一段调用4B模型压缩长上下文，第二段把压缩结果拼进大模型的prompt里完成问答、总结或代码生成。用Python函数串联，输入原始长文本，输出最终答案，中间打印压缩前后Token数。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：规划液冷基础设施布局</h3>
+      <div class="text-base text-slate-700 leading-loose">基于选型结果，在机柜布局图上标注 CDU 位置、供回水管路走向、冷却液储罐和泄漏检测点。确保管路不与强电桥架交叉，并预留维护通道。使用 CAD 或 Visio 绘制液冷回路示意图，标注关键阀门和传感器位置。参考 CORE 方案中的可靠性要求，设计冗余回路（如 N+1 CDU）。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>压缩结果里保留原始文档的标题和章节结构，大模型定位信息会更准。
+          💡 <span class="font-semibold">小贴士：</span>管路设计尽量缩短 CDU 到机柜的距离，减少泵功耗和冷却液用量；同时考虑未来扩容的接口预留。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用tiktoken统计降本比例</h3>
-      <div class="text-base text-slate-700 leading-loose">在流水线里加入tiktoken计数：分别统计原始输入Token和压缩后Token，计算节省比例。按官方评测思路，压缩到原20%左右时，输入成本可降约78%（考虑压缩模型自身推理开销后的净节省）。跑3-5个真实样本取平均值。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：制定部署与验证计划</h3>
+      <div class="text-base text-slate-700 leading-loose">编写分阶段部署计划：先进行小规模试点（如 2-3 个机柜），验证液冷系统在真实 AI 负载下的冷却效果和稳定性。定义关键指标：进出液温度、流量、压差、PUE 和泄漏报警响应时间。使用 CORE 方案中的检查清单，逐项确认安装质量（如管路密封性、冷却液浓度）。试点运行 2-4 周后，根据数据调整参数再全面推广。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>别忘了把压缩模型自身的推理成本算进去，本地部署时主要是电费和显存占用，API场景则要对比单价。
+          💡 <span class="font-semibold">小贴士：</span>试点阶段务必安装临时流量计和温度传感器，收集基线数据；同时制定泄漏应急预案并演练。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：做效果回归对比</h3>
-      <div class="text-base text-slate-700 leading-loose">准备10-20条带标准答案的长文本测试集，分别跑“直接喂大模型”和“先压缩再喂大模型”两条链路，对比答案准确率、完整性和延迟。如果准确率下降超过5%，就调高压缩保留比例或优化提示词。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：成本与 ROI 分析</h3>
+      <div class="text-base text-slate-700 leading-loose">汇总液冷部署的初投资（CDU、管路、冷却液、改造施工）和运营成本（泵功耗、冷却液补充、维护）。对比风冷方案的 PUE 和电费，计算投资回收期。参考 CORE 方案中的经济性评估模型，考虑碳税或补贴等政策因素。输出一份简明的 ROI 报告，供决策层审批。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>优先在信息密度低的场景（会议记录、客服工单、长网页）上验证，这类内容压缩损失最小、降本最明显。
+          💡 <span class="font-semibold">小贴士：</span>不要忽略冷却液的生命周期成本，某些液体需定期更换或过滤，长期费用可能较高。
         </div>
     </div>
   </div>
@@ -184,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    跑通后你会得到一条两段式流水线：输入一篇几千Token的长文档，4B模型先把它压到原长度的15%-25%，再交给大模型回答，输入Token成本下降约78%，端到端延迟因小模型本地推理略有增加但总体可控，答案质量在信息密度低的场景下基本无损。
+    完成以上步骤后，你将得到一套完整的 AI 数据中心液冷部署规划文档，包括热密度评估表、液冷选型对比、基础设施布局图、分阶段部署计划和 ROI 分析报告。这套方案可直接用于内部评审或向供应商招标，显著降低液冷部署的盲目性和风险。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +194,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>4B模型压缩后信息丢失怎么办？</span>
+        <span>Castrol CORE 方案是免费公开的吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">调高压缩保留比例（如从20%提到30%），并在提示词里明确要求保留数字、结论和待办事项；对关键文档可只压缩背景段落，核心段落原样保留。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">该方案在数据中心标准大会上提出，具体细节可能需要联系 Castrol 或查阅会议资料；本教程基于公开报道提炼框架，可灵活应用。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有GPU能跑吗？</span>
+        <span>没有液冷经验的小团队能直接用这套方法吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以用4bit量化在消费级显卡（如RTX 3060 12GB）上跑，也可以用CPU推理但速度较慢；纯API用户可关注是否有托管版压缩服务。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但建议先从冷板式液冷小规模试点开始，并邀请有经验的集成商参与第3步的布局设计。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>降本78%是怎么算的？</span>
+        <span>液冷部署最大的风险是什么？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">指输入Token从原始长度压缩到约20%后，大模型侧输入费用节省约80%，扣除压缩模型自身开销后净节省约78%，具体比例随压缩率和场景浮动。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">泄漏和冷却液兼容性是主要风险，务必在第4步试点中严格测试密封性，并选择与服务器材料兼容的冷却液。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>压缩模型能处理多长的文本？</span>
+        <span>这套方案适用于现有数据中心的改造吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">4B模型上下文窗口有限，超长文档建议先按章节切块分别压缩，再拼接摘要，避免一次性输入溢出。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个方案适合代码场景吗？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合，但代码压缩要保留函数签名、关键变量名和注释，压缩比例建议放宽到30%-40%，否则容易丢逻辑细节。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适用，但需在第2步重点评估改造难度，冷板式液冷对现有风冷数据中心改造更友好，浸没式可能需要更大结构改动。</div>
     </details>
   </div>
 </section>
@@ -233,14 +226,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把压缩模型换成“规则抽取+小模型”混合方案，先用正则提取标题、数字、待办，再让小模型补摘要，进一步降本。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：在RAG流程里加压缩层，检索出的多个长片段先压缩再拼进prompt，减少上下文窗口浪费。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用压缩模型做对话历史摘要，多轮客服场景下每5轮压缩一次历史，长期会话Token成本大幅下降。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将 CORE 方案用于边缘 AI 数据中心——针对小规模、高密度边缘节点，简化布局和成本分析步骤，重点评估快速部署和远程运维。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：结合数字孪生工具——在第3步布局规划时，使用 CFD 仿真软件（如 6SigmaET）模拟液冷流场和热分布，提前发现热点。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：扩展到多站点液冷部署——在第5步后增加标准化模板，将规划流程复制到多个数据中心，统一选型和运维规范。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用4B小模型当“上下文瘦身师”，先压缩再喂大模型，花小钱办大事，把长文本场景的Token账单打下来。
+    用 Castrol CORE 框架把液冷部署从“拍脑袋”变成“按清单执行”，先算热密度、再选类型、画布局、做试点、算清账，五步搞定 AI 数据中心液冷规划。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,12 +243,12 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把文件转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可运行 Agent 工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">

@@ -515,112 +515,6 @@
       "playability_score": 8.2
     }
   },
-  "zhidx-play-2072bec4": {
-    "_sig": "这这这居然是AI拍的？即梦Seedance 2.5 4K上手实测，细节惊艳|https://zhidx.com/p/611985.html",
-    "tutorial": {
-      "intro": "用即梦 Seedance 2.5 把一段文字提示词直接变成 4K 高清 AI 视频，全程无需拍摄设备，适合快速产出短视频素材。",
-      "background": "智东西评测提到，即梦 Seedance 2.5 在画面稳定性、运动连贯性和 4K 细节上明显提升，让普通用户也能用提示词生成接近实拍质感的视频。这个玩法适合短视频创作者、广告分镜预演、自媒体配图升级为动态素材等场景。相比传统拍摄或复杂后期，它把「想法→成片」的链路压缩到几分钟，尤其适合需要批量产出垂直内容的人。",
-      "prerequisites": [
-        {
-          "name": "即梦 AI（Seedance 2.5 模型）",
-          "desc": "核心视频生成工具，需登录并选择 Seedance 2.5 模型",
-          "url": "https://jimeng.jianying.com"
-        },
-        {
-          "name": "浏览器（Chrome/Edge 最新版）",
-          "desc": "访问即梦网页版，保证 4K 生成时的稳定渲染",
-          "url": "https://www.google.com/chrome"
-        },
-        {
-          "name": "提示词草稿文档",
-          "desc": "提前写好画面描述、镜头运动、风格关键词，方便反复微调",
-          "url": "https://docs.qq.com"
-        },
-        {
-          "name": "参考图/首帧图（可选）",
-          "desc": "用图生视频时提供构图和色调参考，提升可控性",
-          "url": "https://jimeng.jianying.com"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：登录即梦并锁定 Seedance 2.5 模型",
-          "content": "打开即梦官网并登录账号，进入「视频生成」页面。在模型选择处确认切换到 Seedance 2.5，而不是默认的低版本模型。检查输出分辨率选项，优先选择 4K 或最高画质档位。",
-          "tip": "如果页面没有显示 2.5，先刷新或退出重进；模型版本选错会直接导致画质和运动效果差一截。"
-        },
-        {
-          "title": "第2步：按「主体+动作+环境+镜头+风格」写提示词",
-          "content": "用结构化模板写提示词：先写主体（如「一位穿红色风衣的女性」），再写动作（「缓慢转身回望」），接着写环境（「雨夜霓虹街道」），然后写镜头（「中景跟拍，浅景深」），最后写风格（「电影感，4K 超清，胶片颗粒」）。把提示词控制在 80-150 字，避免堆砌矛盾描述。",
-          "tip": "镜头运动词要具体，比如「缓慢推近」「横向平移」「低角度仰拍」，比只写「动态感」有效得多。"
-        },
-        {
-          "title": "第3步：设置时长、比例与运动强度",
-          "content": "根据发布平台选择画幅：竖屏 9:16 适合抖音/Reels，横屏 16:9 适合 B 站/YouTube。时长先选 5 秒左右做测试，确认效果后再生成更长版本。运动强度从中档开始，避免画面崩坏。",
-          "tip": "第一次生成不要直接拉满时长和运动强度，先用短片段验证提示词是否被正确理解。"
-        },
-        {
-          "title": "第4步：生成并逐项检查画面质量",
-          "content": "点击生成后等待渲染完成，重点检查四件事：主体是否变形、运动是否连贯、背景是否闪烁、4K 细节是否清晰。如果出现人物脸部崩坏，优先减少动作幅度或简化背景描述。如果画面太静，增加一个明确的镜头运动词。",
-          "tip": "每次只改一个变量（提示词/运动强度/时长），这样能快速定位是哪一项影响了成片。"
-        },
-        {
-          "title": "第5步：导出 4K 成片并做轻量后期",
-          "content": "确认效果后导出最高画质版本，导入剪映或 Premiere 做简单处理：加背景音乐、调色、补字幕。如果需要多个镜头，重复第 2-4 步生成不同片段，再在剪辑软件里拼接成完整叙事。",
-          "tip": "导出后先在小屏手机上看一遍，4K 细节在手机端压缩后是否仍然清晰，决定了最终发布效果。"
-        }
-      ],
-      "expected_result": "你将得到一段 4K 分辨率、画面稳定、主体运动连贯的 AI 生成视频片段，可直接用于短视频发布或作为分镜素材。多次生成后能积累一套可复用的提示词模板，形成稳定的内容产出流程。",
-      "faq": [
-        {
-          "q": "生成 4K 视频很慢或失败怎么办？",
-          "a": "先降低时长到 3-5 秒测试，确认提示词没问题再生成完整版；同时检查网络和浏览器是否最新版，避开高峰时段。"
-        },
-        {
-          "q": "人物脸部总是变形怎么解决？",
-          "a": "减少大幅动作描述，避免「快速奔跑」「剧烈转身」等词；可改用图生视频，用清晰首帧图锁定人物形象。"
-        },
-        {
-          "q": "提示词写多长合适？",
-          "a": "80-150 字为宜，按「主体+动作+环境+镜头+风格」五段式写，避免互相矛盾的描述堆叠。"
-        },
-        {
-          "q": "生成结果和我想的不一样，如何提高可控性？",
-          "a": "每次只改一个变量，并加入具体镜头词；必要时用参考图控制构图和色调，比纯文字更稳定。"
-        },
-        {
-          "q": "4K 视频能直接商用吗？",
-          "a": "需查看即梦平台的最新用户协议和版权条款，不同账号类型和用途的授权范围不同，商用前务必确认。"
-        }
-      ],
-      "variants": [
-        "变体1：图生视频——先用即梦或 Midjourney 生成一张高质量首帧图，再上传作为参考图生成视频，人物和构图可控性大幅提升。",
-        "变体2：多镜头叙事——把一段 30 秒脚本拆成 4-6 个 5 秒镜头，分别用不同提示词生成，再在剪映里拼接加转场，做成完整短片。",
-        "变体3：产品广告预演——用产品图做首帧，提示词写「产品缓慢旋转，棚拍灯光，4K 微距细节」，快速产出电商主图视频或广告分镜。"
-      ],
-      "summary": "用结构化提示词锁定 Seedance 2.5 的 4K 能力，小步测试、单变量迭代，就能把文字稳定变成可用的高清视频素材。"
-    },
-    "generated_at": "2026-11-19T17:06:40.447925+00:00",
-    "play_meta": {
-      "title_zh": "用即梦Seedance 2.5生成4K AI视频",
-      "title_en": "这这这居然是AI拍的？即梦Seedance 2.5 4K上手实测，细节惊艳",
-      "source_id": "zhidx-play",
-      "source_name": "智东西 AI 工具评测",
-      "source_label": "权威媒体",
-      "source_tier": "A",
-      "source_color": "blue",
-      "source_emoji": "🔵",
-      "play_type": "tool_chain",
-      "difficulty": 4,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://zhidx.com/p/611985.html",
-      "is_domestic": true,
-      "tags": [],
-      "playability_score": 8.5
-    }
-  },
   "github-play-awesome-llm-47666e8f": {
     "_sig": "Shubhamsaboo/awesome-llm-apps: 100+ AI Agents, Agent Skills and RAG Apps - Free |https://github.com/Shubhamsaboo/awesome-llm-apps",
     "tutorial": {
@@ -843,6 +737,238 @@
       "playability_score": 8.5
     }
   },
+  "github-play-autogen-757dec3f": {
+    "_sig": "microsoft/ai-agents-for-beginners: 18 Lessons to Get Started Building AI Agents|https://github.com/microsoft/ai-agents-for-beginners",
+    "tutorial": {
+      "intro": "微软官方出品的《AI Agents for Beginners》18课教程，用 Jupyter Notebook 带你从零动手搭建 AI 智能体，零基础也能跟下来。",
+      "background": "很多人想学 AI Agent，但一上来就被 LangChain、AutoGen、函数调用、多智能体协作这些概念劝退。微软在 GitHub 上开源了 ai-agents-for-beginners 项目，把智能体开发拆成 18 节循序渐进的课，每节都有可运行的 Notebook 代码。它不讲空理论，而是直接带你调用模型、挂工具、做记忆、搭多智能体团队。适合想系统入门 AI Agent 的开发者、产品经理和学生，也适合作为团队内部培训材料。",
+      "prerequisites": [
+        {
+          "name": "Git",
+          "desc": "克隆 GitHub 仓库",
+          "url": "https://git-scm.com/"
+        },
+        {
+          "name": "Python 3.10+",
+          "desc": "运行 Jupyter Notebook 和示例代码",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "Jupyter Notebook / VS Code",
+          "desc": "打开并逐格运行 .ipynb 教程文件",
+          "url": "https://jupyter.org/install"
+        },
+        {
+          "name": "OpenAI API Key 或 Azure OpenAI",
+          "desc": "调用大模型驱动智能体",
+          "url": "https://platform.openai.com/api-keys"
+        },
+        {
+          "name": "GitHub 账号",
+          "desc": "Star 仓库、提 Issue、跟进更新",
+          "url": "https://github.com/microsoft/ai-agents-for-beginners"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：克隆仓库并搭好运行环境",
+          "content": "打开终端执行 git clone https://github.com/microsoft/ai-agents-for-beginners.git，进入目录后创建虚拟环境 python -m venv venv 并激活。然后 pip install -r requirements.txt 安装依赖。最后用 jupyter notebook 或 VS Code 打开任意 .ipynb 文件，确认能正常启动。",
+          "tip": "建议单独建一个 conda 环境，避免和本机其他项目的包版本冲突。"
+        },
+        {
+          "title": "第2步：配置模型访问密钥",
+          "content": "在项目根目录创建 .env 文件，按教程说明填入 OPENAI_API_KEY 或 Azure OpenAI 的 endpoint、key、deployment 名称。多数 Notebook 会通过 python-dotenv 自动读取这个文件。配置好后先跑一个最简单的“Hello Agent”单元格，确认模型能正常返回内容。",
+          "tip": "不要把 .env 提交到 Git，仓库里通常有 .env.example 可以复制改名。"
+        },
+        {
+          "title": "第3步：按顺序刷前几课，理解 Agent 基本结构",
+          "content": "从第 1 课开始，依次学习“什么是 AI Agent”“探索 AI Agent 框架”“理解 Agentic 设计模式”等基础内容。每节课都先读 Markdown 讲解，再逐格运行代码，观察输入输出。重点理解 Agent 如何接收任务、调用模型、返回结果。",
+          "tip": "不要跳课，前几课的概念是后面工具调用和多智能体的基础。"
+        },
+        {
+          "title": "第4步：动手做工具调用和记忆模块",
+          "content": "进入工具调用相关课程，跟着 Notebook 把自定义函数注册成 Agent 可调用的工具，比如查天气、算汇率。再学习记忆模块，让 Agent 在多轮对话中记住上下文。运行后尝试修改函数参数，观察 Agent 行为变化。",
+          "tip": "工具函数的 docstring 要写清楚，模型靠它判断什么时候调用这个工具。"
+        },
+        {
+          "title": "第5步：搭建多智能体协作小项目",
+          "content": "学习多智能体协作课程，用 AutoGen 或 Semantic Kernel 创建多个角色，比如“产品经理”“程序员”“测试员”，让它们围绕一个任务互相讨论。运行示例后，尝试把任务换成你自己的小需求，比如“写一个待办清单网页”。",
+          "tip": "角色设定越具体，智能体之间的对话越有方向，别只写“你是助手”。"
+        },
+        {
+          "title": "第6步：选一个方向做自己的 Agent 并复盘",
+          "content": "从 18 课里挑一个你最感兴趣的方向，比如 RAG、代码执行、多模态或生产部署，基于示例改造成自己的小项目。完成后回到仓库 Star 并阅读 Issues，看看别人怎么扩展。把踩坑记录写成笔记，方便以后复用。",
+          "tip": "先跑通再优化，不要一上来就追求完美架构。"
+        }
+      ],
+      "expected_result": "你能独立运行 18 课中的大部分 Notebook，理解 AI Agent 的基本组成（模型、工具、记忆、规划、多智能体），并拥有一个自己改造的小型 Agent 项目。",
+      "faq": [
+        {
+          "q": "没有 OpenAI API Key 能学吗？",
+          "a": "可以。部分课程支持 Azure OpenAI、GitHub Models 或本地模型，但多数示例默认需要模型接口，建议至少准备一个可用的 API Key。"
+        },
+        {
+          "q": "需要很强的 Python 基础吗？",
+          "a": "不需要。会基本的变量、函数和 pip 安装即可，Notebook 已经把复杂逻辑拆成可运行的单元格。"
+        },
+        {
+          "q": "18 课要全部学完吗？",
+          "a": "不一定。前 6-8 课是核心，后面可按兴趣选学。想快速上手可以先看工具调用和多智能体协作。"
+        },
+        {
+          "q": "运行代码报错怎么办？",
+          "a": "先检查 Python 版本和依赖是否按 requirements.txt 安装，再确认 .env 配置正确。也可以去 GitHub Issues 搜报错关键词。"
+        },
+        {
+          "q": "这个教程和 LangChain 官方教程有什么区别？",
+          "a": "它更偏微软生态（AutoGen、Semantic Kernel、Azure），但概念通用，且结构更系统，适合从零建立完整认知。"
+        }
+      ],
+      "variants": [
+        "变体1：把示例中的 OpenAI 模型换成 Azure OpenAI 或本地 Ollama，搭建离线可用的 Agent 学习环境。",
+        "变体2：用课程里的多智能体模板，做一个“自动写周报”或“竞品分析”小助手，接入自己的数据。",
+        "变体3：把 Notebook 改造成 FastAPI 服务，部署到云端，做成可被其他应用调用的 Agent API。"
+      ],
+      "summary": "跟着微软官方 18 课边读边跑，用最小成本把 AI Agent 从概念变成能跑起来的小项目。"
+    },
+    "generated_at": "2026-09-12T03:41:19.976000+00:00",
+    "play_meta": {
+      "title_zh": "微软官方18课：从零构建AI智能体",
+      "title_en": "microsoft/ai-agents-for-beginners: 18 Lessons to Get Started Building AI Agents",
+      "source_id": "github-play-autogen",
+      "source_name": "GitHub AutoGen",
+      "source_label": "官方一手",
+      "source_tier": "S",
+      "source_color": "green",
+      "source_emoji": "🟢",
+      "play_type": "tool_chain",
+      "difficulty": 2,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://github.com/microsoft/ai-agents-for-beginners",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 8.5
+    }
+  },
+  "cnblogs-play-e010700e": {
+    "_sig": "手把手教你：loss 不降反升，先别怀疑模型结构｜AI工程师踩坑实录·第12篇 - 大雾的小屋|https://www.cnblogs.com/dawudexiaowu/p/23727762",
+    "tutorial": {
+      "intro": "用四组对照实验快速定位 loss 上升的元凶，告别盲目调参。本教程教你像做科学实验一样排查训练故障，先看时机、再析分叉、最后才动模型结构。",
+      "background": "很多人在训练模型时一看到 loss 上升就怀疑模型结构，结果改了半天网络层数却毫无改善。博客园这篇教程通过四组严格对照实验证明：学习率过大、数据噪声和量纲失控才是 loss 飙升的三大主因，模型结构反而是次要因素。掌握这套排查顺序，你能在几分钟内锁定问题根源，节省大量试错时间。适用于任何深度学习训练场景，尤其是新手调参和线上模型突然崩坏时的紧急排查。",
+      "prerequisites": [
+        {
+          "name": "PyTorch",
+          "desc": "深度学习框架，用于搭建和训练模型",
+          "url": "https://pytorch.org/"
+        },
+        {
+          "name": "TensorBoard",
+          "desc": "可视化训练曲线，观察 loss 变化趋势",
+          "url": "https://tensorboard.dev/"
+        },
+        {
+          "name": "Weights & Biases (wandb)",
+          "desc": "实验跟踪与对比，方便记录四组对照实验结果",
+          "url": "https://wandb.ai/"
+        },
+        {
+          "name": "Jupyter Notebook",
+          "desc": "交互式编写和运行实验代码",
+          "url": "https://jupyter.org/"
+        },
+        {
+          "name": "博客园原文",
+          "desc": "玩法原始资料，包含完整实验设计与结论",
+          "url": "https://www.cnblogs.com/dawudexiaowu/p/23727762"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：建立基线并记录 loss 曲线",
+          "content": "先用一组你认为「正常」的超参数（如学习率 1e-3、干净数据、标准化输入）训练模型，用 TensorBoard 或 wandb 记录每一步的 train loss 和 val loss。确保基线在 100~200 步内 loss 平稳下降，否则先解决基线本身的问题。保存这份基线曲线作为后续对照的参照物。",
+          "tip": "基线不要追求最优，只要「能正常下降」即可，重点是有一个可对比的参照。"
+        },
+        {
+          "title": "第2步：实验一——只调大学习率，观察上升时机",
+          "content": "保持其他所有条件与基线完全一致，仅将学习率放大 10 倍（如从 1e-3 调到 1e-2），重新训练并记录 loss。重点观察 loss 在第几步开始上升：如果在前几十步内就飙升，基本可以判定是学习率过大。此时把学习率调回基线值或减半再试，确认 loss 恢复下降。",
+          "tip": "学习率过大导致的 loss 上升通常伴随剧烈震荡，曲线呈锯齿状而非平滑上扬。"
+        },
+        {
+          "title": "第3步：实验二——注入数据噪声，观察训练-验证分叉",
+          "content": "恢复基线学习率，但将训练数据中随机 10%~20% 的标签打乱或加入高斯噪声，重新训练。观察 train loss 和 val loss 的走势：如果 train loss 持续下降而 val loss 上升（即训练-验证分叉），说明数据噪声或脏数据是主因。此时应检查数据清洗流程和标签质量。",
+          "tip": "训练降、验证升是过拟合或脏数据的典型信号，优先排查验证集是否泄漏或训练集标签是否有误。"
+        },
+        {
+          "title": "第4步：实验三——破坏量纲，观察 loss 量级变化",
+          "content": "恢复干净数据，但将某一特征乘以 1000 或不做标准化，重新训练。观察 loss 的绝对值和上升速度：如果 loss 迅速变得极大或数值不稳定，说明量纲失控。此时应对所有输入特征做标准化（如 Z-score 或 Min-Max），并检查是否有异常大值。",
+          "tip": "量纲问题常表现为 loss 直接跳到 NaN 或极大值，标准化是性价比最高的修复手段。"
+        },
+        {
+          "title": "第5步：实验四——改模型结构，验证是否次要因素",
+          "content": "恢复所有基线条件，仅将模型加宽或加深（如增加一层或翻倍隐藏单元），重新训练。对比基线曲线：如果 loss 走势与基线基本一致（只是收敛速度略有不同），则证明模型结构并非 loss 上升的主因。至此四组对照完成，你可以根据前三个实验的结果锁定真正原因。",
+          "tip": "模型结构改动对 loss 上升的影响通常远小于学习率和数据问题，不要一上来就改网络。"
+        },
+        {
+          "title": "第6步：按「时机→分叉→量纲→结构」顺序固化排查流程",
+          "content": "将四组实验整理成检查清单：先看 loss 上升发生在第几步（前几十步→学习率），再看 train/val 是否分叉（分叉→数据噪声），然后检查 loss 量级是否异常（异常→量纲），最后才考虑模型结构。把这份清单写入团队 wiki 或项目 README，下次 loss 上升时直接按顺序执行。",
+          "tip": "每次排查后记录结论和修复动作，积累成自己的「loss 故障库」，以后排查会越来越快。"
+        }
+      ],
+      "expected_result": "完成四组对照实验后，你能明确判断当前 loss 上升属于哪一类原因：学习率过大（前几十步飙升）、数据噪声（训练降验证升）、量纲失控（loss 极大或 NaN）还是模型结构（影响最小）。同时获得一份可复用的排查清单，后续遇到类似问题可在 10 分钟内定位根源。",
+      "faq": [
+        {
+          "q": "四组实验必须全部做吗？可以跳过吗？",
+          "a": "建议至少做前三组（学习率、数据噪声、量纲），因为它们是三大主因。第四组模型结构实验可以在前三组都排除后再做，用于确认结构不是元凶。"
+        },
+        {
+          "q": "没有 TensorBoard 或 wandb 怎么办？",
+          "a": "可以用 matplotlib 手动绘制 loss 曲线，或者直接用 print 打印每 10 步的 loss 值。关键是对比不同实验的曲线形状和上升时机，工具不是必须的。"
+        },
+        {
+          "q": "loss 上升但验证集指标还在提升，需要处理吗？",
+          "a": "如果 val loss 上升但准确率等指标仍在提升，可能是 loss 函数与业务指标不一致，建议检查 loss 设计是否合理，或增加正则化观察趋势。"
+        },
+        {
+          "q": "实验二中注入多少噪声合适？",
+          "a": "建议从 10% 标签噪声开始，如果 loss 变化不明显再增加到 20%~30%。噪声比例太高会导致模型完全学不动，反而看不出分叉信号。"
+        },
+        {
+          "q": "量纲实验一定要乘以 1000 吗？",
+          "a": "不一定，乘以 100 或 10 也可以，关键是制造明显的量纲差异。如果特征本身数值很大，也可以反过来做除法缩小量纲，观察 loss 是否稳定。"
+        }
+      ],
+      "variants": [
+        "变体1：将四组对照实验写成自动化脚本，输入超参数配置后自动跑完四组并生成对比报告，适合团队内快速排查。",
+        "变体2：把排查顺序做成决策树（loss 上升时机→是否分叉→量级是否异常→结构对比），嵌入到训练框架的 early-stop 回调中，实现自动诊断。",
+        "变体3：将实验设计迁移到 NLP 或 CV 的具体任务中，替换数据噪声注入方式（如文本随机替换词、图像加模糊），验证同一套排查逻辑的通用性。"
+      ],
+      "summary": "loss 上升先别改模型，按「看时机、析分叉、查量纲、比结构」四步对照实验，十分钟锁定真凶。"
+    },
+    "generated_at": "2026-11-20T16:37:34.887996+00:00",
+    "play_meta": {
+      "title_zh": "用四组对照实验排查loss上升原因",
+      "title_en": "手把手教你：loss 不降反升，先别怀疑模型结构｜AI工程师踩坑实录·第12篇 - 大雾的小屋",
+      "source_id": "cnblogs-play",
+      "source_name": "博客园 AI 教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "prompt",
+      "difficulty": 4,
+      "time_estimate": "5min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://www.cnblogs.com/dawudexiaowu/p/23727762",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
   "github-play-awesome-comfyui-a7df3630": {
     "_sig": "yolain/ComfyUI-Yolain-Workflows: Some awesome comfyui workflows in here, and the|https://github.com/yolain/ComfyUI-Yolain-Workflows",
     "tutorial": {
@@ -959,6 +1085,117 @@
         "Stable Diffusion"
       ],
       "link": "https://github.com/yolain/ComfyUI-Yolain-Workflows",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 8.5
+    }
+  },
+  "github-play-awesome-comfyui-1e6df62d": {
+    "_sig": "ComfyUI-Workflow/awesome-comfyui: A collection of awesome custom nodes for Comfy|https://github.com/ComfyUI-Workflow/awesome-comfyui",
+    "tutorial": {
+      "intro": "ComfyUI 的节点生态浩如烟海，但真正好用的自定义节点往往散落在各个仓库里。今天带你用 GitHub 上 739 星的 Awesome ComfyUI 合集，一次性把神级节点装进你的工作流，效率直接翻倍。",
+      "background": "ComfyUI 本身是一个基于节点流的 Stable Diffusion 前端，灵活但原生节点有限。社区开发了大量自定义节点，能实现换脸、高清修复、动态提示词、工作流管理等功能。Awesome ComfyUI 这个仓库由 ComfyUI-Workflow 维护，系统整理了最值得安装的节点包，并附有分类和链接。对于想从“能用”进阶到“好用”的玩家，这份合集就是你的节点超市。",
+      "prerequisites": [
+        {
+          "name": "ComfyUI",
+          "desc": "核心运行环境，建议使用官方便携版或 git 克隆安装",
+          "url": "https://github.com/comfyanonymous/ComfyUI"
+        },
+        {
+          "name": "ComfyUI Manager",
+          "desc": "节点管理器，用于一键安装、更新、禁用自定义节点",
+          "url": "https://github.com/ltdrdata/ComfyUI-Manager"
+        },
+        {
+          "name": "Git",
+          "desc": "用于克隆仓库或手动安装节点",
+          "url": "https://git-scm.com/"
+        },
+        {
+          "name": "Python 3.10+",
+          "desc": "ComfyUI 运行依赖，部分节点需要特定版本",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "Awesome ComfyUI 合集",
+          "desc": "本教程的核心参考列表，包含节点分类和链接",
+          "url": "https://github.com/ComfyUI-Workflow/awesome-comfyui"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：安装 ComfyUI Manager 并打开节点管理面板",
+          "content": "如果你还没装 ComfyUI Manager，先进入 ComfyUI 的 custom_nodes 目录，执行 git clone https://github.com/ltdrdata/ComfyUI-Manager.git，然后重启 ComfyUI。在界面右侧会多出一个 Manager 按钮，点击后选择 Install Custom Nodes。这个面板就是后续所有节点安装的入口，支持搜索、安装、更新和禁用。",
+          "tip": "建议在安装任何节点前先更新 ComfyUI 本体和 Manager，避免版本冲突。"
+        },
+        {
+          "title": "第2步：浏览 Awesome ComfyUI 合集，筛选你需要的节点",
+          "content": "打开 https://github.com/ComfyUI-Workflow/awesome-comfyui，你会看到按功能分类的节点列表，比如“图像处理”“动画”“工作流增强”“模型加载”等。先别急着全装，根据你当前的需求挑 3-5 个最常用的，比如 Impact Pack（人脸修复）、WAS Node Suite（万能工具）、Efficiency Nodes（简化工作流）。记下它们的仓库名或关键词。",
+          "tip": "仓库里带 ⭐ 数量越多的节点通常越稳定，优先选 500 星以上的。"
+        },
+        {
+          "title": "第3步：通过 Manager 一键安装选中的节点",
+          "content": "回到 ComfyUI 的 Manager 面板，在搜索框输入你记下的节点关键词，比如“Impact”或“WAS”。找到对应条目后点击 Install，Manager 会自动下载并安装依赖。安装完成后重启 ComfyUI，在节点菜单里就能看到新节点分类。如果 Manager 搜不到，可以手动 git clone 到 custom_nodes 目录，再运行 pip install -r requirements.txt。",
+          "tip": "安装时注意看控制台是否有报错，缺依赖是新手最常见的问题。"
+        },
+        {
+          "title": "第4步：搭建一个测试工作流验证节点是否生效",
+          "content": "新建一个工作流，从新安装的节点分类里拖出几个核心节点，比如用 Impact Pack 的 FaceDetailer 做面部修复，或者用 WAS Node Suite 的 Text Loader 加载提示词。连接好输入输出后，加载一张默认的 SD 模型，生成一张 512x512 的图片。如果节点能正常执行且没有红色报错，说明安装成功。",
+          "tip": "测试时先用低步数（如 10 步）快速跑通，确认流程无误再调高质量。"
+        },
+        {
+          "title": "第5步：保存工作流并整理你的节点库",
+          "content": "测试通过后，点击 ComfyUI 的 Save 按钮把工作流保存为 JSON 文件，方便以后复用。同时回到 Manager 面板，把不常用的节点禁用（Disable），只保留高频使用的，这样界面更清爽、启动更快。你还可以在 Awesome ComfyUI 仓库里给作者点星，或者提交你发现的好节点。",
+          "tip": "定期用 Manager 的 Update All 更新节点，但更新前备份工作流，避免不兼容。"
+        }
+      ],
+      "expected_result": "完成以上步骤后，你的 ComfyUI 里会多出几个强大的自定义节点分类，比如 Impact Pack、WAS Node Suite 等。你能在节点菜单里直接调用它们，搭建出带人脸修复、动态提示词、工作流简化等高级功能的工作流，并且生成结果稳定无报错。",
+      "faq": [
+        {
+          "q": "安装节点后 ComfyUI 启动报错怎么办？",
+          "a": "先看控制台报错信息，常见原因是缺少 Python 依赖或节点与当前 ComfyUI 版本不兼容。可以尝试在 custom_nodes 目录下删除最近安装的节点，或者用 Manager 的 Fix 功能修复。"
+        },
+        {
+          "q": "Awesome ComfyUI 里的节点都需要安装吗？",
+          "a": "不需要。这个合集是索引，不是必装清单。建议按需安装，装太多会导致启动变慢、冲突概率增加。"
+        },
+        {
+          "q": "Manager 搜索不到某个节点怎么办？",
+          "a": "可能是节点未收录或名称不同。可以手动 git clone 仓库到 custom_nodes，然后进入目录运行 pip install -r requirements.txt，重启即可。"
+        },
+        {
+          "q": "节点安装后界面里找不到？",
+          "a": "先确认是否重启了 ComfyUI。如果还是找不到，检查节点是否被禁用，或者节点分类名称是否与你预期不同，可以在节点搜索框直接搜节点名。"
+        },
+        {
+          "q": "如何更新已安装的节点？",
+          "a": "在 Manager 面板点击 Update All 可以批量更新，也可以单独更新某个节点。更新后建议重启 ComfyUI，并测试旧工作流是否正常。"
+        }
+      ],
+      "variants": [
+        "变体1：只安装 Impact Pack + Efficiency Nodes，打造极简高清修复工作流，适合人像摄影后期。",
+        "变体2：安装 WAS Node Suite + ComfyUI-Custom-Scripts，实现文本批处理和界面增强，适合批量生成提示词。",
+        "变体3：结合 AnimateDiff 节点和 Awesome ComfyUI 里的动画分类，制作短视频动画工作流。"
+      ],
+      "summary": "用 Awesome ComfyUI 当导航，用 Manager 当抓手，按需安装、测试、整理，你就能把 ComfyUI 从裸机变成神装。"
+    },
+    "generated_at": "2026-09-19T09:19:07.855020+00:00",
+    "play_meta": {
+      "title_zh": "ComfyUI 神级节点合集，一键解锁",
+      "title_en": "ComfyUI-Workflow/awesome-comfyui: A collection of awesome custom nodes for ComfyUI",
+      "source_id": "github-play-awesome-comfyui",
+      "source_name": "GitHub Awesome ComfyUI",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_workflow",
+      "difficulty": 4,
+      "time_estimate": "30min",
+      "tools": [
+        "Stable Diffusion"
+      ],
+      "link": "https://github.com/ComfyUI-Workflow/awesome-comfyui",
       "is_domestic": false,
       "tags": [],
       "playability_score": 8.5
@@ -1615,96 +1852,212 @@
       "playability_score": 7.5
     }
   },
-  "cnblogs-play-b08007d8": {
-    "_sig": "手把手教你：开了混合精度就 NaN，GradScaler 到底在做什么｜AI工程师踩坑实录·第11篇 - 大雾的小屋|https://www.cnblogs.com/dawudexiaowu/p/23717125",
+  "github-play-langchain-a48bb101": {
+    "_sig": "bytedance/deer-flow: An open-source long-horizon SuperAgent harness tha|https://github.com/bytedance/deer-flow",
     "tutorial": {
-      "intro": "混合精度训练中，GradScaler 是防止 fp16 梯度下溢的必备工具，但用不好反而会引入 NaN 问题。本教程教你用 GradScaler 的调试接口快速定位并修复 NaN，让模型训练不再“装死”。",
-      "background": "fp16 的数值范围只有 6.1e-5 到 65504，远小于 fp32，梯度很容易下溢成 0 或上溢成 inf。下溢时模型静默失效，loss 不降但也不报错，排查起来非常痛苦。GradScaler 通过动态缩放梯度来缓解这个问题，但它本身也会因为 scale 过大而引发 inf。掌握 GradScaler 的调试技巧，能让你在混合精度训练中快速定位 NaN 根因，节省大量试错时间。",
+      "intro": "字节跳动开源的 DeerFlow 是一个能研究、写代码、做创作的超级智能体框架，本教程带你用 LlamaIndex 把它跑起来，打造属于你的长周期 AI 助手。",
+      "background": "DeerFlow 在 GitHub 上已获得超过 8 万星标，它通过沙箱、记忆、工具、技能、子智能体和消息网关等组件，让 AI 能处理从简单问答到复杂项目开发的各类任务。相比普通聊天机器人，它更擅长多步骤、长周期的自主工作流。本教程适合想快速体验开源 SuperAgent 能力的开发者、AI 爱好者和效率工具玩家。",
       "prerequisites": [
         {
-          "name": "PyTorch 2.0+",
-          "desc": "提供 torch.cuda.amp.GradScaler 及调试接口",
-          "url": "https://pytorch.org/get-started/locally/"
-        },
-        {
-          "name": "NVIDIA GPU（支持 fp16）",
-          "desc": "如 RTX 30/40 系列、A100 等，用于实际运行混合精度训练",
-          "url": "https://developer.nvidia.com/cuda-gpus"
-        },
-        {
-          "name": "Python 3.8+",
-          "desc": "运行环境",
+          "name": "Python 3.10+",
+          "desc": "运行 DeerFlow 的基础环境",
           "url": "https://www.python.org/downloads/"
         },
         {
-          "name": "一个可复现的混合精度训练脚本",
-          "desc": "用于注入调试逻辑，建议从简单模型开始",
-          "url": "https://pytorch.org/tutorials/recipes/recipes/amp_recipe.html"
+          "name": "Git",
+          "desc": "克隆 DeerFlow 仓库",
+          "url": "https://git-scm.com/"
+        },
+        {
+          "name": "LlamaIndex",
+          "desc": "用于构建和增强智能体的数据框架",
+          "url": "https://www.llamaindex.ai/"
+        },
+        {
+          "name": "OpenAI API Key 或兼容接口",
+          "desc": "为智能体提供大模型能力",
+          "url": "https://platform.openai.com/api-keys"
+        },
+        {
+          "name": "Docker（可选）",
+          "desc": "用于沙箱隔离和依赖管理",
+          "url": "https://www.docker.com/"
         }
       ],
       "steps": [
         {
-          "title": "第1步：开启 GradScaler 的调试日志",
-          "content": "在创建 GradScaler 时传入 init_scale 和 growth_interval 参数，并设置环境变量 TORCH_AMP_DEBUG=1 或使用 torch.cuda.amp.GradScaler(init_scale=2**16, growth_interval=100)。然后在 scaler.step(optimizer) 前后打印 scaler.get_scale()，观察 scale 是否频繁下降。如果 scale 持续下降，说明梯度频繁上溢，需要降低初始 scale。",
-          "tip": "先用较小的 init_scale（如 2**12）跑几百步，确认稳定后再逐步调大。"
+          "title": "第1步：克隆 DeerFlow 并安装依赖",
+          "content": "打开终端，执行 git clone https://github.com/bytedance/deer-flow.git 下载项目。进入目录后创建 Python 虚拟环境：python -m venv venv，然后激活（Windows 用 venv\\Scripts\\activate，Mac/Linux 用 source venv/bin/activate）。最后运行 pip install -r requirements.txt 安装所有依赖，包括 LlamaIndex 相关包。",
+          "tip": "如果安装缓慢，可换用国内 pip 镜像：pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple"
         },
         {
-          "title": "第2步：定位 NaN 出现的具体迭代和层",
-          "content": "在训练循环中加入条件判断：if not torch.isfinite(loss): print(f'NaN at step {step}') 并保存当前 batch 数据。然后使用 torch.autograd.set_detect_anomaly(True) 包裹前向和反向传播，PyTorch 会打印出产生 NaN 的具体算子。结合 scaler.unscale_(optimizer) 后检查各参数梯度是否有限，快速缩小问题范围。",
-          "tip": "set_detect_anomaly 会显著拖慢训练，只在复现 NaN 的短循环中开启。"
+          "title": "第2步：配置环境变量与模型密钥",
+          "content": "在项目根目录复制 .env.example 为 .env，填入你的 OPENAI_API_KEY（或其他兼容模型的 key 和 base_url）。如果使用 LlamaIndex 的默认集成，确保 LLAMA_INDEX 相关配置也指向同一模型。保存后，DeerFlow 会自动读取这些变量来初始化智能体。",
+          "tip": "没有 OpenAI 账号？可以用 DeepSeek、通义千问等兼容 OpenAI 接口的模型，只需修改 base_url 和 model 名称。"
         },
         {
-          "title": "第3步：检查梯度裁剪与 GradScaler 的配合",
-          "content": "混合精度下必须先调用 scaler.unscale_(optimizer) 再执行 torch.nn.utils.clip_grad_norm_，否则裁剪的是被放大后的梯度，导致裁剪失效或误判。确认代码顺序为：scaler.scale(loss).backward() → scaler.unscale_(optimizer) → clip_grad_norm_ → scaler.step(optimizer) → scaler.update()。顺序错误是 NaN 的常见诱因。",
-          "tip": "用 scaler.get_scale() 在 unscale 前后打印，确认梯度数值范围是否合理。"
+          "title": "第3步：启动 DeerFlow 服务",
+          "content": "运行 python main.py 或按照 README 中的启动命令（如 uvicorn app:app --reload）启动后端。首次启动会自动下载必要的模型或工具包，等待终端出现监听端口（通常是 8000 或 3000）即表示成功。此时你可以通过浏览器访问本地地址，看到 DeerFlow 的交互界面。",
+          "tip": "如果端口被占用，可在启动命令后加 --port 8080 换一个端口。"
         },
         {
-          "title": "第4步：调整 GradScaler 参数并加入跳过机制",
-          "content": "如果 NaN 偶发，可设置 scaler = GradScaler(init_scale=2**14, growth_factor=1.5, backoff_factor=0.5, growth_interval=2000)。当 scaler.step 检测到 inf 时会自动跳过该步并降低 scale，但你需要用 scaler.update() 后检查 scaler.get_scale() 是否骤降。若骤降频繁，说明模型对 fp16 敏感，可对部分层（如 LayerNorm）保留 fp32。",
-          "tip": "在 scaler.update() 后加一行 if scaler.get_scale() < 1: print('scale too low, check model') 作为预警。"
+          "title": "第4步：用 LlamaIndex 增强智能体记忆与检索",
+          "content": "在 DeerFlow 的配置文件中找到 memory 或 knowledge 部分，启用 LlamaIndex 作为向量存储后端。你可以把本地文档（PDF、Markdown）放入指定文件夹，DeerFlow 会自动用 LlamaIndex 建立索引。这样智能体在回答时就能引用你的私有资料，实现更精准的研究和创作。",
+          "tip": "建议先放 3-5 个短文档测试，确认索引生效后再批量导入。"
         },
         {
-          "title": "第5步：用最小复现脚本验证修复效果",
-          "content": "将出问题的 batch 数据固定下来，写一个最小循环：只跑该 batch 的前向+反向，重复 100 次，观察 loss 和 scale 变化。修复后应看到 loss 稳定下降、scale 不再持续下降、无 NaN 输出。最后把修复逻辑合并回主训练脚本，跑完整 epoch 确认。",
-          "tip": "保存修复前后的 scaler.get_scale() 曲线对比图，便于复盘。"
+          "title": "第5步：发起第一个长周期任务",
+          "content": "在 Web 界面输入一个需要多步完成的任务，例如：“帮我调研 2025 年 AI 智能体趋势，写一份 500 字摘要，并生成一个简单的 Python 脚本统计关键词频率。” DeerFlow 会自动拆解任务、调用工具、使用沙箱执行代码，并返回最终结果。观察右侧的步骤日志，可以看到它如何一步步工作。",
+          "tip": "任务描述越具体，智能体执行越准确。可以加上“请先列出计划再执行”来观察它的推理过程。"
         }
       ],
-      "expected_result": "训练过程中 loss 正常下降，scaler.get_scale() 保持稳定或缓慢增长，不再出现 NaN 或 inf；若偶发上溢，scaler 能自动降 scale 并跳过该步，训练继续。你能明确知道 NaN 来自哪一层或哪个操作，并有针对性地修复。",
+      "expected_result": "完成以上步骤后，你将在本地成功运行 DeerFlow，并看到一个能自主研究、写代码、做创作的超级智能体。输入复杂任务时，它会自动规划、调用工具、使用沙箱执行，并返回结构化的结果。你还可以通过 LlamaIndex 让它访问你的私有知识库，实现个性化增强。",
       "faq": [
         {
-          "q": "GradScaler 的 scale 一直下降怎么办？",
-          "a": "说明梯度频繁上溢，先降低 init_scale（如 2**12），检查是否有梯度爆炸，并确认 unscale_ 在 clip 之前调用。"
+          "q": "DeerFlow 和普通 ChatGPT 有什么区别？",
+          "a": "DeerFlow 是智能体框架，能自主拆解任务、调用工具、执行代码和长期记忆，而 ChatGPT 主要是对话式问答。"
         },
         {
-          "q": "为什么加了 GradScaler 反而出现 NaN？",
-          "a": "常见原因是 scale 过大导致梯度上溢，或 unscale_ 与 clip 顺序错误。用 set_detect_anomaly 定位具体算子。"
+          "q": "必须用 OpenAI 的 API 吗？",
+          "a": "不是，任何兼容 OpenAI 接口的模型都可以，比如 DeepSeek、通义千问、Kimi 等，只需修改 base_url 和 model。"
         },
         {
-          "q": "所有层都需要 fp16 吗？",
-          "a": "不是。LayerNorm、softmax、loss 计算等对数值敏感的操作建议保留 fp32，可用 torch.cuda.amp.autocast 的 enabled=False 局部关闭。"
+          "q": "LlamaIndex 是必须的吗？",
+          "a": "不是必须，但推荐使用。它能让 DeerFlow 更好地索引和检索你的私有文档，提升回答质量。"
         },
         {
-          "q": "CPU 上能用 GradScaler 吗？",
-          "a": "GradScaler 主要针对 CUDA fp16，CPU 上混合精度支持有限，建议在 GPU 上使用。"
+          "q": "运行时报错缺少依赖怎么办？",
+          "a": "先确认 Python 版本为 3.10+，然后重新执行 pip install -r requirements.txt。如果仍报错，可尝试单独安装缺失的包。"
         },
         {
-          "q": "如何判断是下溢还是上溢？",
-          "a": "下溢时梯度变 0，loss 不降但无报错；上溢时梯度变 inf，scaler 会降 scale。打印 unscale 后的梯度范数可区分。"
+          "q": "沙箱功能需要 Docker 吗？",
+          "a": "推荐使用 Docker 以获得更好的隔离性，但非必须。没有 Docker 时，DeerFlow 会尝试用本地进程执行代码，安全性稍低。"
         }
       ],
       "variants": [
-        "变体1：用 torch.cuda.amp.GradScaler 配合 torch.autograd.detect_anomaly 做自动化 NaN 捕获脚本，每次 NaN 自动保存 batch 和模型状态。",
-        "变体2：对模型不同子模块设置不同的 autocast 策略（如 embedding 用 fp32，线性层用 fp16），再用 GradScaler 统一管理，降低 NaN 概率。",
-        "变体3：将 GradScaler 的 scale 变化记录到 TensorBoard，结合梯度范数曲线做可视化监控，提前预警数值不稳定。"
+        "变体1：接入本地 Ollama 模型，完全离线运行 DeerFlow，保护数据隐私。",
+        "变体2：将 DeerFlow 作为后端，通过 API 接入飞书/钉钉机器人，实现团队自动化助手。",
+        "变体3：结合 LlamaIndex 的 RAG 能力，打造专属法律或医疗领域的智能研究助手。"
       ],
-      "summary": "GradScaler 不仅是防下溢的“电梯”，更是排查混合精度 NaN 的“听诊器”——用好它的调试接口和参数，就能让 fp16 训练既快又稳。"
+      "summary": "用 LlamaIndex 增强 DeerFlow，你就能在本地拥有一个能研究、写代码、做创作的开源超级智能体，把复杂任务交给它自动完成。"
     },
-    "generated_at": "2026-11-19T17:06:51.274865+00:00",
+    "generated_at": "2026-09-12T03:40:43.467776+00:00",
     "play_meta": {
-      "title_zh": "用GradScaler排查混合精度训练NaN问题",
-      "title_en": "手把手教你：开了混合精度就 NaN，GradScaler 到底在做什么｜AI工程师踩坑实录·第11篇 - 大雾的小屋",
-      "source_id": "cnblogs-play",
-      "source_name": "博客园 AI 教程",
+      "title_zh": "字节开源超级智能体DeerFlow",
+      "title_en": "bytedance/deer-flow: An open-source long-horizon SuperAgent harness tha",
+      "source_id": "github-play-langchain",
+      "source_name": "GitHub LangChain",
+      "source_label": "官方一手",
+      "source_tier": "S",
+      "source_color": "green",
+      "source_emoji": "🟢",
+      "play_type": "tool_chain",
+      "difficulty": 3,
+      "time_estimate": "30min",
+      "tools": [
+        "LlamaIndex"
+      ],
+      "link": "https://github.com/bytedance/deer-flow",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 8.5
+    }
+  },
+  "github-play-awesome-ai-agents-63d3bcc4": {
+    "_sig": "ai-boost/awesome-harness-engineering: Awesome list for AI agent harness engineer|https://github.com/ai-boost/awesome-harness-engineering",
+    "tutorial": {
+      "intro": "用 GitHub 上 5000+ Star 的 Awesome AI Agents 清单，快速搭建一套可落地的 AI Agent 工程化工具链，从提示词到可观测性一步到位。",
+      "background": "很多开发者做 AI Agent 时东拼西凑工具，缺乏系统性的工程化视角。Awesome AI Agents 清单系统整理了 harness engineering 相关的工具、模式、评估、记忆、MCP、权限、可观测性和编排方案。本教程带你按清单搭建一条最小可用的工具链，适合想从 Demo 走向生产级 Agent 的开发者。",
+      "prerequisites": [
+        {
+          "name": "Git 与 GitHub 账号",
+          "desc": "克隆清单仓库、提交自己的配置",
+          "url": "https://github.com"
+        },
+        {
+          "name": "Python 3.10+",
+          "desc": "运行清单中多数 Python 工具与示例",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "VS Code",
+          "desc": "编辑配置、浏览清单、调试 Agent",
+          "url": "https://code.visualstudio.com/"
+        },
+        {
+          "name": "Docker Desktop",
+          "desc": "隔离运行 MCP 服务与可观测性组件",
+          "url": "https://www.docker.com/products/docker-desktop/"
+        },
+        {
+          "name": "Awesome AI Agents 清单",
+          "desc": "本教程的核心参考资料",
+          "url": "https://github.com/ai-boost/awesome-harness-engineering"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：克隆清单并建立工具链地图",
+          "content": "执行 git clone https://github.com/ai-boost/awesome-harness-engineering 并打开 README。按清单分类（tools、patterns、evals、memory、MCP、permissions、observability、orchestration）在本地新建 toolchain.md，每类先各选 1 个候选工具，标注官网和许可证。不要贪多，先保证每类有且仅有一个主选。",
+          "tip": "用 VS Code 的 Markdown 预览边看清单边填表，避免遗漏分类。"
+        },
+        {
+          "title": "第2步：搭建提示词与编排层",
+          "content": "从清单的 patterns 和 orchestration 分类中选一个编排框架（如 LangGraph 或 CrewAI），按官方 quickstart 跑通一个两节点 Agent。把系统提示词抽成独立 prompt 模板文件，用变量占位符管理。在本地跑通一次「输入→规划→执行→输出」的最小闭环。",
+          "tip": "提示词模板用 Jinja2 或 f-string 均可，关键是版本化，建议放进 Git。"
+        },
+        {
+          "title": "第3步：接入记忆与 MCP 工具",
+          "content": "从 memory 分类选一个向量记忆方案（如 Chroma 或 Qdrant），按文档启动本地实例。再从 MCP 分类选一个官方 MCP Server，用 Docker 跑起来并在编排框架中注册。让 Agent 能调用一个外部工具并把结果写入记忆，验证读写链路。",
+          "tip": "MCP Server 先用官方示例，跑通后再换自定义工具，降低排错成本。"
+        },
+        {
+          "title": "第4步：加上评估与权限护栏",
+          "content": "从 evals 分类选一个评估框架（如 Ragas 或 DeepEval），为第2步的 Agent 写 3 条测试用例并跑分。再从 permissions 分类选一个权限方案，为工具调用加上白名单和人工确认开关。确保越权调用会被拦截并记录日志。",
+          "tip": "评估用例先覆盖正常路径和一条越权路径，后续再扩充边界用例。"
+        },
+        {
+          "title": "第5步：接入可观测性并固化工具链",
+          "content": "从 observability 分类选一个方案（如 Langfuse 或 Phoenix），用 Docker 启动并在 Agent 中接入 tracing。跑一次完整任务，在面板中查看调用链、耗时和 token 消耗。最后把 toolchain.md 补全为可复现的安装脚本和配置清单，提交到自己的仓库。",
+          "tip": "把 Docker Compose 和 .env.example 一起提交，别人 clone 后一条命令即可复现。"
+        }
+      ],
+      "expected_result": "你拥有一个可复现的 AI Agent 工程化工具链仓库：包含编排框架、提示词模板、记忆与 MCP 工具、评估用例、权限护栏和可观测性面板。运行一条命令即可启动全套服务，并在面板中看到完整的 Agent 调用链和评估分数。",
+      "faq": [
+        {
+          "q": "清单里工具太多，如何选择？",
+          "a": "按分类每类只选一个主选，优先选 Star 多、文档全、有 Docker 镜像的，跑通后再替换。"
+        },
+        {
+          "q": "没有 GPU 能跑吗？",
+          "a": "可以。记忆和可观测性组件用 CPU 即可，LLM 可调用云端 API，本地只跑编排和工具层。"
+        },
+        {
+          "q": "MCP 和普通工具调用有什么区别？",
+          "a": "MCP 是标准化协议，工具可跨 Agent 复用；普通调用是框架内私有实现，迁移成本更高。"
+        },
+        {
+          "q": "评估框架必须现在就加吗？",
+          "a": "建议尽早加，哪怕只有 3 条用例，也能防止后续改动导致回归。"
+        },
+        {
+          "q": "这套工具链能直接上生产吗？",
+          "a": "作为起点可以，但生产还需补充密钥管理、限流、审计和灰度发布等环节。"
+        }
+      ],
+      "variants": [
+        "变体1：只搭最小可观测链路——跳过记忆和评估，专注编排+权限+Langfuse，适合快速验证想法。",
+        "变体2：以 MCP 为中心——先搭 3 个 MCP Server，再用编排框架串联，适合工具型 Agent。",
+        "变体3：评估驱动开发——先写 10 条评估用例，再倒推选工具和提示词，适合对质量要求高的场景。"
+      ],
+      "summary": "以 Awesome 清单为地图，每类选一个工具跑通闭环，再用评估和可观测性固化，就能把 Agent 从 Demo 变成工程。"
+    },
+    "generated_at": "2026-11-07T06:33:55.103761+00:00",
+    "play_meta": {
+      "title_zh": "用Awesome清单搭建AI Agent工程化工具链",
+      "title_en": "ai-boost/awesome-harness-engineering: Awesome list for AI agent harness engineering: too",
+      "source_id": "github-play-awesome-ai-agents",
+      "source_name": "GitHub Awesome AI Agents",
       "source_label": "技术社区",
       "source_tier": "B",
       "source_color": "yellow",
@@ -1715,7 +2068,322 @@
       "tools": [
         "未标注"
       ],
-      "link": "https://www.cnblogs.com/dawudexiaowu/p/23717125",
+      "link": "https://github.com/ai-boost/awesome-harness-engineering",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
+  "zhidx-play-524564e1": {
+    "_sig": "10万+Star开源团队又出手！一个插件让DeepSeek Harness学会做视频|https://zhidx.com/p/612799.html",
+    "tutorial": {
+      "intro": "用DeepSeek Harness插件，让AI自动帮你生成视频，零代码也能玩转AI视频创作。",
+      "background": "智东西AI工具评测最近发现了一个能让DeepSeek Harness做设计的插件，通过简单的提示词和工具链配置，就能让AI自动生成视频。这个玩法适合内容创作者、营销人员或任何想快速制作短视频的人，无需专业视频编辑技能，只需几步配置即可产出可用的视频素材。",
+      "prerequisites": [
+        {
+          "name": "DeepSeek Harness",
+          "desc": "核心AI工具，用于运行插件和生成视频",
+          "url": "https://www.deepseek.com/"
+        },
+        {
+          "name": "视频生成插件",
+          "desc": "智东西文章中提到的设计插件，需在Harness中安装",
+          "url": "https://zhidx.com/p/612799.html"
+        },
+        {
+          "name": "DeepSeek API Key",
+          "desc": "调用AI模型所需的密钥，在DeepSeek官网申请",
+          "url": "https://platform.deepseek.com/"
+        },
+        {
+          "name": "文本编辑器或IDE",
+          "desc": "用于编写提示词和配置脚本，如VS Code",
+          "url": "https://code.visualstudio.com/"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：安装并配置DeepSeek Harness",
+          "content": "从DeepSeek官网下载Harness并安装，启动后进入设置页面，填入你的API Key。确保网络通畅，然后检查插件市场是否可访问。",
+          "tip": "如果遇到网络问题，可以尝试切换网络环境或使用代理。"
+        },
+        {
+          "title": "第2步：安装视频生成插件",
+          "content": "在Harness的插件市场中搜索智东西文章中提到的设计插件（或直接根据文章链接找到插件地址），点击安装。安装完成后重启Harness，在插件列表中确认已启用。",
+          "tip": "插件可能需要特定版本的Harness，注意查看兼容性说明。"
+        },
+        {
+          "title": "第3步：编写视频生成提示词模板",
+          "content": "新建一个文本文件，按照插件要求的格式编写提示词。通常包括视频主题、风格、时长、分辨率等参数。例如：'生成一个10秒的科技感产品展示视频，蓝色调，动态文字'。保存为prompt.txt。",
+          "tip": "提示词越具体，生成效果越符合预期。可以参考插件文档中的示例。"
+        },
+        {
+          "title": "第4步：运行插件并生成视频",
+          "content": "在Harness中打开插件界面，上传或粘贴提示词文件，设置输出路径，点击'生成'按钮。等待AI处理，期间可以在日志中查看进度。",
+          "tip": "生成时间取决于视频长度和复杂度，建议先从短时长（5-10秒）开始测试。"
+        },
+        {
+          "title": "第5步：预览与调整",
+          "content": "生成完成后，在输出目录找到视频文件，用播放器预览。如果效果不理想，修改提示词中的关键词（如风格、颜色、动作），重新生成。",
+          "tip": "保留每次生成的提示词和结果，方便对比优化。"
+        }
+      ],
+      "expected_result": "完成以上步骤后，你会在指定输出目录得到一个MP4视频文件，内容符合提示词描述的主题和风格，可直接用于社交媒体或进一步剪辑。",
+      "faq": [
+        {
+          "q": "插件安装失败怎么办？",
+          "a": "检查Harness版本是否兼容，并确保网络能访问插件源。可以尝试手动下载插件包离线安装。"
+        },
+        {
+          "q": "生成视频时卡住或报错？",
+          "a": "查看Harness日志中的错误信息，常见原因是API Key无效或额度不足，也可能是提示词格式错误。"
+        },
+        {
+          "q": "视频生成质量不高？",
+          "a": "优化提示词，增加细节描述；尝试调整插件中的高级参数（如帧率、模型选择）；或分片段生成后拼接。"
+        },
+        {
+          "q": "需要付费吗？",
+          "a": "DeepSeek API按使用量计费，插件本身可能免费或收费，具体看插件说明。建议先使用免费额度测试。"
+        }
+      ],
+      "variants": [
+        "变体1：批量生成——编写脚本循环调用插件，用不同提示词生成多个视频，适合电商产品展示。",
+        "变体2：结合其他AI工具——先用DeepSeek生成视频脚本，再让插件根据脚本生成分镜视频，最后用剪映合成。",
+        "变体3：自定义风格模板——在提示词中固定风格关键词（如'赛博朋克'、'水墨风'），快速产出统一风格的系列视频。"
+      ],
+      "summary": "用DeepSeek Harness插件将文本提示词自动转化为视频，核心在于提示词设计与插件配置，适合快速产出短视频素材。"
+    },
+    "generated_at": "2026-11-20T16:37:41.957064+00:00",
+    "play_meta": {
+      "title_zh": "用DeepSeek Harness插件让AI自动生成视频",
+      "title_en": "10万+Star开源团队又出手！一个插件让DeepSeek Harness学会做视频",
+      "source_id": "zhidx-play",
+      "source_name": "智东西 AI 工具评测",
+      "source_label": "权威媒体",
+      "source_tier": "A",
+      "source_color": "blue",
+      "source_emoji": "🔵",
+      "play_type": "tool_chain",
+      "difficulty": 3,
+      "time_estimate": "30min",
+      "tools": [
+        "DeepSeek"
+      ],
+      "link": "https://zhidx.com/p/612799.html",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
+  "zhidx-play-b1e4e77a": {
+    "_sig": "前DeepSeek研究员，开源本地版Muse，实现token自由|https://zhidx.com/p/612775.html",
+    "tutorial": {
+      "intro": "想不花一分钱就拥有一个能帮你自动处理任务、还能无限使用token的个人AI助手吗？本地部署Muse Agent就能做到。",
+      "background": "前DeepSeek研究员张博创立的Simplex AI开源了个人Agent——Muse Agent，它能够连接多种工具、自动执行任务，并且完全运行在你自己的电脑上。这意味着你不用再担心API调用费用和token限制，所有数据也留在本地，隐私性极佳。对于开发者、效率爱好者或任何想探索AI Agent能力的人来说，这是一个绝佳的练手项目。",
+      "prerequisites": [
+        {
+          "name": "Python 3.10+",
+          "desc": "运行Muse Agent的基础环境",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "Git",
+          "desc": "用于克隆Muse Agent的代码仓库",
+          "url": "https://git-scm.com/"
+        },
+        {
+          "name": "DeepSeek API Key（可选）",
+          "desc": "如果你想用DeepSeek作为后端模型，需要申请API Key；也可用本地模型替代",
+          "url": "https://platform.deepseek.com/"
+        },
+        {
+          "name": "Ollama（可选）",
+          "desc": "如果想完全本地运行模型，可用Ollama管理本地大模型",
+          "url": "https://ollama.com/"
+        },
+        {
+          "name": "Docker（可选）",
+          "desc": "部分依赖可用Docker简化安装",
+          "url": "https://www.docker.com/"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：克隆Muse Agent仓库并安装依赖",
+          "content": "打开终端，执行 git clone https://github.com/simplex-ai/muse-agent.git 下载代码。进入项目目录后，运行 pip install -r requirements.txt 安装所有Python依赖。如果遇到网络问题，可以更换pip源为国内镜像。",
+          "tip": "建议使用虚拟环境（如venv或conda）来隔离依赖，避免污染系统Python。"
+        },
+        {
+          "title": "第2步：配置模型后端",
+          "content": "复制 .env.example 文件为 .env，然后编辑 .env 文件。如果你使用DeepSeek API，填入 DEEPSEEK_API_KEY=你的密钥；如果想完全本地运行，设置 MODEL_PROVIDER=ollama 并指定本地模型名称（如llama3）。保存文件。",
+          "tip": "DeepSeek API有免费额度，适合快速测试；本地模型则完全免费但需要足够的显存。"
+        },
+        {
+          "title": "第3步：启动Muse Agent服务",
+          "content": "在项目根目录运行 python main.py 启动Agent服务。默认会在本地启动一个Web界面（通常是 http://localhost:8000）或命令行交互界面。根据终端提示访问对应地址。",
+          "tip": "如果端口被占用，可以在配置文件中修改端口号。"
+        },
+        {
+          "title": "第4步：连接工具并创建第一个任务",
+          "content": "在Web界面中，你可以看到可用的工具列表（如文件操作、网络搜索、代码执行等）。勾选需要的工具，然后在聊天框输入任务，例如“帮我总结今天关于AI的新闻并保存到news.txt”。Agent会自动调用工具完成任务。",
+          "tip": "初次使用建议从简单任务开始，逐步增加复杂度，观察Agent的思考过程。"
+        },
+        {
+          "title": "第5步：自定义Agent行为（可选）",
+          "content": "在项目目录中找到 config/agent.yaml 文件，你可以调整Agent的系统提示词、最大迭代次数、工具权限等。修改后重启服务即可生效。",
+          "tip": "通过修改系统提示词，可以让Agent扮演不同角色（如程序员、写作助手等）。"
+        }
+      ],
+      "expected_result": "完成部署后，你将拥有一个本地运行的AI Agent，可以通过自然语言指令让它自动完成文件整理、信息查询、代码执行等任务，且无需担心token消耗，所有数据留在本地。",
+      "faq": [
+        {
+          "q": "没有DeepSeek API Key可以吗？",
+          "a": "可以，使用Ollama等本地模型后端即可完全离线运行，但需要电脑有足够的性能。"
+        },
+        {
+          "q": "Muse Agent支持哪些工具？",
+          "a": "官方提供了文件操作、网络搜索、代码执行、浏览器控制等工具，你也可以开发自定义工具。"
+        },
+        {
+          "q": "部署过程中遇到依赖冲突怎么办？",
+          "a": "建议使用虚拟环境，并确保Python版本为3.10以上。如果仍有冲突，可以尝试用Docker部署。"
+        },
+        {
+          "q": "这个Agent能完全替代ChatGPT吗？",
+          "a": "它更侧重于自动化任务执行，而非通用对话。对于需要操作本地文件或执行代码的场景非常有用，但对话能力取决于你选择的底层模型。"
+        }
+      ],
+      "variants": [
+        "变体1：将Muse Agent接入微信或飞书，实现聊天机器人自动回复和任务处理。",
+        "变体2：结合本地知识库（如Obsidian笔记），让Agent帮你检索和整理个人知识。",
+        "变体3：用Muse Agent自动监控指定网页并发送邮件通知，打造个人情报助手。"
+      ],
+      "summary": "本地部署Muse Agent，让你零成本拥有一个可定制、隐私安全的自动化AI助手，彻底告别token焦虑。"
+    },
+    "generated_at": "2026-11-20T16:37:54.441431+00:00",
+    "play_meta": {
+      "title_zh": "本地部署Muse Agent实现token自由",
+      "title_en": "前DeepSeek研究员，开源本地版Muse，实现token自由",
+      "source_id": "zhidx-play",
+      "source_name": "智东西 AI 工具评测",
+      "source_label": "权威媒体",
+      "source_tier": "A",
+      "source_color": "blue",
+      "source_emoji": "🔵",
+      "play_type": "tool_chain",
+      "difficulty": 3,
+      "time_estimate": "30min",
+      "tools": [
+        "DeepSeek"
+      ],
+      "link": "https://zhidx.com/p/612775.html",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
+  "cnblogs-play-454e556a": {
+    "_sig": "【Azure Developer】.NET 10搭建登录认证示例(Identity + JWT + Refresh Token) - 编码者卢布|https://www.cnblogs.com/lulight/p/23734982",
+    "tutorial": {
+      "intro": "这是一个用 .NET 10 从零搭建 JWT 登录认证与刷新令牌的实战教程，跟着做就能跑通注册、登录、鉴权、Token 轮换的完整闭环。",
+      "background": "在前后端分离和微服务架构中，JWT 是无状态认证的主流方案，但很多教程只讲签发不讲刷新，导致令牌过期后用户体验断裂。本文基于博客园的一篇动手示例，带你从创建项目开始，逐步实现注册、登录、JWT 验证、Refresh Token 轮换，并补上一个可操作的中文页面，最终通过动态图看到完整流程。适合有一定 C# 基础、想快速掌握认证授权的开发者。",
+      "prerequisites": [
+        {
+          "name": ".NET 10 SDK",
+          "desc": "运行和构建项目的基础环境",
+          "url": "https://dotnet.microsoft.com/download/dotnet/10.0"
+        },
+        {
+          "name": "Visual Studio 2022 或 VS Code",
+          "desc": "代码编辑与调试",
+          "url": "https://visualstudio.microsoft.com/"
+        },
+        {
+          "name": "Postman 或 curl",
+          "desc": "测试 API 接口",
+          "url": "https://www.postman.com/downloads/"
+        },
+        {
+          "name": "SQLite 或 SQL Server",
+          "desc": "存储用户与刷新令牌（示例可用内存库快速起步）",
+          "url": "https://www.sqlite.org/download.html"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：创建项目并安装 JWT 相关包",
+          "content": "打开终端执行 dotnet new webapi -n JwtAuthDemo 创建项目，进入目录后安装 Microsoft.AspNetCore.Authentication.JwtBearer 和 System.IdentityModel.Tokens.Jwt 包。在 Program.cs 中注册认证服务，配置 JWT 的 Issuer、Audience 和对称密钥。",
+          "tip": "密钥不要硬编码在代码里，开发阶段可用 appsettings.Development.json，生产环境务必用环境变量或密钥管理服务。"
+        },
+        {
+          "title": "第2步：实现用户注册与登录接口",
+          "content": "创建 User 实体和 AppDbContext，用 EF Core 的 InMemory 或 SQLite 快速建库。编写 /api/auth/register 接口接收用户名密码，用 BCrypt 或 PBKDF2 哈希后存库；编写 /api/auth/login 接口校验密码，成功后签发 Access Token（短期，如 15 分钟）和 Refresh Token（长期，如 7 天），并把 Refresh Token 存入数据库。",
+          "tip": "密码哈希不要用 MD5/SHA1，推荐 BCrypt.Net-Next 包，一行代码搞定加盐哈希。"
+        },
+        {
+          "title": "第3步：配置 JWT 验证中间件并保护接口",
+          "content": "在 Program.cs 中调用 AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(...) 配置 TokenValidationParameters，包括 ValidateIssuer、ValidateAudience、ValidateLifetime 和 IssuerSigningKey。然后调用 app.UseAuthentication() 和 app.UseAuthorization()。给需要保护的控制器或 Action 加上 [Authorize] 特性，测试未带 Token 时返回 401。",
+          "tip": "调试时如果一直 401，先检查 Token 是否过期、密钥长度是否满足 HS256 要求（至少 32 字节）。"
+        },
+        {
+          "title": "第4步：实现 Refresh Token 轮换接口",
+          "content": "新增 /api/auth/refresh 接口，接收过期的 Access Token 和 Refresh Token。校验 Refresh Token 是否存在于数据库且未过期、未撤销，若有效则生成新的 Access Token 和新的 Refresh Token，并将旧的 Refresh Token 标记为已撤销（轮换）。返回新令牌对给客户端。",
+          "tip": "轮换时务必把旧 Refresh Token 作废，防止重放攻击；可以给 Refresh Token 加一个 FamilyId 来检测令牌盗用。"
+        },
+        {
+          "title": "第5步：补一个中文操作页面并联调",
+          "content": "在 wwwroot 下创建一个简单的 HTML 页面，用 fetch 调用注册、登录、获取天气（受保护接口）和刷新令牌接口。登录成功后把 Token 存到 localStorage，请求时带上 Authorization: Bearer <token>。当接口返回 401 时自动调用刷新接口，刷新成功后重试原请求。",
+          "tip": "前端存储 Token 有 XSS 风险，生产环境建议用 HttpOnly Cookie 存 Refresh Token，Access Token 放内存。"
+        }
+      ],
+      "expected_result": "运行项目后打开页面，能看到未认证首页；点击注册填写表单并成功；登录后获取天气数据正常返回；Access Token 过期后自动用 Refresh Token 换新并继续请求，整个流程如动态图所示顺畅跑通。",
+      "faq": [
+        {
+          "q": "Access Token 和 Refresh Token 的有效期设多长合适？",
+          "a": "Access Token 建议 5-15 分钟，Refresh Token 建议 7-30 天，并根据业务安全等级调整。"
+        },
+        {
+          "q": "Refresh Token 存数据库还是 Redis？",
+          "a": "单机或小规模用数据库即可；高并发场景推荐 Redis，并设置过期时间自动清理。"
+        },
+        {
+          "q": "为什么刷新后旧 Token 还能用？",
+          "a": "说明没有做轮换撤销，需要在刷新接口里把旧 Refresh Token 标记为已使用或删除。"
+        },
+        {
+          "q": "前端如何判断 Token 过期？",
+          "a": "可以解析 JWT 的 exp 字段，或直接等接口返回 401 再触发刷新逻辑。"
+        },
+        {
+          "q": "MCP 鉴权是什么？",
+          "a": "原文提到的 MCP 鉴权是扩展场景，核心仍是基于 JWT 的 Bearer 认证，按同样方式加 [Authorize] 即可。"
+        }
+      ],
+      "variants": [
+        "变体1：把 Refresh Token 存到 HttpOnly Cookie 中，前端不接触 Refresh Token，降低 XSS 风险。",
+        "变体2：引入 Redis 做分布式令牌存储，支持多实例部署和主动踢人下线。",
+        "变体3：增加角色/权限声明（Role/Claim），实现基于策略的细粒度授权。"
+      ],
+      "summary": "用 .NET 10 把 JWT 签发、验证、刷新轮换串成一条可运行的认证链路，核心是短期 Access Token 加可撤销的 Refresh Token 轮换机制。"
+    },
+    "generated_at": "2026-11-20T16:38:02.964676+00:00",
+    "play_meta": {
+      "title_zh": "用.NET 10搭建JWT登录认证与刷新令牌",
+      "title_en": "【Azure Developer】.NET 10搭建登录认证示例(Identity + JWT + Refresh Token) - 编码者卢布",
+      "source_id": "cnblogs-play",
+      "source_name": "博客园 AI 教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
+      "difficulty": 3,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://www.cnblogs.com/lulight/p/23734982",
       "is_domestic": true,
       "tags": [],
       "playability_score": 7.5
@@ -1832,233 +2500,6 @@
       "playability_score": 9.2
     }
   },
-  "github-play-langchain-a48bb101": {
-    "_sig": "bytedance/deer-flow: An open-source long-horizon SuperAgent harness tha|https://github.com/bytedance/deer-flow",
-    "tutorial": {
-      "intro": "字节跳动开源的 DeerFlow 是一个能研究、写代码、做创作的超级智能体框架，本教程带你用 LlamaIndex 把它跑起来，打造属于你的长周期 AI 助手。",
-      "background": "DeerFlow 在 GitHub 上已获得超过 8 万星标，它通过沙箱、记忆、工具、技能、子智能体和消息网关等组件，让 AI 能处理从简单问答到复杂项目开发的各类任务。相比普通聊天机器人，它更擅长多步骤、长周期的自主工作流。本教程适合想快速体验开源 SuperAgent 能力的开发者、AI 爱好者和效率工具玩家。",
-      "prerequisites": [
-        {
-          "name": "Python 3.10+",
-          "desc": "运行 DeerFlow 的基础环境",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "Git",
-          "desc": "克隆 DeerFlow 仓库",
-          "url": "https://git-scm.com/"
-        },
-        {
-          "name": "LlamaIndex",
-          "desc": "用于构建和增强智能体的数据框架",
-          "url": "https://www.llamaindex.ai/"
-        },
-        {
-          "name": "OpenAI API Key 或兼容接口",
-          "desc": "为智能体提供大模型能力",
-          "url": "https://platform.openai.com/api-keys"
-        },
-        {
-          "name": "Docker（可选）",
-          "desc": "用于沙箱隔离和依赖管理",
-          "url": "https://www.docker.com/"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：克隆 DeerFlow 并安装依赖",
-          "content": "打开终端，执行 git clone https://github.com/bytedance/deer-flow.git 下载项目。进入目录后创建 Python 虚拟环境：python -m venv venv，然后激活（Windows 用 venv\\Scripts\\activate，Mac/Linux 用 source venv/bin/activate）。最后运行 pip install -r requirements.txt 安装所有依赖，包括 LlamaIndex 相关包。",
-          "tip": "如果安装缓慢，可换用国内 pip 镜像：pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple"
-        },
-        {
-          "title": "第2步：配置环境变量与模型密钥",
-          "content": "在项目根目录复制 .env.example 为 .env，填入你的 OPENAI_API_KEY（或其他兼容模型的 key 和 base_url）。如果使用 LlamaIndex 的默认集成，确保 LLAMA_INDEX 相关配置也指向同一模型。保存后，DeerFlow 会自动读取这些变量来初始化智能体。",
-          "tip": "没有 OpenAI 账号？可以用 DeepSeek、通义千问等兼容 OpenAI 接口的模型，只需修改 base_url 和 model 名称。"
-        },
-        {
-          "title": "第3步：启动 DeerFlow 服务",
-          "content": "运行 python main.py 或按照 README 中的启动命令（如 uvicorn app:app --reload）启动后端。首次启动会自动下载必要的模型或工具包，等待终端出现监听端口（通常是 8000 或 3000）即表示成功。此时你可以通过浏览器访问本地地址，看到 DeerFlow 的交互界面。",
-          "tip": "如果端口被占用，可在启动命令后加 --port 8080 换一个端口。"
-        },
-        {
-          "title": "第4步：用 LlamaIndex 增强智能体记忆与检索",
-          "content": "在 DeerFlow 的配置文件中找到 memory 或 knowledge 部分，启用 LlamaIndex 作为向量存储后端。你可以把本地文档（PDF、Markdown）放入指定文件夹，DeerFlow 会自动用 LlamaIndex 建立索引。这样智能体在回答时就能引用你的私有资料，实现更精准的研究和创作。",
-          "tip": "建议先放 3-5 个短文档测试，确认索引生效后再批量导入。"
-        },
-        {
-          "title": "第5步：发起第一个长周期任务",
-          "content": "在 Web 界面输入一个需要多步完成的任务，例如：“帮我调研 2025 年 AI 智能体趋势，写一份 500 字摘要，并生成一个简单的 Python 脚本统计关键词频率。” DeerFlow 会自动拆解任务、调用工具、使用沙箱执行代码，并返回最终结果。观察右侧的步骤日志，可以看到它如何一步步工作。",
-          "tip": "任务描述越具体，智能体执行越准确。可以加上“请先列出计划再执行”来观察它的推理过程。"
-        }
-      ],
-      "expected_result": "完成以上步骤后，你将在本地成功运行 DeerFlow，并看到一个能自主研究、写代码、做创作的超级智能体。输入复杂任务时，它会自动规划、调用工具、使用沙箱执行，并返回结构化的结果。你还可以通过 LlamaIndex 让它访问你的私有知识库，实现个性化增强。",
-      "faq": [
-        {
-          "q": "DeerFlow 和普通 ChatGPT 有什么区别？",
-          "a": "DeerFlow 是智能体框架，能自主拆解任务、调用工具、执行代码和长期记忆，而 ChatGPT 主要是对话式问答。"
-        },
-        {
-          "q": "必须用 OpenAI 的 API 吗？",
-          "a": "不是，任何兼容 OpenAI 接口的模型都可以，比如 DeepSeek、通义千问、Kimi 等，只需修改 base_url 和 model。"
-        },
-        {
-          "q": "LlamaIndex 是必须的吗？",
-          "a": "不是必须，但推荐使用。它能让 DeerFlow 更好地索引和检索你的私有文档，提升回答质量。"
-        },
-        {
-          "q": "运行时报错缺少依赖怎么办？",
-          "a": "先确认 Python 版本为 3.10+，然后重新执行 pip install -r requirements.txt。如果仍报错，可尝试单独安装缺失的包。"
-        },
-        {
-          "q": "沙箱功能需要 Docker 吗？",
-          "a": "推荐使用 Docker 以获得更好的隔离性，但非必须。没有 Docker 时，DeerFlow 会尝试用本地进程执行代码，安全性稍低。"
-        }
-      ],
-      "variants": [
-        "变体1：接入本地 Ollama 模型，完全离线运行 DeerFlow，保护数据隐私。",
-        "变体2：将 DeerFlow 作为后端，通过 API 接入飞书/钉钉机器人，实现团队自动化助手。",
-        "变体3：结合 LlamaIndex 的 RAG 能力，打造专属法律或医疗领域的智能研究助手。"
-      ],
-      "summary": "用 LlamaIndex 增强 DeerFlow，你就能在本地拥有一个能研究、写代码、做创作的开源超级智能体，把复杂任务交给它自动完成。"
-    },
-    "generated_at": "2026-09-12T03:40:43.467776+00:00",
-    "play_meta": {
-      "title_zh": "字节开源超级智能体DeerFlow",
-      "title_en": "bytedance/deer-flow: An open-source long-horizon SuperAgent harness tha",
-      "source_id": "github-play-langchain",
-      "source_name": "GitHub LangChain",
-      "source_label": "官方一手",
-      "source_tier": "S",
-      "source_color": "green",
-      "source_emoji": "🟢",
-      "play_type": "tool_chain",
-      "difficulty": 3,
-      "time_estimate": "30min",
-      "tools": [
-        "LlamaIndex"
-      ],
-      "link": "https://github.com/bytedance/deer-flow",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.5
-    }
-  },
-  "github-play-autogen-757dec3f": {
-    "_sig": "microsoft/ai-agents-for-beginners: 18 Lessons to Get Started Building AI Agents|https://github.com/microsoft/ai-agents-for-beginners",
-    "tutorial": {
-      "intro": "微软官方出品的《AI Agents for Beginners》18课教程，用 Jupyter Notebook 带你从零动手搭建 AI 智能体，零基础也能跟下来。",
-      "background": "很多人想学 AI Agent，但一上来就被 LangChain、AutoGen、函数调用、多智能体协作这些概念劝退。微软在 GitHub 上开源了 ai-agents-for-beginners 项目，把智能体开发拆成 18 节循序渐进的课，每节都有可运行的 Notebook 代码。它不讲空理论，而是直接带你调用模型、挂工具、做记忆、搭多智能体团队。适合想系统入门 AI Agent 的开发者、产品经理和学生，也适合作为团队内部培训材料。",
-      "prerequisites": [
-        {
-          "name": "Git",
-          "desc": "克隆 GitHub 仓库",
-          "url": "https://git-scm.com/"
-        },
-        {
-          "name": "Python 3.10+",
-          "desc": "运行 Jupyter Notebook 和示例代码",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "Jupyter Notebook / VS Code",
-          "desc": "打开并逐格运行 .ipynb 教程文件",
-          "url": "https://jupyter.org/install"
-        },
-        {
-          "name": "OpenAI API Key 或 Azure OpenAI",
-          "desc": "调用大模型驱动智能体",
-          "url": "https://platform.openai.com/api-keys"
-        },
-        {
-          "name": "GitHub 账号",
-          "desc": "Star 仓库、提 Issue、跟进更新",
-          "url": "https://github.com/microsoft/ai-agents-for-beginners"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：克隆仓库并搭好运行环境",
-          "content": "打开终端执行 git clone https://github.com/microsoft/ai-agents-for-beginners.git，进入目录后创建虚拟环境 python -m venv venv 并激活。然后 pip install -r requirements.txt 安装依赖。最后用 jupyter notebook 或 VS Code 打开任意 .ipynb 文件，确认能正常启动。",
-          "tip": "建议单独建一个 conda 环境，避免和本机其他项目的包版本冲突。"
-        },
-        {
-          "title": "第2步：配置模型访问密钥",
-          "content": "在项目根目录创建 .env 文件，按教程说明填入 OPENAI_API_KEY 或 Azure OpenAI 的 endpoint、key、deployment 名称。多数 Notebook 会通过 python-dotenv 自动读取这个文件。配置好后先跑一个最简单的“Hello Agent”单元格，确认模型能正常返回内容。",
-          "tip": "不要把 .env 提交到 Git，仓库里通常有 .env.example 可以复制改名。"
-        },
-        {
-          "title": "第3步：按顺序刷前几课，理解 Agent 基本结构",
-          "content": "从第 1 课开始，依次学习“什么是 AI Agent”“探索 AI Agent 框架”“理解 Agentic 设计模式”等基础内容。每节课都先读 Markdown 讲解，再逐格运行代码，观察输入输出。重点理解 Agent 如何接收任务、调用模型、返回结果。",
-          "tip": "不要跳课，前几课的概念是后面工具调用和多智能体的基础。"
-        },
-        {
-          "title": "第4步：动手做工具调用和记忆模块",
-          "content": "进入工具调用相关课程，跟着 Notebook 把自定义函数注册成 Agent 可调用的工具，比如查天气、算汇率。再学习记忆模块，让 Agent 在多轮对话中记住上下文。运行后尝试修改函数参数，观察 Agent 行为变化。",
-          "tip": "工具函数的 docstring 要写清楚，模型靠它判断什么时候调用这个工具。"
-        },
-        {
-          "title": "第5步：搭建多智能体协作小项目",
-          "content": "学习多智能体协作课程，用 AutoGen 或 Semantic Kernel 创建多个角色，比如“产品经理”“程序员”“测试员”，让它们围绕一个任务互相讨论。运行示例后，尝试把任务换成你自己的小需求，比如“写一个待办清单网页”。",
-          "tip": "角色设定越具体，智能体之间的对话越有方向，别只写“你是助手”。"
-        },
-        {
-          "title": "第6步：选一个方向做自己的 Agent 并复盘",
-          "content": "从 18 课里挑一个你最感兴趣的方向，比如 RAG、代码执行、多模态或生产部署，基于示例改造成自己的小项目。完成后回到仓库 Star 并阅读 Issues，看看别人怎么扩展。把踩坑记录写成笔记，方便以后复用。",
-          "tip": "先跑通再优化，不要一上来就追求完美架构。"
-        }
-      ],
-      "expected_result": "你能独立运行 18 课中的大部分 Notebook，理解 AI Agent 的基本组成（模型、工具、记忆、规划、多智能体），并拥有一个自己改造的小型 Agent 项目。",
-      "faq": [
-        {
-          "q": "没有 OpenAI API Key 能学吗？",
-          "a": "可以。部分课程支持 Azure OpenAI、GitHub Models 或本地模型，但多数示例默认需要模型接口，建议至少准备一个可用的 API Key。"
-        },
-        {
-          "q": "需要很强的 Python 基础吗？",
-          "a": "不需要。会基本的变量、函数和 pip 安装即可，Notebook 已经把复杂逻辑拆成可运行的单元格。"
-        },
-        {
-          "q": "18 课要全部学完吗？",
-          "a": "不一定。前 6-8 课是核心，后面可按兴趣选学。想快速上手可以先看工具调用和多智能体协作。"
-        },
-        {
-          "q": "运行代码报错怎么办？",
-          "a": "先检查 Python 版本和依赖是否按 requirements.txt 安装，再确认 .env 配置正确。也可以去 GitHub Issues 搜报错关键词。"
-        },
-        {
-          "q": "这个教程和 LangChain 官方教程有什么区别？",
-          "a": "它更偏微软生态（AutoGen、Semantic Kernel、Azure），但概念通用，且结构更系统，适合从零建立完整认知。"
-        }
-      ],
-      "variants": [
-        "变体1：把示例中的 OpenAI 模型换成 Azure OpenAI 或本地 Ollama，搭建离线可用的 Agent 学习环境。",
-        "变体2：用课程里的多智能体模板，做一个“自动写周报”或“竞品分析”小助手，接入自己的数据。",
-        "变体3：把 Notebook 改造成 FastAPI 服务，部署到云端，做成可被其他应用调用的 Agent API。"
-      ],
-      "summary": "跟着微软官方 18 课边读边跑，用最小成本把 AI Agent 从概念变成能跑起来的小项目。"
-    },
-    "generated_at": "2026-09-12T03:41:19.976000+00:00",
-    "play_meta": {
-      "title_zh": "微软官方18课：从零构建AI智能体",
-      "title_en": "microsoft/ai-agents-for-beginners: 18 Lessons to Get Started Building AI Agents",
-      "source_id": "github-play-autogen",
-      "source_name": "GitHub AutoGen",
-      "source_label": "官方一手",
-      "source_tier": "S",
-      "source_color": "green",
-      "source_emoji": "🟢",
-      "play_type": "tool_chain",
-      "difficulty": 2,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://github.com/microsoft/ai-agents-for-beginners",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.5
-    }
-  },
   "github-play-autogen-0d150b19": {
     "_sig": "microsoft/autogen: A programming framework for agentic AI|https://github.com/microsoft/autogen",
     "tutorial": {
@@ -2165,228 +2606,6 @@
         "未标注"
       ],
       "link": "https://github.com/microsoft/autogen",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.5
-    }
-  },
-  "github-play-awesome-rag-579b4646": {
-    "_sig": "lizhe2004/Awesome-LLM-RAG-Application: the resources about the application based|https://github.com/lizhe2004/Awesome-LLM-RAG-Application",
-    "tutorial": {
-      "intro": "Awesome-LLM-RAG 是一个汇集了基于 RAG 模式的 LLM 应用资源的 GitHub 仓库，本教程将带你用 LlamaIndex 快速搭建一个可用的 RAG 问答系统。",
-      "background": "随着大语言模型（LLM）的普及，如何让模型回答基于私有数据的问题成为刚需。RAG（检索增强生成）通过先检索相关文档再生成答案，有效缓解了模型幻觉和知识过时问题。Awesome-LLM-RAG 仓库整理了 1658+ 星标的 RAG 应用资源，涵盖框架、工具、论文和案例。本教程以 LlamaIndex 为核心，带你从零构建一个本地文档问答机器人，适合开发者、产品经理和 AI 爱好者快速上手。",
-      "prerequisites": [
-        {
-          "name": "Python 3.9+",
-          "desc": "运行环境，建议使用 3.10 或 3.11",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "LlamaIndex",
-          "desc": "核心 RAG 框架，用于索引和查询文档",
-          "url": "https://www.llamaindex.ai/"
-        },
-        {
-          "name": "OpenAI API Key",
-          "desc": "用于调用 GPT 模型生成答案（也可替换为本地模型）",
-          "url": "https://platform.openai.com/api-keys"
-        },
-        {
-          "name": "Awesome-LLM-RAG 仓库",
-          "desc": "参考资源大全，获取更多工具和案例",
-          "url": "https://github.com/lizhe2004/Awesome-LLM-RAG-Application"
-        },
-        {
-          "name": "Jupyter Notebook 或 VS Code",
-          "desc": "编写和调试代码",
-          "url": "https://code.visualstudio.com/"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：安装依赖并配置环境",
-          "content": "打开终端，创建虚拟环境并安装 LlamaIndex 和 OpenAI 库：pip install llama-index openai。然后设置 OpenAI API Key 环境变量：export OPENAI_API_KEY='你的密钥'（Windows 用 set）。如果使用本地模型，可安装 llama-index-llms-ollama 并运行 Ollama 服务。",
-          "tip": "建议用 conda 或 venv 隔离环境，避免版本冲突。API Key 不要硬编码在代码里。"
-        },
-        {
-          "title": "第2步：准备你的私有文档",
-          "content": "在项目目录下新建 data 文件夹，放入你要问答的文档，支持 txt、pdf、md、docx 等格式。例如放入公司产品手册.pdf 或个人笔记.md。LlamaIndex 会自动读取并解析。",
-          "tip": "文档越干净，检索效果越好。可以先手动删除无关页眉页脚。"
-        },
-        {
-          "title": "第3步：编写索引构建脚本",
-          "content": "新建 build_index.py，写入以下代码：from llama_index.core import VectorStoreIndex, SimpleDirectoryReader; documents = SimpleDirectoryReader('data').load_data(); index = VectorStoreIndex.from_documents(documents); index.storage_context.persist('./storage')。运行后会在 storage 文件夹生成向量索引。",
-          "tip": "首次运行会调用 OpenAI 嵌入模型，产生少量费用。可改用本地嵌入模型如 BAAI/bge-small-zh。"
-        },
-        {
-          "title": "第4步：实现问答查询",
-          "content": "新建 query.py，加载已保存的索引：from llama_index.core import StorageContext, load_index_from_storage; storage_context = StorageContext.from_defaults(persist_dir='./storage'); index = load_index_from_storage(storage_context); query_engine = index.as_query_engine(); response = query_engine.query('你的问题'); print(response)。运行即可得到基于文档的答案。",
-          "tip": "可以调整 similarity_top_k 参数控制检索文档数量，默认 2，增大可提高召回但可能引入噪声。"
-        },
-        {
-          "title": "第5步：优化与调试",
-          "content": "如果答案不准确，尝试：1）调整 chunk_size（默认 1024）和 chunk_overlap；2）更换嵌入模型；3）使用 SentenceSplitter 自定义分块；4）在 query_engine 中设置 response_mode='compact' 或 'refine'。也可以加入 rerank 模块提升排序质量。",
-          "tip": "用 index.as_query_engine(similarity_top_k=5, response_mode='compact') 快速测试不同参数组合。"
-        }
-      ],
-      "expected_result": "运行 query.py 后，输入“产品保修期是多久？”等问题，系统会从你放入的文档中检索相关段落，并生成准确、有依据的回答。控制台会打印答案，并可扩展为 Web 服务或聊天机器人。",
-      "faq": [
-        {
-          "q": "没有 OpenAI API Key 怎么办？",
-          "a": "可以使用本地模型，如 Ollama 运行 Llama 3 或 Qwen，然后安装 llama-index-llms-ollama 并设置 llm=Ollama(model='llama3')。嵌入模型也可用 HuggingFace 本地模型。"
-        },
-        {
-          "q": "支持中文文档吗？",
-          "a": "支持，但建议使用中文嵌入模型（如 BAAI/bge-large-zh）和中文 LLM（如 Qwen、ChatGLM），否则检索效果可能下降。"
-        },
-        {
-          "q": "索引构建很慢或报错？",
-          "a": "检查文档是否过大，可分批处理；确认网络能访问 OpenAI；若用本地模型，确保显存足够。也可先用小样本测试。"
-        },
-        {
-          "q": "如何让答案只基于文档，不编造？",
-          "a": "在 query_engine 中设置 response_mode='compact' 并添加系统提示词，如“仅根据以下上下文回答，不知道就说不知道”。"
-        },
-        {
-          "q": "Awesome-LLM-RAG 仓库怎么用？",
-          "a": "该仓库是资源大全，可从中找到更多 RAG 工具、论文和案例。建议先浏览 README 的分类，再按需深入。"
-        }
-      ],
-      "variants": [
-        "变体1：用 Streamlit 搭建 Web 界面，让非技术用户也能上传文档并提问。",
-        "变体2：结合 LangChain 和 LlamaIndex，构建多模态 RAG（支持图片和表格）。",
-        "变体3：使用本地向量数据库（如 Chroma、Qdrant）替代默认存储，支持大规模文档和增量更新。"
-      ],
-      "summary": "用 LlamaIndex 快速构建 RAG 问答系统，核心是“文档索引 + 检索 + 生成”，再根据效果调参优化。"
-    },
-    "generated_at": "2026-09-19T09:20:21.269557+00:00",
-    "play_meta": {
-      "title_zh": "Awesome-LLM-RAG：RAG应用资源大全",
-      "title_en": "lizhe2004/Awesome-LLM-RAG-Application: the resources about the application based on LLM w",
-      "source_id": "github-play-awesome-rag",
-      "source_name": "GitHub Awesome RAG",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 5,
-      "time_estimate": "30min",
-      "tools": [
-        "LlamaIndex"
-      ],
-      "link": "https://github.com/lizhe2004/Awesome-LLM-RAG-Application",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 7.5
-    }
-  },
-  "github-play-awesome-comfyui-1e6df62d": {
-    "_sig": "ComfyUI-Workflow/awesome-comfyui: A collection of awesome custom nodes for Comfy|https://github.com/ComfyUI-Workflow/awesome-comfyui",
-    "tutorial": {
-      "intro": "ComfyUI 的节点生态浩如烟海，但真正好用的自定义节点往往散落在各个仓库里。今天带你用 GitHub 上 739 星的 Awesome ComfyUI 合集，一次性把神级节点装进你的工作流，效率直接翻倍。",
-      "background": "ComfyUI 本身是一个基于节点流的 Stable Diffusion 前端，灵活但原生节点有限。社区开发了大量自定义节点，能实现换脸、高清修复、动态提示词、工作流管理等功能。Awesome ComfyUI 这个仓库由 ComfyUI-Workflow 维护，系统整理了最值得安装的节点包，并附有分类和链接。对于想从“能用”进阶到“好用”的玩家，这份合集就是你的节点超市。",
-      "prerequisites": [
-        {
-          "name": "ComfyUI",
-          "desc": "核心运行环境，建议使用官方便携版或 git 克隆安装",
-          "url": "https://github.com/comfyanonymous/ComfyUI"
-        },
-        {
-          "name": "ComfyUI Manager",
-          "desc": "节点管理器，用于一键安装、更新、禁用自定义节点",
-          "url": "https://github.com/ltdrdata/ComfyUI-Manager"
-        },
-        {
-          "name": "Git",
-          "desc": "用于克隆仓库或手动安装节点",
-          "url": "https://git-scm.com/"
-        },
-        {
-          "name": "Python 3.10+",
-          "desc": "ComfyUI 运行依赖，部分节点需要特定版本",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "Awesome ComfyUI 合集",
-          "desc": "本教程的核心参考列表，包含节点分类和链接",
-          "url": "https://github.com/ComfyUI-Workflow/awesome-comfyui"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：安装 ComfyUI Manager 并打开节点管理面板",
-          "content": "如果你还没装 ComfyUI Manager，先进入 ComfyUI 的 custom_nodes 目录，执行 git clone https://github.com/ltdrdata/ComfyUI-Manager.git，然后重启 ComfyUI。在界面右侧会多出一个 Manager 按钮，点击后选择 Install Custom Nodes。这个面板就是后续所有节点安装的入口，支持搜索、安装、更新和禁用。",
-          "tip": "建议在安装任何节点前先更新 ComfyUI 本体和 Manager，避免版本冲突。"
-        },
-        {
-          "title": "第2步：浏览 Awesome ComfyUI 合集，筛选你需要的节点",
-          "content": "打开 https://github.com/ComfyUI-Workflow/awesome-comfyui，你会看到按功能分类的节点列表，比如“图像处理”“动画”“工作流增强”“模型加载”等。先别急着全装，根据你当前的需求挑 3-5 个最常用的，比如 Impact Pack（人脸修复）、WAS Node Suite（万能工具）、Efficiency Nodes（简化工作流）。记下它们的仓库名或关键词。",
-          "tip": "仓库里带 ⭐ 数量越多的节点通常越稳定，优先选 500 星以上的。"
-        },
-        {
-          "title": "第3步：通过 Manager 一键安装选中的节点",
-          "content": "回到 ComfyUI 的 Manager 面板，在搜索框输入你记下的节点关键词，比如“Impact”或“WAS”。找到对应条目后点击 Install，Manager 会自动下载并安装依赖。安装完成后重启 ComfyUI，在节点菜单里就能看到新节点分类。如果 Manager 搜不到，可以手动 git clone 到 custom_nodes 目录，再运行 pip install -r requirements.txt。",
-          "tip": "安装时注意看控制台是否有报错，缺依赖是新手最常见的问题。"
-        },
-        {
-          "title": "第4步：搭建一个测试工作流验证节点是否生效",
-          "content": "新建一个工作流，从新安装的节点分类里拖出几个核心节点，比如用 Impact Pack 的 FaceDetailer 做面部修复，或者用 WAS Node Suite 的 Text Loader 加载提示词。连接好输入输出后，加载一张默认的 SD 模型，生成一张 512x512 的图片。如果节点能正常执行且没有红色报错，说明安装成功。",
-          "tip": "测试时先用低步数（如 10 步）快速跑通，确认流程无误再调高质量。"
-        },
-        {
-          "title": "第5步：保存工作流并整理你的节点库",
-          "content": "测试通过后，点击 ComfyUI 的 Save 按钮把工作流保存为 JSON 文件，方便以后复用。同时回到 Manager 面板，把不常用的节点禁用（Disable），只保留高频使用的，这样界面更清爽、启动更快。你还可以在 Awesome ComfyUI 仓库里给作者点星，或者提交你发现的好节点。",
-          "tip": "定期用 Manager 的 Update All 更新节点，但更新前备份工作流，避免不兼容。"
-        }
-      ],
-      "expected_result": "完成以上步骤后，你的 ComfyUI 里会多出几个强大的自定义节点分类，比如 Impact Pack、WAS Node Suite 等。你能在节点菜单里直接调用它们，搭建出带人脸修复、动态提示词、工作流简化等高级功能的工作流，并且生成结果稳定无报错。",
-      "faq": [
-        {
-          "q": "安装节点后 ComfyUI 启动报错怎么办？",
-          "a": "先看控制台报错信息，常见原因是缺少 Python 依赖或节点与当前 ComfyUI 版本不兼容。可以尝试在 custom_nodes 目录下删除最近安装的节点，或者用 Manager 的 Fix 功能修复。"
-        },
-        {
-          "q": "Awesome ComfyUI 里的节点都需要安装吗？",
-          "a": "不需要。这个合集是索引，不是必装清单。建议按需安装，装太多会导致启动变慢、冲突概率增加。"
-        },
-        {
-          "q": "Manager 搜索不到某个节点怎么办？",
-          "a": "可能是节点未收录或名称不同。可以手动 git clone 仓库到 custom_nodes，然后进入目录运行 pip install -r requirements.txt，重启即可。"
-        },
-        {
-          "q": "节点安装后界面里找不到？",
-          "a": "先确认是否重启了 ComfyUI。如果还是找不到，检查节点是否被禁用，或者节点分类名称是否与你预期不同，可以在节点搜索框直接搜节点名。"
-        },
-        {
-          "q": "如何更新已安装的节点？",
-          "a": "在 Manager 面板点击 Update All 可以批量更新，也可以单独更新某个节点。更新后建议重启 ComfyUI，并测试旧工作流是否正常。"
-        }
-      ],
-      "variants": [
-        "变体1：只安装 Impact Pack + Efficiency Nodes，打造极简高清修复工作流，适合人像摄影后期。",
-        "变体2：安装 WAS Node Suite + ComfyUI-Custom-Scripts，实现文本批处理和界面增强，适合批量生成提示词。",
-        "变体3：结合 AnimateDiff 节点和 Awesome ComfyUI 里的动画分类，制作短视频动画工作流。"
-      ],
-      "summary": "用 Awesome ComfyUI 当导航，用 Manager 当抓手，按需安装、测试、整理，你就能把 ComfyUI 从裸机变成神装。"
-    },
-    "generated_at": "2026-09-19T09:19:07.855020+00:00",
-    "play_meta": {
-      "title_zh": "ComfyUI 神级节点合集，一键解锁",
-      "title_en": "ComfyUI-Workflow/awesome-comfyui: A collection of awesome custom nodes for ComfyUI",
-      "source_id": "github-play-awesome-comfyui",
-      "source_name": "GitHub Awesome ComfyUI",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_workflow",
-      "difficulty": 4,
-      "time_estimate": "30min",
-      "tools": [
-        "Stable Diffusion"
-      ],
-      "link": "https://github.com/ComfyUI-Workflow/awesome-comfyui",
       "is_domestic": false,
       "tags": [],
       "playability_score": 8.5
@@ -2501,6 +2720,440 @@
       "is_domestic": false,
       "tags": [],
       "playability_score": 6.5
+    }
+  },
+  "github-play-awesome-rag-579b4646": {
+    "_sig": "lizhe2004/Awesome-LLM-RAG-Application: the resources about the application based|https://github.com/lizhe2004/Awesome-LLM-RAG-Application",
+    "tutorial": {
+      "intro": "Awesome-LLM-RAG 是一个汇集了基于 RAG 模式的 LLM 应用资源的 GitHub 仓库，本教程将带你用 LlamaIndex 快速搭建一个可用的 RAG 问答系统。",
+      "background": "随着大语言模型（LLM）的普及，如何让模型回答基于私有数据的问题成为刚需。RAG（检索增强生成）通过先检索相关文档再生成答案，有效缓解了模型幻觉和知识过时问题。Awesome-LLM-RAG 仓库整理了 1658+ 星标的 RAG 应用资源，涵盖框架、工具、论文和案例。本教程以 LlamaIndex 为核心，带你从零构建一个本地文档问答机器人，适合开发者、产品经理和 AI 爱好者快速上手。",
+      "prerequisites": [
+        {
+          "name": "Python 3.9+",
+          "desc": "运行环境，建议使用 3.10 或 3.11",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "LlamaIndex",
+          "desc": "核心 RAG 框架，用于索引和查询文档",
+          "url": "https://www.llamaindex.ai/"
+        },
+        {
+          "name": "OpenAI API Key",
+          "desc": "用于调用 GPT 模型生成答案（也可替换为本地模型）",
+          "url": "https://platform.openai.com/api-keys"
+        },
+        {
+          "name": "Awesome-LLM-RAG 仓库",
+          "desc": "参考资源大全，获取更多工具和案例",
+          "url": "https://github.com/lizhe2004/Awesome-LLM-RAG-Application"
+        },
+        {
+          "name": "Jupyter Notebook 或 VS Code",
+          "desc": "编写和调试代码",
+          "url": "https://code.visualstudio.com/"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：安装依赖并配置环境",
+          "content": "打开终端，创建虚拟环境并安装 LlamaIndex 和 OpenAI 库：pip install llama-index openai。然后设置 OpenAI API Key 环境变量：export OPENAI_API_KEY='你的密钥'（Windows 用 set）。如果使用本地模型，可安装 llama-index-llms-ollama 并运行 Ollama 服务。",
+          "tip": "建议用 conda 或 venv 隔离环境，避免版本冲突。API Key 不要硬编码在代码里。"
+        },
+        {
+          "title": "第2步：准备你的私有文档",
+          "content": "在项目目录下新建 data 文件夹，放入你要问答的文档，支持 txt、pdf、md、docx 等格式。例如放入公司产品手册.pdf 或个人笔记.md。LlamaIndex 会自动读取并解析。",
+          "tip": "文档越干净，检索效果越好。可以先手动删除无关页眉页脚。"
+        },
+        {
+          "title": "第3步：编写索引构建脚本",
+          "content": "新建 build_index.py，写入以下代码：from llama_index.core import VectorStoreIndex, SimpleDirectoryReader; documents = SimpleDirectoryReader('data').load_data(); index = VectorStoreIndex.from_documents(documents); index.storage_context.persist('./storage')。运行后会在 storage 文件夹生成向量索引。",
+          "tip": "首次运行会调用 OpenAI 嵌入模型，产生少量费用。可改用本地嵌入模型如 BAAI/bge-small-zh。"
+        },
+        {
+          "title": "第4步：实现问答查询",
+          "content": "新建 query.py，加载已保存的索引：from llama_index.core import StorageContext, load_index_from_storage; storage_context = StorageContext.from_defaults(persist_dir='./storage'); index = load_index_from_storage(storage_context); query_engine = index.as_query_engine(); response = query_engine.query('你的问题'); print(response)。运行即可得到基于文档的答案。",
+          "tip": "可以调整 similarity_top_k 参数控制检索文档数量，默认 2，增大可提高召回但可能引入噪声。"
+        },
+        {
+          "title": "第5步：优化与调试",
+          "content": "如果答案不准确，尝试：1）调整 chunk_size（默认 1024）和 chunk_overlap；2）更换嵌入模型；3）使用 SentenceSplitter 自定义分块；4）在 query_engine 中设置 response_mode='compact' 或 'refine'。也可以加入 rerank 模块提升排序质量。",
+          "tip": "用 index.as_query_engine(similarity_top_k=5, response_mode='compact') 快速测试不同参数组合。"
+        }
+      ],
+      "expected_result": "运行 query.py 后，输入“产品保修期是多久？”等问题，系统会从你放入的文档中检索相关段落，并生成准确、有依据的回答。控制台会打印答案，并可扩展为 Web 服务或聊天机器人。",
+      "faq": [
+        {
+          "q": "没有 OpenAI API Key 怎么办？",
+          "a": "可以使用本地模型，如 Ollama 运行 Llama 3 或 Qwen，然后安装 llama-index-llms-ollama 并设置 llm=Ollama(model='llama3')。嵌入模型也可用 HuggingFace 本地模型。"
+        },
+        {
+          "q": "支持中文文档吗？",
+          "a": "支持，但建议使用中文嵌入模型（如 BAAI/bge-large-zh）和中文 LLM（如 Qwen、ChatGLM），否则检索效果可能下降。"
+        },
+        {
+          "q": "索引构建很慢或报错？",
+          "a": "检查文档是否过大，可分批处理；确认网络能访问 OpenAI；若用本地模型，确保显存足够。也可先用小样本测试。"
+        },
+        {
+          "q": "如何让答案只基于文档，不编造？",
+          "a": "在 query_engine 中设置 response_mode='compact' 并添加系统提示词，如“仅根据以下上下文回答，不知道就说不知道”。"
+        },
+        {
+          "q": "Awesome-LLM-RAG 仓库怎么用？",
+          "a": "该仓库是资源大全，可从中找到更多 RAG 工具、论文和案例。建议先浏览 README 的分类，再按需深入。"
+        }
+      ],
+      "variants": [
+        "变体1：用 Streamlit 搭建 Web 界面，让非技术用户也能上传文档并提问。",
+        "变体2：结合 LangChain 和 LlamaIndex，构建多模态 RAG（支持图片和表格）。",
+        "变体3：使用本地向量数据库（如 Chroma、Qdrant）替代默认存储，支持大规模文档和增量更新。"
+      ],
+      "summary": "用 LlamaIndex 快速构建 RAG 问答系统，核心是“文档索引 + 检索 + 生成”，再根据效果调参优化。"
+    },
+    "generated_at": "2026-09-19T09:20:21.269557+00:00",
+    "play_meta": {
+      "title_zh": "Awesome-LLM-RAG：RAG应用资源大全",
+      "title_en": "lizhe2004/Awesome-LLM-RAG-Application: the resources about the application based on LLM w",
+      "source_id": "github-play-awesome-rag",
+      "source_name": "GitHub Awesome RAG",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
+      "difficulty": 5,
+      "time_estimate": "30min",
+      "tools": [
+        "LlamaIndex"
+      ],
+      "link": "https://github.com/lizhe2004/Awesome-LLM-RAG-Application",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
+  "cnblogs-play-e8d5df02": {
+    "_sig": "TaurusDB 接入 MaaS：用 SQL 调用大模型，让数据智能融入业务 SQL - 华为云开发者联盟|https://www.cnblogs.com/huaweiyun/p/23733520",
+    "tutorial": {
+      "intro": "今天分享一个把大模型推理和 RAG 直接写进 SQL 的玩法，用 LlamaIndex 就能让数据库自己“思考”和“查资料”。",
+      "background": "传统 RAG 需要写 Python 代码串联向量库、检索器和 LLM，对数据工程师不够友好。这个玩法利用 SQL 的 STORED 生成列自动完成文本向量化，再用 SQL 函数调用 MaaS 大模型做推理和 RAG，把分类、概括、依据资料回答都变成可保存的文本结果。它特别适合已有关系型数据库、想低成本引入 AI 能力的团队，比如智能客服知识库、工单自动分类、文档问答等场景。",
+      "prerequisites": [
+        {
+          "name": "LlamaIndex",
+          "desc": "用于构建 RAG 流程和 SQL 工具链的 Python 框架",
+          "url": "https://www.llamaindex.ai/"
+        },
+        {
+          "name": "PostgreSQL 15+",
+          "desc": "支持 STORED 生成列和 pgvector 扩展的数据库",
+          "url": "https://www.postgresql.org/"
+        },
+        {
+          "name": "pgvector 扩展",
+          "desc": "在 PostgreSQL 中存储和检索向量",
+          "url": "https://github.com/pgvector/pgvector"
+        },
+        {
+          "name": "华为云 MaaS 或 OpenAI API",
+          "desc": "提供文本推理和向量化能力的大模型服务",
+          "url": "https://www.huaweicloud.com/product/maas.html"
+        },
+        {
+          "name": "Python 3.9+ 与 psycopg2",
+          "desc": "执行 SQL 和连接数据库的运行时环境",
+          "url": "https://pypi.org/project/psycopg2/"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：准备数据库与向量扩展",
+          "content": "在 PostgreSQL 中执行 CREATE EXTENSION IF NOT EXISTS vector; 启用 pgvector。然后创建一张文档表，包含 id、content 原文列和 embedding 向量列，其中 embedding 定义为 GENERATED ALWAYS AS (llm_embed(content)) STORED，让原文写入时自动计算向量。最后为 embedding 列建立 ivfflat 或 hnsw 索引加速语义检索。",
+          "tip": "生成列表达式里调用的 llm_embed 需要提前用 PL/Python 或外部函数封装好，确保写入时能同步调用向量化 API。"
+        },
+        {
+          "title": "第2步：封装 SQL 函数调用大模型",
+          "content": "用 PL/Python 或 LlamaIndex 的 SQL 工具链，创建 llm_embed(text) 和 llm_infer(prompt) 两个 SQL 函数，分别对接 MaaS 的向量化接口和推理接口。llm_infer 接收提示词模板并返回文本结果，方便在 SELECT 中直接调用。注意在函数内处理 API Key 和超时重试。",
+          "tip": "把 API Key 放在数据库的 vault 或环境变量里，不要硬编码在 SQL 函数中。"
+        },
+        {
+          "title": "第3步：写入文档并自动向量化",
+          "content": "向文档表 INSERT 原文内容，embedding 列会由 STORED 生成列自动计算并保存，原文与向量同表。可以用 INSERT INTO docs(content) VALUES ('...') 批量导入知识库文档。写入后查询 SELECT id, content, embedding IS NOT NULL FROM docs 确认向量已生成。",
+          "tip": "批量写入时建议分批提交，避免单次事务调用太多次向量化 API 导致超时。"
+        },
+        {
+          "title": "第4步：用 SQL 做语义检索与 RAG 组料",
+          "content": "对用户问题先用 llm_embed 得到查询向量，再用 ORDER BY embedding <-> query_vec LIMIT 5 取回候选原文。把候选原文拼接成上下文，套入提示词模板，调用 llm_infer 生成最终回答。整个 RAG 流程可以写成一条 CTE 或视图，例如 WITH candidates AS (...) SELECT llm_infer('根据资料回答：' || question || ' 资料：' || string_agg(content, ' ')) FROM candidates。",
+          "tip": "候选数量 3-5 条通常够用，太多会稀释关键信息并增加 token 成本。"
+        },
+        {
+          "title": "第5步：用 LlamaIndex 串联并一键试用",
+          "content": "在 Python 中用 LlamaIndex 的 SQL 查询引擎或自定义 Tool 包装上述 SQL 函数，把“检索+推理”暴露成一个自然语言接口。也可以直接写一个 runnable demo：输入问题，执行 SQL，打印回答和引用原文。最后用几条测试问题验证分类、概括和依据资料回答三种能力。",
+          "tip": "把 SQL 查询结果和引用来源一起返回，方便排查 RAG 回答是否忠实于资料。"
+        }
+      ],
+      "expected_result": "完成上述步骤后，你可以在数据库里直接执行 SQL 完成文本分类、概括和基于知识库的问答，回答结果可返回也可保存到表中；原文与向量同表存储，语义检索通过向量距离排序快速取回候选资料，整个 RAG 流程无需离开 SQL 环境。",
+      "faq": [
+        {
+          "q": "没有 PostgreSQL 可以用 MySQL 吗？",
+          "a": "MySQL 8.0 支持生成列但不原生支持向量类型和距离运算，需要借助外部向量库或改用 PostgreSQL + pgvector 方案。"
+        },
+        {
+          "q": "生成列里调用外部 API 会不会很慢？",
+          "a": "写入时会同步调用向量化 API，批量导入建议分批并开启并发；查询时只调用一次 llm_embed 得到查询向量，影响可控。"
+        },
+        {
+          "q": "如何保证 RAG 回答不胡编？",
+          "a": "在提示词中明确要求“仅根据资料回答，资料没有就说不知道”，并返回引用原文供人工核对。"
+        },
+        {
+          "q": "API Key 放在 SQL 函数里安全吗？",
+          "a": "不建议硬编码，使用数据库 vault、环境变量或密钥管理服务，并限制函数执行权限。"
+        },
+        {
+          "q": "这个方案适合多大数据量？",
+          "a": "pgvector 的 hnsw 索引可支撑百万级向量，更大规模建议分表或引入专用向量数据库。"
+        }
+      ],
+      "variants": [
+        "变体1：把 llm_infer 换成分类专用提示词，用 SQL 批量给工单打标签并写回标签列。",
+        "变体2：用定时任务对新增文档自动生成摘要列，实现知识库自动摘要与去重。",
+        "变体3：结合 LlamaIndex 的 Agent 把 SQL 函数注册为工具，让模型自主决定何时检索、何时推理。"
+      ],
+      "summary": "把向量化和大模型推理封装成 SQL 函数，让数据库自己完成 RAG，是数据团队低成本落地 AI 的捷径。"
+    },
+    "generated_at": "2026-11-20T16:38:12.828760+00:00",
+    "play_meta": {
+      "title_zh": "用 SQL 调用大模型做推理与 RAG",
+      "title_en": "TaurusDB 接入 MaaS：用 SQL 调用大模型，让数据智能融入业务 SQL - 华为云开发者联盟",
+      "source_id": "cnblogs-play",
+      "source_name": "博客园 AI 教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
+      "difficulty": 2,
+      "time_estimate": "30min",
+      "tools": [
+        "LlamaIndex"
+      ],
+      "link": "https://www.cnblogs.com/huaweiyun/p/23733520",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 6.5
+    }
+  },
+  "zhidx-play-2072bec4": {
+    "_sig": "这这这居然是AI拍的？即梦Seedance 2.5 4K上手实测，细节惊艳|https://zhidx.com/p/611985.html",
+    "tutorial": {
+      "intro": "用即梦 Seedance 2.5 把一段文字提示词直接变成 4K 高清 AI 视频，全程无需拍摄设备，适合快速产出短视频素材。",
+      "background": "智东西评测提到，即梦 Seedance 2.5 在画面稳定性、运动连贯性和 4K 细节上明显提升，让普通用户也能用提示词生成接近实拍质感的视频。这个玩法适合短视频创作者、广告分镜预演、自媒体配图升级为动态素材等场景。相比传统拍摄或复杂后期，它把「想法→成片」的链路压缩到几分钟，尤其适合需要批量产出垂直内容的人。",
+      "prerequisites": [
+        {
+          "name": "即梦 AI（Seedance 2.5 模型）",
+          "desc": "核心视频生成工具，需登录并选择 Seedance 2.5 模型",
+          "url": "https://jimeng.jianying.com"
+        },
+        {
+          "name": "浏览器（Chrome/Edge 最新版）",
+          "desc": "访问即梦网页版，保证 4K 生成时的稳定渲染",
+          "url": "https://www.google.com/chrome"
+        },
+        {
+          "name": "提示词草稿文档",
+          "desc": "提前写好画面描述、镜头运动、风格关键词，方便反复微调",
+          "url": "https://docs.qq.com"
+        },
+        {
+          "name": "参考图/首帧图（可选）",
+          "desc": "用图生视频时提供构图和色调参考，提升可控性",
+          "url": "https://jimeng.jianying.com"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：登录即梦并锁定 Seedance 2.5 模型",
+          "content": "打开即梦官网并登录账号，进入「视频生成」页面。在模型选择处确认切换到 Seedance 2.5，而不是默认的低版本模型。检查输出分辨率选项，优先选择 4K 或最高画质档位。",
+          "tip": "如果页面没有显示 2.5，先刷新或退出重进；模型版本选错会直接导致画质和运动效果差一截。"
+        },
+        {
+          "title": "第2步：按「主体+动作+环境+镜头+风格」写提示词",
+          "content": "用结构化模板写提示词：先写主体（如「一位穿红色风衣的女性」），再写动作（「缓慢转身回望」），接着写环境（「雨夜霓虹街道」），然后写镜头（「中景跟拍，浅景深」），最后写风格（「电影感，4K 超清，胶片颗粒」）。把提示词控制在 80-150 字，避免堆砌矛盾描述。",
+          "tip": "镜头运动词要具体，比如「缓慢推近」「横向平移」「低角度仰拍」，比只写「动态感」有效得多。"
+        },
+        {
+          "title": "第3步：设置时长、比例与运动强度",
+          "content": "根据发布平台选择画幅：竖屏 9:16 适合抖音/Reels，横屏 16:9 适合 B 站/YouTube。时长先选 5 秒左右做测试，确认效果后再生成更长版本。运动强度从中档开始，避免画面崩坏。",
+          "tip": "第一次生成不要直接拉满时长和运动强度，先用短片段验证提示词是否被正确理解。"
+        },
+        {
+          "title": "第4步：生成并逐项检查画面质量",
+          "content": "点击生成后等待渲染完成，重点检查四件事：主体是否变形、运动是否连贯、背景是否闪烁、4K 细节是否清晰。如果出现人物脸部崩坏，优先减少动作幅度或简化背景描述。如果画面太静，增加一个明确的镜头运动词。",
+          "tip": "每次只改一个变量（提示词/运动强度/时长），这样能快速定位是哪一项影响了成片。"
+        },
+        {
+          "title": "第5步：导出 4K 成片并做轻量后期",
+          "content": "确认效果后导出最高画质版本，导入剪映或 Premiere 做简单处理：加背景音乐、调色、补字幕。如果需要多个镜头，重复第 2-4 步生成不同片段，再在剪辑软件里拼接成完整叙事。",
+          "tip": "导出后先在小屏手机上看一遍，4K 细节在手机端压缩后是否仍然清晰，决定了最终发布效果。"
+        }
+      ],
+      "expected_result": "你将得到一段 4K 分辨率、画面稳定、主体运动连贯的 AI 生成视频片段，可直接用于短视频发布或作为分镜素材。多次生成后能积累一套可复用的提示词模板，形成稳定的内容产出流程。",
+      "faq": [
+        {
+          "q": "生成 4K 视频很慢或失败怎么办？",
+          "a": "先降低时长到 3-5 秒测试，确认提示词没问题再生成完整版；同时检查网络和浏览器是否最新版，避开高峰时段。"
+        },
+        {
+          "q": "人物脸部总是变形怎么解决？",
+          "a": "减少大幅动作描述，避免「快速奔跑」「剧烈转身」等词；可改用图生视频，用清晰首帧图锁定人物形象。"
+        },
+        {
+          "q": "提示词写多长合适？",
+          "a": "80-150 字为宜，按「主体+动作+环境+镜头+风格」五段式写，避免互相矛盾的描述堆叠。"
+        },
+        {
+          "q": "生成结果和我想的不一样，如何提高可控性？",
+          "a": "每次只改一个变量，并加入具体镜头词；必要时用参考图控制构图和色调，比纯文字更稳定。"
+        },
+        {
+          "q": "4K 视频能直接商用吗？",
+          "a": "需查看即梦平台的最新用户协议和版权条款，不同账号类型和用途的授权范围不同，商用前务必确认。"
+        }
+      ],
+      "variants": [
+        "变体1：图生视频——先用即梦或 Midjourney 生成一张高质量首帧图，再上传作为参考图生成视频，人物和构图可控性大幅提升。",
+        "变体2：多镜头叙事——把一段 30 秒脚本拆成 4-6 个 5 秒镜头，分别用不同提示词生成，再在剪映里拼接加转场，做成完整短片。",
+        "变体3：产品广告预演——用产品图做首帧，提示词写「产品缓慢旋转，棚拍灯光，4K 微距细节」，快速产出电商主图视频或广告分镜。"
+      ],
+      "summary": "用结构化提示词锁定 Seedance 2.5 的 4K 能力，小步测试、单变量迭代，就能把文字稳定变成可用的高清视频素材。"
+    },
+    "generated_at": "2026-11-19T17:06:40.447925+00:00",
+    "play_meta": {
+      "title_zh": "用即梦Seedance 2.5生成4K AI视频",
+      "title_en": "这这这居然是AI拍的？即梦Seedance 2.5 4K上手实测，细节惊艳",
+      "source_id": "zhidx-play",
+      "source_name": "智东西 AI 工具评测",
+      "source_label": "权威媒体",
+      "source_tier": "A",
+      "source_color": "blue",
+      "source_emoji": "🔵",
+      "play_type": "tool_chain",
+      "difficulty": 4,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://zhidx.com/p/611985.html",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 8.5
+    }
+  },
+  "cnblogs-play-b08007d8": {
+    "_sig": "手把手教你：开了混合精度就 NaN，GradScaler 到底在做什么｜AI工程师踩坑实录·第11篇 - 大雾的小屋|https://www.cnblogs.com/dawudexiaowu/p/23717125",
+    "tutorial": {
+      "intro": "混合精度训练中，GradScaler 是防止 fp16 梯度下溢的必备工具，但用不好反而会引入 NaN 问题。本教程教你用 GradScaler 的调试接口快速定位并修复 NaN，让模型训练不再“装死”。",
+      "background": "fp16 的数值范围只有 6.1e-5 到 65504，远小于 fp32，梯度很容易下溢成 0 或上溢成 inf。下溢时模型静默失效，loss 不降但也不报错，排查起来非常痛苦。GradScaler 通过动态缩放梯度来缓解这个问题，但它本身也会因为 scale 过大而引发 inf。掌握 GradScaler 的调试技巧，能让你在混合精度训练中快速定位 NaN 根因，节省大量试错时间。",
+      "prerequisites": [
+        {
+          "name": "PyTorch 2.0+",
+          "desc": "提供 torch.cuda.amp.GradScaler 及调试接口",
+          "url": "https://pytorch.org/get-started/locally/"
+        },
+        {
+          "name": "NVIDIA GPU（支持 fp16）",
+          "desc": "如 RTX 30/40 系列、A100 等，用于实际运行混合精度训练",
+          "url": "https://developer.nvidia.com/cuda-gpus"
+        },
+        {
+          "name": "Python 3.8+",
+          "desc": "运行环境",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "一个可复现的混合精度训练脚本",
+          "desc": "用于注入调试逻辑，建议从简单模型开始",
+          "url": "https://pytorch.org/tutorials/recipes/recipes/amp_recipe.html"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：开启 GradScaler 的调试日志",
+          "content": "在创建 GradScaler 时传入 init_scale 和 growth_interval 参数，并设置环境变量 TORCH_AMP_DEBUG=1 或使用 torch.cuda.amp.GradScaler(init_scale=2**16, growth_interval=100)。然后在 scaler.step(optimizer) 前后打印 scaler.get_scale()，观察 scale 是否频繁下降。如果 scale 持续下降，说明梯度频繁上溢，需要降低初始 scale。",
+          "tip": "先用较小的 init_scale（如 2**12）跑几百步，确认稳定后再逐步调大。"
+        },
+        {
+          "title": "第2步：定位 NaN 出现的具体迭代和层",
+          "content": "在训练循环中加入条件判断：if not torch.isfinite(loss): print(f'NaN at step {step}') 并保存当前 batch 数据。然后使用 torch.autograd.set_detect_anomaly(True) 包裹前向和反向传播，PyTorch 会打印出产生 NaN 的具体算子。结合 scaler.unscale_(optimizer) 后检查各参数梯度是否有限，快速缩小问题范围。",
+          "tip": "set_detect_anomaly 会显著拖慢训练，只在复现 NaN 的短循环中开启。"
+        },
+        {
+          "title": "第3步：检查梯度裁剪与 GradScaler 的配合",
+          "content": "混合精度下必须先调用 scaler.unscale_(optimizer) 再执行 torch.nn.utils.clip_grad_norm_，否则裁剪的是被放大后的梯度，导致裁剪失效或误判。确认代码顺序为：scaler.scale(loss).backward() → scaler.unscale_(optimizer) → clip_grad_norm_ → scaler.step(optimizer) → scaler.update()。顺序错误是 NaN 的常见诱因。",
+          "tip": "用 scaler.get_scale() 在 unscale 前后打印，确认梯度数值范围是否合理。"
+        },
+        {
+          "title": "第4步：调整 GradScaler 参数并加入跳过机制",
+          "content": "如果 NaN 偶发，可设置 scaler = GradScaler(init_scale=2**14, growth_factor=1.5, backoff_factor=0.5, growth_interval=2000)。当 scaler.step 检测到 inf 时会自动跳过该步并降低 scale，但你需要用 scaler.update() 后检查 scaler.get_scale() 是否骤降。若骤降频繁，说明模型对 fp16 敏感，可对部分层（如 LayerNorm）保留 fp32。",
+          "tip": "在 scaler.update() 后加一行 if scaler.get_scale() < 1: print('scale too low, check model') 作为预警。"
+        },
+        {
+          "title": "第5步：用最小复现脚本验证修复效果",
+          "content": "将出问题的 batch 数据固定下来，写一个最小循环：只跑该 batch 的前向+反向，重复 100 次，观察 loss 和 scale 变化。修复后应看到 loss 稳定下降、scale 不再持续下降、无 NaN 输出。最后把修复逻辑合并回主训练脚本，跑完整 epoch 确认。",
+          "tip": "保存修复前后的 scaler.get_scale() 曲线对比图，便于复盘。"
+        }
+      ],
+      "expected_result": "训练过程中 loss 正常下降，scaler.get_scale() 保持稳定或缓慢增长，不再出现 NaN 或 inf；若偶发上溢，scaler 能自动降 scale 并跳过该步，训练继续。你能明确知道 NaN 来自哪一层或哪个操作，并有针对性地修复。",
+      "faq": [
+        {
+          "q": "GradScaler 的 scale 一直下降怎么办？",
+          "a": "说明梯度频繁上溢，先降低 init_scale（如 2**12），检查是否有梯度爆炸，并确认 unscale_ 在 clip 之前调用。"
+        },
+        {
+          "q": "为什么加了 GradScaler 反而出现 NaN？",
+          "a": "常见原因是 scale 过大导致梯度上溢，或 unscale_ 与 clip 顺序错误。用 set_detect_anomaly 定位具体算子。"
+        },
+        {
+          "q": "所有层都需要 fp16 吗？",
+          "a": "不是。LayerNorm、softmax、loss 计算等对数值敏感的操作建议保留 fp32，可用 torch.cuda.amp.autocast 的 enabled=False 局部关闭。"
+        },
+        {
+          "q": "CPU 上能用 GradScaler 吗？",
+          "a": "GradScaler 主要针对 CUDA fp16，CPU 上混合精度支持有限，建议在 GPU 上使用。"
+        },
+        {
+          "q": "如何判断是下溢还是上溢？",
+          "a": "下溢时梯度变 0，loss 不降但无报错；上溢时梯度变 inf，scaler 会降 scale。打印 unscale 后的梯度范数可区分。"
+        }
+      ],
+      "variants": [
+        "变体1：用 torch.cuda.amp.GradScaler 配合 torch.autograd.detect_anomaly 做自动化 NaN 捕获脚本，每次 NaN 自动保存 batch 和模型状态。",
+        "变体2：对模型不同子模块设置不同的 autocast 策略（如 embedding 用 fp32，线性层用 fp16），再用 GradScaler 统一管理，降低 NaN 概率。",
+        "变体3：将 GradScaler 的 scale 变化记录到 TensorBoard，结合梯度范数曲线做可视化监控，提前预警数值不稳定。"
+      ],
+      "summary": "GradScaler 不仅是防下溢的“电梯”，更是排查混合精度 NaN 的“听诊器”——用好它的调试接口和参数，就能让 fp16 训练既快又稳。"
+    },
+    "generated_at": "2026-11-19T17:06:51.274865+00:00",
+    "play_meta": {
+      "title_zh": "用GradScaler排查混合精度训练NaN问题",
+      "title_en": "手把手教你：开了混合精度就 NaN，GradScaler 到底在做什么｜AI工程师踩坑实录·第11篇 - 大雾的小屋",
+      "source_id": "cnblogs-play",
+      "source_name": "博客园 AI 教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
+      "difficulty": 4,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://www.cnblogs.com/dawudexiaowu/p/23717125",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 7.5
     }
   },
   "ifanr-play-24520f65": {
@@ -2743,224 +3396,6 @@
       "is_domestic": true,
       "tags": [],
       "playability_score": 6.5
-    }
-  },
-  "github-play-awesome-ai-agents-63d3bcc4": {
-    "_sig": "ai-boost/awesome-harness-engineering: Awesome list for AI agent harness engineer|https://github.com/ai-boost/awesome-harness-engineering",
-    "tutorial": {
-      "intro": "用 GitHub 上 5000+ Star 的 Awesome AI Agents 清单，快速搭建一套可落地的 AI Agent 工程化工具链，从提示词到可观测性一步到位。",
-      "background": "很多开发者做 AI Agent 时东拼西凑工具，缺乏系统性的工程化视角。Awesome AI Agents 清单系统整理了 harness engineering 相关的工具、模式、评估、记忆、MCP、权限、可观测性和编排方案。本教程带你按清单搭建一条最小可用的工具链，适合想从 Demo 走向生产级 Agent 的开发者。",
-      "prerequisites": [
-        {
-          "name": "Git 与 GitHub 账号",
-          "desc": "克隆清单仓库、提交自己的配置",
-          "url": "https://github.com"
-        },
-        {
-          "name": "Python 3.10+",
-          "desc": "运行清单中多数 Python 工具与示例",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "VS Code",
-          "desc": "编辑配置、浏览清单、调试 Agent",
-          "url": "https://code.visualstudio.com/"
-        },
-        {
-          "name": "Docker Desktop",
-          "desc": "隔离运行 MCP 服务与可观测性组件",
-          "url": "https://www.docker.com/products/docker-desktop/"
-        },
-        {
-          "name": "Awesome AI Agents 清单",
-          "desc": "本教程的核心参考资料",
-          "url": "https://github.com/ai-boost/awesome-harness-engineering"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：克隆清单并建立工具链地图",
-          "content": "执行 git clone https://github.com/ai-boost/awesome-harness-engineering 并打开 README。按清单分类（tools、patterns、evals、memory、MCP、permissions、observability、orchestration）在本地新建 toolchain.md，每类先各选 1 个候选工具，标注官网和许可证。不要贪多，先保证每类有且仅有一个主选。",
-          "tip": "用 VS Code 的 Markdown 预览边看清单边填表，避免遗漏分类。"
-        },
-        {
-          "title": "第2步：搭建提示词与编排层",
-          "content": "从清单的 patterns 和 orchestration 分类中选一个编排框架（如 LangGraph 或 CrewAI），按官方 quickstart 跑通一个两节点 Agent。把系统提示词抽成独立 prompt 模板文件，用变量占位符管理。在本地跑通一次「输入→规划→执行→输出」的最小闭环。",
-          "tip": "提示词模板用 Jinja2 或 f-string 均可，关键是版本化，建议放进 Git。"
-        },
-        {
-          "title": "第3步：接入记忆与 MCP 工具",
-          "content": "从 memory 分类选一个向量记忆方案（如 Chroma 或 Qdrant），按文档启动本地实例。再从 MCP 分类选一个官方 MCP Server，用 Docker 跑起来并在编排框架中注册。让 Agent 能调用一个外部工具并把结果写入记忆，验证读写链路。",
-          "tip": "MCP Server 先用官方示例，跑通后再换自定义工具，降低排错成本。"
-        },
-        {
-          "title": "第4步：加上评估与权限护栏",
-          "content": "从 evals 分类选一个评估框架（如 Ragas 或 DeepEval），为第2步的 Agent 写 3 条测试用例并跑分。再从 permissions 分类选一个权限方案，为工具调用加上白名单和人工确认开关。确保越权调用会被拦截并记录日志。",
-          "tip": "评估用例先覆盖正常路径和一条越权路径，后续再扩充边界用例。"
-        },
-        {
-          "title": "第5步：接入可观测性并固化工具链",
-          "content": "从 observability 分类选一个方案（如 Langfuse 或 Phoenix），用 Docker 启动并在 Agent 中接入 tracing。跑一次完整任务，在面板中查看调用链、耗时和 token 消耗。最后把 toolchain.md 补全为可复现的安装脚本和配置清单，提交到自己的仓库。",
-          "tip": "把 Docker Compose 和 .env.example 一起提交，别人 clone 后一条命令即可复现。"
-        }
-      ],
-      "expected_result": "你拥有一个可复现的 AI Agent 工程化工具链仓库：包含编排框架、提示词模板、记忆与 MCP 工具、评估用例、权限护栏和可观测性面板。运行一条命令即可启动全套服务，并在面板中看到完整的 Agent 调用链和评估分数。",
-      "faq": [
-        {
-          "q": "清单里工具太多，如何选择？",
-          "a": "按分类每类只选一个主选，优先选 Star 多、文档全、有 Docker 镜像的，跑通后再替换。"
-        },
-        {
-          "q": "没有 GPU 能跑吗？",
-          "a": "可以。记忆和可观测性组件用 CPU 即可，LLM 可调用云端 API，本地只跑编排和工具层。"
-        },
-        {
-          "q": "MCP 和普通工具调用有什么区别？",
-          "a": "MCP 是标准化协议，工具可跨 Agent 复用；普通调用是框架内私有实现，迁移成本更高。"
-        },
-        {
-          "q": "评估框架必须现在就加吗？",
-          "a": "建议尽早加，哪怕只有 3 条用例，也能防止后续改动导致回归。"
-        },
-        {
-          "q": "这套工具链能直接上生产吗？",
-          "a": "作为起点可以，但生产还需补充密钥管理、限流、审计和灰度发布等环节。"
-        }
-      ],
-      "variants": [
-        "变体1：只搭最小可观测链路——跳过记忆和评估，专注编排+权限+Langfuse，适合快速验证想法。",
-        "变体2：以 MCP 为中心——先搭 3 个 MCP Server，再用编排框架串联，适合工具型 Agent。",
-        "变体3：评估驱动开发——先写 10 条评估用例，再倒推选工具和提示词，适合对质量要求高的场景。"
-      ],
-      "summary": "以 Awesome 清单为地图，每类选一个工具跑通闭环，再用评估和可观测性固化，就能把 Agent 从 Demo 变成工程。"
-    },
-    "generated_at": "2026-11-07T06:33:55.103761+00:00",
-    "play_meta": {
-      "title_zh": "用Awesome清单搭建AI Agent工程化工具链",
-      "title_en": "ai-boost/awesome-harness-engineering: Awesome list for AI agent harness engineering: too",
-      "source_id": "github-play-awesome-ai-agents",
-      "source_name": "GitHub Awesome AI Agents",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 4,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://github.com/ai-boost/awesome-harness-engineering",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 7.5
-    }
-  },
-  "zhidx-play-610c663b": {
-    "_sig": "嘉实多推出Castrol CORE一体化方案，加速AI数据中心液冷规模化部署|https://zhidx.com/p/612470.html",
-    "tutorial": {
-      "intro": "这篇教程教你用 Castrol CORE 方案（一套针对 AI 数据中心液冷部署的规划框架）来系统性地设计液冷方案，从需求评估到落地验证，一步到位。",
-      "background": "随着 AI 算力需求爆发，数据中心功率密度飙升，传统风冷已力不从心，液冷成为必选项。但液冷部署涉及热管理、基础设施改造、成本与运维等多重挑战，很多团队缺乏系统规划方法。Castrol CORE 方案在数据中心标准大会上提出，旨在提供一套结构化的液冷部署规划流程，帮助工程师快速评估可行性、选型并制定实施路径。本教程基于智东西的报道，将这套方案拆解为可操作的步骤，适合数据中心架构师、运维负责人及 AI 基础设施规划者参考。",
-      "prerequisites": [
-        {
-          "name": "Castrol CORE 方案资料",
-          "desc": "了解 CORE 框架的基本概念和评估维度，可参考智东西报道原文",
-          "url": "https://zhidx.com/p/612470.html"
-        },
-        {
-          "name": "数据中心热管理基础工具（如 Excel 或在线计算器）",
-          "desc": "用于记录功率密度、冷却需求等参数并进行简单计算",
-          "url": "https://www.microsoft.com/zh-cn/microsoft-365/excel"
-        },
-        {
-          "name": "液冷技术选型参考（如冷板式、浸没式对比表）",
-          "desc": "辅助判断适合的液冷类型，可自行整理或使用行业报告",
-          "url": "https://www.vertiv.com/zh-cn/"
-        },
-        {
-          "name": "AI 数据中心机柜布局图或 CAD 图纸",
-          "desc": "用于规划液冷管路和 CDU 位置",
-          "url": "https://www.autodesk.com.cn/products/autocad/overview"
-        },
-        {
-          "name": "成本估算模板",
-          "desc": "评估液冷部署的初期投资和运营成本",
-          "url": "https://www.smartsheet.com/free-cost-estimate-templates"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：明确 AI 负载与热密度需求",
-          "content": "收集目标 AI 集群的 GPU 型号、单机柜功率密度（kW/柜）、持续运行负载曲线。使用 Excel 列出每个机柜的峰值和平均热负荷，并标注未来 3 年的扩展计划。参考 Castrol CORE 方案中的评估维度，将负载分为高密度（>30kW/柜）、中密度（15-30kW/柜）和低密度（<15kW/柜）。",
-          "tip": "务必考虑 AI 训练任务的波动性，峰值热负荷可能比平均高 30% 以上，留足余量。"
-        },
-        {
-          "title": "第2步：选择液冷类型并匹配 CORE 方案模块",
-          "content": "根据第1步的热密度结果，对照 Castrol CORE 方案中的液冷选型建议：高密度机柜优先考虑浸没式液冷，中密度可选冷板式液冷，低密度可混合风冷。在 CORE 框架下，分别评估冷却液兼容性、CDU（冷量分配单元）容量、管路布局和运维可达性。制作一个选型对比表，列出每种方案的初投资、PUE 预期和改造难度。",
-          "tip": "冷板式液冷对现有数据中心改造更友好，浸没式则适合全新建设；可先用小规模试点验证。"
-        },
-        {
-          "title": "第3步：规划液冷基础设施布局",
-          "content": "基于选型结果，在机柜布局图上标注 CDU 位置、供回水管路走向、冷却液储罐和泄漏检测点。确保管路不与强电桥架交叉，并预留维护通道。使用 CAD 或 Visio 绘制液冷回路示意图，标注关键阀门和传感器位置。参考 CORE 方案中的可靠性要求，设计冗余回路（如 N+1 CDU）。",
-          "tip": "管路设计尽量缩短 CDU 到机柜的距离，减少泵功耗和冷却液用量；同时考虑未来扩容的接口预留。"
-        },
-        {
-          "title": "第4步：制定部署与验证计划",
-          "content": "编写分阶段部署计划：先进行小规模试点（如 2-3 个机柜），验证液冷系统在真实 AI 负载下的冷却效果和稳定性。定义关键指标：进出液温度、流量、压差、PUE 和泄漏报警响应时间。使用 CORE 方案中的检查清单，逐项确认安装质量（如管路密封性、冷却液浓度）。试点运行 2-4 周后，根据数据调整参数再全面推广。",
-          "tip": "试点阶段务必安装临时流量计和温度传感器，收集基线数据；同时制定泄漏应急预案并演练。"
-        },
-        {
-          "title": "第5步：成本与 ROI 分析",
-          "content": "汇总液冷部署的初投资（CDU、管路、冷却液、改造施工）和运营成本（泵功耗、冷却液补充、维护）。对比风冷方案的 PUE 和电费，计算投资回收期。参考 CORE 方案中的经济性评估模型，考虑碳税或补贴等政策因素。输出一份简明的 ROI 报告，供决策层审批。",
-          "tip": "不要忽略冷却液的生命周期成本，某些液体需定期更换或过滤，长期费用可能较高。"
-        }
-      ],
-      "expected_result": "完成以上步骤后，你将得到一套完整的 AI 数据中心液冷部署规划文档，包括热密度评估表、液冷选型对比、基础设施布局图、分阶段部署计划和 ROI 分析报告。这套方案可直接用于内部评审或向供应商招标，显著降低液冷部署的盲目性和风险。",
-      "faq": [
-        {
-          "q": "Castrol CORE 方案是免费公开的吗？",
-          "a": "该方案在数据中心标准大会上提出，具体细节可能需要联系 Castrol 或查阅会议资料；本教程基于公开报道提炼框架，可灵活应用。"
-        },
-        {
-          "q": "没有液冷经验的小团队能直接用这套方法吗？",
-          "a": "可以，但建议先从冷板式液冷小规模试点开始，并邀请有经验的集成商参与第3步的布局设计。"
-        },
-        {
-          "q": "液冷部署最大的风险是什么？",
-          "a": "泄漏和冷却液兼容性是主要风险，务必在第4步试点中严格测试密封性，并选择与服务器材料兼容的冷却液。"
-        },
-        {
-          "q": "这套方案适用于现有数据中心的改造吗？",
-          "a": "适用，但需在第2步重点评估改造难度，冷板式液冷对现有风冷数据中心改造更友好，浸没式可能需要更大结构改动。"
-        }
-      ],
-      "variants": [
-        "变体1：将 CORE 方案用于边缘 AI 数据中心——针对小规模、高密度边缘节点，简化布局和成本分析步骤，重点评估快速部署和远程运维。",
-        "变体2：结合数字孪生工具——在第3步布局规划时，使用 CFD 仿真软件（如 6SigmaET）模拟液冷流场和热分布，提前发现热点。",
-        "变体3：扩展到多站点液冷部署——在第5步后增加标准化模板，将规划流程复制到多个数据中心，统一选型和运维规范。"
-      ],
-      "summary": "用 Castrol CORE 框架把液冷部署从“拍脑袋”变成“按清单执行”，先算热密度、再选类型、画布局、做试点、算清账，五步搞定 AI 数据中心液冷规划。"
-    },
-    "generated_at": "2026-11-19T17:07:15.487404+00:00",
-    "play_meta": {
-      "title_zh": "用Castrol CORE方案规划AI数据中心液冷部署",
-      "title_en": "嘉实多推出Castrol CORE一体化方案，加速AI数据中心液冷规模化部署",
-      "source_id": "zhidx-play",
-      "source_name": "智东西 AI 工具评测",
-      "source_label": "权威媒体",
-      "source_tier": "A",
-      "source_color": "blue",
-      "source_emoji": "🔵",
-      "play_type": "tool_chain",
-      "difficulty": 4,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://zhidx.com/p/612470.html",
-      "is_domestic": true,
-      "tags": [],
-      "playability_score": 5.5
     }
   },
   "juejin-play-1b2eaa80": {
@@ -6132,460 +6567,6 @@
       "is_domestic": true,
       "tags": [],
       "playability_score": 6.5
-    }
-  },
-  "cnblogs-play-fb0abe3a": {
-    "_sig": "AI Agent 技术全景解析 —— 从提示词工程到高级智能体构建 - vivo互联网技术|https://www.cnblogs.com/vivotech/p/23638332",
-    "tutorial": {
-      "intro": "想不想拥有一个能自己规划、自己调工具、自己交付结果的「数字员工」？这篇教程带你用 LlamaIndex 五层技术栈，从零搭出一个真正能跑起来的自主 AI Agent。",
-      "background": "很多人做 AI 应用还停留在「写个提示词问一句答一句」的阶段，但真正的 Agent 需要能拆解任务、检索知识、调用工具、循环纠错。博客园这篇《用五层技术栈搭建自主AI Agent》把提示词工程、RAG、Harness 工程、ReAct 循环、多智能体协作串成了一条完整链路。本教程把它拆成可动手的步骤，适合有一定 Python 基础、想从「调 API」进阶到「造系统」的开发者。跟着做完，你会得到一个能自主完成多步任务的 Agent 原型。",
-      "prerequisites": [
-        {
-          "name": "Python 3.10+",
-          "desc": "运行环境，建议用 conda 或 venv 建虚拟环境",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "LlamaIndex",
-          "desc": "核心框架，负责 Agent、工具、RAG 的编排",
-          "url": "https://docs.llamaindex.ai/"
-        },
-        {
-          "name": "OpenAI API Key（或兼容接口）",
-          "desc": "驱动 LLM 推理，也可换成本地 Ollama 模型",
-          "url": "https://platform.openai.com/api-keys"
-        },
-        {
-          "name": "Tavily Search API",
-          "desc": "给 Agent 联网搜索能力的工具，免费额度够测试",
-          "url": "https://tavily.com/"
-        },
-        {
-          "name": "Chroma 或 FAISS",
-          "desc": "向量库，用于 RAG 层存储外部知识",
-          "url": "https://www.trychroma.com/"
-        },
-        {
-          "name": "VS Code + Jupyter",
-          "desc": "边写边调，方便观察 Agent 的每一步输出",
-          "url": "https://code.visualstudio.com/"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：搭好环境并跑通最小 LLM 调用",
-          "content": "先创建虚拟环境，执行 pip install llama-index llama-index-llms-openai llama-index-tools-tavily-research chromadb。然后在 Jupyter 里配置 OPENAI_API_KEY 环境变量，用 Settings.llm = OpenAI(model=\"gpt-4o-mini\") 设置全局模型，发一句「你好」验证连通。这一步的目的是确认底座没问题，后面所有层都依赖它。",
-          "tip": "如果用的是国内兼容接口，记得同时设置 api_base，并把模型名换成对应名称，否则会报 404。"
-        },
-        {
-          "title": "第2步：写好提示词层，把意图说清楚",
-          "content": "提示词层是 Agent 的「大脑说明书」。用 ChatPromptTemplate 定义系统角色，明确写出：你是任务规划助手，输出必须是 JSON，包含 task 和 steps 两个字段。把用户原始需求套进模板，先让模型只做规划、不执行，观察它拆出的步骤是否合理。反复调 2-3 轮措辞，直到拆解稳定。",
-          "tip": "在提示词里加一句「如果信息不足，先列出需要澄清的问题」，能显著减少 Agent 瞎编。"
-        },
-        {
-          "title": "第3步：接入 RAG 层，让 Agent 有外部知识",
-          "content": "准备一份 PDF 或 Markdown 知识文档，用 SimpleDirectoryReader 读取，配合 VectorStoreIndex 建索引并持久化到 Chroma。把索引封装成 QueryEngineTool，描述写成「用于查询内部知识库」。这样 Agent 在规划时就能判断什么时候该查资料，而不是全靠模型记忆。",
-          "tip": "工具描述（description）写得越具体，Agent 选工具的准确率越高，别偷懒只写「查询工具」。"
-        },
-        {
-          "title": "第4步：用 ReAct 循环把工具串起来",
-          "content": "用 ReActAgent 或 FunctionAgent 把上一步的 RAG 工具和 Tavily 搜索工具一起注册进去。设置 max_iterations=10 防止死循环，然后丢一个多步任务，比如「查一下 LlamaIndex 最新版本，并对比我知识库里的旧版本差异」。观察日志里 Thought → Action → Observation 的循环过程，确认它真的在自主决策。",
-          "tip": "第一次跑建议把 verbose 打开，逐条看 Agent 的思考轨迹，出问题一眼就能定位是哪一层断了。"
-        },
-        {
-          "title": "第5步：加 Harness 工程，让运行稳定可靠",
-          "content": "Harness 层负责兜底：给每次工具调用加 try/except 和超时，失败时把错误信息回传给模型让它重试；用 memory 保存对话上下文；对最终输出做格式校验，不合格就触发一次自我修正。再包一层日志，记录每步耗时和 token 消耗。这一步做完，Agent 才从「玩具」变成「能交付」的系统。",
-          "tip": "给工具调用设 30 秒超时，并限制重试 2 次，能避免 Agent 卡死在某个坏接口上。"
-        },
-        {
-          "title": "第6步：进阶到多智能体协作（可选）",
-          "content": "如果任务复杂，可以用 AgentWorkflow 定义「规划者」和「执行者」两个角色：规划者负责拆任务，执行者负责调工具，二者通过共享上下文传递结果。跑一个「调研 + 写报告」的组合任务，观察两个 Agent 如何交接。这一步是五层栈的顶层，也是最能体现「数字员工」形态的地方。",
-          "tip": "多智能体容易互相甩锅，给每个角色写死职责边界和输出格式，协作会顺畅很多。"
-        }
-      ],
-      "expected_result": "你会得到一个能接收自然语言任务、自主拆解步骤、按需调用知识库和搜索工具、并在出错时自我修正的 Agent 原型。在 Jupyter 里能看到完整的 Thought/Action/Observation 轨迹，最终输出一份结构化结果，比如版本对比报告或调研摘要。",
-      "faq": [
-        {
-          "q": "没有 OpenAI Key 能玩吗？",
-          "a": "可以，用 Ollama 跑本地模型（如 qwen2.5），把 Settings.llm 换成 Ollama 即可，但工具调用能力会弱一些，建议选支持 function calling 的模型。"
-        },
-        {
-          "q": "ReAct 循环一直转不停怎么办？",
-          "a": "设置 max_iterations 上限，并在提示词里要求「信息足够时立即输出 Final Answer」，同时检查工具描述是否让模型误以为还要继续查。"
-        },
-        {
-          "q": "RAG 检索结果不相关怎么调？",
-          "a": "先调 chunk_size 和 similarity_top_k，再考虑换 embedding 模型；也可以在 QueryEngineTool 的描述里限定适用范围，减少误触发。"
-        },
-        {
-          "q": "五层必须全上吗？",
-          "a": "不必。简单任务提示词 + 工具就够；RAG 和 Harness 按需加；多智能体只在任务确实需要分工时才上，否则是过度设计。"
-        },
-        {
-          "q": "这套东西能上生产吗？",
-          "a": "原型可以，生产还需要加鉴权、限流、可观测性和人工审核节点，Harness 层要补得更厚。"
-        }
-      ],
-      "variants": [
-        "变体1：把搜索工具换成数据库查询工具，做一个能自主查业务数据的「分析助手」，适合运营和 BI 场景。",
-        "变体2：用多智能体做「客服 + 工单」流水线，一个 Agent 分类问题，一个 Agent 查知识库回复，一个 Agent 决定是否转人工。",
-        "变体3：把 Harness 层做成可配置的 YAML，把工具、超时、重试策略外置，快速复用到不同业务 Agent 上。"
-      ],
-      "summary": "五层技术栈的精髓不是堆技术，而是让每一层各司其职：提示词定意图、RAG 补知识、Harness 保稳定、ReAct 给自主、多智能体做分工，串起来才是一个能交付结果的数字员工。"
-    },
-    "generated_at": "2026-11-12T08:40:50.943364+00:00",
-    "play_meta": {
-      "title_zh": "用五层技术栈搭建自主AI Agent",
-      "title_en": "AI Agent 技术全景解析 —— 从提示词工程到高级智能体构建 - vivo互联网技术",
-      "source_id": "cnblogs-play",
-      "source_name": "博客园 AI 教程",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "prompt",
-      "difficulty": 4,
-      "time_estimate": "5min",
-      "tools": [
-        "LlamaIndex"
-      ],
-      "link": "https://www.cnblogs.com/vivotech/p/23638332",
-      "is_domestic": true,
-      "tags": [],
-      "playability_score": 6.5
-    }
-  },
-  "ifanr-play-b0fbc34c": {
-    "_sig": "10 亿 Token 开源万只假鸟， AI 伪科普正在「污染」下一代的常识|https://www.ifanr.com/1688897",
-    "tutorial": {
-      "intro": "用 AI 批量生成以假乱真的「假鸟图鉴」，实测伪科普内容对信息环境的污染路径，并学会识别与反制。",
-      "background": "爱范儿 AI 应用曾报道，有人用 AI 批量生成虚构鸟类的图鉴页面，配上看似专业的描述和分类信息，在社交媒体上快速传播。这类内容利用公众对自然科普的信任，混淆真实物种信息，甚至被当作教学素材二次扩散。本教程复现这一过程，目的是让内容创作者、科普工作者和普通用户理解伪科普的生成逻辑，从而提升辨识能力，并在自己的项目中避免类似污染。",
-      "prerequisites": [
-        {
-          "name": "ChatGPT / Claude / 文心一言",
-          "desc": "生成虚构鸟类的名称、形态描述、习性等文本内容",
-          "url": "https://chat.openai.com"
-        },
-        {
-          "name": "Midjourney / DALL·E 3 / Stable Diffusion",
-          "desc": "根据文本描述生成鸟类图像",
-          "url": "https://www.midjourney.com"
-        },
-        {
-          "name": "Canva / Figma",
-          "desc": "将文本和图像排版成图鉴卡片样式",
-          "url": "https://www.canva.com"
-        },
-        {
-          "name": "Notion / 飞书文档",
-          "desc": "批量管理生成的鸟类条目和元数据",
-          "url": "https://www.notion.so"
-        },
-        {
-          "name": "浏览器 + 搜索引擎",
-          "desc": "用于事后核查真实物种信息，对比验证",
-          "url": "https://www.google.com"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：设计虚构鸟类的生成模板",
-          "content": "在 ChatGPT 中输入提示词：『你是一位鸟类学家，请生成 10 种虚构但看起来合理的鸟类，每种包含：中文名、拉丁学名、科属、体长体重、羽色描述、栖息地、食性、叫声拟声词、分布区域。要求名称和特征符合分类学逻辑，但所有物种均为虚构。输出为表格。』将结果保存到 Notion 表格中，作为图鉴的文本底稿。",
-          "tip": "提示词中加入『看起来合理』和『符合分类学逻辑』，能让虚构内容更具迷惑性，也更能暴露伪科普的套路。"
-        },
-        {
-          "title": "第2步：用 AI 绘图生成鸟类图像",
-          "content": "从表格中挑选 5 个条目，将每个条目的羽色描述和栖息地转化为英文提示词，例如：『A small bird with iridescent blue-green plumage, long curved beak, perched on a mossy branch in a cloud forest, scientific illustration style, white background』。在 Midjourney 或 DALL·E 3 中逐条生成图像，选择最像真实图鉴的版本下载。",
-          "tip": "在提示词末尾加上『scientific illustration, field guide style』，生成的图像会更接近真实图鉴的视觉风格。"
-        },
-        {
-          "title": "第3步：排版成图鉴卡片",
-          "content": "在 Canva 中新建 A4 竖版画布，将鸟类图像放在上半部分，下半部分用文本框填入第 1 步生成的名称、学名、体长体重、分布区域等信息。统一字体和配色（建议使用衬线字体和大地色系），每张卡片底部加一行小字『示例图鉴·非真实物种』。导出为 PNG 或 PDF。",
-          "tip": "即使出于实验目的，也务必在卡片上标注『非真实物种』，避免内容被截图传播后造成误导。"
-        },
-        {
-          "title": "第4步：模拟传播与污染检测",
-          "content": "将 3-5 张图鉴卡片发到一个私密社交群或仅自己可见的社交媒体账号，观察是否有朋友或算法将其当作真实科普内容互动。同时，用图片反向搜索和关键词搜索检查是否有真实物种与你的虚构物种高度相似，记录混淆点。",
-          "tip": "不要公开发布未标注的虚构图鉴，实验应在可控范围内进行，重点观察『哪些特征最容易让人信以为真』。"
-        },
-        {
-          "title": "第5步：撰写伪科普污染分析报告",
-          "content": "整理实验记录：哪些虚构名称最像真实物种、哪些图像细节最容易误导、传播中出现了哪些错误解读。用 500 字左右总结 AI 伪科普的典型特征（如过度完美的羽色、模糊的分布区域、缺乏观察者信息等），并给出 3 条识别建议。",
-          "tip": "报告可以发布在博客或社交媒体，但务必强调这是实验性内容，并附上真实物种核查链接（如 IUCN 红色名录、中国观鸟记录中心）。"
-        }
-      ],
-      "expected_result": "你将得到一套 5-10 个虚构鸟类的图鉴卡片（含文本和图像），一份传播观察记录，以及一篇关于 AI 伪科普污染的分析报告。你能够清晰说出 AI 生成伪科普的典型破绽，并在未来遇到类似内容时快速识别。",
-      "faq": [
-        {
-          "q": "这样生成假图鉴会不会误导别人？",
-          "a": "本教程强调在可控范围内实验，且每张卡片必须标注『非真实物种』。目的是研究伪科普的生成逻辑，而非传播虚假信息。公开发布时请明确说明实验性质。"
-        },
-        {
-          "q": "没有绘画基础，能用免费工具完成吗？",
-          "a": "可以。用 ChatGPT 免费版生成文本，用 Bing Image Creator（DALL·E 3）免费生成图像，用 Canva 免费版排版，全程零成本。"
-        },
-        {
-          "q": "如何判断一个鸟类图鉴是 AI 生成的？",
-          "a": "注意几个信号：图像过于完美、缺乏真实拍摄的环境光影；学名不符合拉丁文构词规则；分布区域描述模糊或与已知物种重叠；没有观察者、拍摄时间和地点等元数据。"
-        },
-        {
-          "q": "这个玩法适合什么人？",
-          "a": "适合科普创作者、内容审核人员、媒体素养教育者，以及对 AI 生成内容辨识感兴趣的普通用户。"
-        },
-        {
-          "q": "生成的内容可以商用吗？",
-          "a": "不建议。虚构物种图鉴若未明确标注，可能构成虚假信息传播。商用前必须获得平台合规审查，并确保不误导消费者。"
-        }
-      ],
-      "variants": [
-        "变体1：将鸟类替换为虚构植物或昆虫，生成『假植物图鉴』，观察不同生物类别的伪科普传播差异。",
-        "变体2：用 AI 生成真实物种的错误信息（如把麻雀的分布区域写成南美洲），测试社交平台的纠错机制和用户辨识能力。",
-        "变体3：制作『真伪混合图鉴』，一半真实物种一半虚构物种，让朋友找出假物种，作为科普互动游戏。"
-      ],
-      "summary": "用 AI 批量生成假鸟图鉴不是为了造假，而是通过亲手复现伪科普的生产链，学会识别 AI 内容的破绽，并在自己的创作中守住真实与虚构的边界。"
-    },
-    "generated_at": "2026-11-11T08:07:43.136040+00:00",
-    "play_meta": {
-      "title_zh": "用AI批量生成假鸟图鉴，实测伪科普污染",
-      "title_en": "10 亿 Token 开源万只假鸟， AI 伪科普正在「污染」下一代的常识",
-      "source_id": "ifanr-play",
-      "source_name": "爱范儿 AI 应用",
-      "source_label": "权威媒体",
-      "source_tier": "A",
-      "source_color": "blue",
-      "source_emoji": "🔵",
-      "play_type": "tool_chain",
-      "difficulty": 4,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://www.ifanr.com/1688897",
-      "is_domestic": true,
-      "tags": [],
-      "playability_score": 6.5
-    }
-  },
-  "cnblogs-play-fde98acb": {
-    "_sig": "AI是良师益友，跟他学Ubuntu server2604搭建docker环境 - 数据酷软件|https://www.cnblogs.com/datacool/p/23645223",
-    "tutorial": {
-      "intro": "跟着AI一步步在Ubuntu 26.04上搭建Docker环境，零基础也能照做，顺便学点Linux运维硬技能。",
-      "background": "一位47岁的大龄程序员码农阿峰，靠Linux技能保住了饭碗，但自觉不够强，于是用AI辅助学习Ubuntu Server 26.04上搭建Docker环境。这个玩法适合刚接触Linux服务器、想快速上手容器化部署的开发者或运维新手。通过AI对话式引导，你能避开常见坑，把环境搭得又稳又快。整个过程也是练习“用AI学新东西”的元技能。",
-      "prerequisites": [
-        {
-          "name": "Ubuntu Server 26.04 LTS 镜像",
-          "desc": "操作系统安装源，建议用官方ISO",
-          "url": "https://ubuntu.com/download/server"
-        },
-        {
-          "name": "一台虚拟机或云服务器",
-          "desc": "用于安装Ubuntu Server，本地可用VirtualBox/VMware，云端可选阿里云/腾讯云轻量服务器",
-          "url": "https://www.virtualbox.org/"
-        },
-        {
-          "name": "SSH客户端",
-          "desc": "远程连接服务器，Windows可用PuTTY或Windows Terminal，macOS/Linux用终端",
-          "url": "https://www.putty.org/"
-        },
-        {
-          "name": "AI对话工具",
-          "desc": "用于向AI提问获取命令和排错建议，如ChatGPT、Claude、文心一言等",
-          "url": "https://chat.openai.com/"
-        },
-        {
-          "name": "Docker官方文档",
-          "desc": "安装和配置的权威参考",
-          "url": "https://docs.docker.com/engine/install/ubuntu/"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：安装Ubuntu Server 26.04并完成基础配置",
-          "content": "用虚拟机或云服务器安装Ubuntu Server 26.04，安装时勾选OpenSSH Server以便远程连接。安装完成后用SSH登录，执行sudo apt update && sudo apt upgrade -y更新系统。接着设置主机名、时区，并创建一个有sudo权限的普通用户（如果安装时没建）。最后确认网络连通，能ping通外网。",
-          "tip": "安装时建议最小化安装，不要选额外的服务包，保持系统干净，后续按需安装。"
-        },
-        {
-          "title": "第2步：向AI提问获取Docker安装命令",
-          "content": "打开AI对话工具，输入提示词：“我是Ubuntu Server 26.04新手，请给出安装Docker Engine和Docker Compose的完整命令步骤，要求用官方apt仓库，并解释每条命令的作用。”AI会返回一套命令，包括安装依赖、添加GPG密钥、添加仓库、安装docker-ce等。你逐条复制执行，遇到不懂的就追问AI。",
-          "tip": "让AI解释每条命令，不要盲目复制粘贴，这是学习的关键。"
-        },
-        {
-          "title": "第3步：执行安装并配置Docker",
-          "content": "按照AI给出的命令依次执行：先安装ca-certificates、curl等依赖，然后添加Docker官方GPG密钥和apt仓库，接着sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y。安装完成后启动Docker服务并设为开机自启：sudo systemctl enable --now docker。最后把当前用户加入docker组，避免每次用sudo：sudo usermod -aG docker $USER，然后重新登录生效。",
-          "tip": "加入docker组后必须退出SSH重新登录，否则组权限不生效。"
-        },
-        {
-          "title": "第4步：验证安装并跑通第一个容器",
-          "content": "执行docker version和docker compose version确认版本信息。然后运行sudo docker run hello-world，看到“Hello from Docker!”说明安装成功。再尝试运行一个Nginx容器：docker run -d -p 8080:80 --name mynginx nginx，然后在浏览器访问服务器IP:8080，看到Nginx欢迎页即证明容器网络正常。",
-          "tip": "如果访问不了，检查服务器防火墙或云安全组是否放行了8080端口。"
-        },
-        {
-          "title": "第5步：用AI辅助排错与优化",
-          "content": "如果某步报错，把错误信息完整复制给AI，并说明你的操作环境，AI会给出排查思路。常见问题包括GPG密钥下载失败、仓库地址错误、权限不足等。根据AI建议修复后，再让AI给出Docker常用配置优化建议，比如配置国内镜像加速器、设置日志轮转等。最后把整个流程整理成自己的笔记。",
-          "tip": "让AI用“一步一步教我”的方式回答，避免它一次性给太多信息。"
-        }
-      ],
-      "expected_result": "Ubuntu 26.04上成功安装Docker Engine和Docker Compose，docker run hello-world正常输出，Nginx容器可通过浏览器访问，当前用户无需sudo即可执行docker命令，并且你拥有了一套AI辅助排错的实战经验。",
-      "faq": [
-        {
-          "q": "Ubuntu 26.04太新，Docker官方仓库支持吗？",
-          "a": "如果官方仓库尚未收录26.04代号，可以暂时使用相邻LTS版本的仓库（如24.04），或改用Ubuntu自带docker.io包，但版本较旧。建议先问AI确认最新支持情况。"
-        },
-        {
-          "q": "执行docker命令提示权限被拒绝怎么办？",
-          "a": "说明当前用户不在docker组。执行sudo usermod -aG docker $USER后退出SSH重新登录即可。"
-        },
-        {
-          "q": "拉取镜像很慢或失败怎么办？",
-          "a": "配置国内镜像加速器，在/etc/docker/daemon.json中加入registry-mirrors，然后sudo systemctl restart docker。具体地址可让AI推荐当前可用的。"
-        },
-        {
-          "q": "AI给的命令我不敢直接执行，怎么确保安全？",
-          "a": "让AI逐条解释命令作用，对涉及删除、修改系统文件的命令格外警惕，可以先在测试虚拟机里跑一遍。"
-        },
-        {
-          "q": "Docker Compose和docker-compose命令有什么区别？",
-          "a": "新版是Docker Compose插件，命令为docker compose（中间空格）；旧版是独立二进制docker-compose。安装docker-compose-plugin后使用前者。"
-        }
-      ],
-      "variants": [
-        "变体1：用AI辅助在Ubuntu 26.04上搭建Docker + Portainer可视化管理界面，通过Web UI管理容器。",
-        "变体2：让AI生成一个多容器应用（如Nginx + MySQL + WordPress）的docker-compose.yml，并一步步部署上线。",
-        "变体3：用AI制定Docker安全加固清单，包括非root运行容器、限制资源、配置防火墙等，并逐项实践。"
-      ],
-      "summary": "把AI当成随叫随到的Linux老师，边问边做边排错，在实战中把Docker环境搭起来，同时练就独立解决问题的能力。"
-    },
-    "generated_at": "2026-11-12T16:28:18.876835+00:00",
-    "play_meta": {
-      "title_zh": "跟AI学Ubuntu 26.04搭建Docker环境",
-      "title_en": "AI是良师益友，跟他学Ubuntu server2604搭建docker环境 - 数据酷软件",
-      "source_id": "cnblogs-play",
-      "source_name": "博客园 AI 教程",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 3,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://www.cnblogs.com/datacool/p/23645223",
-      "is_domestic": true,
-      "tags": [],
-      "playability_score": 6.5
-    }
-  },
-  "cnblogs-play-ce0a5f03": {
-    "_sig": "当 AI 成为数据的第一用户，工业物联底座该怎么重构 - 刘洪峰AIoT|https://www.cnblogs.com/yefanqiu/p/23639586",
-    "tutorial": {
-      "intro": "这个玩法教你用 AI 给每条工业测点数据打上「出身标签」，让数据自带来源、时间、设备等元信息，解决 AI 时代最贵的验证问题。",
-      "background": "在工业物联场景中，测点数据往往脱离设备上下文后变得难以追溯，导致 AI 分析结果无法验证。作者基于二十年工业物联经验，提出将测点从设备上「解耦」，让每条数据携带完整的出身信息（设备 ID、采集时间、点位类型、原始值等），从而在 AI 生成内容时能清晰说明数据出处。这种方法特别适合需要数据审计、故障回溯、AI 辅助决策的工业场景，能大幅提升数据可信度和验证效率。",
-      "prerequisites": [
-        {
-          "name": "Python 3.8+",
-          "desc": "编写数据处理脚本和 AI 调用逻辑",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "Pandas",
-          "desc": "处理测点数据表格，添加元数据列",
-          "url": "https://pandas.pydata.org/"
-        },
-        {
-          "name": "OpenAI API 或兼容大模型",
-          "desc": "用于生成数据描述和验证问答",
-          "url": "https://platform.openai.com/"
-        },
-        {
-          "name": "SQLite 或轻量数据库",
-          "desc": "存储带出身标签的测点数据",
-          "url": "https://www.sqlite.org/"
-        },
-        {
-          "name": "Jupyter Notebook",
-          "desc": "交互式开发和调试",
-          "url": "https://jupyter.org/"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：解构测点数据，提取出身字段",
-          "content": "从原始设备数据中分离出测点值与其元数据。每条测点记录至少包含：设备ID、测点名称、采集时间戳、原始值、单位、数据类型（模拟量/开关量）。用 Pandas 读取 CSV 或数据库表，将元数据列与数值列拆开，形成「数据+出身」的宽表结构。",
-          "tip": "如果原始数据缺少设备ID，可以用设备IP或采集网关编号临时替代，后续再补全。"
-        },
-        {
-          "title": "第2步：为每条数据生成出身标签（JSON 格式）",
-          "content": "编写 Python 函数，将每行测点数据转换为一个 JSON 对象，包含字段：device_id、point_name、timestamp、value、unit、data_type、source_system。使用 Pandas 的 apply 方法逐行生成，并存储到新列「lineage_tag」中。这样每条数据都自带完整的出身描述。",
-          "tip": "时间戳统一用 ISO 8601 格式（如 2025-03-21T10:30:00Z），方便后续 AI 解析和跨系统交换。"
-        },
-        {
-          "title": "第3步：构建 AI 提示词模板，让模型基于出身标签回答",
-          "content": "设计一个提示词模板，要求 AI 在回答问题时必须引用数据的出身标签。例如：「你是一个工业数据分析助手。以下每条数据都带有 lineage_tag，请根据这些标签回答用户问题，并在答案中注明数据来源的设备ID和时间。数据：{data_with_tags} 问题：{user_question}」。将上一步生成的带标签数据填入模板，调用大模型 API。",
-          "tip": "在提示词中明确要求 AI 输出格式如「根据设备 DEV-001 在 2025-03-21 10:30 的测点值…」，便于人工验证。"
-        },
-        {
-          "title": "第4步：存储与查询带出身标签的数据",
-          "content": "将带有 lineage_tag 的数据写入 SQLite 数据库，建立表结构包含 id、lineage_tag（JSON 文本）、value 等字段。编写查询函数，支持按设备ID、时间范围、测点名称过滤，并返回带标签的完整记录。这样后续任何 AI 分析都能直接读取带出身的数据。",
-          "tip": "SQLite 支持 JSON1 扩展，可以直接用 SQL 查询 lineage_tag 中的字段，例如 json_extract(lineage_tag, '$.device_id')。"
-        },
-        {
-          "title": "第5步：验证与回溯——让 AI 解释数据出处",
-          "content": "设计一个验证流程：给定一个 AI 生成的结论（如「设备A温度异常」），反向查询相关测点的出身标签，检查 AI 是否引用了正确的设备、时间和数值。可以编写一个简单的脚本，自动比对 AI 回答中的引用与数据库中的标签是否一致，输出验证报告。",
-          "tip": "初期可以人工抽检 10% 的 AI 回答，确认引用准确性，再逐步自动化。"
-        }
-      ],
-      "expected_result": "完成以上步骤后，你将得到一个带出身标签的测点数据库，每条数据都能说清来源；同时拥有一个 AI 问答接口，其回答会自动引用数据出处。你可以随时验证 AI 结论是否基于真实数据，大幅提升工业数据分析的可信度。",
-      "faq": [
-        {
-          "q": "没有工业设备数据，可以用模拟数据练习吗？",
-          "a": "可以。用 Python 的 Faker 库或手动构造 CSV，包含设备ID、时间戳、测点值等字段即可完整走通流程。"
-        },
-        {
-          "q": "必须用 OpenAI 吗？可以用国产大模型吗？",
-          "a": "任何支持 Chat Completions 接口的模型都可以，如通义千问、文心一言、DeepSeek 等，只需替换 API 地址和密钥。"
-        },
-        {
-          "q": "出身标签会不会让数据量暴增？",
-          "a": "每条数据增加约 200-500 字节的 JSON 文本，对于百万级测点约增加 200-500MB，可接受。若担心，可只存关键字段或使用压缩。"
-        },
-        {
-          "q": "如何保证 AI 不编造数据出处？",
-          "a": "在提示词中强制要求引用 lineage_tag，并在后处理中校验 AI 回答里的设备ID和时间是否存在于数据库，不存在则标记为可疑。"
-        },
-        {
-          "q": "这个玩法适合实时数据流吗？",
-          "a": "适合。可以在流处理管道（如 Kafka + Flink）中为每条消息附加出身标签，再写入数据库或直接送给 AI 分析。"
-        }
-      ],
-      "variants": [
-        "变体1：将出身标签扩展为「数据护照」，增加采集质量标记（如传感器精度、校准状态），让 AI 在分析时自动过滤低质量数据。",
-        "变体2：结合知识图谱，把设备、测点、时间、人员操作记录关联成图，AI 回答时不仅引用数据，还能追溯操作事件。",
-        "变体3：用 LangChain 构建工具链，让 AI 自动调用数据库查询函数获取带标签数据，实现「提问-查数据-引用出处」的全自动流程。"
-      ],
-      "summary": "给每条工业测点数据打上出身标签，让 AI 的每个结论都能追溯到具体设备、时间和原始值，用验证换信任。"
-    },
-    "generated_at": "2026-11-12T08:41:49.402710+00:00",
-    "play_meta": {
-      "title_zh": "给工业测点数据加出身标签的AIoT重构法",
-      "title_en": "当 AI 成为数据的第一用户，工业物联底座该怎么重构 - 刘洪峰AIoT",
-      "source_id": "cnblogs-play",
-      "source_name": "博客园 AI 教程",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 2,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://www.cnblogs.com/yefanqiu/p/23639586",
-      "is_domestic": true,
-      "tags": [],
-      "playability_score": 5.5
     }
   }
 }

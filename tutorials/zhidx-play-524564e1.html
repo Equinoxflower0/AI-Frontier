@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用AI批量生成假鸟图鉴，实测伪科普污染 - AI 玩法教程 · AI Frontier</title>
+<title>用DeepSeek Harness插件让AI自动生成视频 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-20
+      2026-11-21
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用AI批量生成假鸟图鉴，实测伪科普污染</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用DeepSeek Harness插件让AI自动生成视频</h1>
     
   </div>
 </header>
@@ -59,23 +59,27 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    爱范儿 AI 应用 · A级
+    智东西 AI 工具评测 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     权威媒体
   </span>
-  <a href="https://www.ifanr.com/1688897" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://zhidx.com/p/612799.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">用 AI 批量生成以假乱真的「假鸟图鉴」，实测伪科普内容对信息环境的污染路径，并学会识别与反制。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用DeepSeek Harness插件，让AI自动帮你生成视频，零代码也能玩转AI视频创作。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    爱范儿 AI 应用曾报道，有人用 AI 批量生成虚构鸟类的图鉴页面，配上看似专业的描述和分类信息，在社交媒体上快速传播。这类内容利用公众对自然科普的信任，混淆真实物种信息，甚至被当作教学素材二次扩散。本教程复现这一过程，目的是让内容创作者、科普工作者和普通用户理解伪科普的生成逻辑，从而提升辨识能力，并在自己的项目中避免类似污染。
+    智东西AI工具评测最近发现了一个能让DeepSeek Harness做设计的插件，通过简单的提示词和工具链配置，就能让AI自动生成视频。这个玩法适合内容创作者、营销人员或任何想快速制作短视频的人，无需专业视频编辑技能，只需几步配置即可产出可用的视频素材。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +100,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ChatGPT / Claude / 文心一言  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">生成虚构鸟类的名称、形态描述、习性等文本内容</div>
+      <div class="font-semibold text-slate-900">DeepSeek Harness  <a href="https://www.deepseek.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">核心AI工具，用于运行插件和生成视频</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Midjourney / DALL·E 3 / Stable Diffusion  <a href="https://www.midjourney.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">根据文本描述生成鸟类图像</div>
+      <div class="font-semibold text-slate-900">视频生成插件  <a href="https://zhidx.com/p/612799.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">智东西文章中提到的设计插件，需在Harness中安装</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Canva / Figma  <a href="https://www.canva.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">将文本和图像排版成图鉴卡片样式</div>
+      <div class="font-semibold text-slate-900">DeepSeek API Key  <a href="https://platform.deepseek.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">调用AI模型所需的密钥，在DeepSeek官网申请</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Notion / 飞书文档  <a href="https://www.notion.so" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">批量管理生成的鸟类条目和元数据</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">浏览器 + 搜索引擎  <a href="https://www.google.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于事后核查真实物种信息，对比验证</div>
+      <div class="font-semibold text-slate-900">文本编辑器或IDE  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于编写提示词和配置脚本，如VS Code</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：设计虚构鸟类的生成模板</h3>
-      <div class="text-base text-slate-700 leading-loose">在 ChatGPT 中输入提示词：『你是一位鸟类学家，请生成 10 种虚构但看起来合理的鸟类，每种包含：中文名、拉丁学名、科属、体长体重、羽色描述、栖息地、食性、叫声拟声词、分布区域。要求名称和特征符合分类学逻辑，但所有物种均为虚构。输出为表格。』将结果保存到 Notion 表格中，作为图鉴的文本底稿。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装并配置DeepSeek Harness</h3>
+      <div class="text-base text-slate-700 leading-loose">从DeepSeek官网下载Harness并安装，启动后进入设置页面，填入你的API Key。确保网络通畅，然后检查插件市场是否可访问。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>提示词中加入『看起来合理』和『符合分类学逻辑』，能让虚构内容更具迷惑性，也更能暴露伪科普的套路。
+          💡 <span class="font-semibold">小贴士：</span>如果遇到网络问题，可以尝试切换网络环境或使用代理。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 AI 绘图生成鸟类图像</h3>
-      <div class="text-base text-slate-700 leading-loose">从表格中挑选 5 个条目，将每个条目的羽色描述和栖息地转化为英文提示词，例如：『A small bird with iridescent blue-green plumage, long curved beak, perched on a mossy branch in a cloud forest, scientific illustration style, white background』。在 Midjourney 或 DALL·E 3 中逐条生成图像，选择最像真实图鉴的版本下载。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：安装视频生成插件</h3>
+      <div class="text-base text-slate-700 leading-loose">在Harness的插件市场中搜索智东西文章中提到的设计插件（或直接根据文章链接找到插件地址），点击安装。安装完成后重启Harness，在插件列表中确认已启用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在提示词末尾加上『scientific illustration, field guide style』，生成的图像会更接近真实图鉴的视觉风格。
+          💡 <span class="font-semibold">小贴士：</span>插件可能需要特定版本的Harness，注意查看兼容性说明。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：排版成图鉴卡片</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Canva 中新建 A4 竖版画布，将鸟类图像放在上半部分，下半部分用文本框填入第 1 步生成的名称、学名、体长体重、分布区域等信息。统一字体和配色（建议使用衬线字体和大地色系），每张卡片底部加一行小字『示例图鉴·非真实物种』。导出为 PNG 或 PDF。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编写视频生成提示词模板</h3>
+      <div class="text-base text-slate-700 leading-loose">新建一个文本文件，按照插件要求的格式编写提示词。通常包括视频主题、风格、时长、分辨率等参数。例如：'生成一个10秒的科技感产品展示视频，蓝色调，动态文字'。保存为prompt.txt。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>即使出于实验目的，也务必在卡片上标注『非真实物种』，避免内容被截图传播后造成误导。
+          💡 <span class="font-semibold">小贴士：</span>提示词越具体，生成效果越符合预期。可以参考插件文档中的示例。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：模拟传播与污染检测</h3>
-      <div class="text-base text-slate-700 leading-loose">将 3-5 张图鉴卡片发到一个私密社交群或仅自己可见的社交媒体账号，观察是否有朋友或算法将其当作真实科普内容互动。同时，用图片反向搜索和关键词搜索检查是否有真实物种与你的虚构物种高度相似，记录混淆点。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：运行插件并生成视频</h3>
+      <div class="text-base text-slate-700 leading-loose">在Harness中打开插件界面，上传或粘贴提示词文件，设置输出路径，点击'生成'按钮。等待AI处理，期间可以在日志中查看进度。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不要公开发布未标注的虚构图鉴，实验应在可控范围内进行，重点观察『哪些特征最容易让人信以为真』。
+          💡 <span class="font-semibold">小贴士：</span>生成时间取决于视频长度和复杂度，建议先从短时长（5-10秒）开始测试。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：撰写伪科普污染分析报告</h3>
-      <div class="text-base text-slate-700 leading-loose">整理实验记录：哪些虚构名称最像真实物种、哪些图像细节最容易误导、传播中出现了哪些错误解读。用 500 字左右总结 AI 伪科普的典型特征（如过度完美的羽色、模糊的分布区域、缺乏观察者信息等），并给出 3 条识别建议。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：预览与调整</h3>
+      <div class="text-base text-slate-700 leading-loose">生成完成后，在输出目录找到视频文件，用播放器预览。如果效果不理想，修改提示词中的关键词（如风格、颜色、动作），重新生成。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>报告可以发布在博客或社交媒体，但务必强调这是实验性内容，并附上真实物种核查链接（如 IUCN 红色名录、中国观鸟记录中心）。
+          💡 <span class="font-semibold">小贴士：</span>保留每次生成的提示词和结果，方便对比优化。
         </div>
     </div>
   </div>
@@ -184,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你将得到一套 5-10 个虚构鸟类的图鉴卡片（含文本和图像），一份传播观察记录，以及一篇关于 AI 伪科普污染的分析报告。你能够清晰说出 AI 生成伪科普的典型破绽，并在未来遇到类似内容时快速识别。
+    完成以上步骤后，你会在指定输出目录得到一个MP4视频文件，内容符合提示词描述的主题和风格，可直接用于社交媒体或进一步剪辑。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +194,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这样生成假图鉴会不会误导别人？</span>
+        <span>插件安装失败怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">本教程强调在可控范围内实验，且每张卡片必须标注『非真实物种』。目的是研究伪科普的生成逻辑，而非传播虚假信息。公开发布时请明确说明实验性质。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查Harness版本是否兼容，并确保网络能访问插件源。可以尝试手动下载插件包离线安装。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有绘画基础，能用免费工具完成吗？</span>
+        <span>生成视频时卡住或报错？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。用 ChatGPT 免费版生成文本，用 Bing Image Creator（DALL·E 3）免费生成图像，用 Canva 免费版排版，全程零成本。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">查看Harness日志中的错误信息，常见原因是API Key无效或额度不足，也可能是提示词格式错误。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何判断一个鸟类图鉴是 AI 生成的？</span>
+        <span>视频生成质量不高？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">注意几个信号：图像过于完美、缺乏真实拍摄的环境光影；学名不符合拉丁文构词规则；分布区域描述模糊或与已知物种重叠；没有观察者、拍摄时间和地点等元数据。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">优化提示词，增加细节描述；尝试调整插件中的高级参数（如帧率、模型选择）；或分片段生成后拼接。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个玩法适合什么人？</span>
+        <span>需要付费吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合科普创作者、内容审核人员、媒体素养教育者，以及对 AI 生成内容辨识感兴趣的普通用户。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>生成的内容可以商用吗？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不建议。虚构物种图鉴若未明确标注，可能构成虚假信息传播。商用前必须获得平台合规审查，并确保不误导消费者。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">DeepSeek API按使用量计费，插件本身可能免费或收费，具体看插件说明。建议先使用免费额度测试。</div>
     </details>
   </div>
 </section>
@@ -233,14 +226,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将鸟类替换为虚构植物或昆虫，生成『假植物图鉴』，观察不同生物类别的伪科普传播差异。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 AI 生成真实物种的错误信息（如把麻雀的分布区域写成南美洲），测试社交平台的纠错机制和用户辨识能力。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：制作『真伪混合图鉴』，一半真实物种一半虚构物种，让朋友找出假物种，作为科普互动游戏。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：批量生成——编写脚本循环调用插件，用不同提示词生成多个视频，适合电商产品展示。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：结合其他AI工具——先用DeepSeek生成视频脚本，再让插件根据脚本生成分镜视频，最后用剪映合成。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：自定义风格模板——在提示词中固定风格关键词（如'赛博朋克'、'水墨风'），快速产出统一风格的系列视频。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 AI 批量生成假鸟图鉴不是为了造假，而是通过亲手复现伪科普的生产链，学会识别 AI 内容的破绽，并在自己的创作中守住真实与虚构的边界。
+    用DeepSeek Harness插件将文本提示词自动转化为视频，核心在于提示词设计与插件配置，适合快速产出短视频素材。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,18 +243,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可运行 Agent 工作流</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体工作流</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
     </a></div>
 </section>
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用五层技术栈搭建自主AI Agent - AI 玩法教程 · AI Frontier</title>
+<title>用 SQL 调用大模型做推理与 RAG - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-20
+      2026-11-21
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        💬 Prompt 模板
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 5min
+        ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用五层技术栈搭建自主AI Agent</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 SQL 调用大模型做推理与 RAG</h1>
     
   </div>
 </header>
@@ -65,7 +65,7 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.cnblogs.com/vivotech/p/23638332" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/huaweiyun/p/23733520" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -79,7 +79,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">想不想拥有一个能自己规划、自己调工具、自己交付结果的「数字员工」？这篇教程带你用 LlamaIndex 五层技术栈，从零搭出一个真正能跑起来的自主 AI Agent。</p>
+  <p class="text-base text-slate-800 leading-relaxed">今天分享一个把大模型推理和 RAG 直接写进 SQL 的玩法，用 LlamaIndex 就能让数据库自己“思考”和“查资料”。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多人做 AI 应用还停留在「写个提示词问一句答一句」的阶段，但真正的 Agent 需要能拆解任务、检索知识、调用工具、循环纠错。博客园这篇《用五层技术栈搭建自主AI Agent》把提示词工程、RAG、Harness 工程、ReAct 循环、多智能体协作串成了一条完整链路。本教程把它拆成可动手的步骤，适合有一定 Python 基础、想从「调 API」进阶到「造系统」的开发者。跟着做完，你会得到一个能自主完成多步任务的 Agent 原型。
+    传统 RAG 需要写 Python 代码串联向量库、检索器和 LLM，对数据工程师不够友好。这个玩法利用 SQL 的 STORED 生成列自动完成文本向量化，再用 SQL 函数调用 MaaS 大模型做推理和 RAG，把分类、概括、依据资料回答都变成可保存的文本结果。它特别适合已有关系型数据库、想低成本引入 AI 能力的团队，比如智能客服知识库、工单自动分类、文档问答等场景。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,28 +100,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行环境，建议用 conda 或 venv 建虚拟环境</div>
+      <div class="font-semibold text-slate-900">LlamaIndex  <a href="https://www.llamaindex.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于构建 RAG 流程和 SQL 工具链的 Python 框架</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">LlamaIndex  <a href="https://docs.llamaindex.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">核心框架，负责 Agent、工具、RAG 的编排</div>
+      <div class="font-semibold text-slate-900">PostgreSQL 15+  <a href="https://www.postgresql.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">支持 STORED 生成列和 pgvector 扩展的数据库</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">OpenAI API Key（或兼容接口）  <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">驱动 LLM 推理，也可换成本地 Ollama 模型</div>
+      <div class="font-semibold text-slate-900">pgvector 扩展  <a href="https://github.com/pgvector/pgvector" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">在 PostgreSQL 中存储和检索向量</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Tavily Search API  <a href="https://tavily.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">给 Agent 联网搜索能力的工具，免费额度够测试</div>
+      <div class="font-semibold text-slate-900">华为云 MaaS 或 OpenAI API  <a href="https://www.huaweicloud.com/product/maas.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">提供文本推理和向量化能力的大模型服务</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Chroma 或 FAISS  <a href="https://www.trychroma.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">向量库，用于 RAG 层存储外部知识</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">VS Code + Jupyter  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">边写边调，方便观察 Agent 的每一步输出</div>
+      <div class="font-semibold text-slate-900">Python 3.9+ 与 psycopg2  <a href="https://pypi.org/project/psycopg2/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">执行 SQL 和连接数据库的运行时环境</div>
     </li>
   </ul>
 </section>
@@ -134,66 +130,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：搭好环境并跑通最小 LLM 调用</h3>
-      <div class="text-base text-slate-700 leading-loose">先创建虚拟环境，执行 pip install llama-index llama-index-llms-openai llama-index-tools-tavily-research chromadb。然后在 Jupyter 里配置 OPENAI_API_KEY 环境变量，用 Settings.llm = OpenAI(model=&quot;gpt-4o-mini&quot;) 设置全局模型，发一句「你好」验证连通。这一步的目的是确认底座没问题，后面所有层都依赖它。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：准备数据库与向量扩展</h3>
+      <div class="text-base text-slate-700 leading-loose">在 PostgreSQL 中执行 CREATE EXTENSION IF NOT EXISTS vector; 启用 pgvector。然后创建一张文档表，包含 id、content 原文列和 embedding 向量列，其中 embedding 定义为 GENERATED ALWAYS AS (llm_embed(content)) STORED，让原文写入时自动计算向量。最后为 embedding 列建立 ivfflat 或 hnsw 索引加速语义检索。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果用的是国内兼容接口，记得同时设置 api_base，并把模型名换成对应名称，否则会报 404。
+          💡 <span class="font-semibold">小贴士：</span>生成列表达式里调用的 llm_embed 需要提前用 PL/Python 或外部函数封装好，确保写入时能同步调用向量化 API。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：写好提示词层，把意图说清楚</h3>
-      <div class="text-base text-slate-700 leading-loose">提示词层是 Agent 的「大脑说明书」。用 ChatPromptTemplate 定义系统角色，明确写出：你是任务规划助手，输出必须是 JSON，包含 task 和 steps 两个字段。把用户原始需求套进模板，先让模型只做规划、不执行，观察它拆出的步骤是否合理。反复调 2-3 轮措辞，直到拆解稳定。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：封装 SQL 函数调用大模型</h3>
+      <div class="text-base text-slate-700 leading-loose">用 PL/Python 或 LlamaIndex 的 SQL 工具链，创建 llm_embed(text) 和 llm_infer(prompt) 两个 SQL 函数，分别对接 MaaS 的向量化接口和推理接口。llm_infer 接收提示词模板并返回文本结果，方便在 SELECT 中直接调用。注意在函数内处理 API Key 和超时重试。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在提示词里加一句「如果信息不足，先列出需要澄清的问题」，能显著减少 Agent 瞎编。
+          💡 <span class="font-semibold">小贴士：</span>把 API Key 放在数据库的 vault 或环境变量里，不要硬编码在 SQL 函数中。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：接入 RAG 层，让 Agent 有外部知识</h3>
-      <div class="text-base text-slate-700 leading-loose">准备一份 PDF 或 Markdown 知识文档，用 SimpleDirectoryReader 读取，配合 VectorStoreIndex 建索引并持久化到 Chroma。把索引封装成 QueryEngineTool，描述写成「用于查询内部知识库」。这样 Agent 在规划时就能判断什么时候该查资料，而不是全靠模型记忆。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：写入文档并自动向量化</h3>
+      <div class="text-base text-slate-700 leading-loose">向文档表 INSERT 原文内容，embedding 列会由 STORED 生成列自动计算并保存，原文与向量同表。可以用 INSERT INTO docs(content) VALUES ('...') 批量导入知识库文档。写入后查询 SELECT id, content, embedding IS NOT NULL FROM docs 确认向量已生成。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>工具描述（description）写得越具体，Agent 选工具的准确率越高，别偷懒只写「查询工具」。
+          💡 <span class="font-semibold">小贴士：</span>批量写入时建议分批提交，避免单次事务调用太多次向量化 API 导致超时。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用 ReAct 循环把工具串起来</h3>
-      <div class="text-base text-slate-700 leading-loose">用 ReActAgent 或 FunctionAgent 把上一步的 RAG 工具和 Tavily 搜索工具一起注册进去。设置 max_iterations=10 防止死循环，然后丢一个多步任务，比如「查一下 LlamaIndex 最新版本，并对比我知识库里的旧版本差异」。观察日志里 Thought → Action → Observation 的循环过程，确认它真的在自主决策。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用 SQL 做语义检索与 RAG 组料</h3>
+      <div class="text-base text-slate-700 leading-loose">对用户问题先用 llm_embed 得到查询向量，再用 ORDER BY embedding &lt;-&gt; query_vec LIMIT 5 取回候选原文。把候选原文拼接成上下文，套入提示词模板，调用 llm_infer 生成最终回答。整个 RAG 流程可以写成一条 CTE 或视图，例如 WITH candidates AS (...) SELECT llm_infer('根据资料回答：' || question || ' 资料：' || string_agg(content, ' ')) FROM candidates。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>第一次跑建议把 verbose 打开，逐条看 Agent 的思考轨迹，出问题一眼就能定位是哪一层断了。
+          💡 <span class="font-semibold">小贴士：</span>候选数量 3-5 条通常够用，太多会稀释关键信息并增加 token 成本。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：加 Harness 工程，让运行稳定可靠</h3>
-      <div class="text-base text-slate-700 leading-loose">Harness 层负责兜底：给每次工具调用加 try/except 和超时，失败时把错误信息回传给模型让它重试；用 memory 保存对话上下文；对最终输出做格式校验，不合格就触发一次自我修正。再包一层日志，记录每步耗时和 token 消耗。这一步做完，Agent 才从「玩具」变成「能交付」的系统。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用 LlamaIndex 串联并一键试用</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Python 中用 LlamaIndex 的 SQL 查询引擎或自定义 Tool 包装上述 SQL 函数，把“检索+推理”暴露成一个自然语言接口。也可以直接写一个 runnable demo：输入问题，执行 SQL，打印回答和引用原文。最后用几条测试问题验证分类、概括和依据资料回答三种能力。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>给工具调用设 30 秒超时，并限制重试 2 次，能避免 Agent 卡死在某个坏接口上。
-        </div>
-    </div>
-    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
-      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
-        6
-      </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：进阶到多智能体协作（可选）</h3>
-      <div class="text-base text-slate-700 leading-loose">如果任务复杂，可以用 AgentWorkflow 定义「规划者」和「执行者」两个角色：规划者负责拆任务，执行者负责调工具，二者通过共享上下文传递结果。跑一个「调研 + 写报告」的组合任务，观察两个 Agent 如何交接。这一步是五层栈的顶层，也是最能体现「数字员工」形态的地方。</div>
-      
-        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>多智能体容易互相甩锅，给每个角色写死职责边界和输出格式，协作会顺畅很多。
+          💡 <span class="font-semibold">小贴士：</span>把 SQL 查询结果和引用来源一起返回，方便排查 RAG 回答是否忠实于资料。
         </div>
     </div>
   </div>
@@ -203,7 +188,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你会得到一个能接收自然语言任务、自主拆解步骤、按需调用知识库和搜索工具、并在出错时自我修正的 Agent 原型。在 Jupyter 里能看到完整的 Thought/Action/Observation 轨迹，最终输出一份结构化结果，比如版本对比报告或调研摘要。
+    完成上述步骤后，你可以在数据库里直接执行 SQL 完成文本分类、概括和基于知识库的问答，回答结果可返回也可保存到表中；原文与向量同表存储，语义检索通过向量距离排序快速取回候选资料，整个 RAG 流程无需离开 SQL 环境。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -213,38 +198,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 OpenAI Key 能玩吗？</span>
+        <span>没有 PostgreSQL 可以用 MySQL 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，用 Ollama 跑本地模型（如 qwen2.5），把 Settings.llm 换成 Ollama 即可，但工具调用能力会弱一些，建议选支持 function calling 的模型。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">MySQL 8.0 支持生成列但不原生支持向量类型和距离运算，需要借助外部向量库或改用 PostgreSQL + pgvector 方案。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>ReAct 循环一直转不停怎么办？</span>
+        <span>生成列里调用外部 API 会不会很慢？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">设置 max_iterations 上限，并在提示词里要求「信息足够时立即输出 Final Answer」，同时检查工具描述是否让模型误以为还要继续查。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">写入时会同步调用向量化 API，批量导入建议分批并开启并发；查询时只调用一次 llm_embed 得到查询向量，影响可控。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>RAG 检索结果不相关怎么调？</span>
+        <span>如何保证 RAG 回答不胡编？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先调 chunk_size 和 similarity_top_k，再考虑换 embedding 模型；也可以在 QueryEngineTool 的描述里限定适用范围，减少误触发。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在提示词中明确要求“仅根据资料回答，资料没有就说不知道”，并返回引用原文供人工核对。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>五层必须全上吗？</span>
+        <span>API Key 放在 SQL 函数里安全吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不必。简单任务提示词 + 工具就够；RAG 和 Harness 按需加；多智能体只在任务确实需要分工时才上，否则是过度设计。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不建议硬编码，使用数据库 vault、环境变量或密钥管理服务，并限制函数执行权限。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这套东西能上生产吗？</span>
+        <span>这个方案适合多大数据量？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">原型可以，生产还需要加鉴权、限流、可观测性和人工审核节点，Harness 层要补得更厚。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">pgvector 的 hnsw 索引可支撑百万级向量，更大规模建议分表或引入专用向量数据库。</div>
     </details>
   </div>
 </section>
@@ -252,14 +237,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把搜索工具换成数据库查询工具，做一个能自主查业务数据的「分析助手」，适合运营和 BI 场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用多智能体做「客服 + 工单」流水线，一个 Agent 分类问题，一个 Agent 查知识库回复，一个 Agent 决定是否转人工。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把 Harness 层做成可配置的 YAML，把工具、超时、重试策略外置，快速复用到不同业务 Agent 上。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把 llm_infer 换成分类专用提示词，用 SQL 批量给工单打标签并写回标签列。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用定时任务对新增文档自动生成摘要列，实现知识库自动摘要与去重。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合 LlamaIndex 的 Agent 把 SQL 函数注册为工具，让模型自主决定何时检索、何时推理。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    五层技术栈的精髓不是堆技术，而是让每一层各司其职：提示词定意图、RAG 补知识、Harness 保稳定、ReAct 给自主、多智能体做分工，串起来才是一个能交付结果的数字员工。
+    把向量化和大模型推理封装成 SQL 函数，让数据库自己完成 RAG，是数据团队低成本落地 AI 的捷径。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -267,20 +252,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 5/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用社区提示词库找现成Prompt</div>
-      <div class="text-xs text-amber-500">★★★★★</div>
-    </a>
-    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用GPT-4o图像提示词库复刻AI视觉作品</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
-    </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
     </a></div>
 </section>
 

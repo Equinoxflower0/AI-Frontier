@@ -30,7 +30,7 @@
         <a href="tutorials/index.html" class="text-slate-600 hover:text-slate-900 flex items-center gap-1">全部教程</a>
         <a href="archive.html" class="text-slate-600 hover:text-slate-900">📅 往期资讯</a>
         <a href="search.html" class="text-slate-600 hover:text-slate-900">🔍 站内搜索</a>
-        <a href="daily-brief-2026-11-20.html" class="text-slate-600 hover:text-slate-900">日报</a>
+        <a href="daily-brief-2026-11-21.html" class="text-slate-600 hover:text-slate-900">日报</a>
       </div>
     </div>
   </div>
@@ -42,13 +42,13 @@
     <div class="text-xs font-bold tracking-widest uppercase opacity-80 mb-2">PLAYGROUND</div>
     <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">🎮 AI玩法实验室</h1>
     <p class="text-lg sm:text-xl opacity-90 mb-6 max-w-3xl">
-      7 个打开即试 · 2 份可复制 Prompt
+      7 个打开即试 · 3 份可复制 Prompt
     </p>
 
     <!-- 数据 -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl">
       <div class="bg-white/10 backdrop-blur border border-white/20 rounded-xl p-4">
-        <div class="text-2xl sm:text-3xl font-bold">27</div>
+        <div class="text-2xl sm:text-3xl font-bold">28</div>
         <div class="text-sm opacity-80 mt-1">玩法项目</div>
       </div>
       <div class="bg-white/10 backdrop-blur border border-white/20 rounded-xl p-4">
@@ -56,11 +56,11 @@
         <div class="text-sm opacity-80 mt-1">可立即试用</div>
       </div>
       <div class="bg-white/10 backdrop-blur border border-white/20 rounded-xl p-4">
-        <div class="text-2xl sm:text-3xl font-bold">2</div>
+        <div class="text-2xl sm:text-3xl font-bold">3</div>
         <div class="text-sm opacity-80 mt-1">Prompt 模板</div>
       </div>
       <div class="bg-white/10 backdrop-blur border border-white/20 rounded-xl p-4">
-        <div class="text-2xl sm:text-3xl font-bold">3.7</div>
+        <div class="text-2xl sm:text-3xl font-bold">3.4</div>
         <div class="text-sm opacity-80 mt-1">平均难度（5=最易）</div>
       </div>
     </div>
@@ -78,7 +78,7 @@
     <div class="flex items-center gap-2 flex-wrap">
       
     <button data-filter-group="type" data-filter-value="prompt" class="filter-btn filter-type-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-indigo-100 hover:text-indigo-700 text-xs">
-      💬 Prompt 模板 <span class="text-slate-400">(2)</span>
+      💬 Prompt 模板 <span class="text-slate-400">(3)</span>
     </button>
     <button data-filter-group="type" data-filter-value="tool_workflow" class="filter-btn filter-type-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-purple-100 hover:text-purple-700 text-xs">
       🧭 工作流 <span class="text-slate-400">(2)</span>
@@ -99,10 +99,13 @@
       🌱 复制即用 <span class="text-slate-400">(1)</span>
     </button>
     <button data-filter-group="diff" data-filter-value="4" class="filter-btn filter-diff-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-emerald-100 hover:text-emerald-700 text-xs">
-      🚀 打开即试 <span class="text-slate-400">(16)</span>
+      🚀 打开即试 <span class="text-slate-400">(13)</span>
     </button>
     <button data-filter-group="diff" data-filter-value="3" class="filter-btn filter-diff-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-emerald-100 hover:text-emerald-700 text-xs">
-      🔧 需装环境 <span class="text-slate-400">(10)</span>
+      🔧 需装环境 <span class="text-slate-400">(11)</span>
+    </button>
+    <button data-filter-group="diff" data-filter-value="2" class="filter-btn filter-diff-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-emerald-100 hover:text-emerald-700 text-xs">
+      ⚙️ 需改代码 <span class="text-slate-400">(3)</span>
     </button>
     </div>
   </div>
@@ -117,7 +120,7 @@
       🔵 权威 <span class="text-slate-400">(7)</span>
     </button>
     <button data-filter-group="tier" data-filter-value="B" class="filter-btn filter-tier-btn px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 hover:bg-amber-100 hover:text-amber-700 text-xs">
-      🟡 社区 <span class="text-slate-400">(15)</span>
+      🟡 社区 <span class="text-slate-400">(16)</span>
     </button>
     </div>
   </div>
@@ -126,7 +129,7 @@
       ↺ 重置所有筛选
     </button>
     <span class="text-xs text-slate-400">
-      当前显示 <span id="showCount" class="font-bold text-slate-900">27</span> 条 / 共 27 条
+      当前显示 <span id="showCount" class="font-bold text-slate-900">28</span> 条 / 共 28 条
     </span>
   </div>
 </div>
@@ -152,18 +155,18 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    用 MarkItDown 把办公文档批量转成 Markdown
+    用MarkItDown把办公文档转成Markdown
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    把 PDF、Word、Excel、PPT 等文件一键转成结构清晰的 Markdown，方便喂给大模型或做知识库
+    将PDF、Word、Excel、PPT等文件批量转换为结构化Markdown文本，便于喂给大模型或做知识库
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">pip 安装后一行命令即可转换单个文件，也支持批量处理；产出是干净的 .md 文本，适合做 RAG 语料或笔记迁移，有 Python 基础的人 10 分钟内能跑通</span>
+    <span class="ml-1">pip安装后一条命令即可转换单个文件，也支持Python脚本批量处理；产出是干净的Markdown，适合做RAG预处理或笔记归档的人，5分钟就能跑通第一个文件</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -193,6 +196,61 @@
          data-play-type="tool_chain" data-difficulty="3"
          data-source-tier="S"
          data-copyable="3"
+         data-score="8.2"
+         data-tutorials-available="1">
+  <!-- 顶部标签 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-cyan-100 text-cyan-700">🔗 工具链</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">官方一手 · S级</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
+      🎮 8.2
+    </span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200" title="本站教程可用">📖 教程</span>
+  </div>
+
+  <!-- 标题 -->
+  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
+    微软18课从零构建AI智能体
+  </h3>
+
+  <!-- 摘要 -->
+  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
+    18节Jupyter Notebook课程，从基础概念到多智能体协作，边学边跑代码搭建AI Agent
+  </p>
+
+  <!-- why_try 块 -->
+  <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
+    <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
+    <span class="ml-1">每课配可运行Notebook，需Python环境和OpenAI或Azure账号，约30分钟可跑通第一课；适合想系统入门Agent开发但不知从何下手的开发者</span>
+  </div>
+
+  <!-- 元数据栏 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-700"><span class="text-amber-500">★★★☆☆</span><span>需环境</span></span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
+      ⏱ 约 30min
+    </span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
+      📋 复制度 3/5
+    </span>
+  </div>
+
+  <!-- 工具标签 -->
+  
+
+  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
+  <div class="flex items-center gap-2"><a href="tutorials/github-play-autogen-757dec3f.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://github.com/microsoft/ai-agents-for-beginners" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-cyan-400 hover:text-cyan-700 transition text-xs">原文 ↗</a></div>
+
+  <!-- 来源 -->
+  <div class="mt-3 text-xs text-slate-400 truncate">
+    GitHub AutoGen
+  </div>
+</article>
+
+<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
+         data-play-type="tool_chain" data-difficulty="2"
+         data-source-tier="S"
+         data-copyable="3"
          data-score="7.5"
          data-tutorials-available="1">
   <!-- 顶部标签 -->
@@ -207,23 +265,23 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    用 LangChain 搭建可运行 Agent 工作流
+    用LangChain搭建可编排的AI Agent工作流
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    基于 LangChain 平台，用 Python 把大模型、工具与记忆串成可执行 Agent 链，产出可复用的自动化流程
+    基于Python的Agent工程平台，可把模型、工具、检索与记忆串成可运行、可调试的Agent应用
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合有 Python 基础的开发者；需本地装环境并配置模型 API Key，约 30 分钟可跑通首个 Agent；产出是可复用的链式工作流代码</span>
+    <span class="ml-1">适合有Python基础的开发者；本地pip安装后约30分钟可跑通第一个工具调用Agent，产出是可复用的Agent代码与调试链路，而非成品应用</span>
   </div>
 
   <!-- 元数据栏 -->
   <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-700"><span class="text-amber-500">★★★☆☆</span><span>需环境</span></span>
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-orange-100 text-orange-700"><span class="text-amber-500">★★☆☆☆</span><span>需配置</span></span>
     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
       ⏱ 约 30min
     </span>
@@ -262,18 +320,18 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    用DeerFlow搭建长任务超级智能体工作流
+    用DeerFlow搭建长任务超级智能体
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    开源长程SuperAgent框架，通过沙箱、记忆、工具、技能、子智能体和消息网关，完成研究、编码与创作等多级任务
+    开源长周期SuperAgent框架，集成沙箱、记忆、工具、子代理和消息网关，可自动完成研究、编码与创作任务
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合想研究多智能体编排的开发者；需本地装Python环境并配LLM API Key，约30分钟跑通；产出是可复用的研究/编码自动化工作流</span>
+    <span class="ml-1">适合想体验多代理协作的开发者；需本地安装Python环境并配置API密钥，约30分钟可跑通示例；产出为可定制的自动化任务流水线</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -300,7 +358,7 @@
 </article>
 
 <article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
-         data-play-type="tool_chain" data-difficulty="3"
+         data-play-type="tool_chain" data-difficulty="2"
          data-source-tier="S"
          data-copyable="3"
          data-score="7.5"
@@ -322,18 +380,18 @@
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    通过Python框架定义多个AI智能体角色，让它们自动对话协作完成复杂任务，如代码生成、数据分析等
+    用Python定义多个AI智能体角色并让它们对话协作，自动完成编码、数据分析等复杂任务
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合有Python基础的开发者，本地安装AutoGen库约10分钟，可快速构建多智能体对话系统，产出自动化任务解决方案</span>
+    <span class="ml-1">本地装Python环境约20分钟即可跑通官方示例，产出是可复用的多智能体对话脚本；适合有基础Python能力、想动手搭建Agent协作流程的开发者</span>
   </div>
 
   <!-- 元数据栏 -->
   <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-700"><span class="text-amber-500">★★★☆☆</span><span>需环境</span></span>
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-orange-100 text-orange-700"><span class="text-amber-500">★★☆☆☆</span><span>需配置</span></span>
     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
       ⏱ 约 30min
     </span>
@@ -347,61 +405,6 @@
 
   <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
   <div class="flex items-center gap-2"><a href="tutorials/github-play-autogen-0d150b19.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://github.com/microsoft/autogen" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-cyan-400 hover:text-cyan-700 transition text-xs">原文 ↗</a></div>
-
-  <!-- 来源 -->
-  <div class="mt-3 text-xs text-slate-400 truncate">
-    GitHub AutoGen
-  </div>
-</article>
-
-<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
-         data-play-type="tool_chain" data-difficulty="3"
-         data-source-tier="S"
-         data-copyable="3"
-         data-score="7.5"
-         data-tutorials-available="1">
-  <!-- 顶部标签 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-cyan-100 text-cyan-700">🔗 工具链</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">官方一手 · S级</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
-      🎮 7.5
-    </span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200" title="本站教程可用">📖 教程</span>
-  </div>
-
-  <!-- 标题 -->
-  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    微软18课AI Agent入门教程
-  </h3>
-
-  <!-- 摘要 -->
-  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    通过18节Jupyter Notebook课程，从零学习构建AI Agent，涵盖设计模式、工具调用、多Agent协作等核心技能
-  </p>
-
-  <!-- why_try 块 -->
-  <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
-    <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合有Python基础、想系统入门AI Agent的开发者；每课含可运行Notebook，需本地装Jupyter环境，约30分钟可跑通第一课，产出是能理解并修改的Agent示例代码</span>
-  </div>
-
-  <!-- 元数据栏 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-700"><span class="text-amber-500">★★★☆☆</span><span>需环境</span></span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
-      ⏱ 约 30min
-    </span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
-      📋 复制度 3/5
-    </span>
-  </div>
-
-  <!-- 工具标签 -->
-  
-
-  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
-  <div class="flex items-center gap-2"><a href="tutorials/github-play-autogen-757dec3f.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://github.com/microsoft/ai-agents-for-beginners" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-cyan-400 hover:text-cyan-700 transition text-xs">原文 ↗</a></div>
 
   <!-- 来源 -->
   <div class="mt-3 text-xs text-slate-400 truncate">
@@ -427,18 +430,18 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-emerald-700 transition">
-    在线试玩Z Image Turbo图像生成
+    在线试用 Z Image Turbo 文生图
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    在浏览器中直接体验Z Image Turbo模型，输入提示词即可快速生成高质量图像
+    打开网页输入提示词即可生成图像，无需注册或本地部署，基于 Gradio 的在线文生图 Demo
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-emerald-50 border-l-2 border-emerald-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-emerald-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">打开网页就能用，无需安装或注册，几秒内产出图像，适合想快速体验文生图效果的设计师和AI爱好者</span>
+    <span class="ml-1">打开链接就能在浏览器里输入提示词生成图片，无需账号、无需安装环境，适合想快速体验文生图效果或找灵感的人，单次生成通常几十秒内出图</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -482,18 +485,18 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-emerald-700 transition">
-    在线试用 Kokoro TTS 文字转语音
+    在线试用Kokoro TTS文本转语音
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    打开网页输入文字即可生成自然语音，支持多种音色，无需安装任何软件
+    在浏览器中直接输入文本，即可生成高质量语音，无需安装任何软件
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-emerald-50 border-l-2 border-emerald-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-emerald-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">打开 HuggingFace Spaces 页面就能直接输入文字试听，无需注册账号或配置环境，几秒内产出可下载的语音音频，适合想快速做配音、听书或语音素材的人</span>
+    <span class="ml-1">打开网页就能试，无需账号或安装；输入文本后几秒内生成可播放的语音，适合想快速体验TTS效果的内容创作者或开发者</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -537,18 +540,18 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-emerald-700 transition">
-    用Selfit相机在线编辑图片
+    在线AI全能图片编辑器一键试用
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    在浏览器中打开即用的AI图像编辑器，可对上传图片进行多种智能编辑与风格化处理
+    在浏览器中上传图片，用AI完成修图、换背景、风格化等编辑，直接下载成品图
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-emerald-50 border-l-2 border-emerald-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-emerald-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">打开网页就能上传图片试玩，无需注册或安装；适合想快速体验AI修图效果、又不想折腾环境的普通用户</span>
+    <span class="ml-1">打开网页即可上传图片试编辑，无需安装或注册；适合想快速修图、做风格化效果的设计新手和内容创作者，几分钟就能拿到成品图</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -574,116 +577,6 @@
   </div>
 </article>
 
-<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
-         data-play-type="tool_chain" data-difficulty="4"
-         data-source-tier="A"
-         data-copyable="3"
-         data-score="8.5"
-         data-tutorials-available="0">
-  <!-- 顶部标签 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-cyan-100 text-cyan-700">🔗 工具链</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">权威媒体 · A级</span> <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
-      🎮 8.5
-    </span>
-    
-  </div>
-
-  <!-- 标题 -->
-  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    用即梦Seedance 2.5生成4K AI视频
-  </h3>
-
-  <!-- 摘要 -->
-  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    在即梦平台用Seedance 2.5模型输入提示词生成4K高清AI视频，实测画面细节表现
-  </p>
-
-  <!-- why_try 块 -->
-  <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
-    <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">打开即梦网页即可试，无需本地部署；输入一段提示词就能产出4K视频片段，适合想快速体验AI视频生成效果的创作者</span>
-  </div>
-
-  <!-- 元数据栏 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-lime-100 text-lime-700"><span class="text-amber-500">★★★★☆</span><span>零代码</span></span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
-      ⏱ 约 30min
-    </span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
-      📋 复制度 3/5
-    </span>
-  </div>
-
-  <!-- 工具标签 -->
-  
-
-  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
-  <a href="https://zhidx.com/p/611985.html" target="_blank" rel="noopener nofollow" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all text-sm">立即打开 →</a>
-
-  <!-- 来源 -->
-  <div class="mt-3 text-xs text-slate-400 truncate">
-    智东西 AI 工具评测
-  </div>
-</article>
-
-<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-indigo-300 hover:shadow-xl transition-all duration-200"
-         data-play-type="prompt" data-difficulty="5"
-         data-source-tier="B"
-         data-copyable="4"
-         data-score="8.5"
-         data-tutorials-available="1">
-  <!-- 顶部标签 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-indigo-100 text-indigo-700">💬 Prompt 模板</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">技术社区 · B级</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
-      🎮 8.5
-    </span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200" title="本站教程可用">📖 教程</span>
-  </div>
-
-  <!-- 标题 -->
-  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-indigo-700 transition">
-    用社区提示词库找现成Prompt
-  </h3>
-
-  <!-- 摘要 -->
-  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    浏览和搜索17万星标社区提示词库，复制即用或自托管私有部署
-  </p>
-
-  <!-- why_try 块 -->
-  <div class="bg-indigo-50 border-l-2 border-indigo-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
-    <span class="text-indigo-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">打开网页即可按分类浏览数千条社区提示词，复制粘贴到ChatGPT就能用；支持自托管给团队内部私有使用，适合想快速找灵感或搭建内部提示词库的人</span>
-  </div>
-
-  <!-- 元数据栏 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-emerald-100 text-emerald-700"><span class="text-amber-500">★★★★★</span><span>0 基础</span></span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
-      ⏱ 约 5min
-    </span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
-      📋 复制度 4/5
-    </span>
-  </div>
-
-  <!-- 工具标签 -->
-  <div class="flex items-center gap-1.5 mb-4 flex-wrap"><span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">ChatGPT</span></div>
-
-  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
-  <div class="flex items-center gap-2"><a href="tutorials/github-play-awesome-chatgpt-prompts-4f7ee941.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://github.com/f/prompts.chat" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-indigo-400 hover:text-indigo-700 transition text-xs">原文 ↗</a></div>
-
-  <!-- 来源 -->
-  <div class="mt-3 text-xs text-slate-400 truncate">
-    GitHub Awesome ChatGPT Prompts
-  </div>
-</article>
-
 <article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-indigo-300 hover:shadow-xl transition-all duration-200"
          data-play-type="prompt" data-difficulty="4"
          data-source-tier="B"
@@ -702,18 +595,18 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-indigo-700 transition">
-    用GPT-4o图像提示词库复刻AI视觉作品
+    用 prompts.chat 社区提示词库找现成模板
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    收录GPT-4o与gpt-image-1生成的精选图像及对应提示词，可浏览并复刻各类AI视觉风格
+    从近18万星的开源社区提示词库中检索、收藏并复用各类 ChatGPT 提示词，也可自建私有实例
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-indigo-50 border-l-2 border-indigo-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-indigo-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">打开网页即可浏览8000+星标项目中的图像与提示词对照，复制提示词到ChatGPT或Sora就能生成同款风格图，适合想找灵感或练手的设计与AI绘画爱好者</span>
+    <span class="ml-1">打开网页即可按分类浏览或搜索提示词，复制粘贴就能用；支持自托管，适合想给团队搭建内部私有提示词库的人，无需写代码</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -728,10 +621,10 @@
   </div>
 
   <!-- 工具标签 -->
-  <div class="flex items-center gap-1.5 mb-4 flex-wrap"><span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">ChatGPT</span><span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">Sora</span></div>
+  <div class="flex items-center gap-1.5 mb-4 flex-wrap"><span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">ChatGPT</span></div>
 
   <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
-  <div class="flex items-center gap-2"><a href="tutorials/github-play-awesome-chatgpt-prompts-a76616d3.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://github.com/jamez-bondos/awesome-gpt4o-images" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-indigo-400 hover:text-indigo-700 transition text-xs">原文 ↗</a></div>
+  <div class="flex items-center gap-2"><a href="tutorials/github-play-awesome-chatgpt-prompts-4f7ee941.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://github.com/f/prompts.chat" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-indigo-400 hover:text-indigo-700 transition text-xs">原文 ↗</a></div>
 
   <!-- 来源 -->
   <div class="mt-3 text-xs text-slate-400 truncate">
@@ -762,13 +655,13 @@
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    一个包含100多个可运行AI Agent、Agent Skills和RAG应用的Python开源仓库，可克隆后直接运行或改造
+    一个收录100多个可直接运行的AI Agent、Agent Skills和RAG应用的开源仓库，克隆后即可本地跑通并改造成自己的项目
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-emerald-50 border-l-2 border-emerald-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-emerald-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合想快速上手AI Agent或RAG的开发者；需本地Python环境，克隆后按各子项目README安装依赖即可运行，产出是可交互的Agent或RAG应用原型</span>
+    <span class="ml-1">适合想快速上手Agent/RAG的开发者：仓库按主题分目录，每个应用自带依赖与运行说明，装好Python环境后30分钟内可跑通第一个demo，产出是可改代码的Agent原型</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -817,13 +710,13 @@
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    打开网页即可查看和筛选各类开源大模型在多项基准测试上的排名与得分，快速了解模型能力对比
+    打开网页即可查看并筛选各开源大模型在多项基准测试上的排名与得分，快速了解模型能力对比
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-emerald-50 border-l-2 border-emerald-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-emerald-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">无需安装或注册，打开网页就能按模型规模、许可证、任务类型筛选排行榜，适合选型时快速横向对比开源模型</span>
+    <span class="ml-1">无需账号或安装，打开网页就能按模型规模、许可证、基准测试等条件筛选排名，适合选型时快速参考</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -849,6 +742,226 @@
   </div>
 </article>
 
+<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
+         data-play-type="tool_chain" data-difficulty="3"
+         data-source-tier="A"
+         data-copyable="3"
+         data-score="7.5"
+         data-tutorials-available="0">
+  <!-- 顶部标签 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-cyan-100 text-cyan-700">🔗 工具链</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">权威媒体 · A级</span> <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
+      🎮 7.5
+    </span>
+    
+  </div>
+
+  <!-- 标题 -->
+  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
+    用DeepSeek Harness插件让AI自动生成视频
+  </h3>
+
+  <!-- 摘要 -->
+  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
+    通过安装开源插件，让DeepSeek Harness获得视频生成能力，输入文本即可产出短视频
+  </p>
+
+  <!-- why_try 块 -->
+  <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
+    <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
+    <span class="ml-1">适合已用DeepSeek Harness的开发者；需按教程安装插件并配置视频模型API，30分钟内可跑通首个视频生成流程，产出为MP4短片</span>
+  </div>
+
+  <!-- 元数据栏 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-700"><span class="text-amber-500">★★★☆☆</span><span>需环境</span></span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
+      ⏱ 约 30min
+    </span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
+      📋 复制度 3/5
+    </span>
+  </div>
+
+  <!-- 工具标签 -->
+  <div class="flex items-center gap-1.5 mb-4 flex-wrap"><span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">DeepSeek</span></div>
+
+  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
+  <a href="https://zhidx.com/p/612799.html" target="_blank" rel="noopener nofollow" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all text-sm">立即打开 →</a>
+
+  <!-- 来源 -->
+  <div class="mt-3 text-xs text-slate-400 truncate">
+    智东西 AI 工具评测
+  </div>
+</article>
+
+<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
+         data-play-type="tool_chain" data-difficulty="3"
+         data-source-tier="A"
+         data-copyable="3"
+         data-score="7.5"
+         data-tutorials-available="0">
+  <!-- 顶部标签 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-cyan-100 text-cyan-700">🔗 工具链</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">权威媒体 · A级</span> <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
+      🎮 7.5
+    </span>
+    
+  </div>
+
+  <!-- 标题 -->
+  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
+    本地部署Muse Agent实现token自由
+  </h3>
+
+  <!-- 摘要 -->
+  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
+    开源个人Agent工具Muse，可在本地运行，摆脱API token限制，实现自由调用
+  </p>
+
+  <!-- why_try 块 -->
+  <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
+    <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
+    <span class="ml-1">适合想摆脱云端API费用和token限制的开发者；需本地装环境，约30分钟内可跑通；产出是本地可用的个人Agent，能自由调用模型</span>
+  </div>
+
+  <!-- 元数据栏 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-700"><span class="text-amber-500">★★★☆☆</span><span>需环境</span></span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
+      ⏱ 约 30min
+    </span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
+      📋 复制度 3/5
+    </span>
+  </div>
+
+  <!-- 工具标签 -->
+  <div class="flex items-center gap-1.5 mb-4 flex-wrap"><span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">DeepSeek</span></div>
+
+  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
+  <a href="https://zhidx.com/p/612775.html" target="_blank" rel="noopener nofollow" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all text-sm">立即打开 →</a>
+
+  <!-- 来源 -->
+  <div class="mt-3 text-xs text-slate-400 truncate">
+    智东西 AI 工具评测
+  </div>
+</article>
+
+<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-indigo-300 hover:shadow-xl transition-all duration-200"
+         data-play-type="prompt" data-difficulty="4"
+         data-source-tier="B"
+         data-copyable="4"
+         data-score="8.2"
+         data-tutorials-available="1">
+  <!-- 顶部标签 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-indigo-100 text-indigo-700">💬 Prompt 模板</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">技术社区 · B级</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
+      🎮 8.2
+    </span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200" title="本站教程可用">📖 教程</span>
+  </div>
+
+  <!-- 标题 -->
+  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-indigo-700 transition">
+    用GPT-4o图像提示词合集复刻AI视觉创意
+  </h3>
+
+  <!-- 摘要 -->
+  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
+    收录GPT-4o与gpt-image-1生成的精选图像及对应提示词，可浏览效果并复制prompt复现同类视觉
+  </p>
+
+  <!-- why_try 块 -->
+  <div class="bg-indigo-50 border-l-2 border-indigo-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
+    <span class="text-indigo-600 font-semibold">✨ 为什么试</span>
+    <span class="ml-1">打开网页即可浏览成图与原始prompt，挑中喜欢的复制到ChatGPT或Sora中改词复用，几分钟就能出图；适合想找灵感或练提示词的设计与内容创作者</span>
+  </div>
+
+  <!-- 元数据栏 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-lime-100 text-lime-700"><span class="text-amber-500">★★★★☆</span><span>零代码</span></span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
+      ⏱ 约 5min
+    </span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
+      📋 复制度 4/5
+    </span>
+  </div>
+
+  <!-- 工具标签 -->
+  <div class="flex items-center gap-1.5 mb-4 flex-wrap"><span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">ChatGPT</span><span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">Sora</span></div>
+
+  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
+  <div class="flex items-center gap-2"><a href="tutorials/github-play-awesome-chatgpt-prompts-a76616d3.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://github.com/jamez-bondos/awesome-gpt4o-images" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-indigo-400 hover:text-indigo-700 transition text-xs">原文 ↗</a></div>
+
+  <!-- 来源 -->
+  <div class="mt-3 text-xs text-slate-400 truncate">
+    GitHub Awesome ChatGPT Prompts
+  </div>
+</article>
+
+<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-indigo-300 hover:shadow-xl transition-all duration-200"
+         data-play-type="prompt" data-difficulty="4"
+         data-source-tier="B"
+         data-copyable="4"
+         data-score="7.5"
+         data-tutorials-available="0">
+  <!-- 顶部标签 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-indigo-100 text-indigo-700">💬 Prompt 模板</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">技术社区 · B级</span> <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
+      🎮 7.5
+    </span>
+    
+  </div>
+
+  <!-- 标题 -->
+  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-indigo-700 transition">
+    用四组对照实验排查loss上升原因
+  </h3>
+
+  <!-- 摘要 -->
+  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
+    通过四组严格对照实验，按上升时机、训练-验证分叉、模型结构三步排查loss飙升，产出可复用的排查顺序
+  </p>
+
+  <!-- why_try 块 -->
+  <div class="bg-indigo-50 border-l-2 border-indigo-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
+    <span class="text-indigo-600 font-semibold">✨ 为什么试</span>
+    <span class="ml-1">适合正在训练模型、遇到loss不降反升的AI工程师；无需额外工具，打开博客即可按文中对照实验步骤复现排查流程，产出明确的排查清单</span>
+  </div>
+
+  <!-- 元数据栏 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-lime-100 text-lime-700"><span class="text-amber-500">★★★★☆</span><span>零代码</span></span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
+      ⏱ 约 5min
+    </span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
+      📋 复制度 4/5
+    </span>
+  </div>
+
+  <!-- 工具标签 -->
+  
+
+  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
+  <a href="https://www.cnblogs.com/dawudexiaowu/p/23727762" target="_blank" rel="noopener nofollow" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all text-sm">立即打开 →</a>
+
+  <!-- 来源 -->
+  <div class="mt-3 text-xs text-slate-400 truncate">
+    博客园 AI 教程
+  </div>
+</article>
+
 <article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-purple-300 hover:shadow-xl transition-all duration-200"
          data-play-type="tool_workflow" data-difficulty="3"
          data-source-tier="B"
@@ -867,18 +980,18 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-purple-700 transition">
-    用Yolain工作流在ComfyUI快速出图
+    用Yolain工作流在ComfyUI里快速出图
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    基于comfyui-easy-use节点包的一套ComfyUI工作流合集，导入即可生成各类图像
+    一套基于comfyui-easy-use节点包搭建的ComfyUI工作流合集，导入后即可复现多种图像生成流程
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-purple-50 border-l-2 border-purple-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-purple-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合已装ComfyUI的人，克隆仓库后把JSON工作流拖进界面就能跑，省去从零连节点的半小时；产出为可复用的出图流程</span>
+    <span class="ml-1">适合已装ComfyUI的人：克隆仓库把工作流JSON拖进界面即可跑，省去从零连节点的时间，产出物是可直接改参数的出图流程</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -904,6 +1017,61 @@
   </div>
 </article>
 
+<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-purple-300 hover:shadow-xl transition-all duration-200"
+         data-play-type="tool_workflow" data-difficulty="3"
+         data-source-tier="B"
+         data-copyable="4"
+         data-score="7.5"
+         data-tutorials-available="1">
+  <!-- 顶部标签 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-purple-100 text-purple-700">🧭 工作流</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">技术社区 · B级</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
+      🎮 7.5
+    </span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200" title="本站教程可用">📖 教程</span>
+  </div>
+
+  <!-- 标题 -->
+  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-purple-700 transition">
+    用awesome-comfyui节点合集扩展ComfyUI工作流
+  </h3>
+
+  <!-- 摘要 -->
+  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
+    汇总ComfyUI社区优质自定义节点，帮你快速找到并安装所需功能节点，搭建更复杂图像生成工作流
+  </p>
+
+  <!-- why_try 块 -->
+  <div class="bg-purple-50 border-l-2 border-purple-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
+    <span class="text-purple-600 font-semibold">✨ 为什么试</span>
+    <span class="ml-1">适合已装ComfyUI、想扩展功能但不知有哪些节点的用户；浏览清单即可发现新节点，按链接安装，无需从零搜索</span>
+  </div>
+
+  <!-- 元数据栏 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-700"><span class="text-amber-500">★★★☆☆</span><span>需环境</span></span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
+      ⏱ 约 30min
+    </span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
+      📋 复制度 4/5
+    </span>
+  </div>
+
+  <!-- 工具标签 -->
+  <div class="flex items-center gap-1.5 mb-4 flex-wrap"><span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">Stable Diffusion</span></div>
+
+  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
+  <div class="flex items-center gap-2"><a href="tutorials/github-play-awesome-comfyui-1e6df62d.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://github.com/ComfyUI-Workflow/awesome-comfyui" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-purple-400 hover:text-purple-700 transition text-xs">原文 ↗</a></div>
+
+  <!-- 来源 -->
+  <div class="mt-3 text-xs text-slate-400 truncate">
+    GitHub Awesome ComfyUI
+  </div>
+</article>
+
 <article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-emerald-300 hover:shadow-xl transition-all duration-200"
          data-play-type="runnable_demo" data-difficulty="4"
          data-source-tier="B"
@@ -922,18 +1090,18 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-emerald-700 transition">
-    用Awesome-LLM清单快速定位可试玩大模型项目
+    用Awesome-LLM清单快速定位大模型资源
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    一份持续更新的LLM资源大全，按论文、工具、教程、Demo分类，帮你快速找到能上手试玩的项目
+    一份持续更新的LLM资源大全，涵盖模型、工具、教程、论文等，帮你按需筛选和发现新项目
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-emerald-50 border-l-2 border-emerald-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-emerald-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">打开网页即可浏览，无需安装；适合想快速了解LLM生态或找练手项目的人，5分钟内能筛出3-5个可试玩的Demo或工具</span>
+    <span class="ml-1">适合想系统了解LLM生态的开发者或研究者，无需安装，打开网页即可按分类浏览，5分钟内找到模型、微调工具或部署方案等具体资源</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -982,13 +1150,13 @@
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    获取中文小模型、微调方案、数据集与教程的精选清单，用于私有化部署选型
+    按规模、领域、部署成本筛选中文开源LLM，获取底座模型、微调方案、数据集与教程的索引清单
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-emerald-50 border-l-2 border-emerald-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-emerald-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合想低成本私有化部署中文模型的人；清单按底座、垂直微调、数据集分类，可快速筛选参数量小、训练成本低的模型，省去全网搜索时间</span>
+    <span class="ml-1">适合想低成本私有化部署中文LLM的开发者；清单按模型规模、垂直领域、训练成本分类，可直接定位到具体模型仓库和微调教程，省去全网搜索时间</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -1032,18 +1200,18 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    用 Awesome AI Agents 清单筛选自主智能体
+    用Awesome AI Agents清单挑选自主智能体工具
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    一份收录 3 万多星标关注的自主 AI Agent 项目清单，可快速定位并对比不同智能体工具，找到适合自己场景的方案
+    一份收录31000+星标的自主AI智能体项目清单，可按分类快速找到可落地的Agent工具与框架
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">打开网页即可浏览，无需安装；清单按类别整理，几分钟内就能筛出可试用的 Agent 项目，适合想快速了解自主智能体生态的开发者与产品经理</span>
+    <span class="ml-1">适合想搭建或选型AI Agent的开发者；打开网页即可按分类浏览，无需安装，5分钟内能筛出3-5个候选项目并对比其定位</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -1087,18 +1255,18 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    用 awesome-opencode 清单找插件、主题和 Agent
+    用 awesome-opencode 清单为 opencode 挑选插件与代理
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    一份精选的 opencode.ai 插件、主题、Agent 与项目资源清单，帮你快速定位可用的扩展与工具
+    一份精选的 opencode 插件、主题、agent 与项目资源清单，帮你快速找到可装配到 opencode 工作流里的扩展组件
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合已用或想用 opencode.ai 的开发者；打开仓库即可按分类浏览插件、主题和 Agent，无需安装，5 分钟内能挑出可试的扩展</span>
+    <span class="ml-1">适合已经在用或准备上手 opencode 的开发者；清单按插件、主题、agent 分类，省去逐个搜索筛选的时间，几分钟浏览即可挑出想装的扩展</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -1125,6 +1293,61 @@
 </article>
 
 <article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
+         data-play-type="tool_chain" data-difficulty="3"
+         data-source-tier="B"
+         data-copyable="3"
+         data-score="7.5"
+         data-tutorials-available="1">
+  <!-- 顶部标签 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-cyan-100 text-cyan-700">🔗 工具链</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">技术社区 · B级</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
+      🎮 7.5
+    </span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200" title="本站教程可用">📖 教程</span>
+  </div>
+
+  <!-- 标题 -->
+  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
+    用Awesome清单搭建AI Agent工程化工具链
+  </h3>
+
+  <!-- 摘要 -->
+  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
+    一份涵盖工具、模式、评估、记忆、MCP、权限、可观测性与编排的AI Agent工程化资源清单，可据此选型并搭建自己的Agent工具链
+  </p>
+
+  <!-- why_try 块 -->
+  <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
+    <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
+    <span class="ml-1">适合正在搭建或优化AI Agent系统的开发者；清单按工具、评估、记忆、MCP、权限、可观测性等维度分类，可当作选型索引，30分钟内能筛出所需组件</span>
+  </div>
+
+  <!-- 元数据栏 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-700"><span class="text-amber-500">★★★☆☆</span><span>需环境</span></span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
+      ⏱ 约 30min
+    </span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
+      📋 复制度 3/5
+    </span>
+  </div>
+
+  <!-- 工具标签 -->
+  
+
+  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
+  <div class="flex items-center gap-2"><a href="tutorials/github-play-awesome-ai-agents-63d3bcc4.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://github.com/ai-boost/awesome-harness-engineering" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-cyan-400 hover:text-cyan-700 transition text-xs">原文 ↗</a></div>
+
+  <!-- 来源 -->
+  <div class="mt-3 text-xs text-slate-400 truncate">
+    GitHub Awesome AI Agents
+  </div>
+</article>
+
+<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
          data-play-type="tool_chain" data-difficulty="4"
          data-source-tier="B"
          data-copyable="3"
@@ -1142,18 +1365,18 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    用Awesome-GraphRAG资源库快速定位图检索增强生成方案
+    用Awesome-GraphRAG资源库选型图检索方案
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    一份精选的GraphRAG资源清单，涵盖综述、论文、基准和开源项目，帮你按需筛选技术路线
+    一份持续更新的GraphRAG资源清单，涵盖综述、论文、基准和开源项目，帮你快速定位可复现的图检索增强生成方案
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合想调研GraphRAG的研究者或工程师，无需安装，打开网页即可按分类浏览论文和开源项目，5分钟内找到可复现的基准或代码库</span>
+    <span class="ml-1">适合正在调研GraphRAG的技术选型者；打开网页即可按综述/论文/基准/开源项目分类浏览，无需安装，5分钟内能锁定3-5个候选方案和对应代码库</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -1184,61 +1407,6 @@
          data-source-tier="B"
          data-copyable="3"
          data-score="7.5"
-         data-tutorials-available="1">
-  <!-- 顶部标签 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-cyan-100 text-cyan-700">🔗 工具链</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">技术社区 · B级</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
-      🎮 7.5
-    </span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200" title="本站教程可用">📖 教程</span>
-  </div>
-
-  <!-- 标题 -->
-  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    用 Awesome-LLM-RAG-Application 资源库搭建 RAG 应用
-  </h3>
-
-  <!-- 摘要 -->
-  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    汇总基于 LLM 与 RAG 模式的应用资源清单，可按场景检索项目、教程与工具链，快速选定并复现一个 RAG 应用
-  </p>
-
-  <!-- why_try 块 -->
-  <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
-    <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合想动手做 RAG 应用但不知从何选型的人：仓库按应用场景归类了 1600+ star 的项目与教程，浏览 10 分钟即可锁定一个可复现的参考实现，产出是一份自选的技术选型清单</span>
-  </div>
-
-  <!-- 元数据栏 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-700"><span class="text-amber-500">★★★☆☆</span><span>需环境</span></span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
-      ⏱ 约 30min
-    </span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
-      📋 复制度 3/5
-    </span>
-  </div>
-
-  <!-- 工具标签 -->
-  <div class="flex items-center gap-1.5 mb-4 flex-wrap"><span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">LlamaIndex</span></div>
-
-  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
-  <div class="flex items-center gap-2"><a href="tutorials/github-play-awesome-rag-579b4646.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://github.com/lizhe2004/Awesome-LLM-RAG-Application" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-cyan-400 hover:text-cyan-700 transition text-xs">原文 ↗</a></div>
-
-  <!-- 来源 -->
-  <div class="mt-3 text-xs text-slate-400 truncate">
-    GitHub Awesome RAG
-  </div>
-</article>
-
-<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
-         data-play-type="tool_chain" data-difficulty="4"
-         data-source-tier="B"
-         data-copyable="3"
-         data-score="7.5"
          data-tutorials-available="0">
   <!-- 顶部标签 -->
   <div class="flex items-center gap-2 mb-3 flex-wrap">
@@ -1252,23 +1420,23 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    用GradScaler排查混合精度训练NaN问题
+    用.NET 10搭建JWT登录认证与刷新令牌
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    通过博客教程理解GradScaler如何防止fp16梯度下溢，并学会定位混合精度训练中的静默失效问题
+    从零创建.NET 10项目，实现注册登录、JWT验证、Refresh Token轮换和MCP鉴权，并配中文操作页面
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">阅读约10分钟即可理解GradScaler的放大、检测、还原机制，适合正在使用或调试混合精度训练的PyTorch工程师，无需额外工具</span>
+    <span class="ml-1">适合有C#基础的开发者，本地装好.NET 10 SDK约30分钟可跑通全流程，产出可复用的认证模板和可点击的中文演示页</span>
   </div>
 
   <!-- 元数据栏 -->
   <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-lime-100 text-lime-700"><span class="text-amber-500">★★★★☆</span><span>零代码</span></span>
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-700"><span class="text-amber-500">★★★☆☆</span><span>需环境</span></span>
     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
       ⏱ 约 30min
     </span>
@@ -1281,7 +1449,7 @@
   
 
   <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
-  <a href="https://www.cnblogs.com/dawudexiaowu/p/23717125" target="_blank" rel="noopener nofollow" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all text-sm">立即打开 →</a>
+  <a href="https://www.cnblogs.com/lulight/p/23734982" target="_blank" rel="noopener nofollow" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all text-sm">立即打开 →</a>
 
   <!-- 来源 -->
   <div class="mt-3 text-xs text-slate-400 truncate">
@@ -1291,116 +1459,6 @@
 
 <article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
          data-play-type="tool_chain" data-difficulty="4"
-         data-source-tier="A"
-         data-copyable="3"
-         data-score="6.5"
-         data-tutorials-available="1">
-  <!-- 顶部标签 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-cyan-100 text-cyan-700">🔗 工具链</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">权威媒体 · A级</span> <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
-      🎮 6.5
-    </span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200" title="本站教程可用">📖 教程</span>
-  </div>
-
-  <!-- 标题 -->
-  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    实测GPT-6.2工具链：强但难用
-  </h3>
-
-  <!-- 摘要 -->
-  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    通过爱范儿实测文章了解GPT-6.2工具链的真实能力边界与使用门槛，判断是否值得接入工作流
-  </p>
-
-  <!-- why_try 块 -->
-  <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
-    <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">阅读约10分钟即可了解GPT-6.2在工具链场景下的实际表现和踩坑点，适合正在选型AI工具链的开发者与产品经理参考</span>
-  </div>
-
-  <!-- 元数据栏 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-lime-100 text-lime-700"><span class="text-amber-500">★★★★☆</span><span>零代码</span></span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
-      ⏱ 约 30min
-    </span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
-      📋 复制度 3/5
-    </span>
-  </div>
-
-  <!-- 工具标签 -->
-  
-
-  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
-  <div class="flex items-center gap-2"><a href="tutorials/ifanr-play-24520f65.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://www.ifanr.com/1690130" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-cyan-400 hover:text-cyan-700 transition text-xs">原文 ↗</a></div>
-
-  <!-- 来源 -->
-  <div class="mt-3 text-xs text-slate-400 truncate">
-    爱范儿 AI 应用
-  </div>
-</article>
-
-<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-purple-300 hover:shadow-xl transition-all duration-200"
-         data-play-type="tool_workflow" data-difficulty="3"
-         data-source-tier="B"
-         data-copyable="4"
-         data-score="6.5"
-         data-tutorials-available="1">
-  <!-- 顶部标签 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-purple-100 text-purple-700">🧭 工作流</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">技术社区 · B级</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
-      🎮 6.5
-    </span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200" title="本站教程可用">📖 教程</span>
-  </div>
-
-  <!-- 标题 -->
-  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-purple-700 transition">
-    ComfyUI 自定义节点合集，快速扩展工作流能力
-  </h3>
-
-  <!-- 摘要 -->
-  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    汇总 ComfyUI 社区优质自定义节点，按功能分类索引，帮你快速找到并安装所需插件，扩展图像生成工作流
-  </p>
-
-  <!-- why_try 块 -->
-  <div class="bg-purple-50 border-l-2 border-purple-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
-    <span class="text-purple-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合已装 ComfyUI 的用户，按分类浏览节点仓库链接，省去逐个搜索的时间；需自行 git clone 或通过 Manager 安装，上手约 10 分钟</span>
-  </div>
-
-  <!-- 元数据栏 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-700"><span class="text-amber-500">★★★☆☆</span><span>需环境</span></span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
-      ⏱ 约 30min
-    </span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
-      📋 复制度 4/5
-    </span>
-  </div>
-
-  <!-- 工具标签 -->
-  <div class="flex items-center gap-1.5 mb-4 flex-wrap"><span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">Stable Diffusion</span></div>
-
-  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
-  <div class="flex items-center gap-2"><a href="tutorials/github-play-awesome-comfyui-1e6df62d.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://github.com/ComfyUI-Workflow/awesome-comfyui" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-purple-400 hover:text-purple-700 transition text-xs">原文 ↗</a></div>
-
-  <!-- 来源 -->
-  <div class="mt-3 text-xs text-slate-400 truncate">
-    GitHub Awesome ComfyUI
-  </div>
-</article>
-
-<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
-         data-play-type="tool_chain" data-difficulty="3"
          data-source-tier="B"
          data-copyable="3"
          data-score="6.5"
@@ -1417,73 +1475,18 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    用Awesome清单搭建AI Agent工程化框架
+    用RAG综述仓库查论文分类与选型
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    一份涵盖工具、模式、评估、记忆、MCP、权限、可观测性与编排的AI Agent工程化资源清单，可按图索骥搭建自己的Agent系统
+    按RAG基础、增强、应用三层分类整理AIGC相关论文，产出可检索的论文清单与选型参考
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合已有Agent雏形、想补齐评估/权限/可观测性短板的开发者；纯清单无需安装，30分钟内可对照筛选出3-5个可落地的组件并规划集成路径</span>
-  </div>
-
-  <!-- 元数据栏 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-700"><span class="text-amber-500">★★★☆☆</span><span>需环境</span></span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
-      ⏱ 约 30min
-    </span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
-      📋 复制度 3/5
-    </span>
-  </div>
-
-  <!-- 工具标签 -->
-  
-
-  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
-  <div class="flex items-center gap-2"><a href="tutorials/github-play-awesome-ai-agents-63d3bcc4.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://github.com/ai-boost/awesome-harness-engineering" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-cyan-400 hover:text-cyan-700 transition text-xs">原文 ↗</a></div>
-
-  <!-- 来源 -->
-  <div class="mt-3 text-xs text-slate-400 truncate">
-    GitHub Awesome AI Agents
-  </div>
-</article>
-
-<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
-         data-play-type="tool_chain" data-difficulty="4"
-         data-source-tier="B"
-         data-copyable="3"
-         data-score="6.5"
-         data-tutorials-available="1">
-  <!-- 顶部标签 -->
-  <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-cyan-100 text-cyan-700">🔗 工具链</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">技术社区 · B级</span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
-      🎮 6.5
-    </span>
-    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200" title="本站教程可用">📖 教程</span>
-  </div>
-
-  <!-- 标题 -->
-  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    用RAG综述仓库查论文与分类
-  </h3>
-
-  <!-- 摘要 -->
-  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    获取RAG基础、增强与应用三类论文清单及分类体系，用于快速定位AIGC场景下的RAG研究
-  </p>
-
-  <!-- why_try 块 -->
-  <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
-    <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合写综述或选型的研究者；无需安装，打开网页即可按分类浏览1785星标仓库的论文列表，产出是结构化文献清单</span>
+    <span class="ml-1">适合写综述或选型的研究者；无需安装，打开仓库即可按分类浏览1784星整理的论文列表，产出是带分类标签的论文索引</span>
   </div>
 
   <!-- 元数据栏 -->
@@ -1510,7 +1513,62 @@
 </article>
 
 <article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
-         data-play-type="tool_chain" data-difficulty="4"
+         data-play-type="tool_chain" data-difficulty="3"
+         data-source-tier="B"
+         data-copyable="3"
+         data-score="6.5"
+         data-tutorials-available="1">
+  <!-- 顶部标签 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-cyan-100 text-cyan-700">🔗 工具链</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">技术社区 · B级</span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
+      🎮 6.5
+    </span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200" title="本站教程可用">📖 教程</span>
+  </div>
+
+  <!-- 标题 -->
+  <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
+    用Awesome-LLM-RAG-Application清单搭建RAG应用
+  </h3>
+
+  <!-- 摘要 -->
+  <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
+    一份收录LLM+RAG应用案例与资源的GitHub清单，可按图索骥挑选方案、复现项目或搭建自己的检索增强生成应用
+  </p>
+
+  <!-- why_try 块 -->
+  <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
+    <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
+    <span class="ml-1">适合想系统了解RAG落地形态的开发者；清单按应用场景分类，含开源项目与论文链接，可当作选型索引，clone后按条目逐个调研，无需额外账号</span>
+  </div>
+
+  <!-- 元数据栏 -->
+  <div class="flex items-center gap-2 mb-3 flex-wrap">
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-amber-100 text-amber-700"><span class="text-amber-500">★★★☆☆</span><span>需环境</span></span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
+      ⏱ 约 30min
+    </span>
+    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-pink-50 text-pink-700 border border-pink-200" title="可复制度">
+      📋 复制度 3/5
+    </span>
+  </div>
+
+  <!-- 工具标签 -->
+  <div class="flex items-center gap-1.5 mb-4 flex-wrap"><span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">LlamaIndex</span></div>
+
+  <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
+  <div class="flex items-center gap-2"><a href="tutorials/github-play-awesome-rag-579b4646.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://github.com/lizhe2004/Awesome-LLM-RAG-Application" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-cyan-400 hover:text-cyan-700 transition text-xs">原文 ↗</a></div>
+
+  <!-- 来源 -->
+  <div class="mt-3 text-xs text-slate-400 truncate">
+    GitHub Awesome RAG
+  </div>
+</article>
+
+<article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
+         data-play-type="tool_chain" data-difficulty="2"
          data-source-tier="B"
          data-copyable="3"
          data-score="6.5"
@@ -1527,23 +1585,23 @@
 
   <!-- 标题 -->
   <h3 class="text-lg font-bold mb-2 leading-tight text-slate-900 group-hover:text-cyan-700 transition">
-    用黑板架构让多Agent协作排查API超时
+    用 SQL 调用大模型做推理与 RAG
   </h3>
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    通过黑板架构让多个Agent共享发现、协同排查报表导出API超时问题，产出协作式故障定位流程
+    在 TaurusDB 中用 SQL 调用 MaaS 完成文本推理、向量化与语义检索，产出分类、摘要、RAG 回答等结果
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合正在搭建多Agent协作系统的开发者；阅读约10分钟即可理解黑板架构的共享状态设计，无需额外工具或账号，产出是一套可复用的多Agent协作排查思路</span>
+    <span class="ml-1">适合已有华为云 TaurusDB 与 MaaS 账号的开发者；无需另搭向量库，建表加 STORED 向量列即可让原文与向量同表，用 SQL 组料完成 RAG，上手约半天</span>
   </div>
 
   <!-- 元数据栏 -->
   <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-lime-100 text-lime-700"><span class="text-amber-500">★★★★☆</span><span>零代码</span></span>
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-orange-100 text-orange-700"><span class="text-amber-500">★★☆☆☆</span><span>需配置</span></span>
     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
       ⏱ 约 30min
     </span>
@@ -1553,10 +1611,10 @@
   </div>
 
   <!-- 工具标签 -->
-  
+  <div class="flex items-center gap-1.5 mb-4 flex-wrap"><span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">LlamaIndex</span></div>
 
   <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
-  <a href="https://www.cnblogs.com/Qiniu-developer/p/23719835" target="_blank" rel="noopener nofollow" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all text-sm">立即打开 →</a>
+  <a href="https://www.cnblogs.com/huaweiyun/p/23733520" target="_blank" rel="noopener nofollow" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all text-sm">立即打开 →</a>
 
   <!-- 来源 -->
   <div class="mt-3 text-xs text-slate-400 truncate">
@@ -1565,19 +1623,19 @@
 </article>
 
 <article class="play-card group relative bg-white rounded-2xl border border-slate-200 p-6 hover:border-cyan-300 hover:shadow-xl transition-all duration-200"
-         data-play-type="tool_chain" data-difficulty="4"
+         data-play-type="tool_chain" data-difficulty="5"
          data-source-tier="A"
          data-copyable="3"
-         data-score="5.5"
-         data-tutorials-available="0">
+         data-score="4.5"
+         data-tutorials-available="1">
   <!-- 顶部标签 -->
   <div class="flex items-center gap-2 mb-3 flex-wrap">
     <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-cyan-100 text-cyan-700">🔗 工具链</span>
     <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">权威媒体 · A级</span> <span class="inline-flex items-center px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
     <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold border border-amber-200" title="可玩性评分">
-      🎮 5.5
+      🎮 4.5
     </span>
-    
+    <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold border border-indigo-200" title="本站教程可用">📖 教程</span>
   </div>
 
   <!-- 标题 -->
@@ -1587,18 +1645,18 @@
 
   <!-- 摘要 -->
   <p class="text-sm text-slate-600 mb-3 leading-relaxed line-clamp-2">
-    了解嘉实多Castrol CORE一体化液冷方案，获取AI数据中心规模化部署的参考路径与工具链思路
+    了解嘉实多Castrol CORE一体化液冷方案，获取AI数据中心规模化部署的参考框架与实施路径
   </p>
 
   <!-- why_try 块 -->
   <div class="bg-cyan-50 border-l-2 border-cyan-400 pl-3 pr-2 py-2 mb-4 rounded-r text-sm text-slate-700">
     <span class="text-cyan-600 font-semibold">✨ 为什么试</span>
-    <span class="ml-1">适合数据中心运维和液冷方案选型人员；阅读约5分钟，无需账号或安装，产出是对液冷规模化部署方案与工具链的认知框架</span>
+    <span class="ml-1">适合数据中心运维和AI基础设施规划者；阅读约10分钟，无需账号或工具，产出是对液冷规模化部署方案的系统认知和选型参考</span>
   </div>
 
   <!-- 元数据栏 -->
   <div class="flex items-center gap-2 mb-3 flex-wrap">
-    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-lime-100 text-lime-700"><span class="text-amber-500">★★★★☆</span><span>零代码</span></span>
+    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-emerald-100 text-emerald-700"><span class="text-amber-500">★★★★★</span><span>0 基础</span></span>
     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-blue-50 text-blue-700 border border-blue-200">
       ⏱ 约 30min
     </span>
@@ -1611,7 +1669,7 @@
   
 
   <!-- CTA 按钮（双按钮：有教程显示「教程+原文」，无教程显示「立即打开」） -->
-  <a href="https://zhidx.com/p/612470.html" target="_blank" rel="noopener nofollow" class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-[1.02] transition-all text-sm">立即打开 →</a>
+  <div class="flex items-center gap-2"><a href="tutorials/zhidx-play-610c663b.html" class="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2.5 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:shadow-lg transition text-sm">📖 查看教程</a><a href="https://zhidx.com/p/612470.html" target="_blank" rel="noopener nofollow" class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-white border border-slate-300 text-slate-700 font-medium rounded-lg hover:border-cyan-400 hover:text-cyan-700 transition text-xs">原文 ↗</a></div>
 
   <!-- 来源 -->
   <div class="mt-3 text-xs text-slate-400 truncate">

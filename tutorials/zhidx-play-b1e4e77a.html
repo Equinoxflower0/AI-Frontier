@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>跟AI学Ubuntu 26.04搭建Docker环境 - AI 玩法教程 · AI Frontier</title>
+<title>本地部署Muse Agent实现token自由 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-20
+      2026-11-21
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">跟AI学Ubuntu 26.04搭建Docker环境</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">本地部署Muse Agent实现token自由</h1>
     
   </div>
 </header>
@@ -58,24 +58,28 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    博客园 AI 教程 · B级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+    智东西 AI 工具评测 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    技术社区
+    权威媒体
   </span>
-  <a href="https://www.cnblogs.com/datacool/p/23645223" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://zhidx.com/p/612775.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">跟着AI一步步在Ubuntu 26.04上搭建Docker环境，零基础也能照做，顺便学点Linux运维硬技能。</p>
+  <p class="text-base text-slate-800 leading-relaxed">想不花一分钱就拥有一个能帮你自动处理任务、还能无限使用token的个人AI助手吗？本地部署Muse Agent就能做到。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    一位47岁的大龄程序员码农阿峰，靠Linux技能保住了饭碗，但自觉不够强，于是用AI辅助学习Ubuntu Server 26.04上搭建Docker环境。这个玩法适合刚接触Linux服务器、想快速上手容器化部署的开发者或运维新手。通过AI对话式引导，你能避开常见坑，把环境搭得又稳又快。整个过程也是练习“用AI学新东西”的元技能。
+    前DeepSeek研究员张博创立的Simplex AI开源了个人Agent——Muse Agent，它能够连接多种工具、自动执行任务，并且完全运行在你自己的电脑上。这意味着你不用再担心API调用费用和token限制，所有数据也留在本地，隐私性极佳。对于开发者、效率爱好者或任何想探索AI Agent能力的人来说，这是一个绝佳的练手项目。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +100,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Ubuntu Server 26.04 LTS 镜像  <a href="https://ubuntu.com/download/server" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">操作系统安装源，建议用官方ISO</div>
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行Muse Agent的基础环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一台虚拟机或云服务器  <a href="https://www.virtualbox.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于安装Ubuntu Server，本地可用VirtualBox/VMware，云端可选阿里云/腾讯云轻量服务器</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于克隆Muse Agent的代码仓库</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">SSH客户端  <a href="https://www.putty.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">远程连接服务器，Windows可用PuTTY或Windows Terminal，macOS/Linux用终端</div>
+      <div class="font-semibold text-slate-900">DeepSeek API Key（可选）  <a href="https://platform.deepseek.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">如果你想用DeepSeek作为后端模型，需要申请API Key；也可用本地模型替代</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">AI对话工具  <a href="https://chat.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于向AI提问获取命令和排错建议，如ChatGPT、Claude、文心一言等</div>
+      <div class="font-semibold text-slate-900">Ollama（可选）  <a href="https://ollama.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">如果想完全本地运行模型，可用Ollama管理本地大模型</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Docker官方文档  <a href="https://docs.docker.com/engine/install/ubuntu/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">安装和配置的权威参考</div>
+      <div class="font-semibold text-slate-900">Docker（可选）  <a href="https://www.docker.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">部分依赖可用Docker简化安装</div>
     </li>
   </ul>
 </section>
@@ -126,55 +130,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装Ubuntu Server 26.04并完成基础配置</h3>
-      <div class="text-base text-slate-700 leading-loose">用虚拟机或云服务器安装Ubuntu Server 26.04，安装时勾选OpenSSH Server以便远程连接。安装完成后用SSH登录，执行sudo apt update &amp;&amp; sudo apt upgrade -y更新系统。接着设置主机名、时区，并创建一个有sudo权限的普通用户（如果安装时没建）。最后确认网络连通，能ping通外网。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：克隆Muse Agent仓库并安装依赖</h3>
+      <div class="text-base text-slate-700 leading-loose">打开终端，执行 git clone https://github.com/simplex-ai/muse-agent.git 下载代码。进入项目目录后，运行 pip install -r requirements.txt 安装所有Python依赖。如果遇到网络问题，可以更换pip源为国内镜像。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>安装时建议最小化安装，不要选额外的服务包，保持系统干净，后续按需安装。
+          💡 <span class="font-semibold">小贴士：</span>建议使用虚拟环境（如venv或conda）来隔离依赖，避免污染系统Python。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：向AI提问获取Docker安装命令</h3>
-      <div class="text-base text-slate-700 leading-loose">打开AI对话工具，输入提示词：“我是Ubuntu Server 26.04新手，请给出安装Docker Engine和Docker Compose的完整命令步骤，要求用官方apt仓库，并解释每条命令的作用。”AI会返回一套命令，包括安装依赖、添加GPG密钥、添加仓库、安装docker-ce等。你逐条复制执行，遇到不懂的就追问AI。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：配置模型后端</h3>
+      <div class="text-base text-slate-700 leading-loose">复制 .env.example 文件为 .env，然后编辑 .env 文件。如果你使用DeepSeek API，填入 DEEPSEEK_API_KEY=你的密钥；如果想完全本地运行，设置 MODEL_PROVIDER=ollama 并指定本地模型名称（如llama3）。保存文件。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>让AI解释每条命令，不要盲目复制粘贴，这是学习的关键。
+          💡 <span class="font-semibold">小贴士：</span>DeepSeek API有免费额度，适合快速测试；本地模型则完全免费但需要足够的显存。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：执行安装并配置Docker</h3>
-      <div class="text-base text-slate-700 leading-loose">按照AI给出的命令依次执行：先安装ca-certificates、curl等依赖，然后添加Docker官方GPG密钥和apt仓库，接着sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y。安装完成后启动Docker服务并设为开机自启：sudo systemctl enable --now docker。最后把当前用户加入docker组，避免每次用sudo：sudo usermod -aG docker $USER，然后重新登录生效。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：启动Muse Agent服务</h3>
+      <div class="text-base text-slate-700 leading-loose">在项目根目录运行 python main.py 启动Agent服务。默认会在本地启动一个Web界面（通常是 http://localhost:8000）或命令行交互界面。根据终端提示访问对应地址。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>加入docker组后必须退出SSH重新登录，否则组权限不生效。
+          💡 <span class="font-semibold">小贴士：</span>如果端口被占用，可以在配置文件中修改端口号。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：验证安装并跑通第一个容器</h3>
-      <div class="text-base text-slate-700 leading-loose">执行docker version和docker compose version确认版本信息。然后运行sudo docker run hello-world，看到“Hello from Docker!”说明安装成功。再尝试运行一个Nginx容器：docker run -d -p 8080:80 --name mynginx nginx，然后在浏览器访问服务器IP:8080，看到Nginx欢迎页即证明容器网络正常。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：连接工具并创建第一个任务</h3>
+      <div class="text-base text-slate-700 leading-loose">在Web界面中，你可以看到可用的工具列表（如文件操作、网络搜索、代码执行等）。勾选需要的工具，然后在聊天框输入任务，例如“帮我总结今天关于AI的新闻并保存到news.txt”。Agent会自动调用工具完成任务。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果访问不了，检查服务器防火墙或云安全组是否放行了8080端口。
+          💡 <span class="font-semibold">小贴士：</span>初次使用建议从简单任务开始，逐步增加复杂度，观察Agent的思考过程。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用AI辅助排错与优化</h3>
-      <div class="text-base text-slate-700 leading-loose">如果某步报错，把错误信息完整复制给AI，并说明你的操作环境，AI会给出排查思路。常见问题包括GPG密钥下载失败、仓库地址错误、权限不足等。根据AI建议修复后，再让AI给出Docker常用配置优化建议，比如配置国内镜像加速器、设置日志轮转等。最后把整个流程整理成自己的笔记。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：自定义Agent行为（可选）</h3>
+      <div class="text-base text-slate-700 leading-loose">在项目目录中找到 config/agent.yaml 文件，你可以调整Agent的系统提示词、最大迭代次数、工具权限等。修改后重启服务即可生效。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>让AI用“一步一步教我”的方式回答，避免它一次性给太多信息。
+          💡 <span class="font-semibold">小贴士：</span>通过修改系统提示词，可以让Agent扮演不同角色（如程序员、写作助手等）。
         </div>
     </div>
   </div>
@@ -184,7 +188,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    Ubuntu 26.04上成功安装Docker Engine和Docker Compose，docker run hello-world正常输出，Nginx容器可通过浏览器访问，当前用户无需sudo即可执行docker命令，并且你拥有了一套AI辅助排错的实战经验。
+    完成部署后，你将拥有一个本地运行的AI Agent，可以通过自然语言指令让它自动完成文件整理、信息查询、代码执行等任务，且无需担心token消耗，所有数据留在本地。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +198,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Ubuntu 26.04太新，Docker官方仓库支持吗？</span>
+        <span>没有DeepSeek API Key可以吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">如果官方仓库尚未收录26.04代号，可以暂时使用相邻LTS版本的仓库（如24.04），或改用Ubuntu自带docker.io包，但版本较旧。建议先问AI确认最新支持情况。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，使用Ollama等本地模型后端即可完全离线运行，但需要电脑有足够的性能。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>执行docker命令提示权限被拒绝怎么办？</span>
+        <span>Muse Agent支持哪些工具？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">说明当前用户不在docker组。执行sudo usermod -aG docker $USER后退出SSH重新登录即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">官方提供了文件操作、网络搜索、代码执行、浏览器控制等工具，你也可以开发自定义工具。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>拉取镜像很慢或失败怎么办？</span>
+        <span>部署过程中遇到依赖冲突怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">配置国内镜像加速器，在/etc/docker/daemon.json中加入registry-mirrors，然后sudo systemctl restart docker。具体地址可让AI推荐当前可用的。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议使用虚拟环境，并确保Python版本为3.10以上。如果仍有冲突，可以尝试用Docker部署。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>AI给的命令我不敢直接执行，怎么确保安全？</span>
+        <span>这个Agent能完全替代ChatGPT吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">让AI逐条解释命令作用，对涉及删除、修改系统文件的命令格外警惕，可以先在测试虚拟机里跑一遍。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Docker Compose和docker-compose命令有什么区别？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">新版是Docker Compose插件，命令为docker compose（中间空格）；旧版是独立二进制docker-compose。安装docker-compose-plugin后使用前者。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">它更侧重于自动化任务执行，而非通用对话。对于需要操作本地文件或执行代码的场景非常有用，但对话能力取决于你选择的底层模型。</div>
     </details>
   </div>
 </section>
@@ -233,14 +230,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用AI辅助在Ubuntu 26.04上搭建Docker + Portainer可视化管理界面，通过Web UI管理容器。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：让AI生成一个多容器应用（如Nginx + MySQL + WordPress）的docker-compose.yml，并一步步部署上线。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用AI制定Docker安全加固清单，包括非root运行容器、限制资源、配置防火墙等，并逐项实践。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将Muse Agent接入微信或飞书，实现聊天机器人自动回复和任务处理。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：结合本地知识库（如Obsidian笔记），让Agent帮你检索和整理个人知识。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用Muse Agent自动监控指定网页并发送邮件通知，打造个人情报助手。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    把AI当成随叫随到的Linux老师，边问边做边排错，在实战中把Docker环境搭起来，同时练就独立解决问题的能力。
+    本地部署Muse Agent，让你零成本拥有一个可定制、隐私安全的自动化AI助手，彻底告别token焦虑。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,18 +247,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档批量转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可运行 Agent 工作流</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体工作流</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
+      <div class="text-xs text-amber-500">★★☆☆☆</div>
     </a></div>
 </section>
 

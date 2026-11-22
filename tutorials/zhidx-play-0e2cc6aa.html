@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>零基础搭建ECG心电算法研究环境 - AI 玩法教程 · AI Frontier</title>
+<title>用27B循环脑模型在笔记本跑Agent - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-21
+      2026-11-22
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">零基础搭建ECG心电算法研究环境</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用27B循环脑模型在笔记本跑Agent</h1>
     
   </div>
 </header>
@@ -58,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    博客园 AI 教程 · B级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+    智东西 AI 工具评测 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    技术社区
+    权威媒体
   </span>
-  <a href="https://www.cnblogs.com/windbetter/p/23642698" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://zhidx.com/p/613053.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">这是一份面向零基础研究者的ECG心电算法环境搭建指南，帮你从零跑通「数据读取→滤波→AI降噪→部署验证」全链路。</p>
+  <p class="text-base text-slate-800 leading-relaxed">在笔记本上就能跑起一个会循环思考的27B智能体，不依赖云端API，全程本地推理。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    心电信号（ECG）是穿戴设备与医疗AI的核心数据源，但很多初学者卡在环境配置和工具链串联上。本玩法基于博客园实战教程，用Python生态把信号处理、深度学习与嵌入式部署串成一条可复现的研究流水线。适合做毕业设计、算法预研或可穿戴产品原型的学生与工程师。
+    智东西评测了一款基于27B参数循环脑模型的Agent方案，它通过循环调用自身推理来拆解复杂任务，在消费级笔记本上即可运行。这种玩法适合需要数据隐私、离线可用或想低成本实验Agent能力的场景，比如个人知识管理、自动化文档处理、本地代码助手等。相比动辄需要A100的模型，它大幅降低了硬件门槛，同时保留了多步推理的智能体特性。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,28 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+（Miniconda）  <a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">管理虚拟环境与依赖，避免包冲突</div>
+      <div class="font-semibold text-slate-900">Ollama  <a href="https://ollama.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">本地大模型运行框架，用于拉取和运行27B循环脑模型</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">VS Code + Jupyter 插件  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">交互式调试信号处理与模型训练代码</div>
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编写Agent循环逻辑和工具调用脚本</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">WFDB / PhysioNet 数据  <a href="https://physionet.org/content/mitdb/1.0.0/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">读取MIT-BIH等公开ECG数据集</div>
+      <div class="font-semibold text-slate-900">LangChain 或 LlamaIndex  <a href="https://www.langchain.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">可选，用于简化Agent工具链编排</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">SciPy + NumPy + Matplotlib  <a href="https://scipy.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">传统滤波、频谱分析与可视化</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">PyTorch（CPU版即可）  <a href="https://pytorch.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">搭建轻量化AI降噪模型</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ONNX Runtime / TensorFlow Lite  <a href="https://onnxruntime.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">模型导出与低功耗部署验证</div>
+      <div class="font-semibold text-slate-900">一台笔记本（16GB内存以上，最好有独显）  <a href="https://zhidx.com/p/613053.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行27B模型需要足够内存，量化版可降低要求</div>
     </li>
   </ul>
 </section>
@@ -130,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：创建隔离环境并安装核心依赖</h3>
-      <div class="text-base text-slate-700 leading-loose">用 conda 创建名为 ecg 的虚拟环境（Python 3.10），激活后依次安装 numpy、scipy、matplotlib、wfdb、torch、onnxruntime。建议把依赖写入 requirements.txt 便于复现。安装完成后在终端运行 python -c &quot;import scipy, wfdb, torch&quot; 验证无报错。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装Ollama并拉取循环脑模型</h3>
+      <div class="text-base text-slate-700 leading-loose">去Ollama官网下载对应系统的安装包，安装后打开终端，运行 `ollama pull qwen2.5:27b`（或评测中提到的具体循环脑模型名称，如 `llama3.1:27b` 的量化版）。如果内存有限，优先选择 `q4_K_M` 量化版本，体积约16GB。拉取完成后用 `ollama run qwen2.5:27b` 测试是否能正常对话。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>国内下载慢可加清华镜像源：pip install -i https://pypi.tuna.tsinghua.edu.cn/simple 包名。
+          💡 <span class="font-semibold">小贴士：</span>笔记本内存16GB建议用7B或13B量化版先跑通流程，27B需要32GB内存或24GB显存更流畅。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：下载并读取公开ECG数据集</h3>
-      <div class="text-base text-slate-700 leading-loose">从 PhysioNet 下载 MIT-BIH 心律失常数据库（约100MB），解压到 data/ 目录。用 wfdb.rdrecord('data/100') 读取记录，再用 wfdb.plot_wfdb 画出前10秒波形确认数据完整。注意采样率通常为360Hz，后续滤波参数要按此设计。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：编写Agent循环脚本</h3>
+      <div class="text-base text-slate-700 leading-loose">新建一个Python文件 `agent_loop.py`，用Ollama的Python库或HTTP API连接本地模型。核心逻辑是：定义一个`think`函数让模型输出下一步行动，一个`act`函数执行工具（如搜索、读文件、计算），然后把结果拼回上下文再次调用模型，形成循环。循环终止条件可以是模型输出`FINAL_ANSWER`或达到最大轮数（如5轮）。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先用单条记录（如100号）跑通流程，再批量处理，避免一开始就被大数据集卡住。
+          💡 <span class="font-semibold">小贴士：</span>在系统提示词里明确要求模型每轮只输出一个JSON，包含`action`和`action_input`字段，方便解析。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：实现传统滤波与信号分析</h3>
-      <div class="text-base text-slate-700 leading-loose">用 scipy.signal 设计0.5–40Hz带通滤波器去除基线漂移和高频噪声，再用50Hz陷波器消除工频干扰。对滤波前后信号做FFT频谱对比，并用 matplotlib 保存对比图。这一步是理解ECG噪声特性的关键，也是后续AI降噪的baseline。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：接入2-3个本地工具</h3>
+      <div class="text-base text-slate-700 leading-loose">为Agent注册几个实用工具：比如`read_file`读取本地txt/pdf内容，`write_file`保存结果，`web_search`调用DuckDuckGo搜索（需联网），`calculator`做数学计算。每个工具写一个Python函数，并在提示词中描述其用途和参数格式。Agent会根据任务自动选择工具。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>滤波阶数不要太高（建议2–4阶），否则相位失真会影响R波定位。
+          💡 <span class="font-semibold">小贴士：</span>工具描述要简洁明确，避免模型混淆；可以先只接一个工具跑通，再逐步增加。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：搭建轻量化AI降噪模型并训练</h3>
-      <div class="text-base text-slate-700 leading-loose">用 PyTorch 写一个1D卷积自编码器（3层Conv1d + 对称上采样），输入为含噪ECG片段，目标为滤波后的干净信号。构造滑动窗口数据集（如512点/样本），用MSE损失训练20个epoch。训练完保存模型权重，并对比AI输出与传统滤波的SNR提升。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：设计循环脑提示词模板</h3>
+      <div class="text-base text-slate-700 leading-loose">系统提示词采用“循环脑”风格：要求模型先复述任务、再规划步骤、然后执行一步、观察结果、反思是否继续。例如：“你是一个循环思考的Agent，每轮输出：THOUGHT（思考）、ACTION（工具名）、INPUT（参数）。如果任务完成，输出FINAL_ANSWER。” 把历史轮次的THOUGHT/ACTION/OBSERVATION都拼进上下文，让模型看到完整轨迹。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>CPU训练即可，batch_size设32、学习率1e-3，10分钟内能跑完小数据集。
+          💡 <span class="font-semibold">小贴士：</span>限制每轮输出长度（如200字），防止上下文爆炸；用`num_ctx`参数调大Ollama的上下文窗口到8K以上。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：导出模型并做部署验证</h3>
-      <div class="text-base text-slate-700 leading-loose">用 torch.onnx.export 把训练好的模型导出为ONNX格式，再用 onnxruntime 加载推理，对比PyTorch输出误差应小于1e-4。若目标为可穿戴设备，可进一步用 TensorFlow Lite 转换并测试单次推理耗时，评估是否满足低功耗实时要求。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：运行测试并调优</h3>
+      <div class="text-base text-slate-700 leading-loose">给Agent一个具体任务，比如“读取我桌面上的report.txt，总结三个要点并保存到summary.txt”。观察它是否按“读文件→总结→写文件”的循环执行。如果卡住，检查工具返回值格式是否清晰；如果循环过多，在提示词中加入“最多尝试3轮”的约束。记录成功和失败案例，迭代提示词。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>导出时固定输入shape（如[1,1,512]），避免动态轴导致部署端不兼容。
+          💡 <span class="font-semibold">小贴士：</span>用`print`打印每轮的THOUGHT和ACTION，方便调试；可以加一个`max_iterations=5`的硬限制防止死循环。
         </div>
     </div>
   </div>
@@ -188,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你将在本地得到一条完整可复现的ECG研究流水线：能读取MIT-BIH数据、画出滤波前后对比图、训练出轻量AI降噪模型，并成功导出ONNX做推理验证。所有代码与图表可整理成实验报告或论文素材。
+    Agent能在笔记本本地完成一个多步任务：例如读取指定文件、调用工具处理、再输出最终答案并保存。终端会显示每轮的思考、行动和观察记录，全程不依赖云端API，响应速度约每秒5-15个token（取决于硬件）。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -198,38 +190,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有GPU能跑吗？</span>
+        <span>27B模型在16GB内存的笔记本上能跑吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。本教程的1D卷积模型很小，CPU训练完全够用，重点是跑通流程而非追求精度。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">原生27B需要约54GB内存，但4-bit量化版约16GB，16GB内存机器可以勉强运行但速度较慢；建议用7B/13B量化版先体验循环脑逻辑。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>MIT-BIH数据下载太慢怎么办？</span>
+        <span>循环脑和普通Agent有什么区别？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可先用wfdb包自带的示例数据，或从国内镜像站获取；也可先用单条记录跑通再批量下载。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">循环脑强调模型在每一轮都重新审视完整历史并决定下一步，而不是一次性规划；它更像“边想边做”，适合探索性任务，但需要控制轮数防止无限循环。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>滤波后波形还是有很多毛刺？</span>
+        <span>需要联网吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查采样率是否匹配滤波器设计，并确认是否加了50Hz陷波；毛刺也可能来自肌电噪声，可适当降低带通上限到35Hz。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">模型拉取和部分工具（如网页搜索）需要联网，但Agent推理和本地文件操作可完全离线。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>AI降噪效果不如传统滤波？</span>
+        <span>为什么Agent总是重复调用同一个工具？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">正常。小模型+小数据下AI未必超过带通滤波，建议增加数据量、调整窗口长度，或把AI作为滤波后的二次增强。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常是提示词没有强调“观察结果后判断是否完成”，可以在系统提示中加入“如果OBSERVATION已包含所需信息，直接输出FINAL_ANSWER”。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>ONNX推理结果和PyTorch不一致？</span>
+        <span>可以用其他模型替代吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查导出时的opset版本和输入归一化方式，确保推理前做了相同的预处理。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，任何Ollama支持的模型都能替换，但27B循环脑模型在推理深度上更有优势；也可尝试`qwen2.5:32b`或`llama3.1:70b`量化版（需更大内存）。</div>
     </details>
   </div>
 </section>
@@ -237,14 +229,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把传统滤波换成小波变换降噪，对比AI模型在不同噪声水平下的鲁棒性。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用公开的ECG分类任务（如房颤检测）替换降噪目标，把流水线扩展为「预处理+分类」端到端研究。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：将ONNX模型部署到树莓派或ESP32-S3，实测功耗与延迟，做成可穿戴原型demo。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把工具换成代码执行器（如`subprocess`运行Python脚本），让Agent自动写代码并运行，实现数据分析Agent。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：接入本地向量数据库（如Chroma），让Agent先检索个人文档再回答，变成私有知识库问答助手。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用两个模型分工——小模型做快速工具调用，27B模型做最终审核，降低延迟同时保留推理质量。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    先用公开数据和传统滤波建立baseline，再用轻量AI模型做增强，最后导出部署——这条「数据→滤波→AI→部署」流水线就是ECG算法研究的最小闭环。
+    用Ollama在笔记本本地跑27B循环脑模型，配合简单的Python循环和工具函数，就能低成本搭建一个会多步思考的私有Agent。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -254,18 +246,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
-      <div class="text-xs text-amber-500">★★☆☆☆</div>
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

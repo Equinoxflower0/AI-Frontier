@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用Gemini Decisions API批量做决策，100问0.41秒 - AI 玩法教程 · AI Frontier</title>
+<title>用AI漏洞扫描+真实复现验证误报 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-21
+      2026-11-22
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★☆☆☆ · 2/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Gemini Decisions API批量做决策，100问0.41秒</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用AI漏洞扫描+真实复现验证误报</h1>
     
   </div>
 </header>
@@ -58,28 +58,24 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    智东西 AI 工具评测 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://zhidx.com/p/609608.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/chingho/p/23745237" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
-<div class="mb-4">
-  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
-  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">Gemini</span></div>
-</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">谷歌新推出的 Gemini Decisions API 能让你一次性批量提交上百个决策问题，并在 0.41 秒内拿到结构化答案，非常适合需要快速分类、筛选或打分的场景。</p>
+  <p class="text-base text-slate-800 leading-relaxed">AI 漏洞扫描报告看着吓人，但大半是误报？本教程教你用「AI 扫描 + 真实复现」双轨验证，把每一条高危告警都落到具体请求和响应上，只留真问题。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    传统上让大模型做批量决策需要反复调用 API 或写复杂提示词，效率低且结果格式不稳定。Gemini Decisions API 专门为「多问题、快决策」设计，支持一次请求传入多个问题并返回结构化 JSON，官方实测 100 个问题仅需 0.41 秒。它适合内容审核、工单分类、问卷编码、商品标签等需要大批量判断的业务。本教程带你从零跑通这个工具链，并给出可复用的提示词模板。
+    上周我让 AI 给一个老项目做安全自查，报告第一条就写着「高危：越权访问」，点进去却没有任何证据——哪条请求、哪个响应、什么参数，全都没有。一下午挨个手工复现，最后大半是误报。让 AI 扫自己的系统不算新鲜事，麻烦的是扫完之后：报告哗哗列了几十条，条条看着都吓人，可你不知道哪条是真的、哪条该先修。这个玩法就是给 AI 扫描加一道「真实复现」的验证环节，用可执行的请求/响应证据把误报筛掉，让安全自查真正可落地。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,20 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Google AI Studio 账号  <a href="https://aistudio.google.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">获取 Gemini API Key 并在线调试 Decisions API</div>
+      <div class="font-semibold text-slate-900">Burp Suite Community Edition  <a href="https://portswigger.net/burp/communitydownload" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">抓包与重放请求，用于复现越权、注入等漏洞</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Gemini API Key  <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">调用 Decisions API 的凭证，在 AI Studio 中免费创建</div>
+      <div class="font-semibold text-slate-900">Postman  <a href="https://www.postman.com/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">构造和批量发送 API 请求，验证接口级漏洞</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.9+ 与 google-generativeai SDK  <a href="https://pypi.org/project/google-generativeai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">本地批量提交决策请求的编程环境</div>
+      <div class="font-semibold text-slate-900">ChatGPT / Claude / DeepSeek  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">作为 AI 扫描与报告分析助手，生成扫描提示词和复现脚本</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">curl 或 Postman  <a href="https://www.postman.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">不写代码时快速测试 API 的备选工具</div>
+      <div class="font-semibold text-slate-900">curl + jq  <a href="https://curl.se/download.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">命令行快速复现请求并格式化响应，便于留证</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Git（可选）  <a href="https://git-scm.com/downloads" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">保存复现脚本和证据文件，形成可追溯记录</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,44 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：在 AI Studio 创建 API Key 并确认模型名</h3>
-      <div class="text-base text-slate-700 leading-loose">登录 Google AI Studio，点击左侧「Get API key」创建密钥并保存。然后在模型列表中确认可用的 Decisions 模型名称（如 gemini-decisions-001 或官方文档标注的版本号）。建议先在 AI Studio 的 Chat 界面用一句简单决策问题测试模型是否可用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：让 AI 输出「可复现」的扫描报告</h3>
+      <div class="text-base text-slate-700 leading-loose">不要直接问「帮我扫一下有没有漏洞」，而是给 AI 一个结构化提示词模板，要求每条发现必须包含：漏洞类型、受影响 URL/接口、HTTP 方法、关键请求头与参数、预期恶意请求、预期正常响应、判定依据。例如：「你是安全审计员，请对以下接口清单做越权/注入/信息泄露检查，每条发现必须给出可直接执行的 curl 命令和对比用的正常请求，没有具体请求的条目不要输出。」把项目路由表或接口文档贴给 AI，让它按模板逐条产出。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>API Key 只显示一次，务必立即复制到密码管理器；免费额度有限，批量测试时先用 10 条以内的小样本。
+          💡 <span class="font-semibold">小贴士：</span>提示词里明确写「无法给出具体请求的条目视为无效」，能大幅减少 AI 编造结论。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：安装 SDK 并写最小可运行脚本</h3>
-      <div class="text-base text-slate-700 leading-loose">在终端执行 pip install google-generativeai 安装官方 SDK。新建 decide.py，用 genai.configure(api_key=...) 配置密钥，然后调用 genai.GenerativeModel('模型名').generate_content() 传入一个决策问题。运行后确认能拿到返回文本，再进入批量模式。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 Burp/Postman 逐条真实复现</h3>
+      <div class="text-base text-slate-700 leading-loose">把 AI 给出的每条 curl 命令导入 Postman 或直接在 Burp Repeater 里重放。重点做三件事：一是用低权限账号的 token 请求高权限接口，看是否返回 200 和敏感数据；二是替换资源 ID 看能否越权读取他人数据；三是对比正常请求与恶意请求的响应差异。每条都截图或保存请求/响应原文，文件名带上报告编号，例如 R-001-req.txt / R-001-resp.txt。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果报 404 模型不存在，回到第1步核对模型名；建议把模型名写成变量，方便后续切换版本。
+          💡 <span class="font-semibold">小贴士：</span>复现前先确认测试账号权限边界，避免用管理员账号「验证」越权导致假阴性。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：构造批量决策请求体（核心提示词模板）</h3>
-      <div class="text-base text-slate-700 leading-loose">Decisions API 的关键是把多个问题组织成结构化输入。推荐模板：先写系统指令「你是一个批量决策引擎，对每个问题只输出 JSON 数组，每项包含 id、decision（yes/no 或类别）、confidence（0-1）、reason（不超过20字）」，再把 100 个问题以 JSON 数组形式放入用户消息。确保每个问题带唯一 id，方便回填结果。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：把复现结果回喂给 AI 做误报判定</h3>
+      <div class="text-base text-slate-700 leading-loose">将每条发现的原始报告 + 真实请求 + 真实响应一起贴回给 AI，要求它按「确认 / 误报 / 待定」三分类输出，并说明理由。提示词示例：「以下是报告条目和真实复现的请求响应，请判断该漏洞是否成立，成立需指出响应中哪一行证明了危害，误报需指出原报告忽略了什么前置条件。」对「待定」条目再补一次针对性复现。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>提示词里明确「只输出 JSON、不要解释」，可大幅减少解析失败；问题数量先控制在 20 条调试，稳定后再扩到 100 条。
+          💡 <span class="font-semibold">小贴士：</span>让 AI 引用响应中的具体字段作为证据，能有效防止它「顺着你的话」下结论。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：发送请求并解析结构化结果</h3>
-      <div class="text-base text-slate-700 leading-loose">用 generate_content 一次性提交包含全部问题的请求，设置 temperature=0 保证决策稳定。拿到响应后，用 json.loads 解析返回文本，按 id 与原始问题做映射。如果解析失败，打印原始返回并检查模型是否多加了 Markdown 代码块，必要时用正则剥离。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：生成带证据链的最终报告</h3>
+      <div class="text-base text-slate-700 leading-loose">把确认成立的漏洞按「危害等级 + 复现步骤 + 请求响应证据 + 修复建议」整理成最终报告，误报条目单独列一节并注明误报原因。可以让 AI 根据你保存的证据文件批量生成 Markdown 表格，你只做核对。最终报告里每条真漏洞都应能让另一个同事照着 curl 命令一次复现成功。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在请求里加 response_mime_type='application/json'（若模型支持）可强制返回纯 JSON，省去清洗步骤。
-        </div>
-    </div>
-    <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
-      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
-        5
-      </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：批量跑通并记录耗时</h3>
-      <div class="text-base text-slate-700 leading-loose">用 time.perf_counter() 包住请求前后，记录 100 个问题的总耗时。对照官方 0.41 秒的基准，检查自己的网络与模型版本差异。把结果写入 CSV（id、问题、决策、置信度、理由），方便业务方复核。</div>
-      
-        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>置信度低于 0.6 的条目建议人工抽检，这是批量决策落地的安全阀。
+          💡 <span class="font-semibold">小贴士：</span>误报也要留档，下次扫描时把误报模式写进提示词，AI 会少报同类假阳性。
         </div>
     </div>
   </div>
@@ -184,7 +173,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    运行脚本后，终端打印出 100 条结构化决策结果（JSON 数组），总耗时在亚秒级到数秒级；导出的 CSV 中每行包含问题 id、决策结论、置信度和简短理由，可直接交给业务系统或人工复核。
+    你得到一份每条漏洞都附带可执行请求和真实响应证据的最终报告，误报被明确标注并说明原因；团队可以按证据链直接排期修复，而不是对着几十条模糊告警猜哪个是真的。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +183,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>Decisions API 和普通 Gemini 对话接口有什么区别？</span>
+        <span>没有 Burp 专业版，能用免费工具完成吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">它针对「多问题批量决策」优化，一次请求可传入大量问题并返回结构化结果，延迟更低、格式更稳定，适合分类/筛选类任务而非开放式聊天。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。Burp Community 的 Repeater 足够重放单条请求，配合 Postman 和 curl 完全能完成复现，本玩法不依赖专业版功能。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>免费额度够跑 100 个问题吗？</span>
+        <span>AI 给的 curl 命令跑不通怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">AI Studio 免费层有每分钟/每天的请求次数限制，单次 100 问通常只算一次请求，额度内可跑；具体限额以官方定价页为准，批量生产建议升级付费层。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">多半是认证头或环境变量缺失。把项目实际的登录方式和 base URL 补充给 AI，让它重新生成；也可以先在 Postman 里调通再导出 curl。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>返回的不是合法 JSON 怎么办？</span>
+        <span>复现越权时不小心改到了真实数据怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先检查提示词是否明确「只输出 JSON」，再尝试设置 response_mime_type 为 application/json；仍失败时用正则提取第一个 [ 到最后一个 ] 之间的内容再解析。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">务必在测试环境或只读接口上复现，涉及写操作的越权用测试账号和测试数据，复现前先备份或确认可回滚。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>决策结果不稳定、每次不一样怎么办？</span>
+        <span>AI 判定「误报」就一定对吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">把 temperature 设为 0，并在提示词中固定决策标准和输出格式；对关键业务可跑两次取一致结果，不一致的条目转人工。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不一定。AI 只是辅助，最终以真实响应为准；对 AI 判误报但响应里出现敏感字段的条目，要人工再看一眼。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>可以处理中文问题吗？</span>
+        <span>这套流程适合多大的项目？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，Gemini 多语言能力较好；建议在提示词中指定「用中文输出 reason」，并保持问题表述简洁、标准统一。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合中小型项目或老系统自查；大型项目建议先按接口清单分批，每批 20-30 条，避免一次复现量过大。</div>
     </details>
   </div>
 </section>
@@ -233,14 +222,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：内容审核流水线——把用户评论批量送入 Decisions API，输出「通过/违规/待复核」三分类，置信度低的自动进入人工队列。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：问卷开放题编码——将数百条问卷回答批量映射到预设标签体系，输出标签+理由，直接生成 SPSS/Excel 编码表。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：商品打标与比价筛选——输入商品标题和描述，批量决策「是否属于某品类」「是否含关键属性」，用于电商选品初筛。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：CI 集成版——把 AI 生成的复现脚本做成 Postman Collection，接入 CI 定时跑，新增接口自动触发越权回归测试。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：误报知识库版——把每次确认的误报模式整理成提示词片段，下次扫描前注入 AI，持续降低假阳性率。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：多模型交叉验证版——同一份报告分别让两个不同 AI 判定，只对结论不一致的条目做人工复现，节省时间。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用结构化提示词把上百个决策问题打包成一次 API 请求，靠低 temperature 和 JSON 输出约束，就能在亚秒级拿到可复核的批量决策结果。
+    AI 负责广撒网找线索，真实请求响应负责定罪，证据链才是安全报告的唯一硬通货。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,18 +239,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
-      <div class="text-xs text-amber-500">★★☆☆☆</div>
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

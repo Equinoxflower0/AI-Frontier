@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用 MiniMax H3 Image 快速生成 4K 图像 - AI 玩法教程 · AI Frontier</title>
+<title>用 Docling 解析 PDF 喂给 RAG 系统 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-21
+      2026-11-22
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 MiniMax H3 Image 快速生成 4K 图像</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 Docling 解析 PDF 喂给 RAG 系统</h1>
     
   </div>
 </header>
@@ -58,24 +58,28 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    爱范儿 AI 应用 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://www.ifanr.com/1688790" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/12lisu/p/23745997" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">LlamaIndex</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">用 MiniMax H3 Image 模型，最快 10 秒就能生成 4K 高清图像，本文教你从零上手这套极速出图流程。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用 Docling 把 PDF 解析成结构化 Markdown，再喂给 LlamaIndex 构建 RAG 系统，彻底告别断句表格和错位标题导致的胡编乱造。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    MiniMax 推出的 H3 Image 模型主打高速高分辨率生成，官方演示中 4K 图像最快仅需 10 秒。对于需要快速产出视觉素材的设计师、自媒体运营和电商美工来说，这意味着从构思到成图的时间被大幅压缩。爱范儿 AI 应用栏目对此做了报道，本教程基于该玩法整理出可复现的操作链路，帮你把「10 秒 4K」真正用起来。
+    很多开发者把 PDF 直接丢进 RAG 系统后，检索出来的片段全是断句的表格、错位的标题，大模型拿着碎片化内容一本正经地编答案。你以为是 Embedding 模型不行、切片大小不对、向量库检索策略有问题，折腾一圈才发现根源在 PDF 解析环节。Docling 是 IBM 开源的文档解析工具，能精准识别表格、标题、列表等结构，输出干净的 Markdown，再配合 LlamaIndex 的 Markdown 解析器，就能让 RAG 系统拿到高质量的上下文。这个玩法适合所有需要处理 PDF 文档的知识库、问答系统、文档分析场景。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +100,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">MiniMax 开放平台账号  <a href="https://platform.minimaxi.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">注册并获取 API Key，用于调用 H3 Image 模型</div>
+      <div class="font-semibold text-slate-900">Python 3.9+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行环境，建议用 3.10 或 3.11</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">MiniMax 官方体验入口（海螺 AI）  <a href="https://hailuoai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">不想写代码可直接在网页端体验图像生成</div>
+      <div class="font-semibold text-slate-900">Docling  <a href="https://github.com/DS4SD/docling" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">PDF 解析核心工具，支持表格、标题、列表结构化输出</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一台能上网的电脑或手机  <a href="https://www.ifanr.com/1688790" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">网页端或 API 调用均可，无特殊硬件要求</div>
+      <div class="font-semibold text-slate-900">LlamaIndex  <a href="https://www.llamaindex.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">RAG 框架，用于构建索引和检索链路</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">（可选）Postman 或 curl  <a href="https://www.postman.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于调试 API 请求，验证参数与返回结果</div>
+      <div class="font-semibold text-slate-900">OpenAI API Key（或兼容接口）  <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于 Embedding 和 LLM 生成，也可换成本地模型</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">一份带表格/多级标题的 PDF 测试文件  <a href="https://www.cnblogs.com/12lisu/p/23745997" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用来验证解析效果，建议选财报或技术文档</div>
     </li>
   </ul>
 </section>
@@ -122,55 +130,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：注册账号并获取 API Key</h3>
-      <div class="text-base text-slate-700 leading-loose">打开 MiniMax 开放平台，用手机号或邮箱完成注册。进入控制台后找到「API 密钥」页面，创建一个新的 Key 并复制保存。注意 Key 只显示一次，建议存到密码管理器里。如果只想快速体验，也可以直接打开海螺 AI 网页端，跳过 API 配置。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装依赖并验证 Docling 环境</h3>
+      <div class="text-base text-slate-700 leading-loose">创建虚拟环境后执行 pip install docling llama-index llama-index-readers-file。Docling 依赖较重，首次安装会下载布局模型和表格识别模型，耐心等待。安装完成后运行 python -c &quot;from docling.document_converter import DocumentConverter&quot; 确认无报错。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>免费额度通常够测试几十张图，先别急着充值，跑通流程再决定。
+          💡 <span class="font-semibold">小贴士：</span>如果网络慢，可以设置 HF_ENDPOINT=https://hf-mirror.com 加速模型下载。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：选择 H3 Image 模型并设定 4K 参数</h3>
-      <div class="text-base text-slate-700 leading-loose">在 API 文档中找到图像生成接口，模型名称填写 H3 Image 对应的 model ID。关键参数包括：分辨率设为 4K（如 3840×2160 或按比例），生成数量设为 1 先测试，采样步数用默认值即可。网页端用户直接在模型下拉框选择 H3 Image，并在尺寸选项里挑 4K。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 Docling 把 PDF 转成结构化 Markdown</h3>
+      <div class="text-base text-slate-700 leading-loose">写一个 convert.py，用 DocumentConverter().convert(&quot;test.pdf&quot;) 得到 docling_doc，再调用 docling_doc.document.export_to_markdown() 保存为 test.md。打开生成的 Markdown 检查表格是否保留为管道表格、标题层级是否用 # 正确标记。这一步是整个链路的质量基石，务必人工抽检几页。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>首次调用建议先用 1080P 跑通，确认 Key 和参数无误后再切 4K，避免浪费额度。
+          💡 <span class="font-semibold">小贴士：</span>Docling 默认开启表格结构识别，如果表格复杂可加参数 do_table_structure=True 并调高图像分辨率。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编写高质量提示词</h3>
-      <div class="text-base text-slate-700 leading-loose">提示词结构建议：主体 + 场景 + 风格 + 光影 + 画质词。例如「一只橘猫坐在窗台上，午后阳光，日系胶片风格，柔和逆光，4K 超高清，细节丰富」。H3 Image 对英文提示词兼容良好，中英混写也可以。把提示词填入 prompt 字段，负面提示词可留空或写「模糊、低质量、变形」。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用 LlamaIndex 加载 Markdown 并构建索引</h3>
+      <div class="text-base text-slate-700 leading-loose">在 build_index.py 中用 SimpleDirectoryReader 读取上一步的 test.md，然后 SentenceSplitter(chunk_size=512, chunk_overlap=50) 做切片。接着 VectorStoreIndex.from_documents(documents, embed_model=OpenAIEmbedding()) 构建向量索引，并 persist 到本地 ./storage 目录。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>画质词放最后效果更稳，比如「8K、超精细、锐利对焦」这类词不要堆太多，3 个以内即可。
+          💡 <span class="font-semibold">小贴士：</span>Markdown 的标题会被 LlamaIndex 识别为元数据，检索时可以按标题过滤，效果更好。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：发送请求并等待出图</h3>
-      <div class="text-base text-slate-700 leading-loose">用 curl 或 Postman 向图像生成端点发送 POST 请求，Header 带上 Authorization: Bearer 你的Key，Body 为 JSON 格式包含 model、prompt、size 等字段。点击发送后，最快约 10 秒返回图片 URL。网页端用户直接点「生成」按钮，等待进度条走完即可预览。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：搭建查询引擎并测试检索质量</h3>
+      <div class="text-base text-slate-700 leading-loose">加载持久化的索引，用 index.as_query_engine(similarity_top_k=3) 创建查询引擎。准备 5 个针对表格和标题的问题（例如“2023 年 Q4 营收是多少”），对比直接解析 PDF 的旧方案，观察回答是否准确引用表格数据。如果答案仍不理想，回头检查 Markdown 中对应片段是否完整。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果返回超时，先检查网络和 Key 是否有效，再把 size 降到 2K 重试，排除是 4K 渲染耗时导致。
+          💡 <span class="font-semibold">小贴士：</span>打印 retrieved_nodes 的文本内容，确认检索到的片段没有断句或错位，这是排查 RAG 问题的关键。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：下载 4K 原图并做后期微调</h3>
-      <div class="text-base text-slate-700 leading-loose">从返回的 URL 下载图片，确认分辨率达到 4K 标准。如果构图满意但细节有瑕疵，可以固定随机种子（seed）微调提示词重新生成。需要批量出图时，把请求封装成脚本循环调用，每次更换 prompt 即可。最后用修图软件做锐化和色彩微调，让 4K 优势完全发挥。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：批量处理 PDF 并接入完整 RAG 流程</h3>
+      <div class="text-base text-slate-700 leading-loose">把 convert.py 改造成遍历文件夹的批量脚本，将所有 PDF 转成 Markdown 后统一用 SimpleDirectoryReader 加载。再接入 OpenAI LLM 做生成，形成“PDF → Docling → Markdown → LlamaIndex 索引 → 查询”的完整链路。最后用 Gradio 或 FastAPI 包一层接口，方便日常使用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>保存每次成功的 prompt 和 seed，方便复现和迭代，这是提升出图稳定性的关键习惯。
+          💡 <span class="font-semibold">小贴士：</span>批量转换时加个进度条和异常捕获，单个 PDF 失败不影响整体流程。
         </div>
     </div>
   </div>
@@ -180,7 +188,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    完成以上步骤后，你将获得一张分辨率达到 4K（约 3840×2160）的高清图像，生成耗时在 10 秒到 1 分钟之间，画面细节清晰、可直接用于海报、封面或电商详情页。同时你已掌握一套可复用的 API 调用流程，能批量产出 4K 素材。
+    Docling 输出的 Markdown 中表格保持完整、标题层级清晰；LlamaIndex 检索到的片段语义连贯，大模型回答能准确引用表格数据和章节内容，不再出现断句拼接或胡编乱造。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +198,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>10 秒生成 4K 是真实速度吗？</span>
+        <span>Docling 解析速度很慢怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">官方演示的最快速度在理想网络和简单提示词下可达，实际耗时受提示词复杂度、服务器负载和网络影响，通常在 10 秒到 1 分钟之间。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">首次运行会下载模型，之后会缓存。如果仍慢，可以关闭表格结构识别（do_table_structure=False）或降低图像分辨率，也可以改用 GPU 加速。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有编程基础能用吗？</span>
+        <span>扫描版 PDF 能解析吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。直接使用海螺 AI 网页端，选择 H3 Image 模型和 4K 尺寸，输入提示词点生成即可，全程无需写代码。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Docling 主要针对文本型 PDF，扫描版需要先做 OCR。可以先用 PaddleOCR 或 Tesseract 转成文本层，再交给 Docling 做结构化。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>4K 图像会消耗更多额度吗？</span>
+        <span>必须用 OpenAI 的 Embedding 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常分辨率越高消耗的额度越多，具体倍率以 MiniMax 开放平台的价格页为准，建议先用低分辨率测试。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是，LlamaIndex 支持 HuggingFace、Ollama、Cohere 等多种 Embedding，替换 embed_model 即可，本地模型推荐 bge-m3。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>生成的图片可以商用吗？</span>
+        <span>Markdown 里的表格在切片时被切断了怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">需遵守 MiniMax 的服务条款和内容政策，一般生成内容版权归用户，但建议查阅官方协议确认商用范围。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">调大 chunk_size 或使用 LlamaIndex 的 MarkdownNodeParser，它会按标题层级切分，尽量保持表格完整。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>提示词用中文还是英文好？</span>
+        <span>这个方案和直接解析 PDF 相比提升有多大？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">H3 Image 对中英文都支持，英文在风格和光影描述上更精准，中文更直观，可以中英混写取长补短。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在表格密集和多级标题的文档上提升明显，检索准确率通常能提高 20%-40%，具体取决于文档复杂度和切片策略。</div>
     </details>
   </div>
 </section>
@@ -229,14 +237,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：批量电商主图——用脚本循环调用 API，每次替换产品名称和背景描述，一次性生成整套 4K 商品图。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：固定 seed 做系列图——锁定同一 seed，只改风格词，生成同一构图的多风格版本，适合做 A/B 测试素材。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合放大工具二次增强——先用 H3 Image 出 2K 图，再用 Real-ESRGAN 等放大工具超分到 4K，兼顾速度与细节。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把 Docling 换成 Marker 或 Unstructured，对比不同解析器在表格和公式上的表现，选最适合自己文档类型的工具。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：在 LlamaIndex 中加入 MetadataExtractor，把 Docling 识别出的标题层级写入元数据，检索时按章节过滤，进一步提升精度。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：将 Docling 输出的 Markdown 同时喂给 GraphRAG，利用标题和表格关系构建知识图谱，适合需要跨文档推理的场景。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    选对模型、写好提示词、先低分辨率跑通再切 4K，你就能把「10 秒出 4K」变成日常出图流水线。
+    RAG 效果差先别怪模型，用 Docling 把 PDF 解析成结构化 Markdown，再交给 LlamaIndex，才是高质量检索的正确打开方式。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -246,18 +254,18 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 2/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可编排的AI Agent工作流</div>
-      <div class="text-xs text-amber-500">★★☆☆☆</div>
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

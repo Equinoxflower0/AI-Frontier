@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>读 chat-demo 源码学 DeepSeek 全栈 API - AI 玩法教程 · AI Frontier</title>
+<title>用六要素本体建模搭企业知识图谱与数字员工 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-23
+      2026-11-24
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🚀 可立即试用
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 10min
+        ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">读 chat-demo 源码学 DeepSeek 全栈 API</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用六要素本体建模搭企业知识图谱与数字员工</h1>
     
   </div>
 </header>
@@ -65,21 +65,17 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.cnblogs.com/znlgis/p/23680323" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/aifrontiers/p/23756063" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
-<div class="mb-4">
-  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
-  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">DeepSeek</span></div>
-</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">想快速搞懂 DeepSeek 全栈 API 怎么用？直接读官方 chat-demo 源码，一下午就能把流式、思考、搜索、引用、附件、语音、分支、导入导出全跑通。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用六要素本体建模把企业散乱的知识整理成一张结构化的业务对象网络，再让大模型和数字员工基于这张网络精准回答，从此告别答非所问。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -90,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    chat-demo 是 DeepSeek 官方放出的静态聊天示例，没有后端、没有会话库，浏览器直接拿着你的 API Key 去请求你配置的服务。它小到可以一下午读完全部逻辑，又完整到把流式、思考、搜索、引用、附件、语音、分支、导入导出全做了一遍。如果你的目标是接一套对话产品，它是一份极佳的参考实现；如果你只想学 API 用法，它比文档更直观。本教程带你从零跑通这个 demo，并拆解核心代码，让你能举一反三。
+    很多企业给知识库接上大模型和向量检索后，依然经常答偏：系统会把去年的旧订单条款硬套到今年新买的设备上，因为文本相似不代表业务对象是同一个。六要素本体建模（对象、属性、关系、事件、规则、状态）正是为了解决这个问题——它先定义清楚企业里有哪些业务对象、它们之间怎么关联、在什么条件下触发什么动作，再把知识挂到这些对象上。这样大模型检索时不再只靠文本相似度，而是沿着本体关系精准定位，数字员工也能按规则执行任务。本教程适合正在搭建企业知识库、客服机器人或流程自动化的团队。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -100,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">DeepSeek 开放平台账号  <a href="https://platform.deepseek.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">获取 API Key，用于调用模型</div>
+      <div class="font-semibold text-slate-900">大语言模型 API（如 DeepSeek、通义千问、GPT-4o）  <a href="https://platform.deepseek.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于理解用户问题、生成回答和辅助抽取本体要素</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Node.js (v18+)  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行本地静态服务器和构建工具</div>
+      <div class="font-semibold text-slate-900">向量数据库（如 Milvus、Qdrant、Chroma）  <a href="https://milvus.io/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">存储本体对象和知识片段的向量，支持语义检索</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">克隆 chat-demo 源码仓库</div>
+      <div class="font-semibold text-slate-900">图数据库或轻量图存储（如 Neo4j、NebulaGraph，或直接用 JSON/Excel 起步）  <a href="https://neo4j.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">存储六要素本体中的对象、关系和规则</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">VS Code  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">阅读和调试源码</div>
+      <div class="font-semibold text-slate-900">Dify 或 FastGPT（可选）  <a href="https://dify.ai/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">快速搭建数字员工/知识库问答应用，支持工作流编排</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">现代浏览器 (Chrome/Edge)  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行 demo 并调试网络请求</div>
+      <div class="font-semibold text-slate-900">企业业务文档（订单、设备手册、合同、SOP 等） </div>
+      <div class="text-sm text-slate-600 mt-1">本体建模的原始素材来源</div>
     </li>
   </ul>
 </section>
@@ -130,66 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：获取源码并安装依赖</h3>
-      <div class="text-base text-slate-700 leading-loose">打开终端，执行 git clone https://github.com/deepseek-ai/chat-demo.git（若仓库地址变动，请参考博客园原文中的链接）。进入目录后运行 npm install 安装依赖。然后用 npm run dev 启动本地开发服务器，浏览器访问终端提示的地址（通常是 http://localhost:5173）。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：梳理业务对象，定义六要素本体骨架</h3>
+      <div class="text-base text-slate-700 leading-loose">先不要碰代码，拿一张白纸或 Excel，把企业里核心的业务对象列出来，比如「客户」「订单」「设备」「合同」「工单」。然后对每个对象按六要素填写：对象（它是什么）、属性（型号、金额、日期等）、关系（订单属于客户、设备关联合同）、事件（下单、维修、续约）、规则（旧订单条款不适用于新设备）、状态（待付款、已发货、保修中）。每个对象一行，六列分别填六要素，形成本体字典表。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果 npm install 慢，可切换淘宝镜像：npm config set registry https://registry.npmmirror.com
+          💡 <span class="font-semibold">小贴士：</span>先只做 3-5 个核心对象，不要贪多；规则一栏写清楚「什么条件下不适用」，这正是解决答偏的关键。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：配置 API Key 与请求地址</h3>
-      <div class="text-base text-slate-700 leading-loose">在项目根目录找到 .env 或 config 文件（不同版本可能不同），填入你的 DeepSeek API Key。同时确认请求的 base URL 指向 https://api.deepseek.com。保存后重启开发服务器。注意：demo 是纯前端，API Key 会暴露在浏览器中，仅限本地学习使用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用大模型辅助抽取知识并挂到本体上</h3>
+      <div class="text-base text-slate-700 leading-loose">把业务文档分段喂给大模型，用提示词模板让它按六要素输出结构化 JSON，例如：「请从以下文本中抽取对象、属性、关系、事件、规则、状态，输出 JSON，对象名必须来自本体字典表」。把抽取结果人工校对后，存入图数据库或 JSON 文件，形成「对象-关系-知识片段」的映射。每个知识片段同时生成向量，存入向量数据库，并在元数据里带上对象 ID 和规则标签。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不要把带 Key 的代码推送到公开仓库；建议用 .env.local 并加入 .gitignore。
+          💡 <span class="font-semibold">小贴士：</span>提示词里强制要求对象名对齐本体字典表，能大幅减少模型自由发挥导致的错挂。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：跑通基础对话与流式输出</h3>
-      <div class="text-base text-slate-700 leading-loose">在聊天框输入“你好”，观察浏览器 Network 面板中的请求。你会看到 POST /chat/completions 请求，且响应是 stream 形式（text/event-stream）。阅读 src/api/chat.js 或类似文件，理解如何用 fetch + ReadableStream 逐块解析 SSE 数据并更新 UI。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：搭建「本体路由 + 向量检索」的问答链路</h3>
+      <div class="text-base text-slate-700 leading-loose">用户提问后，先让大模型做意图识别，判断问题涉及哪个业务对象（如「今年新买的设备保修条款」→ 对象=设备+合同）。然后按对象 ID 过滤向量数据库，只检索挂在该对象下的知识片段，再结合本体中的规则（如「旧订单条款不适用于新设备」）做二次过滤。最后把检索到的片段和规则一起塞进提示词，让大模型生成回答。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在 Network 面板勾选“EventStream”标签，可以直观看到每个 chunk 的内容。
+          💡 <span class="font-semibold">小贴士：</span>在检索前加一层对象过滤，比纯向量相似度召回准确率高很多，尤其适合条款、型号容易混淆的场景。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：拆解思考、搜索与引用功能</h3>
-      <div class="text-base text-slate-700 leading-loose">在输入框上方找到“深度思考”和“联网搜索”开关。打开后发问，观察请求体中多了 reasoning 或 search 相关参数。阅读对应组件代码，理解如何将模型返回的 reasoning_content 和 citations 字段渲染到界面上。引用通常以角标形式展示，点击可跳转来源。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：把规则和事件接入数字员工工作流</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Dify 或 FastGPT 里建一个工作流：入口接收用户问题 → 本体路由节点 → 向量检索节点 → 规则校验节点（检查是否触发禁用规则）→ 大模型回答节点。对于事件类任务（如「设备到期提醒续约」），用定时触发器读取本体中的事件和状态字段，自动生成待办并推送给负责人。数字员工由此从「只会聊天」升级为「按规则办事」。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>搜索功能依赖后端代理，demo 中可能用模拟数据；重点看请求参数和渲染逻辑，而非真实搜索。
+          💡 <span class="font-semibold">小贴士：</span>规则校验节点可以先做成简单的 if-else 判断，跑通后再逐步复杂化，不要一上来就追求全自动。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：体验附件、语音、分支与导入导出</h3>
-      <div class="text-base text-slate-700 leading-loose">尝试上传一张图片或 PDF，观察请求如何将文件转为 base64 或 multipart 发送。点击麦克风按钮测试语音输入（依赖浏览器 Web Speech API）。在消息上右键或点击按钮创建分支，理解会话树的数据结构。最后使用导出按钮将对话保存为 JSON 或 Markdown。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用真实问题回归测试并迭代本体</h3>
+      <div class="text-base text-slate-700 leading-loose">收集 20-30 个历史上答偏的真实问题，逐一跑新链路，记录哪些问题被正确路由、哪些仍然答错。答错的大概率是本体缺了某个对象、关系或规则，回到第1步补充本体字典表，再重新抽取和入库。每轮迭代后对比准确率，直到核心场景稳定。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>分支功能的核心是维护一个树形消息列表，每个节点有 parentId；阅读 store 或 reducer 代码即可掌握。
-        </div>
-    </div>
-    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
-      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
-        6
-      </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：修改源码并验证自定义功能</h3>
-      <div class="text-base text-slate-700 leading-loose">尝试修改系统提示词（system prompt）或默认模型参数（如 temperature）。例如在请求体中加入 system: '你是一个幽默的助手'，刷新后观察回复风格变化。再修改流式渲染的节流逻辑，让打字机效果更快或更慢。通过小改动验证你对代码的理解。</div>
-      
-        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>用 VS Code 的调试功能在关键函数打断点，比 console.log 更高效。
+          💡 <span class="font-semibold">小贴士：</span>把答偏的案例本身也作为「规则」写进本体，比如「2023 年订单条款不适用于 2024 年设备」，让系统越用越聪明。
         </div>
     </div>
   </div>
@@ -199,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    本地成功运行 chat-demo，能与 DeepSeek 模型进行流式对话，并体验思考、搜索、引用、附件、语音、分支、导入导出等全部功能。同时能读懂核心请求与渲染逻辑，具备基于此 demo 二次开发的能力。
+    完成上述步骤后，你会得到一张可维护的六要素本体字典表、一个带对象元数据的向量知识库，以及一条「本体路由→向量检索→规则校验→大模型回答」的问答链路。测试时，问「今年新买的设备适用哪份保修条款」，系统能正确锁定新设备对象并排除旧订单条款，不再答偏；数字员工也能按事件和规则自动触发续约提醒等任务。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -209,38 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 DeepSeek API Key 能跑吗？</span>
+        <span>没有图数据库，只用 Excel 和向量库能跑通吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能真实调用模型，但可以修改代码指向兼容 OpenAI 接口的本地模型（如 Ollama），或使用 mock 数据学习前端逻辑。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。本体字典表用 Excel 维护，对象 ID 和规则标签写进向量库的元数据，检索时按元数据过滤即可，适合小规模起步。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>为什么我的请求报 401 错误？</span>
+        <span>六要素里「规则」和「事件」有什么区别？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查 API Key 是否填写正确、是否有多余空格，以及请求头 Authorization 是否为 Bearer &lt;key&gt;。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">规则是约束条件（什么情况下不能做什么），事件是触发动作（什么时候该做什么）。规则用于过滤和校验，事件用于驱动工作流。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>demo 中的联网搜索是真实的吗？</span>
+        <span>大模型抽取本体要素不准怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">官方 demo 可能仅演示参数传递和 UI 渲染，真实搜索需要你自行接入搜索 API 并在后端代理，避免前端暴露 Key。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先缩小文档范围、强制对象名对齐字典表，再人工校对一轮；也可以改用少样本提示，给 2-3 个标准示例，准确率会明显提升。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>分支功能的数据结构是怎样的？</span>
+        <span>这套方法适合多大规模的企业？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常是一个消息树，每个消息有 id 和 parentId，当前分支由当前选中节点回溯到根节点决定。阅读 store 中的 addMessage 和 switchBranch 即可理解。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">从 3-5 个核心对象、几十份文档起步即可，中小团队用 Excel+向量库就能验证价值，规模大了再迁移到图数据库和正式工作流平台。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何部署到线上？</span>
+        <span>和普通 RAG 相比，主要提升在哪？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">由于是纯前端且含 API Key，不建议直接部署。正确做法是加一个轻量后端代理（如 Node.js/Express）转发请求并隐藏 Key，前端只与代理通信。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">普通 RAG 只靠文本相似度，容易把相似但对象不同的内容混在一起；本体建模先锁定业务对象和规则，再做检索，能显著减少「旧条款套新设备」这类答偏。</div>
     </details>
   </div>
 </section>
@@ -248,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将 chat-demo 改造成多模型切换器——在设置中增加模型选择（deepseek-chat / deepseek-reasoner），请求时动态替换 model 字段。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：基于 demo 的分支功能实现“对话树可视化”——用 D3.js 或 React Flow 画出消息节点关系图，点击节点切换分支。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把 demo 的流式渲染逻辑抽离成独立 npm 包，供其他项目复用，支持自定义 chunk 解析器和打字机速度。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：客服场景——把「客户、订单、产品、售后工单」做成六要素本体，数字员工按客户对象检索历史订单和适用政策，回答退换货问题时不串单。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：设备运维场景——以「设备、备件、维修事件、保修规则」为本体，结合定时事件触发保养提醒，数字员工自动生成工单并推送。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：合同审核场景——把「合同、条款、签约方、生效状态」建模，规则要素写成合规检查项，大模型逐条比对，输出风险提示。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    读官方最小 demo 是学 API 的最短路径：跑通它、拆解它、改造它，一下午就能把 DeepSeek 全栈能力装进自己口袋。
+    先用六要素把业务对象和规则定义清楚，再让大模型沿着本体关系检索和办事，知识库就不会再答偏。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -263,20 +248,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-hf-space-mrfakename/Z-Image-Turbo" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">HuggingFace Spaces · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">在线试用Z-Image-Turbo图像生成</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-hf-space-hexgrad/Kokoro-TTS" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">HuggingFace Spaces · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Kokoro在线把文字转成自然语音</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-hf-space-selfit-camera/Omni-Image-Editor" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">HuggingFace Spaces · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">在线玩Selfit相机全能图片编辑器</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭长任务超级智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 

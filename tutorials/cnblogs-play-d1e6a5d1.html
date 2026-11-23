@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用上下文压缩机制排查 Agent 遗忘指令问题 - AI 玩法教程 · AI Frontier</title>
+<title>用 .NET+Avalonia 打造 CLI Agent 托管工具 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-23
+      2026-11-24
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用上下文压缩机制排查 Agent 遗忘指令问题</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 .NET+Avalonia 打造 CLI Agent 托管工具</h1>
     
   </div>
 </header>
@@ -65,7 +65,7 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.cnblogs.com/leikooo/p/23666738" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/token-ai/p/23759015" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">当你的 AI Agent 在长任务中突然弹出「Compacting conversation…」并开始遗忘关键指令时，这套教程能帮你用上下文压缩机制精准定位并修复问题。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用 .NET + Avalonia 打造一个轻量级 CLI Agent 托管工具，让你同时管理几十个 Agent 而不卡顿。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多开发者用 Agent 跑长流程任务时，都遇到过 Agent 中途「失忆」：明明说好「别动这个文件」，压缩完上下文它又去改了。这背后是 compaction（上下文压缩）机制在作祟——它把聊天记录总结成更短的版本以节省 token，但总结过程可能丢掉关键约束。本教程教你如何系统排查这类遗忘指令问题，适合使用 Claude Code、Cursor、Cline 等支持长上下文 Agent 的开发者。
+    很多开发者习惯用 Codex GUI 或 Electron 版 GUI Agent，但多项目并行时窗口分散、内存占用高，电脑很快扛不住。这个玩法用 Avalonia 跨平台框架 + .NET 构建一个 CLI 风格的 Agent 托管面板，把多个 Agent 的启动、日志、状态集中在一个轻量界面里，资源占用远低于 Electron，适合需要同时跑多个 Agent 的开发者。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Claude Code  <a href="https://claude.ai/code" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">支持 compaction 机制的 Agent 工具，用于复现和排查遗忘问题</div>
+      <div class="font-semibold text-slate-900">.NET 8 SDK  <a href="https://dotnet.microsoft.com/download" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">开发与运行环境，建议安装 LTS 版本</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Cursor  <a href="https://cursor.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">备选 Agent IDE，可观察上下文压缩行为</div>
+      <div class="font-semibold text-slate-900">Avalonia UI 模板  <a href="https://avaloniaui.net/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">创建跨平台桌面应用项目</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Cline (VS Code 插件)  <a href="https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">开源 Agent 插件，可查看上下文管理日志</div>
+      <div class="font-semibold text-slate-900">Visual Studio 2022 或 Rider  <a href="https://visualstudio.microsoft.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">IDE，用于编写和调试 C# 代码</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一个长任务测试项目  <a href="https://github.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">准备一个包含多文件修改的仓库，用于触发 compaction</div>
+      <div class="font-semibold text-slate-900">任意 CLI Agent 工具  <a href="https://www.cnblogs.com/token-ai/p/23759015" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">如 Codex CLI、Claude Code 或其他命令行 Agent，用于被托管</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">文本对比工具  <a href="https://code.visualstudio.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">如 VS Code 内置 diff 或 Beyond Compare，用于对比压缩前后指令</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">拉取示例代码或管理版本</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,66 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：复现遗忘场景并记录压缩触发点</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Agent 中启动一个长任务，例如「重构项目中的 5 个文件，但不要修改 config.py」。持续对话直到出现「Compacting conversation…」提示。记录压缩前后的对话轮次和 Agent 行为变化，重点标记它开始违反约束的那一轮。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：创建 Avalonia 项目骨架</h3>
+      <div class="text-base text-slate-700 leading-loose">打开终端执行 dotnet new install Avalonia.Templates 安装模板，然后 dotnet new avalonia.mvvm -o AgentHub 创建 MVVM 项目。进入目录后 dotnet run 确认空白窗口能正常启动。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>用屏幕录制或日志工具记录整个过程，方便回放定位。
+          💡 <span class="font-semibold">小贴士：</span>项目名不要用中文或空格，避免后续路径问题。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：提取压缩前后的上下文快照</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Agent 工具中开启详细日志（如 Claude Code 的 --verbose 模式），找到 compaction 发生时的原始消息列表和压缩后的摘要。将两者导出为文本文件，用 diff 工具对比，找出被摘要丢弃的关键指令（如「别动 config.py」）。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：设计 Agent 托管数据模型</h3>
+      <div class="text-base text-slate-700 leading-loose">在 Models 文件夹新建 AgentProcess.cs，定义属性：Id、Name、Command、Arguments、WorkingDirectory、Status、Output。再建一个 AgentManager 服务类，用 ObservableCollection&lt;AgentProcess&gt; 保存所有 Agent，并用 Process 类启动 CLI 进程、异步读取 StandardOutput 和 StandardError。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>关注摘要中是否把「不要做 X」这类否定约束弱化成了「注意 X」。
+          💡 <span class="font-semibold">小贴士：</span>读取输出时用 BeginOutputReadLine 事件，避免阻塞 UI 线程。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：分析压缩策略并定位丢失原因</h3>
-      <div class="text-base text-slate-700 leading-loose">阅读你所用 Agent 的 compaction 实现文档或源码（如 Claude Code 的上下文管理逻辑），判断它是按轮次截断、按 token 预算摘要，还是用 LLM 重写。对照第2步的 diff 结果，确认是哪类信息被优先丢弃——通常否定指令和早期约束最容易被压缩掉。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：构建主界面布局</h3>
+      <div class="text-base text-slate-700 leading-loose">在 MainWindow.axaml 中用 Grid 分两栏：左侧 ListBox 绑定 Agent 列表，显示名称和状态；右侧用 TextBox 只读显示选中 Agent 的实时输出，底部放“启动/停止/清空”按钮。用 Avalonia 的 Binding 把按钮命令绑定到 ViewModel 的 RelayCommand。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果工具闭源，可用多次实验归纳规律：改变指令位置和措辞，观察保留率。
+          💡 <span class="font-semibold">小贴士：</span>输出区域设置 TextWrapping=&quot;NoWrap&quot; 和 ScrollViewer，方便查看长日志。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：设计抗压缩的指令加固方案</h3>
-      <div class="text-base text-slate-700 leading-loose">针对丢失的约束，采用三种加固方式：1）把关键约束写成系统提示或项目规则文件（如 CLAUDE.md），让压缩时优先保留；2）在每轮任务开始时用短句重申约束；3）把否定指令改为正向可执行清单（如「只修改 a.py、b.py」）。修改后重新跑同一长任务验证。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：实现进程启动与日志实时刷新</h3>
+      <div class="text-base text-slate-700 leading-loose">在 ViewModel 中实现 StartAgent 命令：根据选中 Agent 的 Command 和 Arguments 创建 ProcessStartInfo，设置 RedirectStandardOutput=true、UseShellExecute=false，启动进程后把输出追加到该 Agent 的 Output 属性。用 Dispatcher.UIThread.Post 确保 UI 更新在主线程执行。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把约束放在对话最开头和最近一轮，两头夹击能显著降低丢失率。
+          💡 <span class="font-semibold">小贴士：</span>给每个 Agent 加一个 CancellationTokenSource，停止时先 Kill 进程再取消读取。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：验证修复效果并建立回归检查</h3>
-      <div class="text-base text-slate-700 leading-loose">重新执行原任务，观察 compaction 后 Agent 是否仍遵守约束。若仍遗忘，尝试调大上下文窗口或关闭自动压缩（如设置环境变量禁用 compaction）。最后把测试用例固化成脚本，每次升级 Agent 后跑一遍，防止回归。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：批量管理与状态监控</h3>
+      <div class="text-base text-slate-700 leading-loose">在界面顶部加“全部启动”“全部停止”按钮，遍历 AgentManager 中所有 Agent 执行对应命令。用定时器或 Process.Exited 事件更新每个 Agent 的 Status（运行中/已停止/异常），并在 ListBox 中用颜色区分状态。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在关键文件上设置只读权限，作为最后一道物理防线。
+          💡 <span class="font-semibold">小贴士：</span>异常退出时记录 ExitCode，方便排查 Agent 崩溃原因。
+        </div>
+    </div>
+    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        6
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：打包与日常使用</h3>
+      <div class="text-base text-slate-700 leading-loose">执行 dotnet publish -c Release -r win-x64 --self-contained 生成独立可执行文件，复制到常用目录。日常使用时把不同项目的 Agent 配置保存为 JSON，启动工具后一键加载，所有 Agent 日志集中在一个窗口查看。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>配置文件放在用户目录下，避免每次更新程序时被覆盖。
         </div>
     </div>
   </div>
@@ -184,7 +195,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你能稳定复现 Agent 在 compaction 后遗忘指令的问题，并通过 diff 对比定位到被丢弃的约束；应用加固方案后，Agent 在长任务中遵守关键指令的成功率明显提升，且有一套可重复的回归测试流程。
+    打开 AgentHub 后，左侧列出多个 Agent 及状态，点击“全部启动”后各 Agent 并行运行，右侧实时滚动显示选中 Agent 的日志，内存占用明显低于 Electron 方案，几十个 Agent 同时运行也不卡顿。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +205,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>为什么 Agent 压缩后总是忘记「不要做某事」？</span>
+        <span>必须用 .NET 8 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">因为摘要模型倾向于保留正向任务描述，否定约束在压缩时容易被弱化或省略。把否定改为正向清单能缓解。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议用 .NET 8 LTS，Avalonia 11 对 .NET 6/7/8 都支持，但新项目优先选 LTS 以获得长期维护。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>所有 Agent 的 compaction 机制都一样吗？</span>
+        <span>CLI Agent 的输出中文乱码怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不一样。Claude Code、Cursor、Cline 的实现策略不同，有的按轮次截断，有的用 LLM 重写摘要。需要针对具体工具分析。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在 ProcessStartInfo 中设置 StandardOutputEncoding = Encoding.UTF8，并确保 Agent 本身输出 UTF-8。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>能否完全关闭上下文压缩？</span>
+        <span>可以托管非 CLI 的 GUI Agent 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">部分工具支持（如环境变量或配置项），但关闭后可能因超长上下文导致报错或费用飙升。建议优先做指令加固而非直接关闭。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">这个工具核心是管理命令行进程，GUI Agent 需要额外做窗口嵌入或自动化，不适合直接套用。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有源码怎么分析压缩策略？</span>
+        <span>如何让 Agent 在后台持续运行？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用控制变量法做黑盒实验：改变指令位置、措辞、长度，多次触发 compaction 并记录保留情况，归纳出规律。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">启动进程时不要设置 CreateNoWindow=false，并保持主程序不退出；也可以把 Agent 注册为系统服务，但那就超出本工具范围了。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个排查方法适用于哪些场景？</span>
+        <span>Avalonia 和 WPF 有什么区别？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适用于所有需要 Agent 执行多步骤长任务且包含关键约束的场景，如代码重构、批量文件处理、自动化运维等。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Avalonia 跨平台（Windows/Linux/macOS），渲染自绘，不依赖系统控件；WPF 仅 Windows。做跨平台托管工具选 Avalonia 更合适。</div>
     </details>
   </div>
 </section>
@@ -233,14 +244,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把关键约束写入项目根目录的规则文件（如 CLAUDE.md、.cursorrules），利用工具对规则文件的优先保留机制对抗压缩丢失。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：在每轮 Agent 回复后自动追加一条「约束提醒」消息，用脚本或钩子实现，确保最近上下文始终包含关键指令。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：对超长任务做分段拆解，每段任务结束后手动触发一次上下文重置并重新注入约束，避免单次压缩丢失过多信息。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把 Agent 配置存到 SQLite，增加历史日志检索和按项目分组功能。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：加入系统托盘图标和快捷键，一键隐藏/显示主窗口，适合长期后台挂机。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用 Avalonia 的 TabControl 为每个 Agent 单独开标签页，适合需要精细查看单个 Agent 输出的场景。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    排查 Agent 遗忘指令的核心是：复现压缩、diff 快照、定位丢失、加固指令、回归验证——把「别动什么」变成「只动什么」，并让约束在上下文中两头夹击。
+    用 .NET + Avalonia 把分散的 CLI Agent 收进一个轻量桌面面板，集中启动、集中看日志，彻底告别 Electron 卡顿。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,17 +261,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把文档一键转Markdown</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭长任务超级智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

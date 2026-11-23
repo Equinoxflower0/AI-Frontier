@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用BM25检索与依赖补全精简Agent工具集 - AI 玩法教程 · AI Frontier</title>
+<title>用Hy4 flash开源权重本地部署指令模型 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-22
+      2026-11-23
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        💬 Prompt 模板
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ⏱ 约 5min
+        ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用BM25检索与依赖补全精简Agent工具集</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Hy4 flash开源权重本地部署指令模型</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    掘金 AI 实战教程 · B级
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7707546300394045482" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/snidget/p/23750071" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">当你的 Agent 接入几十个工具时，把所有工具定义塞进 Prompt 会浪费上下文、增加误选。本教程教你用 BM25 检索 + 依赖补全 + 风险过滤，动态精简工具集，让 Agent 又快又准。</p>
+  <p class="text-base text-slate-800 leading-relaxed">Hy4 flash 开放了指令模型权重，但别急着把云 API 下线——这篇教程带你在本地把权重跑起来，先当“备胎”再谈替换。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多团队在构建 AI Agent 时，习惯把所有工具（API、函数）的定义一股脑塞进系统提示词。工具少时没问题，一旦超过 20 个，上下文成本飙升，模型还容易选错工具或漏选依赖工具。本文基于掘金实战教程，实现一套轻量级工具检索与补全机制：先用 BM25 根据用户 query 召回相关工具，再根据工具间的依赖关系自动补全必要的前置工具，最后按风险等级过滤掉高危操作，只把最精简、最安全的工具集交给 Agent。
+    Hy4 flash 官方仓库放出了三件套：指令模型、FP8 量化指令模型和 Base 预训练底座，可从 Hugging Face、ModelScope、GitCode 获取，GitHub 有部署说明。很多人误以为权重开放就能立刻替代云 API，但 Base 不是对话模型，指令模型也需要正确的 chat template 和推理框架才能用。这个玩法适合想低成本验证本地推理、做私有化部署预研，或者单纯想折腾开源权重的开发者。按本教程走一遍，你能在本地跑起一个可对话的 Hy4 flash 指令模型，并知道它和云 API 的差距在哪。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.9+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行环境</div>
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行推理脚本的基础环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">rank_bm25  <a href="https://pypi.org/project/rank-bm25/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">BM25 检索库，用于工具召回</div>
+      <div class="font-semibold text-slate-900">PyTorch 2.1+ (CUDA 版)  <a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">GPU 推理依赖，按显卡驱动选对应 CUDA 版本</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">OpenAI API（或兼容接口）  <a href="https://platform.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">调用 LLM 生成工具调用决策</div>
+      <div class="font-semibold text-slate-900">Hugging Face CLI / hf_transfer  <a href="https://huggingface.co/docs/huggingface_hub/guides/cli" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">下载模型权重，支持断点续传加速</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一个代码编辑器（VS Code / PyCharm）  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">编写和调试代码</div>
+      <div class="font-semibold text-slate-900">vLLM 或 Transformers  <a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">推理框架，vLLM 适合高吞吐，Transformers 适合快速验证</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">原始教程参考  <a href="https://juejin.cn/post/7707546300394045482" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">掘金 AI 实战教程原文</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">克隆官方部署说明仓库</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">NVIDIA GPU (显存 ≥ 16GB 建议)  <a href="https://www.nvidia.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">FP8 量化版对显存更友好，非量化版需要更多显存</div>
     </li>
   </ul>
 </section>
@@ -126,55 +130,66 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：定义工具元数据与依赖关系</h3>
-      <div class="text-base text-slate-700 leading-loose">为每个工具准备结构化描述：名称、功能描述、参数、依赖的其他工具列表、风险等级（low/medium/high）。例如“发送邮件”依赖“查询联系人”，“删除数据库”风险等级为 high。把这些元数据存成 JSON 或 Python 字典列表，作为后续检索和过滤的基础。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：确认你要下载哪个权重</h3>
+      <div class="text-base text-slate-700 leading-loose">打开 Hy4 flash 的 Hugging Face 或 ModelScope 模型页，你会看到三个仓库：指令模型（Instruct）、FP8 量化指令模型（Instruct-FP8）和 Base 预训练底座。做对话选指令模型；显存紧张选 FP8 量化版；Base 只用于继续预训练或微调，不要直接拿来聊天。记下对应仓库名，后面下载用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>描述字段尽量用自然语言写清楚使用场景，BM25 靠关键词匹配，描述越贴近用户问法召回越准。
+          💡 <span class="font-semibold">小贴士：</span>Base 不是对话模型，直接套 chat template 会得到“续写”而不是“回答”，别踩这个坑。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 BM25 根据用户 query 召回候选工具</h3>
-      <div class="text-base text-slate-700 leading-loose">将每个工具的描述文本拼接成文档，用 rank_bm25 建立索引。用户输入 query 后，对 query 分词并计算 BM25 得分，取 Top-K（如 K=5）作为候选工具。注意对中文先做简单分词（可用 jieba），英文直接空格切分。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用 CLI 把权重拉到本地</h3>
+      <div class="text-base text-slate-700 leading-loose">安装 huggingface_hub 后执行 `hf download &lt;repo_id&gt; --local-dir ./hy4-flash-instruct`，国内网络可改用 ModelScope 的 `modelscope download --model &lt;model_id&gt; --local_dir ./hy4-flash-instruct`。下载前确认磁盘剩余空间至少是权重大小的 1.5 倍，FP8 版通常比非量化版小一半左右。下载完成后检查目录里是否有 config.json、tokenizer 文件和 safetensors 权重。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>K 不要设太大，5~8 足够；如果召回结果太少，可以适当降低 BM25 阈值或增加同义词扩展。
+          💡 <span class="font-semibold">小贴士：</span>设置 `HF_HUB_ENABLE_HF_TRANSFER=1` 可以明显加速大文件下载，断点续传也更稳。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：依赖补全——自动加入前置工具</h3>
-      <div class="text-base text-slate-700 leading-loose">遍历候选工具，检查每个工具的依赖列表。如果某个依赖工具不在候选集中，就把它加入。递归检查直到没有新的依赖被加入。这样确保 Agent 拿到的是“可执行闭环”的工具集，而不是孤立的工具。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：按官方 GitHub 说明装依赖</h3>
+      <div class="text-base text-slate-700 leading-loose">克隆官方部署说明仓库，进入目录后先读 README 里的环境要求，再执行 `pip install -r requirements.txt`。如果要用 vLLM 加速，单独安装对应版本的 vLLM，注意 vLLM 版本和 PyTorch/CUDA 的兼容矩阵。装完后跑 `python -c &quot;import torch; print(torch.cuda.is_available())&quot;` 确认 GPU 可用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>依赖关系建议只保留直接依赖，避免循环依赖；可以用 visited 集合防止死循环。
+          💡 <span class="font-semibold">小贴士：</span>依赖冲突时优先用官方推荐的版本组合，不要盲目升级到最新版。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：风险过滤——剔除高危工具</h3>
-      <div class="text-base text-slate-700 leading-loose">根据工具的风险等级过滤：如果候选集中包含 high 风险工具，可以选择直接移除，或者替换为低风险的只读版本（如“查询”代替“删除”）。也可以设置策略：只有用户明确授权时才保留 high 风险工具。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用 Transformers 跑通第一轮对话</h3>
+      <div class="text-base text-slate-700 leading-loose">写一个最小脚本：用 `AutoTokenizer.from_pretrained` 加载本地目录，`AutoModelForCausalLM.from_pretrained` 加载模型并设 `device_map=&quot;auto&quot;`。构造 messages 列表（system + user），调用 `tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)` 生成 prompt，再 tokenize 后 `model.generate`。生成参数先用 temperature=0.7、max_new_tokens=512，解码时只取新生成的 token 部分。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>风险等级不要写死，建议放在配置文件中，方便不同环境（开发/生产）切换策略。
+          💡 <span class="font-semibold">小贴士：</span>一定要用 apply_chat_template，手拼 prompt 很容易漏掉特殊 token，导致模型“答非所问”。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：组装精简 Prompt 并调用 Agent</h3>
-      <div class="text-base text-slate-700 leading-loose">把最终工具集（通常 3~8 个）格式化成工具定义文本，插入系统提示词，再拼接用户 query 调用 LLM。观察模型是否选择了正确的工具链。可以打印每次召回和补全的结果，便于调试。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：换 vLLM 做服务化并压测</h3>
+      <div class="text-base text-slate-700 leading-loose">用 `vllm serve ./hy4-flash-instruct --dtype auto --max-model-len 8192` 启动 OpenAI 兼容服务，然后用 curl 或 OpenAI SDK 指向 `http://localhost:8000/v1` 发请求。对比同一批 prompt 在 Transformers 和 vLLM 下的首 token 延迟与吞吐，记录显存占用。如果 FP8 版在 vLLM 下报量化算子不支持，换回非量化版或升级 vLLM。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在 Prompt 中明确告诉模型“你只能使用以下工具”，并给出工具调用格式示例，能进一步降低误选。
+          💡 <span class="font-semibold">小贴士：</span>压测时用固定随机种子和同一组 prompt，否则延迟数据没有可比性。
+        </div>
+    </div>
+    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        6
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：和云 API 做一次同题对比</h3>
+      <div class="text-base text-slate-700 leading-loose">准备 10 条你业务里真实会问的问题，分别发给本地 Hy4 flash 指令模型和你现在用的云 API，从回答质量、延迟、单次成本三个维度打分。重点看本地模型在长上下文、工具调用、JSON 输出格式上的表现是否满足需求。把结论写成一张对比表，决定是“继续用云 API + 本地做兜底”还是“部分场景切本地”。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>权重开放不等于明天停机，先做灰度对比再谈替换，能避免上线翻车。
         </div>
     </div>
   </div>
@@ -184,7 +199,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    Agent 每次只收到 3~8 个相关且安全的工具定义，上下文长度显著下降，工具选择准确率提升，高危操作被自动拦截。你可以在日志中看到：用户 query → BM25 召回 Top5 → 依赖补全后 6 个 → 风险过滤后 5 个 → 最终 Prompt 长度减少 70% 以上。
+    本地成功加载 Hy4 flash 指令模型并完成多轮对话，vLLM 服务能通过 OpenAI 兼容接口调用，同时得到一份本地模型与云 API 的同题对比表，明确当前是否具备替换或兜底条件。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +209,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>BM25 对中文效果不好怎么办？</span>
+        <span>Base 模型能不能直接拿来聊天？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先对工具描述和 query 做分词（推荐 jieba），再建索引；也可以加入同义词词典扩展 query，或者换用轻量向量检索（如 sentence-transformers）做混合召回。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能。Base 是预训练底座，只做续写，不遵循指令；对话要用 Instruct 或 Instruct-FP8 版本。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>依赖补全会不会把工具集撑得太大？</span>
+        <span>FP8 量化版和普通指令模型怎么选？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常不会。依赖链一般很短（1~2 层），补全后工具数仍在个位数。如果依赖过多，说明工具粒度太细，建议合并工具或重新设计接口。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">显存紧张或追求吞吐选 FP8；需要最高精度或推理框架对 FP8 支持不完善时选非量化版。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>风险过滤会不会误删必要工具？</span>
+        <span>下载权重需要多大磁盘？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以分级处理：high 风险工具默认移除，但保留一个“申请授权”的占位提示；或者只移除写操作，保留读操作。策略应结合业务场景调整。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">预留权重大小的 1.5 倍以上，FP8 版通常比非量化版小约一半，具体看模型页文件列表。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 OpenAI API 可以用吗？</span>
+        <span>本地跑起来就能替代云 API 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。任何支持 function calling 的模型都行，比如 Claude、通义千问、DeepSeek 等。只需替换调用代码，工具检索与补全逻辑完全复用。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不一定。权重开放只是第一步，还要对比质量、延迟、成本和运维复杂度，建议先做灰度兜底。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这套方法适合多少工具规模？</span>
+        <span>vLLM 启动报量化算子不支持怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">20~200 个工具效果最明显。少于 10 个时收益不大；超过 200 个建议引入向量检索或分层工具目录。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先确认 vLLM 版本是否支持该量化格式，不行就换非量化权重，或按官方 GitHub 说明降级/升级依赖。</div>
     </details>
   </div>
 </section>
@@ -233,14 +248,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：混合检索——BM25 召回后，再用轻量向量模型（如 text2vec）对 Top20 重排序，提升语义匹配准确率。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：动态风险策略——根据用户身份或会话上下文动态调整风险阈值，例如管理员会话保留 high 风险工具，普通用户则过滤。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：工具分组路由——先让 LLM 判断 query 属于哪个业务域（如“邮件”“数据库”“文件”），再只在对应分组内做 BM25 检索，进一步缩小候选集。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用 llama.cpp 把 Hy4 flash 转成 GGUF 量化格式，在消费级显卡甚至 CPU 上跑，适合轻量本地助手场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 vLLM 起服务后接 Dify 或 FastGPT，把本地模型包装成知识库问答机器人，验证私有化 RAG 效果。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：以 Base 权重为起点做 LoRA 微调，用业务数据蒸馏出专用指令模型，再和官方 Instruct 版做 A/B 对比。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 BM25 精准召回、依赖补全保闭环、风险过滤守安全，三招把 Agent 的工具集从“全量塞入”变成“按需精简”，上下文更省、选择更准、运行更安全。
+    先把 Hy4 flash 指令模型在本地跑通、服务化、再和云 API 同题对比，用数据决定是兜底还是替换，而不是被“权重开放”四个字冲昏头。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -248,19 +263,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 prompts.chat 社区提示词库找现成 Prompt</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-awesome-chatgpt-prompts" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ChatGPT Prompts · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用GPT-4o图像提示词库复刻AI视觉作品</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
-    </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把文档一键转Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

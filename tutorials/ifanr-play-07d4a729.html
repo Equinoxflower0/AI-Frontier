@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用Pipeline防数据泄漏：划分先于预处理 - AI 玩法教程 · AI Frontier</title>
+<title>用WALL-API-1.0在线试具身智能预训练模型 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-22
+      2026-11-23
     </div>
   </div>
 </nav>
@@ -37,16 +37,16 @@
   <div class="max-w-4xl mx-auto px-4 py-10">
     <div class="flex items-center gap-2 mb-3 flex-wrap">
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        🧭 工作流
+        🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Pipeline防数据泄漏：划分先于预处理</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用WALL-API-1.0在线试具身智能预训练模型</h1>
     
   </div>
 </header>
@@ -58,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    博客园 AI 教程 · B级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+    爱范儿 AI 应用 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    技术社区
+    权威媒体
   </span>
-  <a href="https://www.cnblogs.com/dawudexiaowu/p/23662932" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.ifanr.com/1691043" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">离线评估0.97、上线只剩0.82？最隐蔽的根因往往是预处理做在了数据划分之前。这篇教程教你用Pipeline把数据泄漏堵死在第一行。</p>
+  <p class="text-base text-slate-800 leading-relaxed">想亲手体验具身智能预训练模型？用 WALL-API-1.0 在线试具，几步就能跑通一个机器人感知-决策闭环。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多同学在建模时习惯先做SMOTE过采样或标准化，再划分训练集和测试集，结果测试集里混入了合成样本的“近亲”，离线指标虚高4.2个点。真机实验证明，全集SMOTE再划分会让模型在测试集上“偷看”答案。防线是结构性的：划分永远第一行、预处理塞进Pipeline、上线用holdout终评。这套工作流适用于任何需要严谨评估的分类/回归任务，尤其是样本不均衡场景。
+    具身智能（Embodied AI）让模型在物理或仿真环境中感知、决策、行动，但过去门槛很高。WALL-API-1.0 提供了在线试具接口，把预训练模型封装成可调用的 API，你不需要本地 GPU 或机器人硬件，就能在浏览器里验证模型对视觉输入的反应。这个玩法适合 AI 产品经理、机器人方向学生、以及想快速验证具身智能能力的开发者。参考爱范儿的报道，你能在几分钟内看到“大结果”的实感。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.8+  <a href="https://www.anaconda.com/products/individual" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行环境，建议用Anaconda管理虚拟环境</div>
+      <div class="font-semibold text-slate-900">WALL-API-1.0 在线试具  <a href="https://www.ifanr.com/1691043" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">提供具身智能预训练模型的在线调用入口，用于输入指令并观察模型输出</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">scikit-learn  <a href="https://scikit-learn.org/stable/install.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">提供Pipeline、ColumnTransformer、SMOTE等核心工具</div>
+      <div class="font-semibold text-slate-900">现代浏览器（Chrome/Edge 最新版）  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行在线试具的前端界面，确保 WebGL 和网络请求正常</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">imbalanced-learn  <a href="https://imbalanced-learn.org/stable/install.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">提供SMOTE等过采样方法，与sklearn Pipeline兼容</div>
+      <div class="font-semibold text-slate-900">稳定的网络连接 </div>
+      <div class="text-sm text-slate-600 mt-1">在线调用远程模型推理接口，建议带宽 ≥ 10 Mbps</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">pandas  <a href="https://pandas.pydata.org/docs/getting_started/install.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">数据读取与初步检查</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Jupyter Notebook  <a href="https://jupyter.org/install" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">交互式实验与结果可视化</div>
+      <div class="font-semibold text-slate-900">（可选）API 调试工具 Postman 或 curl  <a href="https://www.postman.com/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">如果你想直接调用底层 API 而不是只用网页界面</div>
     </li>
   </ul>
 </section>
@@ -126,44 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：先划分，再碰数据</h3>
-      <div class="text-base text-slate-700 leading-loose">加载数据后，第一行代码就是train_test_split。用stratify=y保持类别比例，random_state固定随机种子。划分前不要做任何fit操作，包括标准化、编码、过采样。把测试集锁进保险箱，直到最终评估才拿出来。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：打开在线试具并了解界面</h3>
+      <div class="text-base text-slate-700 leading-loose">访问爱范儿报道中的链接，找到 WALL-API-1.0 在线试具的入口。页面通常分为三块：左侧是输入区（文本指令或场景选择），中间是可视化反馈区，右侧是参数面板。先不要急着操作，花 30 秒确认每个区域的功能标签。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>养成习惯：任何fit_transform之前，先问自己“这是训练集吗？”
+          💡 <span class="font-semibold">小贴士：</span>如果页面加载慢，先检查浏览器是否拦截了第三方脚本，关闭广告拦截插件再刷新。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：构建预处理Pipeline</h3>
-      <div class="text-base text-slate-700 leading-loose">用ColumnTransformer分别处理数值列和类别列：数值列用StandardScaler，类别列用OneHotEncoder(handle_unknown='ignore')。然后把SMOTE作为Pipeline的一个步骤，放在预处理之后、模型之前。注意：SMOTE只能作用于训练集，Pipeline会自动保证这一点。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：选择一个预置场景并输入指令</h3>
+      <div class="text-base text-slate-700 leading-loose">在场景下拉菜单中选择一个预置任务，例如“抓取物体”或“避障导航”。然后在指令输入框里用自然语言描述目标，比如“把红色方块移到蓝色区域”。点击“运行”按钮，观察模型开始推理。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>imbalanced-learn的SMOTE可以直接塞进sklearn Pipeline，但要求前面步骤输出数值矩阵，所以OneHotEncoder要设sparse_output=False（旧版sparse=False）。
+          💡 <span class="font-semibold">小贴士：</span>指令尽量具体，包含物体颜色、位置和动作，模型理解会更准。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：交叉验证评估Pipeline</h3>
-      <div class="text-base text-slate-700 leading-loose">用cross_val_score或cross_validate对完整Pipeline做5折交叉验证。每次折内，Pipeline只在训练折上fit预处理和SMOTE，验证折保持原始分布。对比之前“先SMOTE再划分”的虚高分数，你会看到真实差距。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：观察输出并调整参数</h3>
+      <div class="text-base text-slate-700 leading-loose">运行后，可视化区会显示模型预测的动作序列或热力图。右侧参数面板可以调整“置信度阈值”“动作步长”等。试着把阈值从 0.5 调到 0.7，再运行一次，对比输出变化。记录下不同参数下的表现。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>用scoring=['roc_auc','f1']多指标评估，避免单一指标误导。
+          💡 <span class="font-semibold">小贴士：</span>每次只改一个参数，方便定位影响；截图保存对比结果。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：holdout终评与上线</h3>
-      <div class="text-base text-slate-700 leading-loose">在训练集上fit整个Pipeline，然后对锁定的测试集做predict。只评估一次，不要反复调参看测试集。如果测试集指标与交叉验证均值接近（差距&lt;2%），说明没有泄漏；如果差距大，回头检查是否有预处理漏在Pipeline外。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用 API 方式复现（可选但推荐）</h3>
+      <div class="text-base text-slate-700 leading-loose">如果你有 Postman，找到试具页面的“API 文档”或“开发者”标签，复制请求示例。在 Postman 中填入 endpoint 和你的试具 token（如有），发送一个 POST 请求，body 里带上场景 ID 和指令文本。查看返回的 JSON 结构，理解模型输出的字段含义。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>上线前用joblib.dump保存整个Pipeline，推理时直接加载，避免手工复现预处理步骤。
+          💡 <span class="font-semibold">小贴士：</span>没有 token 时，部分试具允许匿名调用但限频，注意响应头里的 rate-limit 信息。
+        </div>
+    </div>
+    <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        5
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：记录结果并形成小报告</h3>
+      <div class="text-base text-slate-700 leading-loose">把每次运行的指令、参数、输出截图和你的观察整理到一个表格里。重点记录：模型在什么指令下表现好、什么情况下失败、参数如何影响成功率。这份记录就是你后续进阶玩法的基线。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>用飞书表格或 Notion 建一个“试具日志”，方便回溯。
         </div>
     </div>
   </div>
@@ -173,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    交叉验证分数与holdout测试分数差距在2个点以内，离线指标不再虚高。你会看到真实性能（比如从虚高的0.97回落到0.82左右），但上线后模型表现稳定，不再出现“离线天堂、上线地狱”的落差。
+    你会在可视化区看到模型根据你的指令生成的动作序列或决策热力图，参数调整后输出有明显变化；如果走了 API 路径，你会拿到结构化的 JSON 响应，包含动作预测和置信度分数。整体上，你能直观感受到具身智能预训练模型对语言指令和场景的理解能力。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -183,31 +190,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>SMOTE必须放在Pipeline里吗？</span>
+        <span>WALL-API-1.0 需要付费吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">是的。SMOTE属于过采样，必须在训练折内fit，否则合成样本会泄漏到验证折。Pipeline能自动保证这一点。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">根据爱范儿报道，在线试具通常提供免费额度或限时试用，具体以页面说明为准；超出后可能需要申请 API key 或付费。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>类别特征OneHotEncoder后稀疏矩阵能接SMOTE吗？</span>
+        <span>没有机器人硬件能玩吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能直接接。需要设sparse_output=False输出稠密矩阵，或者用SMOTENC专门处理混合类型。简单做法是OneHotEncoder(dense)后再SMOTE。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。这个玩法就是纯在线试具，模型在云端推理，你只需要浏览器，不需要任何实体机器人。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>交叉验证分数和holdout差多少算正常？</span>
+        <span>为什么我的指令模型没反应？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">一般2个点以内算正常波动。如果差距超过5个点，大概率有泄漏或分布偏移，重点检查预处理是否在划分前做了fit。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先检查指令是否过于模糊，尝试加入物体、颜色、动作等具体词；再确认场景选择与指令匹配，比如避障场景不要输入抓取指令。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>时间序列数据也能用这套流程吗？</span>
+        <span>API 调用返回 401 或 429 怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能直接用train_test_split随机划分。时间序列要用TimeSeriesSplit，且预处理（如滚动统计）必须只基于过去数据，Pipeline同样适用但需自定义cv。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">401 表示缺少或错误 token，检查请求头 Authorization；429 表示触发限频，降低请求频率或等待一段时间。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>试具的结果能直接用于真实机器人吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在线试具主要用于验证模型能力，输出是仿真层面的动作建议；迁移到真实机器人还需要做标定、安全约束和硬件适配。</div>
     </details>
   </div>
 </section>
@@ -215,14 +229,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：用imblearn.pipeline.Pipeline替代sklearn Pipeline，原生支持SMOTE等采样器，写法更简洁。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：把SMOTE换成class_weight='balanced'，不生成合成样本，直接让模型加权，适合高维稀疏数据。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：用FeatureUnion组合多个特征提取器（如PCA+SelectKBest），全部塞进Pipeline，进一步杜绝泄漏。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：批量测试指令鲁棒性——用脚本循环发送 20 条不同表述的同类指令（如“拿红色方块”vs“把红块捡起来”），统计模型成功率，找出最稳的指令模板。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：参数扫描实验——固定指令，把置信度阈值从 0.3 到 0.9 分 7 档跑一遍，画出成功率曲线，找到该场景下的最优阈值。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：跨场景迁移观察——同一个指令在“抓取”和“导航”两个场景下分别运行，对比模型输出差异，理解场景上下文对决策的影响。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    划分永远第一行，预处理全部塞进Pipeline，holdout只评一次——结构性防泄漏，比任何调参都值钱。
+    用在线试具把具身智能预训练模型变成可动手实验的黑盒，通过“选场景-下指令-调参数-记结果”的闭环，快速建立对模型能力的直觉。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -230,19 +244,19 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用Yolain工作流在ComfyUI快速出图</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把文档一键转Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-awesome-comfyui" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome ComfyUI · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">ComfyUI自定义节点合集，一站找齐扩展</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

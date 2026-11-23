@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用Tez执行计划优化Hive SQL慢脚本 - AI 玩法教程 · AI Frontier</title>
+<title>用开源Agent在Ubuntu虚拟机全自动操作电脑 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-22
+      2026-11-23
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★☆☆☆ · 2/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Tez执行计划优化Hive SQL慢脚本</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用开源Agent在Ubuntu虚拟机全自动操作电脑</h1>
     
   </div>
 </header>
@@ -65,17 +65,21 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.cnblogs.com/ilovetech/p/23670963" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/jinjiangongzuoshi/p/23753804" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">Claude</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">本教程教你用 Tez 执行计划分析并优化运行缓慢的 Hive SQL 脚本，通过查看执行计划、统计信息和 SQL 改写，让离线任务从数小时缩短到分钟级。</p>
+  <p class="text-base text-slate-800 leading-relaxed">让 AI 替你操作电脑不再是科幻，用开源 Agent 在 Ubuntu 虚拟机里全自动完成真实任务，本文手把手带你跑通 OSWorld 基准测试。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    一年前为业务部门开发的 Hive SQL 离线分析脚本，随着数据量增长从几分钟变成几小时，严重影响报表产出。很多同学遇到慢查询只会加资源，却不知道问题出在 join 倾斜、全表扫描还是 Tez 的 DAG 切分不合理。本玩法通过「看执行计划 → 查表统计信息 → 针对性改写 SQL」三步闭环，帮你定位瓶颈并落地优化，适用于所有基于 Tez 引擎的 Hive 数仓离线任务调优场景。
+    OSWorld 是 NeurIPS 2024 上发布的基准，包含 369 道真实任务，覆盖 LibreOffice、Chrome、GIMP 等常用软件。通过开源 Agent 在 Ubuntu 虚拟机中自动操作，可以验证 AI 的电脑使用能力，也为自动化办公、测试等场景提供参考。本教程基于博客园文章，带你从零搭建环境并运行一个示例任务。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +100,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Apache Hive（含 Tez 引擎）  <a href="https://hive.apache.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于执行 SQL 并查看 Tez 执行计划，建议 Hive 2.x 以上</div>
+      <div class="font-semibold text-slate-900">Ubuntu 虚拟机  <a href="https://ubuntu.com/download/desktop" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行 Agent 和任务环境，推荐 Ubuntu 22.04，可用 VMware 或 VirtualBox 创建</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Apache Tez  <a href="https://tez.apache.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">Hive 的 DAG 执行引擎，需在 hive-site.xml 中配置 hive.execution.engine=tez</div>
+      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行 Agent 代码和依赖</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Hadoop/YARN 集群  <a href="https://hadoop.apache.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">提供底层存储与资源调度，用于查看任务日志和资源使用</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">克隆开源 Agent 仓库</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Hue 或 Hive CLI/Beeline  <a href="https://gethue.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">提交 SQL 和查看执行计划的客户端工具</div>
+      <div class="font-semibold text-slate-900">Claude API Key  <a href="https://console.anthropic.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">调用 Claude 模型作为 Agent 的大脑，需在 Anthropic 控制台申请</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">OSWorld 环境  <a href="https://github.com/xlang-ai/OSWorld" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">基准测试环境，包含任务配置和虚拟机镜像，按官方文档安装</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">开源 Agent 框架  <a href="https://github.com/OpenInterpreter/open-interpreter" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">例如 OpenInterpreter 或 OSWorld 自带的 Agent 示例，用于执行操作</div>
     </li>
   </ul>
 </section>
@@ -122,55 +134,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：确认引擎并开启执行计划输出</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Hive 客户端执行 set hive.execution.engine=tez; 确认当前使用 Tez 引擎。然后对慢脚本加上 EXPLAIN 关键字（或 EXPLAIN EXTENDED）查看逻辑执行计划，重点关注 Stage 依赖关系、Map/Reduce 算子以及是否有 Cartesian Product。也可以执行 EXPLAIN FORMATTED 查看更详细的算子信息。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：准备 Ubuntu 虚拟机并安装依赖</h3>
+      <div class="text-base text-slate-700 leading-loose">在 VMware 或 VirtualBox 中创建 Ubuntu 22.04 虚拟机，分配至少 4GB 内存和 20GB 磁盘。启动后更新系统：sudo apt update &amp;&amp; sudo apt upgrade -y。安装 Python、pip、git 等基础工具：sudo apt install python3 python3-pip git -y。确保虚拟机网络通畅，能访问外网。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先用 EXPLAIN 而不是直接跑任务，避免浪费集群资源；把执行计划保存到文件方便对比优化前后差异。
+          💡 <span class="font-semibold">小贴士：</span>建议开启虚拟机共享文件夹或使用 SSH 连接，方便宿主机与虚拟机传输文件。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：分析 Tez DAG 与 Stage 瓶颈</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Tez UI（通常为 YARN ResourceManager 页面中的 Tez 视图）中打开对应任务的 DAG 图，观察哪个 Vertex 耗时最长、哪个 Edge 发生大量数据 Shuffle。重点看 Map 输入数据量、Reduce 输出数据量以及是否存在数据倾斜（某个 Task 处理量远大于其他）。结合执行计划中的 Stage 划分，判断是扫描阶段慢、Join 阶段慢还是聚合阶段慢。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：克隆 OSWorld 仓库并安装 Python 依赖</h3>
+      <div class="text-base text-slate-700 leading-loose">在虚拟机终端中执行：git clone https://github.com/xlang-ai/OSWorld.git，然后进入目录：cd OSWorld。创建虚拟环境：python3 -m venv venv，激活：source venv/bin/activate。安装依赖：pip install -r requirements.txt。如果遇到缺少系统库，根据报错安装对应的 apt 包。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>Tez UI 中 Vertex 的颜色和耗时条能快速定位长尾任务；如果某个 Reduce Task 耗时是其他的数倍，基本可判定为数据倾斜。
+          💡 <span class="font-semibold">小贴士：</span>安装依赖时建议使用国内镜像源加速，如 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：查看并更新表统计信息</h3>
-      <div class="text-base text-slate-700 leading-loose">执行 ANALYZE TABLE 表名 COMPUTE STATISTICS 收集表级统计信息，对分区表使用 ANALYZE TABLE 表名 PARTITION(分区字段) COMPUTE STATISTICS。再执行 ANALYZE TABLE 表名 COMPUTE STATISTICS FOR COLUMNS 收集列级统计信息。统计信息准确后，Tez 优化器才能正确选择 Join 顺序、判断是否使用 Map Join，避免生成低效计划。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：配置 Claude API 并设置 Agent</h3>
+      <div class="text-base text-slate-700 leading-loose">在 OSWorld 中，Agent 需要调用大模型。设置环境变量：export ANTHROPIC_API_KEY='你的API Key'。根据官方文档，选择或编写一个使用 Claude 的 Agent 配置文件，通常位于 agent 目录下。确保配置中指定模型为 claude-3-5-sonnet 等可用版本。也可以参考 OpenInterpreter 的 Claude 集成方式。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>统计信息过期是慢查询的隐形杀手，建议在 ETL 完成后自动触发 ANALYZE，或设置 hive.stats.autogather=true 自动收集。
+          💡 <span class="font-semibold">小贴士：</span>API Key 不要硬编码在代码中，使用环境变量或 .env 文件管理，避免泄露。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：针对性改写 SQL 脚本</h3>
-      <div class="text-base text-slate-700 leading-loose">根据前几步定位的瓶颈改写 SQL：小表 Join 大表时使用 /*+ MAPJOIN(小表) */ 提示或调大 hive.auto.convert.join.noconditionaltask.size；数据倾斜时对倾斜 key 加随机前缀打散后再聚合；避免 SELECT * 只取必要列；用分区过滤裁剪数据；将多次重复扫描的 CTE 结果落地临时表。改写后再次 EXPLAIN 对比计划变化。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：启动虚拟机环境并运行示例任务</h3>
+      <div class="text-base text-slate-700 leading-loose">OSWorld 需要连接虚拟机执行操作。按照官方文档，启动虚拟机并确保 SSH 或 VNC 可访问。然后运行一个简单任务，例如：python run.py --task_id 0 --agent claude。任务 ID 对应 OSWorld 中的具体任务，可查看 tasks 目录。观察 Agent 是否自动打开应用并执行操作。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>改写要一次只改一个点并对比耗时，避免多个改动混在一起无法判断哪个生效；优先解决最大的瓶颈而不是全面重写。
+          💡 <span class="font-semibold">小贴士：</span>首次运行建议选择简单任务（如打开浏览器访问网页），便于排查环境问题。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：调优 Tez 参数并验证效果</h3>
-      <div class="text-base text-slate-700 leading-loose">根据 DAG 分析结果调整 Tez 参数，例如设置 tez.grouping.max-size 控制输入分片大小、hive.tez.container.size 调整容器内存、tez.runtime.io.sort.mb 调整排序缓冲区。调整后重新运行脚本，对比优化前后的执行时间、Shuffle 数据量和 Tez UI 中的 DAG 耗时，确认优化生效并记录参数配置。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：查看结果与日志，调整 Agent 行为</h3>
+      <div class="text-base text-slate-700 leading-loose">任务运行后，终端会输出 Agent 的思考过程和操作步骤。检查任务是否成功完成，OSWorld 会给出评分。如果失败，查看日志中的错误信息，可能是 API 调用失败、操作超时或依赖缺失。根据日志调整 Agent 的提示词或重试策略。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>参数调优要小步快跑，每次只调 1-2 个参数并记录基线；不要盲目调大内存，先确认瓶颈是 CPU、内存还是 IO。
+          💡 <span class="font-semibold">小贴士：</span>可以增加 --debug 参数输出更详细日志，方便定位问题。
         </div>
     </div>
   </div>
@@ -180,7 +192,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    慢脚本执行时间明显下降（常见从小时级降到分钟级），Tez UI 中长尾 Vertex 消失或耗时大幅缩短，Shuffle 数据量减少，执行计划中不再出现全表扫描和不合理的 Cartesian Product，任务稳定可复现。
+    Agent 能够自动在 Ubuntu 虚拟机中打开指定应用（如 LibreOffice Writer），完成输入文字、保存文件等操作，并在 OSWorld 评分中获得成功标记。你可以在日志中看到 Claude 生成的每一步操作指令。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +202,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 Tez UI 权限怎么办？</span>
+        <span>没有 Claude API Key 可以运行吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以找集群管理员开通 YARN ResourceManager 的 Tez 视图访问权限，或通过 yarn application -list 找到 applicationId 后查看日志中的 DAG 信息。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以替换为其他支持工具调用的模型，如 GPT-4o 或开源模型，但需要修改 Agent 配置中的模型调用部分。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>ANALYZE 统计信息很慢，必须每次都跑吗？</span>
+        <span>虚拟机中操作延迟很高怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不必每次全量跑，可只对参与 Join 和聚合的关键表/分区按需收集，或在 ETL 后增量收集，配合 hive.stats.autogather 自动收集基础统计。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">确保虚拟机分配足够资源，关闭不必要的图形特效，或使用轻量级桌面环境如 XFCE。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>MAPJOIN 提示加了但没生效？</span>
+        <span>OSWorld 任务总是失败，如何调试？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查小表大小是否超过 hive.auto.convert.join.noconditionaltask.size 阈值，以及是否使用了 LEFT JOIN 等不支持 Map Join 的场景，必要时调大阈值或改写 Join 顺序。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先手动在虚拟机中执行任务，确认环境正常；再检查 Agent 的提示词是否清晰，或降低任务复杂度逐步测试。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>数据倾斜加随机前缀后结果不对？</span>
+        <span>能否在物理机上直接运行？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">加前缀后需要两阶段聚合：先按「前缀+key」聚合，再去掉前缀按原 key 二次聚合，确保最终结果与原来一致。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>优化后过一段时间又变慢了？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">数据量增长或统计信息过期都可能导致回退，建议把 ANALYZE 和关键 Tez 参数固化到调度脚本中，并定期复查执行计划。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但 OSWorld 设计为在虚拟机中运行以避免影响主机，物理机需注意隔离和备份。</div>
     </details>
   </div>
 </section>
@@ -229,14 +234,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把执行计划分析做成自动化脚本，定期对慢 SQL 跑 EXPLAIN 并对比 DAG 耗时，提前发现性能回退。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：将 Tez 调优经验迁移到 Spark SQL 引擎，对比同一 SQL 在 Tez 与 Spark 下的执行计划和耗时，选择更优引擎。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合 Hive 的 CBO（基于代价优化）开启 hive.cbo.enable=true，配合准确统计信息让优化器自动选择更优 Join 顺序和算法。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将 Agent 替换为 OpenInterpreter，用自然语言指令直接操作本机 Ubuntu，适合日常自动化任务。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：使用 OSWorld 的并行测试功能，批量运行多个任务并生成报告，评估不同模型的电脑操作能力。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合 Claude 的视觉能力，让 Agent 通过截图理解界面并操作，适用于无 API 的图形应用。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用 Tez 执行计划定位瓶颈、用统计信息喂饱优化器、用针对性 SQL 改写和参数调优解决瓶颈，形成「看计划→查统计→改 SQL→调参数→验效果」的慢查询优化闭环。
+    用开源 Agent 加 Claude 在 Ubuntu 虚拟机中跑通 OSWorld，你就能亲眼见证 AI 自动操作电脑的完整流程。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -246,17 +251,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把文档一键转Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

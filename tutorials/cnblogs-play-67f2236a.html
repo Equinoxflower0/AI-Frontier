@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用Oracle医疗AI案例理解SaaS进化 - AI 玩法教程 · AI Frontier</title>
+<title>用ARTS周更法练算法与AI代码阅读 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-22
+      2026-11-23
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★★ · 5/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Oracle医疗AI案例理解SaaS进化</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用ARTS周更法练算法与AI代码阅读</h1>
     
   </div>
 </header>
@@ -65,7 +65,7 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.cnblogs.com/jyzhao/p/23662323" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/leikooo/p/23750334" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">本教程教你用 Oracle 医疗 AI 案例作为切入点，理解 SaaS 如何通过 AI 进化而非被取代，并动手搭建一个分析框架。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用 ARTS 周更法把算法练习、英文阅读、技巧积累和观点输出打包成每周固定动作，让 AI 辅助你高效完成四件套。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    在 Oracle AI World 2026 主题演讲中，Larry Ellison 重点发布了 Oracle Health 全新医疗应用套件，并回应了“AI 会不会让 SaaS 走向终结”的热门话题。他的观点是：AI 不是取代商用软件，而是推动软件进化。这个案例非常适合用来理解 SaaS 的 AI 化路径。你可以通过本教程学会拆解这类案例，并迁移到其他行业分析中。
+    很多开发者想坚持刷题和读英文技术文章，但往往三天打鱼两天晒网。ARTS 周更法把任务拆成 Algorithm（算法题）、Review（英文文章点评）、Tips（技术技巧）、Share（观点分享）四个模块，每周循环一次，形成稳定的学习节奏。借助 AI 工具，你可以快速获得题解思路、文章摘要、技巧验证和分享草稿，把精力集中在理解和输出上。这个玩法适合想系统提升算法能力、英文阅读能力和技术表达能力的开发者，尤其适合工作繁忙但希望保持成长的人。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Oracle Cloud Free Tier  <a href="https://www.oracle.com/cloud/free/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">注册免费云账号，用于体验 Oracle Health 相关演示或 API</div>
+      <div class="font-semibold text-slate-900">LeetCode  <a href="https://leetcode.cn/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于每周完成一道算法题，提供题目、测试用例和讨论区</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
       <div class="font-semibold text-slate-900">ChatGPT / Claude / 文心一言  <a href="https://chat.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">任一大模型对话工具，用于辅助拆解案例和生成分析框架</div>
+      <div class="text-sm text-slate-600 mt-1">AI 助手，用于生成题解思路、文章摘要、技巧验证和分享草稿</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Notion / 飞书文档  <a href="https://www.notion.so/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">记录分析笔记和结构化输出</div>
+      <div class="font-semibold text-slate-900">Medium / Dev.to / InfoQ 英文站  <a href="https://medium.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">英文技术文章源，用于每周 Review 环节</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">博客园原文  <a href="https://www.cnblogs.com/jyzhao/p/23662323" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">阅读原始案例资料</div>
+      <div class="font-semibold text-slate-900">Notion / Obsidian / 飞书文档  <a href="https://www.notion.so/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于记录每周 ARTS 四件套的输出，形成可回顾的知识库</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">博客园 / 掘金 / 个人博客  <a href="https://www.cnblogs.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于发布 Share 环节的观点文章，获得反馈</div>
     </li>
   </ul>
 </section>
@@ -122,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：精读原文并提取核心论点</h3>
-      <div class="text-base text-slate-700 leading-loose">打开博客园原文，通读一遍，重点标记 Larry Ellison 关于“AI 不会终结 SaaS，而是推动进化”的论述。用一句话写下他的核心结论，并列出 3 个支撑论据（如医疗套件发布、AI 嵌入现有工作流等）。将笔记保存到 Notion 或飞书文档中。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：Algorithm——用 AI 辅助完成一道 LeetCode 题</h3>
+      <div class="text-base text-slate-700 leading-loose">每周一从 LeetCode 题库中选一道中等难度题（参考原始资料中的题目链接），先自己思考 15 分钟写出初步解法。然后把题目描述和你的代码粘贴给 AI，让它分析时间/空间复杂度、指出边界问题，并给出优化思路。最后你根据 AI 反馈重写一版代码，在 LeetCode 上提交通过。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不要只读摘要，原文中的具体产品名和场景描述是后续分析的关键素材。
+          💡 <span class="font-semibold">小贴士：</span>不要直接让 AI 给答案，先自己写再让 AI 点评，学习效果更好。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用大模型拆解 SaaS 进化路径</h3>
-      <div class="text-base text-slate-700 leading-loose">把第1步的笔记粘贴给 ChatGPT/Claude，使用提示词模板：“请基于以下案例，分析 SaaS 产品从传统模式到 AI 增强模式的 3 个关键进化维度，每个维度给出 Oracle Health 的具体体现，并用表格输出。” 将模型输出与原文对照，修正不准确之处。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：Review——阅读并点评一篇英文技术文章</h3>
+      <div class="text-base text-slate-700 leading-loose">从 Medium、Dev.to 或 InfoQ 英文站选一篇与本周算法题或你工作相关的文章。用 AI 生成 3-5 句摘要和关键术语解释，然后你自己写一段 100 字左右的点评，说明文章解决了什么问题、你学到了什么、有什么疑问。把摘要和点评一起记录到你的笔记工具中。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>提示词中明确要求“表格输出”和“具体体现”，能显著提升回答的结构化程度。
+          💡 <span class="font-semibold">小贴士：</span>点评要写自己的话，不要直接复制 AI 摘要，否则失去 Review 的意义。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：搭建自己的 SaaS+AI 分析框架</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Notion 中新建一个页面，创建三列表格：维度、传统 SaaS 表现、AI 增强后表现。参考第2步的输出，填入至少 5 个维度（如交互方式、数据利用、自动化程度、个性化、商业模式）。每个维度用一句话描述 Oracle Health 的对应变化。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：Tips——学习并验证一个技术技巧</h3>
+      <div class="text-base text-slate-700 leading-loose">从本周的算法题或英文文章中提炼一个可复用的技术技巧，比如某种数据结构的使用场景、一个调试命令、一个代码重构手法。让 AI 给出该技巧的最小可运行示例，你在本地或在线沙箱中跑一遍验证。把技巧名称、适用场景和示例代码记录到笔记中。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>维度不必追求全面，选你所在行业最相关的 5 个即可，方便后续迁移。
+          💡 <span class="font-semibold">小贴士：</span>技巧要小而具体，能在 10 分钟内验证完，避免选太大太泛的主题。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用 Oracle 免费云环境做一次小验证</h3>
-      <div class="text-base text-slate-700 leading-loose">登录 Oracle Cloud Free Tier，在控制台搜索“Health”或“AI Services”，查看是否有可试用的医疗相关 API 或演示。如果没有直接入口，可创建一个 Always Free 的 Autonomous Database，体验其内置的 AI 功能（如 Select AI），感受 AI 如何嵌入数据库服务。记录你的操作路径和感受。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：Share——用 AI 辅助写一篇观点分享</h3>
+      <div class="text-base text-slate-700 leading-loose">基于前三步的积累，选一个你有感触的点（比如某道题的优化思路、某篇文章的观点、某个技巧的坑），让 AI 帮你列一个 3-5 段的结构提纲。你按提纲填充自己的思考和例子，写成 500-800 字的短文，发布到博客园、掘金或个人博客。发布后把链接记录到本周 ARTS 笔记中。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>免费层资源有限，优先体验“AI 嵌入现有服务”这一模式，而不是追求完整医疗套件。
+          💡 <span class="font-semibold">小贴士：</span>分享不必长篇大论，重点是写出自己的观点和踩坑经历，真实感比辞藻更重要。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：输出一篇 500 字分析短文</h3>
-      <div class="text-base text-slate-700 leading-loose">综合前四步的素材，写一篇短文，结构为：案例背景（2 句）、SaaS 进化 3 个维度（各 2 句）、对你的启示（2 句）。发布到博客园、知乎或公司内部分享，并附上原文链接。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：周复盘——用 AI 生成一周 ARTS 总结</h3>
+      <div class="text-base text-slate-700 leading-loose">每周日把本周四件套的记录整理到一起，让 AI 帮你生成一段 200 字左右的周总结，包括：本周算法题的核心考点、Review 文章的主要收获、Tips 的实用价值、Share 的反馈情况。把总结和四件套链接归档到笔记工具的「ARTS 周更」目录下，方便月底回顾。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>写完后让大模型帮你检查逻辑是否自洽，但结论必须用自己的话表述。
+          💡 <span class="font-semibold">小贴士：</span>坚持记录链接和一句话总结，三个月后回看会非常有成就感。
         </div>
     </div>
   </div>
@@ -180,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你得到一份结构化的 SaaS+AI 分析框架表格、一次 Oracle 云上 AI 功能的实操体验记录，以及一篇可发布的 500 字分析短文。同时能清晰复述“AI 推动 SaaS 进化而非取代”的核心逻辑。
+    每周产出一份包含 LeetCode 通过截图、英文文章摘要与点评、一个可运行技巧示例、一篇已发布分享文章的 ARTS 笔记；连续四周后形成个人知识库，算法手感、英文阅读速度和技术表达能力均有可感知的提升。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,31 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有 Oracle 账号，能完成教程吗？</span>
+        <span>每周时间不够，四件套做不完怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。第4步是可选验证，前3步和第5步用公开资料和大模型即可完成，不影响核心产出。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">优先保证 Algorithm 和 Share 两项，Review 可以只读摘要加三句点评，Tips 可以复用本周算法题中的小技巧，降低单周负担但保持节奏。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>大模型分析结果和原文有出入怎么办？</span>
+        <span>AI 辅助会不会让我产生依赖，反而学不到东西？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">以原文为准，把模型输出当作启发。可以在提示词中附上原文关键段落，减少偏差。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">关键是顺序：先自己思考再让 AI 点评，而不是直接要答案。把 AI 当陪练和审稿人，而不是代笔。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个框架能用在非医疗行业吗？</span>
+        <span>英文文章读不懂怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">能。把“医疗”替换为你的行业，调整维度描述即可，框架本身是通用的。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">先用 AI 生成全文摘要和术语表，再挑一段精读。每周只精读一段，长期积累比一次读完整篇更有效。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>需要编程基础吗？</span>
+        <span>Share 环节不知道写什么？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要。全程以阅读、提示词和文档整理为主，第4步也只是控制台点击操作。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">从本周 Algorithm 的踩坑点、Review 的某个观点、Tips 的验证过程里任选一个，用「问题-尝试-结果-反思」四段式就能成文。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>需要每周换新题目和新文章吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议换，保持新鲜感；但如果某道题或某篇文章特别有价值，可以隔几周用不同角度重做重读，深化理解。</div>
     </details>
   </div>
 </section>
@@ -222,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把案例换成 Salesforce 或 SAP 的 AI 发布，用同一框架做对比分析，输出双案例对照表。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用大模型模拟一场“AI 是否终结 SaaS”的辩论，你扮演反方，模型扮演正方，记录论点并复盘。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：将分析框架做成一个可复用的提示词模板，输入任意 SaaS 产品名即可生成进化维度表。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：ARTS 双周版——每两周完成一轮四件套，适合工作特别忙的开发者，降低频率但保持完整流程。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：ARTS 团队版——三人小组每周各自完成四件套，周末互相点评 Share 文章，用社交压力提升坚持率。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：ARTS+AI 自动化版——用 AI 工作流自动抓取 LeetCode 每日一题、生成英文文章摘要草稿，你只负责思考和点评，把机械环节交给工具。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用真实案例做锚点，借大模型拆解逻辑，再用轻量实操验证，最终沉淀出可迁移的 SaaS+AI 分析框架。
+    ARTS 周更法的精髓是用固定节奏把算法、阅读、技巧和分享串成闭环，AI 负责加速信息处理，你负责思考和输出。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -239,17 +250,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把文档一键转Markdown</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
+    </a>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
-    </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

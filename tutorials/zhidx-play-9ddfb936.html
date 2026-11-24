@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用知识库给 AI 喂项目经验，约束设计与编码 - AI 玩法教程 · AI Frontier</title>
+<title>用商汤8B开源模型生成电影感大片 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-24
+      2026-11-25
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★☆☆☆ · 2/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用知识库给 AI 喂项目经验，约束设计与编码</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用商汤8B开源模型生成电影感大片</h1>
     
   </div>
 </header>
@@ -58,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    博客园 AI 教程 · B级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+    智东西 AI 工具评测 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    技术社区
+    权威媒体
   </span>
-  <a href="https://www.cnblogs.com/lishen2/p/23698465" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://zhidx.com/p/613772.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">把成熟项目的架构决策和编码模式整理成 AI 可检索的知识库，让 AI 在设计新模块时自动参考已验证经验，而不是凭空发挥。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用商汤开源8B模型，通过提示词模板和工具链组合，就能生成具有电影氛围感的大片，无需专业摄影设备。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多团队用 AI 写代码时都遇到过类似问题：AI 能写出语法正确的代码，但架构风格和团队习惯完全不匹配，返工成本很高。这篇来自《嵌入式 AI 落地手记》的玩法指出，AI 不是不会写，而是不知道我们为什么这样写。通过把成熟项目中的设计文档、代码片段、评审记录整理成知识库，并在提示词中强制 AI 先检索再设计，就能让 AI 的输出被约束在团队已验证的框架内。这个玩法特别适合嵌入式、后端服务等对架构一致性要求高的项目。
+    AI生成图像已很常见，但普通模型往往缺乏电影般的氛围感。商汤开源的8B模型在光影、色彩和构图上表现突出，配合合适的提示词和后期工具链，可以低成本产出电影感画面。本教程适合内容创作者、设计师和AI绘画爱好者，用于制作海报、故事板或社交媒体配图。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,20 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Dify  <a href="https://dify.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">搭建知识库和 AI 应用的工作流平台，支持文档上传、分段检索和提示词编排</div>
+      <div class="font-semibold text-slate-900">商汤8B开源模型（SenseMirage 8B）  <a href="https://huggingface.co/sensetime" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">核心图像生成模型，需从商汤开源仓库或Hugging Face获取权重</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">FastGPT  <a href="https://fastgpt.in" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">国产知识库问答平台，适合快速搭建带检索增强生成的应用</div>
+      <div class="font-semibold text-slate-900">ComfyUI 或 Automatic1111 WebUI  <a href="https://github.com/comfyanonymous/ComfyUI" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行模型的图形界面，支持工作流搭建</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Git 仓库  <a href="https://git-scm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">存放成熟项目的代码、设计文档和评审记录，作为知识库原始素材</div>
+      <div class="font-semibold text-slate-900">提示词模板文档  <a href="https://zhidx.com/p/613772.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">参考智东西评测中的电影感提示词结构</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Markdown 编辑器  <a href="https://obsidian.md" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">整理知识库文档，推荐 Obsidian 或 Typora</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ChatGPT / Claude / DeepSeek  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">作为 AI 编码助手，配合知识库检索结果使用</div>
+      <div class="font-semibold text-slate-900">后期工具（可选）  <a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">如Photoshop或DaVinci Resolve，用于调色和加胶片颗粒</div>
     </li>
   </ul>
 </section>
@@ -126,55 +122,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：从成熟项目中提取可复用的知识素材</h3>
-      <div class="text-base text-slate-700 leading-loose">打开一个已经上线且稳定的项目仓库，按模块整理三类素材：架构设计文档（模块划分、分层方式、通信协议）、关键代码模式（错误处理、日志规范、状态机写法）、评审记录中的决策理由（为什么选 A 不选 B）。每类素材整理成独立的 Markdown 文件，文件名带模块前缀，例如 `arch-通信层.md`、`pattern-错误码.md`。不要直接上传整个代码仓库，先做人工筛选，只保留经过验证的结论。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：部署商汤8B模型</h3>
+      <div class="text-base text-slate-700 leading-loose">从Hugging Face下载SenseMirage 8B权重，放入ComfyUI的models/checkpoints目录。启动ComfyUI，在加载节点中选择该模型。确保显存≥12GB，若不足可使用--lowvram参数。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>优先整理“为什么这样做”的说明，AI 最缺的不是代码本身，而是决策上下文。
+          💡 <span class="font-semibold">小贴士：</span>首次加载较慢，耐心等待；建议使用fp16精度节省显存。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：在 Dify 中创建知识库并上传文档</h3>
-      <div class="text-base text-slate-700 leading-loose">登录 Dify，进入「知识库」页面，点击「创建知识库」，选择「导入已有文本」，把第 1 步整理好的 Markdown 文件批量上传。分段设置建议选择「自定义」，分段长度设为 500-800 字符，重叠 50 字符，保证一个完整的设计决策不会被切断。索引方式选择「高质量」以启用向量检索，嵌入模型选平台默认即可。上传后等待索引完成，用几个关键词测试召回效果。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：套用电影感提示词模板</h3>
+      <div class="text-base text-slate-700 leading-loose">在正向提示词中按“主体+环境+光影+镜头+色调+氛围”结构编写。例如：“一位穿风衣的男人站在雨夜街头，霓虹灯反射在湿漉漉的地面，低角度广角镜头，青橙色调，电影感，胶片颗粒”。负向提示词加入“低质量、模糊、过曝”。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果召回不准，回到文档层面把标题写得更具体，比如把「通信设计」改成「通信层-串口协议帧格式与超时重试策略」。
+          💡 <span class="font-semibold">小贴士：</span>参考智东西文章中的示例模板，直接复制修改主体即可。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编写约束型提示词模板</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Dify 中创建一个「聊天助手」应用，关联第 2 步的知识库。系统提示词按以下结构编写：第一段声明角色——“你是本项目的高级嵌入式工程师”；第二段写强制流程——“收到设计或编码请求后，必须先检索知识库，列出命中的架构约束和代码模式，再给出方案”；第三段写约束——“方案必须引用知识库中的具体条目，若知识库无相关内容，明确说明并请求人工确认，不得自行发明架构”。把这段提示词保存为模板，后续所有设计请求都复用它。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：设置生成参数</h3>
+      <div class="text-base text-slate-700 leading-loose">采样器选DPM++ 2M Karras，步数25-30，CFG Scale设为7，分辨率建议1024x576（16:9电影比例）。开启高分辨率修复（Hires.fix），放大倍数1.5，重绘幅度0.4。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>提示词里加一句“先输出检索摘要，再输出方案”，能明显减少 AI 跳过检索直接编造的情况。
+          💡 <span class="font-semibold">小贴士：</span>CFG过高会失真，7左右最平衡；分辨率不要低于768。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用真实需求跑一次设计与编码</h3>
-      <div class="text-base text-slate-700 leading-loose">拿一个新模块需求做测试，例如“新增一个 Modbus 从站数据采集任务”。在聊天框中输入需求，观察 AI 是否先列出知识库命中的约束（如任务分层方式、错误码规范、日志格式），再给出设计。确认设计合理后，继续让 AI 基于该设计生成代码，并要求它标注每段代码对应的知识库模式来源。把输出结果与团队现有代码风格做对比，记录偏差。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：生成并筛选</h3>
+      <div class="text-base text-slate-700 leading-loose">每次生成4张，观察光影和构图。若氛围不足，增加“volumetric lighting”“rim light”“anamorphic lens flare”等关键词。保留最佳一张，记录其种子值以便微调。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>第一次跑不要追求完美，重点看 AI 有没有“先检索再回答”的动作，这是流程是否生效的标志。
+          💡 <span class="font-semibold">小贴士：</span>固定种子后微调提示词，可稳定产出同一风格变体。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：根据偏差迭代知识库和提示词</h3>
-      <div class="text-base text-slate-700 leading-loose">把第 4 步中 AI 偏离团队习惯的地方分类：是知识库缺文档，还是提示词约束不够强。缺文档就补充对应模块的设计说明；约束不够就在提示词中增加反面示例，例如“不要使用全局变量传递状态，参考知识库中的 `pattern-状态机.md`”。每次迭代后重跑同一个需求，对比输出变化。建议维护一个简单的迭代记录表，记录每次修改点和效果。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：后期增强电影感</h3>
+      <div class="text-base text-slate-700 leading-loose">将图片导入DaVinci Resolve或Photoshop，套用青橙色调LUT，增加轻微胶片颗粒和暗角。调整对比度和黑场，让画面更接近电影截图。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>知识库不是一次建完的，前两周每天花 10 分钟补一条缺失知识，效果提升最明显。
+          💡 <span class="font-semibold">小贴士：</span>颗粒强度控制在5%-10%，过重会显脏。
         </div>
     </div>
   </div>
@@ -184,7 +180,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    AI 在收到设计或编码请求时，会先输出知识库检索摘要，列出命中的架构约束和代码模式，再给出引用这些条目的设计方案和代码。输出风格与成熟项目保持一致，架构决策有据可查，人工评审时可以直接对照知识库条目验证，返工率明显下降。
+    生成一张16:9比例、具有明显电影光影和色调的图片，主体清晰、氛围浓郁，可直接用作海报或故事板。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +190,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>知识库要放多少文档才有效？</span>
+        <span>显存不足12GB怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不在多而在准。初期 10-20 份高质量文档，覆盖核心架构决策和关键代码模式，就足以约束大部分设计场景。关键是每份文档都写清楚“为什么这样做”。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">使用--lowvram启动ComfyUI，或降低分辨率至768x432，并关闭高分辨率修复。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>AI 还是会跳过检索直接回答怎么办？</span>
+        <span>生成的图片不够“电影感”怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在提示词中把检索设为强制第一步，并要求输出检索摘要。如果平台支持工作流模式，可以把“检索”做成独立节点，AI 必须经过该节点才能进入生成环节。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">检查提示词是否包含光影（如volumetric lighting）、镜头（如anamorphic）和色调（如teal and orange）关键词，并适当增加步数。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>代码仓库能直接整个上传吗？</span>
+        <span>商汤8B模型在哪里下载？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不建议。整仓上传会引入大量噪声，检索命中率下降。应先人工筛选出经过验证的模式和决策文档，再上传。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">访问Hugging Face的sensetime组织页面，搜索SenseMirage 8B，或参考智东西文章中的链接。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这套方法适合小团队吗？</span>
+        <span>可以用其他模型替代吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合。小团队可以从一个成熟模块开始，整理 5-10 份文档就能见效，成本低且能直接减少 AI 返工。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>知识库更新后需要重新调提示词吗？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常不需要。提示词约束的是流程，知识库提供的是内容，两者解耦。只有当知识库结构大改时才需要微调提示词中的引用方式。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但需调整提示词模板；商汤8B在电影感光影上表现更优。</div>
     </details>
   </div>
 </section>
@@ -233,14 +222,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把知识库检索接入 CI 流程，AI 生成代码后自动比对知识库中的规范条目，输出合规检查报告，作为代码评审的辅助材料。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：为不同项目建立独立知识库，在提示词中根据项目名动态切换检索范围，实现一套提示词服务多个项目的架构约束。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把知识库与 IDE 插件结合，在编码时实时检索并提示团队规范，把约束从“事后评审”前移到“编写时”。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将主体换成风景，用“史诗感广角+黄金时刻光线+雾气”生成电影级风景大片。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：生成人物特写，加入“浅景深+眼神光+背景虚化”关键词，模拟电影肖像。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：批量生成同一场景的不同镜头（远景、中景、特写），用于故事板分镜。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    让 AI 先查团队已验证的经验再动手，用知识库把“为什么这样写”变成 AI 的默认输入。
+    用商汤8B模型加结构化提示词和简单后期，就能低成本产出电影感图像，关键在于光影、镜头和色调的精准描述。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,17 +239,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可运行 AI Agent 工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭长任务超级智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭长任务超级智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

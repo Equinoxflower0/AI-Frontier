@@ -1,110 +1,4 @@
 {
-  "github-play-awesome-chatgpt-prompts-4f7ee941": {
-    "_sig": "f/prompts.chat: f.k.a. Awesome ChatGPT Prompts. Share, discover, a|https://github.com/f/prompts.chat",
-    "tutorial": {
-      "intro": "今天带你挖一个17万星的GitHub宝藏——Awesome ChatGPT Prompts，让你直接抄作业，把ChatGPT变成你的私人专家团。",
-      "background": "这个项目原名Awesome ChatGPT Prompts，是GitHub上最火的提示词合集之一，目前已经收获超过17万颗星。它汇集了全球社区贡献的优质提示词模板，覆盖写作、编程、营销、教育、职业发展等几十个领域。你可以直接复制使用，也可以自建私有化部署，完全免费开源。对于不会写提示词、或者想快速提升ChatGPT输出质量的人来说，这就是一个现成的“提示词军火库”。",
-      "prerequisites": [
-        {
-          "name": "ChatGPT 账号",
-          "desc": "用于测试和使用提示词，免费版即可，Plus效果更佳",
-          "url": "https://chat.openai.com"
-        },
-        {
-          "name": "浏览器",
-          "desc": "访问GitHub仓库和在线版提示词库",
-          "url": "https://github.com/f/prompts.chat"
-        },
-        {
-          "name": "Git（可选）",
-          "desc": "如果你想克隆仓库到本地或自部署",
-          "url": "https://git-scm.com"
-        },
-        {
-          "name": "Node.js 或 Docker（可选）",
-          "desc": "用于自托管私有提示词库",
-          "url": "https://nodejs.org 或 https://www.docker.com"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：打开仓库，找到你需要的提示词分类",
-          "content": "访问 https://github.com/f/prompts.chat ，在README中你会看到按角色和场景分类的提示词列表，比如“Act as a Linux Terminal”“Act as a JavaScript Console”“Act as a Financial Analyst”等。点击任意提示词标题，就能看到完整的提示词内容。建议先浏览目录，找到与你当前任务最匹配的3-5个提示词。",
-          "tip": "不要贪多，先选一个最贴近你需求的提示词，直接复制到ChatGPT里试效果。"
-        },
-        {
-          "title": "第2步：复制提示词并粘贴到ChatGPT",
-          "content": "在GitHub页面点击提示词旁边的复制按钮，或者手动选中提示词全文（通常以“I want you to act as...”开头）。打开ChatGPT新对话，把提示词粘贴进去，然后按回车发送。ChatGPT会回复“OK”或类似确认，表示它已经进入角色。",
-          "tip": "如果提示词里有占位符如[主题]、[语言]，先替换成你的具体内容再发送。"
-        },
-        {
-          "title": "第3步：补充你的具体任务，获取专业输出",
-          "content": "在ChatGPT确认角色后，直接输入你的具体问题或任务。例如你用了“Act as a Financial Analyst”，就可以输入“帮我分析一下特斯拉2024年Q1财报的关键风险点”。ChatGPT会按照提示词设定的专业身份和输出格式来回答。如果输出不够满意，可以追加“请更详细”“用表格呈现”等指令。",
-          "tip": "把ChatGPT的第一次回复当作草稿，用“继续”“优化”“换一种风格”来迭代，效果会更好。"
-        },
-        {
-          "title": "第4步：收藏和整理你的常用提示词",
-          "content": "在GitHub仓库里，你可以给喜欢的提示词点Star，或者把内容复制到自己的Notion、飞书、Obsidian等笔记工具中，按“写作”“编程”“营销”等标签分类。建议建立一个“提示词库”文档，每次用完后记录效果和修改版本，形成自己的提示词资产。",
-          "tip": "用浏览器书签直接收藏GitHub上具体提示词的锚点链接，下次一键直达。"
-        },
-        {
-          "title": "第5步（可选）：自托管私有提示词库",
-          "content": "如果你在团队内使用，或者想完全私有化，可以克隆仓库并自部署。仓库提供了Docker和Node.js两种方式。基本命令：git clone https://github.com/f/prompts.chat.git，然后进入目录，运行docker compose up 或 npm install && npm run dev。部署后你就能在内网访问自己的提示词库，数据完全私有。",
-          "tip": "自托管适合企业内部分享，但需要一定的运维基础；个人用户直接用GitHub在线版就够了。"
-        }
-      ],
-      "expected_result": "你能够快速找到并复制高质量的ChatGPT提示词，让ChatGPT以特定专家身份（如财务分析师、Linux终端、面试官）与你对话，输出专业、结构化的内容。同时你拥有一个可随时查阅的提示词库，甚至能自建私有版本供团队使用。",
-      "faq": [
-        {
-          "q": "这些提示词是免费的吗？",
-          "a": "完全免费且开源，你可以随意使用、修改和分享，甚至商用。"
-        },
-        {
-          "q": "我需要会写代码才能用吗？",
-          "a": "不需要。99%的提示词都是纯文本，复制粘贴到ChatGPT即可，只有自托管才需要一点技术基础。"
-        },
-        {
-          "q": "提示词用中文还是英文？",
-          "a": "原版提示词大多是英文，但你可以直接翻译成中文使用，ChatGPT同样能理解。建议保留英文角色设定，任务描述用中文。"
-        },
-        {
-          "q": "为什么我用了提示词效果不好？",
-          "a": "可能是任务描述不够具体，或者模型版本不同。尝试补充背景信息、指定输出格式，或换用GPT-4。"
-        },
-        {
-          "q": "如何贡献自己的提示词？",
-          "a": "在GitHub仓库提交Pull Request，按照贡献指南添加你的提示词即可，被合并后全球用户都能看到。"
-        }
-      ],
-      "variants": [
-        "变体1：把提示词改造成“系统提示词”用于自定义GPT或API调用，让AI长期保持某个角色。",
-        "变体2：组合多个提示词形成工作流，例如先用“Act as a Market Researcher”做调研，再用“Act as a Copywriter”写文案。",
-        "变体3：基于Awesome ChatGPT Prompts的模板，用变量替换生成自己的提示词生成器，批量生产针对不同场景的提示词。"
-      ],
-      "summary": "把17万星的提示词宝库当成你的AI外脑，复制、微调、迭代，让ChatGPT瞬间变成任何领域的专家。"
-    },
-    "generated_at": "2026-09-12T03:38:58.372154+00:00",
-    "play_meta": {
-      "title_zh": "17万星的ChatGPT提示词宝库",
-      "title_en": "f/prompts.chat: f.k.a. Awesome ChatGPT Prompts. Share, discover, a",
-      "source_id": "github-play-awesome-chatgpt-prompts",
-      "source_name": "GitHub Awesome ChatGPT Prompts",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "prompt",
-      "difficulty": 4,
-      "time_estimate": "5min",
-      "tools": [
-        "ChatGPT"
-      ],
-      "link": "https://github.com/f/prompts.chat",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.5
-    }
-  },
   "github-play-awesome-chatgpt-prompts-a76616d3": {
     "_sig": "jamez-bondos/awesome-gpt4o-images: Awesome curated collection of images and prom|https://github.com/jamez-bondos/awesome-gpt4o-images",
     "tutorial": {
@@ -207,6 +101,112 @@
         "Sora"
       ],
       "link": "https://github.com/jamez-bondos/awesome-gpt4o-images",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 8.5
+    }
+  },
+  "github-play-awesome-chatgpt-prompts-4f7ee941": {
+    "_sig": "f/prompts.chat: f.k.a. Awesome ChatGPT Prompts. Share, discover, a|https://github.com/f/prompts.chat",
+    "tutorial": {
+      "intro": "今天带你挖一个17万星的GitHub宝藏——Awesome ChatGPT Prompts，让你直接抄作业，把ChatGPT变成你的私人专家团。",
+      "background": "这个项目原名Awesome ChatGPT Prompts，是GitHub上最火的提示词合集之一，目前已经收获超过17万颗星。它汇集了全球社区贡献的优质提示词模板，覆盖写作、编程、营销、教育、职业发展等几十个领域。你可以直接复制使用，也可以自建私有化部署，完全免费开源。对于不会写提示词、或者想快速提升ChatGPT输出质量的人来说，这就是一个现成的“提示词军火库”。",
+      "prerequisites": [
+        {
+          "name": "ChatGPT 账号",
+          "desc": "用于测试和使用提示词，免费版即可，Plus效果更佳",
+          "url": "https://chat.openai.com"
+        },
+        {
+          "name": "浏览器",
+          "desc": "访问GitHub仓库和在线版提示词库",
+          "url": "https://github.com/f/prompts.chat"
+        },
+        {
+          "name": "Git（可选）",
+          "desc": "如果你想克隆仓库到本地或自部署",
+          "url": "https://git-scm.com"
+        },
+        {
+          "name": "Node.js 或 Docker（可选）",
+          "desc": "用于自托管私有提示词库",
+          "url": "https://nodejs.org 或 https://www.docker.com"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：打开仓库，找到你需要的提示词分类",
+          "content": "访问 https://github.com/f/prompts.chat ，在README中你会看到按角色和场景分类的提示词列表，比如“Act as a Linux Terminal”“Act as a JavaScript Console”“Act as a Financial Analyst”等。点击任意提示词标题，就能看到完整的提示词内容。建议先浏览目录，找到与你当前任务最匹配的3-5个提示词。",
+          "tip": "不要贪多，先选一个最贴近你需求的提示词，直接复制到ChatGPT里试效果。"
+        },
+        {
+          "title": "第2步：复制提示词并粘贴到ChatGPT",
+          "content": "在GitHub页面点击提示词旁边的复制按钮，或者手动选中提示词全文（通常以“I want you to act as...”开头）。打开ChatGPT新对话，把提示词粘贴进去，然后按回车发送。ChatGPT会回复“OK”或类似确认，表示它已经进入角色。",
+          "tip": "如果提示词里有占位符如[主题]、[语言]，先替换成你的具体内容再发送。"
+        },
+        {
+          "title": "第3步：补充你的具体任务，获取专业输出",
+          "content": "在ChatGPT确认角色后，直接输入你的具体问题或任务。例如你用了“Act as a Financial Analyst”，就可以输入“帮我分析一下特斯拉2024年Q1财报的关键风险点”。ChatGPT会按照提示词设定的专业身份和输出格式来回答。如果输出不够满意，可以追加“请更详细”“用表格呈现”等指令。",
+          "tip": "把ChatGPT的第一次回复当作草稿，用“继续”“优化”“换一种风格”来迭代，效果会更好。"
+        },
+        {
+          "title": "第4步：收藏和整理你的常用提示词",
+          "content": "在GitHub仓库里，你可以给喜欢的提示词点Star，或者把内容复制到自己的Notion、飞书、Obsidian等笔记工具中，按“写作”“编程”“营销”等标签分类。建议建立一个“提示词库”文档，每次用完后记录效果和修改版本，形成自己的提示词资产。",
+          "tip": "用浏览器书签直接收藏GitHub上具体提示词的锚点链接，下次一键直达。"
+        },
+        {
+          "title": "第5步（可选）：自托管私有提示词库",
+          "content": "如果你在团队内使用，或者想完全私有化，可以克隆仓库并自部署。仓库提供了Docker和Node.js两种方式。基本命令：git clone https://github.com/f/prompts.chat.git，然后进入目录，运行docker compose up 或 npm install && npm run dev。部署后你就能在内网访问自己的提示词库，数据完全私有。",
+          "tip": "自托管适合企业内部分享，但需要一定的运维基础；个人用户直接用GitHub在线版就够了。"
+        }
+      ],
+      "expected_result": "你能够快速找到并复制高质量的ChatGPT提示词，让ChatGPT以特定专家身份（如财务分析师、Linux终端、面试官）与你对话，输出专业、结构化的内容。同时你拥有一个可随时查阅的提示词库，甚至能自建私有版本供团队使用。",
+      "faq": [
+        {
+          "q": "这些提示词是免费的吗？",
+          "a": "完全免费且开源，你可以随意使用、修改和分享，甚至商用。"
+        },
+        {
+          "q": "我需要会写代码才能用吗？",
+          "a": "不需要。99%的提示词都是纯文本，复制粘贴到ChatGPT即可，只有自托管才需要一点技术基础。"
+        },
+        {
+          "q": "提示词用中文还是英文？",
+          "a": "原版提示词大多是英文，但你可以直接翻译成中文使用，ChatGPT同样能理解。建议保留英文角色设定，任务描述用中文。"
+        },
+        {
+          "q": "为什么我用了提示词效果不好？",
+          "a": "可能是任务描述不够具体，或者模型版本不同。尝试补充背景信息、指定输出格式，或换用GPT-4。"
+        },
+        {
+          "q": "如何贡献自己的提示词？",
+          "a": "在GitHub仓库提交Pull Request，按照贡献指南添加你的提示词即可，被合并后全球用户都能看到。"
+        }
+      ],
+      "variants": [
+        "变体1：把提示词改造成“系统提示词”用于自定义GPT或API调用，让AI长期保持某个角色。",
+        "变体2：组合多个提示词形成工作流，例如先用“Act as a Market Researcher”做调研，再用“Act as a Copywriter”写文案。",
+        "变体3：基于Awesome ChatGPT Prompts的模板，用变量替换生成自己的提示词生成器，批量生产针对不同场景的提示词。"
+      ],
+      "summary": "把17万星的提示词宝库当成你的AI外脑，复制、微调、迭代，让ChatGPT瞬间变成任何领域的专家。"
+    },
+    "generated_at": "2026-09-12T03:38:58.372154+00:00",
+    "play_meta": {
+      "title_zh": "17万星的ChatGPT提示词宝库",
+      "title_en": "f/prompts.chat: f.k.a. Awesome ChatGPT Prompts. Share, discover, a",
+      "source_id": "github-play-awesome-chatgpt-prompts",
+      "source_name": "GitHub Awesome ChatGPT Prompts",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "prompt",
+      "difficulty": 4,
+      "time_estimate": "5min",
+      "tools": [
+        "ChatGPT"
+      ],
+      "link": "https://github.com/f/prompts.chat",
       "is_domestic": false,
       "tags": [],
       "playability_score": 8.5
@@ -410,6 +410,224 @@
       ],
       "link": "https://huggingface.co/spaces/hexgrad/Kokoro-TTS",
       "is_domestic": false,
+      "tags": [],
+      "playability_score": 8.5
+    }
+  },
+  "hf-space-selfit-camera-Omni-Image-Editor-c92f82c4": {
+    "_sig": "Selfit Camera/Omni Image Editor|https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor",
+    "tutorial": {
+      "intro": "用 Omni Image Editor 在线修图改图，无需安装任何软件，打开网页就能用 AI 快速编辑图片。",
+      "background": "Omni Image Editor 是 HuggingFace Spaces 上的一个 Gradio 应用，集成了多种图像编辑能力，支持文本指令修图、局部重绘、风格迁移等。它适合设计师快速出稿、自媒体人制作配图、普通用户修复老照片等场景。该 Space 已有近 3000 点赞，说明其效果和易用性得到了社区认可。你只需要一个浏览器和一张图片，就能体验 AI 修图的乐趣。",
+      "prerequisites": [
+        {
+          "name": "HuggingFace 账号",
+          "desc": "用于访问 Space 和保存历史记录（部分功能需登录）",
+          "url": "https://huggingface.co/join"
+        },
+        {
+          "name": "Omni Image Editor Space",
+          "desc": "在线修图工具本体，直接打开即可使用",
+          "url": "https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor"
+        },
+        {
+          "name": "待编辑的图片",
+          "desc": "建议准备 1-2 张清晰图片，格式为 JPG/PNG，大小不超过 5MB",
+          "url": ""
+        },
+        {
+          "name": "现代浏览器",
+          "desc": "Chrome/Edge/Firefox 最新版，确保 WebGL 和摄像头权限正常",
+          "url": ""
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：打开 Space 并上传图片",
+          "content": "在浏览器中访问 https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor ，等待页面加载完成。找到图片上传区域（通常标有“Upload Image”或拖拽框），点击上传你的图片，或直接将图片拖入框内。上传后页面会显示图片预览，确认图片方向正确。",
+          "tip": "如果图片较大，可先压缩到 2000px 以内，上传和生成速度会更快。"
+        },
+        {
+          "title": "第2步：选择编辑模式并输入指令",
+          "content": "在界面中找到“Prompt”或“Instruction”输入框，用英文或中文描述你想要的修改，例如“把背景换成海滩”“给人物戴上墨镜”“修复老照片划痕”。部分模式需要额外设置，如局部重绘需用画笔涂抹区域，风格迁移需选择风格参考图。根据界面提示调整参数（如强度、步数），初学者保持默认即可。",
+          "tip": "指令越具体效果越好，比如“把天空变成日落时的橙红色”比“改天空”更明确。"
+        },
+        {
+          "title": "第3步：点击生成并预览结果",
+          "content": "点击“Generate”或“Run”按钮，等待几秒到几十秒（取决于队列长度和图片大小）。生成完成后，右侧会显示编辑后的图片，可与原图对比。如果效果不满意，可微调指令或参数后重新生成，每次生成都会保留历史记录。",
+          "tip": "遇到排队时不要频繁刷新，可先复制 Space 链接到新标签页重新打开以加入新队列。"
+        },
+        {
+          "title": "第4步：下载或继续编辑",
+          "content": "满意后点击图片下方的下载按钮保存到本地。如需继续修改，可将生成结果作为新输入再次上传，或直接在原图上叠加新指令。部分版本支持“Send to Inpainting”等按钮，可无缝衔接局部重绘。",
+          "tip": "保存时建议用 PNG 格式避免二次压缩损失，尤其适合需要后续印刷的场景。"
+        }
+      ],
+      "expected_result": "上传的图片经过 AI 编辑后，背景、人物细节或风格发生符合指令的变化，画面自然无明显瑕疵。你可以在结果区看到对比图，并成功下载编辑后的图片文件。",
+      "faq": [
+        {
+          "q": "需要付费吗？",
+          "a": "完全免费，HuggingFace Spaces 上的这个应用目前没有收费计划，但排队时间可能较长。"
+        },
+        {
+          "q": "支持中文指令吗？",
+          "a": "部分模型支持中文，但英文指令通常更准确，建议用简单英文或中英混合描述。"
+        },
+        {
+          "q": "图片上传失败怎么办？",
+          "a": "检查图片格式是否为 JPG/PNG，大小是否超过 5MB，或尝试更换浏览器/关闭广告拦截插件。"
+        },
+        {
+          "q": "生成结果不理想如何调整？",
+          "a": "细化指令、增加关键词、调整“强度”参数，或改用局部重绘模式只修改特定区域。"
+        },
+        {
+          "q": "可以商用吗？",
+          "a": "需遵守 HuggingFace 社区准则和模型许可证，建议生成后自行检查版权风险，避免直接商用受版权保护的素材。"
+        }
+      ],
+      "variants": [
+        "变体1：老照片修复——上传模糊或划痕老照片，指令写“修复划痕并增强面部细节”，配合“Upscale”选项提升分辨率。",
+        "变体2：电商产品图换背景——上传产品图，用局部重绘涂抹背景区域，指令写“纯白背景，带柔和阴影”，快速生成白底图。",
+        "变体3：风格迁移——上传风景照，选择“Style Transfer”模式并上传一幅名画作为风格参考，生成艺术化效果。"
+      ],
+      "summary": "Omni Image Editor 把专业修图能力搬进浏览器，用自然语言指令就能完成改图，关键是描述具体、多试几次。"
+    },
+    "generated_at": "2026-11-08T07:07:35.787098+00:00",
+    "play_meta": {
+      "title_zh": "用 Omni Image Editor 在线修图改图",
+      "title_en": "Selfit Camera/Omni Image Editor",
+      "source_id": "hf-space-selfit-camera/Omni-Image-Editor",
+      "source_name": "HuggingFace Spaces",
+      "source_label": "权威媒体",
+      "source_tier": "A",
+      "source_color": "blue",
+      "source_emoji": "🔵",
+      "play_type": "runnable_demo",
+      "difficulty": 4,
+      "time_estimate": "10min",
+      "tools": [
+        "HF"
+      ],
+      "link": "https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 8.2
+    }
+  },
+  "zhidx-play-0d5ca868": {
+    "_sig": "神秘大模型火速杀进OpenCode前三！做MV、开发游戏、3D建模全拿捏，免费可蹬|https://zhidx.com/p/614323.html",
+    "tutorial": {
+      "intro": "今天教你用一套神秘大模型工具链，从零生成音乐MV、小游戏和3D模型，全程无需专业软件基础。",
+      "background": "智东西AI工具评测发现，某些未公开的大模型已能偷偷完成跨模态创作：输入一段文字，它就能生成带音乐的视频、可玩的游戏甚至3D资产。这套玩法适合内容创作者、独立开发者和AI爱好者，用来快速验证创意、制作Demo或生成素材。虽然难度中等偏上（4/5），但按步骤操作即可复现。",
+      "prerequisites": [
+        {
+          "name": "Claude 3.5 Sonnet",
+          "desc": "主力代码与提示词生成模型，用于编写游戏逻辑和MV脚本",
+          "url": "https://claude.ai"
+        },
+        {
+          "name": "Midjourney v6",
+          "desc": "生成MV分镜图和3D建模参考图",
+          "url": "https://www.midjourney.com"
+        },
+        {
+          "name": "Runway Gen-3 Alpha",
+          "desc": "将分镜图转为动态视频片段",
+          "url": "https://runwayml.com"
+        },
+        {
+          "name": "Suno AI",
+          "desc": "根据描述生成MV配乐",
+          "url": "https://suno.com"
+        },
+        {
+          "name": "Tripo3D",
+          "desc": "从图片或文字生成3D模型",
+          "url": "https://www.tripo3d.ai"
+        },
+        {
+          "name": "CapCut 剪映",
+          "desc": "拼接视频、对齐音乐和字幕",
+          "url": "https://www.capcut.com"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：用Claude生成MV脚本与分镜提示词",
+          "content": "打开Claude 3.5 Sonnet，输入：“你是一个MV导演，请为歌曲《星际漫游》设计6个分镜，每个分镜给出英文Midjourney提示词，风格为赛博朋克+水彩。” 复制返回的6条提示词，逐条检查是否包含主体、环境、光线和风格词。将提示词保存到文本文件备用。",
+          "tip": "在提示词末尾加上“--ar 16:9 --style raw”让Midjourney直接输出视频比例。"
+        },
+        {
+          "title": "第2步：用Midjourney生成分镜图并挑选",
+          "content": "在Midjourney输入框中粘贴第1步的每条提示词，生成4张图。从每组分镜中选1张最符合叙事的图，点击U放大并下载。将6张图按顺序命名为scene1.png到scene6.png。",
+          "tip": "如果人物一致性差，可在提示词中加入“same character as previous image”并附上参考图链接。"
+        },
+        {
+          "title": "第3步：用Runway将分镜图转为动态视频",
+          "content": "登录Runway Gen-3 Alpha，选择“Image to Video”，上传scene1.png，在运动描述框输入“slow zoom in, particles floating”。生成4秒视频后下载。重复处理全部6张图，得到6段短视频。",
+          "tip": "运动幅度不宜过大，否则画面容易崩坏；可先用“camera pan left”等简单指令测试。"
+        },
+        {
+          "title": "第4步：用Suno生成配乐并用CapCut合成MV",
+          "content": "在Suno输入“synthwave, dreamy, 100 BPM, instrumental”生成一首2分钟纯音乐，下载MP3。打开CapCut，将6段视频按顺序拖入时间线，导入音乐，裁剪视频总长与音乐对齐。添加转场“叠化”和字幕，导出1080p视频。",
+          "tip": "在CapCut中开启“自动节拍检测”，让转场卡在音乐鼓点上。"
+        },
+        {
+          "title": "第5步：用Claude生成小游戏代码并本地运行",
+          "content": "对Claude说：“用HTML5 Canvas写一个躲避障碍物的小游戏，玩家控制方块，按空格跳跃，障碍物随机出现，计分。” 将返回的完整HTML代码保存为game.html，双击在浏览器打开即可试玩。若想修改难度，让Claude调整障碍物速度参数。",
+          "tip": "要求Claude“把所有代码放在一个文件里，不依赖外部库”，方便直接运行。"
+        },
+        {
+          "title": "第6步：用Tripo3D生成3D模型并导出",
+          "content": "打开Tripo3D，选择“Text to 3D”，输入“a cute robot mascot, low poly, game ready”，等待1-2分钟生成模型。在预览界面调整旋转和缩放，点击Export下载GLB格式文件。可将GLB导入Blender或直接用于游戏引擎。",
+          "tip": "生成时勾选“Auto Rig”可自动绑定骨骼，方便做动画。"
+        }
+      ],
+      "expected_result": "你将得到一个约30秒的赛博朋克风格MV（MP4）、一个可玩的HTML5小游戏、以及一个低多边形机器人3D模型（GLB）。所有素材均可直接用于社交媒体发布或项目原型。",
+      "faq": [
+        {
+          "q": "这些工具都需要付费吗？",
+          "a": "Midjourney、Runway、Suno和Tripo3D均有免费额度或试用，Claude可免费使用。建议先用免费额度跑通流程，再按需订阅。"
+        },
+        {
+          "q": "生成的分镜图人物不一致怎么办？",
+          "a": "在Midjourney中使用“--cref”参数上传参考图，或在提示词中固定角色描述（如“blue hair, red jacket”）。"
+        },
+        {
+          "q": "小游戏代码运行报错怎么排查？",
+          "a": "把报错信息复制给Claude，让它修复。常见问题是缺少canvas标签或事件监听未绑定。"
+        },
+        {
+          "q": "3D模型可以商用吗？",
+          "a": "需查看Tripo3D的许可条款，免费版通常仅限个人使用，商用请升级或选择明确允许商用的工具。"
+        }
+      ],
+      "variants": [
+        "变体1：将MV主题换成“中国水墨风”，用Claude生成水墨提示词，Midjourney加“--niji 6”参数，Suno改用古筝配乐。",
+        "变体2：用Claude生成一个文字冒险游戏，配合Tripo3D生成场景模型，做成3D网页游戏。",
+        "变体3：把MV分镜图直接喂给Tripo3D生成3D场景，再用Runway做3D漫游视频。"
+      ],
+      "summary": "用Claude做大脑、Midjourney/Runway/Suno做手脚、Tripo3D做立体化，一条提示词链就能把文字变成MV、游戏和3D模型。"
+    },
+    "generated_at": "2026-11-25T18:24:42.507342+00:00",
+    "play_meta": {
+      "title_zh": "用神秘大模型做MV、游戏和3D建模",
+      "title_en": "神秘大模型火速杀进OpenCode前三！做MV、开发游戏、3D建模全拿捏，免费可蹬",
+      "source_id": "zhidx-play",
+      "source_name": "智东西 AI 工具评测",
+      "source_label": "权威媒体",
+      "source_tier": "A",
+      "source_color": "blue",
+      "source_emoji": "🔵",
+      "play_type": "tool_chain",
+      "difficulty": 4,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://zhidx.com/p/614323.html",
+      "is_domestic": true,
       "tags": [],
       "playability_score": 8.5
     }
@@ -636,105 +854,115 @@
       "playability_score": 8.5
     }
   },
-  "hf-space-selfit-camera-Omni-Image-Editor-c92f82c4": {
-    "_sig": "Selfit Camera/Omni Image Editor|https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor",
+  "github-play-awesome-ai-agents-95b50059": {
+    "_sig": "awesome-opencode/awesome-opencode: A curated list of awesome plugins, themes, ag|https://github.com/awesome-opencode/awesome-opencode",
     "tutorial": {
-      "intro": "用 Omni Image Editor 在线修图改图，无需安装任何软件，打开网页就能用 AI 快速编辑图片。",
-      "background": "Omni Image Editor 是 HuggingFace Spaces 上的一个 Gradio 应用，集成了多种图像编辑能力，支持文本指令修图、局部重绘、风格迁移等。它适合设计师快速出稿、自媒体人制作配图、普通用户修复老照片等场景。该 Space 已有近 3000 点赞，说明其效果和易用性得到了社区认可。你只需要一个浏览器和一张图片，就能体验 AI 修图的乐趣。",
+      "intro": "用 awesome-opencode 清单快速筛选 OpenCode 生态里的插件、主题和智能体，搭建你的专属 AI 编程工作流。",
+      "background": "OpenCode 是一个开源的 AI 编程助手，支持插件、主题和智能体扩展，但官方生态分散在多个仓库。awesome-opencode 是一个获得 10898 stars 的精选清单，把插件、主题、智能体和项目资源集中在一处。对于想深度定制 OpenCode 的开发者，这份清单能节省大量搜索和试错时间。本教程教你如何高效利用这份清单，从零搭建一个带插件和智能体的 OpenCode 环境。",
       "prerequisites": [
         {
-          "name": "HuggingFace 账号",
-          "desc": "用于访问 Space 和保存历史记录（部分功能需登录）",
-          "url": "https://huggingface.co/join"
+          "name": "OpenCode",
+          "desc": "开源 AI 编程助手，本教程的核心工具",
+          "url": "https://opencode.ai"
         },
         {
-          "name": "Omni Image Editor Space",
-          "desc": "在线修图工具本体，直接打开即可使用",
-          "url": "https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor"
+          "name": "Git",
+          "desc": "用于克隆 awesome-opencode 仓库",
+          "url": "https://git-scm.com"
         },
         {
-          "name": "待编辑的图片",
-          "desc": "建议准备 1-2 张清晰图片，格式为 JPG/PNG，大小不超过 5MB",
-          "url": ""
+          "name": "Node.js (>=18)",
+          "desc": "运行 OpenCode 及部分插件依赖",
+          "url": "https://nodejs.org"
         },
         {
-          "name": "现代浏览器",
-          "desc": "Chrome/Edge/Firefox 最新版，确保 WebGL 和摄像头权限正常",
-          "url": ""
+          "name": "文本编辑器/IDE",
+          "desc": "如 VS Code，用于查看和编辑配置文件",
+          "url": "https://code.visualstudio.com"
         }
       ],
       "steps": [
         {
-          "title": "第1步：打开 Space 并上传图片",
-          "content": "在浏览器中访问 https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor ，等待页面加载完成。找到图片上传区域（通常标有“Upload Image”或拖拽框），点击上传你的图片，或直接将图片拖入框内。上传后页面会显示图片预览，确认图片方向正确。",
-          "tip": "如果图片较大，可先压缩到 2000px 以内，上传和生成速度会更快。"
+          "title": "第1步：克隆并浏览 awesome-opencode 清单",
+          "content": "打开终端，执行 git clone https://github.com/awesome-opencode/awesome-opencode.git，然后进入目录用编辑器打开 README.md。清单按插件、主题、智能体、项目等分类，每个条目附带简短描述和链接。先快速扫一遍分类标题，了解有哪些资源类型。",
+          "tip": "用 VS Code 的 Markdown 预览功能（Ctrl+Shift+V）可以更直观地浏览清单结构。"
         },
         {
-          "title": "第2步：选择编辑模式并输入指令",
-          "content": "在界面中找到“Prompt”或“Instruction”输入框，用英文或中文描述你想要的修改，例如“把背景换成海滩”“给人物戴上墨镜”“修复老照片划痕”。部分模式需要额外设置，如局部重绘需用画笔涂抹区域，风格迁移需选择风格参考图。根据界面提示调整参数（如强度、步数），初学者保持默认即可。",
-          "tip": "指令越具体效果越好，比如“把天空变成日落时的橙红色”比“改天空”更明确。"
+          "title": "第2步：筛选并记录目标插件与智能体",
+          "content": "根据你的需求（比如代码补全、Git 集成、UI 主题），在清单中挑选 2-3 个插件和 1-2 个智能体。把它们的名称、仓库链接和安装说明复制到一个临时笔记中。注意查看每个条目的标签（如 official、community），优先选择维护活跃的项目。",
+          "tip": "在 GitHub 上查看仓库的最近提交时间和 issue 活跃度，避免选用已废弃的插件。"
         },
         {
-          "title": "第3步：点击生成并预览结果",
-          "content": "点击“Generate”或“Run”按钮，等待几秒到几十秒（取决于队列长度和图片大小）。生成完成后，右侧会显示编辑后的图片，可与原图对比。如果效果不满意，可微调指令或参数后重新生成，每次生成都会保留历史记录。",
-          "tip": "遇到排队时不要频繁刷新，可先复制 Space 链接到新标签页重新打开以加入新队列。"
+          "title": "第3步：安装 OpenCode 并配置基础环境",
+          "content": "按照 OpenCode 官网指引安装 CLI（如 npm install -g opencode 或下载二进制）。运行 opencode --version 确认安装成功。然后在项目根目录创建 opencode.json 配置文件，填入你的 API 密钥和基础模型设置。",
+          "tip": "如果使用本地模型，可以在配置中指定 baseURL 指向 Ollama 或 LM Studio 的本地端口。"
         },
         {
-          "title": "第4步：下载或继续编辑",
-          "content": "满意后点击图片下方的下载按钮保存到本地。如需继续修改，可将生成结果作为新输入再次上传，或直接在原图上叠加新指令。部分版本支持“Send to Inpainting”等按钮，可无缝衔接局部重绘。",
-          "tip": "保存时建议用 PNG 格式避免二次压缩损失，尤其适合需要后续印刷的场景。"
+          "title": "第4步：安装并启用选定的插件",
+          "content": "根据第2步记录的插件安装说明，通常通过 npm 安装或直接在 opencode.json 的 plugins 数组中添加插件包名。例如添加 \"plugins\": [\"opencode-plugin-git\"]。保存配置后重启 OpenCode，用 /plugins 命令（或查看日志）确认插件已加载。",
+          "tip": "一次只加一个插件，测试通过后再加下一个，方便定位冲突。"
+        },
+        {
+          "title": "第5步：导入智能体并测试工作流",
+          "content": "在清单中找到智能体条目，通常是一个 Markdown 或 JSON 文件。将其复制到项目的 .opencode/agents/ 目录（或配置中指定的路径）。在 OpenCode 对话中用 @agent-name 调用该智能体，输入一个简单任务（如“审查当前文件的代码风格”）验证是否生效。",
+          "tip": "智能体的提示词文件可以自行微调，加入你团队的编码规范效果更好。"
+        },
+        {
+          "title": "第6步：应用主题并固化配置",
+          "content": "从清单的主题分类中选一个喜欢的主题，按说明安装（通常是复制 CSS 或修改配置中的 theme 字段）。重启后检查界面变化。最后把 opencode.json 和 .opencode/ 目录提交到 Git，方便团队共享。",
+          "tip": "主题文件一般很小，可以直接放进仓库；插件依赖建议在 README 中注明安装命令。"
         }
       ],
-      "expected_result": "上传的图片经过 AI 编辑后，背景、人物细节或风格发生符合指令的变化，画面自然无明显瑕疵。你可以在结果区看到对比图，并成功下载编辑后的图片文件。",
+      "expected_result": "OpenCode 启动后加载了你选定的插件和智能体，界面应用了新主题。你可以用 @agent 调用智能体完成代码审查等任务，插件提供的额外命令（如 Git 集成）也可正常使用。团队其他成员克隆仓库后按 README 安装即可复现相同环境。",
       "faq": [
         {
-          "q": "需要付费吗？",
-          "a": "完全免费，HuggingFace Spaces 上的这个应用目前没有收费计划，但排队时间可能较长。"
+          "q": "awesome-opencode 清单里的插件都兼容最新版 OpenCode 吗？",
+          "a": "不一定。清单是社区维护的，部分插件可能滞后。安装前查看插件仓库的 package.json 中 peerDependencies 或 README 的兼容说明，优先选最近 3 个月有更新的项目。"
         },
         {
-          "q": "支持中文指令吗？",
-          "a": "部分模型支持中文，但英文指令通常更准确，建议用简单英文或中英混合描述。"
+          "q": "安装插件后 OpenCode 启动报错怎么办？",
+          "a": "先移除最近添加的插件，确认基础功能正常。然后查看 OpenCode 日志（通常用 --verbose 启动）定位缺失的依赖或版本冲突。也可以到插件仓库的 issue 区搜索类似错误。"
         },
         {
-          "q": "图片上传失败怎么办？",
-          "a": "检查图片格式是否为 JPG/PNG，大小是否超过 5MB，或尝试更换浏览器/关闭广告拦截插件。"
+          "q": "智能体和插件有什么区别？",
+          "a": "插件是扩展 OpenCode 功能的代码模块（如新增命令、工具集成）；智能体是预配置的提示词角色（如“代码审查员”），通过 @ 调用，不涉及代码安装。两者可以组合使用。"
         },
         {
-          "q": "生成结果不理想如何调整？",
-          "a": "细化指令、增加关键词、调整“强度”参数，或改用局部重绘模式只修改特定区域。"
+          "q": "可以同时使用多个主题吗？",
+          "a": "通常只能激活一个主题。你可以在配置中快速切换，但不要同时加载多个主题文件，否则样式会冲突。"
         },
         {
-          "q": "可以商用吗？",
-          "a": "需遵守 HuggingFace 社区准则和模型许可证，建议生成后自行检查版权风险，避免直接商用受版权保护的素材。"
+          "q": "如何向 awesome-opencode 清单贡献自己的插件？",
+          "a": " Fork 仓库，按照 README 中的贡献指南在对应分类下添加条目，附上简短描述和链接，然后提交 Pull Request。维护者审核后会合并。"
         }
       ],
       "variants": [
-        "变体1：老照片修复——上传模糊或划痕老照片，指令写“修复划痕并增强面部细节”，配合“Upscale”选项提升分辨率。",
-        "变体2：电商产品图换背景——上传产品图，用局部重绘涂抹背景区域，指令写“纯白背景，带柔和阴影”，快速生成白底图。",
-        "变体3：风格迁移——上传风景照，选择“Style Transfer”模式并上传一幅名画作为风格参考，生成艺术化效果。"
+        "变体1：只使用智能体不装插件——从清单中挑选 3 个智能体（如代码审查、文档生成、测试编写），分别配置到 .opencode/agents/，用 @ 切换角色完成日常开发任务，适合不想折腾插件的用户。",
+        "变体2：基于清单搭建团队共享配置——把选定的插件、智能体和主题整理成一个内部模板仓库，附带安装脚本和 README，新成员一键初始化 OpenCode 环境。",
+        "变体3：用清单做插件选型调研——按 stars 数、最近更新时间和功能标签对清单中的插件排序，生成对比表格，为团队技术选型提供依据。"
       ],
-      "summary": "Omni Image Editor 把专业修图能力搬进浏览器，用自然语言指令就能完成改图，关键是描述具体、多试几次。"
+      "summary": "把 awesome-opencode 当作 OpenCode 生态的导航图，按需筛选、小步验证、固化配置，就能快速搭出顺手的 AI 编程环境。"
     },
-    "generated_at": "2026-11-08T07:07:35.787098+00:00",
+    "generated_at": "2026-11-07T06:33:44.115898+00:00",
     "play_meta": {
-      "title_zh": "用 Omni Image Editor 在线修图改图",
-      "title_en": "Selfit Camera/Omni Image Editor",
-      "source_id": "hf-space-selfit-camera/Omni-Image-Editor",
-      "source_name": "HuggingFace Spaces",
-      "source_label": "权威媒体",
-      "source_tier": "A",
-      "source_color": "blue",
-      "source_emoji": "🔵",
-      "play_type": "runnable_demo",
+      "title_zh": "用 awesome-opencode 清单找插件主题与智能体",
+      "title_en": "awesome-opencode/awesome-opencode: A curated list of awesome plugins, themes, agents",
+      "source_id": "github-play-awesome-ai-agents",
+      "source_name": "GitHub Awesome AI Agents",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
       "difficulty": 4,
-      "time_estimate": "10min",
+      "time_estimate": "30min",
       "tools": [
-        "HF"
+        "未标注"
       ],
-      "link": "https://huggingface.co/spaces/selfit-camera/Omni-Image-Editor",
+      "link": "https://github.com/awesome-opencode/awesome-opencode",
       "is_domestic": false,
       "tags": [],
-      "playability_score": 8.2
+      "playability_score": 7.5
     }
   },
   "github-play-awesome-comfyui-a7df3630": {
@@ -853,6 +1081,117 @@
         "Stable Diffusion"
       ],
       "link": "https://github.com/yolain/ComfyUI-Yolain-Workflows",
+      "is_domestic": false,
+      "tags": [],
+      "playability_score": 8.5
+    }
+  },
+  "github-play-awesome-comfyui-1e6df62d": {
+    "_sig": "ComfyUI-Workflow/awesome-comfyui: A collection of awesome custom nodes for Comfy|https://github.com/ComfyUI-Workflow/awesome-comfyui",
+    "tutorial": {
+      "intro": "ComfyUI 的节点生态浩如烟海，但真正好用的自定义节点往往散落在各个仓库里。今天带你用 GitHub 上 739 星的 Awesome ComfyUI 合集，一次性把神级节点装进你的工作流，效率直接翻倍。",
+      "background": "ComfyUI 本身是一个基于节点流的 Stable Diffusion 前端，灵活但原生节点有限。社区开发了大量自定义节点，能实现换脸、高清修复、动态提示词、工作流管理等功能。Awesome ComfyUI 这个仓库由 ComfyUI-Workflow 维护，系统整理了最值得安装的节点包，并附有分类和链接。对于想从“能用”进阶到“好用”的玩家，这份合集就是你的节点超市。",
+      "prerequisites": [
+        {
+          "name": "ComfyUI",
+          "desc": "核心运行环境，建议使用官方便携版或 git 克隆安装",
+          "url": "https://github.com/comfyanonymous/ComfyUI"
+        },
+        {
+          "name": "ComfyUI Manager",
+          "desc": "节点管理器，用于一键安装、更新、禁用自定义节点",
+          "url": "https://github.com/ltdrdata/ComfyUI-Manager"
+        },
+        {
+          "name": "Git",
+          "desc": "用于克隆仓库或手动安装节点",
+          "url": "https://git-scm.com/"
+        },
+        {
+          "name": "Python 3.10+",
+          "desc": "ComfyUI 运行依赖，部分节点需要特定版本",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "Awesome ComfyUI 合集",
+          "desc": "本教程的核心参考列表，包含节点分类和链接",
+          "url": "https://github.com/ComfyUI-Workflow/awesome-comfyui"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：安装 ComfyUI Manager 并打开节点管理面板",
+          "content": "如果你还没装 ComfyUI Manager，先进入 ComfyUI 的 custom_nodes 目录，执行 git clone https://github.com/ltdrdata/ComfyUI-Manager.git，然后重启 ComfyUI。在界面右侧会多出一个 Manager 按钮，点击后选择 Install Custom Nodes。这个面板就是后续所有节点安装的入口，支持搜索、安装、更新和禁用。",
+          "tip": "建议在安装任何节点前先更新 ComfyUI 本体和 Manager，避免版本冲突。"
+        },
+        {
+          "title": "第2步：浏览 Awesome ComfyUI 合集，筛选你需要的节点",
+          "content": "打开 https://github.com/ComfyUI-Workflow/awesome-comfyui，你会看到按功能分类的节点列表，比如“图像处理”“动画”“工作流增强”“模型加载”等。先别急着全装，根据你当前的需求挑 3-5 个最常用的，比如 Impact Pack（人脸修复）、WAS Node Suite（万能工具）、Efficiency Nodes（简化工作流）。记下它们的仓库名或关键词。",
+          "tip": "仓库里带 ⭐ 数量越多的节点通常越稳定，优先选 500 星以上的。"
+        },
+        {
+          "title": "第3步：通过 Manager 一键安装选中的节点",
+          "content": "回到 ComfyUI 的 Manager 面板，在搜索框输入你记下的节点关键词，比如“Impact”或“WAS”。找到对应条目后点击 Install，Manager 会自动下载并安装依赖。安装完成后重启 ComfyUI，在节点菜单里就能看到新节点分类。如果 Manager 搜不到，可以手动 git clone 到 custom_nodes 目录，再运行 pip install -r requirements.txt。",
+          "tip": "安装时注意看控制台是否有报错，缺依赖是新手最常见的问题。"
+        },
+        {
+          "title": "第4步：搭建一个测试工作流验证节点是否生效",
+          "content": "新建一个工作流，从新安装的节点分类里拖出几个核心节点，比如用 Impact Pack 的 FaceDetailer 做面部修复，或者用 WAS Node Suite 的 Text Loader 加载提示词。连接好输入输出后，加载一张默认的 SD 模型，生成一张 512x512 的图片。如果节点能正常执行且没有红色报错，说明安装成功。",
+          "tip": "测试时先用低步数（如 10 步）快速跑通，确认流程无误再调高质量。"
+        },
+        {
+          "title": "第5步：保存工作流并整理你的节点库",
+          "content": "测试通过后，点击 ComfyUI 的 Save 按钮把工作流保存为 JSON 文件，方便以后复用。同时回到 Manager 面板，把不常用的节点禁用（Disable），只保留高频使用的，这样界面更清爽、启动更快。你还可以在 Awesome ComfyUI 仓库里给作者点星，或者提交你发现的好节点。",
+          "tip": "定期用 Manager 的 Update All 更新节点，但更新前备份工作流，避免不兼容。"
+        }
+      ],
+      "expected_result": "完成以上步骤后，你的 ComfyUI 里会多出几个强大的自定义节点分类，比如 Impact Pack、WAS Node Suite 等。你能在节点菜单里直接调用它们，搭建出带人脸修复、动态提示词、工作流简化等高级功能的工作流，并且生成结果稳定无报错。",
+      "faq": [
+        {
+          "q": "安装节点后 ComfyUI 启动报错怎么办？",
+          "a": "先看控制台报错信息，常见原因是缺少 Python 依赖或节点与当前 ComfyUI 版本不兼容。可以尝试在 custom_nodes 目录下删除最近安装的节点，或者用 Manager 的 Fix 功能修复。"
+        },
+        {
+          "q": "Awesome ComfyUI 里的节点都需要安装吗？",
+          "a": "不需要。这个合集是索引，不是必装清单。建议按需安装，装太多会导致启动变慢、冲突概率增加。"
+        },
+        {
+          "q": "Manager 搜索不到某个节点怎么办？",
+          "a": "可能是节点未收录或名称不同。可以手动 git clone 仓库到 custom_nodes，然后进入目录运行 pip install -r requirements.txt，重启即可。"
+        },
+        {
+          "q": "节点安装后界面里找不到？",
+          "a": "先确认是否重启了 ComfyUI。如果还是找不到，检查节点是否被禁用，或者节点分类名称是否与你预期不同，可以在节点搜索框直接搜节点名。"
+        },
+        {
+          "q": "如何更新已安装的节点？",
+          "a": "在 Manager 面板点击 Update All 可以批量更新，也可以单独更新某个节点。更新后建议重启 ComfyUI，并测试旧工作流是否正常。"
+        }
+      ],
+      "variants": [
+        "变体1：只安装 Impact Pack + Efficiency Nodes，打造极简高清修复工作流，适合人像摄影后期。",
+        "变体2：安装 WAS Node Suite + ComfyUI-Custom-Scripts，实现文本批处理和界面增强，适合批量生成提示词。",
+        "变体3：结合 AnimateDiff 节点和 Awesome ComfyUI 里的动画分类，制作短视频动画工作流。"
+      ],
+      "summary": "用 Awesome ComfyUI 当导航，用 Manager 当抓手，按需安装、测试、整理，你就能把 ComfyUI 从裸机变成神装。"
+    },
+    "generated_at": "2026-09-19T09:19:07.855020+00:00",
+    "play_meta": {
+      "title_zh": "ComfyUI 神级节点合集，一键解锁",
+      "title_en": "ComfyUI-Workflow/awesome-comfyui: A collection of awesome custom nodes for ComfyUI",
+      "source_id": "github-play-awesome-comfyui",
+      "source_name": "GitHub Awesome ComfyUI",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_workflow",
+      "difficulty": 4,
+      "time_estimate": "30min",
+      "tools": [
+        "Stable Diffusion"
+      ],
+      "link": "https://github.com/ComfyUI-Workflow/awesome-comfyui",
       "is_domestic": false,
       "tags": [],
       "playability_score": 8.5
@@ -1171,99 +1510,99 @@
       "playability_score": 8.5
     }
   },
-  "github-play-awesome-ai-agents-95b50059": {
-    "_sig": "awesome-opencode/awesome-opencode: A curated list of awesome plugins, themes, ag|https://github.com/awesome-opencode/awesome-opencode",
+  "github-play-awesome-ai-agents-63d3bcc4": {
+    "_sig": "ai-boost/awesome-harness-engineering: Awesome list for AI agent harness engineer|https://github.com/ai-boost/awesome-harness-engineering",
     "tutorial": {
-      "intro": "用 awesome-opencode 清单快速筛选 OpenCode 生态里的插件、主题和智能体，搭建你的专属 AI 编程工作流。",
-      "background": "OpenCode 是一个开源的 AI 编程助手，支持插件、主题和智能体扩展，但官方生态分散在多个仓库。awesome-opencode 是一个获得 10898 stars 的精选清单，把插件、主题、智能体和项目资源集中在一处。对于想深度定制 OpenCode 的开发者，这份清单能节省大量搜索和试错时间。本教程教你如何高效利用这份清单，从零搭建一个带插件和智能体的 OpenCode 环境。",
+      "intro": "用 GitHub 上 5000+ Star 的 Awesome AI Agents 清单，快速搭建一套可落地的 AI Agent 工程化工具链，从提示词到可观测性一步到位。",
+      "background": "很多开发者做 AI Agent 时东拼西凑工具，缺乏系统性的工程化视角。Awesome AI Agents 清单系统整理了 harness engineering 相关的工具、模式、评估、记忆、MCP、权限、可观测性和编排方案。本教程带你按清单搭建一条最小可用的工具链，适合想从 Demo 走向生产级 Agent 的开发者。",
       "prerequisites": [
         {
-          "name": "OpenCode",
-          "desc": "开源 AI 编程助手，本教程的核心工具",
-          "url": "https://opencode.ai"
+          "name": "Git 与 GitHub 账号",
+          "desc": "克隆清单仓库、提交自己的配置",
+          "url": "https://github.com"
         },
         {
-          "name": "Git",
-          "desc": "用于克隆 awesome-opencode 仓库",
-          "url": "https://git-scm.com"
+          "name": "Python 3.10+",
+          "desc": "运行清单中多数 Python 工具与示例",
+          "url": "https://www.python.org/downloads/"
         },
         {
-          "name": "Node.js (>=18)",
-          "desc": "运行 OpenCode 及部分插件依赖",
-          "url": "https://nodejs.org"
+          "name": "VS Code",
+          "desc": "编辑配置、浏览清单、调试 Agent",
+          "url": "https://code.visualstudio.com/"
         },
         {
-          "name": "文本编辑器/IDE",
-          "desc": "如 VS Code，用于查看和编辑配置文件",
-          "url": "https://code.visualstudio.com"
+          "name": "Docker Desktop",
+          "desc": "隔离运行 MCP 服务与可观测性组件",
+          "url": "https://www.docker.com/products/docker-desktop/"
+        },
+        {
+          "name": "Awesome AI Agents 清单",
+          "desc": "本教程的核心参考资料",
+          "url": "https://github.com/ai-boost/awesome-harness-engineering"
         }
       ],
       "steps": [
         {
-          "title": "第1步：克隆并浏览 awesome-opencode 清单",
-          "content": "打开终端，执行 git clone https://github.com/awesome-opencode/awesome-opencode.git，然后进入目录用编辑器打开 README.md。清单按插件、主题、智能体、项目等分类，每个条目附带简短描述和链接。先快速扫一遍分类标题，了解有哪些资源类型。",
-          "tip": "用 VS Code 的 Markdown 预览功能（Ctrl+Shift+V）可以更直观地浏览清单结构。"
+          "title": "第1步：克隆清单并建立工具链地图",
+          "content": "执行 git clone https://github.com/ai-boost/awesome-harness-engineering 并打开 README。按清单分类（tools、patterns、evals、memory、MCP、permissions、observability、orchestration）在本地新建 toolchain.md，每类先各选 1 个候选工具，标注官网和许可证。不要贪多，先保证每类有且仅有一个主选。",
+          "tip": "用 VS Code 的 Markdown 预览边看清单边填表，避免遗漏分类。"
         },
         {
-          "title": "第2步：筛选并记录目标插件与智能体",
-          "content": "根据你的需求（比如代码补全、Git 集成、UI 主题），在清单中挑选 2-3 个插件和 1-2 个智能体。把它们的名称、仓库链接和安装说明复制到一个临时笔记中。注意查看每个条目的标签（如 official、community），优先选择维护活跃的项目。",
-          "tip": "在 GitHub 上查看仓库的最近提交时间和 issue 活跃度，避免选用已废弃的插件。"
+          "title": "第2步：搭建提示词与编排层",
+          "content": "从清单的 patterns 和 orchestration 分类中选一个编排框架（如 LangGraph 或 CrewAI），按官方 quickstart 跑通一个两节点 Agent。把系统提示词抽成独立 prompt 模板文件，用变量占位符管理。在本地跑通一次「输入→规划→执行→输出」的最小闭环。",
+          "tip": "提示词模板用 Jinja2 或 f-string 均可，关键是版本化，建议放进 Git。"
         },
         {
-          "title": "第3步：安装 OpenCode 并配置基础环境",
-          "content": "按照 OpenCode 官网指引安装 CLI（如 npm install -g opencode 或下载二进制）。运行 opencode --version 确认安装成功。然后在项目根目录创建 opencode.json 配置文件，填入你的 API 密钥和基础模型设置。",
-          "tip": "如果使用本地模型，可以在配置中指定 baseURL 指向 Ollama 或 LM Studio 的本地端口。"
+          "title": "第3步：接入记忆与 MCP 工具",
+          "content": "从 memory 分类选一个向量记忆方案（如 Chroma 或 Qdrant），按文档启动本地实例。再从 MCP 分类选一个官方 MCP Server，用 Docker 跑起来并在编排框架中注册。让 Agent 能调用一个外部工具并把结果写入记忆，验证读写链路。",
+          "tip": "MCP Server 先用官方示例，跑通后再换自定义工具，降低排错成本。"
         },
         {
-          "title": "第4步：安装并启用选定的插件",
-          "content": "根据第2步记录的插件安装说明，通常通过 npm 安装或直接在 opencode.json 的 plugins 数组中添加插件包名。例如添加 \"plugins\": [\"opencode-plugin-git\"]。保存配置后重启 OpenCode，用 /plugins 命令（或查看日志）确认插件已加载。",
-          "tip": "一次只加一个插件，测试通过后再加下一个，方便定位冲突。"
+          "title": "第4步：加上评估与权限护栏",
+          "content": "从 evals 分类选一个评估框架（如 Ragas 或 DeepEval），为第2步的 Agent 写 3 条测试用例并跑分。再从 permissions 分类选一个权限方案，为工具调用加上白名单和人工确认开关。确保越权调用会被拦截并记录日志。",
+          "tip": "评估用例先覆盖正常路径和一条越权路径，后续再扩充边界用例。"
         },
         {
-          "title": "第5步：导入智能体并测试工作流",
-          "content": "在清单中找到智能体条目，通常是一个 Markdown 或 JSON 文件。将其复制到项目的 .opencode/agents/ 目录（或配置中指定的路径）。在 OpenCode 对话中用 @agent-name 调用该智能体，输入一个简单任务（如“审查当前文件的代码风格”）验证是否生效。",
-          "tip": "智能体的提示词文件可以自行微调，加入你团队的编码规范效果更好。"
-        },
-        {
-          "title": "第6步：应用主题并固化配置",
-          "content": "从清单的主题分类中选一个喜欢的主题，按说明安装（通常是复制 CSS 或修改配置中的 theme 字段）。重启后检查界面变化。最后把 opencode.json 和 .opencode/ 目录提交到 Git，方便团队共享。",
-          "tip": "主题文件一般很小，可以直接放进仓库；插件依赖建议在 README 中注明安装命令。"
+          "title": "第5步：接入可观测性并固化工具链",
+          "content": "从 observability 分类选一个方案（如 Langfuse 或 Phoenix），用 Docker 启动并在 Agent 中接入 tracing。跑一次完整任务，在面板中查看调用链、耗时和 token 消耗。最后把 toolchain.md 补全为可复现的安装脚本和配置清单，提交到自己的仓库。",
+          "tip": "把 Docker Compose 和 .env.example 一起提交，别人 clone 后一条命令即可复现。"
         }
       ],
-      "expected_result": "OpenCode 启动后加载了你选定的插件和智能体，界面应用了新主题。你可以用 @agent 调用智能体完成代码审查等任务，插件提供的额外命令（如 Git 集成）也可正常使用。团队其他成员克隆仓库后按 README 安装即可复现相同环境。",
+      "expected_result": "你拥有一个可复现的 AI Agent 工程化工具链仓库：包含编排框架、提示词模板、记忆与 MCP 工具、评估用例、权限护栏和可观测性面板。运行一条命令即可启动全套服务，并在面板中看到完整的 Agent 调用链和评估分数。",
       "faq": [
         {
-          "q": "awesome-opencode 清单里的插件都兼容最新版 OpenCode 吗？",
-          "a": "不一定。清单是社区维护的，部分插件可能滞后。安装前查看插件仓库的 package.json 中 peerDependencies 或 README 的兼容说明，优先选最近 3 个月有更新的项目。"
+          "q": "清单里工具太多，如何选择？",
+          "a": "按分类每类只选一个主选，优先选 Star 多、文档全、有 Docker 镜像的，跑通后再替换。"
         },
         {
-          "q": "安装插件后 OpenCode 启动报错怎么办？",
-          "a": "先移除最近添加的插件，确认基础功能正常。然后查看 OpenCode 日志（通常用 --verbose 启动）定位缺失的依赖或版本冲突。也可以到插件仓库的 issue 区搜索类似错误。"
+          "q": "没有 GPU 能跑吗？",
+          "a": "可以。记忆和可观测性组件用 CPU 即可，LLM 可调用云端 API，本地只跑编排和工具层。"
         },
         {
-          "q": "智能体和插件有什么区别？",
-          "a": "插件是扩展 OpenCode 功能的代码模块（如新增命令、工具集成）；智能体是预配置的提示词角色（如“代码审查员”），通过 @ 调用，不涉及代码安装。两者可以组合使用。"
+          "q": "MCP 和普通工具调用有什么区别？",
+          "a": "MCP 是标准化协议，工具可跨 Agent 复用；普通调用是框架内私有实现，迁移成本更高。"
         },
         {
-          "q": "可以同时使用多个主题吗？",
-          "a": "通常只能激活一个主题。你可以在配置中快速切换，但不要同时加载多个主题文件，否则样式会冲突。"
+          "q": "评估框架必须现在就加吗？",
+          "a": "建议尽早加，哪怕只有 3 条用例，也能防止后续改动导致回归。"
         },
         {
-          "q": "如何向 awesome-opencode 清单贡献自己的插件？",
-          "a": " Fork 仓库，按照 README 中的贡献指南在对应分类下添加条目，附上简短描述和链接，然后提交 Pull Request。维护者审核后会合并。"
+          "q": "这套工具链能直接上生产吗？",
+          "a": "作为起点可以，但生产还需补充密钥管理、限流、审计和灰度发布等环节。"
         }
       ],
       "variants": [
-        "变体1：只使用智能体不装插件——从清单中挑选 3 个智能体（如代码审查、文档生成、测试编写），分别配置到 .opencode/agents/，用 @ 切换角色完成日常开发任务，适合不想折腾插件的用户。",
-        "变体2：基于清单搭建团队共享配置——把选定的插件、智能体和主题整理成一个内部模板仓库，附带安装脚本和 README，新成员一键初始化 OpenCode 环境。",
-        "变体3：用清单做插件选型调研——按 stars 数、最近更新时间和功能标签对清单中的插件排序，生成对比表格，为团队技术选型提供依据。"
+        "变体1：只搭最小可观测链路——跳过记忆和评估，专注编排+权限+Langfuse，适合快速验证想法。",
+        "变体2：以 MCP 为中心——先搭 3 个 MCP Server，再用编排框架串联，适合工具型 Agent。",
+        "变体3：评估驱动开发——先写 10 条评估用例，再倒推选工具和提示词，适合对质量要求高的场景。"
       ],
-      "summary": "把 awesome-opencode 当作 OpenCode 生态的导航图，按需筛选、小步验证、固化配置，就能快速搭出顺手的 AI 编程环境。"
+      "summary": "以 Awesome 清单为地图，每类选一个工具跑通闭环，再用评估和可观测性固化，就能把 Agent 从 Demo 变成工程。"
     },
-    "generated_at": "2026-11-07T06:33:44.115898+00:00",
+    "generated_at": "2026-11-07T06:33:55.103761+00:00",
     "play_meta": {
-      "title_zh": "用 awesome-opencode 清单找插件主题与智能体",
-      "title_en": "awesome-opencode/awesome-opencode: A curated list of awesome plugins, themes, agents",
+      "title_zh": "用Awesome清单搭建AI Agent工程化工具链",
+      "title_en": "ai-boost/awesome-harness-engineering: Awesome list for AI agent harness engineering: too",
       "source_id": "github-play-awesome-ai-agents",
       "source_name": "GitHub Awesome AI Agents",
       "source_label": "技术社区",
@@ -1276,7 +1615,7 @@
       "tools": [
         "未标注"
       ],
-      "link": "https://github.com/awesome-opencode/awesome-opencode",
+      "link": "https://github.com/ai-boost/awesome-harness-engineering",
       "is_domestic": false,
       "tags": [],
       "playability_score": 7.5
@@ -1391,233 +1730,6 @@
       "is_domestic": false,
       "tags": [],
       "playability_score": 7.5
-    }
-  },
-  "github-play-awesome-ai-agents-63d3bcc4": {
-    "_sig": "ai-boost/awesome-harness-engineering: Awesome list for AI agent harness engineer|https://github.com/ai-boost/awesome-harness-engineering",
-    "tutorial": {
-      "intro": "用 GitHub 上 5000+ Star 的 Awesome AI Agents 清单，快速搭建一套可落地的 AI Agent 工程化工具链，从提示词到可观测性一步到位。",
-      "background": "很多开发者做 AI Agent 时东拼西凑工具，缺乏系统性的工程化视角。Awesome AI Agents 清单系统整理了 harness engineering 相关的工具、模式、评估、记忆、MCP、权限、可观测性和编排方案。本教程带你按清单搭建一条最小可用的工具链，适合想从 Demo 走向生产级 Agent 的开发者。",
-      "prerequisites": [
-        {
-          "name": "Git 与 GitHub 账号",
-          "desc": "克隆清单仓库、提交自己的配置",
-          "url": "https://github.com"
-        },
-        {
-          "name": "Python 3.10+",
-          "desc": "运行清单中多数 Python 工具与示例",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "VS Code",
-          "desc": "编辑配置、浏览清单、调试 Agent",
-          "url": "https://code.visualstudio.com/"
-        },
-        {
-          "name": "Docker Desktop",
-          "desc": "隔离运行 MCP 服务与可观测性组件",
-          "url": "https://www.docker.com/products/docker-desktop/"
-        },
-        {
-          "name": "Awesome AI Agents 清单",
-          "desc": "本教程的核心参考资料",
-          "url": "https://github.com/ai-boost/awesome-harness-engineering"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：克隆清单并建立工具链地图",
-          "content": "执行 git clone https://github.com/ai-boost/awesome-harness-engineering 并打开 README。按清单分类（tools、patterns、evals、memory、MCP、permissions、observability、orchestration）在本地新建 toolchain.md，每类先各选 1 个候选工具，标注官网和许可证。不要贪多，先保证每类有且仅有一个主选。",
-          "tip": "用 VS Code 的 Markdown 预览边看清单边填表，避免遗漏分类。"
-        },
-        {
-          "title": "第2步：搭建提示词与编排层",
-          "content": "从清单的 patterns 和 orchestration 分类中选一个编排框架（如 LangGraph 或 CrewAI），按官方 quickstart 跑通一个两节点 Agent。把系统提示词抽成独立 prompt 模板文件，用变量占位符管理。在本地跑通一次「输入→规划→执行→输出」的最小闭环。",
-          "tip": "提示词模板用 Jinja2 或 f-string 均可，关键是版本化，建议放进 Git。"
-        },
-        {
-          "title": "第3步：接入记忆与 MCP 工具",
-          "content": "从 memory 分类选一个向量记忆方案（如 Chroma 或 Qdrant），按文档启动本地实例。再从 MCP 分类选一个官方 MCP Server，用 Docker 跑起来并在编排框架中注册。让 Agent 能调用一个外部工具并把结果写入记忆，验证读写链路。",
-          "tip": "MCP Server 先用官方示例，跑通后再换自定义工具，降低排错成本。"
-        },
-        {
-          "title": "第4步：加上评估与权限护栏",
-          "content": "从 evals 分类选一个评估框架（如 Ragas 或 DeepEval），为第2步的 Agent 写 3 条测试用例并跑分。再从 permissions 分类选一个权限方案，为工具调用加上白名单和人工确认开关。确保越权调用会被拦截并记录日志。",
-          "tip": "评估用例先覆盖正常路径和一条越权路径，后续再扩充边界用例。"
-        },
-        {
-          "title": "第5步：接入可观测性并固化工具链",
-          "content": "从 observability 分类选一个方案（如 Langfuse 或 Phoenix），用 Docker 启动并在 Agent 中接入 tracing。跑一次完整任务，在面板中查看调用链、耗时和 token 消耗。最后把 toolchain.md 补全为可复现的安装脚本和配置清单，提交到自己的仓库。",
-          "tip": "把 Docker Compose 和 .env.example 一起提交，别人 clone 后一条命令即可复现。"
-        }
-      ],
-      "expected_result": "你拥有一个可复现的 AI Agent 工程化工具链仓库：包含编排框架、提示词模板、记忆与 MCP 工具、评估用例、权限护栏和可观测性面板。运行一条命令即可启动全套服务，并在面板中看到完整的 Agent 调用链和评估分数。",
-      "faq": [
-        {
-          "q": "清单里工具太多，如何选择？",
-          "a": "按分类每类只选一个主选，优先选 Star 多、文档全、有 Docker 镜像的，跑通后再替换。"
-        },
-        {
-          "q": "没有 GPU 能跑吗？",
-          "a": "可以。记忆和可观测性组件用 CPU 即可，LLM 可调用云端 API，本地只跑编排和工具层。"
-        },
-        {
-          "q": "MCP 和普通工具调用有什么区别？",
-          "a": "MCP 是标准化协议，工具可跨 Agent 复用；普通调用是框架内私有实现，迁移成本更高。"
-        },
-        {
-          "q": "评估框架必须现在就加吗？",
-          "a": "建议尽早加，哪怕只有 3 条用例，也能防止后续改动导致回归。"
-        },
-        {
-          "q": "这套工具链能直接上生产吗？",
-          "a": "作为起点可以，但生产还需补充密钥管理、限流、审计和灰度发布等环节。"
-        }
-      ],
-      "variants": [
-        "变体1：只搭最小可观测链路——跳过记忆和评估，专注编排+权限+Langfuse，适合快速验证想法。",
-        "变体2：以 MCP 为中心——先搭 3 个 MCP Server，再用编排框架串联，适合工具型 Agent。",
-        "变体3：评估驱动开发——先写 10 条评估用例，再倒推选工具和提示词，适合对质量要求高的场景。"
-      ],
-      "summary": "以 Awesome 清单为地图，每类选一个工具跑通闭环，再用评估和可观测性固化，就能把 Agent 从 Demo 变成工程。"
-    },
-    "generated_at": "2026-11-07T06:33:55.103761+00:00",
-    "play_meta": {
-      "title_zh": "用Awesome清单搭建AI Agent工程化工具链",
-      "title_en": "ai-boost/awesome-harness-engineering: Awesome list for AI agent harness engineering: too",
-      "source_id": "github-play-awesome-ai-agents",
-      "source_name": "GitHub Awesome AI Agents",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 4,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://github.com/ai-boost/awesome-harness-engineering",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 7.5
-    }
-  },
-  "github-play-awesome-llm-bd07ce9a": {
-    "_sig": "AiHubCN/Awesome-Chinese-LLM: 整理开源的中文大语言模型，以规模较小、可私有化部署、训练成本较低的模型为主，包括底座模型，垂直领域微|https://github.com/AiHubCN/Awesome-Chinese-LLM",
-    "tutorial": {
-      "intro": "想玩转中文大模型又不想烧钱买显卡？这个 GitHub 宝藏库帮你找到能私有化部署的小模型，从底座到微调一站式搞定。",
-      "background": "很多开发者想本地跑大模型，但动辄 70B 参数让消费级显卡望而却步。Awesome-Chinese-LLM 这个项目专门整理了规模小、训练成本低、可私有化部署的中文模型，包括底座模型、垂直领域微调版本、数据集和教程。无论你是想搭建个人知识库、做行业客服机器人，还是研究微调技术，都能在这里找到合适的起点。目前该项目已获得 2.2 万+ star，是中文 LLM 领域最实用的资源合集之一。",
-      "prerequisites": [
-        {
-          "name": "GitHub 账号",
-          "desc": "用于访问仓库、star 项目、提交 issue 或 PR",
-          "url": "https://github.com"
-        },
-        {
-          "name": "Git 客户端",
-          "desc": "克隆仓库到本地，方便离线查阅",
-          "url": "https://git-scm.com"
-        },
-        {
-          "name": "Python 3.8+ 与 pip",
-          "desc": "运行模型推理和微调脚本的基础环境",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "CUDA 或 CPU 推理环境",
-          "desc": "根据模型大小选择，小模型可纯 CPU 运行，推荐至少 16GB 内存",
-          "url": "https://developer.nvidia.com/cuda-downloads"
-        },
-        {
-          "name": "Hugging Face 账号",
-          "desc": "下载模型权重和数据集（部分模型需申请权限）",
-          "url": "https://huggingface.co"
-        },
-        {
-          "name": "文本编辑器或 IDE",
-          "desc": "如 VS Code，用于查看 README 和修改配置",
-          "url": "https://code.visualstudio.com"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：克隆仓库并浏览目录结构",
-          "content": "打开终端，执行 git clone https://github.com/AiHubCN/Awesome-Chinese-LLM.git，然后 cd Awesome-Chinese-LLM。用 VS Code 打开该文件夹，你会看到 README.md 中按类别整理了模型列表，包括底座模型、垂直领域微调、数据集、教程等。先花 10 分钟浏览目录，标记出你感兴趣的 2-3 个模型。",
-          "tip": "如果 GitHub 访问慢，可以用 Gitee 镜像或代理加速；建议先 star 仓库方便后续查找。"
-        },
-        {
-          "title": "第2步：筛选适合你硬件的小模型",
-          "content": "在 README 中搜索关键词如“小模型”“私有化”“CPU 可跑”，重点关注参数量在 1B-7B 之间的模型，例如 ChatGLM3-6B、Qwen-1.8B、Baichuan2-7B 等。查看每个模型旁边的说明，确认是否支持量化（如 4-bit 量化后仅需 4GB 显存）。记录下 2-3 个候选模型的名称和 Hugging Face 链接。",
-          "tip": "优先选择有 GGUF 或 GPTQ 量化版本的模型，这样在消费级显卡甚至 CPU 上都能流畅运行。"
-        },
-        {
-          "title": "第3步：下载模型权重并配置环境",
-          "content": "以 ChatGLM3-6B 为例，在 Hugging Face 上搜索“THUDM/chatglm3-6b”，用 git lfs 克隆或直接下载。然后创建 Python 虚拟环境：python -m venv venv，激活后安装依赖：pip install torch transformers sentencepiece accelerate。如果使用量化版本，还需安装 bitsandbytes 或 ctransformers。",
-          "tip": "下载大文件时建议用 huggingface-cli 或 aria2 多线程，避免中断；国内可用 modelscope 镜像下载。"
-        },
-        {
-          "title": "第4步：运行推理脚本测试模型",
-          "content": "在仓库的教程区找到对应模型的快速开始代码，或直接使用 transformers 写一个简单脚本：加载 tokenizer 和 model，输入“你好，请介绍一下你自己”，设置 max_length=512，调用 model.generate()。观察输出是否通顺、是否符合中文习惯。如果显存不足，加载时加上 load_in_4bit=True 或 load_in_8bit=True。",
-          "tip": "首次运行会下载模型，耐心等待；如果报错 CUDA out of memory，尝试减小 batch size 或使用 CPU 模式。"
-        },
-        {
-          "title": "第5步：按需微调或接入应用",
-          "content": "如果预训练模型效果不满足需求，可以在仓库中找到垂直领域微调教程，使用 LoRA 或 P-Tuning 对模型进行轻量微调。准备自己的问答数据集（JSON 格式），运行微调脚本，通常 1-2 小时即可完成。微调后可将模型接入 LangChain、FastAPI 或 Gradio，搭建个人知识库或聊天机器人。",
-          "tip": "微调前先用小样本测试，避免过拟合；LoRA 微调只需训练少量参数，8GB 显存足够。"
-        }
-      ],
-      "expected_result": "成功在本地或服务器上运行一个中文小模型，能够流畅回答中文问题，并可根据需要微调成专属领域助手。你会在终端或 Web 界面看到模型生成的连贯中文回复，显存占用控制在 4-8GB 以内。",
-      "faq": [
-        {
-          "q": "没有独立显卡能玩吗？",
-          "a": "可以。选择 1B-3B 的小模型并量化到 4-bit，纯 CPU 加 16GB 内存就能跑，只是速度较慢（每秒几个字）。"
-        },
-        {
-          "q": "哪个模型最适合中文私有化部署？",
-          "a": "推荐 ChatGLM3-6B、Qwen-1.8B 和 Baichuan2-7B，它们中文能力强、社区活跃、量化版本齐全。"
-        },
-        {
-          "q": "下载模型太慢怎么办？",
-          "a": "使用 Hugging Face 镜像站 hf-mirror.com，或从 ModelScope 下载，也可以用 git lfs 配合代理。"
-        },
-        {
-          "q": "微调需要多少数据？",
-          "a": "LoRA 微调通常 500-2000 条高质量问答即可见效，数据要覆盖你的目标场景，格式统一为 instruction/input/output。"
-        },
-        {
-          "q": "商用需要授权吗？",
-          "a": "不同模型协议不同，如 ChatGLM3 需遵守其模型许可，Qwen 部分版本可商用，使用前务必查看 LICENSE 文件。"
-        }
-      ],
-      "variants": [
-        "变体1：用 Ollama 一键拉取小模型（如 qwen:1.8b、chatglm3:6b），无需手动配置环境，适合快速体验。",
-        "变体2：结合 LangChain + Chroma 搭建本地知识库问答，将你的 PDF/Word 文档向量化后喂给模型。",
-        "变体3：用 Gradio 或 Streamlit 为模型套一个 Web UI，分享给团队内部使用，支持多轮对话和历史记录。"
-      ],
-      "summary": "从 Awesome-Chinese-LLM 宝藏库中挑选小模型，按需量化、微调、部署，低成本拥有自己的中文 AI 助手。"
-    },
-    "generated_at": "2026-09-19T09:20:05.959378+00:00",
-    "play_meta": {
-      "title_zh": "中文大模型宝藏库：小模型也能私有化部署",
-      "title_en": "AiHubCN/Awesome-Chinese-LLM: 整理开源的中文大语言模型，以规模较小、可私有化部署、训练成本较低的模型为主，包括底座模型，垂直领域微",
-      "source_id": "github-play-awesome-llm",
-      "source_name": "GitHub Awesome LLM",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "runnable_demo",
-      "difficulty": 3,
-      "time_estimate": "10min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://github.com/AiHubCN/Awesome-Chinese-LLM",
-      "is_domestic": false,
-      "tags": [],
-      "playability_score": 8.5
     }
   },
   "github-play-autogen-757dec3f": {
@@ -2171,112 +2283,223 @@
       "playability_score": 7.5
     }
   },
-  "github-play-awesome-comfyui-1e6df62d": {
-    "_sig": "ComfyUI-Workflow/awesome-comfyui: A collection of awesome custom nodes for Comfy|https://github.com/ComfyUI-Workflow/awesome-comfyui",
+  "ifanr-play-0c677f5e": {
+    "_sig": "Seedance 2.5 级别，价格只要 1/10，我们实测了计划开源的 MAGI-2|https://www.ifanr.com/1691445",
     "tutorial": {
-      "intro": "ComfyUI 的节点生态浩如烟海，但真正好用的自定义节点往往散落在各个仓库里。今天带你用 GitHub 上 739 星的 Awesome ComfyUI 合集，一次性把神级节点装进你的工作流，效率直接翻倍。",
-      "background": "ComfyUI 本身是一个基于节点流的 Stable Diffusion 前端，灵活但原生节点有限。社区开发了大量自定义节点，能实现换脸、高清修复、动态提示词、工作流管理等功能。Awesome ComfyUI 这个仓库由 ComfyUI-Workflow 维护，系统整理了最值得安装的节点包，并附有分类和链接。对于想从“能用”进阶到“好用”的玩家，这份合集就是你的节点超市。",
+      "intro": "想低成本做AI视频？这篇教程手把手教你用MAGI-2，花小钱办大事，几分钟就能生成一段可用的AI视频。",
+      "background": "AI视频生成一直以“烧钱”著称，动辄几十上百元的成本让很多创作者望而却步。爱范儿实测发现，用MAGI-2可以大幅压低成本，同时保持不错的画面质量。这个玩法适合短视频创作者、自媒体运营、以及想尝鲜AI视频的普通用户，尤其适合需要批量产出素材的场景。通过合理的工具链和提示词技巧，你也能用极低的预算跑通AI视频制作全流程。",
       "prerequisites": [
         {
-          "name": "ComfyUI",
-          "desc": "核心运行环境，建议使用官方便携版或 git 克隆安装",
-          "url": "https://github.com/comfyanonymous/ComfyUI"
+          "name": "MAGI-2 账号",
+          "desc": "AI视频生成平台，用于文生视频/图生视频",
+          "url": "https://www.magi.ai"
         },
         {
-          "name": "ComfyUI Manager",
-          "desc": "节点管理器，用于一键安装、更新、禁用自定义节点",
-          "url": "https://github.com/ltdrdata/ComfyUI-Manager"
+          "name": "浏览器（Chrome/Edge）",
+          "desc": "访问MAGI-2网页端进行操作",
+          "url": "https://www.google.com/chrome/"
         },
         {
-          "name": "Git",
-          "desc": "用于克隆仓库或手动安装节点",
-          "url": "https://git-scm.com/"
+          "name": "提示词文档（记事本/飞书）",
+          "desc": "提前写好视频描述，方便快速粘贴和迭代",
+          "url": "https://www.feishu.cn"
         },
         {
-          "name": "Python 3.10+",
-          "desc": "ComfyUI 运行依赖，部分节点需要特定版本",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "Awesome ComfyUI 合集",
-          "desc": "本教程的核心参考列表，包含节点分类和链接",
-          "url": "https://github.com/ComfyUI-Workflow/awesome-comfyui"
+          "name": "参考图片（可选）",
+          "desc": "图生视频时提供首帧参考，提升可控性",
+          "url": "https://www.pexels.com"
         }
       ],
       "steps": [
         {
-          "title": "第1步：安装 ComfyUI Manager 并打开节点管理面板",
-          "content": "如果你还没装 ComfyUI Manager，先进入 ComfyUI 的 custom_nodes 目录，执行 git clone https://github.com/ltdrdata/ComfyUI-Manager.git，然后重启 ComfyUI。在界面右侧会多出一个 Manager 按钮，点击后选择 Install Custom Nodes。这个面板就是后续所有节点安装的入口，支持搜索、安装、更新和禁用。",
-          "tip": "建议在安装任何节点前先更新 ComfyUI 本体和 Manager，避免版本冲突。"
+          "title": "第1步：注册并登录MAGI-2",
+          "content": "打开MAGI-2官网，用邮箱或第三方账号注册。登录后进入创作面板，找到“视频生成”入口。首次使用建议先浏览官方示例，了解输入框和参数位置。",
+          "tip": "注册后先别急着生成，花2分钟看看示例视频的提示词写法，能少走很多弯路。"
         },
         {
-          "title": "第2步：浏览 Awesome ComfyUI 合集，筛选你需要的节点",
-          "content": "打开 https://github.com/ComfyUI-Workflow/awesome-comfyui，你会看到按功能分类的节点列表，比如“图像处理”“动画”“工作流增强”“模型加载”等。先别急着全装，根据你当前的需求挑 3-5 个最常用的，比如 Impact Pack（人脸修复）、WAS Node Suite（万能工具）、Efficiency Nodes（简化工作流）。记下它们的仓库名或关键词。",
-          "tip": "仓库里带 ⭐ 数量越多的节点通常越稳定，优先选 500 星以上的。"
+          "title": "第2步：编写结构化提示词",
+          "content": "在提示词框里按“主体+动作+场景+镜头+风格”的结构写描述。例如：“一只橘猫在雨后的东京街头漫步，慢镜头，电影感，暖色调”。描述尽量具体，避免抽象词汇。写完后检查是否包含了你最在意的画面元素。",
+          "tip": "把提示词先写在记事本里反复修改，再粘贴到MAGI-2，避免网页刷新丢失内容。"
         },
         {
-          "title": "第3步：通过 Manager 一键安装选中的节点",
-          "content": "回到 ComfyUI 的 Manager 面板，在搜索框输入你记下的节点关键词，比如“Impact”或“WAS”。找到对应条目后点击 Install，Manager 会自动下载并安装依赖。安装完成后重启 ComfyUI，在节点菜单里就能看到新节点分类。如果 Manager 搜不到，可以手动 git clone 到 custom_nodes 目录，再运行 pip install -r requirements.txt。",
-          "tip": "安装时注意看控制台是否有报错，缺依赖是新手最常见的问题。"
+          "title": "第3步：设置参数并生成",
+          "content": "选择视频时长（建议先选最短档试水）、分辨率（720p足够测试）和风格预设。确认消耗的积分/费用后点击生成。等待期间可以继续写下一个提示词，提高效率。",
+          "tip": "第一次生成务必选最低成本档位，先验证提示词效果，满意后再加时长和分辨率。"
         },
         {
-          "title": "第4步：搭建一个测试工作流验证节点是否生效",
-          "content": "新建一个工作流，从新安装的节点分类里拖出几个核心节点，比如用 Impact Pack 的 FaceDetailer 做面部修复，或者用 WAS Node Suite 的 Text Loader 加载提示词。连接好输入输出后，加载一张默认的 SD 模型，生成一张 512x512 的图片。如果节点能正常执行且没有红色报错，说明安装成功。",
-          "tip": "测试时先用低步数（如 10 步）快速跑通，确认流程无误再调高质量。"
+          "title": "第4步：筛选与迭代",
+          "content": "生成完成后预览视频，重点看主体是否变形、动作是否自然、画面是否闪烁。如果不满意，微调提示词中的动作或镜头描述，再次生成。建议同一提示词至少跑2-3次，挑最佳结果。",
+          "tip": "记录每次修改的提示词和对应结果，形成自己的“提示词-效果”对照表，越用越顺手。"
         },
         {
-          "title": "第5步：保存工作流并整理你的节点库",
-          "content": "测试通过后，点击 ComfyUI 的 Save 按钮把工作流保存为 JSON 文件，方便以后复用。同时回到 Manager 面板，把不常用的节点禁用（Disable），只保留高频使用的，这样界面更清爽、启动更快。你还可以在 Awesome ComfyUI 仓库里给作者点星，或者提交你发现的好节点。",
-          "tip": "定期用 Manager 的 Update All 更新节点，但更新前备份工作流，避免不兼容。"
+          "title": "第5步：下载与后期拼接",
+          "content": "将满意的视频片段下载到本地。如果需要多个镜头，重复第2-4步生成不同片段，再用剪映等工具拼接、配乐、加字幕。导出成片即可发布。",
+          "tip": "下载时选择最高可用画质，后期空间更大；片段之间留1-2秒过渡，观感更自然。"
         }
       ],
-      "expected_result": "完成以上步骤后，你的 ComfyUI 里会多出几个强大的自定义节点分类，比如 Impact Pack、WAS Node Suite 等。你能在节点菜单里直接调用它们，搭建出带人脸修复、动态提示词、工作流简化等高级功能的工作流，并且生成结果稳定无报错。",
+      "expected_result": "按步骤操作后，你将得到一段5秒左右的AI生成视频片段，画面主体清晰、动作基本自然，成本控制在几元以内。多个片段拼接后可形成15-30秒的完整短视频，适合发布到抖音、视频号等平台。",
       "faq": [
         {
-          "q": "安装节点后 ComfyUI 启动报错怎么办？",
-          "a": "先看控制台报错信息，常见原因是缺少 Python 依赖或节点与当前 ComfyUI 版本不兼容。可以尝试在 custom_nodes 目录下删除最近安装的节点，或者用 Manager 的 Fix 功能修复。"
+          "q": "MAGI-2生成一段视频大概要多少钱？",
+          "a": "根据爱范儿实测，低成本档位下单段视频成本可控制在几元甚至更低，具体取决于时长和分辨率，建议先用最低档位试水。"
         },
         {
-          "q": "Awesome ComfyUI 里的节点都需要安装吗？",
-          "a": "不需要。这个合集是索引，不是必装清单。建议按需安装，装太多会导致启动变慢、冲突概率增加。"
+          "q": "提示词写中文还是英文？",
+          "a": "MAGI-2对中英文都支持，但英文提示词在部分模型上效果更稳定。建议先用中文写，效果不佳时翻译成英文再试。"
         },
         {
-          "q": "Manager 搜索不到某个节点怎么办？",
-          "a": "可能是节点未收录或名称不同。可以手动 git clone 仓库到 custom_nodes，然后进入目录运行 pip install -r requirements.txt，重启即可。"
+          "q": "生成的视频人物脸部变形怎么办？",
+          "a": "减少人物特写镜头，多用中远景；或在提示词中强调“面部清晰、稳定”；也可以尝试图生视频模式，用参考图约束首帧。"
         },
         {
-          "q": "节点安装后界面里找不到？",
-          "a": "先确认是否重启了 ComfyUI。如果还是找不到，检查节点是否被禁用，或者节点分类名称是否与你预期不同，可以在节点搜索框直接搜节点名。"
+          "q": "可以商用吗？",
+          "a": "需查看MAGI-2平台的服务条款，不同套餐对商用权限有不同规定，商用前务必确认授权范围。"
         },
         {
-          "q": "如何更新已安装的节点？",
-          "a": "在 Manager 面板点击 Update All 可以批量更新，也可以单独更新某个节点。更新后建议重启 ComfyUI，并测试旧工作流是否正常。"
+          "q": "生成失败或排队很久怎么办？",
+          "a": "避开高峰时段使用；检查提示词是否触发审核；如果排队过长，可以先降低分辨率或时长再试。"
         }
       ],
       "variants": [
-        "变体1：只安装 Impact Pack + Efficiency Nodes，打造极简高清修复工作流，适合人像摄影后期。",
-        "变体2：安装 WAS Node Suite + ComfyUI-Custom-Scripts，实现文本批处理和界面增强，适合批量生成提示词。",
-        "变体3：结合 AnimateDiff 节点和 Awesome ComfyUI 里的动画分类，制作短视频动画工作流。"
+        "变体1：图生视频——先用Midjourney或SD生成一张高质量首帧图，再导入MAGI-2生成视频，可控性更强，适合产品展示类内容。",
+        "变体2：批量提示词矩阵——准备10-20条同主题不同动作的提示词，一次性批量生成，再从中筛选最佳片段，适合需要大量素材的混剪视频。",
+        "变体3：多镜头叙事——按“开场-发展-结尾”写3-5条关联提示词，分别生成后拼接成完整故事短片，适合剧情类短视频。"
       ],
-      "summary": "用 Awesome ComfyUI 当导航，用 Manager 当抓手，按需安装、测试、整理，你就能把 ComfyUI 从裸机变成神装。"
+      "summary": "用结构化提示词+最低成本档位快速试错，筛选满意片段再拼接，就是MAGI-2低成本做AI视频的核心精髓。"
     },
-    "generated_at": "2026-09-19T09:19:07.855020+00:00",
+    "generated_at": "2026-11-25T18:24:51.610882+00:00",
     "play_meta": {
-      "title_zh": "ComfyUI 神级节点合集，一键解锁",
-      "title_en": "ComfyUI-Workflow/awesome-comfyui: A collection of awesome custom nodes for ComfyUI",
-      "source_id": "github-play-awesome-comfyui",
-      "source_name": "GitHub Awesome ComfyUI",
+      "title_zh": "用MAGI-2低成本生成AI视频实测",
+      "title_en": "Seedance 2.5 级别，价格只要 1/10，我们实测了计划开源的 MAGI-2",
+      "source_id": "ifanr-play",
+      "source_name": "爱范儿 AI 应用",
+      "source_label": "权威媒体",
+      "source_tier": "A",
+      "source_color": "blue",
+      "source_emoji": "🔵",
+      "play_type": "tool_chain",
+      "difficulty": 2,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://www.ifanr.com/1691445",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 7.5
+    }
+  },
+  "github-play-awesome-llm-bd07ce9a": {
+    "_sig": "AiHubCN/Awesome-Chinese-LLM: 整理开源的中文大语言模型，以规模较小、可私有化部署、训练成本较低的模型为主，包括底座模型，垂直领域微|https://github.com/AiHubCN/Awesome-Chinese-LLM",
+    "tutorial": {
+      "intro": "想玩转中文大模型又不想烧钱买显卡？这个 GitHub 宝藏库帮你找到能私有化部署的小模型，从底座到微调一站式搞定。",
+      "background": "很多开发者想本地跑大模型，但动辄 70B 参数让消费级显卡望而却步。Awesome-Chinese-LLM 这个项目专门整理了规模小、训练成本低、可私有化部署的中文模型，包括底座模型、垂直领域微调版本、数据集和教程。无论你是想搭建个人知识库、做行业客服机器人，还是研究微调技术，都能在这里找到合适的起点。目前该项目已获得 2.2 万+ star，是中文 LLM 领域最实用的资源合集之一。",
+      "prerequisites": [
+        {
+          "name": "GitHub 账号",
+          "desc": "用于访问仓库、star 项目、提交 issue 或 PR",
+          "url": "https://github.com"
+        },
+        {
+          "name": "Git 客户端",
+          "desc": "克隆仓库到本地，方便离线查阅",
+          "url": "https://git-scm.com"
+        },
+        {
+          "name": "Python 3.8+ 与 pip",
+          "desc": "运行模型推理和微调脚本的基础环境",
+          "url": "https://www.python.org/downloads/"
+        },
+        {
+          "name": "CUDA 或 CPU 推理环境",
+          "desc": "根据模型大小选择，小模型可纯 CPU 运行，推荐至少 16GB 内存",
+          "url": "https://developer.nvidia.com/cuda-downloads"
+        },
+        {
+          "name": "Hugging Face 账号",
+          "desc": "下载模型权重和数据集（部分模型需申请权限）",
+          "url": "https://huggingface.co"
+        },
+        {
+          "name": "文本编辑器或 IDE",
+          "desc": "如 VS Code，用于查看 README 和修改配置",
+          "url": "https://code.visualstudio.com"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：克隆仓库并浏览目录结构",
+          "content": "打开终端，执行 git clone https://github.com/AiHubCN/Awesome-Chinese-LLM.git，然后 cd Awesome-Chinese-LLM。用 VS Code 打开该文件夹，你会看到 README.md 中按类别整理了模型列表，包括底座模型、垂直领域微调、数据集、教程等。先花 10 分钟浏览目录，标记出你感兴趣的 2-3 个模型。",
+          "tip": "如果 GitHub 访问慢，可以用 Gitee 镜像或代理加速；建议先 star 仓库方便后续查找。"
+        },
+        {
+          "title": "第2步：筛选适合你硬件的小模型",
+          "content": "在 README 中搜索关键词如“小模型”“私有化”“CPU 可跑”，重点关注参数量在 1B-7B 之间的模型，例如 ChatGLM3-6B、Qwen-1.8B、Baichuan2-7B 等。查看每个模型旁边的说明，确认是否支持量化（如 4-bit 量化后仅需 4GB 显存）。记录下 2-3 个候选模型的名称和 Hugging Face 链接。",
+          "tip": "优先选择有 GGUF 或 GPTQ 量化版本的模型，这样在消费级显卡甚至 CPU 上都能流畅运行。"
+        },
+        {
+          "title": "第3步：下载模型权重并配置环境",
+          "content": "以 ChatGLM3-6B 为例，在 Hugging Face 上搜索“THUDM/chatglm3-6b”，用 git lfs 克隆或直接下载。然后创建 Python 虚拟环境：python -m venv venv，激活后安装依赖：pip install torch transformers sentencepiece accelerate。如果使用量化版本，还需安装 bitsandbytes 或 ctransformers。",
+          "tip": "下载大文件时建议用 huggingface-cli 或 aria2 多线程，避免中断；国内可用 modelscope 镜像下载。"
+        },
+        {
+          "title": "第4步：运行推理脚本测试模型",
+          "content": "在仓库的教程区找到对应模型的快速开始代码，或直接使用 transformers 写一个简单脚本：加载 tokenizer 和 model，输入“你好，请介绍一下你自己”，设置 max_length=512，调用 model.generate()。观察输出是否通顺、是否符合中文习惯。如果显存不足，加载时加上 load_in_4bit=True 或 load_in_8bit=True。",
+          "tip": "首次运行会下载模型，耐心等待；如果报错 CUDA out of memory，尝试减小 batch size 或使用 CPU 模式。"
+        },
+        {
+          "title": "第5步：按需微调或接入应用",
+          "content": "如果预训练模型效果不满足需求，可以在仓库中找到垂直领域微调教程，使用 LoRA 或 P-Tuning 对模型进行轻量微调。准备自己的问答数据集（JSON 格式），运行微调脚本，通常 1-2 小时即可完成。微调后可将模型接入 LangChain、FastAPI 或 Gradio，搭建个人知识库或聊天机器人。",
+          "tip": "微调前先用小样本测试，避免过拟合；LoRA 微调只需训练少量参数，8GB 显存足够。"
+        }
+      ],
+      "expected_result": "成功在本地或服务器上运行一个中文小模型，能够流畅回答中文问题，并可根据需要微调成专属领域助手。你会在终端或 Web 界面看到模型生成的连贯中文回复，显存占用控制在 4-8GB 以内。",
+      "faq": [
+        {
+          "q": "没有独立显卡能玩吗？",
+          "a": "可以。选择 1B-3B 的小模型并量化到 4-bit，纯 CPU 加 16GB 内存就能跑，只是速度较慢（每秒几个字）。"
+        },
+        {
+          "q": "哪个模型最适合中文私有化部署？",
+          "a": "推荐 ChatGLM3-6B、Qwen-1.8B 和 Baichuan2-7B，它们中文能力强、社区活跃、量化版本齐全。"
+        },
+        {
+          "q": "下载模型太慢怎么办？",
+          "a": "使用 Hugging Face 镜像站 hf-mirror.com，或从 ModelScope 下载，也可以用 git lfs 配合代理。"
+        },
+        {
+          "q": "微调需要多少数据？",
+          "a": "LoRA 微调通常 500-2000 条高质量问答即可见效，数据要覆盖你的目标场景，格式统一为 instruction/input/output。"
+        },
+        {
+          "q": "商用需要授权吗？",
+          "a": "不同模型协议不同，如 ChatGLM3 需遵守其模型许可，Qwen 部分版本可商用，使用前务必查看 LICENSE 文件。"
+        }
+      ],
+      "variants": [
+        "变体1：用 Ollama 一键拉取小模型（如 qwen:1.8b、chatglm3:6b），无需手动配置环境，适合快速体验。",
+        "变体2：结合 LangChain + Chroma 搭建本地知识库问答，将你的 PDF/Word 文档向量化后喂给模型。",
+        "变体3：用 Gradio 或 Streamlit 为模型套一个 Web UI，分享给团队内部使用，支持多轮对话和历史记录。"
+      ],
+      "summary": "从 Awesome-Chinese-LLM 宝藏库中挑选小模型，按需量化、微调、部署，低成本拥有自己的中文 AI 助手。"
+    },
+    "generated_at": "2026-09-19T09:20:05.959378+00:00",
+    "play_meta": {
+      "title_zh": "中文大模型宝藏库：小模型也能私有化部署",
+      "title_en": "AiHubCN/Awesome-Chinese-LLM: 整理开源的中文大语言模型，以规模较小、可私有化部署、训练成本较低的模型为主，包括底座模型，垂直领域微",
+      "source_id": "github-play-awesome-llm",
+      "source_name": "GitHub Awesome LLM",
       "source_label": "技术社区",
       "source_tier": "B",
       "source_color": "yellow",
       "source_emoji": "🟡",
-      "play_type": "tool_workflow",
-      "difficulty": 4,
-      "time_estimate": "30min",
+      "play_type": "runnable_demo",
+      "difficulty": 3,
+      "time_estimate": "10min",
       "tools": [
-        "Stable Diffusion"
+        "未标注"
       ],
-      "link": "https://github.com/ComfyUI-Workflow/awesome-comfyui",
+      "link": "https://github.com/AiHubCN/Awesome-Chinese-LLM",
       "is_domestic": false,
       "tags": [],
       "playability_score": 8.5
@@ -2605,6 +2828,122 @@
         "未标注"
       ],
       "link": "https://www.ifanr.com/1691355",
+      "is_domestic": true,
+      "tags": [],
+      "playability_score": 6.5
+    }
+  },
+  "cnblogs-play-43659815": {
+    "_sig": "AI创建回话+热门问题一键换一换 - 她们都叫我迪丽热巴|https://www.cnblogs.com/zhuwuzhu/p/23783589",
+    "tutorial": {
+      "intro": "本教程带你用 SpringBoot 快速落地 AI 会话创建与热门问题“换一换”功能，从零搭建一个可用的 AIGC 问答初始化模块。",
+      "background": "在 AIGC 问答类产品中，用户打开页面时通常需要自动创建一个对话会话，并展示一组热门问题引导用户提问。本玩法基于 SpringBoot 分层架构，实现 UUID 会话 ID 生成与入库持久化，同时将热门问题配置放在 Nacos 中，前端点击“换一换”即可随机刷新示例问题。这套方案适合需要快速搭建 AI 助手初始化能力的开发者，代码结构清晰，可直接复用到实际项目中。",
+      "prerequisites": [
+        {
+          "name": "IntelliJ IDEA",
+          "desc": "Java 集成开发环境，用于编写和调试 SpringBoot 项目",
+          "url": "https://www.jetbrains.com/idea/"
+        },
+        {
+          "name": "JDK 17",
+          "desc": "Java 运行环境，SpringBoot 3.x 推荐使用 JDK 17",
+          "url": "https://www.oracle.com/java/technologies/downloads/"
+        },
+        {
+          "name": "SpringBoot 3.x",
+          "desc": "项目基础框架，通过 Spring Initializr 快速生成",
+          "url": "https://start.spring.io/"
+        },
+        {
+          "name": "MySQL 8.0",
+          "desc": "关系型数据库，用于存储会话记录",
+          "url": "https://dev.mysql.com/downloads/mysql/"
+        },
+        {
+          "name": "Nacos 2.x",
+          "desc": "配置中心，用于存放热门问题列表配置",
+          "url": "https://nacos.io/zh-cn/"
+        },
+        {
+          "name": "Postman",
+          "desc": "接口调试工具，用于验证会话创建和热门问题接口",
+          "url": "https://www.postman.com/"
+        }
+      ],
+      "steps": [
+        {
+          "title": "第1步：初始化 SpringBoot 项目与数据库表",
+          "content": "使用 Spring Initializr 创建项目，勾选 Spring Web、MyBatis-Plus、MySQL Driver 和 Nacos Config 依赖。在 MySQL 中创建数据库 ai_chat，并新建会话表 chat_session，字段包括 id（bigint 自增）、session_id（varchar 36，唯一索引）、user_id（bigint）、create_time（datetime）。在 application.yml 中配置数据源和 Nacos 注册中心地址。",
+          "tip": "session_id 建议加唯一索引，避免 UUID 重复导致插入失败；Nacos 命名空间建议按环境隔离。"
+        },
+        {
+          "title": "第2步：编写会话创建接口",
+          "content": "创建 ChatSessionController，提供 POST /api/chat/session 接口。在 Service 层使用 UUID.randomUUID().toString() 生成会话 ID，结合当前登录用户 ID 组装实体，通过 MyBatis-Plus 的 save 方法入库。接口返回 sessionId 和创建时间，前端拿到后存入本地缓存，后续对话请求携带该 sessionId。",
+          "tip": "如果用户未登录，可先用设备指纹或临时游客 ID 代替 user_id，后续再绑定。"
+        },
+        {
+          "title": "第3步：在 Nacos 中配置热门问题",
+          "content": "登录 Nacos 控制台，在配置管理中新建 Data ID 为 ai-chat-hot-questions.yaml 的配置，内容为 YAML 数组，每项包含 question 和 category 字段。在 SpringBoot 项目中通过 @NacosValue 或 @ConfigurationProperties 注入该配置，并编写 HotQuestionService 提供获取全部问题的方法。",
+          "tip": "配置内容建议用 YAML 格式，便于阅读和维护；修改后 Nacos 会自动推送，无需重启应用。"
+        },
+        {
+          "title": "第4步：实现“换一换”随机接口",
+          "content": "在 HotQuestionController 中提供 GET /api/chat/hot-questions/random 接口，从 HotQuestionService 获取全部问题列表，使用 Collections.shuffle 或 Random 随机抽取 N 条（例如 4 条）返回。前端点击“换一换”按钮时调用该接口，替换展示的问题列表。",
+          "tip": "如果问题数量较少，可先打乱再取前 N 条，避免重复抽取同一条；可加缓存减少 Nacos 读取频率。"
+        },
+        {
+          "title": "第5步：前端联调与验证",
+          "content": "启动 SpringBoot 应用和 Nacos，使用 Postman 调用会话创建接口，确认返回 sessionId 且数据库中有记录。再调用热门问题随机接口，多次请求观察返回问题是否变化。前端页面加载时自动调用会话创建接口，并展示随机热门问题；点击“换一换”按钮触发随机接口刷新列表。",
+          "tip": "联调时可在 Nacos 中临时增加几条测试问题，方便观察随机效果；注意跨域配置。"
+        }
+      ],
+      "expected_result": "打开前端页面后，系统自动创建一个会话并在数据库中生成一条 session_id 记录；页面展示 4 条热门问题，点击“换一换”按钮后问题列表随机刷新为另一组问题。Postman 调用接口均返回 200 且数据正确。",
+      "faq": [
+        {
+          "q": "UUID 生成的 session_id 会不会重复？",
+          "a": "UUID 重复概率极低，但建议数据库加唯一索引兜底，插入失败时重试一次即可。"
+        },
+        {
+          "q": "Nacos 配置修改后需要重启应用吗？",
+          "a": "不需要，使用 @NacosValue 注解并开启自动刷新，配置变更会实时推送到应用。"
+        },
+        {
+          "q": "热门问题数量很少时“换一换”效果不明显怎么办？",
+          "a": "可以增加问题池数量，或采用轮询加随机混合策略，保证每次至少有一条变化。"
+        },
+        {
+          "q": "会话表需要设置过期时间吗？",
+          "a": "建议增加 expire_time 字段或定时任务清理长期未活跃的会话，避免数据无限增长。"
+        },
+        {
+          "q": "没有 Nacos 环境可以先用本地配置吗？",
+          "a": "可以，先用 application.yml 中的本地配置模拟，后续再迁移到 Nacos，接口层无需改动。"
+        }
+      ],
+      "variants": [
+        "变体1：将热门问题改为从数据库读取，并增加后台管理页面动态增删改查，适合运营频繁调整的场景。",
+        "变体2：会话创建时同步调用大模型接口生成欢迎语，返回 sessionId 的同时附带个性化开场白，提升用户体验。",
+        "变体3：使用 Redis 缓存热门问题列表和随机结果，减少 Nacos 和数据库压力，适合高并发场景。"
+      ],
+      "summary": "用 SpringBoot 分层架构 + UUID 会话持久化 + Nacos 动态配置，三步搞定 AI 会话初始化与热门问题“换一换”，代码可直接复用。"
+    },
+    "generated_at": "2026-11-25T18:25:00.496614+00:00",
+    "play_meta": {
+      "title_zh": "SpringBoot搭建AI会话创建与热门问题换一换",
+      "title_en": "AI创建回话+热门问题一键换一换 - 她们都叫我迪丽热巴",
+      "source_id": "cnblogs-play",
+      "source_name": "博客园 AI 教程",
+      "source_label": "技术社区",
+      "source_tier": "B",
+      "source_color": "yellow",
+      "source_emoji": "🟡",
+      "play_type": "tool_chain",
+      "difficulty": 2,
+      "time_estimate": "30min",
+      "tools": [
+        "未标注"
+      ],
+      "link": "https://www.cnblogs.com/zhuwuzhu/p/23783589",
       "is_domestic": true,
       "tags": [],
       "playability_score": 6.5
@@ -6226,329 +6565,6 @@
       "is_domestic": true,
       "tags": [],
       "playability_score": 8.2
-    }
-  },
-  "cnblogs-play-5224e82a": {
-    "_sig": "鸿蒙 APP 冷启动白屏根治实录：原生子窗口遮罩 + 双信号竞速，实测白屏占比 0% - 码间留白|https://www.cnblogs.com/xyyt/p/23696775",
-    "tutorial": {
-      "intro": "这个玩法教你用「原生子窗口遮罩 + 双信号竞速」彻底解决鸿蒙 APP 冷启动白屏问题，让启动页像安卓一样丝滑。",
-      "background": "很多鸿蒙开发者在做「渐变整图启动页」时，发现 AI 给的方案总是无法同时满足「整图渐变」和「零白屏」。作者经过五轮 hilog 真机取证，发现核心在于让遮罩和门帘使用同一张图，并通过双信号竞速（窗口就绪信号与图片解码信号）来消除 35ms 的竞态窗口。这个玩法适用于所有需要高质量冷启动体验的 HarmonyOS 应用，尤其是对启动画面有严格视觉要求的场景。",
-      "prerequisites": [
-        {
-          "name": "DevEco Studio",
-          "desc": "鸿蒙官方 IDE，用于编写和调试代码",
-          "url": "https://developer.harmonyos.com/cn/develop/deveco-studio"
-        },
-        {
-          "name": "HarmonyOS SDK",
-          "desc": "提供原生子窗口、hilog 等 API",
-          "url": "https://developer.harmonyos.com/cn/docs/documentation/doc-guides/installation-0000001053582415"
-        },
-        {
-          "name": "真机或模拟器",
-          "desc": "用于验证冷启动效果和抓取 hilog 日志",
-          "url": "https://developer.harmonyos.com/cn/docs/documentation/doc-guides/emulator-0000001053582415"
-        },
-        {
-          "name": "一张渐变整图启动页素材",
-          "desc": "作为遮罩和门帘的同一张图，建议 1080x2340 或适配设备分辨率",
-          "url": "无"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：创建原生子窗口作为遮罩层",
-          "content": "在 EntryAbility 的 onWindowStageCreate 中，使用 window.createSubWindow 创建一个全屏子窗口，设置其背景为透明，并加载一个仅包含 Image 组件的页面。这个 Image 组件使用与启动页完全相同的渐变整图，并设置 objectFit 为 Cover。子窗口的层级要高于主窗口，确保覆盖整个屏幕。",
-          "tip": "子窗口的宽高必须设置为 MATCH_PARENT，且背景透明，否则会遮挡主窗口内容。"
-        },
-        {
-          "title": "第2步：实现双信号竞速逻辑",
-          "content": "定义两个布尔标志：windowReady（主窗口内容就绪）和 imageDecoded（遮罩图片解码完成）。在子窗口的 Image 组件 onComplete 回调中设置 imageDecoded = true；在主窗口的页面 aboutToAppear 或首帧渲染回调中设置 windowReady = true。然后写一个 checkAndHideMask 函数，当两个标志都为 true 时，以动画方式隐藏子窗口（例如透明度渐变或直接销毁）。",
-          "tip": "使用 Promise 或计数器确保两个信号都到达后再执行隐藏，避免竞态导致白屏闪现。"
-        },
-        {
-          "title": "第3步：处理 1300002 静默失败并增加 hilog 取证",
-          "content": "在创建子窗口和加载图片的代码中，用 try-catch 捕获异常，并针对错误码 1300002（窗口操作失败）做重试或降级处理。同时，在关键节点（子窗口创建、图片加载开始/完成、信号设置、隐藏遮罩）插入 hilog.info 日志，输出时间戳和状态。真机运行时通过 hilog 抓取日志，确认两个信号的到达顺序和耗时。",
-          "tip": "错误码 1300002 通常是因为窗口未准备好，可以延迟 50ms 重试一次。"
-        },
-        {
-          "title": "第4步：优化竞态窗口至 35ms 以内",
-          "content": "根据 hilog 日志分析两个信号的时间差。如果 imageDecoded 先到而 windowReady 后到，可以预加载图片到内存缓存，减少解码时间；如果 windowReady 先到，可以提前创建子窗口但先隐藏，等图片解码后再显示。通过调整图片加载时机（例如在 Ability 启动时就开始加载）和窗口创建顺序，将竞态窗口压缩到 35ms 以内。",
-          "tip": "使用 Image 的 syncLoad 属性为 true 可以同步加载小图，但大图建议异步并配合缓存。"
-        },
-        {
-          "title": "第5步：真机验证与丝滑度对比",
-          "content": "在真机上冷启动应用（先杀进程），观察从点击图标到主界面出现的全过程。使用屏幕录制或慢动作视频检查是否有白屏帧。对比安卓端启动效果，确保鸿蒙端同样丝滑。如果仍有轻微白屏，检查子窗口的显示时机是否晚于主窗口首帧，可尝试将子窗口的 show 调用提前到 onWindowStageCreate 的最开始。",
-          "tip": "冷启动测试前务必清理应用缓存并重启设备，避免系统缓存干扰。"
-        }
-      ],
-      "expected_result": "冷启动应用时，用户首先看到与启动页完全一致的渐变整图遮罩，随后主界面内容在遮罩下方准备就绪，遮罩平滑消失，全程无白屏闪烁，视觉体验与安卓端一致甚至更丝滑。hilog 日志显示两个信号在 35ms 内先后到达，无 1300002 错误。",
-      "faq": [
-        {
-          "q": "为什么不能直接用启动页图片作为窗口背景？",
-          "a": "窗口背景在冷启动时可能先于图片解码显示为白色，而子窗口遮罩可以独立控制显示时机，确保图片解码完成后再显示。"
-        },
-        {
-          "q": "双信号竞速中如果某个信号永远不到达怎么办？",
-          "a": "设置超时机制，例如 500ms 后强制隐藏遮罩并记录错误日志，避免应用卡在遮罩层。"
-        },
-        {
-          "q": "错误码 1300002 是什么原因？",
-          "a": "通常是窗口未创建完成或权限不足，检查是否在 UI 线程调用，并确保子窗口的 type 为 TYPE_APPLICATION_OVERLAY 或类似合适类型。"
-        },
-        {
-          "q": "这个方案对应用性能有影响吗？",
-          "a": "子窗口和图片解码会增加少量内存和 CPU 开销，但通过缓存和及时销毁遮罩，影响可忽略不计。"
-        },
-        {
-          "q": "是否适用于所有鸿蒙版本？",
-          "a": "建议在 API 9 及以上版本使用，低版本可能不支持子窗口的某些特性，需做兼容处理。"
-        }
-      ],
-      "variants": [
-        "变体1：使用动画组件（如 animateTo）实现遮罩的淡出效果，而不是直接销毁，提升视觉平滑度。",
-        "变体2：将遮罩图片替换为 Lottie 动画，实现更丰富的启动动效，但需注意动画解码时间对竞态的影响。",
-        "变体3：结合预加载机制，在应用安装后首次启动时缓存启动图到本地，后续冷启动直接读取缓存，进一步缩短竞态窗口。"
-      ],
-      "summary": "让遮罩和门帘共用同一张图，并用双信号竞速确保图片解码与窗口就绪同步，从而根治冷启动白屏。"
-    },
-    "generated_at": "2026-11-17T17:17:56.126395+00:00",
-    "play_meta": {
-      "title_zh": "用原生子窗口遮罩+双信号竞速根治鸿蒙APP冷启动白屏",
-      "title_en": "鸿蒙 APP 冷启动白屏根治实录：原生子窗口遮罩 + 双信号竞速，实测白屏占比 0% - 码间留白",
-      "source_id": "cnblogs-play",
-      "source_name": "博客园 AI 教程",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 3,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://www.cnblogs.com/xyyt/p/23696775",
-      "is_domestic": true,
-      "tags": [],
-      "playability_score": 7.5
-    }
-  },
-  "cnblogs-play-d4c0687b": {
-    "_sig": "手把手教你：随机种子都设了还是不可复现，四层种子与一层算法｜AI工程师踩坑实录·第9篇 - 大雾的小屋|https://www.cnblogs.com/dawudexiaowu/p/23693203",
-    "tutorial": {
-      "intro": "同一份 PyTorch 代码两次跑出不同 loss？别只怪 torch.manual_seed，真正要锁住的是 Python、NumPy、PyTorch、CUDA 四层随机源，再加一个 cudnn 确定性开关。",
-      "background": "很多同学在复现实验时发现，明明设了 torch.manual_seed(42)，两次运行的 loss 却从 0.002 变成 0.0004，权重也对不上。根因是 PyTorch 的随机性来自四层：Python 内置 random、NumPy、PyTorch CPU/GPU、CUDA 底层，只设一层等于没锁全。本教程带你用「四层种子 + 算法开关」实现逐位可复现，适合论文复现、调参对比、CI 回归测试等场景。",
-      "prerequisites": [
-        {
-          "name": "Python 3.8+",
-          "desc": "运行环境，建议用 conda 或 venv 隔离",
-          "url": "https://www.python.org/downloads/"
-        },
-        {
-          "name": "PyTorch 1.10+",
-          "desc": "深度学习框架，需带 CUDA 版本（若用 GPU）",
-          "url": "https://pytorch.org/get-started/locally/"
-        },
-        {
-          "name": "NumPy",
-          "desc": "数值计算库，PyTorch 依赖它，需单独设种子",
-          "url": "https://numpy.org/install/"
-        },
-        {
-          "name": "CUDA Toolkit（可选）",
-          "desc": "GPU 运行需要，版本与 PyTorch 匹配",
-          "url": "https://developer.nvidia.com/cuda-toolkit"
-        },
-        {
-          "name": "文本编辑器/IDE",
-          "desc": "VS Code 或 PyCharm，方便写复现脚本",
-          "url": "https://code.visualstudio.com/"
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：写一个可复现种子函数，一次锁四层",
-          "content": "新建 seed_everything.py，定义函数 set_seed(seed=42)：先 import random, numpy as np, torch；依次执行 random.seed(seed)、np.random.seed(seed)、torch.manual_seed(seed)、torch.cuda.manual_seed_all(seed)。这样 Python、NumPy、PyTorch CPU、PyTorch 所有 GPU 的随机源都被固定。",
-          "tip": "torch.cuda.manual_seed_all 要放在 torch.manual_seed 之后，且即使没有 GPU 也建议保留，方便代码迁移。"
-        },
-        {
-          "title": "第2步：打开 cudnn 确定性开关，锁住算法层",
-          "content": "在 set_seed 里继续加两行：torch.backends.cudnn.deterministic = True 和 torch.backends.cudnn.benchmark = False。前者强制 cuDNN 使用确定性算法，后者关闭自动调优以避免不同运行选到不同算法。这是第五层「算法非确定性」的开关。",
-          "tip": "开启 deterministic 后部分算子会变慢，训练速度可能下降 5%-20%，复现优先时再开。"
-        },
-        {
-          "title": "第3步：在训练脚本入口第一时间调用",
-          "content": "在 train.py 的 import 之后、任何模型/数据创建之前调用 set_seed(42)。注意 DataLoader 的 worker 也要设种子：给 DataLoader 传 worker_init_fn=lambda worker_id: np.random.seed(42 + worker_id)，并设 generator=torch.Generator().manual_seed(42)。",
-          "tip": "如果用了多进程 DataLoader，不设 worker_init_fn 的话每个 epoch 的数据顺序仍可能不同。"
-        },
-        {
-          "title": "第4步：双跑对比验证逐位一致",
-          "content": "写一个最小训练脚本：固定随机数据、两层线性模型、固定学习率，跑 10 个 step 后打印 loss 和第一层权重。连续运行两次，把输出保存到 log1.txt 和 log2.txt，用 diff 命令对比。若完全一致，说明四层种子 + 开关生效。",
-          "tip": "对比时建议打印权重的前 5 个元素，比只看 loss 更能暴露细微差异。"
-        },
-        {
-          "title": "第5步：排查仍不一致的残留因素",
-          "content": "如果 diff 仍有差异，依次检查：是否用了非确定性算子（如 torch.nn.functional.interpolate 的某些模式）、是否开了 TF32（设 torch.backends.cuda.matmul.allow_tf32 = False）、是否用了随机增强且未设种子、是否多卡 DDP 未设 torch.distributed 种子。逐项关闭后重跑对比。",
-          "tip": "PyTorch 官方有 reproducibility 文档，列出所有非确定性算子，遇到怪问题先查表。"
-        }
-      ],
-      "expected_result": "两次运行输出的 loss 和权重逐位一致（diff 无输出），loss 不再从 0.002 跳到 0.0004。在 CPU 和单卡 GPU 上均可复现；多卡场景需额外设 DDP 种子，但四层种子 + cudnn 开关已覆盖绝大多数单机实验。",
-      "faq": [
-        {
-          "q": "只设 torch.manual_seed 为什么不够？",
-          "a": "因为 PyTorch 的随机数还来自 Python random、NumPy 和 CUDA 底层，只设 torch 层等于只锁了一扇门，其他三扇仍会引入随机性。"
-        },
-        {
-          "q": "开了 deterministic 训练变慢怎么办？",
-          "a": "复现实验时开启，正式训练可关闭；也可只对需要对比的 epoch 开启，或用环境变量按需切换。"
-        },
-        {
-          "q": "多卡 DDP 怎么保证可复现？",
-          "a": "除四层种子外，还要在每张卡上设 torch.cuda.manual_seed_all，并给 torch.distributed 设种子；数据切分也要固定。"
-        },
-        {
-          "q": "为什么两次 loss 一样但权重有微小差异？",
-          "a": "可能是 TF32 或非确定性算子导致，检查 torch.backends.cuda.matmul.allow_tf32 并关闭，再排查 interpolate 等算子。"
-        },
-        {
-          "q": "CPU 上需要设 cudnn 开关吗？",
-          "a": "不需要，cudnn 只影响 GPU；但保留代码无副作用，方便同一脚本在 CPU/GPU 间切换。"
-        }
-      ],
-      "variants": [
-        "变体1：把 set_seed 封装成装饰器，自动包裹训练函数，避免忘记调用。",
-        "变体2：用 pytest 写回归测试，固定种子跑 3 个 step，断言 loss 与基准值误差小于 1e-6，接入 CI。",
-        "变体3：在 Hydra/OmegaConf 配置里加 seed 字段，启动时统一注入，适合多实验管理。"
-      ],
-      "summary": "四层种子锁随机源，cudnn 开关锁算法，双跑 diff 验一致——这就是 PyTorch 完全可复现的精髓。参考原文：https://www.cnblogs.com/dawudexiaowu/p/23693203"
-    },
-    "generated_at": "2026-11-17T17:18:06.245690+00:00",
-    "play_meta": {
-      "title_zh": "四层随机种子+算法开关实现PyTorch完全可复现",
-      "title_en": "手把手教你：随机种子都设了还是不可复现，四层种子与一层算法｜AI工程师踩坑实录·第9篇 - 大雾的小屋",
-      "source_id": "cnblogs-play",
-      "source_name": "博客园 AI 教程",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 3,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://www.cnblogs.com/dawudexiaowu/p/23693203",
-      "is_domestic": true,
-      "tags": [],
-      "playability_score": 7.5
-    }
-  },
-  "cnblogs-play-0d0ec091": {
-    "_sig": "SnapSharp：把截图、标注、OCR、翻译和 AI 抠图放进一款 Windows 工具 - liessay|https://www.cnblogs.com/liessay/p/23692146",
-    "tutorial": {
-      "intro": "SnapSharp 是一款把截图、标注、OCR、翻译和 AI 抠图打包在一起的 Windows 效率工具，特别适合写技术博客、做教程和整理资料时使用。",
-      "background": "写技术文章时，一张截图往往只是开始：截完界面要用箭头标出操作入口，拿到图片里的英文需要先识别再翻译，遇到表格又希望直接导入 Excel，为了说明连续操作还可能得录一段 GIF。过去这些步骤要切换四五个软件，费时又容易打断思路。SnapSharp 把这些高频操作整合到一个工具里，让截图后的处理流程一气呵成，尤其适合经常写教程、做文档或整理外文资料的人。",
-      "prerequisites": [
-        {
-          "name": "SnapSharp",
-          "desc": "Windows 端截图标注、OCR、翻译与 AI 抠图一体化工具",
-          "url": "https://www.cnblogs.com/liessay/p/23692146"
-        },
-        {
-          "name": "Windows 10/11 电脑",
-          "desc": "运行 SnapSharp 的操作系统环境",
-          "url": "https://www.microsoft.com/windows"
-        },
-        {
-          "name": "网络连接",
-          "desc": "用于 OCR、翻译和 AI 抠图等在线能力",
-          "url": ""
-        }
-      ],
-      "steps": [
-        {
-          "title": "第1步：安装并设置 SnapSharp",
-          "content": "从博客园教程页面获取 SnapSharp 的下载与安装说明，完成安装后启动软件。首次运行时建议在设置里确认截图快捷键、默认保存目录以及 OCR/翻译的语言偏好。把常用快捷键记下来，后续操作会快很多。",
-          "tip": "建议把截图快捷键设成自己顺手的组合，避免和微信、QQ 的截图快捷键冲突。"
-        },
-        {
-          "title": "第2步：截图并完成标注",
-          "content": "按下截图快捷键框选需要的内容，进入标注编辑界面。用箭头标出操作入口，用矩形框圈出重点区域，必要时加上文字说明或序号。标注完成后可以先复制到剪贴板，也可以直接保存为图片文件。",
-          "tip": "标注时保持箭头粗细和颜色统一，博客里的截图会显得更专业。"
-        },
-        {
-          "title": "第3步：对截图做 OCR 文字识别",
-          "content": "在 SnapSharp 中对刚截取的图片执行 OCR 识别，软件会把图片里的文字提取成可编辑文本。识别后检查一下中英文混排和数字是否准确，有少量错字可以手动修正。识别结果可以直接复制，省去手打的时间。",
-          "tip": "截图时尽量保证文字清晰、不要过度缩放，OCR 准确率会明显更高。"
-        },
-        {
-          "title": "第4步：一键翻译识别出的文字",
-          "content": "选中 OCR 得到的文本，调用 SnapSharp 内置的翻译功能，把英文或其他外文翻译成中文。翻译结果可以和原文对照查看，确认术语是否准确。需要引用到文章里时，直接复制译文即可。",
-          "tip": "技术术语如果翻译得别扭，保留英文原文加括号注释，读者更容易理解。"
-        },
-        {
-          "title": "第5步：用 AI 抠图处理素材",
-          "content": "如果截图里包含图标、人物或产品图，可以使用 SnapSharp 的 AI 抠图功能去掉背景。导入图片后等待自动识别主体，检查边缘是否干净，必要时手动微调。抠好的透明背景图可以直接用于文章配图或 PPT。",
-          "tip": "抠图前尽量选择主体与背景对比明显的图片，AI 识别效果会更好。"
-        },
-        {
-          "title": "第6步：导出与归档",
-          "content": "把标注图、识别文本、译文和抠图结果分别保存到同一个项目文件夹，按「日期+主题」命名。写博客时按顺序插入图片和文字，整篇教程的素材就齐了。最后检查一遍图片清晰度和文字准确性再发布。",
-          "tip": "建议保留一份原始截图，方便后续修改标注或重新识别。"
-        }
-      ],
-      "expected_result": "完成上述步骤后，你会得到一组带标注的清晰截图、可编辑的 OCR 文本、准确的中文译文以及透明背景的抠图素材，全部整理在同一个文件夹中，可以直接用于技术博客或文档写作。",
-      "faq": [
-        {
-          "q": "SnapSharp 支持哪些 Windows 版本？",
-          "a": "一般支持 Windows 10 和 Windows 11，具体以博客园教程中的说明为准，安装前建议确认系统版本。"
-        },
-        {
-          "q": "OCR 识别中文和英文混合内容准确吗？",
-          "a": "清晰截图下准确率较高，但特殊字体、低分辨率或复杂背景可能出错，识别后建议人工校对一遍。"
-        },
-        {
-          "q": "翻译功能需要联网吗？",
-          "a": "通常需要联网调用翻译服务，离线状态下可能无法使用，使用前确保网络正常。"
-        },
-        {
-          "q": "AI 抠图对哪些图片效果最好？",
-          "a": "主体与背景对比明显、边缘清晰的图片效果最好，复杂毛发或半透明物体可能需要手动微调。"
-        },
-        {
-          "q": "截图快捷键和微信冲突怎么办？",
-          "a": "在 SnapSharp 设置中修改截图快捷键，避开微信、QQ 等常用软件的默认组合即可。"
-        }
-      ],
-      "variants": [
-        "变体1：把 SnapSharp 用于外文技术文档整理——批量截图后 OCR 加翻译，快速生成中文笔记。",
-        "变体2：用 AI 抠图制作博客封面素材——把产品图或图标抠成透明背景，再搭配文字排版。",
-        "变体3：结合 GIF 录制做连续操作教程——截图标注关键步骤，再用录屏工具补充动态过程。"
-      ],
-      "summary": "SnapSharp 的精髓在于把截图后的标注、识别、翻译和抠图串成一条流水线，让写教程的人少切换软件、多专注内容。"
-    },
-    "generated_at": "2026-11-17T17:18:15.487557+00:00",
-    "play_meta": {
-      "title_zh": "用SnapSharp一站式完成截图标注OCR翻译与AI抠图",
-      "title_en": "SnapSharp：把截图、标注、OCR、翻译和 AI 抠图放进一款 Windows 工具 - liessay",
-      "source_id": "cnblogs-play",
-      "source_name": "博客园 AI 教程",
-      "source_label": "技术社区",
-      "source_tier": "B",
-      "source_color": "yellow",
-      "source_emoji": "🟡",
-      "play_type": "tool_chain",
-      "difficulty": 3,
-      "time_estimate": "30min",
-      "tools": [
-        "未标注"
-      ],
-      "link": "https://www.cnblogs.com/liessay/p/23692146",
-      "is_domestic": true,
-      "tags": [],
-      "playability_score": 7.5
     }
   }
 }

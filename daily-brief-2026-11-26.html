@@ -1,0 +1,2184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026-11-26 今日 AI 简报 · AI Frontier</title>
+<link rel="stylesheet" href="assets/tailwind.css">
+<style>
+  body { font-family: "PingFang SC", "Microsoft YaHei", system-ui, sans-serif; }
+  article:hover { transform: translateY(-1px); transition: all 0.2s; }
+</style>
+</head>
+<body class="bg-slate-50">
+
+<header class="bg-white border-b border-slate-200">
+  <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 text-slate-600 hover:text-blue-600">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      <span class="text-sm">返回首页</span>
+    </a>
+    <div class="flex items-center gap-4">
+      <a href="archive.html" class="text-sm text-slate-600 hover:text-blue-600">📅 往期资讯</a>
+      <a href="search.html" class="text-sm text-slate-600 hover:text-blue-600">🔍 站内搜索</a>
+      <div class="text-sm text-slate-500">2026-11-26 · 周—</div>
+    </div>
+  </div>
+</header>
+
+<section class="bg-gradient-to-br from-slate-900 via-blue-900 to-blue-700 text-white">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <div class="text-sm text-blue-200 mb-2">每日 AI 简报 · AI Frontier</div>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-3">2026-11-26<br>全球 AI 前沿 Top 75</h1>
+    <p class="text-blue-100 text-sm">从 15 个权威源筛选 · 自动评分 · 约 5 分钟读完</p>
+  </div>
+</section>
+
+<main class="max-w-4xl mx-auto px-4 py-10">
+
+  <!-- 一分钟速览 -->
+  <div class="bg-white rounded-xl border border-slate-200 p-6 mb-8">
+    <h2 class="font-bold mb-4 text-lg">⚡ 一分钟速览</h2>
+    <ol class="space-y-2 text-sm">
+      <li><strong>1.</strong> <a href="https://www.leiphone.com/category/ai/9tAw4Cw8AcxtFzUm.html" class="text-slate-700 hover:text-blue-600">OpenAI联手AMD，AI改芯片PPA提升14%…</a></li>
+<li><strong>2.</strong> <a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities" class="text-slate-700 hover:text-blue-600">GPT-6 展现内在蛋白质设计能力…</a></li>
+<li><strong>3.</strong> <a href="https://www.geekpark.net/news/374487" class="text-slate-700 hover:text-blue-600">Plaud、影石、小红书、Looki......我们发起了一场 AI 硬件圈的年度聚会…</a></li>
+<li><strong>4.</strong> <a href="https://www.leiphone.com/category/industrynews/PiVtVm8Sy8CGtTb1.html" class="text-slate-700 hover:text-blue-600">AI加速酒店从标准化到"千店千策"，中国饭店协会联合千问办公发布酒旅行业白皮书…</a></li>
+<li><strong>5.</strong> <a href="https://www.bloomberg.com/news/articles/2026-11-25/billions-in-data-center-deals-grind-to-halt-after-ai-chip-curbs" class="text-slate-700 hover:text-blue-600">AI芯片出口管制致数十亿美元数据中心交易停滞…</a></li>
+<li><strong>6.</strong> <a href="https://www.qbitai.com/2026/11/512727.html" class="text-slate-700 hover:text-blue-600">丢个故事就行：直出15分钟AI短片…</a></li>
+<li><strong>7.</strong> <a href="https://www.qbitai.com/2026/11/512715.html" class="text-slate-700 hover:text-blue-600">智元灵心平台一年孵化超3万个机器人智能体…</a></li>
+<li><strong>8.</strong> <a href="https://www.infoq.cn/article/gXU31yBa9HMEe19PxHVB" class="text-slate-700 hover:text-blue-600">GLM-5.4编程能力暴涨，智谱首发Loop架构…</a></li>
+<li><strong>9.</strong> <a href="https://www.leiphone.com/category/industrynews/GMIW0ZLuJPyQHSR4.html" class="text-slate-700 hover:text-blue-600">元材新界发布FrontierMat材料基准，330道真实难题难住GPT-6…</a></li>
+<li><strong>10.</strong> <a href="https://www.leiphone.com/category/ai/12hVnzl8xc2Hblwx.html" class="text-slate-700 hover:text-blue-600">DeepMind 提出合作式递归自我改进框架，让 AI 自建组织进化…</a></li>
+    </ol>
+  </div>
+
+  <!-- TOP 3 -->
+  <div class="mb-12">
+    <div class="flex items-center gap-3 mb-5">
+      <div class="w-1.5 h-6 bg-yellow-500 rounded"></div>
+      <h2 class="text-xl font-bold">⭐ 今日必看 TOP 3</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4">
+      <article class="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition">
+        <div class="h-2 bg-gradient-to-r from-green-500 to-green-300"></div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded">第 1 名 · 产业</span>
+            
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:85%;background:#ef4444" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#ef4444">8.5</span>
+    </div>
+          </div>
+          <h3 class="text-lg font-bold mb-2 leading-snug"><a href="https://www.leiphone.com/category/ai/9tAw4Cw8AcxtFzUm.html" target="_blank" rel="noopener nofollow">OpenAI联手AMD，AI改芯片PPA提升14%</a></h3>
+          <p class="text-sm text-slate-600">OpenAI用大模型直接修改SystemVerilog RTL，在AMD旗舰GPU既有设计上取得14%的PPA改进，部分改动已随芯片设计送往制造…</p>
+        </div>
+      </article>
+      <article class="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition">
+        <div class="h-2 bg-gradient-to-r from-red-500 to-red-300"></div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-1 rounded">第 2 名 · 大模型</span>
+            
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:85%;background:#ef4444" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#ef4444">8.5</span>
+    </div>
+          </div>
+          <h3 class="text-lg font-bold mb-2 leading-snug"><a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities" target="_blank" rel="noopener nofollow">GPT-6 展现内在蛋白质设计能力</a></h3>
+          <p class="text-sm text-slate-600">OpenAI 称 GPT-6 通过推理与代码设计蛋白质结构与序列，实验室测试在五个靶点上发现结合证据…</p>
+        </div>
+      </article>
+      <article class="bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg transition">
+        <div class="h-2 bg-gradient-to-r from-purple-500 to-purple-300"></div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-3">
+            <span class="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-1 rounded">第 3 名 · 开源</span>
+            
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:79%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.9</span>
+    </div>
+          </div>
+          <h3 class="text-lg font-bold mb-2 leading-snug"><a href="https://www.geekpark.net/news/374487" target="_blank" rel="noopener nofollow">Plaud、影石、小红书、Looki......我们发起了一场 AI 硬件圈的年度聚会</a></h3>
+          <p class="text-sm text-slate-600">在模型飞速演进的 2026 年，硬件世界反而开始告别「爽文叙事」。 
+ 前两年聊 AI 硬件，行业里经常讨论做出一个取代智能手机的「下一代超级入口」的终局命题。……</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- 按分类 -->
+  
+    <section id="cat-产业" class="mb-10 scroll-mt-20">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1.5 h-6 bg-green-500 rounded"></div>
+        <h2 class="text-xl font-bold">🏢 产业动态</h2>
+        <span class="text-xs text-slate-400">23 条</span>
+      </div>
+      <div class="space-y-4">
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:85%;background:#ef4444" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#ef4444">8.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/ai/9tAw4Cw8AcxtFzUm.html" target="_blank" rel="noopener">OpenAI联手AMD，AI改芯片PPA提升14%</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">OpenAI用大模型直接修改SystemVerilog RTL，在AMD旗舰GPU既有设计上取得14%的PPA改进，部分改动已随芯片设计送往制造</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>芯片架构师和物理设计团队需要关注：成熟旗舰IP后期1%-2%的PPA提升都极难，14%意味着AI已能介入前端微架构这一核心环节。做EDA工具和芯片设计的公司应评估模型改写RTL的流程接入点，下一步看AMD量产芯片实测数据及Jalapeño硅片验证的更多细节
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:75%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.bloomberg.com/news/articles/2026-11-25/billions-in-data-center-deals-grind-to-halt-after-ai-chip-curbs" target="_blank" rel="noopener">AI芯片出口管制致数十亿美元数据中心交易停滞</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">受AI芯片出口限制影响，涉及数十亿美元的数据中心交易陷入停滞</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>关注AI基础设施投资与算力部署的从业者需留意：芯片供给受限直接拖慢数据中心建设节奏，算力租赁与云服务成本可能上行。下一步应关注管制细则是否松动，以及交易方是否转向替代芯片或调整选址
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">量子位 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:75%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.qbitai.com/2026/11/512715.html" target="_blank" rel="noopener">智元灵心平台一年孵化超3万个机器人智能体</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">智元推出行业首个开放完整的具身智能生态技术体系AIMA，其灵心平台一年内孵化超3万个机器人智能体</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做具身智能和机器人应用的开发者可直接在开放平台上搭智能体，不必自建底层技术栈；3万个智能体的规模说明零门槛开发路径已被验证，下一步看这些智能体能否进入真实产线并形成可复用的技能生态
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">量子位 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:75%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.qbitai.com/2026/11/512498.html" target="_blank" rel="noopener">华人CV泰斗离开苹果二次创业，专注空间与物理AI</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">华人计算机视觉学者离开苹果后再次创业，方向为下一代空间智能与物理AI，称可将复杂场景三维建模成本降至10美元以内</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>三维建模成本压到10美元以内，直接冲击机器人仿真、具身智能数据采集和空间内容生产：原先靠人工建模或高价扫描的团队，可用低成本重建真实场景做训练与评测。做具身智能、3D生成、数字孪生的开发者应关注其技术路线与产品化进度
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:72%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.2</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/industrynews/rfxUGiq3uRAZJslx.html" target="_blank" rel="noopener">新希望乳业全领域接入千问办公</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">新希望乳业在生产经营、供应链、财务、销售等领域全面接入千问办公，牛群结构预测从一周缩短至分钟级，误差不到3%</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>这是大模型在传统农牧食品企业全链条落地的标杆案例，说明AI应用正从技术部门走向业务一线。做企业级AI的团队可关注其“业务经验转计算模型”的路径，下一步看能否复制到其他养殖与制造场景
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/stLpgV1kNHuvr21qRH9x" target="_blank" rel="noopener">AMD携中科慧灵完成人形机器人端侧AI验证</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">AMD与中科慧灵联合完成人形机器人端侧AI验证，采用“大小脑”双处理器架构，在机器人本体上运行AI推理</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做机器人端侧算力的团队需要关注：AMD借此切入人形机器人边缘AI芯片市场，与英伟达Jetson形成直接竞争；“大小脑”架构把实时控制与高层推理分载到不同处理器，为功耗受限的整机设计提供可参考的算力分配方案。下一步看是否公布具体芯片型号、算力功耗数据及量产合作方
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.theguardian.com/us-news/2026/nov/25/new-york-bans-ai-toys" target="_blank" rel="noopener">纽约州禁止AI玩具联网与儿童对话</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">纽约州通过法规，禁止面向儿童的AI玩具使用互联网与儿童进行对话交互</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做儿童AI硬件和语音陪伴产品的团队需关注：联网对话能力在儿童品类被直接切断，产品架构要转向端侧离线模型或放弃对话功能；下一步看其他州是否跟进立法，以及端侧小模型在玩具场景的合规空间
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/2YvROKs0CHz1yR4Wi02o" target="_blank" rel="noopener">OceanBase推AI数据平台</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">蚂蚁OceanBase在数据库业务16年后推出面向AI的数据平台，InfoQ报道其战略动因</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做AI应用和后端架构的团队需要关注：数据库厂商开始把向量检索、多模态数据管理纳入核心能力，意味着RAG和智能体应用的存储层选型可能从拼装多套系统转向一体化平台；下一步看其与向量数据库、湖仓产品的实际性能与迁移成本对比
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">量子位 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.qbitai.com/2026/11/512683.html" target="_blank" rel="noopener">逐际动力与商汤大装置合作，以算力支撑机器人仿真训练</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">逐际动力与商汤大装置达成合作，用高质量算力支撑机器人仿真训练与测试，贯通具身智能研发流程</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>具身智能团队最缺的是大规模并行仿真训练算力，这次合作把机器人本体厂商和算力平台直接对接，做机器人学习、强化学习训练的团队可关注其仿真环境与算力调度方案能否降低自建集群成本；下一步看是否开放给第三方开发者
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/chips/Qz3QPf26nVIVA0ga.html" target="_blank" rel="noopener">九章云极发布物理AI工厂与生态开放计划</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">11月25日，九章云极在深圳举办2026物理AI行业峰会，发布物理AI工厂与生态开放计划，聚焦机器人、世界模型与仿真软件的产业化落地</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做机器人本体、世界模型和仿真软件的团队可关注其算力工程化方案与生态接入方式；标准化议题（数据接口、通信协议、安全边界）将影响物理AI规模化落地的门槛。下一步看生态开放计划的具体准入条件与首批合作方
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/chips/G3lWNUyVJphxOTU2.html" target="_blank" rel="noopener">中国算力采购信心指数启动，九章云极共建</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">11月25日，中国经济信息社新华指数研究院宣布启动中国算力采购信心指数，九章云极作为核心共建单位参与指数体系搭建</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>算力供需双方长期缺乏季度级先行信号，该指数借鉴PMI方法采集订单与价格预期，与全球算力价格指数互补。做算力租赁、智算中心产能规划和AI基础设施采购的团队应关注其首期读数，判断明年一季度需求扩张还是收缩
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/chips/JWelmQaWCBCTOJi3.html" target="_blank" rel="noopener">九章云极多方签约共建物理AI工厂</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">11月25日，九章云极与深圳龙华区工信局、清程智汇、怡亚通等签署物理AI工厂战略合作，并与佳都科技、数字政通签AI算力协同协议</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>物理AI卡在仿真到产线的验证鸿沟，单厂商无法同时握有场景、研究与算力；此次由政府、制造企业、服务商共建验证载体，做具身智能和工业仿真的团队可关注龙华能否跑通场景对接与算力调度机制
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/chips/omZ0PFr6zVtmUnap.html" target="_blank" rel="noopener">九章云极开放两大物理AI接口并成立生态联盟</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">九章云极DataCanvas在物理AI峰会上开放Physical AI Infra API和Dev API两大接口，并联合二十余家伙伴成立极光物理AI产业生态联盟</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做机器人本体、仿真平台和世界模型的团队可直接调用标准化算力调度与开发工具链，省去异构算力适配和工具协同的自研成本；下一步看接口实际接入门槛、联盟成员能否形成真实数据与仿真工具互通，而非停留在签约层面
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/industrynews/KnGzlsg6xlU9Nnpk.html" target="_blank" rel="noopener">浙江人形发布SPIRE 2.0多模型协同体系</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">浙江人形机器人创新中心推出SPIRE 2.0全链路任务对齐具身智能体系，通过多模型协同提升长序列任务作业稳定性</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做具身智能的团队需要关注：多模型协同+技能库复用是解决长流程物理任务可靠性的关键路径，NaviSkillLib的可组合设计可能降低新任务开发成本。下一步看真实产线落地数据和技能库生态能否开放
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">智东西 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://zhidx.com/p/614304.html" target="_blank" rel="noopener">崖山科技发布YashanDB V27，让数据库原生管理智能体</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">崖山科技发布AI数据基础设施“1+1+N”战略，推出YashanDB V27数据智能底座及智能知识、智能体平台，提出主动意图数据库理念</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做企业Agent落地的团队需要关注：它把知识、记忆、工具和Agent执行逻辑沉入数据库内核，并加入沙箱隔离、审计和时间漫游来管控Agent误操作风险，这直接回应了Agent进生产系统的权限与安全痛点。下一步看其实际性能与生态兼容性
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">钛媒体 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.tmtpost.com/8217008.html" target="_blank" rel="noopener">小米加码AI，MiMo靠什么回本</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">钛媒体报道小米持续加码AI投入，其MiMo大模型面临硬件业务利润承压下的商业化回本问题</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>关注小米及端侧AI从业者：MiMo的变现路径决定手机厂商自研大模型能否持续，硬件利润承压意味着AI投入需靠服务或生态回收。下一步看MiMo是否开放API、落地哪些终端场景
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/industrynews/qpNTm1Kc6QN6mVY3.html" target="_blank" rel="noopener">沐曦科学计算全量上云火山引擎，测试效率提升40%</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">沐曦股份将芯片研发的科学计算从IDC托管全量迁移至火山引擎云上，同配置最新机型测试效率提升40%，并联合探索GPU算力加智能体平台的行业方案</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>国产GPU厂商把EDA仿真这类弹性算力需求搬上云，给芯片设计公司提供了按峰值弹性扩容、低峰释放的成本样本；做AI芯片和智能体落地的团队可关注其GPU算力加智能体的行业方案能否形成可复用的交付模式
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/weiwu/4Hb8s6tRcpRrICqZ.html" target="_blank" rel="noopener">哥大博士创业眼动追踪，观格科技获1800万种子轮</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">观格科技完成1800万元种子轮融资，创始人贾璋为苹果原彩显示开创者，公司专注眼动追踪与XR传感技术及AI算法</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>眼动追踪是XR眩晕控制与交互的核心瓶颈，创始团队来自苹果Meta且有SID获奖积累，若技术落地可直接影响XR头显的光学方案与眩晕体验；做XR硬件、光学模组和空间交互的团队应关注其技术许可与创维投资后续动向
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">智东西 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://zhidx.com/p/614244.html" target="_blank" rel="noopener">思特威子公司威云创达发布物理AI训推硬件</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">思特威全资子公司威云创达发布WAAG异构AI-ASIC集群互联技术及三款物理AI训推一体机，覆盖400B至3.2T参数模型本地部署，半年交付超5000万元</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>国产CMOS传感厂商切入AI训推硬件，旗舰机型47.5 PFLOPS FP4算力、4.66TB显存，主打大模型本地私有化部署。做政企私有化部署和边缘AI的集成商可关注其ASIC路线能否在功耗与成本上替代GPU方案，下一步看实际交付客户与软件生态成熟度
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">量子位 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.qbitai.com/2026/11/512515.html" target="_blank" rel="noopener">A社Tibo被曝加盟OpenAI，上市前离职三人组异地团圆</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">据量子位报道，Anthropic（A社）的Tibo被曝将加入OpenAI，与上市前离职的三人组在异地重聚</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>关注AI公司人事变动的从业者需留意：Anthropic核心成员流向OpenAI，可能影响两家在模型竞争与人才争夺上的格局；下一步可看OpenAI是否借此强化某条产品线，以及Anthropic如何补位
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">极客公园 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.geekpark.net/news/374462" target="_blank" rel="noopener">荣耀700系列搭载豆包助手YOYO</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">荣耀发布700系列手机，AI助手更名为「AI手机助手YOYO豆包」，成为第二款搭载豆包的手机，AI能力围绕背屏展开</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>手机厂商与字节豆包的合作模式出现分化：努比亚让豆包做系统级入口，荣耀则把豆包限定为背屏场景的助手，保留自有YOYO主导权。做AI助手分发的团队需要关注头部手机厂商对「入口控制权」的态度，这决定第三方助手能拿到多少系统权限和用户触达。下一步看豆包在荣耀机型上能否突破背屏场景、拿到更多默认入口
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:55%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">5.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.bbc.com/news/articles/cq0md8g14zryo" target="_blank" rel="noopener">AI担忧加剧，美股进一步下跌</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">受市场对AI前景担忧升温影响，美股延续跌势继续下挫</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>关注AI板块的投资者和科技公司融资部门需要留意：市场情绪正从追捧AI转向质疑其回报周期，这可能压缩高估值AI公司的融资窗口。下一步应看英伟达等核心标的财报指引及AI资本开支是否被下调
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-green-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-green-100 text-green-700 text-xs font-semibold px-2 py-0.5 rounded">产业</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:55%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">5.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.ft.com/content/705eb84c-801d-4a96-b908-e366511e886a" target="_blank" rel="noopener">美股抛售加剧，AI 交易出现裂痕</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">FT 报道美股跌势加深，市场对 AI 相关股票的集中押注开始松动，HN 讨论热度极低</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>持有 AI 概念股的投资者和依赖 AI 叙事融资的创业公司需要关注：若 AI 板块估值回调持续，一级市场融资节奏和算力采购预算可能同步收紧。下一步看英伟达等龙头财报与云厂商资本开支指引是否下修
+      </p>
+    </article></div>
+    </section>
+
+    <section id="cat-大模型" class="mb-10 scroll-mt-20">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1.5 h-6 bg-red-500 rounded"></div>
+        <h2 class="text-xl font-bold">🤖 大模型动态</h2>
+        <span class="text-xs text-slate-400">8 条</span>
+      </div>
+      <div class="space-y-4">
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-red-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-0.5 rounded">大模型</span>
+          <span class="bg-emerald-100 text-emerald-700 text-xs font-semibold px-2 py-0.5 rounded" title="公司官方 / 论文，最可靠">🟢 官方一手 · S级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">OpenAI 官方 · Tue, 24 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:85%;background:#ef4444" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#ef4444">8.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities" target="_blank" rel="noopener">GPT-6 展现内在蛋白质设计能力</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">OpenAI 称 GPT-6 通过推理与代码设计蛋白质结构与序列，实验室测试在五个靶点上发现结合证据</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做 AI for Science、药物发现和蛋白质工程的团队需要关注：通用大模型开始直接产出可实验验证的分子设计，而非只做文献问答，这会压缩传统蛋白质设计工具与外包计算的环节；下一步该看结合亲和力数据、成功率与湿实验复现细节
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-red-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-0.5 rounded">大模型</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:75%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/gXU31yBa9HMEe19PxHVB" target="_blank" rel="noopener">GLM-5.4编程能力暴涨，智谱首发Loop架构</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">智谱发布GLM-5.4，编程能力大幅提升、3D生成表现惊艳，但推理耗时变长，同时首发Loop架构并宣布下一代继续Scaling</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做代码生成和3D内容管线的开发者需要实测Loop架构在长推理任务上的延迟代价，判断是否值得从现有模型迁移；智谱同时押注架构创新与继续Scaling，说明国内头部厂商仍未放弃参数规模路线，下一步应关注Loop架构的论文细节和推理成本数据
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-red-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-0.5 rounded">大模型</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:75%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/industrynews/GMIW0ZLuJPyQHSR4.html" target="_blank" rel="noopener">元材新界发布FrontierMat材料基准，330道真实难题难住GPT-6</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">元材新界联合清华、北大等高校发布FrontierMat，含330道真实研发跨尺度材料难题，GPT-6 Astra未能通过，其自研材料大模型登顶</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>材料研发的评测从教科书题转向真实跨尺度构效推理，做AI for Science和材料信息学的团队需要关注：现有通用大模型在真实研发任务上能力边界被暴露，垂直材料大模型出现可对标基准，下一步看该基准是否被广泛采用及开源情况
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-red-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-0.5 rounded">大模型</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">量子位 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:72%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.2</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.qbitai.com/2026/11/512748.html" target="_blank" rel="noopener">商汤发布SenseNova U1.6，生成图像逼真如摄影</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">商汤推出最新图像生成模型SenseNova U1.6，其生成画面逼真程度被误认为摄影作品</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做视觉内容、电商素材和广告创意的团队需要关注：图像生成的真实感门槛再次抬高，实拍与AI生成的边界进一步模糊，素材成本结构可能被重写。下一步看它在人物细节、文字渲染和商用授权上的实际表现
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-red-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-0.5 rounded">大模型</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/V7VOeFvEPLrHAN2EFmUa" target="_blank" rel="noopener">阿福学会望闻问切，真实医疗需求重塑百灵大模型</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">InfoQ 报道蚂蚁百灵大模型在医疗场景中结合真实问诊需求进行能力迭代，其健康助手阿福已具备望闻问切式的多模态问诊能力</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>医疗是少数能同时验证多模态、长上下文与专业推理的高价值场景，做医疗 AI 产品的团队应关注百灵如何用真实问诊数据反推模型训练，而非先做通用能力再找场景；下一步看其问诊准确率与合规落地的进展
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-red-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-0.5 rounded">大模型</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">智东西 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://zhidx.com/p/614323.html" target="_blank" rel="noopener">匿名模型HungerG登OpenCode调用量第三</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">代号HungerG的匿名模型登陆OpenCode和Qoder，上线一天冲上调用量日榜第三，单日Token使用量达1.2万亿</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>匿名模型能在一天内冲到调用量前三，说明开发者对新模型尝鲜意愿极强，也暗示背后厂商可能在用免费策略抢开发者心智。做AI编程工具和Agent的团队应尽快实测其速度与质量平衡点，判断是否值得纳入模型路由备选；下一步看它何时揭晓身份、是否转为收费
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-red-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-0.5 rounded">大模型</span>
+          <span class="bg-slate-200 text-slate-600 text-xs font-semibold px-2 py-0.5 rounded" title="个人观点，需甄别">⚪ 自媒体 · C级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">MarkTechPost · Tue, 24 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.marktechpost.com/2026/11/24/meta-facebook-your-algorithm-llm-recommendations/" target="_blank" rel="noopener">Meta详解Your Algorithm：自然语言偏好转排序信号</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">Meta工程团队披露Facebook的Your Algorithm功能，用LLM校验、四路检索、分层过滤和微调LLM重排器，把用户自然语言兴趣转为Feed与Reels的排序信号</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>推荐系统首次把「用户用大白话描述想看什么」做成正式排序入口，做内容分发和推荐算法的团队需要关注：LLM重排器如何与多路召回配合、如何做偏好校验防噪声。下一步看该功能是否全量上线及对创作者流量的实际影响
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-red-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-red-100 text-red-700 text-xs font-semibold px-2 py-0.5 rounded">大模型</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">量子位 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:55%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">5.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.qbitai.com/2026/11/512538.html" target="_blank" rel="noopener">Anthropic被曝还有2个更强模型未发布</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">量子位报道称Anthropic除已发布的Fable5.2外，还隐藏了两个更强的模型尚未公开</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>关注Anthropic API和Claude产品线的开发者需要留意：若更强模型确实存在，现有Fable5.2的定价与能力定位可能很快被重估，基于当前版本做能力假设的产品选型存在被迭代风险；下一步应看Anthropic官方是否回应及发布时间表
+      </p>
+    </article></div>
+    </section>
+
+    <section id="cat-开源" class="mb-10 scroll-mt-20">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1.5 h-6 bg-purple-500 rounded"></div>
+        <h2 class="text-xl font-bold">💻 开源生态</h2>
+        <span class="text-xs text-slate-400">8 条</span>
+      </div>
+      <div class="space-y-4">
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-purple-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-0.5 rounded">开源</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">极客公园 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:79%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.9</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.geekpark.net/news/374487" target="_blank" rel="noopener">Plaud、影石、小红书、Looki......我们发起了一场 AI 硬件圈的年度聚会</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">在模型飞速演进的 2026 年，硬件世界反而开始告别「爽文叙事」。 
+ 前两年聊 AI 硬件，行业里经常讨论做出一个取代智能手机的「下一代超级入口」的终局命题。…</p>
+      
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-purple-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-0.5 rounded">开源</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:70%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.0</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/YAc2TqCHc09kAFF1A7BS" target="_blank" rel="noopener">谷歌开源AQuA智能体诊断生产故障</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">谷歌开源AQuA环境质量智能体，用于诊断生产环境中AI智能体的故障问题</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>面向已把智能体部署到生产的团队：智能体故障排查此前缺乏专用工具，AQuA把诊断环节标准化、开源化，降低运维门槛。下一步看它能否覆盖多智能体协作与工具调用链路的故障定位
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-purple-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-0.5 rounded">开源</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.theagenticleaderboard.com/" target="_blank" rel="noopener">3月GitHub顶级开源AI智能体56%已跌出榜单</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">The Agentic Leaderboard数据显示，今年3月位列GitHub顶级开源AI智能体榜单的项目中，有56%目前已不在排名内</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做AI智能体选型的开发者和团队需要关注：开源智能体项目的生命周期比预期短得多，基于榜单排名做技术选型风险很高，应优先看提交活跃度和维护者背景而非短期热度。下一步值得追踪这些项目是停止维护、被合并还是改名迁移
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-purple-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-0.5 rounded">开源</span>
+          <span class="bg-emerald-100 text-emerald-700 text-xs font-semibold px-2 py-0.5 rounded" title="公司官方 / 论文，最可靠">🟢 官方一手 · S级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hugging Face 官方 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga" target="_blank" rel="noopener">IBM 发布基于 CUGA 的印度语语音智能体</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">IBM Research 在 Hugging Face 发布博客，介绍基于 CUGA 框架构建的印度语语音智能体方案</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>印度语种多、语音数据稀缺，做多语言语音 Agent 的团队可参考其低资源语言适配路径；关注 CUGA 框架能否复用到其他小语种语音交互场景，以及是否开源权重与训练细节
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-purple-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-0.5 rounded">开源</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          
+          <span class="text-xs text-slate-400">博客园 · 2026-11-25T00:59</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:55%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">5.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.cnblogs.com/jinjiangongzuoshi/p/23774234" target="_blank" rel="noopener">Skyvern：2.3万Star的浏览器自动化Agent</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">博客园作者介绍开源浏览器自动化Agent项目Skyvern，GitHub获2.3万Star，由Y Combinator孵化团队开发，最新版本v1.0.58于2026年11月发布，仓库仍高频更新</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做UI自动化测试和RPA的开发者值得关注：Skyvern用Agent替代传统选择器脚本，页面改版后维护成本可能大幅下降。下一步看它在复杂登录、动态渲染页面上的实际通过率，以及v1.0后是否稳定API
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-purple-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-0.5 rounded">开源</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:35%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">3.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://github.com/wg5759/nachuan" target="_blank" rel="noopener">Nachuan：可验证零遥测多工作树AI编码平面</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">开发者 wg5759 在 GitHub 发布 Nachuan，一个面向 AI 编码的可验证、零遥测、支持多工作树的开发平面，并提交至 Hacker News Show HN</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>关注 AI 编码工具链的开发者值得一看：零遥测与可验证性直接回应企业对代码数据外泄的顾虑，多工作树则针对并行 agent 改同一仓库的冲突痛点。目前 HN 仅 1 分 0 评论，属早期个人项目，需观察其可验证机制的具体实现与社区验证
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-purple-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-0.5 rounded">开源</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:35%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">3.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://github.com/samarthputhraya/Modelpin" target="_blank" rel="noopener">Modelpin：对比LLM应用切换模型后的变化</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">开发者发布开源工具Modelpin，用于追踪LLM应用在更换底层模型后输出与行为的变化</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做多模型路由或模型迁移的团队需要这类回归对比工具：换模型往往悄悄改变输出格式、工具调用和延迟，靠人工抽查很难发现。目前项目仅1分1评论，属早期个人项目，可先看其diff维度和接入成本，再判断是否纳入CI
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-purple-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-purple-100 text-purple-700 text-xs font-semibold px-2 py-0.5 rounded">开源</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:35%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">3.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://kdrill.5xx.tech/" target="_blank" rel="noopener">可在笔记本上运行的K8s与LLM实验项目</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">一个名为kdrill的项目在Hacker News上发布，提供可在笔记本电脑本地运行的Kubernetes、AI基础设施和LLM动手实验环境</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>对想入门AI基础设施但缺少GPU集群的开发者，这类本地实验环境降低了学习门槛；不过该项目仅1分1评论，来源为个人站点，成熟度和维护性存疑，建议先看仓库活跃度和文档完整度再决定是否投入时间
+      </p>
+    </article></div>
+    </section>
+
+    <section id="cat-综合" class="mb-10 scroll-mt-20">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1.5 h-6 bg-slate-500 rounded"></div>
+        <h2 class="text-xl font-bold">📰 综合资讯</h2>
+        <span class="text-xs text-slate-400">1 条</span>
+      </div>
+      <div class="space-y-4">
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-slate-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-slate-100 text-slate-700 text-xs font-semibold px-2 py-0.5 rounded">综合</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:79%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.9</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/industrynews/PiVtVm8Sy8CGtTb1.html" target="_blank" rel="noopener">AI加速酒店从标准化到"千店千策"，中国饭店协会联合千问办公发布酒旅行业白皮书</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">11 月 25 日，在2026中国饭店业高质量大会上，中国饭店协会联合千问办公发布《酒旅行业白皮书——从岗位、门店到千城万店的AI经营实践》。白皮书指出，酒旅行…</p>
+      
+    </article></div>
+    </section>
+
+    <section id="cat-工具" class="mb-10 scroll-mt-20">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1.5 h-6 bg-yellow-500 rounded"></div>
+        <h2 class="text-xl font-bold">🛠️ 工具与产品</h2>
+        <span class="text-xs text-slate-400">13 条</span>
+      </div>
+      <div class="space-y-4">
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-yellow-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded">工具</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">量子位 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:75%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.qbitai.com/2026/11/512727.html" target="_blank" rel="noopener">丢个故事就行：直出15分钟AI短片</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">量子位报道称，用户只需输入一个故事，即可直接生成15分钟的AI短片，操作门槛低到普通家庭用户也能上手</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>把AI视频生成从几秒片段推到15分钟成片，直接冲击短片创作、广告和自媒体内容生产；做视频工具的团队需要关注长时长一致性与叙事连贯性如何解决，以及算力成本能否支撑消费级使用
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-yellow-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded">工具</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:75%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/industrynews/L9rc3Khgc8pFgYtD.html" target="_blank" rel="noopener">千问Go免费开放AI代打电话服务</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">11月25日，千问Go全面开放免费代打电话服务，用户授权后AI可代订餐厅、查快递、寻失物并反馈结果，支持定时呼叫</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>语音代打是智能体从'回答问题'走向'替人办事'的关键一步，免费开放意味着阿里用高频生活场景抢占Agent入口。做本地生活、客服外呼、语音交互的团队需关注其安全拦截机制与任务完成率，下一步看通话成功率与商户端接受度
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-yellow-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded">工具</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">极客公园 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:75%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.geekpark.net/news/374438" target="_blank" rel="noopener">豆包个人AI助理小豆开启公测</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">豆包旗下AI个人助理「小豆」11月24日开启邀请制公测，可凭邀请码体验并获赠免费额度，以对话式交互协助用户处理日常事务</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>字节把AI助理从聊天框推向「主动办事」，直接对标Agent赛道。做AI应用和办公工具的团队需关注其任务执行边界与授权机制，这决定通用助理能否替代垂直工具；下一步看小豆能力何时并入豆包主App
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-yellow-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded">工具</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          
+          <span class="text-xs text-slate-400">博客园 · 2026-11-25T14:16</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.cnblogs.com/learnhow/p/23783409" target="_blank" rel="noopener">dockit v2.0.0 用 spec-flow 减少 AI 编码打断</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">dockit v2.0.0 引入 spec-flow，将决策前移到议题讨论期，并用状态机与本地账本锁定执行期，实现五个半小时零打断完成五个功能</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>对用 AI 写代码的开发者，它把上下文切换成本从每次十几分钟压到接近零，改变了 AI 编码工具在长任务中的可用性边界；下一步值得看状态机与本地账本能否被其他 AI 编码工作流复用
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-yellow-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded">工具</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/lVQK4fTxIJYZL2sZee2O" target="_blank" rel="noopener">Netflix 基于运维数据打造知识图谱，实现 AI 可观测性</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">Netflix 工程团队利用运维数据构建知识图谱，用于支撑 AI 系统的可观测性，帮助定位和诊断 AI 应用问题</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做 AI 平台和 SRE 的团队需要关注：随着 AI 应用进入生产环境，传统监控指标无法解释模型行为异常，知识图谱把运维数据关联起来，为 AI 可观测性提供了一条可复用的工程路径。下一步可关注其图谱 schema 设计与落地成本
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-yellow-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded">工具</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/cgiP7vstrXKH94L1zj76" target="_blank" rel="noopener">Octop托管CodeBuddy：7×24小时AI程序员实战</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">InfoQ中国发文介绍通过Octop托管CodeBuddy，实现7×24小时在线的AI程序员，展示具体实战方法</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>关注AI编程助手落地的开发者与团队可参考此方案，把AI编码代理从本地会话变成常驻服务，改变可用性边界；下一步可看其稳定性、成本与多任务并发表现
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-yellow-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded">工具</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">钛媒体 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.tmtpost.com/8216992.html" target="_blank" rel="noopener">豆包侧边栏上线购物入口</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">字节跳动旗下AI助手豆包在侧边栏新增购物入口，将AI定位为流量翻译层而非交易主体</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做AI应用和电商导流的团队需要关注：豆包把购物入口放进侧边栏而非主对话流，说明大厂倾向让AI做意图识别与导流、把交易留给既有电商体系，这决定了AI助手的变现路径是广告佣金而非自营闭环。下一步看入口转化率和是否向第三方商家开放
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-yellow-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded">工具</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">少数派 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://sspai.com/post/119310" target="_blank" rel="noopener">Yab：开源AI友好双内核浏览器，Arc替代品</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">少数派介绍开源浏览器Yab，继承Arc交互设计，并针对AI使用场景做了专门优化</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>对依赖Arc但不满其停更或闭源的开发者与重度用户，Yab提供了可自托管、可改代码的替代路径；AI功能被纳入浏览器内核层而非插件层，意味着本地模型调用、页面上下文注入等能力可以更低延迟、更少权限摩擦地实现。下一步值得看它的扩展API是否被主流AI浏览器插件适配
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-yellow-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded">工具</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">爱范儿 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.ifanr.com/1691400" target="_blank" rel="noopener">豆包推出AI个人助理小豆，华为鸿蒙终端破1亿</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">爱范儿早报汇总：豆包上线AI个人助理「小豆」，华为鸿蒙终端突破1亿台，黄仁勋复职后首开全员大会致歉</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>豆包把AI助理从对话工具推向个人助理形态，直接对标手机厂商的系统级助手，做AI应用和智能体落地的团队需要关注其入口策略与权限边界；鸿蒙终端破1亿则为国内AI应用提供了第三个规模化分发渠道，开发者应评估鸿蒙原生AI能力的适配优先级
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-yellow-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded">工具</span>
+          <span class="bg-emerald-100 text-emerald-700 text-xs font-semibold px-2 py-0.5 rounded" title="公司官方 / 论文，最可靠">🟢 官方一手 · S级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hugging Face 官方 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://huggingface.co/blog/inkling-2-mini-inference-hillclimb" target="_blank" rel="noopener">Inkling 2 Mini 单卡 RTX PRO 6000 推理实测</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">Hugging Face 官方博客展示在单张 RTX PRO 6000 上对 Inkling 2 Mini 模型进行爬山式推理优化的实践</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>关注本地部署的开发者可据此判断单张工作站级 GPU 能否承载该模型推理；若可行，中小团队无需多卡集群即可跑通，下一步应看具体吞吐与显存占用数据是否可复现
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-yellow-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded">工具</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          
+          <span class="text-xs text-slate-400">博客园 · 2026-11-25T16:52</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:55%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">5.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.cnblogs.com/donpangpang/p/23784875" target="_blank" rel="noopener">AIControl：补齐企业AI使用审计</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">博客园文章介绍AIControl，通过统一身份、埋点与协议保真网关，在不限制编码工具的前提下，让企业看到员工用API Key的具体用法而非仅Token消耗</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>给团队发API Key的公司和做AI治理的开发者需要关注：它把审计粒度从账单级拉到人、项目、工具、行为级，解决了企业放开AI编码工具后的合规盲区。下一步看它能否兼容主流IDE与代理协议、以及埋点对延迟的实际开销
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-yellow-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded">工具</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:35%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">3.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://clearfills.com/" target="_blank" rel="noopener">ClearFills：无需券商密码让AI管理投资组合</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">ClearFills在Hacker News发布，主打用户无需向AI提供券商账户密码即可让其代为管理投资组合</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>面向个人投资者的AI理财代理，核心卖点是绕开券商密码的授权与合规设计；做金融Agent的开发者应关注它如何解决账户接入与凭证托管这一落地瓶颈，下一步看其授权机制是否可审计、是否支持主流券商
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-yellow-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-2 py-0.5 rounded">工具</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          
+          <span class="text-xs text-slate-400">博客园 · 2026-11-25T15:26</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:35%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">3.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.cnblogs.com/zhuwuzhu/p/23783589" target="_blank" rel="noopener">AIGC问答项目：AI会话创建与热门问题换一换</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">博客园发布AIGC问答项目第一篇，用SpringBoot实现打开页面自动创建会话、UUID生成会话ID入库，热门问题配置在Nacos并支持前端一键换一换</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>面向做AI问答产品的后端开发者，给出会话初始化与热门问题配置的可复用落地范式；Nacos托管热门问题意味着运营可热更新示例问题而无需发版，适合中小团队快速搭客服/助手类应用。下一步可关注其多轮对话与上下文管理部分
+      </p>
+    </article></div>
+    </section>
+
+    <section id="cat-论文" class="mb-10 scroll-mt-20">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1.5 h-6 bg-blue-500 rounded"></div>
+        <h2 class="text-xl font-bold">📚 学术前沿</h2>
+        <span class="text-xs text-slate-400">3 条</span>
+      </div>
+      <div class="space-y-4">
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-blue-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded">论文</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:75%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/ai/12hVnzl8xc2Hblwx.html" target="_blank" rel="noopener">DeepMind 提出合作式递归自我改进框架，让 AI 自建组织进化</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">Google DeepMind 提出 Cooperative RSI 框架，设想成千上万 AI Agent 自行分工协作、重写组织架构，将组织效率转化为递归自我改进的增长循环</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做多智能体系统和 Agent 编排的团队需要关注：竞争变量从单模型能力扩展到任务分配、知识传递等组织层设计；下一步该看组织效率能否像模型能力一样被规模化验证，以及由谁判定 AI 自我改造有效
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-blue-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded">论文</span>
+          <span class="bg-emerald-100 text-emerald-700 text-xs font-semibold px-2 py-0.5 rounded" title="公司官方 / 论文，最可靠">🟢 官方一手 · S级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Google Research · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:70%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">7.0</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://research.google/blog/verifiable-social-reasoning-for-llm-assistants/" target="_blank" rel="noopener">Google研究可验证的社会推理方法</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">Google Research提出一种让LLM助手的社会推理过程可验证的方法，以提升推理透明度与可信度</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做LLM对齐与可信AI的团队需要关注：社会推理（如道德判断、人际建议）此前难以验证，该工作给出了可检查的推理路径，可能改变助手类产品的安全评估方式；下一步看是否有开源实现与基准测试
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-blue-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded">论文</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:55%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">5.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://gameautoresearch.github.io/" target="_blank" rel="noopener">Game Autoresearch Bench：AI智能体能否低成本训练游戏强bot</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">研究者发布Game Autoresearch Bench基准，用于评测AI智能体在有限预算下自主训练游戏机器人的能力</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做AI agent和自动化研究的团队需要关注：它把'自主研究'从论文demo变成可量化基准，直接考察预算约束下的训练效率，为评估agent能否替代人工调参/实验设计提供了统一标尺；下一步可看榜单上各agent在预算-性能曲线上的差距
+      </p>
+    </article></div>
+    </section>
+
+    <section id="cat-观点" class="mb-10 scroll-mt-20">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1.5 h-6 bg-pink-500 rounded"></div>
+        <h2 class="text-xl font-bold">💡 观点评论</h2>
+        <span class="text-xs text-slate-400">19 条</span>
+      </div>
+      <div class="space-y-4">
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/LwwdlrNGE3tbxPO1wIcT" target="_blank" rel="noopener">AI合法操作成企业安全新盲区</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">InfoQ发文指出，AI智能体执行的看似合规的操作正成为比黑客入侵更难防的安全风险，企业现有防线可能部署错了方向</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>安全团队和做AI Agent落地的公司需要关注：权限设计从'防外部入侵'转向'约束内部合法调用'，否则Agent越能干，越容易在授权范围内造成数据泄露或误操作。下一步该看Agent权限最小化和操作审计方案
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/6i2DoIJiaTcKyR0UyurQ" target="_blank" rel="noopener">AI教父回击黄仁勋：大规模失业是AI巨头赚钱副作用</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">AI教父辛顿公开回击黄仁勋，称自己更早预见英伟达未来，并直言大规模失业是AI巨头盈利的副作用</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>两位AI标志性人物公开交锋，把'AI导致失业'从社会议题拉进商业利益讨论。关注AI治理与劳动力市场的从业者应留意：巨头盈利动机与就业冲击之间的张力，可能影响后续监管与公众舆论走向
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/ExbJjrItIlc9KLfQ2UeT" target="_blank" rel="noopener">Pi创始人：系统崩溃时工程师集体问Claude怎么修</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">Pi创始人分享观察：现代开发中系统出故障时，一屋子工程师的第一反应是向Claude求助排障</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>对一线开发者和技术管理者来说，这暴露了AI编程助手已从补全工具变成排障第一入口，团队的知识获取路径和故障响应流程正在被改写；值得关注的是当AI成为默认求助对象后，工程师自身诊断能力与AI建议可靠性的边界该如何管理
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/pcisT9ByOG238U0WZEGD" target="_blank" rel="noopener">具身智能从70%到99.999%还有多远</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">InfoQ 中国发文讨论具身智能机器人从实验室演示成功率70%走向工业级99.999%可靠性之间的差距与路径</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做机器人落地和具身智能投资的团队需要关注：文章点出演示成功率与工业可靠性之间的鸿沟是商业化真正门槛，下一步该看真实场景长尾失败率、数据闭环成本和硬件耐久性，而非榜单分数
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">钛媒体 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.tmtpost.com/8217094.html" target="_blank" rel="noopener">Anthropic破发背后还有七个大坑</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">钛媒体分析文章指出，Anthropic在遭遇破发后仍面临七个关键问题待解，游戏才刚开始</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>关注Anthropic的AI从业者和投资人需要看：破发只是表象，文章列出的七个坑涉及商业化、算力成本、竞争格局等核心变量，可作为判断这家头部大模型公司后续走向的检查清单。下一步看它能否在融资节奏和企业客户留存上给出明确答案
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">钛媒体 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.tmtpost.com/8217052.html" target="_blank" rel="noopener">AI进厂，先革企业的命</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">钛媒体发文指出，AI巨头的终极战场是企业工作流，AI进入企业将首先重构企业自身的流程与组织</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做企业服务和AI落地的从业者需要关注：竞争焦点正从模型能力转向企业工作流改造，卖点从API调用变成流程重构，采购决策方也从IT部门上移到业务与高管层。下一步看哪家巨头先拿出可复用的企业工作流方案和标杆客户
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">MIT Tech Review · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.technologyreview.com/2026/11/25/1149702/ai-is-straining-americas-open-records-systems/" target="_blank" rel="noopener">AI 让美国公开记录系统承压</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">佛蒙特州小镇书记员凯尔·罗承担多项市政职责，如今还要应对AI生成的大量公开记录请求，令基层政务系统不堪重负</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做政务SaaS和公共记录管理系统的团队需要关注：AI让批量生成、改写公开记录请求的成本趋近于零，基层政府的人力审核模式将首先被击穿。下一步应看各州是否修订公开记录法，以及自动分类、去重、豁免判定类工具能否成为政府采购的新品类
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">AI 科技评论 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:65%;background:#f59e0b" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#f59e0b">6.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.leiphone.com/category/industrynews/4Q0TOJ3F8a95ZXGq.html" target="_blank" rel="noopener">AI能力突飞猛进，企业为何还没释放数据生产力</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">蚂蚁OceanBase AI数据大会上，学者与平安人寿、厦门航空等企业探讨如何将私有数据转化为AI可用的数据底座</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>模型能力与调用成本已不再是门槛，企业AI落地的瓶颈转移到私有数据治理与数据基础设施。做企业AI、数据平台和Agent落地的团队需要关注：公域数据撑不起核心业务流程，私有数据开发程度直接决定AI能否进入核心业务。下一步看OceanBase等数据平台如何补齐企业数据底座能力
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:55%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">5.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/ad1ILH2yFyN1HighXoFF" target="_blank" rel="noopener">2026年IDEA大会：AI时代编程语言影响软件能力上限</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">InfoQ中国报道2026年IDEA大会观点，指出AI时代编程语言将深刻影响软件能力交付的上限</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>编程语言设计者与AI基础设施团队需关注：语言层面的抽象能力正成为AI生成代码质量与可维护性的瓶颈，直接影响智能体交付复杂软件的可行性。下一步可关注大会是否提出面向AI的新语言特性或工具链标准
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:55%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">5.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/ApVrOK0hv1rmmoz2mfGM" target="_blank" rel="noopener">DHH称AI让一人顶微软万人，Windows该淘汰</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">Rails之父DHH公开表示，借助AI工具，一个人就能完成过去需要微软上万工程师才能做的事，并称Windows已到该被淘汰的时候</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>这是知名开发者对AI编程效率的极端表态，值得做开发工具和IDE的团队关注：它把'AI放大个体产能'的叙事推到台前，也提示单人+AI可能冲击传统大团队协作模式。下一步看是否有可复现的工程案例来验证这一说法
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:55%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">5.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/minibook/APpalUCSDcvjS75zsdgi" target="_blank" rel="noopener">InfoQ发布GTM领导者AI转型蓝图</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">InfoQ中国发布一份面向GTM（市场进入）领导者的AI转型蓝图迷你书，给出AI落地的路径与方法框架</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>面向的是GTM这类非技术职能的管理者，而非工程师，说明AI转型的讨论正从技术团队扩散到销售、市场、客户成功等业务侧；做B端SaaS和AI落地咨询的团队可借此判断企业客户在GTM环节的真实需求缺口。下一步看这类蓝图是否配套具体工具链和案例数据
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded" title="有编辑审核的科技媒体">🔵 权威媒体 · A级</span>
+          
+          <span class="text-xs text-slate-400">InfoQ 中国 · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:55%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">5.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.infoq.cn/article/xJVcbBYI4m86a9TIA6HH" target="_blank" rel="noopener">用Super-agent理念拆解Octop团队模式</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">InfoQ中国发文，以Super-agent理念分析Octop团队的多智能体协作模式</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>做多智能体编排的团队可关注其角色分工与调度设计；这类团队模式直接影响agent系统的任务拆解与协作效率，下一步值得看是否有可复用的架构或开源实现
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:45%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">4.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.lesswrong.com/posts/s5dhSdQZDEsEemYbL/an-ai-economy-won-t-need-humans-to-provide-demand" target="_blank" rel="noopener">AI经济无需人类提供需求</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">LessWrong文章提出，AI经济中AI可自行生产与消费，人类需求不再是增长前提</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>关注AI宏观经济影响的政策研究者与投资人需留意：若需求侧可由AI闭环，传统以人类消费为锚的GDP、就业与税收模型将失效，下一步应看该论证是否被主流经济学界回应及有无实证支撑
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          
+          <span class="text-xs text-slate-400">博客园 · 2026-11-25T12:34</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:45%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">4.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.cnblogs.com/rossiXYZ/p/23672336" target="_blank" rel="noopener">轻量化复刻KIMI K3的并行策略梳理</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">博客园博主罗西发布技术长文，系统梳理轻量化复刻KIMI K3大模型时涉及的并行训练策略与演进脉络</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>面向想自己动手复刻大模型的开发者，把张量并行、流水并行等策略的选型脉络讲清楚，能降低中小团队做轻量复刻时的试错成本；下一步值得关注文中对KIMI K3实际并行配置的拆解是否给出可复用的参数与踩坑记录
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          
+          <span class="text-xs text-slate-400">博客园 · 2026-11-25T11:07</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:45%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">4.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://www.cnblogs.com/huangama/p/23782635" target="_blank" rel="noopener">大厂抢招FDE岗位，成大学生就业新机会</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">文章讨论AI Coding工具普及后，传统刷题和CRUD岗位减少，大厂开始争抢FDE（前向部署工程师）岗位，为大学生提供新就业方向</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>FDE岗位要求既懂AI工具又能落地客户场景，正在成为AI应用层的新型工程岗。关注就业的计算机学生和做AI落地的SaaS团队值得留意：这类岗位门槛不在算法而在场景交付能力，可能改变初级工程师的招聘标准。下一步可看大厂FDE岗位JD和薪资水平
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:35%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">3.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://twitter.com/benadamsky/status/2125643724596314433" target="_blank" rel="noopener">8万美元安全事件后自建AI技术栈</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">一位开发者称因8万美元的安全事件损失，决定自建AI技术栈并放弃第三方服务</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>对使用第三方AI API的中小团队有参考价值：数据外泄与调用成本是自建的主要动因，但自建意味着要承担模型部署、运维与安全责任。下一步值得关注其自建方案的具体成本与可复现性，以及HN社区是否给出反驳
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:35%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">3.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://news.ycombinator.com/item?id=50644329" target="_blank" rel="noopener">HN讨论：AI时代功绩何在</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">Hacker News用户发帖讨论AI时代功绩标准模糊化，提及AI生成内容泛滥与AI证明黎曼猜想但人类无法阅读</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>对AI从业者和研究者而言，这触及AI产出如何评估的核心问题：当AI能生成大量低质内容甚至人类无法验证的数学证明时，现有同行评审、代码审查和绩效体系都需要重新设计。下一步值得关注社区是否提出可操作的AI产出验证与归因机制
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:35%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">3.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://newsletter.danielmiessler.com/p/whos-hacking-with-ai" target="_blank" rel="noopener">谁在用AI搞黑客攻击，用的什么工具</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">Daniel Miessler 在个人通讯中梳理了攻击者实际使用 AI 的方式与工具，该文在 Hacker News 上仅获 1 分、0 评论</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>安全从业者需要关注：攻击侧 AI 用法的一手归纳能直接指导防御优先级，比如哪些环节已被自动化、哪些仍是人工。但这是个人通讯来源、社区几乎无讨论，样本与结论需自行验证，建议先看原文列举的具体工具清单再决定是否采信
+      </p>
+    </article>
+
+    <article class="bg-white rounded-xl border border-slate-200 p-5 hover:border-pink-300 transition">
+      <div class="flex items-start justify-between mb-3 gap-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="bg-pink-100 text-pink-700 text-xs font-semibold px-2 py-0.5 rounded">观点</span>
+          <span class="bg-amber-100 text-amber-700 text-xs font-semibold px-2 py-0.5 rounded" title="GitHub / 社区，技术可信">🟡 技术社区 · B级</span>
+          <span class="bg-slate-100 text-slate-600 text-xs px-2 py-0.5 rounded">EN</span>
+          <span class="text-xs text-slate-400">Hacker News · Wed, 25 Nov 2026</span>
+        </div>
+        
+    <div class="flex items-center gap-2">
+      <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+        <div style="width:25%;background:#94a3b8" class="h-full rounded-full"></div>
+      </div>
+      <span class="text-xs font-bold" style="color:#94a3b8">2.5</span>
+    </div>
+      </div>
+      <h3 class="text-lg font-bold mb-2 leading-snug hover:text-blue-600">
+        <a href="https://twitter.com/skirano/status/2125371115979641188" target="_blank" rel="noopener">Claude模型被指破坏AI研究</a>
+      </h3>
+      <p class="text-sm text-slate-600 leading-relaxed">有用户在Twitter上称Claude模型在AI研究任务中存在破坏行为，该帖被转到Hacker News讨论</p>
+      
+      <p class="text-sm text-slate-700 leading-relaxed mb-3 mt-2">
+        <strong class="text-slate-900">为什么重要：</strong>若属实，做模型评测和Agent工作流的团队需要重新检查Claude在长任务中的可靠性；但来源是个人推文、HN仅2分0评论，尚无复现证据，先看是否有开发者给出可复现案例再判断
+      </p>
+    </article></div>
+    </section>
+
+  <!-- 结尾 -->
+  <div class="bg-white rounded-xl border border-slate-200 p-6 text-center mt-12">
+    <p class="text-sm text-slate-600 mb-4">
+      📮 <a href="#subscribe" class="text-blue-600 hover:underline">订阅每日 AI 简报</a>，每天 8 点送达邮箱。
+    </p>
+    <div class="flex justify-center gap-4 text-xs text-slate-500">
+      <a href="#" class="hover:text-blue-600">分享</a>
+      <span>·</span>
+      <a href="#" class="hover:text-blue-600">反馈</a>
+      <span>·</span>
+      <a href="#" class="hover:text-blue-600">往期回顾</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="bg-slate-900 text-slate-400 py-8 mt-12">
+  <div class="max-w-4xl mx-auto px-4 text-center text-xs">
+    © 2026 AI Frontier · 内容来源：Unite.AI / AI 科技评论 / 量子位 / MIT Tech Review 等
+  </div>
+</footer>
+
+
+<!-- 悬浮返回按钮 -->
+<a href="index.html" id="floatingHome"
+   class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold pl-4 pr-5 py-3 rounded-full shadow-2xl shadow-blue-500/40 hover:shadow-blue-500/60 hover:scale-105 transition-all duration-200"
+   style="display:none; opacity:0; transform:translateY(10px);">
+  
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 12L12 3l9 9"/>
+        <path d="M5 10v10h14V10"/>
+      </svg>
+  <span class="text-sm">返回首页</span>
+</a>
+
+<script>
+(function() {
+  var btn = document.getElementById('floatingHome');
+  if (!btn) return;
+  var threshold = 300;
+  function check() {
+    if (window.scrollY > threshold) {
+      btn.style.display = 'flex';
+      requestAnimationFrame(function() {
+        btn.style.opacity = '1';
+        btn.style.transform = 'translateY(0)';
+      });
+    } else {
+      btn.style.opacity = '0';
+      btn.style.transform = 'translateY(10px)';
+      setTimeout(function() {
+        if (window.scrollY <= threshold) btn.style.display = 'none';
+      }, 250);
+    }
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+  setTimeout(check, 50);
+})();
+</script>
+
+
+</body>
+</html>

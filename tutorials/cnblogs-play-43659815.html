@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>四层随机种子+算法开关实现PyTorch完全可复现 - AI 玩法教程 · AI Frontier</title>
+<title>SpringBoot搭建AI会话创建与热门问题换一换 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-25
+      2026-11-26
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">四层随机种子+算法开关实现PyTorch完全可复现</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">SpringBoot搭建AI会话创建与热门问题换一换</h1>
     
   </div>
 </header>
@@ -65,7 +65,7 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.cnblogs.com/dawudexiaowu/p/23693203" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/zhuwuzhu/p/23783589" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">同一份 PyTorch 代码两次跑出不同 loss？别只怪 torch.manual_seed，真正要锁住的是 Python、NumPy、PyTorch、CUDA 四层随机源，再加一个 cudnn 确定性开关。</p>
+  <p class="text-base text-slate-800 leading-relaxed">本教程带你用 SpringBoot 快速落地 AI 会话创建与热门问题“换一换”功能，从零搭建一个可用的 AIGC 问答初始化模块。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多同学在复现实验时发现，明明设了 torch.manual_seed(42)，两次运行的 loss 却从 0.002 变成 0.0004，权重也对不上。根因是 PyTorch 的随机性来自四层：Python 内置 random、NumPy、PyTorch CPU/GPU、CUDA 底层，只设一层等于没锁全。本教程带你用「四层种子 + 算法开关」实现逐位可复现，适合论文复现、调参对比、CI 回归测试等场景。
+    在 AIGC 问答类产品中，用户打开页面时通常需要自动创建一个对话会话，并展示一组热门问题引导用户提问。本玩法基于 SpringBoot 分层架构，实现 UUID 会话 ID 生成与入库持久化，同时将热门问题配置放在 Nacos 中，前端点击“换一换”即可随机刷新示例问题。这套方案适合需要快速搭建 AI 助手初始化能力的开发者，代码结构清晰，可直接复用到实际项目中。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.8+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行环境，建议用 conda 或 venv 隔离</div>
+      <div class="font-semibold text-slate-900">IntelliJ IDEA  <a href="https://www.jetbrains.com/idea/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Java 集成开发环境，用于编写和调试 SpringBoot 项目</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">PyTorch 1.10+  <a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">深度学习框架，需带 CUDA 版本（若用 GPU）</div>
+      <div class="font-semibold text-slate-900">JDK 17  <a href="https://www.oracle.com/java/technologies/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Java 运行环境，SpringBoot 3.x 推荐使用 JDK 17</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">NumPy  <a href="https://numpy.org/install/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">数值计算库，PyTorch 依赖它，需单独设种子</div>
+      <div class="font-semibold text-slate-900">SpringBoot 3.x  <a href="https://start.spring.io/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">项目基础框架，通过 Spring Initializr 快速生成</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">CUDA Toolkit（可选）  <a href="https://developer.nvidia.com/cuda-toolkit" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">GPU 运行需要，版本与 PyTorch 匹配</div>
+      <div class="font-semibold text-slate-900">MySQL 8.0  <a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">关系型数据库，用于存储会话记录</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">文本编辑器/IDE  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">VS Code 或 PyCharm，方便写复现脚本</div>
+      <div class="font-semibold text-slate-900">Nacos 2.x  <a href="https://nacos.io/zh-cn/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">配置中心，用于存放热门问题列表配置</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Postman  <a href="https://www.postman.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">接口调试工具，用于验证会话创建和热门问题接口</div>
     </li>
   </ul>
 </section>
@@ -126,55 +130,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：写一个可复现种子函数，一次锁四层</h3>
-      <div class="text-base text-slate-700 leading-loose">新建 seed_everything.py，定义函数 set_seed(seed=42)：先 import random, numpy as np, torch；依次执行 random.seed(seed)、np.random.seed(seed)、torch.manual_seed(seed)、torch.cuda.manual_seed_all(seed)。这样 Python、NumPy、PyTorch CPU、PyTorch 所有 GPU 的随机源都被固定。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：初始化 SpringBoot 项目与数据库表</h3>
+      <div class="text-base text-slate-700 leading-loose">使用 Spring Initializr 创建项目，勾选 Spring Web、MyBatis-Plus、MySQL Driver 和 Nacos Config 依赖。在 MySQL 中创建数据库 ai_chat，并新建会话表 chat_session，字段包括 id（bigint 自增）、session_id（varchar 36，唯一索引）、user_id（bigint）、create_time（datetime）。在 application.yml 中配置数据源和 Nacos 注册中心地址。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>torch.cuda.manual_seed_all 要放在 torch.manual_seed 之后，且即使没有 GPU 也建议保留，方便代码迁移。
+          💡 <span class="font-semibold">小贴士：</span>session_id 建议加唯一索引，避免 UUID 重复导致插入失败；Nacos 命名空间建议按环境隔离。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：打开 cudnn 确定性开关，锁住算法层</h3>
-      <div class="text-base text-slate-700 leading-loose">在 set_seed 里继续加两行：torch.backends.cudnn.deterministic = True 和 torch.backends.cudnn.benchmark = False。前者强制 cuDNN 使用确定性算法，后者关闭自动调优以避免不同运行选到不同算法。这是第五层「算法非确定性」的开关。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：编写会话创建接口</h3>
+      <div class="text-base text-slate-700 leading-loose">创建 ChatSessionController，提供 POST /api/chat/session 接口。在 Service 层使用 UUID.randomUUID().toString() 生成会话 ID，结合当前登录用户 ID 组装实体，通过 MyBatis-Plus 的 save 方法入库。接口返回 sessionId 和创建时间，前端拿到后存入本地缓存，后续对话请求携带该 sessionId。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>开启 deterministic 后部分算子会变慢，训练速度可能下降 5%-20%，复现优先时再开。
+          💡 <span class="font-semibold">小贴士：</span>如果用户未登录，可先用设备指纹或临时游客 ID 代替 user_id，后续再绑定。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：在训练脚本入口第一时间调用</h3>
-      <div class="text-base text-slate-700 leading-loose">在 train.py 的 import 之后、任何模型/数据创建之前调用 set_seed(42)。注意 DataLoader 的 worker 也要设种子：给 DataLoader 传 worker_init_fn=lambda worker_id: np.random.seed(42 + worker_id)，并设 generator=torch.Generator().manual_seed(42)。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：在 Nacos 中配置热门问题</h3>
+      <div class="text-base text-slate-700 leading-loose">登录 Nacos 控制台，在配置管理中新建 Data ID 为 ai-chat-hot-questions.yaml 的配置，内容为 YAML 数组，每项包含 question 和 category 字段。在 SpringBoot 项目中通过 @NacosValue 或 @ConfigurationProperties 注入该配置，并编写 HotQuestionService 提供获取全部问题的方法。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果用了多进程 DataLoader，不设 worker_init_fn 的话每个 epoch 的数据顺序仍可能不同。
+          💡 <span class="font-semibold">小贴士：</span>配置内容建议用 YAML 格式，便于阅读和维护；修改后 Nacos 会自动推送，无需重启应用。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：双跑对比验证逐位一致</h3>
-      <div class="text-base text-slate-700 leading-loose">写一个最小训练脚本：固定随机数据、两层线性模型、固定学习率，跑 10 个 step 后打印 loss 和第一层权重。连续运行两次，把输出保存到 log1.txt 和 log2.txt，用 diff 命令对比。若完全一致，说明四层种子 + 开关生效。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：实现“换一换”随机接口</h3>
+      <div class="text-base text-slate-700 leading-loose">在 HotQuestionController 中提供 GET /api/chat/hot-questions/random 接口，从 HotQuestionService 获取全部问题列表，使用 Collections.shuffle 或 Random 随机抽取 N 条（例如 4 条）返回。前端点击“换一换”按钮时调用该接口，替换展示的问题列表。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>对比时建议打印权重的前 5 个元素，比只看 loss 更能暴露细微差异。
+          💡 <span class="font-semibold">小贴士：</span>如果问题数量较少，可先打乱再取前 N 条，避免重复抽取同一条；可加缓存减少 Nacos 读取频率。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：排查仍不一致的残留因素</h3>
-      <div class="text-base text-slate-700 leading-loose">如果 diff 仍有差异，依次检查：是否用了非确定性算子（如 torch.nn.functional.interpolate 的某些模式）、是否开了 TF32（设 torch.backends.cuda.matmul.allow_tf32 = False）、是否用了随机增强且未设种子、是否多卡 DDP 未设 torch.distributed 种子。逐项关闭后重跑对比。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：前端联调与验证</h3>
+      <div class="text-base text-slate-700 leading-loose">启动 SpringBoot 应用和 Nacos，使用 Postman 调用会话创建接口，确认返回 sessionId 且数据库中有记录。再调用热门问题随机接口，多次请求观察返回问题是否变化。前端页面加载时自动调用会话创建接口，并展示随机热门问题；点击“换一换”按钮触发随机接口刷新列表。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>PyTorch 官方有 reproducibility 文档，列出所有非确定性算子，遇到怪问题先查表。
+          💡 <span class="font-semibold">小贴士：</span>联调时可在 Nacos 中临时增加几条测试问题，方便观察随机效果；注意跨域配置。
         </div>
     </div>
   </div>
@@ -184,7 +188,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    两次运行输出的 loss 和权重逐位一致（diff 无输出），loss 不再从 0.002 跳到 0.0004。在 CPU 和单卡 GPU 上均可复现；多卡场景需额外设 DDP 种子，但四层种子 + cudnn 开关已覆盖绝大多数单机实验。
+    打开前端页面后，系统自动创建一个会话并在数据库中生成一条 session_id 记录；页面展示 4 条热门问题，点击“换一换”按钮后问题列表随机刷新为另一组问题。Postman 调用接口均返回 200 且数据正确。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,38 +198,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>只设 torch.manual_seed 为什么不够？</span>
+        <span>UUID 生成的 session_id 会不会重复？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">因为 PyTorch 的随机数还来自 Python random、NumPy 和 CUDA 底层，只设 torch 层等于只锁了一扇门，其他三扇仍会引入随机性。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">UUID 重复概率极低，但建议数据库加唯一索引兜底，插入失败时重试一次即可。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>开了 deterministic 训练变慢怎么办？</span>
+        <span>Nacos 配置修改后需要重启应用吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">复现实验时开启，正式训练可关闭；也可只对需要对比的 epoch 开启，或用环境变量按需切换。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要，使用 @NacosValue 注解并开启自动刷新，配置变更会实时推送到应用。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>多卡 DDP 怎么保证可复现？</span>
+        <span>热门问题数量很少时“换一换”效果不明显怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">除四层种子外，还要在每张卡上设 torch.cuda.manual_seed_all，并给 torch.distributed 设种子；数据切分也要固定。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以增加问题池数量，或采用轮询加随机混合策略，保证每次至少有一条变化。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>为什么两次 loss 一样但权重有微小差异？</span>
+        <span>会话表需要设置过期时间吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可能是 TF32 或非确定性算子导致，检查 torch.backends.cuda.matmul.allow_tf32 并关闭，再排查 interpolate 等算子。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议增加 expire_time 字段或定时任务清理长期未活跃的会话，避免数据无限增长。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>CPU 上需要设 cudnn 开关吗？</span>
+        <span>没有 Nacos 环境可以先用本地配置吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要，cudnn 只影响 GPU；但保留代码无副作用，方便同一脚本在 CPU/GPU 间切换。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，先用 application.yml 中的本地配置模拟，后续再迁移到 Nacos，接口层无需改动。</div>
     </details>
   </div>
 </section>
@@ -233,14 +237,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把 set_seed 封装成装饰器，自动包裹训练函数，避免忘记调用。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用 pytest 写回归测试，固定种子跑 3 个 step，断言 loss 与基准值误差小于 1e-6，接入 CI。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：在 Hydra/OmegaConf 配置里加 seed 字段，启动时统一注入，适合多实验管理。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将热门问题改为从数据库读取，并增加后台管理页面动态增删改查，适合运营频繁调整的场景。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：会话创建时同步调用大模型接口生成欢迎语，返回 sessionId 的同时附带个性化开场白，提升用户体验。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：使用 Redis 缓存热门问题列表和随机结果，减少 Nacos 和数据库压力，适合高并发场景。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    四层种子锁随机源，cudnn 开关锁算法，双跑 diff 验一致——这就是 PyTorch 完全可复现的精髓。参考原文：https://www.cnblogs.com/dawudexiaowu/p/23693203
+    用 SpringBoot 分层架构 + UUID 会话持久化 + Nacos 动态配置，三步搞定 AI 会话初始化与热门问题“换一换”，代码可直接复用。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -250,17 +254,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可运行 AI Agent 工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭长任务超级智能体工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

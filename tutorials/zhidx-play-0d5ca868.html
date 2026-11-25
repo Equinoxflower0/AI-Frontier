@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用原生子窗口遮罩+双信号竞速根治鸿蒙APP冷启动白屏 - AI 玩法教程 · AI Frontier</title>
+<title>用神秘大模型做MV、游戏和3D建模 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-25
+      2026-11-26
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★☆☆ · 3/5
+        ★★★★☆ · 4/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用原生子窗口遮罩+双信号竞速根治鸿蒙APP冷启动白屏</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用神秘大模型做MV、游戏和3D建模</h1>
     
   </div>
 </header>
@@ -58,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    博客园 AI 教程 · B级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+    智东西 AI 工具评测 · A级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    技术社区
+    权威媒体
   </span>
-  <a href="https://www.cnblogs.com/xyyt/p/23696775" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://zhidx.com/p/614323.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">这个玩法教你用「原生子窗口遮罩 + 双信号竞速」彻底解决鸿蒙 APP 冷启动白屏问题，让启动页像安卓一样丝滑。</p>
+  <p class="text-base text-slate-800 leading-relaxed">今天教你用一套神秘大模型工具链，从零生成音乐MV、小游戏和3D模型，全程无需专业软件基础。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    很多鸿蒙开发者在做「渐变整图启动页」时，发现 AI 给的方案总是无法同时满足「整图渐变」和「零白屏」。作者经过五轮 hilog 真机取证，发现核心在于让遮罩和门帘使用同一张图，并通过双信号竞速（窗口就绪信号与图片解码信号）来消除 35ms 的竞态窗口。这个玩法适用于所有需要高质量冷启动体验的 HarmonyOS 应用，尤其是对启动画面有严格视觉要求的场景。
+    智东西AI工具评测发现，某些未公开的大模型已能偷偷完成跨模态创作：输入一段文字，它就能生成带音乐的视频、可玩的游戏甚至3D资产。这套玩法适合内容创作者、独立开发者和AI爱好者，用来快速验证创意、制作Demo或生成素材。虽然难度中等偏上（4/5），但按步骤操作即可复现。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">DevEco Studio  <a href="https://developer.harmonyos.com/cn/develop/deveco-studio" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">鸿蒙官方 IDE，用于编写和调试代码</div>
+      <div class="font-semibold text-slate-900">Claude 3.5 Sonnet  <a href="https://claude.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">主力代码与提示词生成模型，用于编写游戏逻辑和MV脚本</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">HarmonyOS SDK  <a href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides/installation-0000001053582415" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">提供原生子窗口、hilog 等 API</div>
+      <div class="font-semibold text-slate-900">Midjourney v6  <a href="https://www.midjourney.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">生成MV分镜图和3D建模参考图</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">真机或模拟器  <a href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides/emulator-0000001053582415" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于验证冷启动效果和抓取 hilog 日志</div>
+      <div class="font-semibold text-slate-900">Runway Gen-3 Alpha  <a href="https://runwayml.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">将分镜图转为动态视频片段</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一张渐变整图启动页素材 </div>
-      <div class="text-sm text-slate-600 mt-1">作为遮罩和门帘的同一张图，建议 1080x2340 或适配设备分辨率</div>
+      <div class="font-semibold text-slate-900">Suno AI  <a href="https://suno.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">根据描述生成MV配乐</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Tripo3D  <a href="https://www.tripo3d.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">从图片或文字生成3D模型</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">CapCut 剪映  <a href="https://www.capcut.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">拼接视频、对齐音乐和字幕</div>
     </li>
   </ul>
 </section>
@@ -122,55 +130,66 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：创建原生子窗口作为遮罩层</h3>
-      <div class="text-base text-slate-700 leading-loose">在 EntryAbility 的 onWindowStageCreate 中，使用 window.createSubWindow 创建一个全屏子窗口，设置其背景为透明，并加载一个仅包含 Image 组件的页面。这个 Image 组件使用与启动页完全相同的渐变整图，并设置 objectFit 为 Cover。子窗口的层级要高于主窗口，确保覆盖整个屏幕。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：用Claude生成MV脚本与分镜提示词</h3>
+      <div class="text-base text-slate-700 leading-loose">打开Claude 3.5 Sonnet，输入：“你是一个MV导演，请为歌曲《星际漫游》设计6个分镜，每个分镜给出英文Midjourney提示词，风格为赛博朋克+水彩。” 复制返回的6条提示词，逐条检查是否包含主体、环境、光线和风格词。将提示词保存到文本文件备用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>子窗口的宽高必须设置为 MATCH_PARENT，且背景透明，否则会遮挡主窗口内容。
+          💡 <span class="font-semibold">小贴士：</span>在提示词末尾加上“--ar 16:9 --style raw”让Midjourney直接输出视频比例。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：实现双信号竞速逻辑</h3>
-      <div class="text-base text-slate-700 leading-loose">定义两个布尔标志：windowReady（主窗口内容就绪）和 imageDecoded（遮罩图片解码完成）。在子窗口的 Image 组件 onComplete 回调中设置 imageDecoded = true；在主窗口的页面 aboutToAppear 或首帧渲染回调中设置 windowReady = true。然后写一个 checkAndHideMask 函数，当两个标志都为 true 时，以动画方式隐藏子窗口（例如透明度渐变或直接销毁）。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用Midjourney生成分镜图并挑选</h3>
+      <div class="text-base text-slate-700 leading-loose">在Midjourney输入框中粘贴第1步的每条提示词，生成4张图。从每组分镜中选1张最符合叙事的图，点击U放大并下载。将6张图按顺序命名为scene1.png到scene6.png。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>使用 Promise 或计数器确保两个信号都到达后再执行隐藏，避免竞态导致白屏闪现。
+          💡 <span class="font-semibold">小贴士：</span>如果人物一致性差，可在提示词中加入“same character as previous image”并附上参考图链接。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：处理 1300002 静默失败并增加 hilog 取证</h3>
-      <div class="text-base text-slate-700 leading-loose">在创建子窗口和加载图片的代码中，用 try-catch 捕获异常，并针对错误码 1300002（窗口操作失败）做重试或降级处理。同时，在关键节点（子窗口创建、图片加载开始/完成、信号设置、隐藏遮罩）插入 hilog.info 日志，输出时间戳和状态。真机运行时通过 hilog 抓取日志，确认两个信号的到达顺序和耗时。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用Runway将分镜图转为动态视频</h3>
+      <div class="text-base text-slate-700 leading-loose">登录Runway Gen-3 Alpha，选择“Image to Video”，上传scene1.png，在运动描述框输入“slow zoom in, particles floating”。生成4秒视频后下载。重复处理全部6张图，得到6段短视频。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>错误码 1300002 通常是因为窗口未准备好，可以延迟 50ms 重试一次。
+          💡 <span class="font-semibold">小贴士：</span>运动幅度不宜过大，否则画面容易崩坏；可先用“camera pan left”等简单指令测试。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：优化竞态窗口至 35ms 以内</h3>
-      <div class="text-base text-slate-700 leading-loose">根据 hilog 日志分析两个信号的时间差。如果 imageDecoded 先到而 windowReady 后到，可以预加载图片到内存缓存，减少解码时间；如果 windowReady 先到，可以提前创建子窗口但先隐藏，等图片解码后再显示。通过调整图片加载时机（例如在 Ability 启动时就开始加载）和窗口创建顺序，将竞态窗口压缩到 35ms 以内。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：用Suno生成配乐并用CapCut合成MV</h3>
+      <div class="text-base text-slate-700 leading-loose">在Suno输入“synthwave, dreamy, 100 BPM, instrumental”生成一首2分钟纯音乐，下载MP3。打开CapCut，将6段视频按顺序拖入时间线，导入音乐，裁剪视频总长与音乐对齐。添加转场“叠化”和字幕，导出1080p视频。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>使用 Image 的 syncLoad 属性为 true 可以同步加载小图，但大图建议异步并配合缓存。
+          💡 <span class="font-semibold">小贴士：</span>在CapCut中开启“自动节拍检测”，让转场卡在音乐鼓点上。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：真机验证与丝滑度对比</h3>
-      <div class="text-base text-slate-700 leading-loose">在真机上冷启动应用（先杀进程），观察从点击图标到主界面出现的全过程。使用屏幕录制或慢动作视频检查是否有白屏帧。对比安卓端启动效果，确保鸿蒙端同样丝滑。如果仍有轻微白屏，检查子窗口的显示时机是否晚于主窗口首帧，可尝试将子窗口的 show 调用提前到 onWindowStageCreate 的最开始。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用Claude生成小游戏代码并本地运行</h3>
+      <div class="text-base text-slate-700 leading-loose">对Claude说：“用HTML5 Canvas写一个躲避障碍物的小游戏，玩家控制方块，按空格跳跃，障碍物随机出现，计分。” 将返回的完整HTML代码保存为game.html，双击在浏览器打开即可试玩。若想修改难度，让Claude调整障碍物速度参数。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>冷启动测试前务必清理应用缓存并重启设备，避免系统缓存干扰。
+          💡 <span class="font-semibold">小贴士：</span>要求Claude“把所有代码放在一个文件里，不依赖外部库”，方便直接运行。
+        </div>
+    </div>
+    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        6
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：用Tripo3D生成3D模型并导出</h3>
+      <div class="text-base text-slate-700 leading-loose">打开Tripo3D，选择“Text to 3D”，输入“a cute robot mascot, low poly, game ready”，等待1-2分钟生成模型。在预览界面调整旋转和缩放，点击Export下载GLB格式文件。可将GLB导入Blender或直接用于游戏引擎。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>生成时勾选“Auto Rig”可自动绑定骨骼，方便做动画。
         </div>
     </div>
   </div>
@@ -180,7 +199,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    冷启动应用时，用户首先看到与启动页完全一致的渐变整图遮罩，随后主界面内容在遮罩下方准备就绪，遮罩平滑消失，全程无白屏闪烁，视觉体验与安卓端一致甚至更丝滑。hilog 日志显示两个信号在 35ms 内先后到达，无 1300002 错误。
+    你将得到一个约30秒的赛博朋克风格MV（MP4）、一个可玩的HTML5小游戏、以及一个低多边形机器人3D模型（GLB）。所有素材均可直接用于社交媒体发布或项目原型。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +209,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>为什么不能直接用启动页图片作为窗口背景？</span>
+        <span>这些工具都需要付费吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">窗口背景在冷启动时可能先于图片解码显示为白色，而子窗口遮罩可以独立控制显示时机，确保图片解码完成后再显示。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Midjourney、Runway、Suno和Tripo3D均有免费额度或试用，Claude可免费使用。建议先用免费额度跑通流程，再按需订阅。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>双信号竞速中如果某个信号永远不到达怎么办？</span>
+        <span>生成的分镜图人物不一致怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">设置超时机制，例如 500ms 后强制隐藏遮罩并记录错误日志，避免应用卡在遮罩层。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">在Midjourney中使用“--cref”参数上传参考图，或在提示词中固定角色描述（如“blue hair, red jacket”）。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>错误码 1300002 是什么原因？</span>
+        <span>小游戏代码运行报错怎么排查？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通常是窗口未创建完成或权限不足，检查是否在 UI 线程调用，并确保子窗口的 type 为 TYPE_APPLICATION_OVERLAY 或类似合适类型。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">把报错信息复制给Claude，让它修复。常见问题是缺少canvas标签或事件监听未绑定。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个方案对应用性能有影响吗？</span>
+        <span>3D模型可以商用吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">子窗口和图片解码会增加少量内存和 CPU 开销，但通过缓存和及时销毁遮罩，影响可忽略不计。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>是否适用于所有鸿蒙版本？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议在 API 9 及以上版本使用，低版本可能不支持子窗口的某些特性，需做兼容处理。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">需查看Tripo3D的许可条款，免费版通常仅限个人使用，商用请升级或选择明确允许商用的工具。</div>
     </details>
   </div>
 </section>
@@ -229,14 +241,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：使用动画组件（如 animateTo）实现遮罩的淡出效果，而不是直接销毁，提升视觉平滑度。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：将遮罩图片替换为 Lottie 动画，实现更丰富的启动动效，但需注意动画解码时间对竞态的影响。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合预加载机制，在应用安装后首次启动时缓存启动图到本地，后续冷启动直接读取缓存，进一步缩短竞态窗口。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将MV主题换成“中国水墨风”，用Claude生成水墨提示词，Midjourney加“--niji 6”参数，Suno改用古筝配乐。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用Claude生成一个文字冒险游戏，配合Tripo3D生成场景模型，做成3D网页游戏。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把MV分镜图直接喂给Tripo3D生成3D场景，再用Runway做3D漫游视频。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    让遮罩和门帘共用同一张图，并用双信号竞速确保图片解码与窗口就绪同步，从而根治冷启动白屏。
+    用Claude做大脑、Midjourney/Runway/Suno做手脚、Tripo3D做立体化，一条提示词链就能把文字变成MV、游戏和3D模型。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -246,17 +258,17 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用MarkItDown把办公文档转成Markdown</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 LangChain 搭建可运行 AI Agent 工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭长任务超级智能体工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

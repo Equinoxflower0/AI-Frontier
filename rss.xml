@@ -5,218 +5,217 @@
     <link>https://equinoxflower0.github.io/AI-Frontier/</link>
     <description>每天 5 分钟掌握全球 AI 核心动态：模型发布、开源项目、论文、产业动向，以及可上手的 AI 玩法。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 25 Nov 2026 18:25:01 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 18:15:15 +0000</lastBuildDate>
     <atom:link href="https://equinoxflower0.github.io/AI-Frontier/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>OpenAI联手AMD，AI改芯片PPA提升14%</title>
-      <link>https://www.leiphone.com/category/ai/9tAw4Cw8AcxtFzUm.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/ai/9tAw4Cw8AcxtFzUm.html</guid>
-      <description><![CDATA[OpenAI用大模型直接修改SystemVerilog RTL，在AMD旗舰GPU既有设计上取得14%的PPA改进，部分改动已随芯片设计送往制造<br/><br/><b>为什么重要：</b>芯片架构师和物理设计团队需要关注：成熟旗舰IP后期1%-2%的PPA提升都极难，14%意味着AI已能介入前端微架构这一核心环节。做EDA工具和芯片设计的公司应评估模型改写RTL的流程接入点，下一步看AMD量产芯片实测数据及Jalapeño硅片验证的更多细节<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>381个AI直播冲刺证明P=NP，GitHub被挤崩</title>
+      <link>https://www.qbitai.com/2026/11/513021.html</link>
+      <guid isPermaLink="true">https://www.qbitai.com/2026/11/513021.html</guid>
+      <description><![CDATA[一项AI协作项目运行超一万次会话，在Lean4中验证通过2400多条引理，声称证明P=NP，相关仓库流量过大导致GitHub崩溃<br/><br/><b>为什么重要：</b>若P=NP证明经Lean4形式化验证成立，将颠覆密码学、优化算法与AI训练的理论基础；但需警惕AI生成证明的可靠性，形式化验证通过不等于数学界公认，下一步应看独立数学家复核与Lean4引理依赖链审计<br/><i>来源：量子位</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>GPT-6 展现内在蛋白质设计能力</title>
-      <link>https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities</link>
-      <guid isPermaLink="true">https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities</guid>
-      <description><![CDATA[OpenAI 称 GPT-6 通过推理与代码设计蛋白质结构与序列，实验室测试在五个靶点上发现结合证据<br/><br/><b>为什么重要：</b>做 AI for Science、药物发现和蛋白质工程的团队需要关注：通用大模型开始直接产出可实验验证的分子设计，而非只做文献问答，这会压缩传统蛋白质设计工具与外包计算的环节；下一步该看结合亲和力数据、成功率与湿实验复现细节<br/><i>来源：OpenAI 官方</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>Anthropic纳斯达克上市，近八成收入来自按量计费</title>
+      <link>https://www.tmtpost.com/8218636.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8218636.html</guid>
+      <description><![CDATA[Anthropic在纳斯达克上市，今年前三季度近八成收入来自按使用量计费的业务<br/><br/><b>为什么重要：</b>这是大模型公司首次以公开市场估值接受检验，按量计费占比八成说明企业级API调用而非订阅是当前AI收入主引擎；做AI应用和投资的从业者应关注其毛利率与推理成本结构，后续看上市后首份财报的客户集中度和留存率<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Plaud、影石、小红书、Looki......我们发起了一场 AI 硬件圈的年度聚会</title>
-      <link>https://www.geekpark.net/news/374487</link>
-      <guid isPermaLink="true">https://www.geekpark.net/news/374487</guid>
-      <description><![CDATA[在模型飞速演进的 2026 年，硬件世界反而开始告别「爽文叙事」。 
- 前两年聊 AI 硬件，行业里经常讨论做出一个取代智能手机的「下一代超级入口」的终局命题。…<br/><i>来源：极客公园</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>MiniMax模型破译尘封18年密码学悬案</title>
+      <link>https://www.leiphone.com/category/yanxishe/T2xmmiMAC6WbuuCM.html</link>
+      <guid isPermaLink="true">https://www.leiphone.com/category/yanxishe/T2xmmiMAC6WbuuCM.html</guid>
+      <description><![CDATA[MiniMax内部模型MIM攻破多个NIST密码候选方案和顶会前沿成果，在TII McEliece中恢复94个私钥，破译效率提升43400倍<br/><br/><b>为什么重要：</b>密码分析长期被视为检验AI能否做真正科学研究的试金石，此次效率提升4个数量级意味着AI4S从辅助工具走向独立发现；安全从业者需重新评估现有密码方案对AI攻击的脆弱性，密码学与AI安全交叉领域的研究者应关注模型在结构化数学搜索上的泛化边界<br/><i>来源：AI 科技评论</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AI加速酒店从标准化到"千店千策"，中国饭店协会联合千问办公发布酒旅行业白皮书</title>
-      <link>https://www.leiphone.com/category/industrynews/PiVtVm8Sy8CGtTb1.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/PiVtVm8Sy8CGtTb1.html</guid>
-      <description><![CDATA[11 月 25 日，在2026中国饭店业高质量大会上，中国饭店协会联合千问办公发布《酒旅行业白皮书——从岗位、门店到千城万店的AI经营实践》。白皮书指出，酒旅行…<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>德勤因AI污染报告被西澳政府禁标</title>
+      <link>https://www.afr.com/policy/health-and-education/deloitte-banned-from-wa-government-work-over-ai-tarnished-report-20261125-p61h6p</link>
+      <guid isPermaLink="true">https://www.afr.com/policy/health-and-education/deloitte-banned-from-wa-government-work-over-ai-tarnished-report-20261125-p61h6p</guid>
+      <description><![CDATA[德勤为西澳政府撰写的报告被发现含AI生成的虚假内容，西澳政府因此禁止德勤承接政府合同<br/><br/><b>为什么重要：</b>这是AI幻觉直接导致大型咨询机构被政府拉黑的早期案例。做AI辅助文档、报告生成的团队需关注：交付物的事实核查责任无法外包给模型，咨询与审计行业的AI使用规范将被迫收紧，采购方也会开始要求披露AI参与度<br/><i>来源：Hacker News</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AI芯片出口管制致数十亿美元数据中心交易停滞</title>
-      <link>https://www.bloomberg.com/news/articles/2026-11-25/billions-in-data-center-deals-grind-to-halt-after-ai-chip-curbs</link>
-      <guid isPermaLink="true">https://www.bloomberg.com/news/articles/2026-11-25/billions-in-data-center-deals-grind-to-halt-after-ai-chip-curbs</guid>
-      <description><![CDATA[受AI芯片出口限制影响，涉及数十亿美元的数据中心交易陷入停滞<br/><br/><b>为什么重要：</b>关注AI基础设施投资与算力部署的从业者需留意：芯片供给受限直接拖慢数据中心建设节奏，算力租赁与云服务成本可能上行。下一步应关注管制细则是否松动，以及交易方是否转向替代芯片或调整选址<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>Claude Code核心团队被OpenAI挖角</title>
+      <link>https://www.infoq.cn/article/z9IwzAY8hP15oDa2VKi6</link>
+      <guid isPermaLink="true">https://www.infoq.cn/article/z9IwzAY8hP15oDa2VKi6</guid>
+      <description><![CDATA[InfoQ报道称Anthropic旗下Claude Code核心开发班底遭OpenAI大规模挖角，同时伴随产品破发问题<br/><br/><b>为什么重要：</b>编程Agent是当前大模型商业化最成熟的场景，核心开发者流失会直接影响Claude Code的迭代节奏和产品竞争力。做AI编程工具和Agent产品的团队需要关注Anthropic能否稳住团队，以及OpenAI借此补强Codex系产品后，编程Agent赛道的格局是否会从双雄变成一边倒<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>丢个故事就行：直出15分钟AI短片</title>
-      <link>https://www.qbitai.com/2026/11/512727.html</link>
-      <guid isPermaLink="true">https://www.qbitai.com/2026/11/512727.html</guid>
-      <description><![CDATA[量子位报道称，用户只需输入一个故事，即可直接生成15分钟的AI短片，操作门槛低到普通家庭用户也能上手<br/><br/><b>为什么重要：</b>把AI视频生成从几秒片段推到15分钟成片，直接冲击短片创作、广告和自媒体内容生产；做视频工具的团队需要关注长时长一致性与叙事连贯性如何解决，以及算力成本能否支撑消费级使用<br/><i>来源：量子位</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>生数科技直播25天训出Motubrain 2.0，五项登顶</title>
+      <link>https://www.leiphone.com/category/ai/0DEts3fxmZTZ7ojp.html</link>
+      <guid isPermaLink="true">https://www.leiphone.com/category/ai/0DEts3fxmZTZ7ojp.html</guid>
+      <description><![CDATA[生数科技发布20B参数世界动作模型Motubrain 2.0及智能体系统，全程直播25天训练过程并宣布将开源<br/><br/><b>为什么重要：</b>具身智能团队可关注其真机评测方法（5624次有效评测）与训练一致性排查经验；20B WAM开源后，做机器人操作策略的开发者可直接基于权重微调，省去从零预训练的数百万成本。下一步看开源许可证与真机泛化表现<br/><i>来源：AI 科技评论</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>智元灵心平台一年孵化超3万个机器人智能体</title>
-      <link>https://www.qbitai.com/2026/11/512715.html</link>
-      <guid isPermaLink="true">https://www.qbitai.com/2026/11/512715.html</guid>
-      <description><![CDATA[智元推出行业首个开放完整的具身智能生态技术体系AIMA，其灵心平台一年内孵化超3万个机器人智能体<br/><br/><b>为什么重要：</b>做具身智能和机器人应用的开发者可直接在开放平台上搭智能体，不必自建底层技术栈；3万个智能体的规模说明零门槛开发路径已被验证，下一步看这些智能体能否进入真实产线并形成可复用的技能生态<br/><i>来源：量子位</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>Siri AI 开发者预览版开放应用集成</title>
+      <link>https://www.infoq.cn/article/j1aQzS6OrB9aDlChCwiQ</link>
+      <guid isPermaLink="true">https://www.infoq.cn/article/j1aQzS6OrB9aDlChCwiQ</guid>
+      <description><![CDATA[苹果发布 Siri AI 开发者预览版，允许 iOS、iPadOS 和 macOS 应用接入 Siri 能力<br/><br/><b>为什么重要：</b>做苹果生态应用的开发者需要关注：Siri 首次以开发者预览形式开放集成，意味着语音助手从系统功能变成可被第三方 App 调用的入口，早接入的团队能抢先做语音原生交互场景；下一步看苹果开放的具体 API 边界和审核政策<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>GLM-5.4编程能力暴涨，智谱首发Loop架构</title>
-      <link>https://www.infoq.cn/article/gXU31yBa9HMEe19PxHVB</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/gXU31yBa9HMEe19PxHVB</guid>
-      <description><![CDATA[智谱发布GLM-5.4，编程能力大幅提升、3D生成表现惊艳，但推理耗时变长，同时首发Loop架构并宣布下一代继续Scaling<br/><br/><b>为什么重要：</b>做代码生成和3D内容管线的开发者需要实测Loop架构在长推理任务上的延迟代价，判断是否值得从现有模型迁移；智谱同时押注架构创新与继续Scaling，说明国内头部厂商仍未放弃参数规模路线，下一步应关注Loop架构的论文细节和推理成本数据<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>百人AI公司获英伟达亚马逊等投资，估值75亿</title>
+      <link>https://www.tmtpost.com/8218433.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8218433.html</guid>
+      <description><![CDATA[一家约100人的AI公司获得英伟达、Anthropic、亚马逊投资，估值达75亿美元<br/><br/><b>为什么重要：</b>AI应用层创业公司估值逻辑正在被重写：同样技术对云厂商和模型厂商的战略价值远高于独立变现能力，做AI基础设施和中间层的团队应关注这类'被巨头抬价'的退出路径，而非只盯ARR<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>元材新界发布FrontierMat材料基准，330道真实难题难住GPT-6</title>
-      <link>https://www.leiphone.com/category/industrynews/GMIW0ZLuJPyQHSR4.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/GMIW0ZLuJPyQHSR4.html</guid>
-      <description><![CDATA[元材新界联合清华、北大等高校发布FrontierMat，含330道真实研发跨尺度材料难题，GPT-6 Astra未能通过，其自研材料大模型登顶<br/><br/><b>为什么重要：</b>材料研发的评测从教科书题转向真实跨尺度构效推理，做AI for Science和材料信息学的团队需要关注：现有通用大模型在真实研发任务上能力边界被暴露，垂直材料大模型出现可对标基准，下一步看该基准是否被广泛采用及开源情况<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>Cloudflare推出Search for Agents</title>
+      <link>https://juejin.cn/post/7712359514977255465</link>
+      <guid isPermaLink="true">https://juejin.cn/post/7712359514977255465</guid>
+      <description><![CDATA[Cloudflare上线Search for Agents功能，网站开启开关后自动生成AI搜索索引，并通过/.well-known/search端点供智能体调用<br/><br/><b>为什么重要：</b>做网站和智能体集成的开发者需要关注：过去让Agent检索站内内容要自建爬虫或接第三方搜索API，现在一个开关就能暴露标准端点，降低了站点被Agent调用的门槛。下一步看该端点是否被主流Agent框架默认支持，以及索引更新频率和权限控制如何设计<br/><i>来源：掘金技术社区</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>DeepMind 提出合作式递归自我改进框架，让 AI 自建组织进化</title>
-      <link>https://www.leiphone.com/category/ai/12hVnzl8xc2Hblwx.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/ai/12hVnzl8xc2Hblwx.html</guid>
-      <description><![CDATA[Google DeepMind 提出 Cooperative RSI 框架，设想成千上万 AI Agent 自行分工协作、重写组织架构，将组织效率转化为递归自我改进的增长循环<br/><br/><b>为什么重要：</b>做多智能体系统和 Agent 编排的团队需要关注：竞争变量从单模型能力扩展到任务分配、知识传递等组织层设计；下一步该看组织效率能否像模型能力一样被规模化验证，以及由谁判定 AI 自我改造有效<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>中国开源AI视频模型每秒成本仅5毛，登顶全球第一</title>
+      <link>https://www.qbitai.com/2026/11/512916.html</link>
+      <guid isPermaLink="true">https://www.qbitai.com/2026/11/512916.html</guid>
+      <description><![CDATA[量子位报道，中国开源AI视频新势力推出商用级视频生成模型，支持30秒一镜到底与自动镜头编排，每秒成本约0.5元，并称拿下全球第一<br/><br/><b>为什么重要：</b>视频生成成本压到每秒0.5元后，短视频广告、电商素材、影视预演等批量生产场景的算力门槛明显下降；做内容SaaS和营销工具的团队可优先评估其开源权重与商用许可，下一步看实际画质稳定性、长镜头一致性和并发推理成本<br/><i>来源：量子位</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>华人CV泰斗离开苹果二次创业，专注空间与物理AI</title>
-      <link>https://www.qbitai.com/2026/11/512498.html</link>
-      <guid isPermaLink="true">https://www.qbitai.com/2026/11/512498.html</guid>
-      <description><![CDATA[华人计算机视觉学者离开苹果后再次创业，方向为下一代空间智能与物理AI，称可将复杂场景三维建模成本降至10美元以内<br/><br/><b>为什么重要：</b>三维建模成本压到10美元以内，直接冲击机器人仿真、具身智能数据采集和空间内容生产：原先靠人工建模或高价扫描的团队，可用低成本重建真实场景做训练与评测。做具身智能、3D生成、数字孪生的开发者应关注其技术路线与产品化进度<br/><i>来源：量子位</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>英伟达发布Nemotron 3.5 Parse开放数据与微调方案</title>
+      <link>https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin</link>
+      <guid isPermaLink="true">https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin</guid>
+      <description><![CDATA[Hugging Face官方博客介绍基于Nemotron 3.5 Parse的开放数据、微调方法与更快推理方案<br/><br/><b>为什么重要：</b>做文档解析和多模态数据管道的开发者可直接复用这套开放数据与微调流程，省去自建标注成本；推理加速部分决定了解析类任务能否在低成本下规模化落地。下一步值得关注开放数据的具体许可条款和推理提速的实际倍数<br/><i>来源：Hugging Face 官方</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>千问Go免费开放AI代打电话服务</title>
-      <link>https://www.leiphone.com/category/industrynews/L9rc3Khgc8pFgYtD.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/L9rc3Khgc8pFgYtD.html</guid>
-      <description><![CDATA[11月25日，千问Go全面开放免费代打电话服务，用户授权后AI可代订餐厅、查快递、寻失物并反馈结果，支持定时呼叫<br/><br/><b>为什么重要：</b>语音代打是智能体从'回答问题'走向'替人办事'的关键一步，免费开放意味着阿里用高频生活场景抢占Agent入口。做本地生活、客服外呼、语音交互的团队需关注其安全拦截机制与任务完成率，下一步看通话成功率与商户端接受度<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>权龙二次创业成立Envision AI做空间物理AI</title>
+      <link>https://www.leiphone.com/category/academic/S12DTjaFWmIPkwCk.html</link>
+      <guid isPermaLink="true">https://www.leiphone.com/category/academic/S12DTjaFWmIPkwCk.html</guid>
+      <description><![CDATA[香港科技大学教授、前苹果空间智能首席科学家权龙成立Envision AI，目标打造融合语言、几何与物理规律的空间物理原生基模<br/><br/><b>为什么重要：</b>权龙是三维视觉奠基者（六点算法、两届CVPR/ICCV大会主席），其学术判断力对空间智能路线有风向标意义。做具身智能、机器人感知与世界模型的团队应关注其技术路线是否验证“视觉出发统一物理信息”的可行性，以及能否吸引顶尖人才与资本进入该赛道<br/><i>来源：AI 科技评论</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>豆包个人AI助理小豆开启公测</title>
-      <link>https://www.geekpark.net/news/374438</link>
-      <guid isPermaLink="true">https://www.geekpark.net/news/374438</guid>
-      <description><![CDATA[豆包旗下AI个人助理「小豆」11月24日开启邀请制公测，可凭邀请码体验并获赠免费额度，以对话式交互协助用户处理日常事务<br/><br/><b>为什么重要：</b>字节把AI助理从聊天框推向「主动办事」，直接对标Agent赛道。做AI应用和办公工具的团队需关注其任务执行边界与授权机制，这决定通用助理能否替代垂直工具；下一步看小豆能力何时并入豆包主App<br/><i>来源：极客公园</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>Anthropic创始人兄妹上市次日套现37亿元</title>
+      <link>https://www.leiphone.com/category/zaobao/TaYBp58OxQSPMi10.html</link>
+      <guid isPermaLink="true">https://www.leiphone.com/category/zaobao/TaYBp58OxQSPMi10.html</guid>
+      <description><![CDATA[监管文件显示，Anthropic CEO达里奥·阿莫代伊与联合创始人丹妮拉·阿莫代伊在公司上市次日各出售2.804亿美元股票，合计套现5.6亿美元<br/><br/><b>为什么重要：</b>AI头部公司创始人上市即大额减持，是观察大模型公司估值泡沫与内部人信心的重要信号；关注AI一级市场估值、拟IPO的AI公司以及持有相关资产的机构，下一步应看Anthropic后续财报与锁定期安排<br/><i>来源：AI 科技评论</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>商汤发布SenseNova U1.6，生成图像逼真如摄影</title>
-      <link>https://www.qbitai.com/2026/11/512748.html</link>
-      <guid isPermaLink="true">https://www.qbitai.com/2026/11/512748.html</guid>
-      <description><![CDATA[商汤推出最新图像生成模型SenseNova U1.6，其生成画面逼真程度被误认为摄影作品<br/><br/><b>为什么重要：</b>做视觉内容、电商素材和广告创意的团队需要关注：图像生成的真实感门槛再次抬高，实拍与AI生成的边界进一步模糊，素材成本结构可能被重写。下一步看它在人物细节、文字渲染和商用授权上的实际表现<br/><i>来源：量子位</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>黄仁勋复职后首次全员大会道歉</title>
+      <link>https://www.geekpark.net/news/374500</link>
+      <guid isPermaLink="true">https://www.geekpark.net/news/374500</guid>
+      <description><![CDATA[英伟达CEO黄仁勋在复职后首次全员大会上道歉，承认严重个人错误，称已接受心理治疗并将调整管理方式<br/><br/><b>为什么重要：</b>英伟达掌舵人的管理风格与去留直接影响AI芯片路线图和供应链节奏，关注英伟达的开发者与云厂商需留意其管理变动是否波及产品迭代；董事会听取美国政府意见这一细节也值得跟踪后续独立调查结果<br/><i>来源：极客公园</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>新希望乳业全领域接入千问办公</title>
-      <link>https://www.leiphone.com/category/industrynews/rfxUGiq3uRAZJslx.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/rfxUGiq3uRAZJslx.html</guid>
-      <description><![CDATA[新希望乳业在生产经营、供应链、财务、销售等领域全面接入千问办公，牛群结构预测从一周缩短至分钟级，误差不到3%<br/><br/><b>为什么重要：</b>这是大模型在传统农牧食品企业全链条落地的标杆案例，说明AI应用正从技术部门走向业务一线。做企业级AI的团队可关注其“业务经验转计算模型”的路径，下一步看能否复制到其他养殖与制造场景<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>Hugging Face 发布多智能体系统训练与评估指南</title>
+      <link>https://huggingface.co/blog/training-swarms</link>
+      <guid isPermaLink="true">https://huggingface.co/blog/training-swarms</guid>
+      <description><![CDATA[Hugging Face 官方博客系统讲解多智能体系统（swarms、flocks、gangs）的构建、训练与评估方法<br/><br/><b>为什么重要：</b>做 Agent 编排的开发者可直接参考其分类框架与评估口径，避免自造评测标准；多智能体从 demo 走向可训练、可度量，下一步值得看它是否配套开源代码与基准<br/><i>来源：Hugging Face 官方</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Google研究可验证的社会推理方法</title>
-      <link>https://research.google/blog/verifiable-social-reasoning-for-llm-assistants/</link>
-      <guid isPermaLink="true">https://research.google/blog/verifiable-social-reasoning-for-llm-assistants/</guid>
-      <description><![CDATA[Google Research提出一种让LLM助手的社会推理过程可验证的方法，以提升推理透明度与可信度<br/><br/><b>为什么重要：</b>做LLM对齐与可信AI的团队需要关注：社会推理（如道德判断、人际建议）此前难以验证，该工作给出了可检查的推理路径，可能改变助手类产品的安全评估方式；下一步看是否有开源实现与基准测试<br/><i>来源：Google Research</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>Snowflake CoCo 再进化：数据开发进入 Agent 自主执行时代</title>
+      <link>https://www.infoq.cn/article/vfmBDlfQRRfHq4Jyi5b6</link>
+      <guid isPermaLink="true">https://www.infoq.cn/article/vfmBDlfQRRfHq4Jyi5b6</guid>
+      <description><![CDATA[Snowflake 升级 CoCo 智能体平台，让数据开发任务可由 Agent 自主规划与执行<br/><br/><b>为什么重要：</b>数据工程师和 analytics 团队需要关注：CoCo 从辅助写 SQL 走向自主执行多步数据开发任务，意味着数据管道搭建、ETL 编排的人力投入可能显著压缩。下一步看它对企业级权限管控和任务可审计性的支持程度，这决定能否真正进入生产环境<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>谷歌开源AQuA智能体诊断生产故障</title>
-      <link>https://www.infoq.cn/article/YAc2TqCHc09kAFF1A7BS</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/YAc2TqCHc09kAFF1A7BS</guid>
-      <description><![CDATA[谷歌开源AQuA环境质量智能体，用于诊断生产环境中AI智能体的故障问题<br/><br/><b>为什么重要：</b>面向已把智能体部署到生产的团队：智能体故障排查此前缺乏专用工具，AQuA把诊断环节标准化、开源化，降低运维门槛。下一步看它能否覆盖多智能体协作与工具调用链路的故障定位<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>AI代打客服电话，对面也是AI</title>
+      <link>https://www.geekpark.net/news/374536</link>
+      <guid isPermaLink="true">https://www.geekpark.net/news/374536</guid>
+      <description><![CDATA[极客公园报道，Personal AI可代消费者处理退款、取消续费等客服纠纷，但企业端客服也由AI接管，形成双方AI交涉的局面<br/><br/><b>为什么重要：</b>做客服SaaS和Agent产品的团队需关注：消费者侧AI代理与企业侧AI客服将形成机器对机器的博弈，可能催生新的协议层与合规需求；下一步看双方AI如何验证身份、留存证据、达成和解<br/><i>来源：极客公园</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AMD携中科慧灵完成人形机器人端侧AI验证</title>
-      <link>https://www.infoq.cn/article/stLpgV1kNHuvr21qRH9x</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/stLpgV1kNHuvr21qRH9x</guid>
-      <description><![CDATA[AMD与中科慧灵联合完成人形机器人端侧AI验证，采用“大小脑”双处理器架构，在机器人本体上运行AI推理<br/><br/><b>为什么重要：</b>做机器人端侧算力的团队需要关注：AMD借此切入人形机器人边缘AI芯片市场，与英伟达Jetson形成直接竞争；“大小脑”架构把实时控制与高层推理分载到不同处理器，为功耗受限的整机设计提供可参考的算力分配方案。下一步看是否公布具体芯片型号、算力功耗数据及量产合作方<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>对话历史拖累LLM推理准确率最高0.29</title>
+      <link>https://arxiv.org/abs/2611.20071</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.20071</guid>
+      <description><![CDATA[arXiv论文通过预注册实验发现，在多轮任务中保留模型自身历史回复会使GPT-4o-mini最终成功率下降0.21、Mistral-7B下降0.29<br/><br/><b>为什么重要：</b>做多轮Agent和对话式推理产品的团队需要关注：无差别拼接完整对话历史会实质拉低准确率，上下文管理策略（裁剪、摘要、状态外置）应作为独立工程模块设计，而非默认全量保留；下一步可看过程级质量指标能否在准确率下滑前给出预警<br/><i>来源：arXiv cs.CL</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AI合法操作成企业安全新盲区</title>
-      <link>https://www.infoq.cn/article/LwwdlrNGE3tbxPO1wIcT</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/LwwdlrNGE3tbxPO1wIcT</guid>
-      <description><![CDATA[InfoQ发文指出，AI智能体执行的看似合规的操作正成为比黑客入侵更难防的安全风险，企业现有防线可能部署错了方向<br/><br/><b>为什么重要：</b>安全团队和做AI Agent落地的公司需要关注：权限设计从'防外部入侵'转向'约束内部合法调用'，否则Agent越能干，越容易在授权范围内造成数据泄露或误操作。下一步该看Agent权限最小化和操作审计方案<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>懒惰智能体违背自身信念：可验证信念强化学习</title>
+      <link>https://arxiv.org/abs/2611.32884</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.32884</guid>
+      <description><![CDATA[研究发现长任务AI智能体常在证据不足时提前给出答案，即使其内部信念仍列出多个候选；论文提出用可验证信念的强化学习训练智能体按信念行动<br/><br/><b>为什么重要：</b>做长程任务智能体与RL训练的团队需要关注：结果奖励无法区分运气猜对与有据作答，该工作把信念状态纳入可验证奖励，直接改变智能体何时提交答案的训练信号设计；下一步可看其在多步工具调用任务上的实际收敛效果<br/><i>来源：arXiv cs.AI</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AI教父回击黄仁勋：大规模失业是AI巨头赚钱副作用</title>
-      <link>https://www.infoq.cn/article/6i2DoIJiaTcKyR0UyurQ</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/6i2DoIJiaTcKyR0UyurQ</guid>
-      <description><![CDATA[AI教父辛顿公开回击黄仁勋，称自己更早预见英伟达未来，并直言大规模失业是AI巨头盈利的副作用<br/><br/><b>为什么重要：</b>两位AI标志性人物公开交锋，把'AI导致失业'从社会议题拉进商业利益讨论。关注AI治理与劳动力市场的从业者应留意：巨头盈利动机与就业冲击之间的张力，可能影响后续监管与公众舆论走向<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>用AI模拟欧洲人群行为，无需访谈数据</title>
+      <link>https://arxiv.org/abs/2611.33503</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.33503</guid>
+      <description><![CDATA[研究者用约40个欧洲国家超1200万条公开群体级答案分布微调开源语言模型，使其无需访谈或个体记录即可模拟人群调查回答<br/><br/><b>为什么重要：</b>做民调、市场调研和政策模拟的团队可关注：这绕开了昂贵的访谈和个体数据采集，把模拟受访者的成本压到只用公开统计数据。下一步看该方法在选举预测、消费者调研上的准确率是否接近真实抽样<br/><i>来源：arXiv cs.CL</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>阿福学会望闻问切，真实医疗需求重塑百灵大模型</title>
-      <link>https://www.infoq.cn/article/V7VOeFvEPLrHAN2EFmUa</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/V7VOeFvEPLrHAN2EFmUa</guid>
-      <description><![CDATA[InfoQ 报道蚂蚁百灵大模型在医疗场景中结合真实问诊需求进行能力迭代，其健康助手阿福已具备望闻问切式的多模态问诊能力<br/><br/><b>为什么重要：</b>医疗是少数能同时验证多模态、长上下文与专业推理的高价值场景，做医疗 AI 产品的团队应关注百灵如何用真实问诊数据反推模型训练，而非先做通用能力再找场景；下一步看其问诊准确率与合规落地的进展<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>失败拓宽成功聚焦：双极性记忆助工具智能体持续适应</title>
+      <link>https://arxiv.org/abs/2611.33612</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2611.33612</guid>
+      <description><![CDATA[研究者提出双极性记忆方法，让工具调用智能体在多领域异构任务流中分别利用成功与失败轨迹进行持续自我改进<br/><br/><b>为什么重要：</b>做智能体长期记忆与自我进化的团队需要关注：该工作把成功/失败记忆的效用分开建模，可能改变经验回放与记忆库设计方式，降低跨域任务迁移的试错成本。下一步可看其在真实工具环境下的记忆检索与遗忘策略细节<br/><i>来源：arXiv cs.CL</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Pi创始人：系统崩溃时工程师集体问Claude怎么修</title>
-      <link>https://www.infoq.cn/article/ExbJjrItIlc9KLfQ2UeT</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/ExbJjrItIlc9KLfQ2UeT</guid>
-      <description><![CDATA[Pi创始人分享观察：现代开发中系统出故障时，一屋子工程师的第一反应是向Claude求助排障<br/><br/><b>为什么重要：</b>对一线开发者和技术管理者来说，这暴露了AI编程助手已从补全工具变成排障第一入口，团队的知识获取路径和故障响应流程正在被改写；值得关注的是当AI成为默认求助对象后，工程师自身诊断能力与AI建议可靠性的边界该如何管理<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>蔚来世界模型3.0：智驾训练提效5倍</title>
+      <link>https://www.qbitai.com/2026/11/512897.html</link>
+      <guid isPermaLink="true">https://www.qbitai.com/2026/11/512897.html</guid>
+      <description><![CDATA[蔚来发布世界模型3.0，智驾训练效率提升5倍，并将强化学习引入座舱，李斌称不做AI变革可能活不下去<br/><br/><b>为什么重要：</b>做智驾算法与训练基础设施的团队需要关注：训练提效5倍直接压缩数据闭环周期和算力成本，世界模型+强化学习进座舱也意味着车端AI竞争从感知转向决策与交互。下一步看其世界模型是否开放、实车落地节奏与真实接管率数据<br/><i>来源：量子位</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>纽约州禁止AI玩具联网与儿童对话</title>
-      <link>https://www.theguardian.com/us-news/2026/nov/25/new-york-bans-ai-toys</link>
-      <guid isPermaLink="true">https://www.theguardian.com/us-news/2026/nov/25/new-york-bans-ai-toys</guid>
-      <description><![CDATA[纽约州通过法规，禁止面向儿童的AI玩具使用互联网与儿童进行对话交互<br/><br/><b>为什么重要：</b>做儿童AI硬件和语音陪伴产品的团队需关注：联网对话能力在儿童品类被直接切断，产品架构要转向端侧离线模型或放弃对话功能；下一步看其他州是否跟进立法，以及端侧小模型在玩具场景的合规空间<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>Graphvein：无LLM跨仓库追踪调用与表结构</title>
+      <link>https://github.com/graphvein/graphvein/</link>
+      <guid isPermaLink="true">https://github.com/graphvein/graphvein/</guid>
+      <description><![CDATA[开发者发布Graphvein，用静态分析而非LLM从代码中提取架构、调用链、路由和表结构，解决AI辅助开发中架构失控问题<br/><br/><b>为什么重要：</b>面向重度使用AI编程的开发者：它用确定性静态分析替代LLM猜测，降低架构理解成本且不产生幻觉；下一步可关注其多语言支持范围与跨仓库调用链精度，判断能否替代人工架构梳理<br/><i>来源：Hacker News</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>OceanBase推AI数据平台</title>
-      <link>https://www.infoq.cn/article/2YvROKs0CHz1yR4Wi02o</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/2YvROKs0CHz1yR4Wi02o</guid>
-      <description><![CDATA[蚂蚁OceanBase在数据库业务16年后推出面向AI的数据平台，InfoQ报道其战略动因<br/><br/><b>为什么重要：</b>做AI应用和后端架构的团队需要关注：数据库厂商开始把向量检索、多模态数据管理纳入核心能力，意味着RAG和智能体应用的存储层选型可能从拼装多套系统转向一体化平台；下一步看其与向量数据库、湖仓产品的实际性能与迁移成本对比<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>Uber 推出 AI 智能体全生命周期安全治理框架</title>
+      <link>https://www.infoq.cn/article/xA3g2i0VtTZIOVePMedY</link>
+      <guid isPermaLink="true">https://www.infoq.cn/article/xA3g2i0VtTZIOVePMedY</guid>
+      <description><![CDATA[Uber 发布安全 AI 框架，对 AI 智能体从开发到退役的全生命周期进行治理<br/><br/><b>为什么重要：</b>做企业级 AI 智能体落地的团队需要关注：智能体权限扩散和不可控行为是当前上生产的最大障碍，Uber 给出的生命周期治理思路可直接参考；下一步看该框架是否开源及是否有其他大厂跟进形成标准<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>3月GitHub顶级开源AI智能体56%已跌出榜单</title>
-      <link>https://www.theagenticleaderboard.com/</link>
-      <guid isPermaLink="true">https://www.theagenticleaderboard.com/</guid>
-      <description><![CDATA[The Agentic Leaderboard数据显示，今年3月位列GitHub顶级开源AI智能体榜单的项目中，有56%目前已不在排名内<br/><br/><b>为什么重要：</b>做AI智能体选型的开发者和团队需要关注：开源智能体项目的生命周期比预期短得多，基于榜单排名做技术选型风险很高，应优先看提交活跃度和维护者背景而非短期热度。下一步值得追踪这些项目是停止维护、被合并还是改名迁移<br/><i>来源：Hacker News</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>AI 3D生成新突破：一图直出巴洛克雕塑可打印</title>
+      <link>https://www.qbitai.com/2026/11/512981.html</link>
+      <guid isPermaLink="true">https://www.qbitai.com/2026/11/512981.html</guid>
+      <description><![CDATA[量子位报道一项AI 3D生成技术，可从单张图片直接生成巴洛克风格雕塑的3D模型，输出可直接用于3D打印<br/><br/><b>为什么重要：</b>做3D打印、游戏资产、数字文博的团队值得关注：单图到可打印网格意味着建模环节的人力成本被大幅压缩，实物复刻和小批量定制的门槛下降。下一步看生成网格的水密性、面数与打印精度是否稳定，以及是否开放API或权重<br/><i>来源：量子位</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>具身智能从70%到99.999%还有多远</title>
-      <link>https://www.infoq.cn/article/pcisT9ByOG238U0WZEGD</link>
-      <guid isPermaLink="true">https://www.infoq.cn/article/pcisT9ByOG238U0WZEGD</guid>
-      <description><![CDATA[InfoQ 中国发文讨论具身智能机器人从实验室演示成功率70%走向工业级99.999%可靠性之间的差距与路径<br/><br/><b>为什么重要：</b>做机器人落地和具身智能投资的团队需要关注：文章点出演示成功率与工业可靠性之间的鸿沟是商业化真正门槛，下一步该看真实场景长尾失败率、数据闭环成本和硬件耐久性，而非榜单分数<br/><i>来源：InfoQ 中国</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>AI写代码之后，交付环节由谁负责</title>
+      <link>https://www.infoq.cn/video/zrq9NZI5eJVetI8kA5kW</link>
+      <guid isPermaLink="true">https://www.infoq.cn/video/zrq9NZI5eJVetI8kA5kW</guid>
+      <description><![CDATA[InfoQ中国发布视频讨论AI生成代码普及后，代码交付环节的责任归属与工程实践问题<br/><br/><b>为什么重要：</b>写代码的门槛被AI拉低后，瓶颈转移到评审、测试、上线与运维交付环节，使用AI编码的团队需要重新定义代码责任人与质量门禁；下一步值得关注AI生成代码的审查流程和交付规范如何落地<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>逐际动力与商汤大装置合作，以算力支撑机器人仿真训练</title>
-      <link>https://www.qbitai.com/2026/11/512683.html</link>
-      <guid isPermaLink="true">https://www.qbitai.com/2026/11/512683.html</guid>
-      <description><![CDATA[逐际动力与商汤大装置达成合作，用高质量算力支撑机器人仿真训练与测试，贯通具身智能研发流程<br/><br/><b>为什么重要：</b>具身智能团队最缺的是大规模并行仿真训练算力，这次合作把机器人本体厂商和算力平台直接对接，做机器人学习、强化学习训练的团队可关注其仿真环境与算力调度方案能否降低自建集群成本；下一步看是否开放给第三方开发者<br/><i>来源：量子位</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>美团妙手酒店版既白年底覆盖近40万商家</title>
+      <link>https://www.leiphone.com/category/industrynews/V8W9L3t0BkCtFZPu.html</link>
+      <guid isPermaLink="true">https://www.leiphone.com/category/industrynews/V8W9L3t0BkCtFZPu.html</guid>
+      <description><![CDATA[美团在中国饭店业大会上披露，酒店AI经营工具既白预计2026年底覆盖近40万家酒店商家，活跃商家线上交易额高7%，深度使用商家订单量同比增长22%<br/><br/><b>为什么重要：</b>这是AI工具在垂直行业规模化落地的少见量化案例：活跃商家交易额高7%、深度用户订单增22%，说明AI经营助手已从数据查询切入定价与诊断决策。做酒店SaaS、OTA运营工具和垂直AI Agent的团队应关注其场景渗透路径，下一步看覆盖40万商家后的留存与付费转化<br/><i>来源：AI 科技评论</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>dockit v2.0.0 用 spec-flow 减少 AI 编码打断</title>
-      <link>https://www.cnblogs.com/learnhow/p/23783409</link>
-      <guid isPermaLink="true">https://www.cnblogs.com/learnhow/p/23783409</guid>
-      <description><![CDATA[dockit v2.0.0 引入 spec-flow，将决策前移到议题讨论期，并用状态机与本地账本锁定执行期，实现五个半小时零打断完成五个功能<br/><br/><b>为什么重要：</b>对用 AI 写代码的开发者，它把上下文切换成本从每次十几分钟压到接近零，改变了 AI 编码工具在长任务中的可用性边界；下一步值得看状态机与本地账本能否被其他 AI 编码工作流复用<br/><i>来源：博客园</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>阿莫迪自明本志：我本无意让AI掌权</title>
+      <link>https://www.tmtpost.com/8219202.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8219202.html</guid>
+      <description><![CDATA[Anthropic CEO 阿莫迪公开回应外界对其推动AI权力集中的质疑，称自己无意让AI掌权<br/><br/><b>为什么重要：</b>关注AI治理与安全议题的从业者和政策制定者需要看：头部模型公司CEO对'AI掌权'的公开表态，会影响监管叙事和公众信任；下一步值得看Anthropic是否配套发布安全承诺或治理框架，以及与其他实验室的立场分化<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>九章云极发布物理AI工厂与生态开放计划</title>
-      <link>https://www.leiphone.com/category/chips/Qz3QPf26nVIVA0ga.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/chips/Qz3QPf26nVIVA0ga.html</guid>
-      <description><![CDATA[11月25日，九章云极在深圳举办2026物理AI行业峰会，发布物理AI工厂与生态开放计划，聚焦机器人、世界模型与仿真软件的产业化落地<br/><br/><b>为什么重要：</b>做机器人本体、世界模型和仿真软件的团队可关注其算力工程化方案与生态接入方式；标准化议题（数据接口、通信协议、安全边界）将影响物理AI规模化落地的门槛。下一步看生态开放计划的具体准入条件与首批合作方<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>阿里转向国产算力的逻辑被误读</title>
+      <link>https://www.tmtpost.com/8218607.html</link>
+      <guid isPermaLink="true">https://www.tmtpost.com/8218607.html</guid>
+      <description><![CDATA[钛媒体分析阿里加速转向国产算力的核心逻辑，指出外界将其简单归结为自主可控是误读<br/><br/><b>为什么重要：</b>做AI基础设施和推理部署的团队需要关注：阿里若在训练/推理侧规模化切换国产芯片，将直接改变国内AI算力的供给结构与成本曲线，影响模型公司的算力采购选择和国产芯片厂商的订单预期。下一步应看阿里是否披露具体芯片型号、切换比例及对推理成本的实际影响<br/><i>来源：钛媒体</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>中国算力采购信心指数启动，九章云极共建</title>
-      <link>https://www.leiphone.com/category/chips/G3lWNUyVJphxOTU2.html</link>
-      <guid isPermaLink="true">https://www.leiphone.com/category/chips/G3lWNUyVJphxOTU2.html</guid>
-      <description><![CDATA[11月25日，中国经济信息社新华指数研究院宣布启动中国算力采购信心指数，九章云极作为核心共建单位参与指数体系搭建<br/><br/><b>为什么重要：</b>算力供需双方长期缺乏季度级先行信号，该指数借鉴PMI方法采集订单与价格预期，与全球算力价格指数互补。做算力租赁、智算中心产能规划和AI基础设施采购的团队应关注其首期读数，判断明年一季度需求扩张还是收缩<br/><i>来源：AI 科技评论</i>]]></description>
-      <pubDate>2026-11-26 08:00:00 +0800</pubDate>
+      <title>讯飞语音大模型能力全解：从基座到应用</title>
+      <link>https://www.infoq.cn/minibook/h1BlHGoTKyeLgs0KmAhe</link>
+      <guid isPermaLink="true">https://www.infoq.cn/minibook/h1BlHGoTKyeLgs0KmAhe</guid>
+      <description><![CDATA[InfoQ 发布讯飞语音大模型能力全景解读，梳理其语音基座模型到上层应用的能力链路<br/><br/><b>为什么重要：</b>做语音交互、客服、车载与硬件语音方案的开发者需要关注：讯飞把语音基座能力与落地应用打通，意味着选型时可少拼凑ASR/TTS/理解多套组件。下一步看其API定价与开放程度，以及端侧部署支持<br/><i>来源：InfoQ 中国</i>]]></description>
+      <pubDate>2026-11-27 08:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>

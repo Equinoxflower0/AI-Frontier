@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>拆解Chrome前端规范AI检索包并实测 - AI 玩法教程 · AI Frontier</title>
+<title>开发MCP Server调用真实HTTP接口 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-26
+      2026-11-27
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">拆解Chrome前端规范AI检索包并实测</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">开发MCP Server调用真实HTTP接口</h1>
     
   </div>
 </header>
@@ -65,7 +65,7 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7709418733185531955" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7712335392759119922" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">本文带你拆解 Chrome 前端规范 AI 检索包（Modern Web Guidance），并实测其离线检索、fallback 机制、扫描器与守卫逻辑，帮你快速判断是否值得集成到自己的 AI 编码工作流中。</p>
+  <p class="text-base text-slate-800 leading-relaxed">本教程教你从零开发一个 MCP Server，让它能调用真实的 HTTP 接口，从而让 AI 助手（如 Copilot）具备访问外部服务的能力。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    Chrome 团队推出的 Modern Web Guidance 是一个面向 AI 编码助手的前端规范检索包，旨在让 AI 在生成代码时能引用最新、最准确的 Web 平台特性。掘金作者实测发现：离线检索仅需 0.77 秒，fallback 能精确到版本；但扫描器首轮 0 命中，守卫按文件砍，发布包 35 条而源码已有 51 条；此外 telemetry 默认外发搜索词，需注意隐私。这个玩法适合正在搭建 AI 编码助手、需要注入前端规范知识库的开发者，也适合想了解 AI 检索包设计思路的技术爱好者。
+    MCP（Model Context Protocol）是让 AI 模型安全调用外部工具的标准协议。很多开发者第一次接触 MCP 时，会困惑于 Client 和 Server 的角色分工。本文基于掘金实战教程，带你从理解概念到动手实现一个能调用真实 HTTP 接口的 MCP Server，让你的 AI 助手不再局限于本地文件，而是能查询天气、获取新闻、调用任意 API。这个玩法适用于需要扩展 AI 能力边界、构建自定义工具链的场景。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -97,23 +97,23 @@
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
       <div class="font-semibold text-slate-900">Node.js (&gt;=18)  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行检索包脚本和本地测试环境</div>
+      <div class="text-sm text-slate-600 mt-1">运行 MCP Server 的 JavaScript 运行时环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">克隆 Modern Web Guidance 仓库</div>
+      <div class="font-semibold text-slate-900">VS Code + GitHub Copilot  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">作为 MCP Client 的宿主环境，用于测试和调用 MCP Server</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">VS Code 或任意编辑器  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">查看源码、修改配置和调试</div>
+      <div class="font-semibold text-slate-900">MCP SDK (@modelcontextprotocol/sdk)  <a href="https://www.npmjs.com/package/@modelcontextprotocol/sdk" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">官方提供的 MCP 服务器开发库，简化协议实现</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Chrome 浏览器  <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">验证前端规范的实际兼容性和效果</div>
+      <div class="font-semibold text-slate-900">一个公开 HTTP API（如天气、随机名言等）  <a href="https://open-meteo.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于测试 MCP Server 的真实调用目标，可选用 Open-Meteo 或 quotable.io</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">掘金原文  <a href="https://juejin.cn/post/7709418733185531955" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">参考完整实测数据和作者分析</div>
+      <div class="font-semibold text-slate-900">curl 或 Postman  <a href="https://curl.se/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">用于预先验证 HTTP 接口的可用性和返回格式</div>
     </li>
   </ul>
 </section>
@@ -126,66 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：获取检索包并了解目录结构</h3>
-      <div class="text-base text-slate-700 leading-loose">从 Chrome 官方仓库或掘金文中提供的链接克隆 Modern Web Guidance 项目。进入项目后重点查看 packages/ 下的检索包源码和 dist/ 下的发布包，对比源码条目数（51 条）与发布包条目数（35 条），理解哪些规范被裁剪以及裁剪规则。同时阅读 README 中的 telemetry 说明，确认默认外发搜索词的行为。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：理解 MCP Server 的角色与通信机制</h3>
+      <div class="text-base text-slate-700 leading-loose">MCP Server 是一个独立进程，通过标准输入输出（stdio）或 SSE 与 MCP Client（如 Copilot）通信。Server 向 Client 暴露一组“工具”（tools），每个工具定义名称、描述和参数 schema。Client 根据用户请求决定调用哪个工具，并将参数传给 Server，Server 执行实际逻辑（如 HTTP 请求）后返回结果。先阅读官方文档中关于 tools 的部分，明确 request/response 的 JSON-RPC 格式。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先不要急着运行，用 tree 命令或编辑器全局搜索 'telemetry' 和 'fallback' 关键词，快速定位关键逻辑。
+          💡 <span class="font-semibold">小贴士：</span>可以用官方提供的 @modelcontextprotocol/inspector 工具可视化调试 MCP Server，避免盲目猜测通信内容。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：本地运行离线检索并计时</h3>
-      <div class="text-base text-slate-700 leading-loose">在项目根目录执行 npm install 安装依赖，然后找到检索入口脚本（通常在 scripts/ 或 src/ 下），用 node 运行一次离线检索。使用 console.time 或 performance.now() 包裹检索调用，记录耗时。实测应接近 0.77 秒。同时传入一个具体的前端特性查询（如 'container queries'），观察返回结果是否包含版本兼容信息。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：初始化项目并安装 MCP SDK</h3>
+      <div class="text-base text-slate-700 leading-loose">创建一个新的 Node.js 项目：mkdir mcp-http-server &amp;&amp; cd mcp-http-server &amp;&amp; npm init -y。然后安装依赖：npm install @modelcontextprotocol/sdk zod。zod 用于定义工具参数的 schema，SDK 会自动生成 JSON Schema 给 Client。在 package.json 中设置 &quot;type&quot;: &quot;module&quot; 以使用 ES 模块。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果检索耗时明显偏高，检查是否首次运行触发了索引构建，第二次运行才是纯检索耗时。
+          💡 <span class="font-semibold">小贴士：</span>建议使用 TypeScript 获得更好的类型提示，但纯 JavaScript 也能快速跑通。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：验证 fallback 精确到版本的机制</h3>
-      <div class="text-base text-slate-700 leading-loose">构造一个检索包中不存在的查询词，观察 fallback 逻辑如何回退到相近规范或版本信息。修改检索脚本，打印 fallback 触发时的中间变量，确认它是否能精确到具体浏览器版本号。对比有结果和无结果两种场景下的输出差异，理解守卫按文件砍的逻辑——即当某个文件不满足条件时，整个文件被排除而非逐条过滤。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编写 MCP Server 主文件，定义工具与 HTTP 调用逻辑</h3>
+      <div class="text-base text-slate-700 leading-loose">创建 server.js，导入 McpServer 和 StdioServerTransport。使用 server.tool() 方法注册一个工具，例如 get_weather，参数为城市名（zod schema）。在工具的处理函数中，使用 fetch 调用 Open-Meteo 的 API（如 https://api.open-meteo.com/v1/forecast?latitude=...&amp;longitude=...&amp;current_weather=true），将返回的 JSON 整理成文本返回。最后通过 StdioServerTransport 连接并启动服务器。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>可以故意传入一个拼写错误的特性名，测试 fallback 的容错边界，这能帮你判断实际使用中的召回率。
+          💡 <span class="font-semibold">小贴士：</span>在工具描述中写清楚用途和参数格式，这直接影响 AI 选择工具的准确率。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：实测扫描器首轮 0 命中的原因</h3>
-      <div class="text-base text-slate-700 leading-loose">运行项目自带的扫描器（scanner），观察首轮扫描结果。根据掘金作者实测，首轮 0 命中是正常现象，通常因为扫描器需要先建立索引或缓存。检查扫描器配置中的 include/exclude 规则，确认是否因为默认排除规则过严导致。调整配置后再次运行，对比命中数量变化，理解扫描器与检索包之间的数据流关系。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：在 VS Code 中配置 MCP Client 并测试</h3>
+      <div class="text-base text-slate-700 leading-loose">在 VS Code 的设置中（或项目 .vscode/mcp.json）添加 MCP Server 配置，指定 command 为 node，args 为 server.js 的绝对路径。重启 Copilot 或使用 MCP: List Servers 命令确认服务器已连接。然后在 Copilot Chat 中提问“北京今天天气怎么样？”，观察 Copilot 是否自动调用 get_weather 工具并返回结果。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在扫描器入口加一行日志打印扫描的文件列表，能快速定位是文件没被扫到还是匹配规则没命中。
+          💡 <span class="font-semibold">小贴士：</span>如果工具未被调用，检查 Server 是否正常启动，以及工具描述是否足够清晰。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：关闭 telemetry 并做隐私检查</h3>
-      <div class="text-base text-slate-700 leading-loose">在项目配置中找到 telemetry 开关（通常在 config 文件或环境变量中），将其设为 false 或设置 DO_NOT_TRACK=1。然后再次运行检索，用网络抓包工具（如 Chrome DevTools 的 Network 面板或 mitmproxy）确认没有外发请求。如果项目没有提供关闭选项，可以在代码中注释掉上报调用，并记录修改点以便后续升级时重新应用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：扩展更多 HTTP 工具并处理错误</h3>
+      <div class="text-base text-slate-700 leading-loose">仿照 get_weather，再添加一个 get_random_quote 工具，调用 https://api.quotable.io/random。在工具处理函数中加入 try-catch，对 HTTP 错误状态码返回友好的错误信息，避免整个 Server 崩溃。同时可以使用 zod 对参数进行校验，比如城市名不能为空。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>建议在 CI 或团队共享环境中默认关闭 telemetry，避免搜索词泄露内部项目信息。
-        </div>
-    </div>
-    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
-      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
-        6
-      </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：集成到自己的 AI 编码工作流并评估</h3>
-      <div class="text-base text-slate-700 leading-loose">将检索包作为一个工具函数接入你的 AI 编码助手（如通过 function calling 或 MCP 协议），让模型在生成前端代码前先调用检索获取规范。对比接入前后 AI 生成代码的准确率，重点关注版本兼容性和新特性使用是否正确。记录检索耗时、命中率和 fallback 频率，判断是否满足你的延迟要求。</div>
-      
-        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>可以先在低风险场景（如内部工具页面）试用一周，收集 bad case 再决定是否全量接入。
+          💡 <span class="font-semibold">小贴士：</span>为每个工具设置合理的超时时间（如 5 秒），防止慢接口阻塞 AI 响应。
         </div>
     </div>
   </div>
@@ -195,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    完成上述步骤后，你应能本地跑通 Modern Web Guidance 的离线检索（耗时约 0.77 秒），理解 fallback 精确到版本的机制，复现扫描器首轮 0 命中的现象并知道如何调整，成功关闭 telemetry 并验证无外发请求，最终将检索包集成到自己的 AI 编码助手中，获得更准确的前端规范建议。
+    Copilot 能识别并调用你自定义的 MCP 工具，当用户询问天气或名言时，AI 会自动发起 HTTP 请求并将真实数据整合到回答中。你可以在 VS Code 的输出面板看到 MCP Server 的日志，确认工具被调用和返回结果。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -205,38 +194,31 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>离线检索 0.77 秒算快吗？能用于实时 AI 编码场景吗？</span>
+        <span>MCP Server 和普通 HTTP 服务器有什么区别？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">0.77 秒对于单次检索可以接受，但如果 AI 每生成一段代码都调用一次，累积延迟会明显。建议做结果缓存或批量检索，把多次查询合并为一次。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">MCP Server 使用 JSON-RPC 协议通过 stdio 或 SSE 与 Client 通信，专门为 AI 工具调用设计；普通 HTTP 服务器使用 REST 等协议，需要额外适配层。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>扫描器首轮 0 命中是 bug 吗？</span>
+        <span>为什么 Copilot 没有调用我的工具？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是 bug，通常是索引未建立或缓存为空导致。首轮扫描用于预热，第二轮开始才有命中。可以在启动时主动触发一次预热扫描。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">常见原因：Server 未启动、工具描述不清晰、参数 schema 错误。建议用 MCP Inspector 手动测试工具是否可用，并优化工具描述。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>发布包 35 条但源码 51 条，少的 16 条去哪了？</span>
+        <span>可以在 MCP Server 中调用需要认证的 API 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">发布包会按规则裁剪，可能排除了实验性规范、重复条目或未达到稳定版本的特性。具体裁剪逻辑需查看构建脚本中的 filter 规则。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。将 API Key 放在环境变量中，在 Server 启动时读取，并在 HTTP 请求头中携带。注意不要将密钥硬编码在代码里。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>telemetry 默认外发搜索词，会不会泄露代码？</span>
+        <span>MCP Server 只能用于 Copilot 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">默认会上报搜索词，可能包含你查询的前端特性名。如果查询词涉及内部项目代号，存在泄露风险。建议关闭 telemetry 或设置 DO_NOT_TRACK=1。</div>
-    </details>
-    <details class="bg-white border border-slate-200 rounded-lg group">
-      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个检索包能直接给 Cursor / Copilot 用吗？</span>
-        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-      </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不能直接插拔，需要自己封装成工具调用或 MCP server。检索包本身是数据+检索逻辑，AI 助手需要能主动调用它才能发挥作用。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是。任何支持 MCP 协议的 Client 都可以连接，如 Claude Desktop、Cursor 等。只要配置正确的启动命令即可。</div>
     </details>
   </div>
 </section>
@@ -244,14 +226,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将检索包封装为 MCP Server，让 Claude Desktop 或 Cursor 通过 MCP 协议直接调用，实现前端规范实时检索。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：把检索包与 ESLint 结合，在代码提交前自动检索相关规范并生成提示，形成「检索+校验」双保险。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：定期对比源码与发布包差异，自动生成「新增规范」报告，推送到团队群，保持前端知识库同步更新。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将 HTTP 调用替换为数据库查询，开发一个 MCP Server 让 AI 能直接查询 SQLite 或 PostgreSQL 中的数据。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：组合多个工具形成工作流，例如先调用 get_weather 再调用 get_air_quality，让 AI 综合多个 API 结果给出建议。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：使用 SSE 传输替代 stdio，将 MCP Server 部署为远程服务，供多个 Client 共享。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    这个玩法的精髓在于：先跑通检索、再验证 fallback 和扫描器边界、最后关掉 telemetry 再集成，用实测数据判断 AI 检索包是否值得进入你的编码工作流。
+    开发 MCP Server 调用真实 HTTP 接口的核心是：用 SDK 定义工具、用 fetch 执行请求、用 stdio 连接 Client，让 AI 安全地扩展外部能力。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -266,12 +248,12 @@
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI智能体工作流</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
     <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
       <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务超级智能体</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行AI Agent工作流</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>

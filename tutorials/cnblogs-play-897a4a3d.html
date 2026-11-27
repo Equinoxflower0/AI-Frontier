@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用爱范儿文章拆解微软宕机与AI背锅逻辑 - AI 玩法教程 · AI Frontier</title>
+<title>用Stagehand让AI自动操作网页 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-27
+      2026-11-28
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★★☆☆ · 3/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用爱范儿文章拆解微软宕机与AI背锅逻辑</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用Stagehand让AI自动操作网页</h1>
     
   </div>
 </header>
@@ -58,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    爱范儿 AI 应用 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://www.ifanr.com/1689638" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/jinjiangongzuoshi/p/23798330" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">这个玩法教你用爱范儿的一篇热点文章作为素材，通过一套工具链拆解「微软宕机与AI背锅」背后的逻辑，并迁移到其他热点事件分析中。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用 Stagehand 这个开源 AI 浏览器自动化框架，让 AI 像人一样操作网页——登录后台、填表单、抓数据，告别写死脚本的脆弱。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    2024年7月，微软全球宕机导致美国航班停飞，舆论迅速将矛头指向AI失控。爱范儿文章《微软宕机与美国航班停飞，背后都是 AI 失控吗？》提供了理性拆解。本玩法以该文章为起点，结合AI工具链，帮你快速提取论点、验证事实、生成自己的分析框架，适用于自媒体选题、舆情分析和批判性思维训练。
+    做 Agent 开发时，让 AI 操作网页是绕不开的坎：靠人点鼠标太慢，靠写死的选择器脚本又太脆，页面一改就崩。Stagehand 是 Browserbase 推出的 AI 浏览器自动化框架，它把自然语言指令和 Playwright 的精确控制结合起来，让 AI 能理解页面语义并执行操作。这个玩法适合需要自动化网页任务（如数据采集、后台操作、表单填写）的开发者，能大幅降低维护成本。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +96,24 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">爱范儿文章原文  <a href="https://www.ifanr.com/1689638" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">作为核心分析素材，提供事件背景与作者观点</div>
+      <div class="font-semibold text-slate-900">Node.js (v18+)  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行 Stagehand 的 JavaScript 运行时环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">ChatGPT / Claude / Kimi  <a href="https://chat.openai.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于文章摘要、逻辑拆解和观点追问</div>
+      <div class="font-semibold text-slate-900">Stagehand 开源库  <a href="https://github.com/browserbase/stagehand" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">AI 浏览器自动化框架核心包</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Perplexity AI  <a href="https://www.perplexity.ai" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于事实核查和补充背景信息</div>
+      <div class="font-semibold text-slate-900">OpenAI API Key 或兼容的 LLM 服务  <a href="https://platform.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">为 Stagehand 提供自然语言理解能力</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Notion / 飞书文档  <a href="https://www.notion.so" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于整理分析笔记和输出结构化内容</div>
+      <div class="font-semibold text-slate-900">Playwright 浏览器  <a href="https://playwright.dev/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Stagehand 底层依赖的浏览器自动化引擎</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">浏览器（Chrome/Edge）  <a href="https://www.google.com/chrome" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">打开文章和工具网页</div>
+      <div class="font-semibold text-slate-900">代码编辑器 (VS Code)  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编写和调试自动化脚本</div>
     </li>
   </ul>
 </section>
@@ -126,55 +126,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：抓取并预处理文章内容</h3>
-      <div class="text-base text-slate-700 leading-loose">打开爱范儿文章链接，用浏览器阅读全文。将文章正文复制到ChatGPT或Kimi中，输入提示词：「请用200字概括这篇文章的核心论点，并列出作者提到的3个关键事实和2个待验证的假设。」保存输出结果到Notion。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：初始化项目并安装依赖</h3>
+      <div class="text-base text-slate-700 leading-loose">创建一个新的 Node.js 项目，运行 npm init -y 生成 package.json。然后安装 Stagehand 和 Playwright：npm install @browserbasehq/stagehand playwright。安装完成后运行 npx playwright install chromium 下载浏览器内核。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>如果文章有付费墙或加载不全，可用浏览器阅读模式或稍后重试；复制时保留小标题和引用来源。
+          💡 <span class="font-semibold">小贴士：</span>建议使用 pnpm 或 yarn 加速安装；如果网络慢，可设置 npm 镜像源。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：用AI拆解「AI背锅」逻辑链</h3>
-      <div class="text-base text-slate-700 leading-loose">将上一步的摘要输入ChatGPT，使用提示词：「请将文章中『微软宕机→航班停飞→AI失控』的归因链条画成逻辑图（用文字描述），并指出每个环节的证据强度和逻辑漏洞。」让AI输出因果链和质疑点。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：配置环境变量与 LLM 连接</h3>
+      <div class="text-base text-slate-700 leading-loose">在项目根目录创建 .env 文件，写入 OPENAI_API_KEY=你的密钥。Stagehand 默认使用 OpenAI 的模型，也可以配置其他兼容 OpenAI 接口的 LLM 服务（如 DeepSeek、Ollama）。在代码中通过 dotenv 加载环境变量，或直接在初始化 Stagehand 时传入 apiKey。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>要求AI区分「相关关系」和「因果关系」，避免直接接受文章结论。
+          💡 <span class="font-semibold">小贴士：</span>如果使用本地模型，确保其支持 function calling 或 JSON 输出，否则 Stagehand 可能无法正确解析指令。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：用Perplexity核查关键事实</h3>
-      <div class="text-base text-slate-700 leading-loose">针对第2步中标记的待验证假设（如「微软宕机是否由AI导致」「航班停飞是否直接因微软服务」），在Perplexity中逐条搜索，输入问题如「Microsoft outage July 2024 cause AI?」并查看权威来源（微软官方博客、FAA声明、路透社等）。记录核查结果。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：编写第一个 Stagehand 脚本</h3>
+      <div class="text-base text-slate-700 leading-loose">新建 index.js，引入 Stagehand 并初始化：const stagehand = new Stagehand({ env: 'LOCAL' }); await stagehand.init(); 然后获取 page 对象：const page = stagehand.page; 用 page.goto('https://example.com') 打开目标网页。接着用自然语言指令操作页面，例如 await page.act('点击登录按钮'); 或 await page.extract('提取页面所有文章标题');。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>优先选择政府、企业官方公告和主流通讯社，避免只看社交媒体传言。
+          💡 <span class="font-semibold">小贴士：</span>act 方法用于执行操作，extract 用于提取数据，observe 用于观察页面元素，三者配合使用更灵活。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：生成自己的分析框架</h3>
-      <div class="text-base text-slate-700 leading-loose">回到ChatGPT，输入提示词：「基于以上事实核查结果，请帮我写一个300字的热点分析框架，包含：事件时间线、直接原因、AI被误归因的机制、如何避免类似误读。」将输出与原文对比，补充自己的观点。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：运行脚本并观察 AI 操作过程</h3>
+      <div class="text-base text-slate-700 leading-loose">在终端运行 node index.js。Stagehand 会启动浏览器，AI 根据你的自然语言指令分析页面并执行对应操作。你可以在控制台看到 AI 的推理日志和操作结果。如果操作失败，日志会提示 AI 的理解偏差，方便调整指令。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>框架中保留「证据等级」标注（如官方确认/媒体报道/推测），提升可信度。
+          💡 <span class="font-semibold">小贴士：</span>首次运行时建议开启 headless: false 观察浏览器行为，调试稳定后再改为无头模式。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：输出结构化笔记或短评</h3>
-      <div class="text-base text-slate-700 leading-loose">在Notion中整理成三栏：事实、AI归因逻辑、我的判断。可进一步用ChatGPT将笔记改写成一条微博/小红书短评（200字内），并附上原文链接。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：封装可复用的自动化任务</h3>
+      <div class="text-base text-slate-700 leading-loose">将常用操作封装成函数，例如 async function login(page, username, password) { await page.act(`在用户名输入框填写 ${username}`); await page.act(`在密码输入框填写 ${password}`); await page.act('点击登录按钮'); }。然后组合多个函数完成复杂流程，如登录后抓取数据并保存为 JSON 文件。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>短评开头用反问句吸引注意，如「微软宕机真是AI的锅吗？」结尾引导读者看原文。
+          💡 <span class="font-semibold">小贴士：</span>对于关键操作，可以结合 page.observe 先确认元素存在再执行，提高稳定性。
         </div>
     </div>
   </div>
@@ -184,7 +184,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你得到一份包含事实核查、逻辑拆解和个人观点的结构化笔记，以及一条可直接发布的热点短评。能清晰解释微软宕机与AI之间的真实关系，并掌握用AI工具链分析热点的方法。
+    脚本成功启动浏览器，AI 自动完成登录、填表或数据提取等操作，控制台输出操作日志和提取结果，数据可保存为 JSON 或 CSV 文件。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -194,31 +194,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有ChatGPT Plus能用这个玩法吗？</span>
+        <span>Stagehand 和直接写 Playwright 脚本有什么区别？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，用免费版ChatGPT或Kimi、Claude免费版即可完成摘要和逻辑拆解，Perplexity免费版也够用。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Playwright 需要精确的选择器和步骤，页面一变就失效；Stagehand 用自然语言指令，AI 能理解页面语义并自适应变化，维护成本更低，但执行速度略慢。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>文章链接打不开怎么办？</span>
+        <span>必须用 OpenAI 的 API 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">尝试用浏览器无痕模式、更换网络，或搜索文章标题找转载版本；核心是获取原文内容，链接仅作参考。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不是，Stagehand 支持任何兼容 OpenAI 接口的 LLM 服务，包括 DeepSeek、Ollama 本地模型等，只需在初始化时配置 baseURL 和 apiKey。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>如何判断AI给出的逻辑拆解是否可靠？</span>
+        <span>运行时报错「找不到元素」怎么办？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">要求AI标注每个推理步骤的依据，并用Perplexity交叉验证关键事实；对没有来源的断言保持怀疑。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可能是 AI 对指令理解有偏差，尝试更具体的描述（如「点击蓝色登录按钮」而不是「点击按钮」），或先用 page.observe 查看页面元素结构。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个玩法能用在其他热点上吗？</span>
+        <span>Stagehand 能处理需要登录的网站吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，把文章链接换成任何热点分析文章，重复步骤1-5即可，尤其适合科技、财经类事件。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，通过 act 指令填写账号密码并点击登录即可。对于复杂验证码，建议结合人工处理或使用 Browserbase 的云端浏览器服务。</div>
+    </details>
+    <details class="bg-white border border-slate-200 rounded-lg group">
+      <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
+        <span>这个框架适合生产环境吗？</span>
+        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+      </summary>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">Stagehand 目前仍在快速迭代，适合原型验证和内部工具。生产环境建议结合 Browserbase 的云浏览器服务，获得更好的稳定性和并发能力。</div>
     </details>
   </div>
 </section>
@@ -226,14 +233,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将文章换成另一篇AI相关热点（如「AI导致裁员」），用同样工具链拆解归因逻辑，对比不同事件的误读模式。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：用AI生成「反方观点」——让ChatGPT扮演支持「AI背锅」的立场，再逐条反驳，训练批判性思维。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把分析框架做成模板，用Notion AI自动填充新事件，实现热点分析半自动化。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：定时抓取竞品价格——用 Stagehand 每天自动打开电商页面，提取商品价格并存入数据库，结合 node-cron 实现定时任务。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：自动填写多平台表单——封装通用表单填写函数，用自然语言描述字段名和值，快速适配不同网站的后台录入需求。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：AI 辅助网页测试——用 Stagehand 的 observe 和 act 自动探索页面，生成测试用例并验证关键流程是否正常。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用AI工具链把一篇热点文章拆成事实、逻辑和观点，既读懂事件，又学会不被「AI背锅」叙事带偏。
+    Stagehand 把自然语言指令变成浏览器操作，让 AI 替你完成重复的网页任务，省去写死脚本的维护烦恼。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -241,20 +248,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+    <a href="../playground.html#play-sspai-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">少数派 AI 工具 · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用ChatGPT和Keynote免费制作论文机理图</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-ai-agents" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome AI Agents · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 awesome-ai-agents 清单挑选自主智能体</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行AI Agent工作流</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-ai-agents" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome AI Agents · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用awesome-opencode清单找OpenCode插件与主题</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a></div>
 </section>
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>用五周实测复盘AI编程拦截点 - AI 玩法教程 · AI Frontier</title>
+<title>用 T3 Code 统一管理多 Agent 控制台 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-27
+      2026-11-28
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用五周实测复盘AI编程拦截点</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 T3 Code 统一管理多 Agent 控制台</h1>
     
   </div>
 </header>
@@ -65,17 +65,21 @@
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://juejin.cn/post/7709384944046260234" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7712807993284640803" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
     
+<div class="mb-4">
+  <div class="text-xs text-slate-500 mb-2 font-semibold">🛠 涉及工具</div>
+  <div class="flex items-center gap-1.5 flex-wrap"><span class="inline-flex items-center px-2 py-1 rounded text-xs bg-cyan-50 text-cyan-700 border border-cyan-200">Claude</span></div>
+</div>
   </div>
 
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">这是一套用五周时间实测复盘 AI 编程拦截点的完整方法，帮你从「盲目信任 AI」转向「有意识地拦截与校验」。</p>
+  <p class="text-base text-slate-800 leading-relaxed">T3 Code 是目前把多个 AI 编程 Agent 收进一个控制台统一管理的最佳工具之一，本教程带你从零搭起自己的多 Agent 工作台。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +90,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    作者是一名自认积极拥抱 AI 的 Java 程序员，在系列前五篇完成品牌 AI 可见性、榜单、一人+Agent 复盘等测量后，第六篇转向自身：用五周实测记录 AI 编程中哪些环节会「翻车」。这套复盘法适合所有用 AI 写代码的开发者，尤其是已经感受到 AI 提效但偶尔被坑的人。通过结构化记录拦截点，你能把模糊的「AI 不靠谱」变成可复用的检查清单，最终形成人机协作的稳定工作流。
+    随着 Claude Code、Codex、Cursor 等 Agent 工具爆发，开发者往往在多个窗口间来回切换，上下文和任务状态容易混乱。T3 Code 本身不训练模型、也不自带 Agent，而是作为一个「控制台层」，把你已有的 Agent 统一接入、统一调度。它特别适合同时使用 2 个以上编程 Agent、需要并行处理多个任务、或想对比不同 Agent 输出质量的开发者。掌握这套工具链后，你可以像管理终端会话一样管理 Agent，大幅减少切换成本。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,24 +100,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">T3 Code  <a href="https://t3.gg/code" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">多 Agent 统一控制台，本教程核心工具</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Claude Code  <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">Anthropic 官方 CLI 编程 Agent，需提前安装并登录</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Codex CLI  <a href="https://github.com/openai/codex" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">OpenAI 的编程 Agent 命令行工具（可选，用于多 Agent 对比）</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
       <div class="font-semibold text-slate-900">Cursor  <a href="https://cursor.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">AI 编程 IDE，用于日常 AI 辅助编码与对话记录</div>
+      <div class="text-sm text-slate-600 mt-1">AI 代码编辑器，可作为 Agent 来源之一接入（可选）</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">GitHub Copilot  <a href="https://github.com/features/copilot" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">代码补全与 Chat 工具，作为第二 AI 编码入口</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Notion 或飞书文档  <a href="https://www.notion.so" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">建立「AI 拦截点日志」表格，记录每次翻车场景</div>
+      <div class="font-semibold text-slate-900">Node.js 18+  <a href="https://nodejs.org" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行 T3 Code 及多数 Agent CLI 的基础环境</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
       <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">版本控制，用于对比 AI 修改前后的代码差异</div>
-    </li>
-    <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">掘金原文  <a href="https://juejin.cn/post/7709384944046260234" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">参考作者的完整五周实测复盘过程</div>
+      <div class="text-sm text-slate-600 mt-1">版本管理，便于多 Agent 改动对比与回滚</div>
     </li>
   </ul>
 </section>
@@ -126,66 +134,66 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：建立「AI 拦截点日志」表格</h3>
-      <div class="text-base text-slate-700 leading-loose">在 Notion 或飞书文档中新建一个表格，字段包括：日期、任务类型（如写新功能/改 bug/重构）、使用的 AI 工具、AI 给出的方案摘要、实际结果（成功/部分成功/失败）、拦截点描述（哪里出了问题）、修复方式、耗时。每天结束前花 5 分钟填写当天所有 AI 协作记录，坚持五周。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：安装并初始化 T3 Code</h3>
+      <div class="text-base text-slate-700 leading-loose">先确保 Node.js 18+ 已就绪，然后通过官方提供的安装方式获取 T3 Code（参考官网最新指引，通常为 npm 全局安装或下载桌面客户端）。首次启动后按引导完成初始化，设置好工作区根目录。建议单独建一个空目录作为实验工作区，避免污染现有项目。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>拦截点描述要具体到「AI 假设了某个不存在的 API」或「AI 忽略了事务边界」这种粒度，不要只写「AI 错了」。
+          💡 <span class="font-semibold">小贴士：</span>安装前先运行 node -v 确认版本，低于 18 会直接报错。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：按任务类型归类拦截点</h3>
-      <div class="text-base text-slate-700 leading-loose">每周日回顾本周日志，把拦截点按任务类型分组。常见类别包括：依赖/版本假设错误、业务逻辑遗漏、边界条件缺失、安全漏洞（如 SQL 注入）、性能陷阱（如 N+1 查询）、架构不一致。统计每类出现的频次，找出你的「高频翻车区」。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：提前装好并登录各个 Agent</h3>
+      <div class="text-base text-slate-700 leading-loose">T3 Code 不自带 Agent，所以要先在系统里装好 Claude Code 并完成登录鉴权，确认在普通终端里能正常对话。如果还想接入 Codex 或 Cursor，也分别安装并登录。每个 Agent 都要先在 T3 Code 之外跑通一次，排除环境问题。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>用颜色标记频次最高的前三类，后续重点防御。
+          💡 <span class="font-semibold">小贴士：</span>逐个验证：在系统终端里分别运行 claude 和 codex，能正常响应再进下一步。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：为高频拦截点设计「拦截检查清单」</h3>
-      <div class="text-base text-slate-700 leading-loose">针对每类高频拦截点，写 2-3 条可执行的检查项。例如「依赖假设错误」对应：让 AI 先列出所用依赖及版本，再人工核对 pom.xml；「事务边界」对应：AI 生成 Service 方法后，检查 @Transactional 注解是否覆盖所有写操作。把清单保存为模板，每次 AI 生成代码后逐条过一遍。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：在 T3 Code 中注册 Agent 并配置启动命令</h3>
+      <div class="text-base text-slate-700 leading-loose">打开 T3 Code 的 Agent 管理面板，新增 Agent 条目，填入名称、启动命令（如 claude 或 codex）和工作目录。为每个 Agent 设置不同的标识色和快捷键，方便在控制台里快速区分。保存后逐个点击测试，确认能在 T3 Code 内拉起对应 Agent 会话。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>清单不要超过 10 条，否则执行率会骤降。优先覆盖频次最高的三类即可。
+          💡 <span class="font-semibold">小贴士：</span>启动命令里可以带上常用参数（如指定模型），省去每次手动输入。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：在 AI 对话中前置「约束提示词」</h3>
-      <div class="text-base text-slate-700 leading-loose">根据检查清单，在每次向 AI 提问时加入前置约束。例如：「请基于以下依赖版本生成代码：Spring Boot 3.2、MyBatis-Plus 3.5.5；生成后请自检是否使用了不存在的 API；涉及数据库写操作请标注事务边界。」把常用约束整理成提示词模板，保存在 Cursor 的 Rules 或 Copilot 的提示库中。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：建立多 Agent 任务面板与并行会话</h3>
+      <div class="text-base text-slate-700 leading-loose">在工作区中为每个 Agent 创建独立会话标签，把同一个需求分别发给 Claude Code 和 Codex，观察两者输出差异。利用 T3 Code 的分屏或标签切换能力，让多个 Agent 并行跑不同子任务（如一个写测试、一个改实现）。为每个会话命名，例如「重构-登录模块」「测试-支付流程」，保持任务边界清晰。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>约束提示词要短而具体，一次不超过 5 条，否则 AI 会忽略部分约束。
+          💡 <span class="font-semibold">小贴士：</span>并行任务尽量拆到不同文件或模块，避免多个 Agent 同时改同一文件产生冲突。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：每周做一次「拦截复盘会」</h3>
-      <div class="text-base text-slate-700 leading-loose">每周固定 30 分钟，对照日志和检查清单，回答三个问题：本周拦截点比上周多了还是少了？清单里哪条最有效、哪条没起作用？下周要新增或删除哪条检查项？把结论更新到清单和提示词模板中，形成迭代闭环。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：用 Git 做改动对比与回滚</h3>
+      <div class="text-base text-slate-700 leading-loose">在每个 Agent 完成任务后，用 git diff 查看具体改动，对比不同 Agent 的方案质量。选定满意版本后提交，不满意则 git checkout 回滚。建议每轮 Agent 操作前先 commit 一次基线，形成「基线-实验-对比-采纳」的闭环。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>复盘时只看数据，不凭感觉。用频次变化判断清单是否有效。
+          💡 <span class="font-semibold">小贴士：</span>给每个 Agent 的产出单独建分支，对比时用 git diff branchA branchB 一目了然。
         </div>
     </div>
     <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         6
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：五周后输出个人「AI 编程拦截手册」</h3>
-      <div class="text-base text-slate-700 leading-loose">汇总五周的日志、分类统计、检查清单和提示词模板，整理成一份个人手册。手册结构建议：高频拦截点 Top 5、对应检查清单、约束提示词模板、典型翻车案例（附代码对比）。把手册分享给团队或写成掘金文章，完成从「实测」到「可复用资产」的转化。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：沉淀常用 Prompt 模板与工作流</h3>
+      <div class="text-base text-slate-700 leading-loose">把反复使用的任务描述整理成 Prompt 模板，存放在工作区的 prompts 目录中，每次直接粘贴给对应 Agent。针对固定流程（如「先让 Claude 出方案，再让 Codex 实现」）写成简单的操作清单，形成可复用的多 Agent 工作流。定期清理失效会话，保持控制台整洁。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>案例部分保留 Git diff 截图或代码前后对比，比纯文字更有说服力。
+          💡 <span class="font-semibold">小贴士：</span>模板里预留 {文件路径}、{需求描述} 占位符，替换起来更快。
         </div>
     </div>
   </div>
@@ -195,7 +203,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    五周后你应得到：一份包含至少 20 条记录的拦截点日志、三类高频翻车区统计、一份 10 条以内的检查清单、一套约束提示词模板，以及一份可分享的个人 AI 编程拦截手册。日常 AI 协作的返工率应有可感知的下降。
+    打开 T3 Code 后能看到多个 Agent 会话并列在同一控制台，每个会话有清晰命名和独立工作目录；你可以同时向 Claude Code 和 Codex 下发任务，通过 Git diff 对比两者产出并择优采纳，整个多 Agent 协作流程在一个界面内闭环完成。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -205,38 +213,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>每天记录太麻烦，能简化吗？</span>
+        <span>T3 Code 需要付费吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以只记录「失败或部分成功」的案例，成功案例不必逐条记。重点是拦截点，不是流水账。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">T3 Code 本身是控制台工具，具体收费以其官网为准；它不包含模型额度，各 Agent 的 API 费用仍需按 Claude、OpenAI 等官方计费。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>五周太长，能不能缩短？</span>
+        <span>没有 Claude Code 能用 T3 Code 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以压缩到两周，但样本量会偏少，高频拦截点的统计置信度下降。建议至少三周。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，T3 Code 不绑定特定 Agent，只要你能在终端里跑通的 Agent CLI 基本都能接入，但教程以 Claude Code 为主线。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>只用一种 AI 工具可以吗？</span>
+        <span>多个 Agent 同时改代码会冲突吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以。工具不是关键，关键是持续记录和归类。单一工具反而更容易对比。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">会。建议按文件或模块拆分任务，或让每个 Agent 在独立分支上工作，最后用 Git 合并对比。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>检查清单会不会让 AI 变慢？</span>
+        <span>T3 Code 和直接开多个终端有什么区别？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">前置约束会增加一点提示词长度，但能显著减少返工。实测净耗时通常是下降的。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">T3 Code 提供统一的会话管理、命名、分屏和状态视图，Agent 多了以后比裸终端清晰得多，减少上下文切换成本。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个方法适合非 Java 开发者吗？</span>
+        <span>Windows 上能用吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">适合。拦截点分类和检查清单的逻辑与语言无关，只需替换具体技术栈的检查项即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">多数 Agent CLI 和 T3 Code 支持 Windows，但部分工具对 WSL 更友好，建议优先在 WSL 或 macOS/Linux 下操作。</div>
     </details>
   </div>
 </section>
@@ -244,14 +252,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：团队版拦截复盘——让团队成员共用一张日志表，每周汇总统计，形成团队级 AI 编程规范。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：按项目阶段拆分——把拦截点按「需求理解/编码/测试/部署」四阶段归类，针对每个阶段设计不同的拦截策略。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：AI 自检提示词链——把检查清单改写成让 AI 自我审查的多轮提示词，例如「请先列出你使用的依赖版本，再生成代码，最后自检是否违反约束」。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：双 Agent 交叉评审——让 Claude Code 写实现、Codex 做 Code Review，再把评审意见回灌给 Claude 修改，形成自动互审闭环。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：任务流水线——用 T3 Code 按「需求分析 → 方案设计 → 编码实现 → 测试生成」拆成四个会话，分别指派不同 Agent，人工在节点间把关。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：模型对比实验——同一 Prompt 同时发给 3 个 Agent，用 Git 分支保存各自产出，定期统计采纳率来挑选主力 Agent。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用五周结构化记录把 AI 编程的「翻车感」变成可复用的拦截清单和提示词模板，实现从盲目信任到有意识校验的转变。
+    T3 Code 的精髓不是替你写代码，而是把多个 Agent 变成可调度、可对比、可回滚的「团队成员」，让多 Agent 协作从混乱走向可控。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -259,20 +267,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+    <a href="../playground.html#play-sspai-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">少数派 AI 工具 · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用ChatGPT和Keynote免费制作论文机理图</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-ai-agents" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome AI Agents · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 awesome-ai-agents 清单挑选自主智能体</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行AI Agent工作流</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-ai-agents" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome AI Agents · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用awesome-opencode清单找OpenCode插件与主题</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a></div>
 </section>
 

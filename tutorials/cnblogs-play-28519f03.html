@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>实测GPT-6.2 Astra：用评测对比判断模型是否被冤枉 - AI 玩法教程 · AI Frontier</title>
+<title>用 Octopus 搭跨平台 AI 编码工作台 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-27
+      2026-11-28
     </div>
   </div>
 </nav>
@@ -40,13 +40,13 @@
         🔗 工具链
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
-        ★★★★☆ · 4/5
+        ★★☆☆☆ · 2/5
       </span>
       <span class="px-2 py-0.5 rounded-full bg-white/20 text-white text-xs font-semibold backdrop-blur">
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">实测GPT-6.2 Astra：用评测对比判断模型是否被冤枉</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">用 Octopus 搭跨平台 AI 编码工作台</h1>
     
   </div>
 </header>
@@ -58,14 +58,14 @@
   <div class="bg-white rounded-2xl border border-slate-200 p-5 mb-8">
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
-  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-    爱范儿 AI 应用 · A级
+  <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
+    博客园 AI 教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
-    权威媒体
+    技术社区
   </span>
-  <a href="https://www.ifanr.com/1690103" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://www.cnblogs.com/token-ai/p/23799677" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">当新模型发布时，别急着被跑分带节奏——用一套可复现的评测对比流程，自己判断它到底是被冤枉还是真不行。</p>
+  <p class="text-base text-slate-800 leading-relaxed">用 Octopus 在 10 分钟内搭起一个跨平台 AI 编码工作台，让 61 款智能体在图形界面和真终端之间自由切换。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    GPT-6.2 Astra 发布后，社区评价两极分化：有人夸它推理更强，有人吐槽它“变笨了”。爱范儿的实测文章指出，最聪明的模型未必最好用，最好用的也未必最聪明。这个玩法的价值在于：教你搭建一个轻量评测工具链，用同一套提示词和评分标准横向对比新旧模型，避免被单一跑分或主观感受误导。适用场景包括：新模型上线后的选型决策、团队内部模型迁移评估、以及个人开发者判断是否值得切换 API。
+    很多开发者同时用多个 AI 编码助手，但切换工具、复制粘贴、跨设备同步非常麻烦。Octopus 是一个基于 .NET 10 + Avalonia 12 + NativeAOT 编译的开源跨平台工作台，内置 61 款智能体（49 款支持 ACP 图形界面与真终端一键切换），还带 MCP 跨机协作总线和 Bot 群组连接器。它适合需要多智能体协同、远程终端操作、手机语音接入的开发者，尤其适合 Windows/macOS/Linux 多设备用户。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">OpenAI API 或兼容接口  <a href="https://platform.openai.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">用于调用 GPT-6.2 Astra 及对比模型（如 GPT-5.5、Claude 等），需准备 API Key</div>
+      <div class="font-semibold text-slate-900">.NET 10 SDK  <a href="https://dotnet.microsoft.com/download/dotnet/10.0" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">编译和运行 Octopus 的基础运行时</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+ 与 requests/openai 库  <a href="https://www.python.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">编写批量评测脚本，发送提示词并收集回复</div>
+      <div class="font-semibold text-slate-900">Avalonia 12 模板  <a href="https://avaloniaui.net/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">跨平台 UI 框架，安装后可用 dotnet new 创建项目</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Google Sheets 或 Excel  <a href="https://sheets.google.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">记录每次评测的提示词、模型输出、人工评分，便于横向对比</div>
+      <div class="font-semibold text-slate-900">Git  <a href="https://git-scm.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">克隆 Octopus 开源仓库</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">爱范儿原文参考  <a href="https://www.ifanr.com/1690103" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">了解 GPT-6.2 Astra 的实测背景和评测思路</div>
+      <div class="font-semibold text-slate-900">Octopus 源码仓库  <a href="https://github.com/octopus-ai/octopus" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">获取最新版 Octopus 工作台</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Node.js 20+（可选）  <a href="https://nodejs.org/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">部分 MCP 连接器和 Bot 群组依赖 Node 运行时</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">参考教程  <a href="https://www.cnblogs.com/token-ai/p/23799677" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">博客园原始教程，含详细配置说明</div>
     </li>
   </ul>
 </section>
@@ -122,55 +130,55 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：定义评测任务集与评分维度</h3>
-      <div class="text-base text-slate-700 leading-loose">从你日常真实使用场景中挑选 10-15 个代表性任务，覆盖推理、代码、写作、指令遵循四类。为每个任务写一条固定提示词，并定义 1-5 分的评分标准（如准确性、完整性、格式合规）。把任务清单和评分表建在 Google Sheets 中，确保后续所有模型用完全相同的输入。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：克隆并编译 Octopus</h3>
+      <div class="text-base text-slate-700 leading-loose">打开终端，执行 git clone https://github.com/octopus-ai/octopus.git 并进入目录。确认已安装 .NET 10 SDK 后，运行 dotnet restore 恢复依赖，再执行 dotnet build -c Release 编译。如果想体验 NativeAOT 原生编译，可加 -p:PublishAot=true 参数发布单文件。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>任务集不要贪多，10 条高质量、有区分度的提示词比 100 条泛泛而问更有用。
+          💡 <span class="font-semibold">小贴士：</span>首次编译时间较长，建议挂代理或配置国内 NuGet 镜像加速。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：编写批量调用脚本</h3>
-      <div class="text-base text-slate-700 leading-loose">用 Python 写一个脚本，读取任务清单中的提示词，依次调用 GPT-6.2 Astra 和对比模型（如 GPT-5.5）。每次调用固定 temperature=0、max_tokens 一致，并把模型名、提示词、输出、耗时写入 CSV。建议加一个 sleep 避免触发速率限制。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：启动工作台并配置智能体</h3>
+      <div class="text-base text-slate-700 leading-loose">运行 dotnet run --project Octopus.Desktop 启动 Avalonia 图形界面。在左侧智能体面板中可以看到 61 款内置智能体，点击任意一款即可在右侧打开对话窗口。对于标注 ACP 的 49 款智能体，窗口右上角有「终端/图形」切换按钮，可随时切到真终端模式。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>用环境变量存 API Key，不要把密钥硬编码进脚本；对同一提示词可跑 2-3 次取平均，降低随机性干扰。
+          💡 <span class="font-semibold">小贴士：</span>建议先选一个通用编码智能体（如 Codex 或 Claude 系）做连通性测试，确认 API Key 配置正确。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：人工盲评与打分</h3>
-      <div class="text-base text-slate-700 leading-loose">把 CSV 中的模型输出复制到评分表中，隐藏模型名称（盲评），逐条按第1步的评分维度打分。至少找一位同事交叉评分，减少个人偏好。重点记录模型“翻车”的具体表现，比如格式错误、事实错误、拒绝回答等。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：接入 MCP 跨机协作总线</h3>
+      <div class="text-base text-slate-700 leading-loose">在设置中打开「MCP 总线」选项，填写本机监听端口和协作机器地址。Octopus 会自动发现局域网内其他运行中的 Octopus 实例，你可以在一个界面里向另一台机器的智能体发任务。配置完成后，在智能体对话中 @ 目标机器名即可跨机调用。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>盲评是关键——知道模型名字后，人很容易产生“贵的就是好”的偏见。
+          💡 <span class="font-semibold">小贴士：</span>跨机协作建议在同一内网或 VPN 下使用，公网暴露时务必开启 P-256 零知识加密。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：汇总对比与归因分析</h3>
-      <div class="text-base text-slate-700 leading-loose">计算每个模型在各维度上的平均分和总分，画出简单的柱状图或雷达图。对分差较大的任务，回看原始输出，判断是模型能力差异还是提示词歧义导致。结合爱范儿文章中的观点，区分“聪明”（推理深度）和“好用”（指令遵循、格式稳定）两个维度分别打分。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：创建 Bot 群组并连接外部工具</h3>
+      <div class="text-base text-slate-700 leading-loose">进入「Bot 群组」页面，点击新建群组，从 26+ 中外连接器中选择需要的服务（如 Slack、飞书、GitHub、Discord 等）。为每个连接器填入 Token 或 Webhook 地址，保存后群组内即可让多个智能体协同处理消息和任务。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不要只看总分——某个模型可能总分低但在你的核心场景上表现更好，按场景加权更合理。
+          💡 <span class="font-semibold">小贴士：</span>连接器 Token 建议使用最小权限，避免给机器人过高的仓库或频道权限。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：形成结论并复测</h3>
-      <div class="text-base text-slate-700 leading-loose">根据对比结果写出结论：GPT-6.2 Astra 在你的任务集上是否被冤枉？它在哪些任务上强、哪些弱？如果结论与社区口碑差异大，换一批提示词或调整 temperature 后复测一次，确认结论稳健。最后把评测脚本和评分表存档，方便下次新模型发布时直接复用。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：手机语音接入与远程使用</h3>
+      <div class="text-base text-slate-700 leading-loose">在设置中启用「手机语音接入」，Octopus 会生成一个带 P-256 零知识加密的配对二维码。用手机扫码后，即可通过语音向工作台发送编码指令，适合在通勤或离开电脑时快速触发任务。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把评测集当成长期资产维护，每次新模型发布只需替换模型名重跑，效率极高。
+          💡 <span class="font-semibold">小贴士：</span>语音指令尽量简短明确，例如「在 octopus 仓库新建 issue 并分配给 AI」，识别效果更好。
         </div>
     </div>
   </div>
@@ -180,7 +188,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    你将得到一张包含多模型、多任务、多维度评分的对比表，以及一份基于自己真实场景的选型结论。能清楚看到 GPT-6.2 Astra 在哪些任务上优于/劣于对比模型，不再被单一跑分或社区情绪左右。
+    启动后能看到 Avalonia 跨平台界面，左侧列出 61 款智能体，右侧可对话并在图形/终端间切换；MCP 总线显示已连接的协作机器；Bot 群组中连接器状态为绿色；手机扫码后语音指令能正常触发任务。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +198,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>没有多个模型的 API 权限怎么办？</span>
+        <span>Octopus 支持哪些操作系统？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以只评测 GPT-6.2 Astra 与一个你常用的旧模型，甚至用网页版手动复制输出到表格中，流程完全一样，只是自动化程度低一些。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">基于 Avalonia 12 和 NativeAOT，支持 Windows、macOS、Linux 三大桌面平台，编译后可发布为单文件原生程序。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>评测任务集应该选多少条？</span>
+        <span>必须用 .NET 10 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议 10-15 条，覆盖 3-4 类场景即可。太少没有统计意义，太多人工评分成本过高，容易半途而废。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">官方要求 .NET 10 SDK，因为项目使用了 .NET 10 的新特性和 NativeAOT 改进，低版本可能编译失败。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>人工评分太主观怎么办？</span>
+        <span>MCP 跨机协作安全吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">把评分维度拆细（如准确性、完整性、格式合规各 1-5 分），并找第二个人独立盲评，取平均分；对分歧大的条目回看原始输出讨论定分。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">内置 P-256 零知识加密，建议只在可信内网或 VPN 中使用，公网暴露时务必开启加密并设置访问白名单。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>temperature 设多少合适？</span>
+        <span>49 款 ACP 智能体和普通智能体有什么区别？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">评测对比建议统一设为 0 或接近 0，减少随机性；如果你关心创意类任务，可单独设一组 temperature=0.7 的对照实验。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">ACP 智能体同时提供图形界面和真终端两种交互模式，可一键切换；普通智能体只有单一交互方式。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>这个流程能用于非 GPT 模型吗？</span>
+        <span>手机语音接入需要额外装 App 吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">完全可以。只要模型提供 API 或网页版，把调用方式替换掉即可，评分表和对比逻辑通用。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">不需要，扫码后通过浏览器即可使用，加密通道由 Octopus 服务端生成。</div>
     </details>
   </div>
 </section>
@@ -229,14 +237,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：A/B 盲测投票——把两个模型的输出匿名并列展示给同事，让大家投票选更好的，最后揭晓模型名，适合快速感知“好用度”。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：成本-性能二维对比——在评分基础上记录每个模型的 token 成本和响应延迟，画出性价比散点图，适合团队做 API 选型决策。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：回归测试集——把历史评测中模型翻车的提示词单独整理成“回归集”，每次新模型发布先跑这一组，快速判断旧问题是否修复。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：只做本地多智能体对比——不接 MCP 和 Bot 群组，用 Octopus 同时开 3-5 个智能体对同一段代码做 review，横向比较输出质量。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：团队远程结对编程——两台机器都开 MCP 总线，A 机器写代码、B 机器跑测试，通过 @ 跨机调用智能体完成闭环。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：手机语音触发 CI 任务——把 Bot 群组接到 GitHub Actions 或飞书机器人，语音说「跑一下 main 分支测试」即可远程触发流水线。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    用固定提示词、盲评打分和归因分析搭建一套可复用的轻量评测链，让模型选型从“听口碑”变成“看数据”。
+    Octopus 把多智能体、跨机协作、Bot 群组和手机语音收进一个跨平台工作台，精髓是「一个界面调度所有 AI 编码能力」。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -244,20 +252,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
+    <a href="../playground.html#play-sspai-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">少数派 AI 工具 · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用ChatGPT和Keynote免费制作论文机理图</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用DeerFlow搭建长任务研究编码智能体</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-ai-agents" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome AI Agents · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 awesome-ai-agents 清单挑选自主智能体</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a>
-    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建可运行AI Agent工作流</div>
-      <div class="text-xs text-amber-500">★★★☆☆</div>
+    <a href="../playground.html#play-github-play-awesome-ai-agents" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub Awesome AI Agents · 难度 4/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用awesome-opencode清单找OpenCode插件与主题</div>
+      <div class="text-xs text-amber-500">★★★★☆</div>
     </a></div>
 </section>
 

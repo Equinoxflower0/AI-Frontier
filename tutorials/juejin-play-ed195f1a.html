@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>手写 MCP 客户端与服务端打通外部工具 - AI 玩法教程 · AI Frontier</title>
+<title>双4090实测27B量化选型：FP8 vs AWQ-INT4 - AI 玩法教程 · AI Frontier</title>
 <link rel="stylesheet" href="../assets/tailwind.css">
 <style>
   body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
@@ -27,7 +27,7 @@
       <span class="text-slate-900 font-semibold">教程</span>
     </div>
     <div class="text-xs text-slate-400">
-      2026-11-28
+      2026-11-29
     </div>
   </div>
 </nav>
@@ -46,7 +46,7 @@
         ⏱ 约 30min
       </span>
     </div>
-    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">手写 MCP 客户端与服务端打通外部工具</h1>
+    <h1 class="text-3xl md:text-4xl font-black leading-tight mb-3">双4090实测27B量化选型：FP8 vs AWQ-INT4</h1>
     
   </div>
 </header>
@@ -59,13 +59,13 @@
     
 <div class="flex items-center gap-2 mb-4 flex-wrap">
   <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-50 text-yellow-700 border border-yellow-200">
-    博客园 AI 教程 · B级
+    掘金 AI 实战教程 · B级
   </span>
   <span class="px-1.5 py-0.5 rounded text-xs bg-red-50 text-red-600 border border-red-200">国内</span>
   <span class="inline-flex items-center px-2 py-0.5 rounded text-xs bg-slate-100 text-slate-600">
     技术社区
   </span>
-  <a href="https://www.cnblogs.com/MrHuo/p/23705636/agent-from-scratch-09" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
+  <a href="https://juejin.cn/post/7713002886971834406" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline ml-auto">
     查看原文 →
   </a>
 </div>
@@ -75,7 +75,7 @@
   
 <section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 border-l-4 border-indigo-400 rounded-r-2xl p-6 mb-8">
   <div class="text-sm font-bold text-indigo-700 mb-2">📌 这是什么</div>
-  <p class="text-base text-slate-800 leading-relaxed">不依赖任何 MCP SDK，手写一个最小客户端与服务端，彻底搞懂 Model Context Protocol 到底有多薄。</p>
+  <p class="text-base text-slate-800 leading-relaxed">双4090 48G显卡实测27B大模型量化选型：FP8与AWQ-INT4在702轮对话中的表现对比，帮你快速决定部署方案。</p>
 </section>
 <aside class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8">
   <div class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wide">目录</div>
@@ -86,7 +86,7 @@
     <span class="text-3xl">🎯</span> 为什么值得玩
   </h2>
   <p class="text-base text-slate-700 leading-loose bg-amber-50 border border-amber-200 rounded-xl p-5">
-    MCP 旨在让外部服务按统一协议暴露工具，客户端按统一协议发现并调用，双方无需为彼此写胶水代码。很多开发者觉得协议很神秘，其实核心就是 JSON-RPC 风格的请求/响应。本教程带你从零手写客户端与服务端，打通一个真实的外部工具（如天气查询），看清协议本质，为后续接入更多工具链打下基础。
+    随着27B级别大模型本地部署需求增加，如何在有限显存（如双4090 48G）下选择量化格式成为关键。本文基于掘金实战教程，通过100道文本题和17道多模态题的实测数据，对比FP8和AWQ-INT4的精度与速度差异。实测显示两者在文本任务上几乎打平（98.3% vs 97.7%），多模态任务差距仅一步级，而INT4的prefill速度快4.9倍。适合需要本地部署大模型并追求性价比的开发者参考。
   </p>
 </section>
 <section id="prerequisites" class="mb-10">
@@ -96,20 +96,28 @@
   <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
     
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">Python 3.10+  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">运行客户端与服务端代码</div>
+      <div class="font-semibold text-slate-900">双NVIDIA RTX 4090 48G显卡  <a href="https://www.nvidia.com/zh-cn/geforce/graphics-cards/40-series/rtx-4090/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">提供48G显存，支持27B模型量化推理</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">VS Code 或任意编辑器  <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">编写和调试代码</div>
+      <div class="font-semibold text-slate-900">Ubuntu 22.04 或 Windows WSL2  <a href="https://ubuntu.com/download" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">操作系统环境，推荐Linux以获得更好兼容性</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">curl 或 Postman  <a href="https://curl.se/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">手动测试服务端 HTTP 接口</div>
+      <div class="font-semibold text-slate-900">CUDA 12.1+ 和 cuDNN  <a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">GPU加速库，确保驱动版本匹配</div>
     </li>
     <li class="bg-white border border-slate-200 rounded-lg p-4">
-      <div class="font-semibold text-slate-900">一个可调用的外部 API（如 OpenWeatherMap 免费天气 API）  <a href="https://openweathermap.org/api" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
-      <div class="text-sm text-slate-600 mt-1">作为被 MCP 暴露的外部工具</div>
+      <div class="font-semibold text-slate-900">vLLM 或 TensorRT-LLM  <a href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">推理框架，支持FP8和AWQ量化模型加载</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Hugging Face 账号及模型下载工具  <a href="https://huggingface.co/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">获取27B模型权重（如Qwen2.5-27B）</div>
+    </li>
+    <li class="bg-white border border-slate-200 rounded-lg p-4">
+      <div class="font-semibold text-slate-900">Python 3.10+ 和 pip  <a href="https://www.python.org/downloads/" target="_blank" rel="noopener" class="text-blue-600 hover:underline text-sm">→ 访问</a></div>
+      <div class="text-sm text-slate-600 mt-1">运行推理脚本和依赖管理</div>
     </li>
   </ul>
 </section>
@@ -122,55 +130,66 @@
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         1
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：定义 MCP 消息格式与工具描述</h3>
-      <div class="text-base text-slate-700 leading-loose">先约定客户端与服务端之间的 JSON 消息结构：请求包含 jsonrpc、id、method、params；响应包含 jsonrpc、id、result 或 error。工具描述用 name、description、inputSchema 三个字段，其中 inputSchema 采用 JSON Schema 描述参数。把这份约定写成一个共享的 protocol.py 文件，后续两端都导入它，保证格式一致。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第1步：环境准备与模型下载</h3>
+      <div class="text-base text-slate-700 leading-loose">在双4090机器上安装Ubuntu 22.04，配置CUDA 12.1和驱动。使用pip安装vLLM（pip install vllm）和huggingface_hub。从Hugging Face下载27B模型的FP8和AWQ-INT4量化版本（例如Qwen2.5-27B-Instruct-FP8和Qwen2.5-27B-Instruct-AWQ）。确保模型存放于SSD路径以加快加载速度。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>不用追求完整规范，先实现 tools/list 和 tools/call 两个方法即可跑通核心流程。
+          💡 <span class="font-semibold">小贴士：</span>下载前用huggingface-cli login登录，避免限速；模型文件较大，建议用aria2多线程下载。
         </div>
     </div>
     <div id="step-2" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         2
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：手写 MCP 服务端（暴露外部工具）</h3>
-      <div class="text-base text-slate-700 leading-loose">用 Python 标准库 http.server 起一个 HTTP 服务，监听 /mcp 路径。收到 POST 请求后解析 JSON，根据 method 分发：tools/list 返回工具列表（包含天气查询工具及其 inputSchema）；tools/call 根据工具名调用真实的外部天气 API，把结果包装成 MCP 响应返回。外部 API 的密钥从环境变量读取，不要硬编码。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第2步：部署FP8模型推理服务</h3>
+      <div class="text-base text-slate-700 leading-loose">使用vLLM启动FP8模型服务：python -m vllm.entrypoints.openai.api_server --model /path/to/fp8-model --tensor-parallel-size 2 --dtype float8 --gpu-memory-utilization 0.9。等待服务启动后，用curl测试健康检查接口。记录首次加载时间和显存占用（约40G）。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>先用 curl 手动发一条 tools/list 请求，确认服务端能返回正确 JSON，再写客户端。
+          💡 <span class="font-semibold">小贴士：</span>若报错不支持float8，升级vLLM到最新版；可加--max-model-len 8192限制上下文长度节省显存。
         </div>
     </div>
     <div id="step-3" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         3
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：手写 MCP 客户端（发现并调用工具）</h3>
-      <div class="text-base text-slate-700 leading-loose">客户端同样用 Python 标准库 urllib 或 requests 向服务端 /mcp 发 POST 请求。先调用 tools/list 拿到工具列表并打印；再根据用户输入构造 tools/call 请求，传入工具名和参数（如城市名），发送后解析响应，提取结果字段展示给用户。把请求 id 用递增整数管理，方便匹配响应。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第3步：部署AWQ-INT4模型推理服务</h3>
+      <div class="text-base text-slate-700 leading-loose">同样用vLLM启动AWQ模型：python -m vllm.entrypoints.openai.api_server --model /path/to/awq-model --tensor-parallel-size 2 --quantization awq --gpu-memory-utilization 0.9。注意端口与FP8服务区分（如8001）。测试接口连通性，记录显存占用（约28G）和加载时间。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>客户端里加一个简单的命令行交互循环，输入城市名就调用一次，体验更直观。
+          💡 <span class="font-semibold">小贴士：</span>AWQ模型需指定--quantization awq，否则可能加载失败；可同时运行两个服务对比，但需确保显存足够。
         </div>
     </div>
     <div id="step-4" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         4
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：联调与错误处理</h3>
-      <div class="text-base text-slate-700 leading-loose">启动服务端，再运行客户端，依次测试：正常调用、工具名不存在、参数缺失、外部 API 超时。服务端对未知 method 返回 error 对象，对工具执行异常捕获后返回 error 而不是崩溃。客户端对 error 响应做友好提示。确保两端对 id 的匹配逻辑正确，避免响应错位。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第4步：运行文本与多模态测试集</h3>
+      <div class="text-base text-slate-700 leading-loose">准备100道文本题（涵盖问答、推理、代码）和17道多模态题（图文问答）。编写Python脚本，分别向两个服务发送相同请求，记录响应内容、延迟和token数。使用OpenAI兼容接口调用，设置temperature=0保证确定性。保存结果到CSV文件。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>在服务端日志里打印收到的原始 JSON，排查协议问题时非常有用。
+          💡 <span class="font-semibold">小贴士：</span>多模态题需模型支持视觉，若27B模型不带视觉，可换用支持多模态的变体；测试时关闭流式输出以便统计。
         </div>
     </div>
     <div id="step-5" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
       <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
         5
       </div>
-      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：接入第二个工具，验证协议扩展性</h3>
-      <div class="text-base text-slate-700 leading-loose">再写一个简单工具，比如“当前时间查询”或“随机名言”，在服务端 tools/list 中追加描述，在 tools/call 中增加分支。客户端无需修改任何代码，就能发现并调用新工具。这直接证明了 MCP 的价值：新增工具只需服务端注册，客户端自动发现。</div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第5步：统计精度与速度指标</h3>
+      <div class="text-base text-slate-700 leading-loose">对文本题，用人工或自动评分（如GPT-4打分）计算准确率；对多模态题，按步骤级匹配评估。从日志中提取prefill时间（首token延迟）和decode时间（每token延迟）。计算FP8与AWQ-INT4的准确率差异和prefill速度比。整理成对比表格。</div>
       
         <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
-          💡 <span class="font-semibold">小贴士：</span>把工具实现拆成独立函数，用字典注册表管理，后续加工具就是加一行注册。
+          💡 <span class="font-semibold">小贴士：</span>prefill速度受输入长度影响大，建议固定输入长度（如512token）测试；多次取平均减少波动。
+        </div>
+    </div>
+    <div id="step-6" class="relative pl-12 pb-8 border-l-2 border-indigo-200 last:border-l-0">
+      <div class="absolute -left-5 top-0 w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold flex items-center justify-center shadow-lg">
+        6
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2">第6步：根据场景选择量化方案</h3>
+      <div class="text-base text-slate-700 leading-loose">若应用以文本为主且对精度要求极高，选FP8（准确率98.3%）；若追求吞吐和低延迟（如聊天机器人），选AWQ-INT4（prefill快4.9倍，显存占用更低）。多模态任务两者差距仅一步级，可优先INT4节省资源。最终将选型结论写入部署文档。</div>
+      
+        <div class="mt-3 bg-amber-50 border-l-2 border-amber-400 rounded-r px-3 py-2 text-sm text-amber-800">
+          💡 <span class="font-semibold">小贴士：</span>实际业务可做A/B测试，用真实流量对比用户满意度；INT4适合高并发，FP8适合离线批处理。
         </div>
     </div>
   </div>
@@ -180,7 +199,7 @@
     <span class="text-3xl">✨</span> 完成后你会得到
   </h2>
   <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-base text-slate-800 leading-loose">
-    服务端在本地 8000 端口运行，客户端启动后打印出工具列表（天气查询、时间查询等），输入城市名后成功返回天气信息，输入未知工具名时收到结构化错误提示。整个流程不依赖任何 MCP SDK，代码总量约 150 行。
+    成功在双4090上部署FP8和AWQ-INT4两个27B模型服务，完成702轮测试（100文本+17多模态），得到文本准确率FP8 98.3% vs INT4 97.7%，多模态差距一步级，INT4 prefill速度快4.9倍。显存占用FP8约40G，INT4约28G。可根据需求选择量化版本。
   </div>
 </section>
 <section id="faq" class="mb-10">
@@ -190,38 +209,38 @@
   <div class="space-y-2">
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>必须用 HTTP 吗？能不能用 stdio？</span>
+        <span>双4090 48G能否同时运行FP8和AWQ-INT4两个服务？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">MCP 支持多种传输方式，stdio 也很常见。本教程用 HTTP 是为了方便用 curl 调试，你可以把服务端改成从标准输入读 JSON、向标准输出写 JSON，客户端用 subprocess 启动它即可。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可以，但FP8占用约40G，INT4约28G，总和超48G，需分时运行或使用不同GPU。建议一次只跑一个，或使用NVLink桥接但显存不叠加。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>inputSchema 必须写完整 JSON Schema 吗？</span>
+        <span>AWQ-INT4精度损失大吗？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">建议至少写 type、properties 和 required，这样客户端才能做参数校验和提示。简单工具可以只写 type 和 properties，但完整一点更利于后续接入通用客户端。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">实测文本任务仅差0.6个百分点，多模态差一步级，日常使用几乎无感。但对数学计算或长推理链可能略有影响，建议关键任务用FP8。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>外部 API 密钥怎么管理？</span>
+        <span>为什么INT4的prefill快4.9倍？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">用环境变量读取，不要写进代码或提交到仓库。本地可以建 .env 文件并用 python-dotenv 加载，生产环境用密钥管理服务。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">INT4权重体积小，内存带宽压力低，且AWQ量化对矩阵乘有优化，prefill阶段计算密集，INT4的低精度计算单元利用率更高。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>客户端如何知道服务端有哪些工具？</span>
+        <span>27B模型必须用双4090吗？单卡4090 24G行不行？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">通过 tools/list 方法动态获取，不要硬编码工具列表。这样服务端新增工具时客户端零改动，这正是 MCP 的设计目标。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">单卡24G无法加载27B FP8（需约27G权重），但AWQ-INT4约14G权重，单卡可跑但上下文长度受限，且速度较慢。推荐双卡并行。</div>
     </details>
     <details class="bg-white border border-slate-200 rounded-lg group">
       <summary class="cursor-pointer p-4 font-semibold text-slate-900 flex items-center justify-between">
-        <span>手写版和官方 SDK 版有什么区别？</span>
+        <span>测试脚本在哪里获取？</span>
         <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
       </summary>
-      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">手写版帮你理解协议本质，但缺少连接管理、重试、流式响应等工程能力。生产环境建议用官方 SDK，手写版适合学习和快速验证。</div>
+      <div class="px-4 pb-4 text-sm text-slate-700 leading-loose">可参考掘金原文的测试方法，或使用开源工具如lm-evaluation-harness。多模态测试需自行准备图文对，可用COCO数据集子集。</div>
     </details>
   </div>
 </section>
@@ -229,14 +248,14 @@
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">🚀</span> 进阶玩法
   </h2>
-  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：把服务端改成 stdio 传输，客户端用 subprocess 启动服务端进程，体验本地工具进程模式。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：增加 resources/list 和 prompts/list 方法，让服务端除了工具还能暴露静态资源和提示词模板。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：把客户端接到一个真实 LLM（如 OpenAI API），让模型根据用户问题自动选择工具并生成 tools/call 参数，形成完整 Agent 循环。</li></ul>
+  <ul class="grid grid-cols-1 md:grid-cols-3 gap-3"><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体1：将27B模型换成13B或70B，重复本流程测试不同规模下的量化选型，找到性价比拐点。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体2：使用TensorRT-LLM替代vLLM，对比FP8和INT4在TensorRT下的性能差异，可能获得更低延迟。</li><li class="bg-white border border-purple-200 rounded-lg p-4 text-slate-800">🔹 变体3：结合LoRA微调，在AWQ-INT4模型上做领域适配，观察微调后精度是否追平FP8。</li></ul>
 </section>
 <section class="mb-12">
   <h2 class="text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
     <span class="text-3xl">💡</span> 一句话总结
   </h2>
   <blockquote class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white text-lg font-semibold rounded-2xl p-6 shadow-lg">
-    MCP 的本质就是一套极薄的 JSON 消息约定，手写一遍客户端与服务端，你就能看清工具发现与调用的全貌，从此接入任何外部工具都不再神秘。
+    量化选型没有绝对优劣，文本高精度选FP8，高吞吐低延迟选AWQ-INT4，用实测数据驱动决策。
   </blockquote>
 </section>
 <section class="mb-12">
@@ -244,20 +263,20 @@
     <span class="text-3xl">📚</span> 相关教程
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <a href="../playground.html#play-sspai-play" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">少数派 AI 工具 · 难度 3/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用ChatGPT和Keynote免费制作论文机理图</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 MarkItDown 把办公文档转成 Markdown</div>
       <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-awesome-ai-agents" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome AI Agents · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用 awesome-ai-agents 清单挑选自主智能体</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
+    <a href="../playground.html#play-github-play-autogen" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub AutoGen · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">微软18课从零构建AI智能体</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a>
-    <a href="../playground.html#play-github-play-awesome-ai-agents" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
-      <div class="text-xs text-slate-500 mb-1">GitHub Awesome AI Agents · 难度 4/5</div>
-      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用awesome-opencode清单找OpenCode插件与主题</div>
-      <div class="text-xs text-amber-500">★★★★☆</div>
+    <a href="../playground.html#play-github-play-langchain" class="block bg-white border border-slate-200 rounded-xl p-4 hover:border-indigo-300 hover:shadow-md transition">
+      <div class="text-xs text-slate-500 mb-1">GitHub LangChain · 难度 3/5</div>
+      <div class="font-semibold text-slate-900 mb-2 line-clamp-2">用LangChain搭建AI Agent工作流</div>
+      <div class="text-xs text-amber-500">★★★☆☆</div>
     </a></div>
 </section>
 
